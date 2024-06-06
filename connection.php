@@ -11,9 +11,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('MODE', 'dev');
     define('ABS_PATH', dirname(dirname(__FILE__)));
     define('MAIN_URL', 'http://localhost/markets/');
-    define('CLS_SITE_URL', 'http://localhost/markets/client/');
+    define('CLS_SITE_URL', 'http://localhost/markets/client1/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
-    define('SITE_ADMIN_URL', 'http://localhost/markets/admin/');
+    define('SITE_ADMIN_URL', 'http://localhost/markets/admin1/');
 }elseif ($_SERVER['SERVER_NAME'] == 'codelocksolutions.in') {
     // define("DB_SERVER", "localhost");
     // define("DB_DATABASE", "u402017191_cls_rewriter");

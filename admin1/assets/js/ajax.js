@@ -141,7 +141,7 @@ if (win && document.querySelector('#sidenav-scrollbar')) {
 // DEMO FUNCTION CALLING ON LOAD
 function demo(){
     $.ajax({
-        url: "../Admin/ajax_call.php",
+        url: "../admin1/ajax_call.php",
         type: "post",
         dataType: "json",
         data: {"routine_name":"demo_function"},
