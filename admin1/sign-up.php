@@ -73,41 +73,50 @@
                   <h5>Register with</h5>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
-                      <input type="fname" class="form-control" placeholder="Enter Your Name">
+                      <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
+                      <span class="errormsg name"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="shopname" class="form-control" placeholder="Shop Name">
+                      <input type="shopname" class="form-control" placeholder="Shop Name" name="shop">
+                      <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="address" class="form-control" placeholder="Address">
+                      <input type="address" class="form-control" placeholder="Address" name="address">
+                      <span class="errormsg address"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="tel" class="form-control" placeholder="Mobile No.">
+                      <input type="tel" class="form-control" placeholder="Mobile No." name="phone_number">
+                      <span class="errormsg phone_number"></span>
                     </div>
                     <div class="mb-3">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Your Business Type</option>
+                      <select class="form-select" aria-label="Default select example" name="business_type">
+                        <option selected value="">Your Business Type</option>
                         <option value="1">Retail</option>
                         <option value="2">Wholesale</option>
                       </select>
+                      <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="file" class="form control">
+                      <input type="file" class="form control" name="image">
+                      <span class="errormsg image"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                      <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                      <span class="errormsg password"></span>
                     </div>
                     <div class="mb-3">
                       <input type="password" class="form-control" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon">
+                      <span class="errormsg Confirm-Password"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <span class="errormsg email"></span>
                     </div>
                     <div class="mb-3 text-center">
-                      <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-                      <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+                      <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
+                      <button type="button" class="btn btn-secondary bg-dark btn-sm signUpcancel">Cancel</button>
                     </div>
                     <div class="mt-3 position-relative text-center mb-3">
                       <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">

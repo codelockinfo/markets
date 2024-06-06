@@ -61,16 +61,16 @@ function changeTab(evt, id) {
 }
 
 function loading_show($selector) {
-    $($selector).addClass("Polaris-Button--loading").html('<span class="Polaris-Button__Content"><span class="Polaris-Button__Spinner">' + CLS_LOADER + '</span><span>Loading</span></span>').fadeIn('fast').attr('disabled', 'disabled');
+    $($selector).addClass("loading").html('<i class="fas fa-circle-notch fa-spin"></i>').fadeIn('fast').attr('disabled', 'disabled');
 }
 
 function loading_hide($selector, $buttonName, $buttonIcon) {
-    if ($buttonIcon != undefined) {
-        $buttonIcon = '<span class="Polaris-Button__Icon"><span class="Polaris-Icon">' + $buttonIcon + '</span></span>'
-    } else {
-        $buttonIcon = '';
-    }
-    $($selector).removeClass("Polaris-Button--loading").html('<span class="Polaris-Button__Content">' + $buttonIcon + '<span>' + $buttonName + '</span></span>').removeAttr("disabled");
+  if ($buttonIcon != undefined) {
+      $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>'
+  } else {
+      $buttonIcon = '';
+  }
+  $($selector).removeClass("loading").html('<i class="fas fa-circle-notch fa-spin"></i>').removeAttr("disabled");
 }
 
 
@@ -159,6 +159,37 @@ function demo(){
 $(document).ready(function() {
     demo(); // CALLING ON LOAD FOR TESTING
     console.log("DOCUMENT READY ...");
+    $(document).on("click",".signUpsave",function(event){
+      event.preventDefault();
+      console.log("signUpsavebutton click");
+      var form_data = $("#savesignup")[0]; 
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_signup'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+            console.log(response);
+            var response = JSON.parse(response);
+            console.log(response['msg']['name']);
+            response["msg"]["name"] !== undefined ? $(".name").html (response["msg"]["name"]) : $(".name").html("");
+            response["msg"]["shop"] !== undefined ? $(".shop").html (response["msg"]["shop"]) : $(".shop").html("");
+            response["msg"]["address"] !== undefined ? $(".address").html (response["msg"]["address"]) : $(".address").html("");
+            response["msg"]["phone_number"] !== undefined ? $(".phone_number").html (response["msg"]["phone_number"]) : $(".phone_number").html("");
+            response["msg"]["business_type"] !== undefined ? $(".business_type").html (response["msg"]["business_type"]) : $(".business_type").html("");
+            response["msg"]["password"] !== undefined ? $(".password").html (response["msg"]["password"]) : $(".password").html("");
+            response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
+            loading_hide('.save_loader_show', 'Save');
+        }
+    });
+    })
 	  CKEDITOR.replace('myeditor');
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -328,4 +359,5 @@ $(document).ready(function() {
         },
       },
     });
+   
 });

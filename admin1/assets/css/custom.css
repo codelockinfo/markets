@@ -1,4 +1,7 @@
 
+.errormsg{
+    color: red;
+}
 /* for plan page hover effect */
 .pricing .card {
     border: none;
