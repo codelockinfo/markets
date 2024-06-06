@@ -85,7 +85,7 @@ class DB_Class {
 $database_class = new DB_Class();
 $connection = $GLOBALS['conn'];
 
-// define('CLS_SITE_NAME','CLS REWRITER');
+// define('CLS_SITE_NAME','MARKETS');
 // define('CLS_SITE_EMAIL', '#');
 // define('CLS_NO_IMAGE','no-image.png');
 // define('CHARGE', '0.99');
