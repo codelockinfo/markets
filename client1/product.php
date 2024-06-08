@@ -217,8 +217,6 @@
     </div>
     <!-- Modal Search End -->
 
-
-
     <!-- Hero Start -->
     <div class="container-fluid bg-light py-6 my-6 mt-0">
         <div class="container text-center animated bounceInDown">
@@ -253,19 +251,19 @@
                         <div class="main-image-slider swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide image-link">
-                                <img src="img/k1.jpg" alt="">
+                                    <img src="img/k1.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                <img src="img/k2.jpg" alt="">
+                                    <img src="img/k2.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                <img src="img/k3.jpg" alt="">
+                                    <img src="img/k3.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                <img src="img/k4.jpg" alt="">
+                                    <img src="img/k4.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                <img src="img/k5.jpg" alt="">
+                                    <img src="img/k5.jpg" alt="">
                                 </div>
                             </div>
 
@@ -277,7 +275,25 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <h5 class="fs-2">Women Straight Block Printed Kurta and Pant Set with Dupatta</h5>
+                    <h3></h3>
                     <p class="fs-7">N123h992</p>
+                    <p class="fs-6 fw-bold">Ailable in store</p>
+                    <div class="discription_tab">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Description</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Ask a Quesion</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content mt-3" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore doloribus quibusdam cumque odit optio pariatur facilis minima laboriosam nemo labore placeat perspiciatis mollitia omnis rem, velit ut earum impedit debitis iste ad unde. Architecto, earum incidunt. Dicta doloribus tempore corporis minima quos ut sequi cum nostrum optio neque quidem provident magni accusantium officiis.Architecto, earum incidunt. Dicta doloribus tempore corporis minima quos ut sequi cum nostrum optio neque quidem provident magni accusantium officiis.</div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -348,9 +364,6 @@
                     <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
                 </div>
                 <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
                     Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
                 </div>
             </div>
