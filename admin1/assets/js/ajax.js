@@ -65,9 +65,6 @@ function loading_show($selector) {
 }
 
 function loading_hide($selector, $buttonName, $buttonIcon) {
-  // console.log($selector);
-  // console.log($buttonName);
-  // console.log( $buttonIcon);
   if ($buttonIcon != undefined) {
     console.log("IN IF");
     $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>'
@@ -75,8 +72,6 @@ function loading_hide($selector, $buttonName, $buttonIcon) {
     console.log("else");
       $buttonIcon = 'Save'
   }
-  // console.log($buttonIcon); 
-  // console.log($($selector).html());
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
 }
 
@@ -249,10 +244,6 @@ $(document).ready(function() {
       var form_data = $("#productinsert")[0];
       var form_data = new FormData(form_data);
       form_data.append('routine_name','insert_products'); 
-      // let myform = document.getElementById("productinsert");
-      // var form_Data = new FormData(myform);
-      // form_Data.append('p_image', $('#imageUpload')[0].files[0]);
-      
       $.ajax({
         url: "../admin1/ajax_call.php",
         type: "post",
@@ -293,7 +284,21 @@ $(document).ready(function() {
      
     }
 
-
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
+    
 	  CKEDITOR.replace('myeditor');
     var ctx = document.getElementById("chart-bars").getContext("2d");
 

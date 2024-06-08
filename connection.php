@@ -15,18 +15,18 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'http://localhost/markets/admin1/');
 }elseif ($_SERVER['SERVER_NAME'] == 'codelocksolutions.in') {
-    // define("DB_SERVER", "localhost");
-    // define("DB_DATABASE", "u402017191_cls_rewriter");
-    // define("DB_USERNAME", "u402017191_rewriter");
-    // define("DB_PASSWORD", "Codelock@99");
-    // define("DB_OBJECT", "mysql");
-    // define('MODE', 'live');
-    // define('ABS_PATH', dirname(dirname(__FILE__)));
-    // define('MAIN_URL', 'https://codelocksolutions.in/cls-rewriter/');
-    // define('CLS_SITE_URL', 'https://codelocksolutions.in/cls-rewriter/');
-    //  define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
-    // define('SITE_CLIENT_URL', 'https://codelocksolutions.in/cls-rewriter/user/');
-    // define('SITE_ADMIN_URL', 'https://codelocksolutions.in/cls-rewriter/admin/');
+    define("DB_SERVER", "localhost");
+    define("DB_DATABASE", "u402017191_markets");
+    define("DB_USERNAME", "u402017191_markets");
+    define("DB_PASSWORD", "Markets@99");
+    define("DB_OBJECT", "mysql");
+    define('MODE', 'live');
+    define('ABS_PATH', dirname(dirname(__FILE__)));
+    define('MAIN_URL', 'https://codelocksolutions.in/markets/');
+    define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/client1/');
+     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
+    define('SITE_CLIENT_URL', 'https://codelocksolutions.in/markets/client1/');
+    define('SITE_ADMIN_URL', 'https://codelocksolutions.in/markets/admin1/');
 } else {
     echo 'Undefine host';
     exit;
