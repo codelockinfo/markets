@@ -1,0 +1,63 @@
+$primary_color: #373e6a;
+$white_color: #ffffff;
+
+// HEDER SECTION
+header {
+  background-color: $white_color;
+  nav {
+    .navbar-brand {
+      .logo {
+        width: 50px;
+      }
+    }
+    .nav-item {
+      .nav-link {
+        color: $primary_color;
+        font-weight: 600;
+      }
+      .mega-menu {
+        width: 800px;
+        padding: 20px;
+      }
+      .mega-menu-small {
+        width: 500px;
+        padding: 20px;
+        left: -50px;
+      }
+    }
+    .phone_button {
+      background-color: $primary_color;
+      padding: 10px 20px;
+      a {
+        color: $white_color;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// BNNER SECTION
+.banner {
+  .carousel {
+    .carousel-inner {
+      .carousel-item {
+        img {
+          height: 100vh;
+          object-fit: cover;
+        }
+      }
+    }
+    .arrow-box,.arrow-box2 {
+      width: 60px;
+      height: 60px;
+      background: darkslateblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ff0047;
+      border-radius: 100%;
+      transition: all 1s;
+    }
+   
+  }
+}

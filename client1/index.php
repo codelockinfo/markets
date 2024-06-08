@@ -1,3 +1,1177 @@
-<?php
-echo "This is home page";
-?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CaterServ - Catering Services Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar start -->
+    <div class="container-fluid nav-bar">
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-lg py-4">
+                <a href="index.php" class="navbar-brand">
+                    <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span> </h1>
+                </a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All markets</a>
+                            <div class="dropdown-menu  bg-light">
+                                <div class="drop-box row p-2 px-3">
+                                    <div class="col-12 col-md-4">
+                                        <div class="megamenu-box">
+                                            <div class="megamenu-img">
+                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                            </div>
+                                            <div class="megamenu-content">
+                                                <ul class="list-unstyled mt-2 mt-md-0 ">
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="megamenu-box">
+                                            <div class="megamenu-img">
+                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                            </div>
+                                            <div class="megamenu-content">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="megamenu-box">
+                                            <div class="megamenu-img">
+                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                            </div>
+                                            <div class="megamenu-content">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All categories</a>
+                            <div class="dropdown-menu  bg-light">
+                                <div class="drop-box row p-2 px-3">
+                                    <div class="col-12 col-md-4">
+                                        <div class="megamenu-box">
+                                            <div class="megamenu-img">
+                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                            </div>
+                                            <div class="megamenu-content">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="megamenu-box">
+                                            <div class="megamenu-img">
+                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                            </div>
+                                            <div class="megamenu-content">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="megamenu-box">
+                                            <div class="megamenu-img">
+                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                            </div>
+                                            <div class="megamenu-content">
+                                                <ul class="list-unstyled mt-2">
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="service.php" class=" nav-link dropdown-toggle" data-bs-toggle="dropdown">Retails</a>
+                            <div class="dropdown-menu  bg-light">
+                                <ul class="list-unstyled text-center m-0 p-0 w-auto">
+                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
+                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
+                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
+                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="event.php" class="nav-item nav-link">wholesale</a>
+                        <a href="blog.php" class="nav-item nav-link">blogs</a>
+                        <a href="menu.php" class="nav-item nav-link">videos</a>
+                        <a href="contact.php" class="nav-item nav-link">plans</a>
+                    </div>
+                    <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- megamenu md view  -->
+    <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <a href="index.php"> <img src="img/images.png" class="w-25 img-fluid" alt=""></a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item ">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            All markets
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                                <li><a href="#">All Market</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            All categories
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">All categories</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
+                            Retails
+                        </button>
+                    </h2>
+                    <div id="flush-collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Retails</a></li>
+                                <li><a href="#">Retails</a></li>
+                                <li><a href="#">Retails</a></li>
+                                <li><a href="#">Retails</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-four">
+                            wholesale
+                        </button>
+                    </h2>
+                    <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                                <li><a href="#">wholesale</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
+                            blogs
+                        </button>
+                    </h2>
+                    <div id="flush-collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">blogs</a></li>
+                                <li><a href="#">blogs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
+                            videos
+                        </button>
+                    </h2>
+                    <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">videos</a></li>
+                                <li><a href="#">videos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
+                            plans
+                        </button>
+                    </h2>
+                    <div id="flush-collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">plans</a></li>
+                                <li><a href="#">plans</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- megamenu md view end -->
+
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-light py-6  mt-0 banner">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <!-- <div class="col-lg-7 col-md-12">
+                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4 animated bounceInDown">Welcome to CaterServ</small>
+                    <h1 class="display-1 mb-4 animated bounceInDown">Book <span class="text-primary">Cater</span>Serv For Your Dream Event</h1>
+                    <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 me-4 animated bounceInLeft">Book Now</a>
+                    <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 animated bounceInLeft">Know More</a>
+                </div> -->
+                <!-- <div class="col-lg-5 col-md-12">
+                    <img src="img/hero.png" class="img-fluid rounded animated zoomIn" alt="">
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- Service Start -->
+    <div class="container-fluid service pt-6">
+        <div class="container">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
+                <h1 class="display-5 mb-5">What We Offer</h1>
+            </div>
+            <div class="row g-4">
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
+                    <div class="bg-light rounded service-item">
+                        <div class="service-content d-flex align-items-center justify-content-center p-4">
+                            <div class="service-content-icon text-center">
+                                <i class="fas fa-cheese fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Shop Name</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded service-item">
+                        <div class="service-content d-flex align-items-center justify-content-center p-4">
+                            <div class="service-content-icon text-center">
+                                <i class="fas fa-pizza-slice fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Shop Name</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                    <div class="bg-light rounded service-item">
+                        <div class="service-content d-flex align-items-center justify-content-center p-4">
+                            <div class="service-content-icon text-center">
+                                <i class="fas fa-hotdog fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Shop Name</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                    <div class="bg-light rounded service-item">
+                        <div class="service-content d-flex align-items-center justify-content-center p-4">
+                            <div class="service-content-icon text-center">
+                                <i class="fas fa-hamburger fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Shop Name</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Service End -->
+
+    <!-- Events Start -->
+    <div class="container-fluid event pt-6">
+        <div class="container">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Latest Events</small>
+                <h1 class="display-5 mb-5">Our Social & Professional Events Gallery</h1>
+            </div>
+            <div class="tab-class text-center">
+                <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
+                    <li class="nav-item p-2">
+                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                            <span class="text-dark" style="width: 150px;">Kurti</span>
+                        </a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="d-flex py-2 mx-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                            <span class="text-dark" style="width: 150px;">Saree</span>
+                        </a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                            <span class="text-dark" style="width: 150px;">Wedding cloth</span>
+                        </a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
+                            <span class="text-dark" style="width: 150px;">Tops</span>
+                        </a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
+                            <span class="text-dark" style="width: 150px;">Skirt</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/1.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/1.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/2.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/2.jpg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/3.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/4.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/5.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/5.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/6.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/7.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/kurti/8.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Kurti</h4>
+                                                <a href="img/kurti/8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/1.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/1.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/2.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/2.jpg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/3.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/4.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/5.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/5.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/6.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/7.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/saree/8.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Saree</h4>
+                                                <a href="img/saree/8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding1.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding2.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding3.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding4.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding5.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding6.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding7.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding8.png" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-4" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top1.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top1.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top2.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top2.webp" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top3.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top4.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top5.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top5.webp" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top6.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top6.webp" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top7.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/top/top8.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Top</h4>
+                                                <a href="img/top/top8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-5" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt1.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt2.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt3.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt4.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skir4.webp" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt6.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt7.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                        <div class="event-img position-relative">
+                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt8.jpg" alt="">
+                                            <div class="event-overlay d-flex flex-column p-4">
+                                                <h4 class="me-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Events End -->
+
+    <!-- Offer section  -->
+    <section class="offer container-fluid pt-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer1.jpg" class="img-fluid" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer3.png" class="img-fluid mt-4" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer4.png" class="img-fluid mt-4" alt=""></a></div>
+            </div>
+        </div>
+    </section>
+    <!-- Offer section end  -->
+
+    <!-- paragraph  -->
+    <section class="paragraph pt-6">
+        <div class="container">
+            <h5 class="fw-bold">ONLINE SHOPPING MADE EASY</h5>
+            <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae minima quia praesentium, rerum perspiciatis nemo perferendis sequi error culpa assumenda quod illum corporis totam modi temporibus aperiam, quaerat deserunt, vitae fugit possimus? Voluptate hic, ad, vel neque, accusamus eaque alias magnam obcaecati natus explicabo eos? Sapiente voluptatum illum minus blanditiis, officia in nihil eos rem, quaerat soluta earum quidem, ipsum autem suscipit fuga omnis impedit nisi accusamus veritatis modi corporis vel ipsa? Tenetur, aspernatur esse facere voluptatibus recusandae vel, praesentium, quidem aut quo natus earum ullam non impedit adipisci iure nostrum deserunt eveniet eligendi fugiat qui excepturi sunt error ipsum tempora? </p>
+            <h5 class="fw-bold">BEST ONLINE SHOPPING SITE IN INDIA FOR FASHION</h5>
+            <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae minima quia praesentium, rerum perspiciatis nemo perferendis sequi error culpa assumenda quod illum corporis totam modi temporibus aperiam, quaerat deserunt, vitae fugit possimus?.</p>
+            <ul class="content-box ms-5 list-unstyled">
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Smart men’s clothing : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                </li>
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Trendy women’s clothing : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                </li>
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Fashionable tops : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quidem quibusdam sapiente labore rerum sed assumenda. Eum totam tempora, consequatur recusandae deleniti veniam distinctio saepe excepturi ratione quos eius, enim quasi numquam! Sit architecto ipsum commodi non quia, aliquam expedita illo nihil numquam, corporis autem natus nobis libero recusandae quae!</p>
+                </li>
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Fashionable gown : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                </li>
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Wedding Cloth : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur eaque itaque ducimus harum cupiditate molestiae eius deleniti architecto pariatur accusantium sunt quos porro eligendi eos, magnam provident tempore doloribus sint!</p>
+                </li>
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Fashionable choli : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                </li>
+                <li class="div">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Trendy women saree : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                </li>
+
+        </div>
+        </div>
+    </section>
+    <!-- paragraph end -->
+
+    <!-- FAQ Start -->
+    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 pb-5">
+        <div class="mainContent h-100 w-75 d-flex justify-content-center align-items-center gap-3">
+            <div class="content_1" style="width: 70%;">
+                <div class="">
+                    <h1 class="fs-1">Any Questions</h1>
+                    <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
+                </div>
+                <div>
+                    <div class="accordion" id="accordionExample">
+
+                        <div class="accordion-item border mb-4">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Have You Weighed the potential risks and benefits?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    When deciding Which charity to donate to, it's important to do your search.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border mb-4">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How will you gather feedback from stakeholders
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    When deciding Which charity to donate to, it's important to do your search.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border mb-4">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    There any sustainability or ethical to take into account?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    When deciding Which charity to donate to, it's important to do your search.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border mb-4">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    There any sustainability or ethical to take into account?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    When deciding Which charity to donate to, it's important to do your search.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border mb-4">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    There any Lorem ipsum dolor Nibh pellentesque
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    When deciding Which charity to donate to, it's important to do your search.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border mb-4">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    There any Lorem ipsum dolor Nibh pellentesque
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    When deciding Which charity to donate to, it's important to do your search.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="content_2">
+                 <img class="w-100 h-auto rounded" src="img/shop/bussinesman.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- FAQ End -->
+
+    <!-- Book Us Start -->
+    <div class="container-fluid contact pt-6 wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-1">
+                    <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-start d-none" style="object-fit: cover; opacity: 0.7;" alt="">
+                </div>
+                <div class="col-10">
+                    <div class="border rounded-3 border-primary bg-light py-5 px-4">
+                        <div class="text-center">
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Book Us</small>
+                            <h1 class="display-5 mb-5">Where you want Our Services</h1>
+                        </div>
+                        <div class="row g-4 form col-12 text- mx-auto col-md-9">
+                            <div class="col-12 col-md-6">
+                                <input type="text" id="firstName" class="form-control border-primary p-2" placeholder=" Name" required>
+                                <span class="nameError"></span>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="email" id="email" class="form-control border-primary p-2" placeholder="Enter Your Email" required>
+                                <span class="emailError"></span>
+                            </div>
+                            <div class="col-12">
+                                <textarea name="" id="query" class="form-control border-primary  " placeholder=" Query" required></textarea>
+                                <span class="query"></span>
+                            </div>
+                            <div class="col-12 text-center ">
+                                <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill submit">Submit Now</button>
+                                <span class="done d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-end d-none" style="object-fit: cover; opacity: 0.7;" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Book Us End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-6 mt-6  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h1 class="text-primary">Cater<span class="text-dark">Serv</span></h1>
+                        <p class="lh-lg mb-4">There cursus massa at urnaaculis estieSed aliquamellus vitae ultrs condmentum leo massamollis its estiegittis miristum.</p>
+                        <div class="footer-icon d-flex">
+                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item mt-4 mt-md-0">
+                        <h4 class="mb-4">Categories</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item mt-4 mt-md-0">
+                        <h4 class="mb-4">Policies</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
+                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item mt-4 mt-md-0">
+                        <h4 class="mb-4">Contact Us</h4>
+                        <div class="d-flex flex-column align-items-start">
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</p>
+                            <p><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</p>
+                            <p><i class="fas fa-envelope text-primary me-2"></i> info@example.com</p>
+                            <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 my-auto text-center text-md-end text-white">
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
