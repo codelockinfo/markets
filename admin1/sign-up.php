@@ -100,6 +100,7 @@
                     </div>
                     <div class="mb-3">
                       <input type="file" class="form-control" name="image">
+                      <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file</p>
                       <span class="errormsg image"></span>
                     </div>
                     <div class="mb-3">

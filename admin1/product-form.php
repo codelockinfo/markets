@@ -227,7 +227,7 @@
           <label for="p-image" class="font-weight-normal">Product Image</label>
           <div class="mb-3">
             <input type="file" class="form-control" id="imageUpload" name="p_image">
-            <!-- <h6>Reqired Formate-JPG,JPEG,GIF,SVG,PNG,WEBP </h6> -->
+            <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </p>
             <span class="errormsg p_image"></span>
           </div>
           <div class="md-3">

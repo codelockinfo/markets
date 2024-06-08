@@ -30,11 +30,19 @@ class admin_functions {
     function insert_signup(){
         // echo "<pre>";
         // print_r($_POST);
+        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["image"]["name"]) ? $_FILES["image"]["name"] : '';
+        $fileName = $_FILES['image']['name'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $newFilename = time(). '.' . $extension;
 
         $error_array = array();
+
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
         }
@@ -105,14 +113,17 @@ class admin_functions {
     function insert_products(){
         // echo "<pre>";
         // print_r($_POST);
+        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
-        // $tmpfile = isset($_FILES["p_image"]["tmp_name"]) ? $_FILES["p_image"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $newFilename = time(). '.' . $extension;
-        // $folder = 'admin1/assets/img'.$newFilename;
-        // move_uploaded_file($tmpfile,$folder);
-
+        $fileName = $_FILES['p_image']['name'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
         $error_array = array();
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter Product Name";
         }
