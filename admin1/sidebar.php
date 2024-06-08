@@ -29,7 +29,7 @@
             <span class="nav-link-text ms-1">Home</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -48,22 +48,19 @@
             </div>
           </a>
         </li>
-        <div class="sidenav dropdown">
+        <div class="sidenav1 dropdown">
           <button class="dropdown-btn text-dark nav-link-text dropdown-toggle">
             Customize 
           </button>
           <div class="dropdown-container">
-            <a href="#">Header</a>
-            <a href="#">Banner section</a>
-            <a href="#">Famous markets section</a>
-            <a href="#">Brouse by textile categories section</a>
-            <a href="#">Offers</a>
-            <a href="#">Paragraph</a>
-            <a href="#">FAQ</a>
-            <a href="#">Contact</a>
-            <a href="#">Footer</a>
+            <a href="banner-form.php">Banner section</a>
+            <a href="famousmarket-form.php">Famous markets section</a>
+            <a href="textilecategories-form.php">Brouse by textile categories section</a>
+            <a href="offer-form.php">Offers</a>
+            <a href="paragraph-form.php">Paragraph</a>
+            <a href="faqs-form.php">FAQ</a>
           </div>
-        </div>   -->
+        </div>  
         <li class="nav-item">
           <a class="nav-link  " href="profile.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
