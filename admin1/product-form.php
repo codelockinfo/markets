@@ -174,15 +174,16 @@
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-        <form role="form">
+        <form role="form"  id="productinsert"  enctype="multipart/form-data" method="POST">
           <label for="title" class="font-weight-normal">Product Title</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Product Name">
+            <input type="text" class="form-control product" placeholder="Product Name" name="pname">
+            <span class="errormsg pname"></span>
           </div>
           <label for="p-tags" class="font-weight-normal">Product Category</label>
           <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Category</option>
+            <select class="form-select" aria-label="Default select example" name="select_catagory">
+              <option selected value="">Category</option>
               <option value="1">Armwear</option>
               <option value="2">Badges</option>
               <option value="3">Belts</option>
@@ -216,34 +217,43 @@
               <option value="31">Undergarments</option>
               <option value="32">Wedding clothing</option>
             </select>
+            <span class="errormsg select_catagory"></span>
           </div>
           <label for="title" class="font-weight-normal">Product Price</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="price">
+            <input type="text" class="form-control" placeholder="price" name="p_price">
+            <span class="errormsg p_price"></span>
           </div>
           <label for="p-image" class="font-weight-normal">Product Image</label>
           <div class="mb-3">
-            <input type="file" class="form control">
+            <input type="file" class="form-control" id="imageUpload" name="p_image">
+            <!-- <h6>Reqired Formate-JPG,JPEG,GIF,SVG,PNG,WEBP </h6> -->
+            <span class="errormsg p_image"></span>
           </div>
           <div class="md-3">
             <label for="text" class="font-weight-normal">Product Tag</label>
-            <select class="form-select mb-3" aria-label="Default select example">
+            <select class="form-select mb-3" aria-label="Default select example" name="p_tag">
+            <option selected value="">Product Tag</option>
               <option value="1">Saree</option>
               <option value="2">Fashion</option>
               <option value="3">Women</option>
             </select>
+            <span class="errormsg p_tag"></span>
           </div>
           <label for="p-description" class="font-weight-normal">Product Description</label>
           <div class="mb-3">
-            <textarea name="p-description" id="pro-description" class="w-100 form-control"></textarea>
+            <textarea id="pro-description" class="w-100 form-control" name="p_description"></textarea>
+            <span class="errormsg p_description"></span>
           </div>
           <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+            <button type="button" class="btn btn-primary bg-dark btn-sm productSave save_loader_show">Save</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset">Cancel</button>
           </div>
+          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
         </form>
       </div>
       </div>
+     
     </div>
   </div>
   <div class="fixed-plugin">

@@ -65,12 +65,19 @@ function loading_show($selector) {
 }
 
 function loading_hide($selector, $buttonName, $buttonIcon) {
+  // console.log($selector);
+  // console.log($buttonName);
+  // console.log( $buttonIcon);
   if ($buttonIcon != undefined) {
-      $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>'
-  } else {
-      $buttonIcon = '';
+    console.log("IN IF");
+    $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>'
+    } else {
+    console.log("else");
+      $buttonIcon = 'Save'
   }
-  $($selector).removeClass("loading").html('<i class="fas fa-circle-notch fa-spin"></i>').removeAttr("disabled");
+  // console.log($buttonIcon); 
+  // console.log($($selector).html());
+  $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
 }
 
 
@@ -159,8 +166,22 @@ function demo(){
 $(document).ready(function() {
     demo(); // CALLING ON LOAD FOR TESTING
     console.log("DOCUMENT READY ...");
-    $(document).on("click",".signUpsave",function(event){
-      event.preventDefault();
+
+    $('.signUpcancel').click(function(){
+      $('#savesignup')[0].reset();
+      $('.name').html('');
+      $('.shop').html('');
+      $('.address').html('');
+      $('.phone_number').html('');
+      $('.business_type').html('');
+      $('.image').html('');
+      $('.password').html('');
+      $('.Confirm_Password').html('');
+      $('.email').html('');
+    });
+    
+    $(document).on("click",".signUpsave",function(e){
+      e.preventDefault();   
       console.log("signUpsavebutton click");
       var form_data = $("#savesignup")[0]; 
       var form_data = new FormData(form_data);
@@ -184,12 +205,95 @@ $(document).ready(function() {
             response["msg"]["address"] !== undefined ? $(".address").html (response["msg"]["address"]) : $(".address").html("");
             response["msg"]["phone_number"] !== undefined ? $(".phone_number").html (response["msg"]["phone_number"]) : $(".phone_number").html("");
             response["msg"]["business_type"] !== undefined ? $(".business_type").html (response["msg"]["business_type"]) : $(".business_type").html("");
+            response["msg"]["image"] !== undefined ? $(".image").html (response["msg"]["image"]) : $(".image").html(""); 
             response["msg"]["password"] !== undefined ? $(".password").html (response["msg"]["password"]) : $(".password").html("");
+            response["msg"]["Confirm_Password"] !== undefined ? $(".Confirm_Password").html (response["msg"]["Confirm_Password"]) : $(".Confirm_Password").html("");
             response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
             loading_hide('.save_loader_show', 'Save');
+            if(response['data'] == "success"){
+              $("#savesignup")[0].reset();
+             
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
         }
     });
+
     })
+
+    function showMessage(msg, type) {
+      var alertClass = (type === "success") ? "success" : "error";
+      var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
+      $("#success_message").html(messageHtml);
+      $("#success_message").fadeIn().delay(5000).fadeOut(1000, function() {
+        $(this).remove();
+    });
+     
+    }
+  
+
+    $('.pform_reset').click(function(){
+      $('#productinsert')[0].reset();
+      $('.pname').html('');
+      $('.select_catagory').html('');
+      $('.p_price').html('');
+      $('.p_image').html('');
+      $('.p_tag').html('');
+      $('.p_description').html('');
+    });
+    
+    $(document).on("click",".productSave",function(event){
+      event.preventDefault();
+      console.log("Product save button click");
+      var form_data = $("#productinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_products'); 
+      // let myform = document.getElementById("productinsert");
+      // var form_Data = new FormData(myform);
+      // form_Data.append('p_image', $('#imageUpload')[0].files[0]);
+      
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+             response["msg"]["pname"] !== undefined ? $(".pname").html (response["msg"]["pname"]) : $(".pname").html("");
+             response["msg"]["select_catagory"] !== undefined ? $(".select_catagory").html (response["msg"]["select_catagory"]) : $(".select_catagory").html("");
+             response["msg"]["p_price"] !== undefined ? $(".p_price").html (response["msg"]["p_price"]) : $(".p_price").html("");
+             response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
+             response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
+             response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
+             if(response['data'] == "success"){
+              $("#productinsert")[0].reset();
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+
+    function showMessage(msg, type) {
+      var alertClass = (type === "success") ? "success" : "error";
+      var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
+      $("#success_message").html(messageHtml);
+      $("#success_message").fadeIn().delay(5000).fadeOut(1000, function() {
+        $(this).remove();
+    });
+     
+    }
+
+
 	  CKEDITOR.replace('myeditor');
     var ctx = document.getElementById("chart-bars").getContext("2d");
 

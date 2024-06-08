@@ -99,16 +99,16 @@
                       <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="file" class="form control" name="image">
+                      <input type="file" class="form-control" name="image">
                       <span class="errormsg image"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                      <input type="password" class="form-control password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
                       <span class="errormsg password"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon">
-                      <span class="errormsg Confirm-Password"></span>
+                      <input type="password" class="form-control Confirm_Password" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
+                      <span class="errormsg Confirm_Password"></span>
                     </div>
                     <div class="mb-3">
                       <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
@@ -118,6 +118,7 @@
                       <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
                       <button type="button" class="btn btn-secondary bg-dark btn-sm signUpcancel">Cancel</button>
                     </div>
+                    <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
                     <div class="mt-3 position-relative text-center mb-3">
                       <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
                         or
