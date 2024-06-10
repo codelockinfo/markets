@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>CaterServ - Catering Services Website Template</title>
+    <title>Markets</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -1008,8 +1008,7 @@
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
                         <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Contact Us</small>
-                            <h1 class="display-5 mb-5">Where you want Our Services</h1>
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4">Contact Us</small>
                         </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
                             <div class="col-12 col-md-6">
