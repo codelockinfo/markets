@@ -114,13 +114,12 @@
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Badges</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Belts</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Children's clothing</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Clothing brands by type   </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Clothing brands by type </a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Coats</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Dresses</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Footwear</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Gowns</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Handwear</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Headgear</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -226,36 +225,55 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             All categories
                         </button>
-                    </h2>
+                    </h4>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">Armwear</a></li>
+                                <li><a href="#">Badges </a></li>
+                                <li><a href="#">Belts</a></li>
+                                <li><a href="#">Children's clothing</a></li>
+                                <li><a href="#">Clothing brands by type</a></li>
+                                <li><a href="#">Coats</a></li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Footwear</a></li>
+                                <li><a href="#">Gowns</a></li>
+                                <li><a href="#">Handwear</a></li>
+                                <li><a href="#">Hosiery</a></li>
+                                <li><a href="#">Jackets</a></li>
+                                <li><a href="#">Jeans by type</a></li>
+                                <li><a href="#">Knee clothing</a></li>
+                                <li><a href="#">Masks</a></li>
+                                <li><a href="#">Neckwear</a></li>
+                                <li><a href="#">One-piece suits</a></li>
+                                <li><a href="#">Outerwear</a></li>
+                                <li><a href="#">Ponchos</a></li>
+                                <li><a href="#">Robes and cloaks</a></li>
+                                <li><a href="#">Royal attire</a></li>
+                                <li><a href="#">Saree</a></li>
+                                <li><a href="#">Sashes</a></li>
+                                <li><a href="#">Shawls and wraps</a></li>
+                                <li><a href="#">Skirts</a></li>
+                                <li><a href="#">Sportswear</a></li>
+                                <li><a href="#">Suits</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Trousers and shorts</a></li>
+                                <li><a href="#">Undergarments</a></li>
+                                <li><a href="#">Wedding clothing</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
                             Retails
                         </button>
-                    </h2>
+                    </h4>
                     <div id="flush-collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
@@ -268,71 +286,35 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-four">
                             wholesale
                         </button>
-                    </h2>
-                    <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
                             blogs
                         </button>
-                    </h2>
-                    <div id="flush-collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">blogs</a></li>
-                                <li><a href="#">blogs</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
                 </div>
 
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
                             videos
                         </button>
-                    </h2>
-                    <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">videos</a></li>
-                                <li><a href="#">videos</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
+
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
                             plans
                         </button>
-                    </h2>
-                    <div id="flush-collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">plans</a></li>
-                                <li><a href="#">plans</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
+
                 </div>
             </div>
         </div>
@@ -932,12 +914,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  <h6>Have You Weighed the potential risks and benefits?</h6> 
+                                    <h6>Have You Weighed the potential risks and benefits?</h6>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                  When deciding Which charity to donate to, it's important to do your search.
+                                    When deciding Which charity to donate to, it's important to do your search.
                                 </div>
                             </div>
                         </div>
@@ -945,7 +927,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <h6>How will you gather feedback from stakeholders</h6>
+                                    <h6>How will you gather feedback from stakeholders</h6>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
