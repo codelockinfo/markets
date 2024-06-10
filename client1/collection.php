@@ -29,20 +29,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-    html,
-    body {
-        position: relative;
-        height: 100%;
-    }
-
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-    }
+    
 
     .swiper {
         height: 100%;
@@ -50,7 +37,7 @@
 
     .swiper-slide {
         text-align: center;
-        height: 0;
+        height: auto;   
         font-size: 18px;
         background: #fff;
         width: auto;
@@ -86,7 +73,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/6.jpg"
+                                        style="object-fit: cover;" src="img/saree/6.jpg"
                                         alt="">
                                     <h2>saree 1</h2>
                                 </div>
@@ -95,7 +82,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/1.jpg"
+                                        style="object-fit: cover;" src="img/saree/1.jpg"
                                         alt="">
                                     <h2>saree 2</h2>
                                 </div>
@@ -104,7 +91,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/3.jpg"
+                                        style="object-fit: cover;" src="img/saree/3.jpg"
                                         alt="">
                                     <h2>saree 3</h2>
                                 </div>
@@ -113,7 +100,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/5.jpg"
+                                        style="object-fit: cover;" src="img/saree/5.jpg"
                                         alt="">
                                     <h2>saree 4</h2>
                                 </div>
@@ -122,7 +109,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/4.jpg"
+                                        style="object-fit: cover;" src="img/saree/4.jpg"
                                         alt="">
                                     <h2>saree 5</h2>
                                 </div>
@@ -131,7 +118,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/7.jpg"
+                                        style="object-fit: cover;" src="img/saree/7.jpg"
                                         alt="">
                                     <h2>saree 6</h2>
                                 </div>
@@ -140,7 +127,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
-                                        style="object-fit: cover; width: 220px; height: 200px;" src="img/saree/2.jpg"
+                                        style="object-fit: cover;" src="img/saree/2.jpg"
                                         alt="">
                                     <h2>saree 7</h2>
                                 </div>
