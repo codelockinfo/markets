@@ -57,17 +57,13 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fation</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti Fation</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -75,17 +71,13 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kavya fabric</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">vaibhavlaxmi textile</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Reyna Fabrics</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -93,17 +85,13 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fation </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -118,17 +106,21 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Armwear</a> </li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Badges</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Belts</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Children's clothing</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Clothing brands by type   </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Coats</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Dresses</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Footwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Gowns</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Handwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Headgear</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -136,17 +128,21 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Hosiery</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Jackets</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Jeans by type</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Knee clothing</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Masks</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Neckwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">One-piece suits</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Outerwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Ponchos</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Robes and cloaks</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Shawls and wraps</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -154,17 +150,20 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/gown/IMG_6359.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Royal attire</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">saree</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Sashes</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Skirts</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Sportswear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Suits</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Tops</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Trousers and shorts</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Undergarments</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Wedding clothing</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -205,26 +204,23 @@
         <div class="offcanvas-body">
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item ">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             All markets
                         </button>
-                    </h2>
+                    </h4>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
+                                <li><a href="#" class="text-capitalize">Arohi-Women fation</a></li>
+                                <li><a href="#" class="text-capitalize">Maruti Fation</a></li>
+                                <li><a href="#" class="text-capitalize">Vidya Fabrics</a></li>
+                                <li><a href="#" class="text-capitalize">Kavya fabric</a></li>
+                                <li><a href="#" class="text-capitalize">vaibhavlaxmi textile</a></li>
+                                <li><a href="#" class="text-capitalize">Reyna Fabrics</a></li>
+                                <li><a href="#" class="text-capitalize">Global Textile</a></li>
+                                <li><a href="#" class="text-capitalize">Radha Krishna Textile</a></li>
+                                <li><a href="#" class="text-capitalize">raghukul fation </a></li>
                             </ul>
                         </div>
                     </div>
@@ -365,7 +361,7 @@
     <!-- Hero Start -->
     <div class="container-fluid bg-light py-6  mt-0 banner">
         <div class="container">
-            <div class="row g-5 align-items-center">    
+            <div class="row g-5 align-items-center">
             </div>
         </div>
     </div>
@@ -1015,7 +1011,7 @@
                 </div>
             </div>
             <div class="content_2">
-                 <img class="w-100 h-auto rounded" src="img/shop/bussinesman.jpg" alt="">
+                <img class="w-100 h-auto rounded" src="img/shop/bussinesman.jpg" alt="">
             </div>
         </div>
     </div>
@@ -1031,7 +1027,7 @@
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
                         <div class="text-center">
-                        <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Contact Us</small>
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Contact Us</small>
                             <h1 class="display-5 mb-5">Where you want Our Services</h1>
                         </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
@@ -1126,7 +1122,7 @@
             </div>
         </div>
     </div>
-    <!-- Copyright End -->  
+    <!-- Copyright End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
