@@ -50,7 +50,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All markets</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All markets</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All categories</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All categories</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
@@ -182,10 +182,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="event.php" class="nav-item nav-link">wholesale</a>
-                        <a href="blog.php" class="nav-item nav-link">blogs</a>
-                        <a href="menu.php" class="nav-item nav-link">videos</a>
-                        <a href="contact.php" class="nav-item nav-link">plans</a>
+                        <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a>
+                        <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
+                        <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
+                        <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                     <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
