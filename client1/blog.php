@@ -51,7 +51,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All markets</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All markets</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All categories</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All categories</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
@@ -183,10 +183,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="event.php" class="nav-item nav-link">wholesale</a>
-                        <a href="blog.php" class="nav-item nav-link">blogs</a>
-                        <a href="menu.php" class="nav-item nav-link">videos</a>
-                        <a href="contact.php" class="nav-item nav-link">plans</a>
+                        <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a>
+                        <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
+                        <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
+                        <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                     <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
@@ -414,7 +414,7 @@
     <!-- Blog End -->
 
     <!-- Footer Start -->
-    <div class="container-fluid footer py-6   mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container-fluid footer py-6 mt-6  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -457,10 +457,10 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</p>
-                            <p><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> info@example.com</p>
-                            <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
+                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
+                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
                         </div>
                     </div>
                 </div>
@@ -472,16 +472,8 @@
     <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                </div>
+            <div class="text-center mb-3 mb-md-0">
+                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
             </div>
         </div>
     </div>
