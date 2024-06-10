@@ -365,16 +365,7 @@
     <!-- Hero Start -->
     <div class="container-fluid bg-light py-6  mt-0 banner">
         <div class="container">
-            <div class="row g-5 align-items-center">
-                <!-- <div class="col-lg-7 col-md-12">
-                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4 animated bounceInDown">Welcome to CaterServ</small>
-                    <h1 class="display-1 mb-4 animated bounceInDown">Book <span class="text-primary">Cater</span>Serv For Your Dream Event</h1>
-                    <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 me-4 animated bounceInLeft">Book Now</a>
-                    <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 animated bounceInLeft">Know More</a>
-                </div> -->
-                <!-- <div class="col-lg-5 col-md-12">
-                    <img src="img/hero.png" class="img-fluid rounded animated zoomIn" alt="">
-                </div> -->
+            <div class="row g-5 align-items-center">    
             </div>
         </div>
     </div>
@@ -388,8 +379,6 @@
                 <h1 class="display-5 mb-5">What We Offer</h1>
             </div>
             <div class="row g-4">
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -402,8 +391,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -416,8 +403,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -430,8 +415,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -444,8 +427,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -456,8 +437,7 @@
     <div class="container-fluid event pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Latest Events</small>
-                <h1 class="display-5 mb-5">Our Social & Professional Events Gallery</h1>
+                <h1 class="display-5 mb-5">Brouse by categoty</h1>
             </div>
             <div class="tab-class text-center">
                 <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
@@ -1051,7 +1031,7 @@
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
                         <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Book Us</small>
+                        <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Contact Us</small>
                             <h1 class="display-5 mb-5">Where you want Our Services</h1>
                         </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">

@@ -99,6 +99,8 @@ $(".submit").click(function (event) {
 var swiper = new Swiper(".relatedslider", {
     slidesPerView: 3,
     spaceBetween: 30,
+    autoplay:true,
+    loop:true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
