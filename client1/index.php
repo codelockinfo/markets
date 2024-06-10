@@ -51,23 +51,19 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All markets</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All markets</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fashion</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti fashion</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -75,17 +71,13 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kavya fabric</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">vaibhavlaxmi textile</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Reyna Fabrics</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -93,17 +85,13 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fashion </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -112,23 +100,26 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All categories</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All categories</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Armwear</a> </li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Badges</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Belts</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Children's clothing</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Clothing brands by type </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Coats</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Dresses</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Footwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Gowns</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Handwear</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -136,17 +127,21 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Hosiery</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Jackets</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Jeans by type</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Knee clothing</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Masks</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Neckwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">One-piece suits</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Outerwear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Ponchos</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Robes and cloaks</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Shawls and wraps</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -154,17 +149,20 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Royal attire</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">saree</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Sashes</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Skirts</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Sportswear</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Suits</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Tops</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Trousers and shorts</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Undergarments</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Wedding clothing</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -183,13 +181,13 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="event.php" class="nav-item nav-link">wholesale</a>
-                        <a href="blog.php" class="nav-item nav-link">blogs</a>
-                        <a href="menu.php" class="nav-item nav-link">videos</a>
-                        <a href="contact.php" class="nav-item nav-link">plans</a>
+                        <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a>
+                        <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
+                        <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
+                        <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
+                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize"> register your shop</a>
                 </div>
             </nav>
         </div>
@@ -205,61 +203,77 @@
         <div class="offcanvas-body">
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item ">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             All markets
                         </button>
-                    </h2>
+                    </h4>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
-                                <li><a href="#">All Market</a></li>
+                                <li><a href="#" class="text-capitalize">Arohi-Women fashion</a></li>
+                                <li><a href="#" class="text-capitalize">Maruti fashion</a></li>
+                                <li><a href="#" class="text-capitalize">Vidya Fabrics</a></li>
+                                <li><a href="#" class="text-capitalize">Kavya fabric</a></li>
+                                <li><a href="#" class="text-capitalize">vaibhavlaxmi textile</a></li>
+                                <li><a href="#" class="text-capitalize">Reyna Fabrics</a></li>
+                                <li><a href="#" class="text-capitalize">Global Textile</a></li>
+                                <li><a href="#" class="text-capitalize">Radha Krishna Textile</a></li>
+                                <li><a href="#" class="text-capitalize">raghukul fashion </a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             All categories
                         </button>
-                    </h2>
+                    </h4>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
-                                <li><a href="#">All categories</a></li>
+                                <li><a href="#">Armwear</a></li>
+                                <li><a href="#">Badges </a></li>
+                                <li><a href="#">Belts</a></li>
+                                <li><a href="#">Children's clothing</a></li>
+                                <li><a href="#">Clothing brands by type</a></li>
+                                <li><a href="#">Coats</a></li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Footwear</a></li>
+                                <li><a href="#">Gowns</a></li>
+                                <li><a href="#">Handwear</a></li>
+                                <li><a href="#">Hosiery</a></li>
+                                <li><a href="#">Jackets</a></li>
+                                <li><a href="#">Jeans by type</a></li>
+                                <li><a href="#">Knee clothing</a></li>
+                                <li><a href="#">Masks</a></li>
+                                <li><a href="#">Neckwear</a></li>
+                                <li><a href="#">One-piece suits</a></li>
+                                <li><a href="#">Outerwear</a></li>
+                                <li><a href="#">Ponchos</a></li>
+                                <li><a href="#">Robes and cloaks</a></li>
+                                <li><a href="#">Royal attire</a></li>
+                                <li><a href="#">Saree</a></li>
+                                <li><a href="#">Sashes</a></li>
+                                <li><a href="#">Shawls and wraps</a></li>
+                                <li><a href="#">Skirts</a></li>
+                                <li><a href="#">Sportswear</a></li>
+                                <li><a href="#">Suits</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Trousers and shorts</a></li>
+                                <li><a href="#">Undergarments</a></li>
+                                <li><a href="#">Wedding clothing</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
                             Retails
                         </button>
-                    </h2>
+                    </h4>
                     <div id="flush-collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
@@ -272,71 +286,35 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-four">
                             wholesale
                         </button>
-                    </h2>
-                    <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                                <li><a href="#">wholesale</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
                             blogs
                         </button>
-                    </h2>
-                    <div id="flush-collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">blogs</a></li>
-                                <li><a href="#">blogs</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
                 </div>
 
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
                             videos
                         </button>
-                    </h2>
-                    <div id="flush-collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">videos</a></li>
-                                <li><a href="#">videos</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
+
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header ">
+                    <h4 class="accordion-header ">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
                             plans
                         </button>
-                    </h2>
-                    <div id="flush-collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">plans</a></li>
-                                <li><a href="#">plans</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </h4>
+
                 </div>
             </div>
         </div>
@@ -366,15 +344,6 @@
     <div class="container-fluid bg-light py-6  mt-0 banner">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <!-- <div class="col-lg-7 col-md-12">
-                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4 animated bounceInDown">Welcome to CaterServ</small>
-                    <h1 class="display-1 mb-4 animated bounceInDown">Book <span class="text-primary">Cater</span>Serv For Your Dream Event</h1>
-                    <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 me-4 animated bounceInLeft">Book Now</a>
-                    <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 animated bounceInLeft">Know More</a>
-                </div> -->
-                <!-- <div class="col-lg-5 col-md-12">
-                    <img src="img/hero.png" class="img-fluid rounded animated zoomIn" alt="">
-                </div> -->
             </div>
         </div>
     </div>
@@ -385,11 +354,9 @@
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
-                <h1 class="display-5 mb-5">What We Offer</h1>
+                <h1 class="display-5 mb-5">Famous markets</h1>
             </div>
             <div class="row g-4">
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -402,8 +369,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -416,8 +381,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -430,8 +393,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
@@ -444,8 +405,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -456,8 +415,7 @@
     <div class="container-fluid event pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Latest Events</small>
-                <h1 class="display-5 mb-5">Our Social & Professional Events Gallery</h1>
+                <h1 class="display-5 mb-5">Brouse by categoty</h1>
             </div>
             <div class="tab-class text-center">
                 <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
@@ -947,7 +905,7 @@
         <div class="mainContent h-100 w-75 d-flex justify-content-center align-items-center gap-3">
             <div class="content_1" style="width: 70%;">
                 <div class="">
-                    <h1 class="fs-1">Any Questions</h1>
+                    <h1 class="fs-1">Frequently ask questions</h1>
                     <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
                 </div>
                 <div>
@@ -956,7 +914,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Have You Weighed the potential risks and benefits?
+                                    <h6>Have You Weighed the potential risks and benefits?</h6>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -969,7 +927,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How will you gather feedback from stakeholders
+                                    <h6>How will you gather feedback from stakeholders</h6>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -982,7 +940,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    There any sustainability or ethical to take into account?
+                                    <h6>There any sustainability or ethical to take into account?</h6>
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -995,7 +953,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    There any sustainability or ethical to take into account?
+                                    <h6>There any sustainability or ethical to take into account?</h6>
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
@@ -1008,7 +966,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    There any Lorem ipsum dolor Nibh pellentesque
+                                    <h6>There any Lorem ipsum dolor Nibh pellentesque</h6>
                                 </button>
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
@@ -1021,7 +979,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    There any Lorem ipsum dolor Nibh pellentesque
+                                    <h6>There any Lorem ipsum dolor Nibh pellentesque</h6>
                                 </button>
                             </h2>
                             <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
@@ -1030,12 +988,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="content_2">
-                 <img class="w-100 h-auto rounded" src="img/shop/bussinesman.jpg" alt="">
+                <img class="w-100 h-auto rounded" src="img/shop/bussinesman.jpg" alt="">
             </div>
         </div>
     </div>
@@ -1051,7 +1008,7 @@
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
                         <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Book Us</small>
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Contact Us</small>
                             <h1 class="display-5 mb-5">Where you want Our Services</h1>
                         </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
@@ -1126,10 +1083,10 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</p>
-                            <p><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> info@example.com</p>
-                            <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
+                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
+                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
                         </div>
                     </div>
                 </div>
@@ -1141,13 +1098,8 @@
     <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                </div>
+            <div class="text-center mb-3 mb-md-0">
+                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
             </div>
         </div>
     </div>
