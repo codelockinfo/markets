@@ -95,10 +95,32 @@ $(".submit").click(function (event) {
 
   // product gallery slider start 
 
+//   product page related product slider start
+var swiper = new Swiper(".relatedslider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+        576: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        991: {
+            slidesPerView: 3,
+        },
+        1100: {
+            slidesPerView: 4,
+        },
+    }
+  });
+//   product page related product slider end
 
   // collection page js
-
-  
   
   var swiper = new Swiper(".mySwiper", {
       navigation: {

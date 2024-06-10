@@ -275,7 +275,8 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <h5 class="fs-2">Women Straight Block Printed Kurta and Pant Set with Dupatta</h5>
-                    <h3></h3>
+                    <h4><span class="fs-6 text-black-50">Rs.</span>300/-</h4>
+                    <p>Type:Kurti</p>
                     <p class="fs-7">N123h992</p>
                     <p class="fs-6 fw-bold">Ailable in store</p>
                     <div class="discription_tab">
@@ -290,7 +291,10 @@
                         <div class="tab-content mt-3" id="myTabContent">
                             <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore doloribus quibusdam cumque odit optio pariatur facilis minima laboriosam nemo labore placeat perspiciatis mollitia omnis rem, velit ut earum impedit debitis iste ad unde. Architecto, earum incidunt. Dicta doloribus tempore corporis minima quos ut sequi cum nostrum optio neque quidem provident magni accusantium officiis.Architecto, earum incidunt. Dicta doloribus tempore corporis minima quos ut sequi cum nostrum optio neque quidem provident magni accusantium officiis.</div>
                             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                 
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
+                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
+                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
                             </div>
                         </div>
                     </div>
@@ -299,6 +303,115 @@
         </div>
     </section>
     <!-- product details section end -->
+
+    <!-- related product start  -->
+    <section class="related-product mt-6">
+        <div class="container">
+            <div class="swiper relatedslider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/1.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>200/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>250/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/3.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>260/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/4.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>300/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/5.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>240/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/6.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>300/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/7.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>290/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="swiper-slide">
+                       <a href="#"> <div class="product-box">
+                            <div class="product-img"> 
+                                <img src="img/kurti/8.jpg" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="product-details mt-2 text-center">
+                                <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
+                                <h4><span class="fs-6 text-black-50">Rs.</span>210/-</h4>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- related product end  -->
 
     <!-- Footer Start -->
     <div class="container-fluid footer py-6 mt-6  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
@@ -344,10 +457,10 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</p>
-                            <p><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> info@example.com</p>
-                            <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
+                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
+                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
                         </div>
                     </div>
                 </div>
@@ -359,13 +472,8 @@
     <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                </div>
+            <div class="text-center mb-3 mb-md-0">
+                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
             </div>
         </div>
     </div>
