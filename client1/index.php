@@ -385,7 +385,7 @@
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
-                <h1 class="display-5 mb-5">What We Offer</h1>
+                <h1 class="display-5 mb-5">Famous markets</h1>
             </div>
             <div class="row g-4">
 
@@ -444,8 +444,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -947,7 +945,7 @@
         <div class="mainContent h-100 w-75 d-flex justify-content-center align-items-center gap-3">
             <div class="content_1" style="width: 70%;">
                 <div class="">
-                    <h1 class="fs-1">Any Questions</h1>
+                    <h1 class="fs-1">Frequently ask questions</h1>
                     <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
                 </div>
                 <div>
@@ -956,12 +954,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Have You Weighed the potential risks and benefits?
+                                  <h6>Have You Weighed the potential risks and benefits?</h6> 
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                  When deciding Which charity to donate to, it's important to do your search.
                                 </div>
                             </div>
                         </div>
@@ -969,7 +967,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How will you gather feedback from stakeholders
+                                <h6>How will you gather feedback from stakeholders</h6>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -982,7 +980,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    There any sustainability or ethical to take into account?
+                                    <h6>There any sustainability or ethical to take into account?</h6>
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -995,7 +993,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    There any sustainability or ethical to take into account?
+                                    <h6>There any sustainability or ethical to take into account?</h6>
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
@@ -1008,7 +1006,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    There any Lorem ipsum dolor Nibh pellentesque
+                                    <h6>There any Lorem ipsum dolor Nibh pellentesque</h6>
                                 </button>
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
@@ -1021,7 +1019,7 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    There any Lorem ipsum dolor Nibh pellentesque
+                                    <h6>There any Lorem ipsum dolor Nibh pellentesque</h6>
                                 </button>
                             </h2>
                             <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
@@ -1030,7 +1028,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
