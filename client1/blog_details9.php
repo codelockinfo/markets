@@ -196,7 +196,7 @@
     </div>
     <!-- Navbar End -->
 
-         <!-- megamenu md view  -->
+    <!-- megamenu md view  -->
     <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <a href="index.php"> <img src="img/images.png" class="w-25 img-fluid" alt=""></a>
@@ -391,19 +391,15 @@
                             <p class="fs-6"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum .</p>
                             <h4 class="  fs-5 mt-3">Lorem ipsum dolor sit amet. ?</h4>
                             <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <div class="row my-4">
-                                <div class="col-12 col-md-6"><img src="img/saree/3.jpg" class="img-fluid rounded-3 " alt=""></div>
-                                <div class="col-12 col-md-6"><img src="img/saree/4.jpg" class="img-fluid rounded-3 mt-3 mt-md-0" alt=""></div>
-                                <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <h4 class="  fs-4 mt-3">Lorem ipsum dolor sit amet. ?</h4>
-                                <ul class="list-unstyled">
-                                    <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
-                                    <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
-                                    <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
-                                </ul>
-                                <h4 class="  fs-5 ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</h4>
-                                <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
+                            <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <h4 class="  fs-4 mt-3">Lorem ipsum dolor sit amet. ?</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
+                                <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
+                                <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
+                            </ul>
+                            <h4 class="  fs-5 ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</h4>
+                            <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                 </div>
@@ -418,14 +414,14 @@
                             </div>
                         </div>
                         <div class="blog_post mt-5">
-                        <h4 class="fs-5 ">Related blogs</h4>
+                            <h4 class="fs-5 ">Related blogs</h4>
                             <div class="row mt-3">
                                 <div class="col-4">
                                     <img src="img/kurti/2.jpg" class="img-fluid rounded" alt="">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -434,7 +430,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -443,7 +439,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -457,7 +453,7 @@
                                 <li class="mb-3 text-dark"><i class="fa-solid fa-circle fs-05 text-primary me-3"></i><a href="#">Skirt</a></li>
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -465,8 +461,8 @@
     </section>
     <!-- Blogdetails end  -->
 
-     <!-- Footer Start -->
-     <div class="container-fluid footer py-6 mt-6  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-6 mt-6  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
