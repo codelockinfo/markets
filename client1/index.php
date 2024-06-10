@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>CaterServ - Catering Services Website Template</title>
+    <title>Markets</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -61,8 +61,8 @@
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fation</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti Fation</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fashion</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti fashion</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
                                                 </ul>
                                             </div>
@@ -91,7 +91,7 @@
                                                 <ul class="list-unstyled mt-2">
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fation </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fashion </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/gown/IMG_6359.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
@@ -187,7 +187,7 @@
                         <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
+                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize"> register your shop</a>
                 </div>
             </nav>
         </div>
@@ -211,15 +211,15 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
-                                <li><a href="#" class="text-capitalize">Arohi-Women fation</a></li>
-                                <li><a href="#" class="text-capitalize">Maruti Fation</a></li>
+                                <li><a href="#" class="text-capitalize">Arohi-Women fashion</a></li>
+                                <li><a href="#" class="text-capitalize">Maruti fashion</a></li>
                                 <li><a href="#" class="text-capitalize">Vidya Fabrics</a></li>
                                 <li><a href="#" class="text-capitalize">Kavya fabric</a></li>
                                 <li><a href="#" class="text-capitalize">vaibhavlaxmi textile</a></li>
                                 <li><a href="#" class="text-capitalize">Reyna Fabrics</a></li>
                                 <li><a href="#" class="text-capitalize">Global Textile</a></li>
                                 <li><a href="#" class="text-capitalize">Radha Krishna Textile</a></li>
-                                <li><a href="#" class="text-capitalize">raghukul fation </a></li>
+                                <li><a href="#" class="text-capitalize">raghukul fashion </a></li>
                             </ul>
                         </div>
                     </div>
@@ -1010,8 +1010,7 @@
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
                         <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Contact Us</small>
-                            <h1 class="display-5 mb-5">Where you want Our Services</h1>
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4">Contact Us</small>
                         </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
                             <div class="col-12 col-md-6">
@@ -1107,6 +1106,8 @@
     </div>
     <!-- Copyright End -->
 
+    <!-- Add your shop button -->
+    <a href="#" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
