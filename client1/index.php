@@ -39,7 +39,7 @@
 
 
     <!-- Navbar start -->
-    <div class="container-fluid nav-bar">
+        <div class="container-fluid nav-bar">
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-lg py-4">
                 <a href="index.php" class="navbar-brand">
@@ -186,7 +186,7 @@
                         <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
                         <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
-                    <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                    <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                     <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize"> register your shop</a>
                 </div>
             </nav>
@@ -202,8 +202,8 @@
         </div>
         <div class="offcanvas-body">
             <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item ">
-                    <h4 class="accordion-header ">
+                <div class="accordion-item">
+                    <h4 class="accordion-header">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             All markets
                         </button>
