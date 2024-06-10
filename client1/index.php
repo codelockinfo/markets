@@ -61,8 +61,8 @@
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fation</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti Fation</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fashion</a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti fashion</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
                                                 </ul>
                                             </div>
@@ -91,7 +91,7 @@
                                                 <ul class="list-unstyled mt-2">
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
                                                     <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fation </a></li>
+                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fashion </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="megamenu-box">
                                             <div class="megamenu-img">
-                                                <img src="img/gown/IMG_6359.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                                <img src="img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                             </div>
                                             <div class="megamenu-content">
                                                 <ul class="list-unstyled mt-2">
@@ -187,7 +187,7 @@
                         <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
+                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize"> register your shop</a>
                 </div>
             </nav>
         </div>
@@ -211,15 +211,15 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body bg-light">
                             <ul class="list-unstyled">
-                                <li><a href="#" class="text-capitalize">Arohi-Women fation</a></li>
-                                <li><a href="#" class="text-capitalize">Maruti Fation</a></li>
+                                <li><a href="#" class="text-capitalize">Arohi-Women fashion</a></li>
+                                <li><a href="#" class="text-capitalize">Maruti fashion</a></li>
                                 <li><a href="#" class="text-capitalize">Vidya Fabrics</a></li>
                                 <li><a href="#" class="text-capitalize">Kavya fabric</a></li>
                                 <li><a href="#" class="text-capitalize">vaibhavlaxmi textile</a></li>
                                 <li><a href="#" class="text-capitalize">Reyna Fabrics</a></li>
                                 <li><a href="#" class="text-capitalize">Global Textile</a></li>
                                 <li><a href="#" class="text-capitalize">Radha Krishna Textile</a></li>
-                                <li><a href="#" class="text-capitalize">raghukul fation </a></li>
+                                <li><a href="#" class="text-capitalize">raghukul fashion </a></li>
                             </ul>
                         </div>
                     </div>
