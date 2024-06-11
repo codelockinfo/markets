@@ -1,5 +1,18 @@
 <?php 
     include 'header.php';
+   
+    if (!isset($_SESSION['id'])) {
+      header("Location: sign-in.php");
+      die();
+    }
+  
+    // checking if user is already exists in database
+    // $sql = "SELECT * FROM users WHERE token ='{$_SESSION['id']}'";
+    // $result = mysqli_query($conn, $sql);
+    // if (mysqli_num_rows($result) > 0) {
+    //   $userinfo = mysqli_fetch_assoc($result);
+    // }
+
 ?>
 <body class="g-sidenav-show  bg-gray-100">
 <?php 
