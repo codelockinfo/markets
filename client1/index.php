@@ -187,7 +187,7 @@
                         <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize"> register your shop</a>
+                    <a href="../admin1/sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize">register your shop</a>
                 </div>
             </nav>
         </div>
@@ -355,7 +355,6 @@
     <div class="container-fluid service pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
                 <h1 class="display-5 mb-5">Famous markets</h1>
             </div>
             <div class="row g-4">
@@ -363,10 +362,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-cheese fa-3x text-primary mb-4"></i>
-                                <h4 class="mb-3">Raghukul Fashion</h4>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Arohi-Woman Fashion</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop1.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -375,10 +374,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-pizza-slice fa-3x text-primary mb-4"></i>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
                                 <h4 class="mb-3">Kavya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop4.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop2.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -387,10 +386,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-hotdog fa-3x text-primary mb-4"></i>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
                                 <h4 class="mb-3">Global Textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop3.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop3.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -399,10 +398,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-hamburger fa-3x text-primary mb-4"></i>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
                                 <h4 class="mb-3">Vidya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop2.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop4.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -904,10 +903,11 @@
 
     <!-- FAQ Start -->
     <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 pb-5">
-        <div class="mainContent h-100 w-75 d-flex justify-content-center align-items-center gap-3">
+        <div class="mainContent h-100 w-75 d-flex flex-column justify-content-center align-items-center gap-3">
+            <h1 class="fs-1 ">Frequently ask questions</h1>
+            <div class="d-flex align-items-center">
             <div class="content_1" style="width: 70%;">
                 <div class="">
-                    <h1 class="fs-1">Frequently ask questions</h1>
                     <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
                 </div>
                 <div>
@@ -996,22 +996,23 @@
             <div class="content_2">
                 <img class="w-100  fit-cover rounded" src="img/shop/img1.webp" alt="">
             </div>
+            </div>
         </div>
     </div>
     <!-- FAQ End -->
 
     <!-- Book Us Start -->
     <div class="container-fluid contact pt-6 wow bounceInUp" data-wow-delay="0.1s">
-        <div class="container ps-0 pe-0">
+        <div class="container ps-0 pe-0 ">
+            <div class="d-flex flex-column align-items-center mb-3">
+               <h1>Contact us</h1>
+            </div>
             <div class="row g-0">
                 <div class="col-1">
                     <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-start d-none" style="object-fit: cover; opacity: 0.7;" alt="">
                 </div>
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
-                        <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4">Contact Us</small>
-                        </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
                             <div class="col-12 col-md-6">
                                 <input type="text" id="firstName" class="form-control border-primary p-2" placeholder=" Name" required>
