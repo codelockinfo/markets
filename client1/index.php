@@ -39,12 +39,13 @@
 
 
     <!-- Navbar start -->
-        <div class="container-fluid nav-bar">
+    <div class="container-fluid nav-bar">
         <div class="container">
-            <nav class="navbar navbar-light navbar-expand-lg py-4">
+            <nav class="navbar navbar-light navbar-expand-lg">
                 <a href="index.php" class="navbar-brand">
-                    <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span> </h1>
-                </a>
+                   <img style="height: 90px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
+                   <!-- <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span></h1> -->
+                </a> 
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                     <span class="fa fa-bars text-primary"></span>
                 </button>
