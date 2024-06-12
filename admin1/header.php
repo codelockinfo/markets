@@ -16,6 +16,9 @@ include($myRoot . '/markets/connection.php');
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/nucleo-svg.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/soft-ui-dashboard.css?v=1.0.7'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/custom.css'); ?>" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/bootstrap.min.css'); ?>" rel="stylesheet"> -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
         
         <script src="<?php echo main_url('/admin1/assets/js/nepcha-analytics.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/jquery-3.7.1.min.js'); ?>"></script>
@@ -27,6 +30,7 @@ include($myRoot . '/markets/connection.php');
         <script src="<?php echo main_url('/admin1/assets/js/buttons.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/soft-ui-dashboard.min.js?v=1.0.7'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/ckeditor/ckeditor.js'); ?>"></script>
+        <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/ajax.js'); ?>"></script>
-  
+        
    

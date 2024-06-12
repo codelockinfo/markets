@@ -1,5 +1,54 @@
 <?php 
     include 'header.php';
+    require_once 'googleconfig.php';
+    if (isset($_GET['code'])) {
+          $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+          $client->setAccessToken($token['access_token']);
+        
+          // get profile info
+          $google_oauth = new Google_Service_Oauth2($client);
+          $google_account_info = $google_oauth->userinfo->get();
+          $userinfo = [
+            'email' => $google_account_info['email'],
+            'first_name' => $google_account_info['givenName'],
+            'last_name' => $google_account_info['familyName'],
+            'gender' => $google_account_info['gender'],
+            'full_name' => $google_account_info['name'],
+            'picture' => $google_account_info['picture'],
+            'verifiedEmail' => $google_account_info['verifiedEmail'],
+            'token' => $google_account_info['id'],
+          ];
+        
+          // checking if user is already exists in database
+          $sql = "SELECT * FROM users WHERE email ='{$userinfo['email']}'";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            // user is exists
+            $userinfo = mysqli_fetch_assoc($result);
+            $token = $userinfo['id'];
+          } else {
+              header("Location: sign-in.php");
+              echo "User is not created";
+              die;
+          }
+        
+          // save user data into session
+          $_SESSION['id'] = $token;
+    } else {
+      if (!isset($_SESSION['id'])) {
+        header("Location: sign-in.php");
+        die();
+      }
+    
+      // checking if user is already exists in database
+      $sql = "SELECT * FROM users WHERE id ='{$_SESSION['id']}'";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        // user is exists
+        $userinfo = mysqli_fetch_assoc($result);
+      }
+    }
+
 ?>
 <body class="g-sidenav-show  bg-gray-100">
 <?php 
@@ -56,7 +105,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="../admin1/assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                        <img src="../admin1/assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -74,7 +123,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="../admin1/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                        <img src="../admin1/assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">

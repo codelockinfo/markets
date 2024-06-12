@@ -59,7 +59,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -77,7 +77,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -259,71 +259,6 @@
       </div>
     </div>
   </div>
-  <script>
-    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-      const dropZoneElement = inputElement.closest(".drop-zone");
-      dropZoneElement.addEventListener("click", (e) => {
-        inputElement.click();
-      });
-      inputElement.addEventListener("change", (e) => {
-        if (inputElement.files.length) {
-          updateThumbnail(dropZoneElement, inputElement.files[0]);
-        }
-      });
-      dropZoneElement.addEventListener("dragover", (e) => {
-        e.preventDefault();
-          dropZoneElement.classList.add("drop-zone--over");
-      });
-      ["dragleave", "dragend"].forEach((type) => {
-        dropZoneElement.addEventListener(type, (e) => {
-          dropZoneElement.classList.remove("drop-zone--over");
-        });
-      });
-      dropZoneElement.addEventListener("drop", (e) => {
-        e.preventDefault();
-          if (e.dataTransfer.files.length) {
-            inputElement.files = e.dataTransfer.files;
-            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-          }
-        dropZoneElement.classList.remove("drop-zone--over");
-      });
-    });
-    function updateThumbnail(dropZoneElement, file) {
-      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-      // First time - remove the prompt
-      if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-        dropZoneElement.querySelector(".drop-zone__prompt").remove();
-      }
-      // First time - there is no thumbnail element, so lets create it
-      if (!thumbnailElement) {
-        thumbnailElement = document.createElement("div");
-        thumbnailElement.classList.add("drop-zone__thumb");
-        dropZoneElement.appendChild(thumbnailElement);
-      }
-      thumbnailElement.dataset.label = file.name;
-      // Show thumbnail for image files
-      if (file.type.startsWith("image/")) {
-        const reader = new FileReader();
-
-      reader.addEventListener("load", function (e) {
-        const readerTarget = e.target;
-        const img = document.createElement("img");
-        img.src = readerTarget.result;
-        img.classList.add("picture__img");
-        const closeButton = document.createElement("button");
-        closeButton.classList.add("close-button");
-        closeButton.innerText = 'x';
-        thumbnailElement.innerHTML = "";
-        thumbnailElement.appendChild(img);
-        thumbnailElement.appendChild(closeButton);
-      });
-
-        reader.readAsDataURL(file);
-      } else {
-        thumbnailElement.style.backgroundImage = null;
-      }
-    }
-  </script>
+  <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
-
 </html>
