@@ -59,7 +59,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -77,7 +77,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -227,7 +227,10 @@
             </div>
             <label for="p-image" class="font-weight-normal">Blog Image</label>
             <div class="mb-3">
-              <input type="file" class="form control">
+              <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
+              </div>  
             </div>
             <div class="mb-3">
               <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
