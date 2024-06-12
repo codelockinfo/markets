@@ -228,7 +228,8 @@ include 'header.php';
             <div class="mb-3">
               <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
+                <input type="file"  name="p_image" id="removeImage" class="drop-zone__input">
+                <div class="errormsg p_image"></div>
               </div>
             </div>
             <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </p>

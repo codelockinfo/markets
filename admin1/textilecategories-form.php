@@ -150,22 +150,30 @@
       <div class="row">
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
           <div class="card z-index-0 p-5">
-            <form role="form">
+            <form role="form" id="b_textileCtgryinsert" enctype="multipart/form-data" method="POST">
               <label for="textile-img" class="font-weight-normal">Image</label>
               <div class="mb-3">
                 <div class="drop-zone">
                   <span class="drop-zone__prompt">Drop file here or click to upload</span>
                   <input type="file" name="myFile" class="drop-zone__input">
+                  <span class="errormsg myFile"></span>
                 </div>
               </div>
+              <label for="text" class="font-weight-normal">Image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
+              <span class="errormsg image_alt"></span>
+            </div>
               <label for="image-link" class="font-weight-normal">Image Link</label>
               <div class="mb-3">
-                <input type="url" class="form-control" placeholder="https://example.com">
+                <input type="url" class="form-control" placeholder="https://example.com" name="img_link">
+                  <span class="errormsg img_link"></span>
               </div>
               <div class="mb-3">
-                <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-                <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+                <button type="button" class="btn btn-primary bg-dark btn-sm brouseSave formSave">Save</button>
+                <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
               </div>
+              <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
             </form>
           </div>
         </div>
