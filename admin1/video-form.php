@@ -174,15 +174,16 @@
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-          <form role="form">
+          <form role="form" id="videoinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal">Video Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Product Name">
+              <input type="text" class="form-control" placeholder="Video Title" name="video_title">
+              <span class="errormsg video_title"></span>
             </div>
             <label for="p-tags" class="font-weight-normal">Video Category</label>
             <div class="mb-3">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Category</option>
+              <select class="form-select" aria-label="Default select example" name="video_category">
+                <option selected value="">Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>
@@ -216,19 +217,23 @@
                 <option value="31">Undergarments</option>
                 <option value="32">Wedding clothing</option>
               </select>
+              <span class="errormsg video_category"></span>
             </div>
             <label for="y-shortslink" class="font-weight-normal">Youtube Shorts Link</label>
             <div class="mb-3">
-              <input type="url" id="y-shorturl" name="y-shorts" class="form-control" placeholder="Youtube Shorts">
+              <input type="url" id="y-shorturl" class="form-control" placeholder="Youtube Shorts" name="youtube_shorts">
+              <span class="errormsg youtube_shorts"></span>
             </div>
             <label for="y-videolink" class="font-weight-normal">Youtube Vlogs Link</label>
             <div class="mb-3">
-              <input type="url" id="y-vlogurl" name="y-vlog" class="form-control" placeholder="Youtube Vlogs">
+              <input type="url" id="y-vlogurl"  class="form-control" placeholder="Youtube Vlogs" name="youtube_vlogs">
+              <span class="errormsg youtube_vlogs"></span>
             </div>
             <div class="mb-3">
-              <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+              <button type="button" class="btn btn-primary bg-dark btn-sm videoSave">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
             </div>
+            <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
           </form>
         </div> 
       </div>

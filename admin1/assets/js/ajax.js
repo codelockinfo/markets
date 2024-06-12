@@ -159,22 +159,42 @@ function demo(){
 
 
 $(document).ready(function() {
-    demo(); // CALLING ON LOAD FOR TESTING
-    console.log("DOCUMENT READY ...");
+    console.log("DOCUMENT READY ...");  
 
-    $('.signUpcancel').click(function(){
-      $('#savesignup')[0].reset();
-      $('.name').html('');
-      $('.shop').html('');
-      $('.address').html('');
-      $('.phone_number').html('');
-      $('.business_type').html('');
-      $('.image').html('');
-      $('.password').html('');
-      $('.Confirm_Password').html('');
-      $('.email').html('');
+    function showMessage(msg, type) {
+      var alertClass = (type === "success") ? "success" : "error";
+      var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
+      $("#success_message").html(messageHtml);
+      $("#success_message").fadeIn().delay(5000).fadeOut(1000, function() {
+        $(this).remove();
     });
-    
+     
+    }
+
+    $('.formCancel').click(function(){
+      console.log("CCCCC");
+      $('.errormsg').html('');
+      // $('.picture__img').html('');
+      $(this).closest("form")[0].reset();
+      if (CKEDITOR.instances['myeditor']) {
+      CKEDITOR.instances['myeditor'].setData('');
+      }
+      var $thumbnailElement = $(".drop-zone__thumb");
+      if ($thumbnailElement.length > 0) {
+         $thumbnailElement.html('');
+         $thumbnailElement.removeClass("drop-zone__thumb");
+         $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
+      }
+      
+    });
+    function resetThumbnail() {
+      var $thumbnailElement = $(".drop-zone__thumb");
+      if ($thumbnailElement.length > 0) {
+          $thumbnailElement.html('');
+          $thumbnailElement.removeClass("drop-zone__thumb");
+          $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
+      }
+  }
     $(document).on("click",".signUpsave",function(e){
       e.preventDefault();   
       console.log("signUpsavebutton click");
@@ -217,27 +237,6 @@ $(document).ready(function() {
 
     })
 
-    function showMessage(msg, type) {
-      var alertClass = (type === "success") ? "success" : "error";
-      var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
-      $("#success_message").html(messageHtml);
-      $("#success_message").fadeIn().delay(5000).fadeOut(1000, function() {
-        $(this).remove();
-    });
-     
-    }
-  
-
-    $('.pform_reset').click(function(){
-      $('#productinsert')[0].reset();
-      $('.pname').html('');
-      $('.select_catagory').html('');
-      $('.p_price').html('');
-      $('.p_image').html('');
-      $('.p_tag').html('');
-      $('.p_description').html('');
-    });
-    
     $(document).on("click",".productSave",function(event){
       event.preventDefault();
       console.log("Product save button click");
@@ -262,6 +261,7 @@ $(document).ready(function() {
              response["msg"]["select_catagory"] !== undefined ? $(".select_catagory").html (response["msg"]["select_catagory"]) : $(".select_catagory").html("");
              response["msg"]["p_price"] !== undefined ? $(".p_price").html (response["msg"]["p_price"]) : $(".p_price").html("");
              response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
+             response["msg"]["product_image_alt"] !== undefined ? $(".product_image_alt").html (response["msg"]["product_image_alt"]) : $(".product_image_alt").html("");
              response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
              response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
              if(response['data'] == "success"){
@@ -274,16 +274,294 @@ $(document).ready(function() {
     });
     })
 
-    function showMessage(msg, type) {
-      var alertClass = (type === "success") ? "success" : "error";
-      var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
-      $("#success_message").html(messageHtml);
-      $("#success_message").fadeIn().delay(5000).fadeOut(1000, function() {
-        $(this).remove();
+    $(document).on("click",".videoSave",function(event){
+      event.preventDefault();
+      console.log("video save button click");
+      var form_data = $("#videoinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_videos'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+             response["msg"]["video_title"] !== undefined ? $(".video_title").html (response["msg"]["video_title"]) : $(".video_title").html("");
+             response["msg"]["video_category"] !== undefined ? $(".video_category").html (response["msg"]["video_category"]) : $(".video_category").html("");
+             response["msg"]["youtube_shorts"] !== undefined ? $(".youtube_shorts").html (response["msg"]["youtube_shorts"]) : $(".youtube_shorts").html("");
+             response["msg"]["youtube_vlogs"] !== undefined ? $(".youtube_vlogs").html (response["msg"]["youtube_vlogs"]) : $(".youtube_vlogs").html("");
+             if(response['data'] == "success"){
+              $("#videoinsert")[0].reset();
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
     });
-     
-    }
+    })
 
+    $(document).on("click",".blogSave",function(event){
+      event.preventDefault();
+      console.log("Blog save button click");
+      var $contentheader =  CKEDITOR.instances["myeditor"];
+      if($contentheader != undefined){
+          CKEDITOR.instances["myeditor"].updateElement();
+      }
+      var form_data = $("#bloginsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_blog'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+             response["msg"]["blog_title"] !== undefined ? $(".blog_title").html (response["msg"]["blog_title"]) : $(".blog_title").html("");
+             response["msg"]["blog_category"] !== undefined ? $(".blog_category").html (response["msg"]["blog_category"]) : $(".blog_category").html("");
+             response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
+             response["msg"]["author_name"] !== undefined ? $(".author_name").html (response["msg"]["author_name"]) : $(".author_name").html("");
+             response["msg"]["blog_image"] !== undefined ? $(".blog_image").html (response["msg"]["blog_image"]) : $(".blog_image").html("");
+             response["msg"]["blog_image_alt"] !== undefined ? $(".blog_image_alt").html (response["msg"]["blog_image_alt"]) : $(".blog_image_alt").html("");
+             if(response['data'] == "success"){
+              $("#bloginsert")[0].reset();
+              CKEDITOR.instances['myeditor'].setData('');
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+
+    $(document).on("click",".bannerSave",function(event){
+      event.preventDefault();
+      console.log("Banner save button click");
+      var form_data = $("#bannerinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_banner'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+             response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+             response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+             response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
+             response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
+             response["msg"]["banner_text"] !== undefined ? $(".banner_text").html (response["msg"]["banner_text"]) : $(".banner_text").html("");
+             response["msg"]["banner_btn_link"] !== undefined ? $(".banner_btn_link").html (response["msg"]["banner_btn_link"]) : $(".banner_btn_link").html("");
+             if(response['data'] == "success"){
+              $("#bannerinsert")[0].reset();
+              resetThumbnail();
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+
+    $(document).on("click",".marketSave",function(event){
+      event.preventDefault();
+      console.log("market save button click");
+      var form_data = $("#f_marketinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_market'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+             response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+             response["msg"]["svg_image_alt"] !== undefined ? $(".svg_image_alt").html (response["msg"]["svg_image_alt"]) : $(".svg_image_alt").html("");
+             response["msg"]["shop_logo"] !== undefined ? $(".shop_logo").html (response["msg"]["shop_logo"]) : $(".shop_logo").html("");
+             response["msg"]["svg_img"] !== undefined ? $(".svg_img").html (response["msg"]["svg_img"]) : $(".svg_img").html("");
+             response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
+             response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
+             response["msg"]["img"] !== undefined ? $(".img").html (response["msg"]["img"]) : $(".img").html("");
+             if(response['data'] == "success"){
+              $("#f_marketinsert")[0].reset();
+              resetThumbnail();
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+    $(document).on("click",".brouseSave",function(event){
+      event.preventDefault();
+      console.log(" brouseSave save button click");
+      var form_data = $("#b_textileCtgryinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_brousetxt'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+          response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
+             if(response['data'] == "success"){
+              $("#b_textileCtgryinsert")[0].reset();
+              resetThumbnail();
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+    $(document).on("click",".offerSave",function(event){
+      event.preventDefault();
+      console.log(" offers save button click");
+      var form_data = $("#offersinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_offers'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+          response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
+             if(response['data'] == "success"){
+              $("#offersinsert")[0].reset();
+              resetThumbnail();
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+    $(document).on("click",".paragraphSave",function(event){
+      event.preventDefault();
+      console.log(" paragraph save button click");
+      var $contentheader =  CKEDITOR.instances["myeditor"];
+      if($contentheader != undefined){
+          CKEDITOR.instances["myeditor"].updateElement();
+      }
+      var form_data = $("#paragraphinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_paragraph'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+          response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
+             if(response['data'] == "success"){
+              $("#paragraphinsert")[0].reset();
+              CKEDITOR.instances['myeditor'].setData('');
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+
+    $(document).on("click",".faqSave",function(event){
+      event.preventDefault();
+      console.log(" faqSave save button click");
+      var $contentheader =  CKEDITOR.instances["myeditor"];
+      if($contentheader != undefined){
+          CKEDITOR.instances["myeditor"].updateElement();
+      }
+      var form_data = $("#faqinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_faq'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+             loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+          response["msg"]["faq_question"] !== undefined ? $(".faq_question").html (response["msg"]["faq_question"]) : $(".faq_question").html("");
+          response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
+             if(response['data'] == "success"){
+              $("#faqinsert")[0].reset();
+              CKEDITOR.instances['myeditor'].setData('');
+            }
+            if (response.data === "success") {
+              showMessage(response.msg, "success");
+          } 
+      }
+    });
+    })
+    
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
     

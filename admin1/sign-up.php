@@ -100,8 +100,8 @@
                     </div>
                     <div class="mb-3">
                       <input type="file" class="form-control" name="image">
-                      <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file</p>
-                      <span class="errormsg image"></span>
+                      <label class="font-weight-normal">Allow only jpg,jpeg,gif,svg,png,webp file</label>
+                      <div class="errormsg image"></div>
                     </div>
                     <div class="mb-3">
                       <input type="password" class="form-control password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
@@ -117,7 +117,7 @@
                     </div>
                     <div class="mb-3 text-center">
                       <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
-                      <button type="button" class="btn btn-secondary bg-dark btn-sm signUpcancel">Cancel</button>
+                      <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button>
                     </div>
                     <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
                     <div class="mt-3 position-relative text-center mb-3">

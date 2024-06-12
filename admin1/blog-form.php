@@ -174,15 +174,16 @@
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-          <form role="form">
+          <form role="form" id="bloginsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal">Blog Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Product Name">
+              <input type="text" class="form-control" placeholder="Blog Title" name="blog_title">
+              <span class="errormsg blog_title"></span>
             </div>
             <label for="p-tags" class="font-weight-normal">Blog Category</label>
             <div class="mb-3">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Category</option>
+              <select class="form-select" aria-label="Default select example" name="blog_category">
+                <option selected value="">Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>
@@ -216,23 +217,33 @@
                 <option value="31">Undergarments</option>
                 <option value="32">Wedding clothing</option>
               </select>
+              <span class="errormsg blog_category"></span>
             </div>
             <label for="body" class="font-weight-normal">Body</label>
             <div class="mb-3">
-              <textarea id="myeditor" name="myeditor" id="myeditor"></textarea>
+              <textarea id="myeditor" name="myeditor"></textarea>
+              <span class="errormsg myeditor"></span>
             </div>
             <label for="text" class="font-weight-normal">Author</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Author Name">
+              <input type="text" class="form-control" placeholder="Author Name" name="author_name">
+              <span class="errormsg author_name"></span>
             </div>
             <label for="p-image" class="font-weight-normal">Blog Image</label>
             <div class="mb-3">
-              <input type="file" class="form control">
+              <input type="file" class="form-control" name="blog_image" alt="" >
+              <span class="errormsg blog_image"></span>
+            </div>
+            <label for="text" class="font-weight-normal">Blog image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="blog image alt" name="blog_image_alt">
+              <span class="errormsg blog_image_alt"></span>
             </div>
             <div class="mb-3">
-              <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+              <button type="button" class="btn btn-primary bg-dark btn-sm blogSave">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
             </div>
+            <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
           </form>
         </div>
       </div>

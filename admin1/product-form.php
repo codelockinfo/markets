@@ -227,9 +227,14 @@
           <label for="p-image" class="font-weight-normal">Product Image</label>
           <div class="mb-3">
             <input type="file" class="form-control" id="imageUpload" name="p_image">
-            <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </p>
-            <span class="errormsg p_image"></span>
+            <label class="font-weight-normal">Allow only jpg,jpeg,gif,svg,png,webp file</label>
+            <div class="errormsg p_image"></div>
           </div>
+          <label for="text" class="font-weight-normal">Product image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Product image alt" name="product_image_alt">
+              <span class="errormsg product_image_alt"></span>
+            </div>
           <div class="md-3">
             <label for="text" class="font-weight-normal">Product Tag</label>
             <select class="form-select mb-3" aria-label="Default select example" name="p_tag">
@@ -247,7 +252,7 @@
           </div>
           <div class="mb-3">
             <button type="button" class="btn btn-primary bg-dark btn-sm productSave save_loader_show">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset">Cancel</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset formCancel">Cancel</button>
           </div>
           <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
         </form>

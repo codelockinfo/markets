@@ -149,15 +149,17 @@
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-        <form role="form">
+        <form role="form" id="paragraphinsert" enctype="multipart/form-data" method="POST">
           <label for="body" class="font-weight-normal">Paragraph</label>
             <div class="mb-3">
-              <textarea id="myeditor" name="myeditor" id="myeditor"></textarea>
+              <textarea name="myeditor" id="myeditor"></textarea>
+              <span class="errormsg myeditor"></span>
             </div>
           <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+            <button type="button" class="btn btn-primary bg-dark btn-sm paragraphSave">Save</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
           </div>
+          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
         </form>
       </div>
       </div>

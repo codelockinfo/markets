@@ -149,34 +149,45 @@
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5   mx-auto">
         <div class="card z-index-0 p-5">
-        <form role="form">
+        <form role="form" id="bannerinsert" enctype="multipart/form-data" method="POST">
           <label for="b-image" class="font-weight-normal">Banner Image</label>
           <div class="mb-3">
             <div class="drop-zone">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
+              <span class="errormsg myFile"></span>
             </div>
           </div>
+          <label for="text" class="font-weight-normal">Banner image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Banner  image alt" name="image_alt">
+              <span class="errormsg image_alt"></span>
+            </div>
           <label for="b-heading" class="font-weight-normal">Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Heading">
+            <input type="text" class="form-control" placeholder="Heading" name="heading">
+            <span class="errormsg heading"></span>
           </div>
           <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Sub Heading">
+            <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
+            <span class="errormsg sub_heading"></span>
           </div>
           <label for="b-subheading" class="font-weight-normal">Banner Button Text</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Banner Text">
+            <input type="text" class="form-control" placeholder="Banner Text" name="banner_text">
+            <span class="errormsg banner_text"></span>
           </div>
           <label for="b-subheading" class="font-weight-normal">Banner Button Link</label>
           <div class="mb-3">
-            <input type="url" class="form-control" placeholder="https://example.com">
+            <input type="url" class="form-control" placeholder="https://example.com" name="banner_btn_link">
+              <span class="errormsg banner_btn_link"></span>
           </div>
           <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+            <button type="button" class="btn btn-primary bg-dark btn-sm bannerSave saveButton formSave">Save</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
           </div>
+          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
         </form>
       </div>
       </div>
