@@ -1,5 +1,5 @@
 <?php
- include 'header.php';
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -15,7 +15,7 @@
             <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
           </ol>
-          <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+          <h6 class="text-white font-weight-bolder ms-2">Product Form</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -174,85 +174,86 @@
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-        <form role="form"  id="productinsert"  enctype="multipart/form-data" method="POST">
-          <label for="title" class="font-weight-normal">Product Title</label>
-          <div class="mb-3">
-            <input type="text" class="form-control product" placeholder="Product Name" name="pname">
-            <span class="errormsg pname"></span>
-          </div>
-          <label for="p-tags" class="font-weight-normal">Product Category</label>
-          <div class="mb-3">
-            <select class="form-select" aria-label="Default select example" name="select_catagory">
-              <option selected value="">Category</option>
-              <option value="1">Armwear</option>
-              <option value="2">Badges</option>
-              <option value="3">Belts</option>
-              <option value="4">Children's clothing</option>
-              <option value="5">Clothing brands by type</option>
-              <option value="6">Coats</option>
-              <option value="7">Dresses</option>
-              <option value="8">Footwear</option>
-              <option value="9">Gowns</option>
-              <option value="10">Handwear</option>
-              <option value="12">Hosiery</option>
-              <option value="13">Jackets</option>
-              <option value="14">Jeans by type</option>
-              <option value="15">Knee clothing</option>
-              <option value="16">Masks</option>
-              <option value="17">Neckwear</option>
-              <option value="18">One-piece suits</option>
-              <option value="19">Outerwear</option>
-              <option value="20">Ponchos</option>
-              <option value="21">Robes and cloaks</option>
-              <option value="22">Royal attire</option>
-              <option value="23">Saris</option>
-              <option value="24">Sashes</option>
-              <option value="25">Shawls and wraps</option>
-              <option value="26">Skirts</option>
-              <option value="27">Sportswear</option>
-              <option value="28">Suits</option>
-              <option value="29">Tops</option>
-              <option value="30">Trousers and shorts</option>
-              <option value="31">Undergarments</option>
-              <option value="32">Wedding clothing</option>
-            </select>
-            <span class="errormsg select_catagory"></span>
-          </div>
-          <label for="title" class="font-weight-normal">Product Price</label>
-          <div class="mb-3">
-            <input type="text" class="form-control" placeholder="price" name="p_price">
-            <span class="errormsg p_price"></span>
-          </div>
-          <label for="p-image" class="font-weight-normal">Product Image</label>
-          <div class="mb-3">
-            <input type="file" class="form-control" id="imageUpload" name="p_image">
+          <form role="form" id="productinsert" enctype="multipart/form-data" method="POST">
+            <label for="title" class="font-weight-normal">Product Title</label>
+            <div class="mb-3">
+              <input type="text" class="form-control product" placeholder="Product Name" name="pname">
+              <span class="errormsg pname"></span>
+            </div>
+            <label for="p-tags" class="font-weight-normal">Product Category</label>
+            <div class="mb-3">
+              <select class="form-select" aria-label="Default select example" name="select_catagory">
+                <option selected value="">Category</option>
+                <option value="1">Armwear</option>
+                <option value="2">Badges</option>
+                <option value="3">Belts</option>
+                <option value="4">Children's clothing</option>
+                <option value="5">Clothing brands by type</option>
+                <option value="6">Coats</option>
+                <option value="7">Dresses</option>
+                <option value="8">Footwear</option>
+                <option value="9">Gowns</option>
+                <option value="10">Handwear</option>
+                <option value="12">Hosiery</option>
+                <option value="13">Jackets</option>
+                <option value="14">Jeans by type</option>
+                <option value="15">Knee clothing</option>
+                <option value="16">Masks</option>
+                <option value="17">Neckwear</option>
+                <option value="18">One-piece suits</option>
+                <option value="19">Outerwear</option>
+                <option value="20">Ponchos</option>
+                <option value="21">Robes and cloaks</option>
+                <option value="22">Royal attire</option>
+                <option value="23">Saris</option>
+                <option value="24">Sashes</option>
+                <option value="25">Shawls and wraps</option>
+                <option value="26">Skirts</option>
+                <option value="27">Sportswear</option>
+                <option value="28">Suits</option>
+                <option value="29">Tops</option>
+                <option value="30">Trousers and shorts</option>
+                <option value="31">Undergarments</option>
+                <option value="32">Wedding clothing</option>
+              </select>
+              <span class="errormsg select_catagory"></span>
+            </div>
+            <label for="title" class="font-weight-normal">Product Price</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="price" name="p_price">
+              <span class="errormsg p_price"></span>
+            </div>
+            <label for="p-image" class="font-weight-normal">Product Image</label>
+            <label for="b-image" class="font-weight-normal">Banner Image</label>
+            <div class="mb-3">
+              <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
+              </div>
+            </div>
             <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </p>
-            <span class="errormsg p_image"></span>
-          </div>
-          <div class="md-3">
-            <label for="text" class="font-weight-normal">Product Tag</label>
-            <select class="form-select mb-3" aria-label="Default select example" name="p_tag">
-            <option selected value="">Product Tag</option>
-              <option value="1">Saree</option>
-              <option value="2">Fashion</option>
-              <option value="3">Women</option>
-            </select>
-            <span class="errormsg p_tag"></span>
-          </div>
-          <label for="p-description" class="font-weight-normal">Product Description</label>
-          <div class="mb-3">
-            <textarea id="pro-description" class="w-100 form-control" name="p_description"></textarea>
-            <span class="errormsg p_description"></span>
-          </div>
-          <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm productSave save_loader_show">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset">Cancel</button>
-          </div>
-          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
-        </form>
+            <div class="mb-3">
+              <label for="text" class="font-weight-normal">Product Tag</label>
+              <select class="js-select2-multi form-select mb-3" aria-label="Default select example" multiple="multiple" name="p_tag">
+                <option value="Saree">Saree</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Women">Women</option>
+              </select>
+              <span class="errormsg p_tag"></span>
+            </div>
+            <label for="p-description" class="font-weight-normal">Product Description</label>
+            <div class="mb-3">
+              <textarea id="pro-description" class="w-100 form-control" name="p_description"></textarea>
+              <span class="errormsg p_description"></span>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary bg-dark btn-sm productSave save_loader_show">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset">Cancel</button>
+            </div>
+            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
+          </form>
+        </div>
       </div>
-      </div>
-     
     </div>
   </div>
   <div class="fixed-plugin">

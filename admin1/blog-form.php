@@ -15,7 +15,7 @@
             <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
           </ol>
-          <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+          <h6 class="text-white font-weight-bolder ms-2">Blog</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -193,7 +193,6 @@
                 <option value="8">Footwear</option>
                 <option value="9">Gowns</option>
                 <option value="10">Handwear</option>
-                <option value="11">Headgear</option>
                 <option value="12">Hosiery</option>
                 <option value="13">Jackets</option>
                 <option value="14">Jeans by type</option>

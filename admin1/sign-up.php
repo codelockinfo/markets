@@ -115,13 +115,13 @@
                       <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
                       <span class="errormsg email"></span>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center mt-2">
                       <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
                       <button type="button" class="btn btn-secondary bg-dark btn-sm signUpcancel">Cancel</button>
                     </div>
                     <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
+                      <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0">Sign up</button>
                     </div>
                   </form>
                 </div>
