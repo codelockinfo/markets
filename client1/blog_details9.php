@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>CaterServ - Catering Services Website Template</title>
+    <title>Blog-details</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -51,7 +51,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All markets</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All markets</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All categories</a>
+                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All categories</a>
                             <div class="dropdown-menu  bg-light">
                                 <div class="drop-box row p-2 px-3">
                                     <div class="col-12 col-md-4">
@@ -183,10 +183,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="event.php" class="nav-item nav-link">wholesale</a>
-                        <a href="blog.php" class="nav-item nav-link">blogs</a>
-                        <a href="menu.php" class="nav-item nav-link">videos</a>
-                        <a href="contact.php" class="nav-item nav-link">plans</a>
+                        <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a>
+                        <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
+                        <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
+                        <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                     <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
@@ -196,7 +196,7 @@
     </div>
     <!-- Navbar End -->
 
-         <!-- megamenu md view  -->
+    <!-- megamenu md view  -->
     <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <a href="index.php"> <img src="img/images.png" class="w-25 img-fluid" alt=""></a>
@@ -391,19 +391,15 @@
                             <p class="fs-6"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum .</p>
                             <h4 class="  fs-5 mt-3">Lorem ipsum dolor sit amet. ?</h4>
                             <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <div class="row my-4">
-                                <div class="col-12 col-md-6"><img src="img/saree/3.jpg" class="img-fluid rounded-3 " alt=""></div>
-                                <div class="col-12 col-md-6"><img src="img/saree/4.jpg" class="img-fluid rounded-3 mt-3 mt-md-0" alt=""></div>
-                                <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <h4 class="  fs-4 mt-3">Lorem ipsum dolor sit amet. ?</h4>
-                                <ul class="list-unstyled">
-                                    <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
-                                    <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
-                                    <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
-                                </ul>
-                                <h4 class="  fs-5 ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</h4>
-                                <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
+                            <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <h4 class="  fs-4 mt-3">Lorem ipsum dolor sit amet. ?</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
+                                <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
+                                <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
+                            </ul>
+                            <h4 class="  fs-5 ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</h4>
+                            <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                 </div>
@@ -418,14 +414,14 @@
                             </div>
                         </div>
                         <div class="blog_post mt-5">
-                        <h4 class="fs-5 ">Related blogs</h4>
+                            <h4 class="fs-5 ">Related blogs</h4>
                             <div class="row mt-3">
                                 <div class="col-4">
                                     <img src="img/kurti/2.jpg" class="img-fluid rounded" alt="">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -434,7 +430,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -443,7 +439,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -457,7 +453,7 @@
                                 <li class="mb-3 text-dark"><i class="fa-solid fa-circle fs-05 text-primary me-3"></i><a href="#">Skirt</a></li>
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -509,10 +505,10 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</p>
-                            <p><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> info@example.com</p>
-                            <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
+                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
+                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
                         </div>
                     </div>
                 </div>
@@ -524,16 +520,8 @@
     <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                </div>
+            <div class="text-center mb-3 mb-md-0">
+                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
             </div>
         </div>
     </div>

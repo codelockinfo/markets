@@ -32,11 +32,14 @@ class admin_functions {
         // print_r($_POST);
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["image"]["name"]) ? $_FILES["image"]["name"] : '';
+        $tmpfile = isset($_FILES["image"]["tmp_name"]) ? $_FILES["image"]["tmp_name"] : '';
         $fileName = $_FILES['image']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $newFilename = time(). '.' . $extension;
+        $folder = "assets/img/sigup_img/" . $newFilename;
+        move_uploaded_file($tmpfile,$folder);
 
         $error_array = array();
 
@@ -115,11 +118,16 @@ class admin_functions {
         // print_r($_POST);
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
+        $tmpfile = isset($_FILES["p_image"]["tmp_name"]) ? $_FILES["p_image"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $newFilename = time(). '.' . $extension;
         $fileName = $_FILES['p_image']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
+        $folder = "assets/img/product_img/" . $newFilename;
+        move_uploaded_file($tmpfile,$folder);
+       
+
         $error_array = array();
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
