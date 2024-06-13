@@ -10,7 +10,7 @@ include 'header.php';
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="<?php echo CLS_SITE_URL; ?>">
               Market Search
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@ include 'header.php';
               </li> -->
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                  <a href="https://codelocksolutions.in/markets/client1/" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
+                  <a href="<?php echo CLS_SITE_URL; ?>" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
                 </li>
               </ul>
             </div>
@@ -156,10 +156,10 @@ include 'header.php';
           <!-- <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Team
             </a> -->
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Products
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Blog
           </a>
         </div>
@@ -186,7 +186,7 @@ include 'header.php';
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Codelock Solution
+            </script><a href="http://codelocksolutions.in/"> Codelock Solution</a>
           </p>
         </div>
       </div>

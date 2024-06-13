@@ -14,7 +14,7 @@ if (isset($_SESSION['id'])) {
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="<?php echo CLS_SITE_URL; ?>">
               Market Search
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,10 +151,10 @@ if (isset($_SESSION['id'])) {
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             About Us
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Products
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Blog
           </a>
         </div>
@@ -181,7 +181,7 @@ if (isset($_SESSION['id'])) {
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Codelock Solution
+            </script><a href="http://codelocksolutions.in/"> Codelock Solution</a>
           </p>
         </div>
       </div>
