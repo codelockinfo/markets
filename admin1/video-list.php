@@ -1,20 +1,16 @@
 <?php
- include 'header.php';
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Video List</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -153,7 +149,7 @@
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active "  href="video-form.php" role="tab" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active " href="<?php echo SITE_ADMIN_URL ?>video-form.php" role="tab" aria-selected="true">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -222,7 +218,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div>  
+                  </div>
                 </div>
               </div>
             </div>
@@ -247,7 +243,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -272,7 +268,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -297,7 +293,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -322,7 +318,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -347,7 +343,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -372,7 +368,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -397,7 +393,7 @@
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -424,8 +420,8 @@
         </div>
       </div>
     </div>
-      </div>
-    </div>
+  </div>
+  </div>
   </div>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -494,4 +490,5 @@
     </div>
   </div>
 </body>
+
 </html>

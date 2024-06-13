@@ -25,7 +25,6 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('MAIN_URL', 'https://codelocksolutions.in/markets/');
     define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/client1/');
      define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
-    define('SITE_CLIENT_URL', 'https://codelocksolutions.in/markets/client1/');
     define('SITE_ADMIN_URL', 'https://codelocksolutions.in/markets/admin1/');
 } else {
     echo 'Undefine host';

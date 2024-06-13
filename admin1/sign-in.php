@@ -1,7 +1,7 @@
 <?php
- include 'header.php';
- require_once 'googleconfig.php';
- 
+include 'header.php';
+require_once 'googleconfig.php';
+
 if (isset($_SESSION['id'])) {
   header("Location: index.php");
 }
@@ -39,13 +39,13 @@ if (isset($_SESSION['id'])) {
                   </a>
                 </li> -->
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="sign-up.php">
+                  <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up.php">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="sign-in.php">
+                  <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
                     Sign In
                   </a>
@@ -53,7 +53,7 @@ if (isset($_SESSION['id'])) {
               </ul>
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
+                  <a href="<?php echo CLS_SITE_URL; ?>" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
                 </li>
               </ul>
             </div>
@@ -70,7 +70,7 @@ if (isset($_SESSION['id'])) {
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-8">
-                <div class="card-header pb-0 text-left bg-transparent">
+                <div class="card-header pb-0 text-left bg-transparent text-center">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
@@ -92,7 +92,7 @@ if (isset($_SESSION['id'])) {
                     <div class="row px-xl-1 px-sm-1">
                       <div class="col-3 me-5">
                         <a class="btn btn-outline-light" href="javascript:;">
-                          <svg width="110px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
+                          <svg width="110px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
                             <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <g id="facebook-3" transform="translate(3.000000, 3.000000)" fill-rule="nonzero">
                                 <circle fill="#3C5A9A" cx="29.5091719" cy="29.4927506" r="29.4882047"></circle>
@@ -104,7 +104,7 @@ if (isset($_SESSION['id'])) {
                       </div>
                       <div class="col-3 ms-5">
                         <a class="btn btn-outline-light" href='<?php echo $client->createAuthUrl(); ?>'>
-                          <svg width="110px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <svg width="110px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <g id="google-icon" transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
                                 <path d="M57.8123233,30.1515267 C57.8123233,27.7263183 57.6155321,25.9565533 57.1896408,24.1212666 L29.4960833,24.1212666 L29.4960833,35.0674653 L45.7515771,35.0674653 C45.4239683,37.7877475 43.6542033,41.8844383 39.7213169,44.6372555 L39.6661883,45.0037254 L48.4223791,51.7870338 L49.0290201,51.8475849 C54.6004021,46.7020943 57.8123233,39.1313952 57.8123233,30.1515267" id="Path" fill="#4285F4"></path>
@@ -127,7 +127,7 @@ if (isset($_SESSION['id'])) {
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
-                    <a href="sign-up.php" class="text-info text-gradient font-weight-bold">Sign up</a>
+                    <a href="<?php echo SITE_ADMIN_URL ?>sign-up.php" class="text-info text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </div>
               </div>
@@ -157,9 +157,6 @@ if (isset($_SESSION['id'])) {
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Blog
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-            Pricing
-          </a>
         </div>
         <!-- <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
@@ -180,11 +177,11 @@ if (isset($_SESSION['id'])) {
         </div> -->
       </div>
       <div class="row">
-        <div class="col-8 mx-auto text-center mt-1">
+        <div class="col-8 ms-10 text-center mt-1">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Soft by Creative Tim.
+            </script> Codelock Solution
           </p>
         </div>
       </div>

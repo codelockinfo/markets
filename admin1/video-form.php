@@ -1,20 +1,16 @@
 <?php
- include 'header.php';
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-<?php 
-    include_once ABS_PATH . '/markets/admin1/sidebar.php';
-?>
+  <?php
+  include 'sidebar.php';
+  ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Video Form</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -147,7 +143,7 @@
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active" href="video-list.php" role="tab" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active" href="<?php echo SITE_ADMIN_URL ?>video-list.php" role="tab" aria-selected="true">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -177,7 +173,7 @@
           <form role="form" id="videoinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal">Video Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Video Title" name="video_title">
+              <input type="text" class="form-control" placeholder="Video Name" name="video_title">
               <span class="errormsg video_title"></span>
             </div>
             <label for="p-tags" class="font-weight-normal">Video Category</label>
@@ -194,27 +190,27 @@
                 <option value="8">Footwear</option>
                 <option value="9">Gowns</option>
                 <option value="10">Handwear</option>
-                <option value="12">Hosiery</option>
-                <option value="13">Jackets</option>
-                <option value="14">Jeans by type</option>
-                <option value="15">Knee clothing</option>
-                <option value="16">Masks</option>
-                <option value="17">Neckwear</option>
-                <option value="18">One-piece suits</option>
-                <option value="19">Outerwear</option>
-                <option value="20">Ponchos</option>
-                <option value="21">Robes and cloaks</option>
-                <option value="22">Royal attire</option>
-                <option value="23">Saris</option>
-                <option value="24">Sashes</option>
-                <option value="25">Shawls and wraps</option>
-                <option value="26">Skirts</option>
-                <option value="27">Sportswear</option>
-                <option value="28">Suits</option>
-                <option value="29">Tops</option>
-                <option value="30">Trousers and shorts</option>
-                <option value="31">Undergarments</option>
-                <option value="32">Wedding clothing</option>
+                <option value="11">Hosiery</option>
+                <option value="12">Jackets</option>
+                <option value="13">Jeans by type</option>
+                <option value="14">Knee clothing</option>
+                <option value="15">Masks</option>
+                <option value="16">Neckwear</option>
+                <option value="17">One-piece suits</option>
+                <option value="18">Outerwear</option>
+                <option value="19">Ponchos</option>
+                <option value="20">Robes and cloaks</option>
+                <option value="21">Royal attire</option>
+                <option value="22">Saris</option>
+                <option value="23">Sashes</option>
+                <option value="24">Shawls and wraps</option>
+                <option value="25">Skirts</option>
+                <option value="26">Sportswear</option>
+                <option value="27">Suits</option>
+                <option value="28">Tops</option>
+                <option value="29">Trousers and shorts</option>
+                <option value="30">Undergarments</option>
+                <option value="31">Wedding clothing</option>
               </select>
               <span class="errormsg video_category"></span>
             </div>
@@ -225,84 +221,84 @@
             </div>
             <label for="y-videolink" class="font-weight-normal">Youtube Vlogs Link</label>
             <div class="mb-3">
-              <input type="url" id="y-vlogurl"  class="form-control" placeholder="Youtube Vlogs" name="youtube_vlogs">
+              <input type="url" id="y-vlogurl" class="form-control" placeholder="Youtube Vlogs" name="youtube_vlogs">
               <span class="errormsg youtube_vlogs"></span>
             </div>
             <div class="mb-3">
               <button type="button" class="btn btn-primary bg-dark btn-sm videoSave">Save</button>
               <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
             </div>
-            <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
+            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
           </form>
-        </div> 
+        </div>
       </div>
     </div>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg ">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+    <div class="fixed-plugin">
+      <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <i class="fa fa-cog py-2"> </i>
+      </a>
+      <div class="card shadow-lg ">
+        <div class="card-header pb-0 pt-3 ">
+          <div class="float-start">
+            <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
+            <p>See our dashboard options.</p>
           </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
+          <div class="float-end mt-4">
+            <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
+          <!-- End Toggle Button -->
         </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3">
-          <h6 class="mb-0">Navbar Fixed</h6>
-        </div>
-        <div class="form-check form-switch ps-0">
-          <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View documentation</a>
-        <div class="w-100 text-center">
-          <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
-          <h6 class="mt-3">Thank you for sharing!</h6>
-          <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+        <hr class="horizontal dark my-1">
+        <div class="card-body pt-sm-3 pt-0">
+          <!-- Sidebar Backgrounds -->
+          <div>
+            <h6 class="mb-0">Sidebar Colors</h6>
+          </div>
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors my-2 text-start">
+              <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+            </div>
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-          </a>
+          <!-- Sidenav Type -->
+          <div class="mt-3">
+            <h6 class="mb-0">Sidenav Type</h6>
+            <p class="text-sm">Choose between 2 different sidenav types.</p>
+          </div>
+          <div class="d-flex">
+            <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
+            <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+          </div>
+          <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+          <!-- Navbar Fixed -->
+          <div class="mt-3">
+            <h6 class="mb-0">Navbar Fixed</h6>
+          </div>
+          <div class="form-check form-switch ps-0">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+          </div>
+          <hr class="horizontal dark my-sm-4">
+          <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard">Free Download</a>
+          <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View documentation</a>
+          <div class="w-100 text-center">
+            <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
+            <h6 class="mt-3">Thank you for sharing!</h6>
+            <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+              <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+              <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </body>
 
 </html>

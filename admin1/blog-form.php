@@ -1,21 +1,17 @@
 <?php
- include 'header.php';
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
   <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+      include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
-          <h6 class="text-white font-weight-bolder ms-2">Blog</h6>
+          <h6 class="text-white font-weight-bolder ms-2">Blog Form</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -147,7 +143,7 @@
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active" href="blog-list.php" role="tab" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active" href="<?php echo SITE_ADMIN_URL ?>blog-list.php" role="tab" aria-selected="true">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -174,16 +170,15 @@
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-          <form role="form" id="bloginsert" enctype="multipart/form-data" method="POST">
+          <form role="form">
             <label for="title" class="font-weight-normal">Blog Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Blog Title" name="blog_title">
-              <span class="errormsg blog_title"></span>
+              <input type="text" class="form-control" placeholder="Blog Name">
             </div>
             <label for="p-tags" class="font-weight-normal">Blog Category</label>
             <div class="mb-3">
-              <select class="form-select" aria-label="Default select example" name="blog_category">
-                <option selected value="">Category</option>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>
@@ -194,58 +189,48 @@
                 <option value="8">Footwear</option>
                 <option value="9">Gowns</option>
                 <option value="10">Handwear</option>
-                <option value="12">Hosiery</option>
-                <option value="13">Jackets</option>
-                <option value="14">Jeans by type</option>
-                <option value="15">Knee clothing</option>
-                <option value="16">Masks</option>
-                <option value="17">Neckwear</option>
-                <option value="18">One-piece suits</option>
-                <option value="19">Outerwear</option>
-                <option value="20">Ponchos</option>
-                <option value="21">Robes and cloaks</option>
-                <option value="22">Royal attire</option>
-                <option value="23">Saris</option>
-                <option value="24">Sashes</option>
-                <option value="25">Shawls and wraps</option>
-                <option value="26">Skirts</option>
-                <option value="27">Sportswear</option>
-                <option value="28">Suits</option>
-                <option value="29">Tops</option>
-                <option value="30">Trousers and shorts</option>
-                <option value="31">Undergarments</option>
-                <option value="32">Wedding clothing</option>
+                <option value="11">Hosiery</option>
+                <option value="12">Jackets</option>
+                <option value="13">Jeans by type</option>
+                <option value="14">Knee clothing</option>
+                <option value="15">Masks</option>
+                <option value="16">Neckwear</option>
+                <option value="17">One-piece suits</option>
+                <option value="18">Outerwear</option>
+                <option value="19">Ponchos</option>
+                <option value="20">Robes and cloaks</option>
+                <option value="21">Royal attire</option>
+                <option value="22">Saris</option>
+                <option value="23">Sashes</option>
+                <option value="24">Shawls and wraps</option>
+                <option value="25">Skirts</option>
+                <option value="26">Sportswear</option>
+                <option value="27">Suits</option>
+                <option value="28">Tops</option>
+                <option value="29">Trousers and shorts</option>
+                <option value="30">Undergarments</option>
+                <option value="31">Wedding clothing</option>
               </select>
-              <span class="errormsg blog_category"></span>
             </div>
             <label for="body" class="font-weight-normal">Body</label>
             <div class="mb-3">
-              <textarea id="myeditor" name="myeditor"></textarea>
-              <span class="errormsg myeditor"></span>
+              <textarea id="myeditor" name="myeditor" id="myeditor"></textarea>
             </div>
             <label for="text" class="font-weight-normal">Author</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Author Name" name="author_name">
-              <span class="errormsg author_name"></span>
+              <input type="text" class="form-control" placeholder="Author Name">
             </div>
             <label for="p-image" class="font-weight-normal">Blog Image</label>
             <div class="mb-3">
-              <div class="drop-zone">
+              <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="blog_image" id="removeImage" class="drop-zone__input">
-                <span class="errormsg blog_image"></span>
+                <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
               </div>  
             </div>
-            <label for="text" class="font-weight-normal">Blog image alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="blog image alt" name="blog_image_alt">
-              <span class="errormsg blog_image_alt"></span>
+              <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
             </div>
-            <div class="mb-3">
-              <button type="button" class="btn btn-primary bg-dark btn-sm blogSave">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
-            </div>
-            <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
           </form>
         </div>
       </div>

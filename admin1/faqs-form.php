@@ -1,19 +1,16 @@
-<?php 
-    include 'header.php';
+<?php
+include 'header.php';
 ?>
+
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-4 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">FAQ's</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -28,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -77,7 +74,7 @@
                     <div class="d-flex py-1">
                       <div class="my-auto">
                         <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
-                      </div> 
+                      </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
                           <span class="font-weight-bold">New album</span> by Travis Scott
@@ -156,15 +153,15 @@
                 <span class="errormsg faq_question"></span>
               </div>
               <label for="body" class="font-weight-normal">Answer</label>
-                <div class="mb-3">
-                  <textarea id="myeditor" name="myeditor"></textarea>
-                  <span class="errormsg myeditor"></span>
-                </div>
+              <div class="mb-3">
+                <textarea id="myeditor" name="myeditor"></textarea>
+                <span class="errormsg myeditor"></span>
+              </div>
               <div class="mb-3">
                 <button type="button" class="btn btn-primary bg-dark btn-sm faqSave">Save</button>
                 <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
               </div>
-              <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
+              <div class="alert" role="alert" id="success_message" name="success_alert"></div>
             </form>
           </div>
         </div>
@@ -177,55 +174,55 @@
             </div>
             <div class="accordion">
               <div class="accordion-item">
-                  <input type="checkbox" id="accordion1">
-                  <label for="accordion1" class="accordion-item-title"><span class="icon"></span>What is SEO, and why is it important for online businesses?</label>
-                  <div class="accordion-item-desc">
-                    SEO, or Search Engine Optimization, is the practice of optimizing a website to improve its visibility on search 
-                    engines like Google. It involves various techniques to enhance a site's ranking in search results. SEO is crucial 
-                    for online businesses as it helps drive organic traffic, increases visibility, and ultimately leads to higher 
-                    conversions.
-                  </div>
+                <input type="checkbox" id="accordion1">
+                <label for="accordion1" class="accordion-item-title"><span class="icon"></span>What is SEO, and why is it important for online businesses?</label>
+                <div class="accordion-item-desc">
+                  SEO, or Search Engine Optimization, is the practice of optimizing a website to improve its visibility on search
+                  engines like Google. It involves various techniques to enhance a site's ranking in search results. SEO is crucial
+                  for online businesses as it helps drive organic traffic, increases visibility, and ultimately leads to higher
+                  conversions.
+                </div>
               </div>
               <div class="accordion-item">
-                  <input type="checkbox" id="accordion2">
-                  <label for="accordion2" class="accordion-item-title"><span class="icon"></span>How long does it take to see results from SEO efforts?</label>
-                  <div class="accordion-item-desc">
-                    The timeline for seeing results from SEO can vary based on several factors, such as the competitiveness of keywords, 
-                    the current state of the website, and the effectiveness of the SEO strategy. Generally, it may take several weeks to 
-                    months before noticeable improvements occur. However, long-term commitment to SEO is essential for sustained success.
-                  </div>
+                <input type="checkbox" id="accordion2">
+                <label for="accordion2" class="accordion-item-title"><span class="icon"></span>How long does it take to see results from SEO efforts?</label>
+                <div class="accordion-item-desc">
+                  The timeline for seeing results from SEO can vary based on several factors, such as the competitiveness of keywords,
+                  the current state of the website, and the effectiveness of the SEO strategy. Generally, it may take several weeks to
+                  months before noticeable improvements occur. However, long-term commitment to SEO is essential for sustained success.
+                </div>
               </div>
               <div class="accordion-item">
-                  <input type="checkbox" id="accordion3">
-                  <label for="accordion3" class="accordion-item-title"><span class="icon"></span>What are the key components of a successful SEO strategy?</label>
-                  <div class="accordion-item-desc">
-                    A successful SEO strategy involves various components, including keyword research, on-page optimization, quality 
-                    content creation, link building, technical SEO, and user experience optimization. These elements work together to 
-                    improve a website's relevance and authority in the eyes of search engines.
-                  </div>
+                <input type="checkbox" id="accordion3">
+                <label for="accordion3" class="accordion-item-title"><span class="icon"></span>What are the key components of a successful SEO strategy?</label>
+                <div class="accordion-item-desc">
+                  A successful SEO strategy involves various components, including keyword research, on-page optimization, quality
+                  content creation, link building, technical SEO, and user experience optimization. These elements work together to
+                  improve a website's relevance and authority in the eyes of search engines.
+                </div>
               </div>
               <div class="accordion-item">
-                  <input type="checkbox" id="accordion4">
-                  <label for="accordion4" class="accordion-item-title"><span class="icon"></span>How does mobile optimization impact SEO?</label>
-                  <div class="accordion-item-desc">
-                    Mobile optimization is crucial for SEO because search engines prioritize mobile-friendly websites. With the increasing 
-                    use of smartphones, search engines like Google consider mobile responsiveness as a ranking factor. Websites that 
-                    provide a seamless experience on mobile devices are more likely to rank higher in search results.
-                  </div>
+                <input type="checkbox" id="accordion4">
+                <label for="accordion4" class="accordion-item-title"><span class="icon"></span>How does mobile optimization impact SEO?</label>
+                <div class="accordion-item-desc">
+                  Mobile optimization is crucial for SEO because search engines prioritize mobile-friendly websites. With the increasing
+                  use of smartphones, search engines like Google consider mobile responsiveness as a ranking factor. Websites that
+                  provide a seamless experience on mobile devices are more likely to rank higher in search results.
+                </div>
               </div>
               <div class="accordion-item">
-                  <input type="checkbox" id="accordion5">
-                  <label for="accordion5" class="accordion-item-title"><span class="icon"></span>What is the role of backlinks in SEO, and how can they be acquired?</label>
-                  <div class="accordion-item-desc">
-                    Backlinks, or inbound links from other websites to yours, play a significant role in SEO. They are considered a vote 
-                    of confidence and can improve a site's authority. Quality over quantity is crucial when acquiring backlinks. Strategies
-                    for obtaining backlinks include creating high-quality content, guest posting, reaching out to industry influencers, 
-                    and participating in community activities. It's important to focus on natural and ethical link-building practices.
-                  </div>
+                <input type="checkbox" id="accordion5">
+                <label for="accordion5" class="accordion-item-title"><span class="icon"></span>What is the role of backlinks in SEO, and how can they be acquired?</label>
+                <div class="accordion-item-desc">
+                  Backlinks, or inbound links from other websites to yours, play a significant role in SEO. They are considered a vote
+                  of confidence and can improve a site's authority. Quality over quantity is crucial when acquiring backlinks. Strategies
+                  for obtaining backlinks include creating high-quality content, guest posting, reaching out to industry influencers,
+                  and participating in community activities. It's important to focus on natural and ethical link-building practices.
+                </div>
               </div>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   </div>

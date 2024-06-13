@@ -1,20 +1,16 @@
-<?php 
-    include 'header.php';
+<?php
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-<?php 
-    include_once ABS_PATH . '/markets/admin1/sidebar.php';
-?>
+  <?php
+  include 'sidebar.php';
+  ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-4 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Famous Markets</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -149,55 +145,55 @@
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
         <div class="card z-index-0 p-5">
-        <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-          <label for="s-logo" class="font-weight-normal">Shop Logo</label>
-          <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Shop Logo" name="shop_logo">
-            <span class="errormsg shop_logo"></span>
-          </div>
-          <label for="b-image" class="font-weight-normal">SVG Image</label>
-          <div class="mb-3">
-            <div class="drop-zone">
-              <span class="drop-zone__prompt">Drop file here or click to upload</span>
-              <input type="file" name="svg_img" class="drop-zone__input">
-              <span class="errormsg svg_img"></span>
+          <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
+            <label for="s-logo" class="font-weight-normal">Shop Logo</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Shop Logo" name="shop_logo">
+              <span class="errormsg shop_logo"></span>
             </div>
-          </div>
-          <label for="text" class="font-weight-normal">SVG image alt</label>
+            <label for="b-image" class="font-weight-normal">SVG Image</label>
+            <div class="mb-3">
+              <div class="drop-zone form-control">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="svg_img" class="drop-zone__input">
+                <span class="errormsg svg_img"></span>
+              </div>
+            </div>
+            <label for="text" class="font-weight-normal">SVG image alt</label>
             <div class="mb-3">
               <input type="text" class="form-control" placeholder="SVG image alt" name="svg_image_alt">
               <span class="errormsg svg_image_alt"></span>
             </div>
-          <label for="b-heading" class="font-weight-normal">Heading</label>
-          <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Heading" name="heading">
-            <span class="errormsg heading"></span>
-          </div>
-          <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
-          <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
-            <span class="errormsg sub_heading"></span>
-          </div>
-          <label for="market-img" class="font-weight-normal">Image</label>
-          <div class="mb-3">
-            <div class="drop-zone">
-              <span class="drop-zone__prompt">Drop file here or click to upload</span>
-              <input type="file" class="drop-zone__input" name="img">
-              <span class="errormsg img"></span>
-            </div>
-          </div>
-          <label for="text" class="font-weight-normal"> Image alt</label>
+            <label for="b-heading" class="font-weight-normal">Heading</label>
             <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
-            <span class="errormsg image_alt"></span>
+              <input type="text" class="form-control" placeholder="Heading" name="heading">
+              <span class="errormsg heading"></span>
             </div>
-          <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
-          </div>
-          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
-        </form>
-      </div>
+            <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
+              <span class="errormsg sub_heading"></span>
+            </div>
+            <label for="market-img" class="font-weight-normal">Image</label>
+            <div class="mb-3">
+              <div class="drop-zone form-control">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" class="drop-zone__input" name="img">
+                <span class="errormsg img"></span>
+              </div>
+            </div>
+            <label for="text" class="font-weight-normal"> Image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
+              <span class="errormsg image_alt"></span>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
+            </div>
+            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -269,4 +265,5 @@
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
+
 </html>
