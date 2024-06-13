@@ -41,10 +41,11 @@
     <!-- Navbar start -->
     <div class="container-fluid nav-bar">
         <div class="container">
-            <nav class="navbar navbar-light navbar-expand-lg py-4">
+            <nav class="navbar navbar-light navbar-expand-lg">
                 <a href="index.php" class="navbar-brand">
-                    <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span> </h1>
-                </a>
+                   <img style="height: 90px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
+                   <!-- <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span></h1> -->
+                </a> 
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                     <span class="fa fa-bars text-primary"></span>
                 </button>
@@ -186,8 +187,8 @@
                         <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
                         <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
                     </div>
-                    <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize"> register your shop</a>
+                    <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                    <a href="../admin1/sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize">register your shop</a>
                 </div>
             </nav>
         </div>
@@ -202,8 +203,8 @@
         </div>
         <div class="offcanvas-body">
             <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item ">
-                    <h4 class="accordion-header ">
+                <div class="accordion-item">
+                    <h4 class="accordion-header">
                         <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             All markets
                         </button>
@@ -341,8 +342,10 @@
     <!-- Modal Search End -->
 
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-6  mt-0 banner">
-        <div class="container">
+    <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
+        <img class="banner" src="img/bannerimg.png" alt="no-image">
+        <img class="banner_2" src="img/saree/9.jpg" alt="no-image">
+        <div class="container ">
             <div class="row g-5 align-items-center">
             </div>
         </div>
@@ -353,7 +356,6 @@
     <div class="container-fluid service pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Services</small>
                 <h1 class="display-5 mb-5">Famous markets</h1>
             </div>
             <div class="row g-4">
@@ -361,10 +363,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-cheese fa-3x text-primary mb-4"></i>
-                                <h4 class="mb-3">Shop Name</h4>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Arohi-Woman Fashion</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop1.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -373,10 +375,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-pizza-slice fa-3x text-primary mb-4"></i>
-                                <h4 class="mb-3">Shop Name</h4>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Kavya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop4.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop2.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -385,10 +387,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-hotdog fa-3x text-primary mb-4"></i>
-                                <h4 class="mb-3">Shop Name</h4>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Global Textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop3.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop3.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -397,10 +399,10 @@
                     <div class="bg-light rounded service-item">
                         <div class="service-content d-flex align-items-center justify-content-center p-4">
                             <div class="service-content-icon text-center">
-                                <i class="fas fa-hamburger fa-3x text-primary mb-4"></i>
-                                <h4 class="mb-3">Shop Name</h4>
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Vidya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop/shop2.jpg" alt="">
+                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop4.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -910,10 +912,11 @@
 
     <!-- FAQ Start -->
     <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 pb-5">
-        <div class="mainContent h-100 w-75 d-flex justify-content-center align-items-center gap-3">
+        <div class="mainContent h-100 w-75 d-flex flex-column justify-content-center align-items-center gap-3">
+            <h1 class="fs-1 ">Frequently ask questions</h1>
+            <div class="d-flex align-items-center">
             <div class="content_1" style="width: 70%;">
                 <div class="">
-                    <h1 class="fs-1">Frequently ask questions</h1>
                     <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
                 </div>
                 <div>
@@ -922,12 +925,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h6>Have You Weighed the potential risks and benefits?</h6>
+                                    <h6>How do I register my business on marketsearch?</h6>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                To register, click on the "Register your shop" button on the homepage, fill in your business details, and submit the registration form.
                                 </div>
                             </div>
                         </div>
@@ -935,12 +938,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h6>How will you gather feedback from stakeholders</h6>
+                                    <h6>Who can register on marketsearch?</h6>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                Fabric wholesalers and textile shop owners are eligible to register on our platform.
                                 </div>
                             </div>
                         </div>
@@ -948,12 +951,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <h6>There any sustainability or ethical to take into account?</h6>
+                                    <h6>Is there a fee to register my business?</h6>
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                   No, registering your business on marketsearch is completely free.
                                 </div>
                             </div>
                         </div>
@@ -961,12 +964,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <h6>There any sustainability or ethical to take into account?</h6>
+                                    <h6>How can I update my business information?</h6>
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                   After logging in, go to your account dashboard and click on "Edit Profile" to update your business information.
                                 </div>
                             </div>
                         </div>
@@ -974,12 +977,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    <h6>There any Lorem ipsum dolor Nibh pellentesque</h6>
+                                    <h6>Can I list multiple businesses under one account?</h6>
                                 </button>
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                   No, each business must be registered with a separate account.
                                 </div>
                             </div>
                         </div>
@@ -987,12 +990,12 @@
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    <h6>There any Lorem ipsum dolor Nibh pellentesque</h6>
+                                    <h6>How do I contact customer support?</h6>
                                 </button>
                             </h2>
                             <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    When deciding Which charity to donate to, it's important to do your search.
+                                   You can contact customer support by emailing [codelockinfo@gmail.com] or using the contact form available on our website.
                                 </div>
                             </div>
                         </div>
@@ -1000,7 +1003,8 @@
                 </div>
             </div>
             <div class="content_2">
-                <img class="w-100 h-auto rounded" src="img/shop/bussinesman.jpg" alt="">
+                <img class="w-100  fit-cover rounded" src="img/shop/img1.webp" alt="">
+            </div>
             </div>
         </div>
     </div>
@@ -1008,16 +1012,16 @@
 
     <!-- Book Us Start -->
     <div class="container-fluid contact pt-6 wow bounceInUp" data-wow-delay="0.1s">
-        <div class="container">
+        <div class="container ps-0 pe-0 ">
+            <div class="d-flex flex-column align-items-center mb-3">
+               <h1>Contact us</h1>
+            </div>
             <div class="row g-0">
                 <div class="col-1">
                     <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-start d-none" style="object-fit: cover; opacity: 0.7;" alt="">
                 </div>
                 <div class="col-10">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
-                        <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4">Contact Us</small>
-                        </div>
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
                             <div class="col-12 col-md-6">
                                 <input type="text" id="firstName" class="form-control border-primary p-2" placeholder=" Name" required>
