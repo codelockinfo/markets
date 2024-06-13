@@ -161,7 +161,7 @@
                   <span class="errormsg myeditor"></span>
                 </div>
               <div class="mb-3">
-                <button type="button" class="btn btn-primary bg-dark btn-sm faqSave">Save</button>
+                <button type="button" class="btn btn-primary bg-dark btn-sm faqSave save_loader_show">Save</button>
                 <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
               </div>
               <div class="alert"  role="alert" id="success_message" name="success_alert"></div>

@@ -139,10 +139,10 @@ class admin_functions {
         if (empty($filename)) {
             $error_array['p_image'] = "Please upload your product image";
        }
-        if (isset($_POST['product_image_alt']) && $_POST['product_image_alt'] == '') {
-        $error_array['product_image_alt'] = "Please enter product image alt";
+        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
+        $error_array['image_alt'] = "Please enter product image alt";
         }
-        if (isset($_POST['p_tag']) && $_POST['p_tag'] == '') {
+        if (empty($_POST['p_tag']) || !is_array($_POST['p_tag'])) {
             $error_array['p_tag'] = "Please enter product tag";
         }
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
@@ -152,8 +152,8 @@ class admin_functions {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
             $p_price = (isset($_POST['p_price']) && $_POST['p_price'] !== '') ? $_POST['p_price'] : '';
-            $p_tag = (isset($_POST['p_tag']) && $_POST['p_tag'] !== '') ? $_POST['p_tag'] : '';
-            $product_image_alt = (isset($_POST['product_image_alt']) && $_POST['product_image_alt'] !== '') ? $_POST['product_image_alt'] : '';
+            $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
+            $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
            
             $query = "INSERT INTO products (title,category,price,p_image,product_img_alt,p_tag,p_description) VALUES ('$product_name', '$select_catagory','$p_price','$newFilename','$product_image_alt','$p_tag','$p_description')";
@@ -318,7 +318,7 @@ class admin_functions {
             $error_array['myFile'] = "Please enter video title";
         }
         if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image_alt";
+            $error_array['image_alt'] = "Please enter image alt";
         }
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
             $error_array['heading'] = "Please enter heading";
@@ -391,7 +391,7 @@ class admin_functions {
             $error_array['img'] = "Please upload your image";
         }
         if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image_alt";
+            $error_array['image_alt'] = "Please enter image alt";
         }
         if (!in_array($svgfileExtension, $allowedExtensions)) {
             $error_array['svg_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
@@ -400,7 +400,7 @@ class admin_functions {
             $error_array['svg_img'] = "Please upload your svg image";
         }
         if (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] == '') {
-            $error_array['svg_image_alt'] = "Please enter image_alt";
+            $error_array['svg_image_alt'] = "Please enter image alt";
         }
         if (isset($_POST['shop_logo']) && $_POST['shop_logo'] == '') {
             $error_array['shop_logo'] = "Please enter shop logo";
@@ -454,7 +454,7 @@ class admin_functions {
             $error_array['myFile'] = "Please upload your image";
         }
         if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image_alt";
+            $error_array['image_alt'] = "Please enter image alt";
         }
         if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
             $error_array['img_link'] = "Please enter image link";
@@ -501,7 +501,7 @@ class admin_functions {
             $error_array['myFile'] = "Please upload your image";
         }
         if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image_alt";
+            $error_array['image_alt'] = "Please enter image alt";
         }
         if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
             $error_array['img_link'] = "Please enter image link";

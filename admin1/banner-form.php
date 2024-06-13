@@ -155,9 +155,10 @@
             <div class="drop-zone">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
-              <span class="errormsg myFile"></span>
             </div>
           </div>
+          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <div class="errormsg myFile"></div>
           <label for="text" class="font-weight-normal">Banner image alt</label>
             <div class="mb-3">
               <input type="text" class="form-control" placeholder="Banner  image alt" name="image_alt">
@@ -184,7 +185,7 @@
               <span class="errormsg banner_btn_link"></span>
           </div>
           <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm bannerSave saveButton formSave">Save</button>
+            <button type="button" class="btn btn-primary bg-dark btn-sm bannerSave saveButton formSave save_loader_show">Save</button>
             <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
           </div>
           <div class="alert"  role="alert" id="success_message" name="success_alert"></div>

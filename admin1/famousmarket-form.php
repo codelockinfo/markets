@@ -160,9 +160,10 @@
             <div class="drop-zone">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" name="svg_img" class="drop-zone__input">
-              <span class="errormsg svg_img"></span>
             </div>
           </div>
+          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <div class="errormsg svg_img"></div>
           <label for="text" class="font-weight-normal">SVG image alt</label>
             <div class="mb-3">
               <input type="text" class="form-control" placeholder="SVG image alt" name="svg_image_alt">
@@ -183,16 +184,17 @@
             <div class="drop-zone">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" class="drop-zone__input" name="img">
-              <span class="errormsg img"></span>
             </div>
           </div>
+          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <div class="errormsg img"></div>
           <label for="text" class="font-weight-normal"> Image alt</label>
             <div class="mb-3">
             <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
             <span class="errormsg image_alt"></span>
             </div>
           <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave">Save</button>
+            <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave save_loader_show">Save</button>
             <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
           </div>
           <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
