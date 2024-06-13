@@ -145,55 +145,58 @@ include 'header.php';
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
         <div class="card z-index-0 p-5">
-          <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-            <label for="s-logo" class="font-weight-normal">Shop Logo</label>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Shop Logo" name="shop_logo">
-              <span class="errormsg shop_logo"></span>
+
+        <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
+          <label for="s-logo" class="font-weight-normal">Shop Logo</label>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Shop Logo" name="shop_logo">
+            <span class="errormsg shop_logo"></span>
+          </div>
+          <label for="b-image" class="font-weight-normal">SVG Image</label>
+          <div class="mb-3">
+            <div class="drop-zone">
+              <span class="drop-zone__prompt">Drop file here or click to upload</span>
+              <input type="file" name="svg_img" class="drop-zone__input">
             </div>
-            <label for="b-image" class="font-weight-normal">SVG Image</label>
-            <div class="mb-3">
-              <div class="drop-zone form-control">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="svg_img" class="drop-zone__input">
-                <span class="errormsg svg_img"></span>
-              </div>
-            </div>
-            <label for="text" class="font-weight-normal">SVG image alt</label>
+          </div>
+          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <div class="errormsg svg_img"></div>
+          <label for="text" class="font-weight-normal">SVG image alt</label>
             <div class="mb-3">
               <input type="text" class="form-control" placeholder="SVG image alt" name="svg_image_alt">
               <span class="errormsg svg_image_alt"></span>
             </div>
-            <label for="b-heading" class="font-weight-normal">Heading</label>
+          <label for="b-heading" class="font-weight-normal">Heading</label>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Heading" name="heading">
+            <span class="errormsg heading"></span>
+          </div>
+          <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
+            <span class="errormsg sub_heading"></span>
+          </div>
+          <label for="market-img" class="font-weight-normal">Image</label>
+          <div class="mb-3">
+            <div class="drop-zone">
+              <span class="drop-zone__prompt">Drop file here or click to upload</span>
+              <input type="file" class="drop-zone__input" name="img">
+            </div>
+          </div>
+          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <div class="errormsg img"></div>
+          <label for="text" class="font-weight-normal"> Image alt</label>
             <div class="mb-3">
               <input type="text" class="form-control" placeholder="Heading" name="heading">
               <span class="errormsg heading"></span>
             </div>
-            <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
-              <span class="errormsg sub_heading"></span>
-            </div>
-            <label for="market-img" class="font-weight-normal">Image</label>
-            <div class="mb-3">
-              <div class="drop-zone form-control">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" class="drop-zone__input" name="img">
-                <span class="errormsg img"></span>
-              </div>
-            </div>
-            <label for="text" class="font-weight-normal"> Image alt</label>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
-              <span class="errormsg image_alt"></span>
-            </div>
-            <div class="mb-3">
-              <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
-            </div>
-            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
-          </form>
-        </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave save_loader_show">Save</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
+          </div>
+          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
+        </form>
+      </div>
       </div>
     </div>
   </div>
