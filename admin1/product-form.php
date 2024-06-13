@@ -173,7 +173,7 @@ include 'header.php';
           <form role="form" id="productinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal">Product Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control product" placeholder="Product Name" name="pname">
+              <input type="text" class="form-control validtext product" placeholder="Product Name" name="pname">
               <span class="errormsg pname"></span>
             </div>
             <label for="p-tags" class="font-weight-normal">Product Category</label>
@@ -216,11 +216,11 @@ include 'header.php';
             </div>
             <label for="title" class="font-weight-normal">Product Price</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="price" name="p_price">
+              <input type="number" class="form-control" placeholder="price" name="p_price">
               <span class="errormsg p_price"></span>
             </div>
             <label for="p-image" class="font-weight-normal">Product Image</label>
-            <label for="b-image" class="font-weight-normal">Banner Image</label>
+            <!-- <label for="b-image" class="font-weight-normal">Banner Image</label> -->
             <div class="mb-3">
               <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
@@ -228,24 +228,30 @@ include 'header.php';
                 <div class="errormsg p_image"></div>
               </div>
             </div>
-            <p class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </p>
+            <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+            <div class="errormsg p_image"></div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product Tag</label>
-              <select class="js-select2-multi form-control" aria-label="Default select example" multiple="multiple" name="p_tag">
+              <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
                 <option value="Women">Women</option>
               </select>
               <span class="errormsg p_tag"></span>
             </div>
+            <label for="text" class="font-weight-normal">Image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
+              <span class="errormsg image_alt"></span>
+            </div>
             <label for="p-description" class="font-weight-normal">Product Description</label>
             <div class="mb-3">
-              <textarea id="pro-description" class="w-100 form-control" name="p_description"></textarea>
+              <textarea id="pro-description" class="w-100 form-control validtext" name="p_description"></textarea>
               <span class="errormsg p_description"></span>
             </div>
             <div class="mb-3">
               <button type="button" class="btn btn-primary bg-dark btn-sm productSave save_loader_show">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset">Cancel</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset formCancel">Cancel</button>
             </div>
             <div class="alert" role="alert" id="success_message" name="success_alert"></div>
           </form>

@@ -159,22 +159,54 @@ function demo(){
 
 
 $(document).ready(function() {
-    console.log("DOCUMENT READY ...");  
+    console.log("DOCUMENT READY ...");
 
-    function showMessage(msg, type) {
-      var alertClass = (type === "success") ? "success" : "error";
-      var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
-      $("#success_message").html(messageHtml);
-      $("#success_message").fadeIn().delay(5000).fadeOut(1000, function() {
-        $(this).remove();
-    });
-     
+  $('.validtext').on('input', function() {
+    var c = this.selectionStart,
+        r = /[^a-zA-Z\s']/g,
+        v = $(this).val();
+    if(r.test(v)) {
+        $(this).val(v.replace(r, ''));
+        c--;
     }
+    this.setSelectionRange(c, c);
+});
+
+    // function showMessage(msg, type) {
+    //   var alertClass = (type === "success") ? "success" : "error";
+    //   var messageId = 'success_message_';
+    //   // var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
+    //   var messageHtml = '<div class="alert ' + alertClass + '" id="' + messageId + '">' + msg + '</div>';
+    //   $("#success_message").html(messageHtml);
+    //   $("#success_message_").fadeIn().delay(5000).fadeOut(1000, function() {
+    //     $(this).remove();
+    // });
+     
+    // }
+    function showMessage(msg, type) {
+      var alertType = (type === "success") ? "success" : "error";
+      Swal.fire({
+          title: alertType.charAt(0).toUpperCase() + alertType.slice(1), // Capitalize the first letter of the alert type
+          text: msg,
+          icon: alertType,
+          timer: 5000, // Automatically close after 5 seconds
+          timerProgressBar: true,
+          showConfirmButton: false
+      });
+  }
+
+     $('.form-control').on('keypress', function() {
+        $(this).next('.errormsg').text('');
+        });
+
+     $('.form-select').on('input change', function() {
+        $(this).siblings('.errormsg').text('');
+        });
 
     $('.formCancel').click(function(){
       console.log("CCCCC");
       $('.errormsg').html('');
-      // $('.picture__img').html('');
+      $(".multiple_tag").val(null).trigger("change");
       $(this).closest("form")[0].reset();
       if (CKEDITOR.instances['myeditor']) {
       CKEDITOR.instances['myeditor'].setData('');
@@ -243,6 +275,13 @@ $(document).ready(function() {
       var form_data = $("#productinsert")[0];
       var form_data = new FormData(form_data);
       form_data.append('routine_name','insert_products'); 
+      var selectedTags = $(".multiple_tag").val();
+      if (selectedTags !== null) {
+          for (var i = 0; i < selectedTags.length; i++) {
+              form_data.append('p_tag[]', selectedTags[i]);
+          }
+      }
+
       $.ajax({
         url: "../admin1/ajax_call.php",
         type: "post",
@@ -261,11 +300,13 @@ $(document).ready(function() {
              response["msg"]["select_catagory"] !== undefined ? $(".select_catagory").html (response["msg"]["select_catagory"]) : $(".select_catagory").html("");
              response["msg"]["p_price"] !== undefined ? $(".p_price").html (response["msg"]["p_price"]) : $(".p_price").html("");
              response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
-             response["msg"]["product_image_alt"] !== undefined ? $(".product_image_alt").html (response["msg"]["product_image_alt"]) : $(".product_image_alt").html("");
+             response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
              response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
              response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
              if(response['data'] == "success"){
               $("#productinsert")[0].reset();
+              resetThumbnail();
+              $(".multiple_tag").val(null).trigger("change");
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
@@ -341,6 +382,7 @@ $(document).ready(function() {
              if(response['data'] == "success"){
               $("#bloginsert")[0].reset();
               CKEDITOR.instances['myeditor'].setData('');
+              resetThumbnail();
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");

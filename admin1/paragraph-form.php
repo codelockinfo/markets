@@ -151,13 +151,13 @@ include 'header.php';
               <textarea name="myeditor" id="myeditor"></textarea>
               <span class="errormsg myeditor"></span>
             </div>
-            <div class="mb-3">
-              <button type="button" class="btn btn-primary bg-dark btn-sm paragraphSave">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
-            </div>
-            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
-          </form>
-        </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-primary bg-dark btn-sm paragraphSave save_loader_show">Save</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
+          </div>
+          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
+        </form>
+      </div>
       </div>
     </div>
   </div>

@@ -173,7 +173,8 @@ include 'header.php';
           <form role="form">
             <label for="title" class="font-weight-normal">Blog Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Blog Name">
+              <input type="text" class="form-control validtext" placeholder="Blog Title" name="blog_title">
+              <span class="errormsg blog_title"></span>
             </div>
             <label for="p-tags" class="font-weight-normal">Blog Category</label>
             <div class="mb-3">
@@ -214,23 +215,33 @@ include 'header.php';
             </div>
             <label for="body" class="font-weight-normal">Body</label>
             <div class="mb-3">
-              <textarea id="myeditor" name="myeditor" id="myeditor"></textarea>
+              <textarea id="myeditor" name="myeditor validtext"></textarea>
+              <span class="errormsg myeditor"></span>
             </div>
             <label for="text" class="font-weight-normal">Author</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Author Name">
+              <input type="text" class="form-control validtext" placeholder="Author Name" name="author_name">
+              <span class="errormsg author_name"></span>
             </div>
             <label for="p-image" class="font-weight-normal">Blog Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
+                <input type="file" name="blog_image" id="removeImage" class="drop-zone__input">
               </div>  
             </div>
+            <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+            <div class="errormsg blog_image"></div>
+            <label for="text" class="font-weight-normal">Blog image alt</label>
             <div class="mb-3">
-              <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-              <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+              <input type="text" class="form-control validtext" placeholder="blog image alt" name="blog_image_alt">
+              <span class="errormsg blog_image_alt"></span>
             </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary bg-dark btn-sm blogSave save_loader_show">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
+            </div>
+            <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
           </form>
         </div>
       </div>
