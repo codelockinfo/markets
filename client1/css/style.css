@@ -694,3 +694,22 @@ h4, h5, h6, .h4, .h5, .h6 {
     
     }
 }   
+
+/* brouseby category  */
+  /* the nitty gritty */
+  /* #tab_selector {
+    display: none;
+} */
+.nav{
+    justify-content: center;
+    text-align: center;
+}
+/* Show dropdown and hide pills in mobile view */
+/* @media (max-width: 768px) {
+    .form-tabs {
+        display: none;
+    }
+    #tab_selector {
+        display: block;
+    }
+} */
