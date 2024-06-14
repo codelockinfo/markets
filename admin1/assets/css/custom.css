@@ -119,6 +119,19 @@
   font-size: 14px;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px; 
+}
+
 @media screen and (max-height: 450px) {
   .sidenav1 {
     padding-top: 15px;
