@@ -230,9 +230,10 @@ include 'header.php';
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                 <input type="file"  name="p_image" id="removeImage" class="drop-zone__input">
               </div>
+              <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+            <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
+            <div class="errormsg myFile p_image"></div>
             </div>
-            <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
-            <div class="errormsg p_image"></div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product Tag</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
@@ -256,7 +257,7 @@ include 'header.php';
               <button type="button" class="btn btn-primary bg-dark btn-sm productSave save_loader_show">Save</button>
               <button type="button" class="btn btn-secondary bg-dark btn-sm pform_reset formCancel">Cancel</button>
             </div>
-            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
+            <!-- <div class="alert" role="alert" id="success_message" name="success_alert"></div> -->
           </form>
         </div>
       </div>

@@ -172,36 +172,40 @@ $(document).ready(function() {
     this.setSelectionRange(c, c);
 });
 
-    // function showMessage(msg, type) {
-    //   var alertClass = (type === "success") ? "success" : "error";
-    //   var messageId = 'success_message_';
-    //   // var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
-    //   var messageHtml = '<div class="alert ' + alertClass + '" id="' + messageId + '">' + msg + '</div>';
-    //   $("#success_message").html(messageHtml);
-    //   $("#success_message_").fadeIn().delay(5000).fadeOut(1000, function() {
-    //     $(this).remove();
-    // });
-     
-    // }
-    function showMessage(msg, type) {
-      var alertType = (type === "success") ? "success" : "error";
-      Swal.fire({
-          title: alertType.charAt(0).toUpperCase() + alertType.slice(1), // Capitalize the first letter of the alert type
-          text: msg,
-          icon: alertType,
-          timer: 5000, // Automatically close after 5 seconds
-          timerProgressBar: true,
-          showConfirmButton: false
-      });
-  }
+
+  function showMessage(msg, type) {
+    // var alertType = type;
+    var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error"; // Set title based on type
+
+    Swal.fire({
+        title: alertTitle, // Set title
+        text: msg,
+        icon: (type === "fail") ? "error" : type, // Show "error" icon for "fail" type, otherwise use type
+        timer: 5000, // Automatically close after 5 seconds
+        timerProgressBar: true,
+        showConfirmButton: false
+    });
+}
 
      $('.form-control').on('keypress', function() {
         $(this).next('.errormsg').text('');
+      });
+       
+
+      $(document).ready(function() {
+        if (CKEDITOR.instances['myeditor']) {
+          // CKEDITOR.instances['myeditor'].setData('');
+          CKEDITOR.instances['myeditor'].on('change', function() {
+              if (CKEDITOR.instances['myeditor'].getData().length >  0){
+                $('.myeditor').html('');
+              }
+          });
+        }
         });
 
      $('.form-select').on('input change', function() {
         $(this).siblings('.errormsg').text('');
-        });
+      });
 
     $('.formCancel').click(function(){
       console.log("CCCCC");
@@ -209,16 +213,10 @@ $(document).ready(function() {
       $(".multiple_tag").val(null).trigger("change");
       $(this).closest("form")[0].reset();
       if (CKEDITOR.instances['myeditor']) {
-      CKEDITOR.instances['myeditor'].setData('');
-      }
-      var $thumbnailElement = $(".drop-zone__thumb");
-      if ($thumbnailElement.length > 0) {
-         $thumbnailElement.html('');
-         $thumbnailElement.removeClass("drop-zone__thumb");
-         $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-      }
-      
+      CKEDITOR.instances['myeditor'].setData('');  
+      }  
     });
+
     function resetThumbnail() {
       var $thumbnailElement = $(".drop-zone__thumb");
       if ($thumbnailElement.length > 0) {
@@ -263,6 +261,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          } 
+          else{
+            showMessage(response.msg_error, "fail");
           } 
         }
     });
@@ -310,6 +311,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          }
+          else{
+            showMessage(response.msg_error, "fail");
           } 
       }
     });
@@ -344,7 +348,10 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
-          } 
+          }
+          else{
+            showMessage(response.msg_error, "fail");
+          }  
       }
     });
     })
@@ -386,7 +393,10 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
-          } 
+          }
+          else{
+            showMessage(response.msg_error, "fail");
+          }  
       }
     });
     })
@@ -423,6 +433,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          } 
+          else{
+            showMessage(response.msg_error, "fail");
           } 
       }
     });
@@ -462,6 +475,9 @@ $(document).ready(function() {
             if (response.data === "success") {
               showMessage(response.msg, "success");
           } 
+          else{
+            showMessage(response.msg_error, "fail");
+          } 
       }
     });
     })
@@ -495,6 +511,9 @@ $(document).ready(function() {
             if (response.data === "success") {
               showMessage(response.msg, "success");
           } 
+          else{
+            showMessage(response.msg_error, "fail");
+          } 
       }
     });
     })
@@ -527,6 +546,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          } 
+          else{
+            showMessage(response.msg_error, "fail");
           } 
       }
     });
@@ -562,7 +584,10 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
-          } 
+          }
+          else{
+            showMessage(response.msg_error, "fail");
+          }  
       }
     });
     })
@@ -599,6 +624,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          } 
+          else{
+            showMessage(response.msg_error, "fail");
           } 
       }
     });

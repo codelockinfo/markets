@@ -100,7 +100,8 @@
                     </div>
                     <div class="mb-3">
                       <input type="file" class="form-control" name="image">
-                      <label class="font-weight-normal">Allow only jpg,jpeg,gif,svg,png,webp file</label>
+                      <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+                      <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
                       <div class="errormsg image"></div>
                     </div>
                     <div class="mb-3">

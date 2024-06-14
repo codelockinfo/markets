@@ -162,7 +162,8 @@
               <input type="file" name="svg_img" class="drop-zone__input">
             </div>
           </div>
-          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+          <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
           <div class="errormsg svg_img"></div>
           <label for="text" class="font-weight-normal">SVG image alt</label>
             <div class="mb-3">
@@ -186,7 +187,8 @@
               <input type="file" class="drop-zone__input" name="img">
             </div>
           </div>
-          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+          <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
           <div class="errormsg img"></div>
           <label for="text" class="font-weight-normal"> Image alt</label>
             <div class="mb-3">

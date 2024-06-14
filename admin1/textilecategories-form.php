@@ -158,7 +158,8 @@
                   <input type="file" name="myFile" class="drop-zone__input">
                 </div>
               </div>
-              <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+              <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+              <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
               <div class="errormsg myFile"></div>
               <label for="text" class="font-weight-normal">Image alt</label>
             <div class="mb-3">

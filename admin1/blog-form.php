@@ -235,7 +235,8 @@
                 <input type="file" name="blog_image" id="removeImage" class="drop-zone__input">
               </div>  
             </div>
-            <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+             <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+            <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
             <div class="errormsg blog_image"></div>
             <label for="text" class="font-weight-normal">Blog image alt</label>
             <div class="mb-3">
