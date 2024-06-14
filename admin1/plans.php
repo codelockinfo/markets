@@ -1,21 +1,17 @@
 <?php
- include 'header.php';
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
-          <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+          <h6 class="text-white font-weight-bolder ms-2">Plans</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -59,7 +55,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -77,7 +73,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -146,77 +142,84 @@
     </div>
     <section class="pricing py-5">
       <div class="container">
-          <div class="row">
-              <div class="col-lg-4">
-                  <div class="card mb-5 mb-lg-0">
-                      <div class="card-body">
-                        <ul class="fa-ul">
-                          <li class="card-title text-uppercase text-center">Starter</li>
-                          <li class="card-price text-center">$45<span class="period">USD / month</span></li>
-                        </ul>
-                          <hr>
-                          <ul class="fa-ul">
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                              <li><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
-                              <li><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
-                              <li><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
-                              <li><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
-                          </ul>
-                          <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
-                      </div>
-                  </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <ul class="fa-ul">
+                  <li class="card-title text-uppercase">Starter</li>
+                  <li class="card-price text-center">Free</li>
+                </ul>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"></span>Business Registration</li>
+                  <li><span class="fa-li"></span>Basic Listing</li>
+                  <li><span class="fa-li"></span>Access to Community Forums</li>
+                  <li><span class="fa-li"></span>Limited Product Listings</li>
+                  <li><span class="fa-li"></span>Standard Support</li>
+                  <li><span class="fa-li"></span>Self-Managed Product Catalog</li>
+                  <li><span class="fa-li"></span>Shop Front View</li>
+                </ul> 
               </div>
-              <div class="col-lg-4">
-                  <div class="card mb-5 mb-lg-0">
-                      <div class="card-body">
-                        <ul class="fa-ul">
-                          <li class="card-title text-uppercase text-center">Pro</li>
-                          <li class="card-price text-center">$75<span class="period">USD / month</span></li>
-                        </ul>
-                          <hr>
-                          <ul class="fa-ul">
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
-                              <li><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
-                          </ul>
-                          <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4">
-                  <div class="card">
-                      <div class="card-body">
-                        <ul class="fa-ul">
-                          <li class="card-title text-uppercase text-center">Business</li>
-                          <li class="card-price text-center">$125<span class="period">USD / month</span></li>
-                        </ul>
-                          <hr>
-                          <ul class="fa-ul">
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited Users</strong></li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free Subdomains</li>
-                              <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
-                          </ul>
-                          <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
-                      </div>
-                  </div>
-              </div>
+              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+            </div>
           </div>
+          <div class="col-lg-4">
+            <div class="card mb-5 mb-lg-0">
+              <div class="card-body">
+                <ul class="fa-ul">
+                  <li class="card-title text-uppercase">Pro</li>
+                  <li class="card-price text-center">199<span class="period">Rs / month</span></li>
+                </ul>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"></span><strong>Enhanced Listing</strong></li>
+                  <li><span class="fa-li"></span>Increased Product Listings</li>
+                  <li><span class="fa-li"></span>Priority Placement</li>
+                  <li><span class="fa-li"></span>Access to Analytics</li>
+                  <li><span class="fa-li"></span>Direct Messaging</li>
+                  <li><span class="fa-li"></span>Premium Support</li>
+                  <li><span class="fa-li"></span>Discounted Advertising</li>
+                  <li><span class="fa-li"></span>Self-Managed Product Catalog</li>
+                  <li><span class="fa-li"></span>Shop Front View on the Home Page</li>
+                  <li><span class="fa-li"></span>Banner Design Services</li>
+                  <li><span class="fa-li"></span>Exclusive Offers</li>
+                </ul>
+              </div>
+              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <ul class="fa-ul">
+                  <li class="card-title text-uppercase">Business</li>
+                  <li class="card-price text-center">499<span class="period">Rs / month</span></li>
+                </ul>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"></span><strong>Premium Listing</strong></li>
+                  <li><span class="fa-li"></span>Unlimited Product Listings</li>
+                  <li><span class="fa-li"></span>Advanced Analytics</li>
+                  <li><span class="fa-li"></span>Featured in Newsletters</li>
+                  <li><span class="fa-li"></span>Priority Customer Support</li>
+                  <li><span class="fa-li"></span>Exclusive Access</li>
+                  <li><span class="fa-li"></span>Custom Advertising Packages</li>
+                  <li><span class="fa-li"></span>Self-Managed Product Catalog</li>
+                  <li><span class="fa-li"></span>Shop Front View on the Home Page</li>
+                  <li><span class="fa-li"></span>Professional Banner Design Services</li>
+                  <li><span class="fa-li"></span>Exclusive Deals and Offers</li>
+                  <li><span class="fa-li"></span>24/7 Support</li>
+                  <li><span class="fa-li"></span>Promotional Campaigns</li>
+                </ul>
+              </div>
+              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    </div>
+  </div>
   </div>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

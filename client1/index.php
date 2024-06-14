@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Markets</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
+<?php
+include 'header.php';
+?>
 <body>
 
     <!-- Spinner Start -->
@@ -36,165 +8,9 @@
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
-
-
-    <!-- Navbar start -->
-    <div class="container-fluid nav-bar">
-        <div class="container">
-            <nav class="navbar navbar-light navbar-expand-lg">
-                <a href="index.php" class="navbar-brand">
-                   <img style="height: 90px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
-                   <!-- <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span></h1> -->
-                </a> 
-                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                    <span class="fa fa-bars text-primary"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto">
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All markets</a>
-                            <div class="dropdown-menu  bg-light">
-                                <div class="drop-box row p-2 px-3">
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fashion</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti fashion</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kavya fabric</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">vaibhavlaxmi textile</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Reyna Fabrics</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fashion </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All categories</a>
-                            <div class="dropdown-menu  bg-light">
-                                <div class="drop-box row p-2 px-3">
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Armwear</a> </li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Badges</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Belts</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Children's clothing</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Clothing brands by type </a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Coats</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Dresses</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Footwear</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Gowns</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Handwear</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Hosiery</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Jackets</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Jeans by type</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Knee clothing</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Masks</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Neckwear</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">One-piece suits</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Outerwear</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Ponchos</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Robes and cloaks</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Shawls and wraps</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Royal attire</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">saree</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Sashes</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Skirts</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Sportswear</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Suits</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Tops</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Trousers and shorts</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Undergarments</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Wedding clothing</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="service.php" class=" nav-link dropdown-toggle" data-bs-toggle="dropdown">Retails</a>
-                            <div class="dropdown-menu  bg-light">
-                                <ul class="list-unstyled text-center m-0 p-0 w-auto">
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a>
-                        <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
-                        <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
-                        <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
-                    </div>
-                    <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="../admin1/sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize">register your shop</a>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
-
+    <?php 
+        include 'navbar.php';
+    ?>
     <!-- megamenu md view  -->
     <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
@@ -419,36 +235,44 @@
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Brouse by categoty</h1>
             </div>
-            <div class="tab-class text-center">
-                <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
-                    <li class="nav-item p-2">
-                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+            <div class="tabbable">
+                <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs">
+                    <li class="tab-selector active">
+                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
                             <span class="text-dark" style="width: 150px;">Kurti</span>
                         </a>
                     </li>
-                    <li class="nav-item p-2">
-                        <a class="d-flex py-2 mx-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                    <li class="tab-selector">
+                        <a class="d-flex py-2 mx-1 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
                             <span class="text-dark" style="width: 150px;">Saree</span>
                         </a>
                     </li>
-                    <li class="nav-item p-2">
-                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                    <li class="tab-selector">
+                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
                             <span class="text-dark" style="width: 150px;">Wedding cloth</span>
                         </a>
                     </li>
-                    <li class="nav-item p-2">
-                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
+                    <li class="tab-selector">
+                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
                             <span class="text-dark" style="width: 150px;">Tops</span>
                         </a>
                     </li>
-                    <li class="nav-item p-2">
-                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
+                    <li class="tab-selector">
+                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
                             <span class="text-dark" style="width: 150px;">Skirt</span>
                         </a>
                     </li>
                 </ul>
+                <!-- <select class="mb-5 form-select form-control visible-xs" id="tab_selector">
+                    <option selected>Open this select menu</option>
+                    <option value="tab-1">Kurti</option>
+                    <option value="tab-2">Saree</option>
+                    <option value="tab-3">Wedding cloth</option>
+                    <option value="tab-4">Tops</option>
+                    <option value="tab-5">Skirt</option>
+                </select> -->
                 <div class="tab-content">
-                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="tab-pane fade show p-0 active" id="tab-1">
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
@@ -456,8 +280,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/1.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -465,8 +289,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/2.jpg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -474,8 +298,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -483,8 +307,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -492,8 +316,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/5.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -501,8 +325,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -510,8 +334,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -519,8 +343,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/kurti/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Kurti</h4>
-                                                <a href="img/kurti/8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Kurti</h4>
+                                                <a href="img/kurti/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -528,7 +352,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="tab-2" class="tab-pane fade show p-0">
+                    <div class="tab-pane fade show " id="tab-2">
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
@@ -536,8 +360,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/1.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -545,8 +369,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/2.jpg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -554,8 +378,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -563,8 +387,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -572,8 +396,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/5.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -581,8 +405,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -590,8 +414,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -599,8 +423,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/saree/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Saree</h4>
-                                                <a href="img/saree/8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Saree</h4>
+                                                <a href="img/saree/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -616,8 +440,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -625,8 +449,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -634,8 +458,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -643,8 +467,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -652,8 +476,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -661,8 +485,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -670,8 +494,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -679,8 +503,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/wedding/wedding8.png" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Wedding</h4>
+                                                <a href="img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -696,8 +520,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top1.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -705,8 +529,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top2.webp" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -714,8 +538,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -723,8 +547,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top4.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -732,8 +556,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top5.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top5.webp" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top5.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -741,8 +565,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top6.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top6.webp" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top6.webp" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -750,8 +574,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -759,8 +583,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/top/top8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Top</h4>
-                                                <a href="img/top/top8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Top</h4>
+                                                <a href="img/top/top8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -776,8 +600,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -785,8 +609,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -794,8 +618,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -803,8 +627,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -812,8 +636,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skir4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -821,8 +645,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -830,8 +654,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -839,8 +663,8 @@
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="img/skirt/skirt8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="me-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <h4 class="mx-auto">Skirt</h4>
+                                                <a href="img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1117,6 +941,7 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>

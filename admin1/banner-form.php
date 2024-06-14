@@ -1,20 +1,16 @@
-<?php 
-    include 'header.php';
+<?php
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-4 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Banner Image</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.html" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -59,7 +55,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -77,7 +73,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -149,7 +145,7 @@
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5   mx-auto">
         <div class="card z-index-0 p-5">
-        <form role="form">
+        <form role="form" id="bannerinsert" enctype="multipart/form-data" method="POST">
           <label for="b-image" class="font-weight-normal">Banner Image</label>
           <div class="mb-3">
             <div class="drop-zone">
@@ -157,26 +153,38 @@
               <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
             </div>
           </div>
+          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <div class="errormsg myFile"></div>
+          <label for="text" class="font-weight-normal">Banner image alt</label>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Sub Heading" name="image_alt">
+              <span class="errormsg image_alt"></span>
+            </div>
           <label for="b-heading" class="font-weight-normal">Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Heading">
+            <input type="text" class="form-control" placeholder="Heading" name="heading">
+            <span class="errormsg heading"></span>
           </div>
           <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Sub Heading">
+            <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
+            <span class="errormsg sub_heading"></span>
           </div>
           <label for="b-subheading" class="font-weight-normal">Banner Button Text</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Banner Text">
+            <input type="text" class="form-control" placeholder="Banner Text" name="banner_text">
+            <span class="errormsg banner_text"></span>
           </div>
           <label for="b-subheading" class="font-weight-normal">Banner Button Link</label>
           <div class="mb-3">
-            <input type="url" class="form-control" placeholder="https://example.com">
+            <input type="url" class="form-control" placeholder="https://example.com" name="banner_btn_link">
+              <span class="errormsg banner_btn_link"></span>
           </div>
           <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm">Cancel</button>
+            <button type="button" class="btn btn-primary bg-dark btn-sm bannerSave saveButton formSave save_loader_show">Save</button>
+            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
           </div>
+          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
         </form>
       </div>
       </div>
@@ -248,71 +256,7 @@
       </div>
     </div>
   </div>
-  <script>
-    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-      const dropZoneElement = inputElement.closest(".drop-zone");
-      dropZoneElement.addEventListener("click", (e) => {
-        inputElement.click();
-      });
-      inputElement.addEventListener("change", (e) => {
-        if (inputElement.files.length) {
-          updateThumbnail(dropZoneElement, inputElement.files[0]);
-        }
-      });
-      dropZoneElement.addEventListener("dragover", (e) => {
-        e.preventDefault();
-          dropZoneElement.classList.add("drop-zone--over");
-      });
-      ["dragleave", "dragend"].forEach((type) => {
-        dropZoneElement.addEventListener(type, (e) => {
-          dropZoneElement.classList.remove("drop-zone--over");
-        });
-      });
-      dropZoneElement.addEventListener("drop", (e) => {
-        e.preventDefault();
-          if (e.dataTransfer.files.length) {
-            inputElement.files = e.dataTransfer.files;
-            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-          }
-        dropZoneElement.classList.remove("drop-zone--over");
-      });
-    });
-    function updateThumbnail(dropZoneElement, file) {
-      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-      // First time - remove the prompt
-      if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-        dropZoneElement.querySelector(".drop-zone__prompt").remove();
-      }
-      // First time - there is no thumbnail element, so lets create it
-      if (!thumbnailElement) {
-        thumbnailElement = document.createElement("div");
-        thumbnailElement.classList.add("drop-zone__thumb");
-        dropZoneElement.appendChild(thumbnailElement);
-      }
-      thumbnailElement.dataset.label = file.name;
-      // Show thumbnail for image files
-      if (file.type.startsWith("image/")) {
-        const reader = new FileReader();
-
-      reader.addEventListener("load", function (e) {
-        const readerTarget = e.target;
-        const img = document.createElement("img");
-        img.src = readerTarget.result;
-        img.classList.add("picture__img");
-        const closeButton = document.createElement("button");
-        closeButton.classList.add("close-button");
-        closeButton.innerText = 'x';
-        thumbnailElement.innerHTML = "";
-        thumbnailElement.appendChild(img);
-        thumbnailElement.appendChild(closeButton);
-      });
-
-        reader.readAsDataURL(file);
-      } else {
-        thumbnailElement.style.backgroundImage = null;
-      }
-    }
-  </script>
+  <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
 
 </html>
