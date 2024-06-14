@@ -201,14 +201,14 @@ include 'header.php';
                         </a>
                     </li>
                 </ul>
-                <!-- <select class="mb-5 form-select form-control visible-xs" id="tab_selector">
+                <select class="mb-5 form-select form-control visible-xs" id="tab_selector">
                     <option selected>Open this select menu</option>
                     <option value="tab-1">Kurti</option>
                     <option value="tab-2">Saree</option>
                     <option value="tab-3">Wedding cloth</option>
                     <option value="tab-4">Tops</option>
                     <option value="tab-5">Skirt</option>
-                </select> -->
+                </select>
                 <div class="tab-content">
                     <div class="tab-pane fade show p-0 active" id="tab-1">
                         <div class="row g-4">
@@ -630,7 +630,7 @@ include 'header.php';
     <!-- Offer section end  -->
 
     <!-- paragraph  -->
-    <section class="paragraph pt-6">
+    <section class="paragraph pt-6 container-fluid ">
         <div class="container">
             <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
             <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
@@ -660,8 +660,8 @@ include 'header.php';
     <!-- paragraph end -->
 
     <!-- FAQ Start -->
-    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 pb-5">
-        <div class="mainContent h-100 w-75 d-flex flex-column justify-content-center align-items-center gap-3">
+    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 container-fluid ">
+        <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
             <div class="row align-items-center">
             <div class="content_1 col-12 col-lg-8 col-md-6">
@@ -671,7 +671,7 @@ include 'header.php';
                 <div>
                     <div class="accordion" id="accordionExample">
 
-                        <div class="accordion-item border mb-4">
+                        <div class="accordion-item border mb-2 mb-md-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <h6 class="m-0">How do I register my business on marketsearch?</h6>
@@ -684,7 +684,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-4">
+                        <div class="accordion-item border mb-2 mb-md-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     <h6 class="m-0">Who can register on marketsearch?</h6>
@@ -697,7 +697,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-4">
+                        <div class="accordion-item border mb-2 mb-md-4">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <h6 class="m-0">Is there a fee to register my business?</h6>
@@ -710,7 +710,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-4">
+                        <div class="accordion-item border mb-2 mb-md-4">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <h6 class="m-0">How can I update my business information?</h6>
@@ -723,7 +723,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-4">
+                        <div class="accordion-item border mb-2 mb-md-4">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                     <h6 class="m-0">Can I list multiple businesses under one account?</h6>
@@ -736,7 +736,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-4">
+                        <div class="accordion-item border mb-2 mb-md-4">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                     <h6 class="m-0">How do I contact customer support?</h6>
@@ -761,15 +761,12 @@ include 'header.php';
 
     <!-- Book Us Start -->
     <div class="container-fluid contact pt-6 wow bounceInUp" data-wow-delay="0.1s">
-        <div class="container ps-0 pe-0 ">
+        <div class="container  ">
             <div class="d-flex flex-column align-items-center mb-3">
                <h1>Contact us</h1>
             </div>
             <div class="row g-0">
-                <div class="col-1">
-                    <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-start d-none" style="object-fit: cover; opacity: 0.7;" alt="">
-                </div>
-                <div class="col-10">
+                <div class="col-12">
                     <div class="border rounded-3 border-primary bg-light py-5 px-4">
                         <div class="row g-4 form col-12 text- mx-auto col-md-9">
                             <div class="col-12 col-md-6">
@@ -791,9 +788,7 @@ include 'header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-1">
-                    <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-end d-none" style="object-fit: cover; opacity: 0.7;" alt="">
-                </div>
+               
             </div>
         </div>
     </div>
