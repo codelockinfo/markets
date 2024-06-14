@@ -43,57 +43,121 @@ include 'header.php';
     </div>
     <!-- Hero End -->
 
-    <!-- Service Start -->
-    <div class="container-fluid service pt-6">
+    <!-- famous market Start -->
+    <div class="container-fluid famous pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Famous markets</h1>
+                <h1 class="display-5 mb-5">Famous markets</h1>  
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
-                    <div class="bg-light rounded service-item">
-                        <div class="service-content d-flex align-items-center justify-content-center p-4">
-                            <div class="service-content-icon text-center">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
                                 <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
                                 <h4 class="mb-3">Arohi-Woman Fashion</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop1.jpg" alt="">
+                                <div class="famous-img rounded-circle">
+                                <img class="img-fluid" src="img/shop_1/shop1.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
-                    <div class="bg-light rounded service-item">
-                        <div class="service-content d-flex align-items-center justify-content-center p-4">
-                            <div class="service-content-icon text-center">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
                                 <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
                                 <h4 class="mb-3">Kavya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop2.jpg" alt="">
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/shop2.jpg" alt="">
+                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
-                    <div class="bg-light rounded service-item">
-                        <div class="service-content d-flex align-items-center justify-content-center p-4">
-                            <div class="service-content-icon text-center">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
                                 <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
-                                <h4 class="mb-3">Global Textile</h4>
+                                <h4 class="mb-3">Global textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop3.jpg" alt="">
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/shop3.jpg" alt="">
+                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
-                    <div class="bg-light rounded service-item">
-                        <div class="service-content d-flex align-items-center justify-content-center p-4">
-                            <div class="service-content-icon text-center">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
                                 <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
                                 <h4 class="mb-3">Vidya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
-                                <img style="width: 200px; height: 200px;" class="rounded-circle" src="img/shop_1/shop4.jpg" alt="">
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/shop4.jpg" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Jay Ambe Fabrics</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/shop5.jpg" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">KS textile</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/shop6.jpg" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Rajhans textile</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/logo (1).png" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                            <div class="famous-content-icon text-center">
+                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <h4 class="mb-3">Bal Krishna fabrics</h4>
+                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <div class="famous-img rounded-circle">
+                                <img class=" img-fluid" src="img/shop_1/shop8.jpg   " alt="">
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -101,8 +165,7 @@ include 'header.php';
             </div>
         </div>
     </div>
-
-    <!-- Service End -->
+    <!-- famous market End -->
 
     <!-- Events Start -->
     <div class="container-fluid event pt-6">
