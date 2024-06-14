@@ -154,3 +154,129 @@
         </div>
     </div>
     <!-- Navbar End -->
+     <!-- megamenu md view  -->
+    <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <a href="index.php"> <img src="img/images.png" class="w-25 img-fluid" alt=""></a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h4 class="accordion-header">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            All markets
+                        </button>
+                    </h4>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-capitalize">Arohi-Women fashion</a></li>
+                                <li><a href="#" class="text-capitalize">Maruti fashion</a></li>
+                                <li><a href="#" class="text-capitalize">Vidya Fabrics</a></li>
+                                <li><a href="#" class="text-capitalize">Kavya fabric</a></li>
+                                <li><a href="#" class="text-capitalize">vaibhavlaxmi textile</a></li>
+                                <li><a href="#" class="text-capitalize">Reyna Fabrics</a></li>
+                                <li><a href="#" class="text-capitalize">Global Textile</a></li>
+                                <li><a href="#" class="text-capitalize">Radha Krishna Textile</a></li>
+                                <li><a href="#" class="text-capitalize">raghukul fashion </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            All categories
+                        </button>
+                    </h4>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Armwear</a></li>
+                                <li><a href="#">Badges </a></li>
+                                <li><a href="#">Belts</a></li>
+                                <li><a href="#">Children's clothing</a></li>
+                                <li><a href="#">Clothing brands by type</a></li>
+                                <li><a href="#">Coats</a></li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Footwear</a></li>
+                                <li><a href="#">Gowns</a></li>
+                                <li><a href="#">Handwear</a></li>
+                                <li><a href="#">Hosiery</a></li>
+                                <li><a href="#">Jackets</a></li>
+                                <li><a href="#">Jeans by type</a></li>
+                                <li><a href="#">Knee clothing</a></li>
+                                <li><a href="#">Masks</a></li>
+                                <li><a href="#">Neckwear</a></li>
+                                <li><a href="#">One-piece suits</a></li>
+                                <li><a href="#">Outerwear</a></li>
+                                <li><a href="#">Ponchos</a></li>
+                                <li><a href="#">Robes and cloaks</a></li>
+                                <li><a href="#">Royal attire</a></li>
+                                <li><a href="#">Saree</a></li>
+                                <li><a href="#">Sashes</a></li>
+                                <li><a href="#">Shawls and wraps</a></li>
+                                <li><a href="#">Skirts</a></li>
+                                <li><a href="#">Sportswear</a></li>
+                                <li><a href="#">Suits</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Trousers and shorts</a></li>
+                                <li><a href="#">Undergarments</a></li>
+                                <li><a href="#">Wedding clothing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
+                            Retails
+                        </button>
+                    </h4>
+                    <div id="flush-collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body bg-light">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Retails</a></li>
+                                <li><a href="#">Retails</a></li>
+                                <li><a href="#">Retails</a></li>
+                                <li><a href="#">Retails</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-four">
+                            wholesale
+                        </button>
+                    </h4>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
+                            blogs
+                        </button>
+                    </h4>
+                </div>
+
+                <div class="accordion-item">
+                    <h4 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
+                            videos
+                        </button>
+                    </h4>
+
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-header ">
+                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
+                            plans
+                        </button>
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- megamenu md view end -->

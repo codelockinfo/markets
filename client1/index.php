@@ -11,132 +11,7 @@ include 'header.php';
     <?php 
         include 'navbar.php';
     ?>
-    <!-- megamenu md view  -->
-    <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <a href="index.php"> <img src="img/images.png" class="w-25 img-fluid" alt=""></a>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h4 class="accordion-header">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            All markets
-                        </button>
-                    </h4>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-capitalize">Arohi-Women fashion</a></li>
-                                <li><a href="#" class="text-capitalize">Maruti fashion</a></li>
-                                <li><a href="#" class="text-capitalize">Vidya Fabrics</a></li>
-                                <li><a href="#" class="text-capitalize">Kavya fabric</a></li>
-                                <li><a href="#" class="text-capitalize">vaibhavlaxmi textile</a></li>
-                                <li><a href="#" class="text-capitalize">Reyna Fabrics</a></li>
-                                <li><a href="#" class="text-capitalize">Global Textile</a></li>
-                                <li><a href="#" class="text-capitalize">Radha Krishna Textile</a></li>
-                                <li><a href="#" class="text-capitalize">raghukul fashion </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            All categories
-                        </button>
-                    </h4>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Armwear</a></li>
-                                <li><a href="#">Badges </a></li>
-                                <li><a href="#">Belts</a></li>
-                                <li><a href="#">Children's clothing</a></li>
-                                <li><a href="#">Clothing brands by type</a></li>
-                                <li><a href="#">Coats</a></li>
-                                <li><a href="#">Dresses</a></li>
-                                <li><a href="#">Footwear</a></li>
-                                <li><a href="#">Gowns</a></li>
-                                <li><a href="#">Handwear</a></li>
-                                <li><a href="#">Hosiery</a></li>
-                                <li><a href="#">Jackets</a></li>
-                                <li><a href="#">Jeans by type</a></li>
-                                <li><a href="#">Knee clothing</a></li>
-                                <li><a href="#">Masks</a></li>
-                                <li><a href="#">Neckwear</a></li>
-                                <li><a href="#">One-piece suits</a></li>
-                                <li><a href="#">Outerwear</a></li>
-                                <li><a href="#">Ponchos</a></li>
-                                <li><a href="#">Robes and cloaks</a></li>
-                                <li><a href="#">Royal attire</a></li>
-                                <li><a href="#">Saree</a></li>
-                                <li><a href="#">Sashes</a></li>
-                                <li><a href="#">Shawls and wraps</a></li>
-                                <li><a href="#">Skirts</a></li>
-                                <li><a href="#">Sportswear</a></li>
-                                <li><a href="#">Suits</a></li>
-                                <li><a href="#">Tops</a></li>
-                                <li><a href="#">Trousers and shorts</a></li>
-                                <li><a href="#">Undergarments</a></li>
-                                <li><a href="#">Wedding clothing</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
-                            Retails
-                        </button>
-                    </h4>
-                    <div id="flush-collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Retails</a></li>
-                                <li><a href="#">Retails</a></li>
-                                <li><a href="#">Retails</a></li>
-                                <li><a href="#">Retails</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-four">
-                            wholesale
-                        </button>
-                    </h4>
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-                            blogs
-                        </button>
-                    </h4>
-                </div>
-
-                <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
-                            videos
-                        </button>
-                    </h4>
-
-                </div>
-                <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
-                            plans
-                        </button>
-                    </h4>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- megamenu md view end -->
+    
 
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -730,8 +605,8 @@ include 'header.php';
     <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 pb-5">
         <div class="mainContent h-100 w-75 d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
-            <div class="d-flex align-items-center">
-            <div class="content_1" style="width: 70%;">
+            <div class="row align-items-center">
+            <div class="content_1 col-12 col-lg-6" style="width: 70%;">
                 <div class="">
                     <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
                 </div>
@@ -818,7 +693,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <div class="content_2">
+            <div class="content_2 col-12 col-lg-6">
                 <img class="w-100  fit-cover rounded" src="img/shop/img1.webp" alt="">
             </div>
             </div>
@@ -866,94 +741,11 @@ include 'header.php';
     </div>
     <!-- Book Us End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-6 mt-6  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
-                        <h1 class="text-primary">Cater<span class="text-dark">Serv</span></h1>
-                        <p class="lh-lg mb-4">There cursus massa at urnaaculis estieSed aliquamellus vitae ultrs condmentum leo massamollis its estiegittis miristum.</p>
-                        <div class="footer-icon d-flex">
-                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Categories</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Policies</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Contact Us</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
-                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
-                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
-                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+    <?php 
+        include 'footer.php';
+    ?>
 
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright bg-dark py-4">
-        <div class="container">
-            <div class="text-center mb-3 mb-md-0">
-                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-
-    <!-- Add your shop button -->
-    <a href="#" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-    <!-- JavaScript Libraries -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-
+   
 </body>
 
 </html>
