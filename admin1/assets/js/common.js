@@ -58,6 +58,9 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       thumbnailElement.innerHTML = "";
       thumbnailElement.appendChild(img);
       thumbnailElement.appendChild(closeButton);
+      // console.log(thumbnailElement);
+      // console.log(thumbnailElement.closest(".mb-3").html());
+      // thumbnailElement.closest(".mb-3").find(".myFile").html('');
     });
 
       reader.readAsDataURL(file);

@@ -184,8 +184,13 @@ include 'header.php';
               <input type="file" class="drop-zone__input" name="img">
             </div>
           </div>
+<<<<<<< HEAD
           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
             <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
+=======
+          <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
+          <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
+>>>>>>> 2ba96dbba30884fe4e9999d6bda94734de201fb8
           <div class="errormsg img"></div>
           <label for="text" class="font-weight-normal"> Image alt</label>
             <div class="mb-3">
