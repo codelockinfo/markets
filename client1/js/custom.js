@@ -1,6 +1,6 @@
 // contact form validation 
 
-$(".submit").click(function (event) {
+$(Document).on("click",".submit",function (event) {
     console.log("jnjnnv");
     event.preventDefault();
  
@@ -120,44 +120,44 @@ var swiper = new Swiper(".relatedslider", {
         },
     }
   });
+ 
 //   product page related product slider end
 
   // collection page js
-  
   var swiper = new Swiper(".mySwiper", {
-      navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-      },
-      slidesPerView: 3,
-      spaceBetween: 30,
-      loop: true,
-      freeMode: true,
-      pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-      },
-      breakpoints: {
-          0: {
-              slidesPerView: 1,
-          },
-          320: {
-              slidesPerView: 2,
-          },
-          650: {
-              slidesPerView: 2,
-          },
-          768: {
-              slidesPerView: 2,
-          },
-          1020: {
-              slidesPerView: 3,
-          },
-          1100: {
-              slidesPerView: 3,
-          },
-      }
-  });
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    freeMode: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        320: {
+            slidesPerView: 2,
+        },
+        650: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        1020: {
+            slidesPerView: 3,
+        },
+        1100: {
+            slidesPerView: 3,
+        },
+    }
+}); 
 
   
   $(document).ready(function(){

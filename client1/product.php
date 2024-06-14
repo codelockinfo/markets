@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+        include 'header.php';
+ ?>
 
-<head>
-    <meta charset="utf-8">
-    <title>CaterServ - Catering Services Website Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
 
 <body>
 
@@ -39,163 +12,9 @@
     <!-- Spinner End -->
 
 
-    <!-- Navbar start -->
-    <div class="container-fluid nav-bar">
-        <div class="container">
-            <nav class="navbar navbar-light navbar-expand-lg py-4">
-                <a href="index.php" class="navbar-brand">
-                    <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span> </h1>
-                </a>
-                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                    <span class="fa fa-bars text-primary"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto">
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All markets</a>
-                            <div class="dropdown-menu  bg-light">
-                                <div class="drop-box row p-2 px-3">
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">All categories</a>
-                            <div class="dropdown-menu  bg-light">
-                                <div class="drop-box row p-2 px-3">
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="megamenu-box">
-                                            <div class="megamenu-img">
-                                                <img src="img/megaimg1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                            </div>
-                                            <div class="megamenu-content">
-                                                <ul class="list-unstyled mt-2">
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                    <li class="mt-2"><a href="#" class="text-decoration-none">Market Name</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="service.php" class=" nav-link dropdown-toggle" data-bs-toggle="dropdown">Retails</a>
-                            <div class="dropdown-menu  bg-light">
-                                <ul class="list-unstyled text-center m-0 p-0 w-auto">
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a>
-                        <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
-                        <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
-                        <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a>
-                    </div>
-                    <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
+    <?php 
+        include 'navbar.php';
+    ?>
 
 
     <!-- Modal Search Start -->
@@ -412,27 +231,11 @@
         </div>
     </section>
     <!-- related product end  -->
+    <?php 
+        include 'footer.php';
+    ?>
 
-      
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="js/custom.js"></script>
+   
 </body>
 
 </html>
