@@ -660,7 +660,7 @@ include 'header.php';
     <!-- paragraph end -->
 
     <!-- FAQ Start -->
-    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 container-fluid ">
+    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 container-fluid faq">
         <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
             <div class="row align-items-center">
@@ -671,7 +671,7 @@ include 'header.php';
                 <div>
                     <div class="accordion" id="accordionExample">
 
-                        <div class="accordion-item border mb-2 mb-md-4">
+                        <div class="accordion-item border">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <h6 class="m-0">How do I register my business on marketsearch?</h6>
@@ -684,7 +684,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-2 mb-md-4">
+                        <div class="accordion-item border">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     <h6 class="m-0">Who can register on marketsearch?</h6>
@@ -697,7 +697,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-2 mb-md-4">
+                        <div class="accordion-item border">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     <h6 class="m-0">Is there a fee to register my business?</h6>
@@ -710,7 +710,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-2 mb-md-4">
+                        <div class="accordion-item border">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <h6 class="m-0">How can I update my business information?</h6>
@@ -723,7 +723,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-2 mb-md-4">
+                        <div class="accordion-item border">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                     <h6 class="m-0">Can I list multiple businesses under one account?</h6>
@@ -736,7 +736,7 @@ include 'header.php';
                             </div>
                         </div>
 
-                        <div class="accordion-item border mb-2 mb-md-4">
+                        <div class="accordion-item border">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                     <h6 class="m-0">How do I contact customer support?</h6>
