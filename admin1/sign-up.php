@@ -100,7 +100,8 @@ include 'header.php';
                     </div>
                     <div class="mb-3">
                       <input type="file" class="form-control" name="image">
-                      <label class="font-weight-normal">Allow only jpg,jpeg,gif,svg,png,webp file</label>
+                      <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
+                      <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
                       <div class="errormsg image"></div>
                     </div>
                     <div class="mb-3">

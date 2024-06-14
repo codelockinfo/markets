@@ -220,7 +220,6 @@ include 'header.php';
               <span class="errormsg p_price"></span>
             </div>
             <label for="p-image" class="font-weight-normal">Product Image</label>
-            <!-- <label for="b-image" class="font-weight-normal">Banner Image</label> -->
             <div class="mb-3">
               <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
