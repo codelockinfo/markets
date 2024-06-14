@@ -230,9 +230,6 @@ include 'header.php';
             <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
             <div class="errormsg myFile p_image"></div>
             </div>
-            <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-            <div class="errormsg p_image"></div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product Tag</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
