@@ -55,7 +55,7 @@ include 'header.php';
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -73,7 +73,7 @@ include 'header.php';
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -132,7 +132,7 @@ include 'header.php';
         <div class="row gx-4">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="<?php echo main_url('/admin1/assets/img/bruce-mars.jpg'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">
@@ -201,7 +201,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001825889375-3327.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3327.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -226,7 +226,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -251,7 +251,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001825889375-3326.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3326.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -276,7 +276,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001446435108-2952.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2952.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -301,7 +301,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001446435108-2952.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2952.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -326,7 +326,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001825889375-3327.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3327.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -351,7 +351,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
@@ -376,7 +376,7 @@ include 'header.php';
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="assets/img/kurti/msg-1001825889375-3326.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3326.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
