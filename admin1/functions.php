@@ -44,6 +44,15 @@ class admin_functions {
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
+
+        $file = $_FILES['image'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['image'] = "File size must be 5MB or less.";
+           
+        }
+
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
         }
@@ -104,7 +113,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -126,6 +135,14 @@ class admin_functions {
         $error_array = array();
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
+
+        $file = $_FILES['p_image'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['p_image'] = "File size must be 5MB or less.";
+           
         }
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title";
@@ -165,7 +182,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -219,7 +236,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -240,6 +257,13 @@ class admin_functions {
         $error_array = array();
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
+        $file = $_FILES['blog_image'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['blog_image'] = "File size must be 5MB or less.";
+           
         }
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
             $error_array['blog_title'] = "Please enter blog title";
@@ -275,7 +299,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -310,6 +334,12 @@ class admin_functions {
        
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
+        $file = $_FILES['myFile'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your banner image";
@@ -351,7 +381,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -387,6 +417,12 @@ class admin_functions {
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
+        $file = $_FILES['img'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['img'] = "File size must be 5MB or less.";
+        }
         if (empty($filename)) {
             $error_array['img'] = "Please upload your image";
         }
@@ -395,6 +431,12 @@ class admin_functions {
         }
         if (!in_array($svgfileExtension, $allowedExtensions)) {
             $error_array['svg_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
+        $file = $_FILES['svg_img'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['svg_img'] = "File size must be 5MB or less.";
         }
         if (empty($svg_img)) {
             $error_array['svg_img'] = "Please upload your svg image";
@@ -427,7 +469,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -449,6 +491,12 @@ class admin_functions {
       
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
+        $file = $_FILES['myFile'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your image";
@@ -473,7 +521,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -496,6 +544,12 @@ class admin_functions {
       
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }
+        $file = $_FILES['myFile'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+        if ($file['size'] > $maxSize) {
+            $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your image";
@@ -520,7 +574,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -542,7 +596,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
@@ -569,7 +623,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
         }
         $response = json_encode($response_data);
         return $response;
