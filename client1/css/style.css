@@ -273,10 +273,10 @@ h6,
 
 /*** FAQ start ***/
 
-.content_2 {
+/* .content_2 {
     width: 380px;
     height: 540px;
-}
+} */
 
 @media (max-width: 950px) {
     .content_2 {

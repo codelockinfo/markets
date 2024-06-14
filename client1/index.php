@@ -108,23 +108,23 @@ include 'header.php';
     <div class="container-fluid event pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Brouse by categoty</h1>
+                <h1 class="display-5 mb-5">Brouse by category</h1>
             </div>
             <div class="tabbable">
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs">
                     <li class="tab-selector active">
                         <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
-                            <span class="text-dark" style="width: 150px;">Kurti</span>
+                            <span class="text-dark" style="width: 150px;">Kurtis</span>
                         </a>
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex py-2 mx-1 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
-                            <span class="text-dark" style="width: 150px;">Saree</span>
+                            <span class="text-dark" style="width: 150px;">Sarees</span>
                         </a>
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
-                            <span class="text-dark" style="width: 150px;">Wedding cloth</span>
+                            <span class="text-dark" style="width: 150px;">Wedding cloths</span>
                         </a>
                     </li>
                     <li class="tab-selector">
@@ -134,7 +134,7 @@ include 'header.php';
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                            <span class="text-dark" style="width: 150px;">Skirt</span>
+                            <span class="text-dark" style="width: 150px;">Skirts</span>
                         </a>
                     </li>
                 </ul>
@@ -569,33 +569,28 @@ include 'header.php';
     <!-- paragraph  -->
     <section class="paragraph pt-6">
         <div class="container">
-            <h5 class="fw-bold">ONLINE SHOPPING MADE EASY</h5>
-            <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae minima quia praesentium, rerum perspiciatis nemo perferendis sequi error culpa assumenda quod illum corporis totam modi temporibus aperiam, quaerat deserunt, vitae fugit possimus? Voluptate hic, ad, vel neque, accusamus eaque alias magnam obcaecati natus explicabo eos? Sapiente voluptatum illum minus blanditiis, officia in nihil eos rem, quaerat soluta earum quidem, ipsum autem suscipit fuga omnis impedit nisi accusamus veritatis modi corporis vel ipsa? Tenetur, aspernatur esse facere voluptatibus recusandae vel, praesentium, quidem aut quo natus earum ullam non impedit adipisci iure nostrum deserunt eveniet eligendi fugiat qui excepturi sunt error ipsum tempora? </p>
-            <h5 class="fw-bold">BEST ONLINE SHOPPING SITE IN INDIA FOR FASHION</h5>
-            <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae minima quia praesentium, rerum perspiciatis nemo perferendis sequi error culpa assumenda quod illum corporis totam modi temporibus aperiam, quaerat deserunt, vitae fugit possimus?.</p>
+            <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
+            <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
+            <h5 class="fw-bold">Designer Lehengas Suppliers in India </h5>
+            <p class="fs-7">Explore our extensive network of designer lehenga suppliers across India. We bring you the finest collection of lehengas, perfect for weddings, festivals, and special occasions. Our suppliers offer a variety of styles, including bridal lehengas, party-wear lehengas, and contemporary lehenga cholis, crafted with attention to detail and the latest fashion trends.
+            </p>
+            <p class="fs-7">Connect with leading designer lehenga exporters who cater to international markets. Our platform provides access to exporters renowned for their high-quality fabrics and stunning designs. Whether you are looking to import traditional or modern lehengas, our exporters ensure timely delivery and competitive pricing.
+            </p>
             <ul class="content-box ms-5 list-unstyled">
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Smart men’s clothing : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                <li class="div mt-2">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Kurtis :</strong>Find the best kurtis from reliable suppliers across India. Our platform features a diverse range of kurtis, from everyday casual wear to festive and formal designs. Browse through a variety of fabrics, patterns, and styles to meet the demands of your customers.
+                    </p>
                 </li>
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Trendy women’s clothing : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                <li class="div mt-2">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Dresses :</strong>Browse through our collection of stylish and trendy dresses from top manufacturers and suppliers. We offer a variety of dresses, including anarkalis, maxi dresses, and gowns,suitable for different occasions. Our dresses are designed to cater to the latest fashion trends and customer preferences.
+                    </p>
                 </li>
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Fashionable tops : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quidem quibusdam sapiente labore rerum sed assumenda. Eum totam tempora, consequatur recusandae deleniti veniam distinctio saepe excepturi ratione quos eius, enim quasi numquam! Sit architecto ipsum commodi non quia, aliquam expedita illo nihil numquam, corporis autem natus nobis libero recusandae quae!</p>
+                <li class="div mt-2">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Dupattas :</strong>Enhance your inventory with beautifully crafted dupattas available on our platform. Our suppliers offer a wide range of dupattas in various fabrics, including silk, cotton, chiffon, and georgette. From embroidered to printed dupattas, find the perfect pieces to complement your sarees and suits.</p>
                 </li>
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Fashionable gown : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
+                <li class="div mt-2">
+                    <p class="d-inline"><strong class="text-dark fw-bold">Palazzo Pants :</strong>Expand your collection with fashionable palazzo pants from trusted manufacturers. Our platform provides access to a variety of palazzo pants, ideal for casual and formal wear.</p>
                 </li>
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Wedding Cloth : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur eaque itaque ducimus harum cupiditate molestiae eius deleniti architecto pariatur accusantium sunt quos porro eligendi eos, magnam provident tempore doloribus sint!</p>
-                </li>
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Fashionable choli : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
-                </li>
-                <li class="div">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Trendy women saree : </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit iste corporis ut inventore possimus tempore! Quaerat facilis excepturi illum cupiditate nobis sint maxime explicabo maiores eligendi repudiandae quis enim dolorem debitis cum obcaecati, corrupti rem autem consequatur in doloremque quasi esse soluta. Unde distinctio possimus similique reprehenderit totam ipsam!</p>
-                </li>
-
         </div>
         </div>
     </section>
@@ -606,7 +601,7 @@ include 'header.php';
         <div class="mainContent h-100 w-75 d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
             <div class="row align-items-center">
-            <div class="content_1 col-12 col-lg-6" style="width: 70%;">
+            <div class="content_1 col-12 col-lg-8 col-md-6">
                 <div class="">
                     <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
                 </div>
@@ -616,7 +611,7 @@ include 'header.php';
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h6>How do I register my business on marketsearch?</h6>
+                                    <h6 class="m-0">How do I register my business on marketsearch?</h6>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -629,7 +624,7 @@ include 'header.php';
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h6>Who can register on marketsearch?</h6>
+                                    <h6 class="m-0">Who can register on marketsearch?</h6>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -642,7 +637,7 @@ include 'header.php';
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <h6>Is there a fee to register my business?</h6>
+                                    <h6 class="m-0">Is there a fee to register my business?</h6>
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -655,7 +650,7 @@ include 'header.php';
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <h6>How can I update my business information?</h6>
+                                    <h6 class="m-0">How can I update my business information?</h6>
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
@@ -668,7 +663,7 @@ include 'header.php';
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    <h6>Can I list multiple businesses under one account?</h6>
+                                    <h6 class="m-0">Can I list multiple businesses under one account?</h6>
                                 </button>
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
@@ -681,7 +676,7 @@ include 'header.php';
                         <div class="accordion-item border mb-4">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    <h6>How do I contact customer support?</h6>
+                                    <h6 class="m-0">How do I contact customer support?</h6>
                                 </button>
                             </h2>
                             <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
@@ -693,8 +688,8 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <div class="content_2 col-12 col-lg-6">
-                <img class="w-100  fit-cover rounded" src="img/shop/img1.webp" alt="">
+            <div class="content_2 col-12 col-lg-4 col-md-6">
+                <img class="img-fluid  fit-cover rounded" src="img/faq.jpg" alt="">
             </div>
             </div>
         </div>

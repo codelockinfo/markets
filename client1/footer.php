@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-item">
-                        <h1 class="text-primary">Cater<span class="text-dark">Serv</span></h1>
-                        <p class="lh-lg mb-4">There cursus massa at urnaaculis estieSed aliquamellus vitae ultrs condmentum leo massamollis its estiegittis miristum.</p>
+                    <img style="height: 100px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
+                        <p class="lh-lg mb-4">Empowering Textile Businesses with Seamless Connectivity and Growth Opportunities. Bridging the Gap Between Wholesalers and Retailers in the Textile Industry.</p>
                         <div class="footer-icon d-flex">
                             <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Categories</h4>
+                        <h4 class="mb-4">Top categories</h4>
                         <div class="d-flex flex-column align-items-start">
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
@@ -42,10 +42,10 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
-                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
-                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
-                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
+                            <p><a href="tel:7600464414" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
+                            <p><a href="mailto:codelockinfo@gmail.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i>codelockinfo@gmail.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 12/7  Hours Service</a></p>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
             <div class="text-center mb-3 mb-md-0">
-                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved.</span>
+                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i><a href="#">codelocksolutions.in</a></span>
             </div>
         </div>
     </div>
