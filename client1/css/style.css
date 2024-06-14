@@ -312,15 +312,15 @@ h6,
 
 
 
-/*** service start ***/
-.service .service-item {
+/*** famous start ***/
+.famous .famous-item {
     position: relative;
     height: 100%;
     border-radius: 8px;
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
 }
 
-.service-content::after {
+.famous-content::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -333,36 +333,47 @@ h6,
     transition: 1s;
 }
 
-.service-item:hover .service-content::after {
+.famous-item:hover .famous-content::after {
     height: 100%;
     opacity: 1;
 }
 
-.service-item .service-content-icon {
+.famous-item .famous-content-icon {
     position: relative;
     z-index: 2;
 }
 
-.service-item .service-content-icon i,
-.service-item .service-content-icon p {
+.famous-item .famous-content-icon i,
+.famous-item .famous-content-icon p {
     transition: 1s;
 }
 
-.service-item:hover .service-content-icon i {
+.famous-item:hover .famous-content-icon i {
     color: var(--bs-dark) !important;
 }
 
-.service-item:hover .service-content-icon p {
+.famous-item:hover .famous-content-icon p {
     color: var(--bs-white);
 }
 
-.service-item:hover .service-content-icon a.btn-primary {
+.famous-item:hover .famous-content-icon a.btn-primary {
     background: var(--bs-white);
     color: var(--bs-dark);
 }
 
-.service-item .service-content-icon a.btn-primary {
+.famous-item .famous-content-icon a.btn-primary {
     transition: 1s !important;
+}
+
+.famous .famous-img{
+    width: 200px;
+    height: 200px;
+    background-color: var(--bs-white);
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*** Services End ***/
