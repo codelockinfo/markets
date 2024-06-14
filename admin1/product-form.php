@@ -228,7 +228,8 @@ include 'header.php';
                 <div class="errormsg p_image"></div>
               </div>
             </div>
-            <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+            <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
+            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
             <div class="errormsg p_image"></div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product Tag</label>
