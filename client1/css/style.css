@@ -849,3 +849,7 @@ h6,
  .accordion-item .megamenu_b {
     border-radius: 0
 }
+
+.faq .accordion-item {
+   margin-bottom: 12px;
+}
