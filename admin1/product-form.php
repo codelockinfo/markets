@@ -3,18 +3,14 @@ include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Product Form</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -29,7 +25,7 @@ include 'header.php';
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -59,7 +55,7 @@ include 'header.php';
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -77,7 +73,7 @@ include 'header.php';
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -147,7 +143,7 @@ include 'header.php';
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active" href="product-list.php" role="tab" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active" href="<?php echo SITE_ADMIN_URL ?>product-list.php" role="tab" aria-selected="true">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -194,27 +190,27 @@ include 'header.php';
                 <option value="8">Footwear</option>
                 <option value="9">Gowns</option>
                 <option value="10">Handwear</option>
-                <option value="12">Hosiery</option>
-                <option value="13">Jackets</option>
-                <option value="14">Jeans by type</option>
-                <option value="15">Knee clothing</option>
-                <option value="16">Masks</option>
-                <option value="17">Neckwear</option>
-                <option value="18">One-piece suits</option>
-                <option value="19">Outerwear</option>
-                <option value="20">Ponchos</option>
-                <option value="21">Robes and cloaks</option>
-                <option value="22">Royal attire</option>
-                <option value="23">Saris</option>
-                <option value="24">Sashes</option>
-                <option value="25">Shawls and wraps</option>
-                <option value="26">Skirts</option>
-                <option value="27">Sportswear</option>
-                <option value="28">Suits</option>
-                <option value="29">Tops</option>
-                <option value="30">Trousers and shorts</option>
-                <option value="31">Undergarments</option>
-                <option value="32">Wedding clothing</option>
+                <option value="11">Hosiery</option>
+                <option value="12">Jackets</option>
+                <option value="13">Jeans by type</option>
+                <option value="14">Knee clothing</option>
+                <option value="15">Masks</option>
+                <option value="16">Neckwear</option>
+                <option value="17">One-piece suits</option>
+                <option value="18">Outerwear</option>
+                <option value="19">Ponchos</option>
+                <option value="20">Robes and cloaks</option>
+                <option value="21">Royal attire</option>
+                <option value="22">Saris</option>
+                <option value="23">Sashes</option>
+                <option value="24">Shawls and wraps</option>
+                <option value="25">Skirts</option>
+                <option value="26">Sportswear</option>
+                <option value="27">Suits</option>
+                <option value="28">Tops</option>
+                <option value="29">Trousers and shorts</option>
+                <option value="30">Undergarments</option>
+                <option value="31">Wedding clothing</option>
               </select>
               <span class="errormsg select_catagory"></span>
             </div>
@@ -226,9 +222,10 @@ include 'header.php';
             <label for="p-image" class="font-weight-normal">Product Image</label>
             <!-- <label for="b-image" class="font-weight-normal">Banner Image</label> -->
             <div class="mb-3">
-              <div class="drop-zone">
+              <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file"  name="p_image" id="removeImage" class="drop-zone__input">
+                <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
+                <div class="errormsg p_image"></div>
               </div>
               <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
             <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>

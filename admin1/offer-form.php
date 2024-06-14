@@ -1,19 +1,16 @@
-<?php 
-    include 'header.php';
+<?php
+include 'header.php';
 ?>
+
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-4 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Offers</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -28,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -58,7 +55,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -76,7 +73,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -152,7 +149,7 @@
             <form role="form" id="offersinsert" enctype="multipart/form-data" method="POST">
               <label for="textile-img" class="font-weight-normal">Image</label>
               <div class="mb-3">
-                <div class="drop-zone">
+                <div class="drop-zone form-control">
                   <span class="drop-zone__prompt">Drop file here or click to upload</span>
                   <input type="file" name="myFile" class="drop-zone__input">
                 </div>
@@ -161,25 +158,25 @@
               <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
               <div class="errormsg myFile"></div>
               <label for="text" class="font-weight-normal">Image alt</label>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
-              <span class="errormsg image_alt"></span>
-            </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
+                <span class="errormsg image_alt"></span>
+              </div>
               <label for="image-link" class="font-weight-normal">Image Link</label>
               <div class="mb-3">
                 <input type="url" class="form-control" placeholder="https://example.com" name="img_link">
-                  <span class="errormsg img_link"></span>
+                <span class="errormsg img_link"></span>
               </div>
               <div class="mb-3">
                 <button type="button" class="btn btn-primary bg-dark btn-sm offerSave formSave save_loader_show">Save</button>
                 <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
               </div>
-              <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
+              <div class="alert" role="alert" id="success_message" name="success_alert"></div>
             </form>
           </div>
         </div>
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-          <div class="card z-index-0 p-5">  
+          <div class="card z-index-0 p-5">
             <div class="row">
               <div class="mb-3 form-check-reverse text-right">
                 <i class="fa fa-eye p-3 mt-0" aria-hidden="true"></i>
@@ -190,7 +187,7 @@
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
                     </a>
                   </div>
                 </div>
@@ -199,7 +196,7 @@
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
                     </a>
                   </div>
                 </div>
@@ -208,7 +205,7 @@
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
                     </a>
                   </div>
                 </div>
@@ -217,7 +214,7 @@
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
                     </a>
                   </div>
                 </div>
@@ -226,7 +223,7 @@
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
                     </a>
                   </div>
                 </div>
@@ -235,7 +232,7 @@
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
                     </a>
                   </div>
                 </div>
@@ -245,7 +242,7 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
   </div>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -315,4 +312,5 @@
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
+
 </html>

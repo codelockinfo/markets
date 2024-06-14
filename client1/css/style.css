@@ -273,10 +273,10 @@ h6,
 
 /*** FAQ start ***/
 
-.content_2 {
+/* .content_2 {
     width: 380px;
     height: 540px;
-}
+} */
 
 @media (max-width: 950px) {
     .content_2 {
@@ -745,4 +745,45 @@ h6,
         height: auto;
 
     }
+}   
+
+/* brouseby category  */
+  /* the nitty gritty */
+  /* #tab_selector {
+    display: none;
+} */
+.event .nav{
+    justify-content: center;
+    text-align: center;
 }
+/* Show dropdown and hide pills in mobile view */
+/* @media (max-width: 768px) {
+    .form-tabs {
+        display: none;
+    }
+    #tab_selector {
+        display: block;
+    }
+    } */
+    
+    /* collection page css start  */
+.swiper {
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    height: auto;   
+    font-size: 18px;
+    background: #fff;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+}
+/* collection page css end  */

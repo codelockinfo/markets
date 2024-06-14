@@ -1,16 +1,15 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="" target="_blank">
-        <img src="<?php echo main_url('/admin1/assets/img/admin-logo.png'); ?>" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">Markets</span>
+      <a class="navbar-brand m-0" href="<?php echo CLS_SITE_URL; ?>" target="_blank">
+        <span class="ms-1 font-weight-bold">Market Search</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+      <ul class="navbar-nav overflow-x-hidden">
         <li class="nav-item">
-          <a class="nav-link  " href="index.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>index.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -53,16 +52,16 @@
             Customize 
           </button>
           <div class="dropdown-container">
-            <a href="banner-form.php">Banner section</a>
-            <a href="famousmarket-form.php">Famous markets section</a>
-            <a href="textilecategories-form.php">Brouse by textile categories section</a>
-            <a href="offer-form.php">Offers</a>
-            <a href="paragraph-form.php">Paragraph</a>
-            <a href="faqs-form.php">FAQ</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner section</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets section</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Brouse by textile categories section</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
           </div>
         </div>  
         <li class="nav-item">
-          <a class="nav-link  " href="profile.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>profile.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -82,7 +81,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="product-list.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>product-list.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -102,7 +101,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="gallery.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>gallery.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>box-3d-50</title>
@@ -123,7 +122,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="video-list.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>video-list.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
@@ -144,7 +143,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="blog-list.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>blog-list.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
@@ -168,7 +167,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="sign-in.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>document</title>
@@ -188,7 +187,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="plans.php">
+          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>plans.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>document</title>

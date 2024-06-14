@@ -1,58 +1,63 @@
-.errormsg{
-    color: red;
+.errormsg {
+  color: red;
 }
+
 /* plans css plans.html */
 .pricing .card {
-    border: none;
-    border-radius: 1rem;
-    transition: all 0.2s;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  height: 100%;
 }
 
 .pricing hr {
-    margin: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .pricing .card-title {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
 }
 
 .pricing .card-price {
-    font-size: 3rem;
-    margin: 0;
+  font-size: 3rem;
+  margin: 0;
 }
 
 .pricing .card-price .period {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .pricing ul li {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .pricing .text-muted {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .pricing .btn {
-    font-size: 80%;
-    border-radius: 5rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    transition: all 0.2s;
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 20px;
+  width: 40%;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  transition: all 0.2s;
 }
 
 @media (min-width: 992px) {
-    .pricing .card:hover {
-        background-color: rgb(45, 45, 75);
-        color: white;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-    }
+  .pricing .card:hover {
+    background-color: rgb(45, 45, 75);
+    color: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+  }
 }
 
 /* plans css end */
@@ -61,47 +66,59 @@
 
 /* sidebar dropdown css */
 .sidenav1 {
-    height: 100%;
-    width: 80%;
-    z-index: 1;
-    top: -60px;
-    left: 58px;
-    overflow-x: hidden;
-    padding-top: 20px;
-    margin-bottom: -50px;
+  height: 100%;
+  width: 80%;
+  z-index: 1;
+  top: -60px;
+  left: 58px;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-bottom: -50px;
 }
-.sidenav1 a, .dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 14px;
-    color: #818181;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
+
+.sidenav1 a,
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
 }
+
 .main {
-    margin-left: 0px;
-    font-size: 14px;
-    padding: 0px 10px;
+  margin-left: 0px;
+  font-size: 14px;
+  padding: 0px 10px;
 }
+
 .dropdown-container {
-    display: none;
-    padding-left: 8px;
+  display: none;
+  padding-left: 8px;
 }
+
 .fa-caret-down {
-    float: right;
-    padding-right: 8px;
+  float: right;
+  padding-right: 8px;
 }
-.dropdown-btn{
-    font-size: 14px;
+
+.dropdown-btn {
+  font-size: 14px;
 }
+
 @media screen and (max-height: 450px) {
-    .sidenav1 {padding-top: 15px;}
-    .sidenav1 a {font-size: 18px;}
+  .sidenav1 {
+    padding-top: 15px;
+  }
+
+  .sidenav1 a {
+    font-size: 18px;
+  }
 }
 
 /* sidebar dropdown css end */
@@ -111,47 +128,45 @@
 /* banner image & markets form css */
 
 .drop-zone {
-    position: relative;
-    max-width: 100%;
-    height: 400px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
-    color: #cccccc;
-    border: 1px dashed black;
-    /* border-radius: 10px; */
-  }
-  
-  .drop-zone--over {
-    border-style: solid;
-  }
-  
-  .drop-zone__input {
-    display: none;
-  }
-  
-  .drop-zone__thumb {
-    position: relative;
-   }
-  
-  .drop-zone__thumb::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 5px 0;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.75);
-    font-size: 14px;
-    text-align: center;
-  }
+  position: relative;
+  max-width: 100%;
+  height: 200px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  color: #cccccc;
+}
+
+.drop-zone--over {
+  border-style: solid;
+}
+
+.drop-zone__input {
+  display: none;
+}
+
+.drop-zone__thumb {
+  position: relative;
+}
+
+.drop-zone__thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
+  text-align: center;
+}
 
 /* banner image form css end */
 
@@ -163,6 +178,7 @@
   width: 500px;
   margin: 5% auto;
 }
+
 .form__container {
   position: relative;
   width: 100%;
@@ -175,9 +191,11 @@
   color: silver;
   margin-bottom: 5px;
 }
+
 .form__container.active {
   background-color: rgba(192, 192, 192, 0.2);
 }
+
 .form__file {
   position: absolute;
   width: 100%;
@@ -187,12 +205,14 @@
   cursor: pointer;
   opacity: 0;
 }
+
 .form__files-container {
   display: block;
   width: 100%;
   font-size: 0;
   margin-top: 20px;
 }
+
 .form__image-container {
   display: inline-block;
   width: 49%;
@@ -200,9 +220,11 @@
   margin-bottom: 10px;
   position: relative;
 }
+
 .form__image-container:not(:nth-child(2n)) {
   margin-right: 2%;
 }
+
 .form__image-container:after {
   content: "✕";
   position: absolute;
@@ -219,13 +241,15 @@
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
+
 .form__image-container:hover:after {
   opacity: 1;
   cursor: pointer;
 }
+
 .form__image {
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -237,82 +261,90 @@
 /* FAQ's accordion css */
 
 .accordion {
-    display: flex;
-    flex-direction: column;
-    font-family: "Sora", sans-serif;
-    max-width: 991px;
-    min-width: 320px;
-    margin: 50px auto;
-    padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Sora", sans-serif;
+  max-width: 991px;
+  min-width: 320px;
+  margin: 50px auto;
+  padding: 0 50px;
 }
+
 .accordion h1 {
-    font-size: 32px;
-    text-align: center;
+  font-size: 32px;
+  text-align: center;
 }
+
 .accordion-item {
-    margin-top: 16px;
-    border: 1px solid #fcfcfc;
-    border-radius: 6px;
-    background: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px 0px;
+  margin-top: 16px;
+  border: 1px solid #fcfcfc;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px 0px;
 }
+
 .accordion-item .accordion-item-title {
-    position: relative;
-    margin: 0;
-    display: flex;
-    width: 100%;
-    font-size: 16px;
-    cursor: pointer;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    padding: 14px 20px;
-    box-sizing: border-box;
-    align-items: center;
+  position: relative;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  align-items: center;
 }
+
 .accordion-item .accordion-item-desc {
-    display: none;
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 300;
-    color: #444;
-    border-top: 1px dashed #ddd;
-    padding: 10px 20px 20px;
-    box-sizing: border-box;
+  display: none;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 300;
+  color: #444;
+  border-top: 1px dashed #ddd;
+  padding: 10px 20px 20px;
+  box-sizing: border-box;
 }
+
 .accordion-item input[type="checkbox"] {
-    position: absolute;
-    height: 0;
-    width: 0;
-    opacity: 0;
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
 }
-.accordion-item input[type="checkbox"]:checked ~ .accordion-item-desc {
-    display: block;
+
+.accordion-item input[type="checkbox"]:checked~.accordion-item-desc {
+  display: block;
 }
-.accordion-item
-    input[type="checkbox"]:checked
-    ~ .accordion-item-title
-    .icon:after {
-    content: "-";
-    font-size: 20px;
+
+.accordion-item input[type="checkbox"]:checked~.accordion-item-title .icon:after {
+  content: "-";
+  font-size: 20px;
 }
-.accordion-item input[type="checkbox"] ~ .accordion-item-title .icon:after {
-    content: "+";
-    font-size: 20px;
+
+.accordion-item input[type="checkbox"]~.accordion-item-title .icon:after {
+  content: "+";
+  font-size: 20px;
 }
+
 .accordion-item:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
+
 .accordion-item .icon {
-    margin-left: 14px;
+  margin-left: 14px;
 }
 
 @media screen and (max-width: 767px) {
-    .accordion {
-        padding: 0 16px;
-    }
-    .accordion h1 {
-        font-size: 22px;
-    }
+  .accordion {
+    padding: 0 16px;
+  }
+
+  .accordion h1 {
+    font-size: 22px;
+  }
 }
 
 /* FAQ's accordion css end */
@@ -320,31 +352,32 @@
 
 
 /* preview & close button css */
- 
+
 .close-button {
-    position: absolute;
-    left: 90%;
-    top: 8px;
-    height: 20px;
-    width: 20px;
-    z-index: 1;
-    text-align: center;
-    border: none;
-    background-color: #c00b44;
-    color: #fff;
-    font-size: 18px;
-    line-height: 20px;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-  
-  .close-button:hover {
-    background-color: #7e0129;
-  }
-  .picture__img{
-    width: 100%;
-    max-height: 350px;
-  }
+  position: absolute;
+  left: 80%;
+  top: 8px;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+  text-align: center;
+  border: none;
+  background-color: #c00b44;
+  color: #fff;
+  font-size: 18px;
+  line-height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.close-button:hover {
+  background-color: #7e0129;
+}
+
+.picture__img {
+  width: 100%;
+  max-height: 150px;
+}
 
 /* preview & close button css end */
 
@@ -361,10 +394,6 @@
 
 .select2.select2-container .select2-selection--multiple .select2-selection__choice {
   background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
   margin: 4px 4px 0 0;
   padding: 0 6px 0 22px;
   height: 24px;

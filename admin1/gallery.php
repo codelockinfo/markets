@@ -1,20 +1,16 @@
 <?php
- include 'header.php';
+include 'header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
-  <?php 
-      include_once ABS_PATH . '/markets/admin1/sidebar.php';
+  <?php
+  include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
-          </ol>
           <h6 class="text-white font-weight-bolder ms-2">Gallery</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
@@ -29,7 +25,7 @@
               <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.php" class="nav-link text-white font-weight-bold px-0">
+              <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -59,7 +55,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -77,7 +73,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -144,139 +140,139 @@
         </div>
       </div>
     </div>
-        <div class="col-12 mt-4">
-          <div class="card mb-4">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001825889375-3327.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6 mt-3">
-                      </a>
-                    </div>
-                  </div>
+    <div class="col-12 mt-4">
+      <div class="card mb-4">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3327.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6 mt-3">
+                  </a>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001825889375-3326.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6 mt-3">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001446435108-2952.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001825889375-3327.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001446435108-2955.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001825889375-3326.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="position-relative">
-                      <a class="d-block border-radius-xl">
-                        <img src="assets/img/kurti/msg-1001446435108-2952.jpg " alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
               </div>
             </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3326.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6 mt-3">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2952.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3327.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3326.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mb-6">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="card card-blog card-plain">
+                <div class="position-relative">
+                  <a class="d-block border-radius-xl">
+                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2952.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
-      <footer class="footer pt-3">
-        <div class="container-fluid">
-          <div class="row align-items-center position-fixed justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
+    </div>
+  </div>
+  <footer class="footer pt-3">
+    <div class="container-fluid">
+      <div class="row align-items-center position-fixed justify-content-lg-between">
+        <div class="col-lg-6 mb-lg-0 mb-4">
+          <div class="copyright text-center text-sm text-muted text-lg-start">
+            © <script>
+              document.write(new Date().getFullYear())
+            </script>,
+            made with <i class="fa fa-heart"></i> by
+            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+            for a better web.
           </div>
         </div>
-      </footer>
+        <div class="col-lg-6">
+          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </footer>
+  </div>
   </div>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -345,4 +341,5 @@
     </div>
   </div>
 </body>
+
 </html>
