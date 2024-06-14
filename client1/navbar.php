@@ -157,7 +157,7 @@
      <!-- megamenu md view  -->
     <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <a href="index.php"> <img src="img/images.png" class="w-25 img-fluid" alt=""></a>
+            <a href="index.php"> <img style="height: 90px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image"></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
