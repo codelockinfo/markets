@@ -154,7 +154,8 @@ include 'header.php';
                   <input type="file" name="myFile" class="drop-zone__input">
                 </div>
               </div>
-              <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+              <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
+              <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
               <div class="errormsg myFile"></div>
               <label for="text" class="font-weight-normal">Image alt</label>
               <div class="mb-3">

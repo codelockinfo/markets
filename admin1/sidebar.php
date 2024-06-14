@@ -1,4 +1,4 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 border-end-xxl" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="<?php echo CLS_SITE_URL; ?>" target="_blank">
@@ -52,12 +52,12 @@
             Customize 
           </button>
           <div class="dropdown-container">
-            <a href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner section</a>
-            <a href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets section</a>
-            <a href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Brouse by textile categories section</a>
-            <a href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
-            <a href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
-            <a href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner section</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets <br>section</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Brouse by textile categories section</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
           </div>
         </div>  
         <li class="nav-item">
@@ -212,9 +212,6 @@
       <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
         <div class="full-background" style="background-image: url('../admin1/assets/img/curved-images/white-curved.jpg')"></div>
         <div class="card-body text-start p-3 w-100">
-          <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
-            <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
-          </div>
           <div class="docs-info">
             <h6 class="text-white up mb-0">Need help?</h6>
             <p class="text-xs font-weight-bold">Please check our docs</p>

@@ -159,7 +159,8 @@ include 'header.php';
               <input type="file" name="svg_img" class="drop-zone__input">
             </div>
           </div>
-          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
+          <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
           <div class="errormsg svg_img"></div>
           <label for="text" class="font-weight-normal">SVG image alt</label>
             <div class="mb-3">
@@ -183,7 +184,8 @@ include 'header.php';
               <input type="file" class="drop-zone__input" name="img">
             </div>
           </div>
-          <label class="font-weight-normal">Allow only JPG,JPEG,GIF,SVG,PNG,WEBP file </label>
+          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
+            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
           <div class="errormsg img"></div>
           <label for="text" class="font-weight-normal"> Image alt</label>
             <div class="mb-3">
