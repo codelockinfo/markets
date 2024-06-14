@@ -81,16 +81,14 @@
                                 <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                 <div class="">
                                     <h4>Mail Us</h4>
-                                    <p class="mb-2">info@example.com</p>
-                                    <p class="mb-0">support@example.com</p>
+                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p>
                                 </div>
                             </div>
                             <div class="d-inline-flex w-100 border border-primary p-4 rounded">
                                 <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                 <div class="">
                                     <h4>Telephone</h4>
-                                    <p class="mb-2">(+012) 3456 7890 123</p>
-                                    <p class="mb-0">(+704) 5555 0127 296</p>
+                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p>
                                 </div>
                             </div>
                         </div>
