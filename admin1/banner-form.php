@@ -55,7 +55,7 @@ include 'header.php';
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/team-2.jpg" alt="team-2" class="avatar avatar-sm me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -73,7 +73,7 @@ include 'header.php';
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="assets/img/small-logos/logo-spotify.svg" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
+                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -148,7 +148,7 @@ include 'header.php';
         <form role="form" id="bannerinsert" enctype="multipart/form-data" method="POST">
           <label for="b-image" class="font-weight-normal">Banner Image</label>
           <div class="mb-3">
-            <div class="drop-zone">
+            <div class="drop-zone form-control">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
             </div>
