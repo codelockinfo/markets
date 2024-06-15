@@ -760,7 +760,7 @@ include 'header.php';
     <!-- FAQ End -->
 
     <!-- Book Us Start -->
-    <div class="container-fluid contact pt-3 wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container-fluid contact pt-3  wow bounceInUp" data-wow-delay="0.1s">
         <div class="container  ">
             <div class="d-flex flex-column align-items-center mb-3">
                <h1>Contact us</h1>

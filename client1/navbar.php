@@ -11,55 +11,7 @@
              </button>
              <div class="collapse navbar-collapse" id="navbarCollapse">
                  <div class="navbar-nav mx-auto">
-                     <div class="nav-item dropdown">
-                         <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown">View All Markets</a>
-                         <div class="dropdown-menu  bg-light">
-                             <div class="drop-box row p-2 px-3">
-                                 <div class="col-12 col-md-4">
-                                     <div class="megamenu-box">
-                                         <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                         </div>
-                                         <div class="megamenu-content">
-                                             <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fashion</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti fashion</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="col-12 col-md-4">
-                                     <div class="megamenu-box">
-                                         <div class="megamenu-img">
-                                             <img src="img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                         </div>
-                                         <div class="megamenu-content">
-                                             <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kavya fabric</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">vaibhavlaxmi textile</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Reyna Fabrics</a></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="col-12 col-md-4">
-                                     <div class="megamenu-box">
-                                         <div class="megamenu-img">
-                                             <img src="img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
-                                         </div>
-                                         <div class="megamenu-content">
-                                             <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fashion </a></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
+                   <a href="#" class="nav-item nav-link text-capitalize">View All Markets</a>
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown"> markets</a>
                          <div class="dropdown-menu  bg-light">
@@ -211,27 +163,13 @@
      </div>
      <div class="offcanvas-body">
          <div class="accordion accordion-flush" id="accordionFlushExample">
-             <div class="accordion-item">
-                 <h4 class="accordion-header">
-                     <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8" aria-expanded="false" aria-controls="flush-collapse8">
-                         View All Markets
-                     </button>
-                 </h4>
-                 <div id="flush-collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body bg-light">
-                         <ul class="list-unstyled">
-                             <li><a href="#" class="text-capitalize ">Arohi-Women fashion</a></li>
-                             <li><a href="#" class="text-capitalize ">Maruti fashion</a></li>
-                             <li><a href="#" class="text-capitalize ">Vidya Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize ">Kavya fabric</a></li>
-                             <li><a href="#" class="text-capitalize ">vaibhavlaxmi textile</a></li>
-                             <li><a href="#" class="text-capitalize ">Reyna Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize ">Global Textile</a></li>
-                             <li><a href="#" class="text-capitalize ">Radha Krishna Textile</a></li>
-                             <li><a href="#" class="text-capitalize ">raghukul fashion </a></li>
-                         </ul>
-                     </div>
-                 </div>
+         <div class="accordion-item"> <a href="#">
+                     <h4 class="accordion-header ">
+                         <button class="megamenu_b bg-light collapsed" type="button">
+                             View All Markets
+                         </button>
+                     </h4>
+                 </a>
              </div>
              <div class="accordion-item">
                  <h4 class="accordion-header">

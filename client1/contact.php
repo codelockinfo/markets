@@ -88,7 +88,7 @@
                                 <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                 <div class="">
                                     <h4>Telephone</h4>
-                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p>
+                                    <p><a href="tel:7600464414" class="text-body">+91 7600464414</a></p>
                                 </div>
                             </div>
                         </div>
