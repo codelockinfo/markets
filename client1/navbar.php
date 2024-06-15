@@ -180,15 +180,15 @@
                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                      <div class="accordion-body bg-light">
                          <ul class="list-unstyled">
-                             <li><a href="#" class="text-capitalize ">Arohi-Women fashion</a></li>
-                             <li><a href="#" class="text-capitalize ">Maruti fashion</a></li>
-                             <li><a href="#" class="text-capitalize ">Vidya Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize ">Kavya fabric</a></li>
-                             <li><a href="#" class="text-capitalize ">vaibhavlaxmi textile</a></li>
-                             <li><a href="#" class="text-capitalize ">Reyna Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize ">Global Textile</a></li>
-                             <li><a href="#" class="text-capitalize ">Radha Krishna Textile</a></li>
-                             <li><a href="#" class="text-capitalize ">raghukul fashion </a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Arohi-Women fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Maruti fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Vidya Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Kavya fabric</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">vaibhavlaxmi textile</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Reyna Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Global Textile</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Radha Krishna Textile</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">raghukul fashion </a></li>
                          </ul>
                      </div>
                  </div>
@@ -202,37 +202,37 @@
                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                      <div class="accordion-body bg-light">
                          <ul class="list-unstyled">
-                             <li><a href="#">Armwear</a></li>
-                             <li><a href="#">Badges </a></li>
-                             <li><a href="#">Belts</a></li>
-                             <li><a href="#">Children's clothing</a></li>
-                             <li><a href="#">Clothing brands by type</a></li>
-                             <li><a href="#">Coats</a></li>
-                             <li><a href="#">Dresses</a></li>
-                             <li><a href="#">Footwear</a></li>
-                             <li><a href="#">Gowns</a></li>
-                             <li><a href="#">Handwear</a></li>
-                             <li><a href="#">Hosiery</a></li>
-                             <li><a href="#">Jackets</a></li>
-                             <li><a href="#">Jeans by type</a></li>
-                             <li><a href="#">Knee clothing</a></li>
-                             <li><a href="#">Masks</a></li>
-                             <li><a href="#">Neckwear</a></li>
-                             <li><a href="#">One-piece suits</a></li>
-                             <li><a href="#">Outerwear</a></li>
-                             <li><a href="#">Ponchos</a></li>
-                             <li><a href="#">Robes and cloaks</a></li>
-                             <li><a href="#">Royal attire</a></li>
-                             <li><a href="#">Saree</a></li>
-                             <li><a href="#">Sashes</a></li>
-                             <li><a href="#">Shawls and wraps</a></li>
-                             <li><a href="#">Skirts</a></li>
-                             <li><a href="#">Sportswear</a></li>
-                             <li><a href="#">Suits</a></li>
-                             <li><a href="#">Tops</a></li>
-                             <li><a href="#">Trousers and shorts</a></li>
-                             <li><a href="#">Undergarments</a></li>
-                             <li><a href="#">Wedding clothing</a></li>
+                             <li><a href="#" class="text-secondary">Armwear</a></li>
+                             <li><a href="#" class="text-secondary">Badges </a></li>
+                             <li><a href="#" class="text-secondary">Belts</a></li>
+                             <li><a href="#" class="text-secondary">Children's clothing</a></li>
+                             <li><a href="#" class="text-secondary">Clothing brands by type</a></li>
+                             <li><a href="#" class="text-secondary">Coats</a></li>
+                             <li><a href="#" class="text-secondary">Dresses</a></li>
+                             <li><a href="#" class="text-secondary">Footwear</a></li>
+                             <li><a href="#" class="text-secondary">Gowns</a></li>
+                             <li><a href="#" class="text-secondary">Handwear</a></li>
+                             <li><a href="#" class="text-secondary">Hosiery</a></li>
+                             <li><a href="#" class="text-secondary">Jackets</a></li>
+                             <li><a href="#" class="text-secondary">Jeans by type</a></li>
+                             <li><a href="#" class="text-secondary">Knee clothing</a></li>
+                             <li><a href="#" class="text-secondary">Masks</a></li>
+                             <li><a href="#" class="text-secondary">Neckwear</a></li>
+                             <li><a href="#" class="text-secondary">One-piece suits</a></li>
+                             <li><a href="#" class="text-secondary">Outerwear</a></li>
+                             <li><a href="#" class="text-secondary">Ponchos</a></li>
+                             <li><a href="#" class="text-secondary">Robes and cloaks</a></li>
+                             <li><a href="#" class="text-secondary">Royal attire</a></li>
+                             <li><a href="#" class="text-secondary">Saree</a></li>
+                             <li><a href="#" class="text-secondary">Sashes</a></li>
+                             <li><a href="#" class="text-secondary">Shawls and wraps</a></li>
+                             <li><a href="#" class="text-secondary">Skirts</a></li>
+                             <li><a href="#" class="text-secondary">Sportswear</a></li>
+                             <li><a href="#" class="text-secondary">Suits</a></li>
+                             <li><a href="#" class="text-secondary">Tops</a></li>
+                             <li><a href="#" class="text-secondary">Trousers and shorts</a></li>
+                             <li><a href="#" class="text-secondary">Undergarments</a></li>
+                             <li><a href="#" class="text-secondary">Wedding clothing</a></li>
                          </ul>
                      </div>
                  </div>
