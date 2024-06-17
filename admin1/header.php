@@ -2,13 +2,13 @@
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
 include($myRoot . '/markets/connection.php');
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
-
         <title>Surat's Textile Market Tour: Everything You Need to Know</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@ include($myRoot . '/markets/connection.php');
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/nucleo-svg.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/soft-ui-dashboard.css?v=1.0.7'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/custom.css'); ?>" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/bootstrap.min.css'); ?>" rel="stylesheet"> -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

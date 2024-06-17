@@ -29,37 +29,6 @@ function getCookie(cname) {
     return "";
 }
 
-function flashNotice($message, $class) {
-    $class = ($class != undefined) ? $class : '';
-    
-    var flashmessageHtml = '<div class="inline-flash-wrapper animated bounceInUp inline-flash-wrapper--is-visible ourFlashmessage"><div class="inline-flash ' + $class + '  "><p class="inline-flash__message">' + $message + '</p></div></div>';
-    
-    if ($('.ourFlashmessage').length) {
-        $('.ourFlashmessage').remove();
-    }
-    $("body").append(flashmessageHtml);
-    
-    setTimeout(function () {
-        if ($('.ourFlashmessage').length) {
-            $('.ourFlashmessage').remove();
-        }
-    }, 3000);
-}
-
-function changeTab(evt, id) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("Polaris-Tabs_tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("Polaris-Tabs__Tab");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace("Polaris-Tabs__Tab--selected", "");
-    }
-    document.getElementById(id).style.display = "block";
-    evt.currentTarget.className += " Polaris-Tabs__Tab--selected";
-}
-
 function loading_show($selector) {
     $($selector).addClass("loading").html('<i class="fas fa-circle-notch fa-spin"></i>').fadeIn('fast').attr('disabled', 'disabled');
 }
@@ -73,11 +42,6 @@ function loading_hide($selector, $buttonName, $buttonIcon) {
       $buttonIcon = 'Save'
   }
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
-}
-
-
-function table_loader(selector, colSpan) {
-    $(selector).html('<tr><td colspan="' + colSpan + '" style="text-align:center;"><div class="loader-spinner"><svg viewBox="0 0 44 44" class="Polaris-Spinner Polaris-Spinner--colorTeal Polaris-Spinner--sizeLarge" role="status"><path d="M15.542 1.487A21.507 21.507 0 0 0 .5 22c0 11.874 9.626 21.5 21.5 21.5 9.847 0 18.364-6.675 20.809-16.072a1.5 1.5 0 0 0-2.904-.756C37.803 34.755 30.473 40.5 22 40.5 11.783 40.5 3.5 32.217 3.5 22c0-8.137 5.3-15.247 12.942-17.65a1.5 1.5 0 1 0-.9-2.863z"></path></svg></div></td></tr>')
 }
 
 function redirect403() {
@@ -133,13 +97,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
         });
     }
 }
-var win = navigator.platform.indexOf('Win') > -1;
-if (win && document.querySelector('#sidenav-scrollbar')) {
-  var options = {
-    damping: '0.5'
-  }
-  Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-}
+
 // DEMO FUNCTION CALLING ON LOAD
 function demo(){
     $.ajax({
@@ -157,51 +115,54 @@ function demo(){
     });
 }
 
-
 $(document).ready(function() {
     console.log("DOCUMENT READY ...");
 
-  $('.validtext').on('input', function() {
-    var c = this.selectionStart,
-        r = /[^a-zA-Z\s']/g,
-        v = $(this).val();
-    if(r.test(v)) {
-        $(this).val(v.replace(r, ''));
-        c--;
-    }
-    this.setSelectionRange(c, c);
-});
+    $('.validtext').on('input', function() {
+      var c = this.selectionStart,
+          r = /[^a-zA-Z\s']/g,
+          v = $(this).val();
+          if(r.test(v)) {
+              $(this).val(v.replace(r, ''));
+              c--;
+          }
+        this.setSelectionRange(c, c);
+    });
 
-    // function showMessage(msg, type) {
-    //   var alertClass = (type === "success") ? "success" : "error";
-    //   var messageId = 'success_message_';
-    //   // var messageHtml = '<div class="alert ' + alertClass + '">' + msg + '</div>';
-    //   var messageHtml = '<div class="alert ' + alertClass + '" id="' + messageId + '">' + msg + '</div>';
-    //   $("#success_message").html(messageHtml);
-    //   $("#success_message_").fadeIn().delay(5000).fadeOut(1000, function() {
-    //     $(this).remove();
-    // });
-     
-    // }
     function showMessage(msg, type) {
-      var alertType = (type === "success") ? "success" : "error";
+      // var alertType = type;
+      var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error"; // Set title based on type
+
       Swal.fire({
-          title: alertType.charAt(0).toUpperCase() + alertType.slice(1), // Capitalize the first letter of the alert type
+          title: alertTitle, // Set title
           text: msg,
-          icon: alertType,
+          icon: (type === "fail") ? "error" : type, // Show "error" icon for "fail" type, otherwise use type
           timer: 5000, // Automatically close after 5 seconds
           timerProgressBar: true,
           showConfirmButton: false
       });
-  }
+    }
 
-     $('.form-control').on('keypress', function() {
+    $('.form-control').on('keypress', function() {
         $(this).next('.errormsg').text('');
-        });
+    });
+       
+    if ($("textarea#myeditor") !== 'undefined') {
+        CKEDITOR.replace('myeditor');
+    } 
 
-     $('.form-select').on('input change', function() {
+    if (CKEDITOR.instances['myeditor']) {
+      // CKEDITOR.instances['myeditor'].setData('');
+      CKEDITOR.instances['myeditor'].on('change', function() {
+          if (CKEDITOR.instances['myeditor'].getData().length >  0){
+            $('.myeditor').html('');
+          }
+      });
+    }
+
+    $('.form-select').on('input change', function() {
         $(this).siblings('.errormsg').text('');
-        });
+    });
 
     $('.formCancel').click(function(){
       console.log("CCCCC");
@@ -209,24 +170,19 @@ $(document).ready(function() {
       $(".multiple_tag").val(null).trigger("change");
       $(this).closest("form")[0].reset();
       if (CKEDITOR.instances['myeditor']) {
-      CKEDITOR.instances['myeditor'].setData('');
-      }
-      var $thumbnailElement = $(".drop-zone__thumb");
-      if ($thumbnailElement.length > 0) {
-         $thumbnailElement.html('');
-         $thumbnailElement.removeClass("drop-zone__thumb");
-         $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-      }
-      
+      CKEDITOR.instances['myeditor'].setData('');  
+      }  
     });
+
     function resetThumbnail() {
-      var $thumbnailElement = $(".drop-zone__thumb");
-      if ($thumbnailElement.length > 0) {
-          $thumbnailElement.html('');
-          $thumbnailElement.removeClass("drop-zone__thumb");
-          $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-      }
-  }
+        var $thumbnailElement = $(".drop-zone__thumb");
+        if ($thumbnailElement.length > 0) {
+            $thumbnailElement.html('');
+            $thumbnailElement.removeClass("drop-zone__thumb");
+            $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
+        }
+    }
+
     $(document).on("click",".signUpsave",function(e){
       e.preventDefault();   
       console.log("signUpsavebutton click");
@@ -263,6 +219,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          } 
+          else{
+            showMessage(response.msg_error, "fail");
           } 
         }
     });
@@ -310,6 +269,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          }
+          else{
+            showMessage(response.msg_error, "fail");
           } 
       }
     });
@@ -344,7 +306,10 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
-          } 
+          }
+          else{
+            showMessage(response.msg_error, "fail");
+          }  
       }
     });
     })
@@ -386,7 +351,10 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
-          } 
+          }
+          else{
+            showMessage(response.msg_error, "fail");
+          }  
       }
     });
     })
@@ -423,6 +391,9 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
+          } 
+          else{
+            showMessage(response.msg_error, "fail");
           } 
       }
     });
@@ -462,9 +433,13 @@ $(document).ready(function() {
             if (response.data === "success") {
               showMessage(response.msg, "success");
           } 
+          else{
+            showMessage(response.msg_error, "fail");
+          } 
       }
     });
     })
+
     $(document).on("click",".brouseSave",function(event){
       event.preventDefault();
       console.log(" brouseSave save button click");
@@ -495,9 +470,13 @@ $(document).ready(function() {
             if (response.data === "success") {
               showMessage(response.msg, "success");
           } 
+          else{
+            showMessage(response.msg_error, "fail");
+          } 
       }
     });
     })
+
     $(document).on("click",".offerSave",function(event){
       event.preventDefault();
       console.log(" offers save button click");
@@ -528,9 +507,13 @@ $(document).ready(function() {
             if (response.data === "success") {
               showMessage(response.msg, "success");
           } 
+          else{
+            showMessage(response.msg_error, "fail");
+          } 
       }
     });
     })
+
     $(document).on("click",".paragraphSave",function(event){
       event.preventDefault();
       console.log(" paragraph save button click");
@@ -562,7 +545,10 @@ $(document).ready(function() {
             }
             if (response.data === "success") {
               showMessage(response.msg, "success");
-          } 
+          }
+          else{
+            showMessage(response.msg_error, "fail");
+          }  
       }
     });
     })
@@ -600,6 +586,9 @@ $(document).ready(function() {
             if (response.data === "success") {
               showMessage(response.msg, "success");
           } 
+          else{
+            showMessage(response.msg_error, "fail");
+          } 
       }
     });
     })
@@ -619,7 +608,6 @@ $(document).ready(function() {
       });
     }
     
-	  CKEDITOR.replace('myeditor');
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {

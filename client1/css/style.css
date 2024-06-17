@@ -760,22 +760,22 @@ h6,
 
 /* brouseby category  */
   /* the nitty gritty */
-  /* #tab_selector {
+  #tab_selector {
     display: none;
-} */
+} 
 .event .nav{
     justify-content: center;
     text-align: center;
 }
 /* Show dropdown and hide pills in mobile view */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .form-tabs {
         display: none;
     }
     #tab_selector {
         display: block;
     }
-    } */
+    }
     
     /* collection page css start  */
 .swiper {
@@ -798,3 +798,58 @@ h6,
     object-fit: cover;
 }
 /* collection page css end  */
+
+
+/* megamenu-button */
+.megamenu_b{
+    position:relative;
+    display:flex;
+    align-items:center;
+    width:100%;
+    padding:1rem 1.25rem;
+    font-size:1rem;
+    color:#9a9a9a;
+    text-align:left;
+    background-color:#fff;
+    border:0;
+    border-radius:0;
+    overflow-anchor:none;
+    transition:color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease
+}
+@media (prefers-reduced-motion:reduce) {
+    .megamenu_b {
+        transition: none
+    }
+}
+.megamenu_b:not(.collapsed) {
+    color: var(--bs-accordion-active-color);
+    background-color: var(--bs-accordion-active-bg);
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color)
+}
+.megamenu_b:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-active-icon);
+    transform: var(--bs-accordion-btn-icon-transform)
+}
+.megamenu_b:hover {
+    z-index: 2
+}
+.megamenu_b:focus {
+    z-index: 3;
+    border-color: var(--bs-accordion-btn-focus-border-color);
+    outline: 0;
+    box-shadow: var(--bs-accordion-btn-focus-box-shadow)
+}
+.accordion-item:first-of-type .megamenu_b {
+    border-top-left-radius: var(--bs-accordion-inner-border-radius);
+    border-top-right-radius: var(--bs-accordion-inner-border-radius)
+    
+}
+ .accordion-item .megamenu_b {
+    border-radius: 0
+}
+
+.faq .accordion-item {
+   margin-bottom: 12px;
+}
