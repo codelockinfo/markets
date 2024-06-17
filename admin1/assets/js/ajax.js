@@ -117,9 +117,32 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
 
     $(document).ready(function() {
       console.log("DOCUMENT READY ...");
-      if ($("textarea#myeditor") !== 'undefined') {
+      function showMessage(msg, type) {
+
+        var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+    
+        Swal.fire({
+    
+            title: alertTitle, 
+    
+            text: msg,
+    
+            icon: (type === "fail") ? "error" : type, 
+    
+            timer: 5000,
+    
+            timerProgressBar: true,
+    
+            showConfirmButton: false
+    
+         });
+    
+      }
+
+      if ($("textarea#myeditor").length > 0) {
           CKEDITOR.replace('myeditor');
       } 
+      
       $('.validtext').on('input', function() {
         var c = this.selectionStart,
             r = /[^a-zA-Z\s']/g,
