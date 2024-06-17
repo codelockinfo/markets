@@ -33,7 +33,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -47,7 +47,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">

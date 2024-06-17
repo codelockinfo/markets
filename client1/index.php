@@ -9,10 +9,10 @@ include 'header.php';
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
+
     <?php
     include 'navbar.php';
     ?>
-
 
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -803,7 +803,6 @@ include 'header.php';
     include 'footer.php';
     ?>
    
- 
 </body>
 
 </html>
