@@ -47,7 +47,10 @@ h6,
     font-weight: 600 !important;
     font-family: 'Open Sans', sans-serif !important;
 }
-
+.w-40{
+    width: 40%;
+    padding: 15px;
+}
 .my-6 {
     margin-top: 6rem;
     margin-bottom: 6rem;
@@ -158,12 +161,25 @@ h6,
 
 .navbar .dropdown-menu .drop-box {
     width: 600px;
+    height: 450px;
+    overflow-y: auto;
+}
+.navbar .dropdown-menu .drop-box::-webkit-scrollbar  {
+    width: 5px;
+}
+.navbar .dropdown-menu .drop-box::-webkit-scrollbar-thumb  {
+   background-color: var(--bs-primary);
+}
+.navbar .dropdown-menu .drop-box::-webkit-scrollbar-track  {
+   background-color: var(--bs-light);
 }
 
 .navbar-collapse .dropdown .megamenu-box {
     width: 100%;
 }
-
+.navbar-collapse .dropdown-menu[data-bs-popper]{
+    left: -100% !important;
+}
 
 @media (max-width: 768px) {
     .navbar-collapse .dropdown .megamenu-box {

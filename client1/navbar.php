@@ -23,9 +23,22 @@
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Arohi-Women fashion</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maruti fashion</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Ragini Fashion</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Allia Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Amar Textiles</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Tulsi Saree</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Silver Textile</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sagun Tex Fab (Digital Printing Hub)</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Shree Shyam Fashion</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Shakti International</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Venus Handloom & Furnishing</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Tater Silk Mills Pvt Ltd</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Rani Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Shree Amba Trading Wholesale Depot</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maa Ambey Prints</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Aarush Textile</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Silk INDIA Corporation</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">S. Goyal</a></li>
                                              </ul>
                                          </div>
                                      </div>
@@ -37,9 +50,22 @@
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kavya fabric</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">vaibhavlaxmi textile</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Reyna Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vijayshanti Texofin</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Mataji Fashion</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Scpi (Shree Chandaprabhu International)</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Rangoli Fashion</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">K S Textiles</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">M S Collection</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maa Ambey Prints</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Shree Hari Textiles</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radhey Govind Textile</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">V R S Creation</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Varni Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kamil Grey Cutpiece Shop</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maheshwari Trading</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Niharikaa Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Varia Trading Co</a></li>
                                              </ul>
                                          </div>
                                      </div>
@@ -51,9 +77,22 @@
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Global Textile</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radha Krishna Textile </a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">raghukul fashion </a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kotwala Synthetics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Deepin Bleaching Pvt. Ltd. </a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Manglam Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sanskruti</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Mansi Textiles</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Singhal Fabric</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Krishna Textiles</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Textile World</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Radhika Texfeb</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Bajrang Garment</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Right Choice</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Angel Designer Studio</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Punya Pratap Fabrics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Asian Fabric Mills</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sapphire Synthetics</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Smita Fashion</a></li>
                                              </ul>
                                          </div>
                                      </div>
@@ -180,15 +219,54 @@
                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                      <div class="accordion-body bg-light">
                          <ul class="list-unstyled">
-                             <li><a href="#" class="text-capitalize text-secondary">Arohi-Women fashion</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Maruti fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Ragini Fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Allia Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Amar Textiles</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Tulsi Saree</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Silver Textile</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Sagun Tex Fab (Digital Printing Hub)</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Shree Shyam Fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Shakti International</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Venus Handloom & Furnishing</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Tater Silk Mills Pvt Ltd</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Radha Rani Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Shree Amba Trading Wholesale Depot</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Maa Ambey Prints</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Aarush Textile</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Silk INDIA Corporation</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Vijayshanti Texofin</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Mataji Fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Scpi (Shree Chandaprabhu International)</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Rangoli Fashion</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Venus Handloom & Furnishing</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">K S Textiles</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">M S Collection</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Maa Ambey Prints</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Shree Hari Textiles</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Radhey Govind Textile</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">V R S Creation</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Varni Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Kamil Grey Cutpiece Shop</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Maheshwari Trading</a></li>
                              <li><a href="#" class="text-capitalize text-secondary">Vidya Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Kavya fabric</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">vaibhavlaxmi textile</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Reyna Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Global Textile</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Radha Krishna Textile</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">raghukul fashion </a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Niharikaa Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Varia Trading Co</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Kotwala Synthetics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Deepin Bleaching Pvt. Ltd.</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Manglam Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Sanskruti</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Mansi Textiles</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Singhal Fabric</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Krishna Textiles</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Textile World</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Radhika Texfeb</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Bajrang Garment</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Right Choice</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Angel Designer Studio</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Punya Pratap Fabrics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Asian Fabric Mills</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Sapphire Synthetics</a></li>
+                             <li><a href="#" class="text-capitalize text-secondary">Smita Fashion</a></li>
                          </ul>
                      </div>
                  </div>
