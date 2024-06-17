@@ -762,20 +762,21 @@ h6,
 /* brouseby category  */
   /* the nitty gritty */
   @media (min-width: 769px) {
-    .dropdown-tabs {
+    .dropdown {
         display: none !important;
     }
 }
 .event .nav{
     justify-content: center;
     text-align: center;
+    flex-wrap: nowrap !important;
 }
 /* Show dropdown and hide pills in mobile view */
 @media (max-width: 768px) {
     .form-tabs {
         display: none;
     }
-    .dropdown-tabs {
+    .dropdown {
         display: block;
     }
     }

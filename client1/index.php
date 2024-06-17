@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 ?>
+
 <body>
 
     <!-- Spinner Start -->
@@ -8,10 +9,10 @@ include 'header.php';
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
-    <?php 
-        include 'navbar.php';
+    <?php
+    include 'navbar.php';
     ?>
-    
+
 
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -47,7 +48,7 @@ include 'header.php';
     <div class="container-fluid famous pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Famous markets</h1>  
+                <h1 class="display-5 mb-5">Famous markets</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
@@ -58,7 +59,7 @@ include 'header.php';
                                 <h4 class="mb-3">Arohi-Woman Fashion</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class="img-fluid" src="img/shop_1/shop1.jpg" alt="">
+                                    <img class="img-fluid" src="img/shop_1/shop1.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -72,8 +73,8 @@ include 'header.php';
                                 <h4 class="mb-3">Kavya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/shop2.jpg" alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/shop2.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -86,8 +87,8 @@ include 'header.php';
                                 <h4 class="mb-3">Global textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/shop3.jpg" alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/shop3.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,8 +101,8 @@ include 'header.php';
                                 <h4 class="mb-3">Vidya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/shop4.jpg" alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/shop4.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,8 +115,8 @@ include 'header.php';
                                 <h4 class="mb-3">Jay Ambe Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/shop5.jpg" alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/shop5.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,8 +129,8 @@ include 'header.php';
                                 <h4 class="mb-3">KS textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/shop6.jpg" alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/shop6.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -142,8 +143,8 @@ include 'header.php';
                                 <h4 class="mb-3">Rajhans textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/logo (1).png" alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/logo (1).png" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -156,8 +157,8 @@ include 'header.php';
                                 <h4 class="mb-3">Bal Krishna fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                <img class=" img-fluid" src="img/shop_1/shop8.jpg   " alt="">
-                            </div>
+                                    <img class=" img-fluid" src="img/shop_1/shop8.jpg   " alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,16 +202,18 @@ include 'header.php';
                         </a>
                     </li>
                 </ul>
-        <div class="dropdown dropdown-tabs mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Tab
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#tab1" data-toggle="tab">Tab 1</a>
-                <a class="dropdown-item" href="#tab2" data-toggle="tab">Tab 2</a>
-                <a class="dropdown-item" href="#tab3" data-toggle="tab">Tab 3</a>
-            </div>
-        </div>
+                <div class="dropdown mb-4">
+                    <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Category
+                    </button>
+                    <ul class="dropdown-menu w-100">
+                        <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-1">Kurtis</a></li>
+                        <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-2">Sarees</a></li>
+                        <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-3">Wedding cloths</a></li>
+                        <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-4">Tops</a></li>
+                        <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-5">Skirts</a></li>
+                    </ul>
+                </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show p-0 active" id="tab-1">
                         <div class="row g-4">
@@ -666,96 +669,96 @@ include 'header.php';
         <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
             <div class="row align-items-center">
-            <div class="content_1 col-12 col-lg-8 col-md-6">
-                <div class="">
-                    <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
-                </div>
-                <div>
-                    <div class="accordion" id="accordionExample">
+                <div class="content_1 col-12 col-lg-8 col-md-6">
+                    <div class="">
+                        <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
+                    </div>
+                    <div>
+                        <div class="accordion" id="accordionExample">
 
-                        <div class="accordion-item border">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h6 class="m-0">How do I register my business on marketsearch?</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                To register, click on the "Register your shop" button on the homepage, fill in your business details, and submit the registration form.
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h6 class="m-0">How do I register my business on marketsearch?</h6>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        To register, click on the "Register your shop" button on the homepage, fill in your business details, and submit the registration form.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="accordion-item border">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h6 class="m-0">Who can register on marketsearch?</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                Fabric wholesalers and textile shop owners are eligible to register on our platform.
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h6 class="m-0">Who can register on marketsearch?</h6>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Fabric wholesalers and textile shop owners are eligible to register on our platform.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="accordion-item border">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <h6 class="m-0">Is there a fee to register my business?</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                   No, registering your business on marketsearch is completely free.
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <h6 class="m-0">Is there a fee to register my business?</h6>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        No, registering your business on marketsearch is completely free.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="accordion-item border">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <h6 class="m-0">How can I update my business information?</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                   After logging in, go to your account dashboard and click on "Edit Profile" to update your business information.
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <h6 class="m-0">How can I update my business information?</h6>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        After logging in, go to your account dashboard and click on "Edit Profile" to update your business information.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="accordion-item border">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    <h6 class="m-0">Can I list multiple businesses under one account?</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                   No, each business must be registered with a separate account.
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        <h6 class="m-0">Can I list multiple businesses under one account?</h6>
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        No, each business must be registered with a separate account.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="accordion-item border">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    <h6 class="m-0">How do I contact customer support?</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                   You can contact customer support by emailing [codelockinfo@gmail.com] or using the contact form available on our website.
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <h6 class="m-0">How do I contact customer support?</h6>
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        You can contact customer support by emailing [codelockinfo@gmail.com] or using the contact form available on our website.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="content_2 col-12 col-lg-4 col-md-6">
-                <img class="img-fluid  fit-cover rounded" src="img/faq.jpg" alt="">
-            </div>
+                <div class="content_2 col-12 col-lg-4 col-md-6">
+                    <img class="img-fluid  fit-cover rounded" src="img/faq.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -765,7 +768,7 @@ include 'header.php';
     <div class="container-fluid contact pt-3  wow bounceInUp" data-wow-delay="0.1s">
         <div class="container  ">
             <div class="d-flex flex-column align-items-center mb-3">
-               <h1>Contact us</h1>
+                <h1>Contact us</h1>
             </div>
             <div class="row g-0">
                 <div class="col-12">
@@ -790,17 +793,17 @@ include 'header.php';
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </div>
     <!-- Book Us End -->
 
-    <?php 
-        include 'footer.php';
+    <?php
+    include 'footer.php';
     ?>
-
    
+ 
 </body>
 
 </html>

@@ -158,6 +158,17 @@ var swiper = new Swiper(".relatedslider", {
         },
     }
 }); 
+ // collection page end
 
-  
- 
+
+// event dropdown js start 
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = this.getAttribute('href');
+        var tabTriggerEl = document.querySelector('a[href="' + target + '"]');
+        var tabTrigger = new bootstrap.Tab(tabTriggerEl);
+        tabTrigger.show();
+    });
+});
+// event dropdown js end 
