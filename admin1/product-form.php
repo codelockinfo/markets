@@ -231,7 +231,7 @@ include 'header.php';
             <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
             <div class="errormsg p_image"></div>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Product Tag</label>
+              <label for="text" class="font-weight-normal">Product</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
