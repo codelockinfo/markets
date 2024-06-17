@@ -58,11 +58,11 @@
                         <!-- Thumbnail track carousel -->
                         <div class="thumbnails-slider swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide thumbnail-button" aria-current="true"><img src="img/k1.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="img/k2.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="img/k3.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="img/k4.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="img/k5.jpg" alt=""> </div>
+                                <div class="swiper-slide thumbnail-button" aria-current="true"><img src="<?php echo CLS_SITE_URL; ?>img/k1.jpg" alt=""></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k2.jpg" alt=""></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k3.jpg" alt=""></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k4.jpg" alt=""></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k5.jpg" alt=""> </div>
                             </div>
                         </div>
 
@@ -70,19 +70,19 @@
                         <div class="main-image-slider swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide image-link">
-                                    <img src="img/k1.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k1.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="img/k2.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k2.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="img/k3.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k3.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="img/k4.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k4.jpg" alt="">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="img/k5.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k5.jpg" alt="">
                                 </div>
                             </div>
 
@@ -132,7 +132,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/1.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -144,7 +144,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -156,7 +156,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/3.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -168,7 +168,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/4.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -180,7 +180,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/5.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -192,7 +192,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/6.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -204,7 +204,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/7.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
@@ -216,7 +216,7 @@
                     <div class="swiper-slide">
                        <a href="#"> <div class="product-box">
                             <div class="product-img"> 
-                                <img src="img/kurti/8.jpg" class="img-fluid rounded" alt="">
+                                <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="">
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>

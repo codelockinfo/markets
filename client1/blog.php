@@ -58,7 +58,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                           <a href="blog_details1.php"><img src="img/blog1.png" class="img-fluid w-100" alt=""></a>
+                           <a href="blog_details1.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog1.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -77,7 +77,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <a href="blog_details2.php"><img src="img/blog2.png" class="img-fluid w-100" alt=""></a>
+                            <a href="blog_details2.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog2.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -96,7 +96,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                           <a href="blog_details3.php"><img src="img/blog3.png" class="img-fluid w-100" alt=""></a>
+                           <a href="blog_details3.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog3.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -115,7 +115,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <a href="blog_details4.php"><img src="img/blog4.png" class="img-fluid w-100" alt=""></a>
+                            <a href="blog_details4.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog4.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -134,7 +134,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <a href="blog_details5.php"><img src="img/blog5.jpg" class="img-fluid w-100" alt=""></a>
+                            <a href="blog_details5.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog5.jpg" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -153,7 +153,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <a href="blog_details6.php"><img src="img/blog6.png" class="img-fluid w-100" alt=""></a>
+                            <a href="blog_details6.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog6.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -172,7 +172,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <a href="blog_details7.php"><img src="img/blog7.png" class="img-fluid w-100" alt=""></a>
+                            <a href="blog_details7.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog7.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -191,7 +191,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <a href="blog_details8.php"><img src="img/blog8.png" class="img-fluid w-100" alt=""></a>
+                            <a href="blog_details8.php"><img src="<?php echo CLS_SITE_URL; ?>img/blog8.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -210,7 +210,7 @@
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                           <a href="blog_details9.php"> <img src="img/blog9.png" class="img-fluid w-100" alt=""></a>
+                           <a href="blog_details9.php"> <img src="<?php echo CLS_SITE_URL; ?>img/blog9.png" class="img-fluid w-100" alt=""></a>
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">

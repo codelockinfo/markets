@@ -53,7 +53,7 @@
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="blog_details_box">
                         <div class="blog_img">
-                            <img src="img/blog_details1.jpg" class="img-fluid w-100 rounded" alt="">
+                            <img src="<?php echo CLS_SITE_URL; ?>img/blog_details1.jpg" class="img-fluid w-100 rounded" alt="">
                         </div>
                         <div class="blog_details_contant mt-4">
                             <h4 class="fs-5 ">Lorem, ipsum dolor sit amet consectetur adipisicing.</h4>
@@ -89,7 +89,7 @@
                             <h4 class="fs-5 ">Related blogs</h4>
                             <div class="row mt-3">
                                 <div class="col-4">
-                                    <img src="img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-4">
-                                    <img src="img/wedding/wedding1.webp" class="img-fluid rounded" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" class="img-fluid rounded" alt="">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-4">
-                                    <img src="img/top/top1.jpg" class="img-fluid rounded" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid rounded" alt="">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>

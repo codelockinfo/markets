@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-item">
-                    <img style="height: 100px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
+                    <img style="height: 100px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
                         <p class="lh-lg mb-4">Empowering Textile Businesses with Seamless Connectivity and Growth Opportunities. Bridging the Gap Between Wholesalers and Retailers in the Textile Industry.</p>
                         <div class="footer-icon d-flex">
                             <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>

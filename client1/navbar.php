@@ -3,7 +3,7 @@
      <div class="container">
          <nav class="navbar navbar-light navbar-expand-lg">
              <a href="index.php" class="navbar-brand">
-                 <img style="height: 90px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
+                 <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
                  <!-- <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span></h1> -->
              </a>
              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
@@ -68,7 +68,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -89,7 +89,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -111,7 +111,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -158,7 +158,7 @@
  <!-- megamenu md view  -->
  <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
      <div class="offcanvas-header">
-         <a href="index.php"> <img style="height: 90px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image"></a>
+         <a href="index.php"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image"></a>
          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
      </div>
      <div class="offcanvas-body">

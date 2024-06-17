@@ -35,8 +35,8 @@ include 'header.php';
 
     <!-- Hero Start -->
     <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
-        <img class="banner img-fluid" src="img/home-banner.webp" alt="no-image">
-        <img class="banner_2" src="img/banner-mobile.jpg" alt="no-image">
+        <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="no-image">
+        <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="no-image">
         <div class="container ">
             <div class="row g-5 align-items-center">
             </div>
@@ -59,7 +59,7 @@ include 'header.php';
                                 <h4 class="mb-3">Arohi-Woman Fashion</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class="img-fluid" src="img/shop_1/shop1.jpg" alt="">
+                                    <img class="img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ include 'header.php';
                                 <h4 class="mb-3">Kavya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/shop2.jpg" alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ include 'header.php';
                                 <h4 class="mb-3">Global textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/shop3.jpg" alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ include 'header.php';
                                 <h4 class="mb-3">Vidya Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/shop4.jpg" alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@ include 'header.php';
                                 <h4 class="mb-3">Jay Ambe Fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/shop5.jpg" alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ include 'header.php';
                                 <h4 class="mb-3">KS textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/shop6.jpg" alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ include 'header.php';
                                 <h4 class="mb-3">Rajhans textile</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/logo (1).png" alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ include 'header.php';
                                 <h4 class="mb-3">Bal Krishna fabrics</h4>
                                 <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="img/shop_1/shop8.jpg   " alt="">
+                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt="">
                                 </div>
                             </div>
                         </div>
@@ -221,73 +221,73 @@ include 'header.php';
                                 <div class="row g-4">
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/1.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/2.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/3.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/4.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/5.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/6.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/7.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/kurti/8.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="img/kurti/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -301,73 +301,73 @@ include 'header.php';
                                 <div class="row g-4">
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/1.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/2.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/3.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/4.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/5.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/6.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/7.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/saree/8.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="img/saree/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -381,73 +381,73 @@ include 'header.php';
                                 <div class="row g-4">
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding1.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding2.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding3.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding4.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding5.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding6.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding7.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/wedding/wedding8.png" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -461,73 +461,73 @@ include 'header.php';
                                 <div class="row g-4">
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top1.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>mg/top/top1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top2.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top3.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top4.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top5.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top5.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top6.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top6.webp" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top7.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/top/top8.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="img/top/top8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -541,73 +541,73 @@ include 'header.php';
                                 <div class="row g-4">
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt1.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt2.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt3.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt4.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skir4.webp" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt6.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt7.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="img/skirt/skirt8.jpg" alt="">
+                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -625,10 +625,10 @@ include 'header.php';
     <section class="offer container-fluid pt-6">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer1.jpg" class="img-fluid" alt=""></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt=""></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer3.png" class="img-fluid mt-4" alt=""></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="img/offer4.png" class="img-fluid mt-4" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer3.png" class="img-fluid mt-4" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer4.png" class="img-fluid mt-4" alt=""></a></div>
             </div>
         </div>
     </section>
@@ -757,7 +757,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="content_2 col-12 col-lg-4 col-md-6">
-                    <img class="img-fluid  fit-cover rounded" src="img/faq.jpg" alt="">
+                    <img class="img-fluid  fit-cover rounded" src="<?php echo CLS_SITE_URL; ?>img/faq.jpg" alt="">
                 </div>
             </div>
         </div>
