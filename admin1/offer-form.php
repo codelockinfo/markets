@@ -147,7 +147,7 @@ include 'header.php';
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
           <div class="card z-index-0 p-5">
             <form role="form" id="offersinsert" enctype="multipart/form-data" method="POST">
-              <label for="textile-img" class="font-weight-normal">Image</label>
+              <label for="textile-img" class="font-weight-normal required">Image</label>
               <div class="mb-3">
                 <div class="drop-zone form-control">
                   <span class="drop-zone__prompt">Drop file here or click to upload</span>
@@ -159,12 +159,12 @@ include 'header.php';
               <div class="errormsg myFile"></div>
               <label for="text" class="font-weight-normal">Image alt</label>
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Image alt" name="image_alt">
+                <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
                 <span class="errormsg image_alt"></span>
               </div>
-              <label for="image-link" class="font-weight-normal">Image Link</label>
+              <label for="image-link" class="font-weight-normal required">Image Link</label>
               <div class="mb-3">
-                <input type="url" class="form-control" placeholder="https://example.com" name="img_link">
+                <input type="url" class="form-control validurl" placeholder="https://example.com" name="img_link">
                 <span class="errormsg img_link"></span>
               </div>
               <div class="mb-3">

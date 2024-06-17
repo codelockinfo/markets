@@ -158,54 +158,61 @@ function demo(){
 }
 
 
-$(document).ready(function() {
+    $(document).ready(function() {
     console.log("DOCUMENT READY ...");
 
-  $('.validtext').on('input', function() {
-    var c = this.selectionStart,
-        r = /[^a-zA-Z\s']/g,
-        v = $(this).val();
-    if(r.test(v)) {
-        $(this).val(v.replace(r, ''));
-        c--;
-    }
-    this.setSelectionRange(c, c);
-});
+    $('.validtext').on('input', function() {
+       var c = this.selectionStart,
+           r = /[^a-zA-Z\s']/g,
+           v = $(this).val();
+       if(r.test(v)) {
+          $(this).val(v.replace(r, ''));
+          c--;
+         }
+         this.setSelectionRange(c, c);
+    });
 
-
-  function showMessage(msg, type) {
-    // var alertType = type;
-    var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error"; // Set title based on type
-
+    function showMessage(msg, type) {
+    var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
     Swal.fire({
-        title: alertTitle, // Set title
+        title: alertTitle, 
         text: msg,
-        icon: (type === "fail") ? "error" : type, // Show "error" icon for "fail" type, otherwise use type
-        timer: 5000, // Automatically close after 5 seconds
+        icon: (type === "fail") ? "error" : type, 
+        timer: 5000,
         timerProgressBar: true,
         showConfirmButton: false
-    });
-}
+     });
+    }
 
-     $('.form-control').on('keypress', function() {
-        $(this).next('.errormsg').text('');
-      });
-       
+    $('.validtext').on('keypress', function() {
+      $(this).next('.errormsg').text('');
+    }); 
 
-      $(document).ready(function() {
-        if (CKEDITOR.instances['myeditor']) {
-          // CKEDITOR.instances['myeditor'].setData('');
-          CKEDITOR.instances['myeditor'].on('change', function() {
-              if (CKEDITOR.instances['myeditor'].getData().length >  0){
-                $('.myeditor').html('');
-              }
-          });
+    $('.validurl').on('keypress', function() {
+      $(this).next('.errormsg').text('');
+    }); 
+
+    $('.price').on('keypress', function(e) {
+      if (e.which >= 48 && e.which <= 57) { 
+          $(this).next('.errormsg').text(''); 
+        } else {
+         e.preventDefault(); 
         }
-        });
+    }); 
 
-     $('.form-select').on('input change', function() {
-        $(this).siblings('.errormsg').text('');
-      });
+    $(document).ready(function() {
+      if (CKEDITOR.instances['myeditor']) {
+          CKEDITOR.instances['myeditor'].on('change', function() {
+      if (CKEDITOR.instances['myeditor'].getData().length >  0){
+          $('.myeditor').html('');
+          }
+       });
+      }
+    });
+
+    $('.form-select').on('input change', function() {
+      $(this).siblings('.errormsg').text('');
+    });
 
     $('.formCancel').click(function(){
       console.log("CCCCC");
@@ -214,7 +221,13 @@ $(document).ready(function() {
       $(this).closest("form")[0].reset();
       if (CKEDITOR.instances['myeditor']) {
       CKEDITOR.instances['myeditor'].setData('');  
-      }  
+      } 
+      var $thumbnailElement = $(".drop-zone__thumb");
+      if ($thumbnailElement.length > 0) {
+          $thumbnailElement.html('');
+          $thumbnailElement.removeClass("drop-zone__thumb");
+          $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
+      } 
     });
 
     function resetThumbnail() {
@@ -223,8 +236,9 @@ $(document).ready(function() {
           $thumbnailElement.html('');
           $thumbnailElement.removeClass("drop-zone__thumb");
           $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-      }
-  }
+     }
+    }
+
     $(document).on("click",".signUpsave",function(e){
       e.preventDefault();   
       console.log("signUpsavebutton click");
@@ -256,18 +270,16 @@ $(document).ready(function() {
             response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
             loading_hide('.save_loader_show', 'Save');
             if(response['data'] == "success"){
-              $("#savesignup")[0].reset();
-             
-            }
+                $("#savesignup")[0].reset();
+               }
             if (response.data === "success") {
-              showMessage(response.msg, "success");
-          } 
-          else{
+                showMessage(response.msg, "success");
+               } 
+            else{
             showMessage(response.msg_error, "fail");
-          } 
-        }
-    });
-
+               } 
+              }
+            });
     })
 
     $(document).on("click",".productSave",function(event){
@@ -305,18 +317,18 @@ $(document).ready(function() {
              response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
              response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
              if(response['data'] == "success"){
-              $("#productinsert")[0].reset();
-              resetThumbnail();
-              $(".multiple_tag").val(null).trigger("change");
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          }
-          else{
+               $("#productinsert")[0].reset();
+               resetThumbnail();
+               $(".multiple_tag").val(null).trigger("change");
+               console.log("hi");
+               $('.myFile').html('');
+               showMessage(response.msg, "success");
+              }
+             else{
             showMessage(response.msg_error, "fail");
-          } 
-      }
-    });
+            } 
+           }
+         });
     })
 
     $(document).on("click",".videoSave",function(event){
@@ -344,16 +356,16 @@ $(document).ready(function() {
              response["msg"]["youtube_shorts"] !== undefined ? $(".youtube_shorts").html (response["msg"]["youtube_shorts"]) : $(".youtube_shorts").html("");
              response["msg"]["youtube_vlogs"] !== undefined ? $(".youtube_vlogs").html (response["msg"]["youtube_vlogs"]) : $(".youtube_vlogs").html("");
              if(response['data'] == "success"){
-              $("#videoinsert")[0].reset();
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          }
+               $("#videoinsert")[0].reset();
+               }
+             if (response.data === "success") {
+               showMessage(response.msg, "success");
+               }
           else{
-            showMessage(response.msg_error, "fail");
-          }  
-      }
-    });
+               showMessage(response.msg_error, "fail");
+               }  
+              }
+            });
     })
 
     $(document).on("click",".blogSave",function(event){
@@ -387,18 +399,19 @@ $(document).ready(function() {
              response["msg"]["blog_image"] !== undefined ? $(".blog_image").html (response["msg"]["blog_image"]) : $(".blog_image").html("");
              response["msg"]["blog_image_alt"] !== undefined ? $(".blog_image_alt").html (response["msg"]["blog_image_alt"]) : $(".blog_image_alt").html("");
              if(response['data'] == "success"){
-              $("#bloginsert")[0].reset();
-              CKEDITOR.instances['myeditor'].setData('');
-              resetThumbnail();
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          }
-          else{
-            showMessage(response.msg_error, "fail");
-          }  
-      }
-    });
+                $("#bloginsert")[0].reset();
+                CKEDITOR.instances['myeditor'].setData('');
+                resetThumbnail();
+                $('.myFile').html('');
+               }
+             if(response.data === "success") {
+                showMessage(response.msg, "success");
+               }
+            else{
+                showMessage(response.msg_error, "fail");
+               }  
+              }
+            });
     })
 
     $(document).on("click",".bannerSave",function(event){
@@ -428,17 +441,16 @@ $(document).ready(function() {
              response["msg"]["banner_text"] !== undefined ? $(".banner_text").html (response["msg"]["banner_text"]) : $(".banner_text").html("");
              response["msg"]["banner_btn_link"] !== undefined ? $(".banner_btn_link").html (response["msg"]["banner_btn_link"]) : $(".banner_btn_link").html("");
              if(response['data'] == "success"){
-              $("#bannerinsert")[0].reset();
-              resetThumbnail();
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          } 
-          else{
-            showMessage(response.msg_error, "fail");
-          } 
-      }
-    });
+                $("#bannerinsert")[0].reset();
+                resetThumbnail();
+                $('.myFile').html('');
+                showMessage(response.msg, "success");
+               }
+             else{
+                showMessage(response.msg_error, "fail");
+               } 
+              }
+            });
     })
 
     $(document).on("click",".marketSave",function(event){
@@ -469,18 +481,18 @@ $(document).ready(function() {
              response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
              response["msg"]["img"] !== undefined ? $(".img").html (response["msg"]["img"]) : $(".img").html("");
              if(response['data'] == "success"){
-              $("#f_marketinsert")[0].reset();
-              resetThumbnail();
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          } 
-          else{
-            showMessage(response.msg_error, "fail");
-          } 
-      }
-    });
+                $("#f_marketinsert")[0].reset();
+                resetThumbnail();
+                showMessage(response.msg, "success");
+                $('.myFile').html('');
+               }
+             else{
+                showMessage(response.msg_error, "fail");
+               } 
+              }
+            });
     })
+
     $(document).on("click",".brouseSave",function(event){
       event.preventDefault();
       console.log(" brouseSave save button click");
@@ -505,18 +517,18 @@ $(document).ready(function() {
           response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
           response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
              if(response['data'] == "success"){
-              $("#b_textileCtgryinsert")[0].reset();
-              resetThumbnail();
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          } 
-          else{
-            showMessage(response.msg_error, "fail");
-          } 
-      }
-    });
+                $("#b_textileCtgryinsert")[0].reset();
+                resetThumbnail();
+                showMessage(response.msg, "success");
+                $('.myFile').html('');
+               }
+             else{
+                showMessage(response.msg_error, "fail");
+               } 
+              }
+            });
     })
+
     $(document).on("click",".offerSave",function(event){
       event.preventDefault();
       console.log(" offers save button click");
@@ -541,18 +553,18 @@ $(document).ready(function() {
           response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
           response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
              if(response['data'] == "success"){
-              $("#offersinsert")[0].reset();
-              resetThumbnail();
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          } 
-          else{
-            showMessage(response.msg_error, "fail");
-          } 
-      }
-    });
+                $("#offersinsert")[0].reset();
+                resetThumbnail();
+                showMessage(response.msg, "success");
+                $('.myFile').html('');
+               }
+             else{
+                showMessage(response.msg_error, "fail");
+               } 
+              }
+            });
     })
+
     $(document).on("click",".paragraphSave",function(event){
       event.preventDefault();
       console.log(" paragraph save button click");
@@ -579,17 +591,15 @@ $(document).ready(function() {
           loading_hide('.save_loader_show', 'Save');
           response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
              if(response['data'] == "success"){
-              $("#paragraphinsert")[0].reset();
-              CKEDITOR.instances['myeditor'].setData('');
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          }
-          else{
+                $("#paragraphinsert")[0].reset();
+                CKEDITOR.instances['myeditor'].setData('');
+                showMessage(response.msg, "success");
+               }
+            else{
             showMessage(response.msg_error, "fail");
-          }  
-      }
-    });
+               }  
+             }
+           });
     })
 
     $(document).on("click",".faqSave",function(event){
@@ -618,18 +628,16 @@ $(document).ready(function() {
           loading_hide('.save_loader_show', 'Save');
           response["msg"]["faq_question"] !== undefined ? $(".faq_question").html (response["msg"]["faq_question"]) : $(".faq_question").html("");
           response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
-             if(response['data'] == "success"){
-              $("#faqinsert")[0].reset();
-              CKEDITOR.instances['myeditor'].setData('');
-            }
-            if (response.data === "success") {
-              showMessage(response.msg, "success");
-          } 
-          else{
-            showMessage(response.msg_error, "fail");
-          } 
-      }
-    });
+            if(response['data'] == "success"){
+               $("#faqinsert")[0].reset();
+               CKEDITOR.instances['myeditor'].setData('');
+               showMessage(response.msg, "success");
+              }
+            else{
+               showMessage(response.msg_error, "fail");
+              } 
+             }
+           });
     })
     
     var dropdown = document.getElementsByClassName("dropdown-btn");

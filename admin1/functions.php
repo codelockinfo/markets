@@ -96,8 +96,11 @@ class admin_functions {
        }
         if (empty($error_array)) {
             $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
+            $name = str_replace("'", "\'", $name);
             $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';
+            $shop = str_replace("'", "\'", $shop);
             $address = (isset($_POST['address']) && $_POST['address'] !== '') ? $_POST['address'] : '';
+            $address = str_replace("'", "\'", $address);
             $phone_number = (isset($_POST['phone_number']) && $_POST['phone_number'] !== '') ? $_POST['phone_number'] : '';
             $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';
             $password = (isset($_POST['password']) && $_POST['password'] !== '') ? $_POST['password'] : '';
@@ -113,36 +116,34 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
     }
 
     function insert_products(){
+        // print_r($_FILES);die;
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
         $tmpfile = isset($_FILES["p_image"]["tmp_name"]) ? $_FILES["p_image"]["tmp_name"] : '';
+        $file = $_FILES['p_image'];
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $newFilename = time(). '.' . $extension;
         $fileName = $_FILES['p_image']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/product_img/" . $newFilename;
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
         move_uploaded_file($tmpfile,$folder);
-       
-
         $error_array = array();
+        // print_r($_FILES);
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
 
-        $file = $_FILES['p_image'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
         if ($file['size'] > $maxSize) {
             $error_array['p_image'] = "File size must be 5MB or less.";
-           
         }
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title";
@@ -155,9 +156,6 @@ class admin_functions {
         }
         if (empty($filename)) {
             $error_array['p_image'] = "Please upload your product image";
-       }
-        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-        $error_array['image_alt'] = "Please enter product image alt";
         }
         if (empty($_POST['p_tag']) || !is_array($_POST['p_tag'])) {
             $error_array['p_tag'] = "Please enter product tag";
@@ -167,12 +165,13 @@ class admin_functions {
         }
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
+            $product_name = str_replace("'", "\'", $product_name);
             $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
             $p_price = (isset($_POST['p_price']) && $_POST['p_price'] !== '') ? $_POST['p_price'] : '';
             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
-           
+            $p_description = str_replace("'", "\'", $p_description);
             $query = "INSERT INTO products (title,category,price,p_image,product_img_alt,p_tag,p_description) VALUES ('$product_name', '$select_catagory','$p_price','$newFilename','$product_image_alt','$p_tag','$p_description')";
             $result = $this->db->query($query);
             if ($result) {
@@ -182,7 +181,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -223,6 +222,7 @@ class admin_functions {
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
             $video_title = (isset($_POST['video_title']) && $_POST['video_title'] !== '') ? $_POST['video_title'] : '';
+            $video_title = str_replace("'", "\'", $video_title);
             $video_category = (isset($_POST['video_category']) && $_POST['video_category'] !== '') ? $_POST['video_category'] : '';
             $youtube_shorts = (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] !== '') ? $_POST['youtube_shorts'] : '';
             $youtube_vlogs = (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] !== '') ? $_POST['youtube_vlogs'] : '';
@@ -236,11 +236,12 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
     }
+
     function insert_blog(){ 
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
@@ -277,9 +278,6 @@ class admin_functions {
         if (empty($filename)) {
             $error_array['blog_image'] = "Please upload your blog image";
         }
-        if (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] == '') {
-        $error_array['blog_image_alt'] = "Please enter blog image alt";
-        }
         if (isset($_POST['author_name']) && $_POST['author_name'] == '') {
             $error_array['author_name'] = "Please enter author name";
         }
@@ -299,7 +297,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -329,7 +327,7 @@ class admin_functions {
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/banner_img/" . $newFilename;
         move_uploaded_file($tmpfile,$folder);
-
+        // print_r($_FILES);
         $error_array = array();
        
         if (!in_array($fileExtension, $allowedExtensions)) {
@@ -347,9 +345,7 @@ class admin_functions {
         if (isset($_POST['myFile']) && $_POST['myFile'] == '') {
             $error_array['myFile'] = "Please enter video title";
         }
-        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image alt";
-        }
+        // print_r($_POST);
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
             $error_array['heading'] = "Please enter heading";
         }
@@ -365,14 +361,13 @@ class admin_functions {
             $error_array['banner_btn_link'] = "Please enter a valid banner button link";
         }
         if (empty($error_array)) {
-            $myFile = (isset($_POST['myFile']) && $_POST['myFile'] !== '') ? $_POST['myFile'] : '';
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
             $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
             $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
             $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
           
-            $query = "INSERT INTO banner (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link) VALUES ('$myFile','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link')";
+            $query = "INSERT INTO banner (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link')";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Banner inserted successfully!');
@@ -381,7 +376,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -394,11 +389,11 @@ class admin_functions {
         $svg_img = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
         $svgtmpfile = isset($_FILES["svg_img"]["tmp_name"]) ? $_FILES["svg_img"]["tmp_name"] : '';
         $extension = pathinfo($svg_img, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
+        $svg_newFilename = time(). '.' . $extension;
         $fileName = $_FILES['svg_img']['name'];
         $fileNameCmps = explode(".", $svg_img);
         $svgfileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/famous_market/svg_img/" . $newFilename;
+        $folder = "assets/img/famous_market/svg_img/" . $svg_newFilename;
         move_uploaded_file($svgtmpfile,$folder);
 
 
@@ -455,12 +450,13 @@ class admin_functions {
         }
         if (empty($error_array)) {
             $shop_logo = (isset($_POST['shop_logo']) && $_POST['shop_logo'] !== '') ? $_POST['shop_logo'] : '';
+            $shop_logo = str_replace("'", "\'", $shop_logo);
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
             $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
             $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
 
-            $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt) VALUES ('$shop_logo','$svg_img','$svg_image_alt','$heading','$sub_heading','$filename','$image_alt')";
+            $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt')";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'market inserted successfully!');
@@ -469,7 +465,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -521,7 +517,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -554,9 +550,6 @@ class admin_functions {
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your image";
         }
-        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image alt";
-        }
         if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
             $error_array['img_link'] = "Please enter image link";
         } elseif (isset($_POST['img_link']) && !$this->isValidURL($_POST['img_link'])) {
@@ -574,7 +567,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -586,7 +579,7 @@ class admin_functions {
         }
         if (empty($error_array)) {
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
-           
+            $myeditor = str_replace("'", "\'", $myeditor);
             $query = "INSERT INTO paragraph (paragraph) VALUES ('$myeditor')";
             $result = $this->db->query($query);
             if ($result) {
@@ -596,7 +589,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;
@@ -613,7 +606,7 @@ class admin_functions {
         if (empty($error_array)) {
             $faq_question = (isset($_POST['faq_question']) && $_POST['faq_question'] !== '') ? $_POST['faq_question'] : '';
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
-           
+            $myeditor = str_replace("'", "\'", $myeditor);
             $query = "INSERT INTO faq (question,answer) VALUES ('$faq_question','$myeditor')";
             $result = $this->db->query($query);
             if ($result) {
@@ -623,7 +616,7 @@ class admin_functions {
             }
 
         }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "something wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
         $response = json_encode($response_data);
         return $response;

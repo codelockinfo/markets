@@ -146,7 +146,7 @@ include 'header.php';
       <div class="col-xl-5 col-lg-9 col-md-5   mx-auto">
         <div class="card z-index-0 p-5">
         <form role="form" id="bannerinsert" enctype="multipart/form-data" method="POST">
-          <label for="b-image" class="font-weight-normal">Banner Image</label>
+          <label for="b-image" class="font-weight-normal required">Banner Image</label>
           <div class="mb-3">
             <div class="drop-zone form-control">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
@@ -158,27 +158,26 @@ include 'header.php';
           <div class="errormsg myFile"></div>
           <label for="text" class="font-weight-normal">Banner image alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Sub Heading" name="image_alt">
-              <span class="errormsg image_alt"></span>
+              <input type="text" class="form-control validtext" placeholder="Banner image alt" name="image_alt">
             </div>
-          <label for="b-heading" class="font-weight-normal">Heading</label>
+          <label for="b-heading" class="font-weight-normal required">Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Heading" name="heading">
+            <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
             <span class="errormsg heading"></span>
           </div>
-          <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
+          <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
+            <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
             <span class="errormsg sub_heading"></span>
           </div>
-          <label for="b-subheading" class="font-weight-normal">Banner Button Text</label>
+          <label for="b-subheading" class="font-weight-normal required">Banner Button Text</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Banner Text" name="banner_text">
+            <input type="text" class="form-control validtext" placeholder="Banner Text" name="banner_text">
             <span class="errormsg banner_text"></span>
           </div>
-          <label for="b-subheading" class="font-weight-normal">Banner Button Link</label>
+          <label for="b-subheading" class="font-weight-normal required">Banner Button Link</label>
           <div class="mb-3">
-            <input type="url" class="form-control" placeholder="https://example.com" name="banner_btn_link">
+            <input type="url" class="form-control validurl" placeholder="https://example.com" name="banner_btn_link">
               <span class="errormsg banner_btn_link"></span>
           </div>
           <div class="mb-3">

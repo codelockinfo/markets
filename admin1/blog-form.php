@@ -170,16 +170,16 @@ include 'header.php';
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
-          <form role="form">
-            <label for="title" class="font-weight-normal">Blog Title</label>
+          <form role="form" id="bloginsert" enctype="multipart/form-data" method="post">
+            <label for="title" class="font-weight-normal required">Blog Title</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="Blog Title" name="blog_title">
               <span class="errormsg blog_title"></span>
             </div>
-            <label for="p-tags" class="font-weight-normal">Blog Category</label>
+            <label for="p-tags" class="font-weight-normal required">Blog Category</label>
             <div class="mb-3">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Category</option>
+              <select class="form-select" aria-label="Default select example" name="blog_category">
+                <option selected value="">Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>
@@ -212,31 +212,31 @@ include 'header.php';
                 <option value="30">Undergarments</option>
                 <option value="31">Wedding clothing</option>
               </select>
+              <span class="errormsg blog_category"></span>
             </div>
-            <label for="body" class="font-weight-normal">Body</label>
+            <label for="body" class="font-weight-normal required">Body</label>
             <div class="mb-3">
-              <textarea id="myeditor" name="myeditor validtext"></textarea>
+              <textarea class="validtext" id="myeditor" name="myeditor"></textarea>
               <span class="errormsg myeditor"></span>
             </div>
-            <label for="text" class="font-weight-normal">Author</label>
+            <label for="text" class="font-weight-normal required">Author</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="Author Name" name="author_name">
               <span class="errormsg author_name"></span>
             </div>
-            <label for="p-image" class="font-weight-normal">Blog Image</label>
+            <label for="p-image" class="font-weight-normal required">Blog Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="blog_image" id="removeImage" class="drop-zone__input">
+                <span class="drop-zone__prompt" id="dragfile">Drop file here or click to upload</span>
+                <input type="file" name="blog_image" class="drop-zone__input">
               </div>  
             </div>
             <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
             <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-            <div class="errormsg blog_image"></div>
+            <div class="errormsg blog_image myFile"></div>
             <label for="text" class="font-weight-normal">Blog image alt</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="blog image alt" name="blog_image_alt">
-              <span class="errormsg blog_image_alt"></span>
             </div>
             <div class="mb-3">
               <button type="button" class="btn btn-primary bg-dark btn-sm blogSave save_loader_show">Save</button>

@@ -146,7 +146,7 @@ include 'header.php';
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
           <form role="form" id="paragraphinsert" enctype="multipart/form-data" method="POST">
-            <label for="body" class="font-weight-normal">Paragraph</label>
+            <label for="body" class="font-weight-normal required">Paragraph</label>
             <div class="mb-3">
               <textarea name="myeditor" id="myeditor"></textarea>
               <span class="errormsg myeditor"></span>

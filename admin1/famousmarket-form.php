@@ -147,12 +147,12 @@ include 'header.php';
         <div class="card z-index-0 p-5">
 
         <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-          <label for="s-logo" class="font-weight-normal">Shop Logo</label>
+          <label for="s-logo" class="font-weight-normal required">Shop Logo</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Shop Logo" name="shop_logo">
+            <input type="text" class="form-control validtext" placeholder="Shop Logo" name="shop_logo">
             <span class="errormsg shop_logo"></span>
           </div>
-          <label for="b-image" class="font-weight-normal">SVG Image</label>
+          <label for="b-image" class="font-weight-normal required">SVG Image</label>
           <div class="mb-3">
             <div class="drop-zone form-control">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
@@ -161,41 +161,34 @@ include 'header.php';
           </div>
           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
           <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-          <div class="errormsg svg_img"></div>
+          <div class="errormsg svg_img myFile"></div>
           <label for="text" class="font-weight-normal">SVG image alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="SVG image alt" name="svg_image_alt">
-              <span class="errormsg svg_image_alt"></span>
+              <input type="text" class="form-control validtext" placeholder="SVG image alt" name="svg_image_alt">
             </div>
-          <label for="b-heading" class="font-weight-normal">Heading</label>
+          <label for="b-heading" class="font-weight-normal required">Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Heading" name="heading">
+            <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
             <span class="errormsg heading"></span>
           </div>
-          <label for="b-subheading" class="font-weight-normal">Sub Heading</label>
+          <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Sub Heading" name="sub_heading">
+            <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
             <span class="errormsg sub_heading"></span>
           </div>
-          <label for="market-img" class="font-weight-normal">Image</label>
+          <label for="market-img" class="font-weight-normal required">Image</label>
           <div class="mb-3">
             <div class="drop-zone form-control">
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" class="drop-zone__input" name="img">
             </div>
           </div>
-<<<<<<< HEAD
           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
             <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-=======
-          <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
-          <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
->>>>>>> 2ba96dbba30884fe4e9999d6bda94734de201fb8
-          <div class="errormsg img"></div>
+          <div class="errormsg img myFile"></div>
           <label for="text" class="font-weight-normal"> Image alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Heading" name="heading">
-              <span class="errormsg heading"></span>
+              <input type="text" class="form-control validtext" placeholder="Image alt" name="heading">
             </div>
           <div class="mb-3">
             <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave save_loader_show">Save</button>

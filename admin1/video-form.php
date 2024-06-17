@@ -171,12 +171,12 @@ include 'header.php';
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
           <form role="form" id="videoinsert" enctype="multipart/form-data" method="POST">
-            <label for="title" class="font-weight-normal">Video Title</label>
+            <label for="title" class="font-weight-normal required">Video Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Video Name" name="video_title">
+              <input type="text" class="form-control validtext" placeholder="Video Name" name="video_title">
               <span class="errormsg video_title"></span>
             </div>
-            <label for="p-tags" class="font-weight-normal">Video Category</label>
+            <label for="p-tags" class="font-weight-normal required">Video Category</label>
             <div class="mb-3">
               <select class="form-select" aria-label="Default select example" name="video_category">
                 <option selected value="">Category</option>
@@ -214,14 +214,14 @@ include 'header.php';
               </select>
               <span class="errormsg video_category"></span>
             </div>
-            <label for="y-shortslink" class="font-weight-normal">Youtube Shorts Link</label>
+            <label for="y-shortslink" class="font-weight-normal required">Youtube Shorts Link</label>
             <div class="mb-3">
-              <input type="url" id="y-shorturl" class="form-control" placeholder="Youtube Shorts" name="youtube_shorts">
+              <input type="url" id="y-shorturl" class="form-control validurl" placeholder="Youtube Shorts" name="youtube_shorts">
               <span class="errormsg youtube_shorts"></span>
             </div>
-            <label for="y-videolink" class="font-weight-normal">Youtube Vlogs Link</label>
+            <label for="y-videolink" class="font-weight-normal required">Youtube Vlogs Link</label>
             <div class="mb-3">
-              <input type="url" id="y-vlogurl" class="form-control" placeholder="Youtube Vlogs" name="youtube_vlogs">
+              <input type="url" id="y-vlogurl" class="form-control validurl" placeholder="Youtube Vlogs" name="youtube_vlogs">
               <span class="errormsg youtube_vlogs"></span>
             </div>
             <div class="mb-3">
