@@ -39,6 +39,7 @@ include($myRoot . '/markets/connection.php');
     <script src="<?php echo main_url('/client1/js/jquery.min2.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/swiper-bundle.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/bootstrap.bundle.min.js'); ?>"></script>
+    
     <!-- animation js  -->
     <script src="<?php echo main_url('/client1/lib/wow/wow.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/easing/easing.min.js'); ?>"></script>

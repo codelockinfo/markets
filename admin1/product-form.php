@@ -234,8 +234,8 @@ include 'header.php';
               <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
             </div>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal required">Product Tag</label>
-              <select class="js-select2-multi form-select mb-3 multiple_tag" value="" aria-label="Default select example" multiple="multiple" name="p_tag">
+              <label for="text" class="font-weight-normal required">Product</label>
+              <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
                 <option value="Women">Women</option>

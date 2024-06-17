@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-item">
-                    <img style="height: 100px;" class="z-index-3" src="img/shop_1/logo1.png" alt="no-image">
+                    <img style="height: 100px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
                         <p class="lh-lg mb-4">Empowering Textile Businesses with Seamless Connectivity and Growth Opportunities. Bridging the Gap Between Wholesalers and Retailers in the Textile Industry.</p>
                         <div class="footer-icon d-flex">
                             <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
@@ -34,7 +34,7 @@
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
+                            <a class="text-body mb-3" href="contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
     </div>
     <!-- Copyright End -->
       <!-- Add your shop button -->
-    <a href="#" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
+    <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
