@@ -150,7 +150,7 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-4 col-lg-9 col-md-6 mx-auto">
+        <div class="col-xl-5 col-lg-9 col-md-6 mx-auto">
           <div class="card h-100">
             <div class="card-header pb-0 p-3">
               <div class="row">
@@ -198,7 +198,7 @@ include 'header.php';
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="<?php echo main_url('/admin1/assets/img/home-decor-1.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                        <img src="<?php echo main_url('/admin1/assets/img/698472_R-1049.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                       </a>
                     </div>
                     <div class="card-body px-1 pb-0">
@@ -223,7 +223,7 @@ include 'header.php';
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="<?php echo main_url('/admin1/assets/img/home-decor-2.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                        <img src="<?php echo main_url('/admin1/assets/img/755236_COVER.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                       </a>
                     </div>
                     <div class="card-body px-1 pb-0">
@@ -248,7 +248,7 @@ include 'header.php';
                   <div class="card card-blog card-plain">
                     <div class="position-relative">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="<?php echo main_url('/admin1/assets/img/home-decor-3.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                        <img src="<?php echo main_url('/admin1/assets/img/265844_COVER.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                       </a>
                     </div>
                     <div class="card-body px-1 pb-0">
