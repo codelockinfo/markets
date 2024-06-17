@@ -160,9 +160,4 @@ var swiper = new Swiper(".relatedslider", {
 }); 
 
   
-  $(document).ready(function(){
-    $('#tab_selector').on('change', function (e) {
-        var selectedTab = $(this).val();
-        $('.nav-pills a[href="#' + selectedTab + '"]').tab('show');
-    });
-});
+ 

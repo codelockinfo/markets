@@ -37,7 +37,7 @@
     <!-- Modal Search End -->
 
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-6 my-6 mt-0">
+    <div class="container-fluid bg-light py-5 my-6 mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Product page</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <h5 class="fs-2">Women Straight Block Printed Kurta and Pant Set with Dupatta</h5>
-                    <h4><span class="fs-6 text-black-50">Rs.</span>300/-</h4>
+                    <h4><span class="fs-6 text-black-50">Price :</span>100rs-300rs</h4>
                     <p>Type:Kurti</p>
                     <p class="fs-7">N123h992</p>
                     <p class="fs-6 fw-bold">Ailable in store</p>
@@ -110,10 +110,11 @@
                         <div class="tab-content mt-3" id="myTabContent">
                             <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore doloribus quibusdam cumque odit optio pariatur facilis minima laboriosam nemo labore placeat perspiciatis mollitia omnis rem, velit ut earum impedit debitis iste ad unde. Architecto, earum incidunt. Dicta doloribus tempore corporis minima quos ut sequi cum nostrum optio neque quidem provident magni accusantium officiis.Architecto, earum incidunt. Dicta doloribus tempore corporis minima quos ut sequi cum nostrum optio neque quidem provident magni accusantium officiis.</div>
                             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a></p>
-                            <p><a href="tel:(+012) 3456 7890 123" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i> (+012) 3456 7890 123</a></p>
-                            <p><a href="mailto: info@example.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a></p>
-                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
+                            <p><a href="tel:7600464414" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
+                            <p><a href="mailto:codelockinfo@gmail.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i> codelockinfo@gmail.com</a></p>
+                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 
+                            12/7 Hours Service</a></p>
                             </div>
                         </div>
                     </div>
@@ -135,7 +136,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>200/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>100rs-300rs</h4>
                             </div>
                         </div>
                     </a>
@@ -147,7 +148,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>250/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>100rs-250rs</h4>
                             </div>
                         </div>
                     </a>
@@ -159,7 +160,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>260/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>100rs-300rs</h4>
                             </div>
                         </div>
                     </a>
@@ -171,7 +172,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>300/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>150rs-450rs</h4>
                             </div>
                         </div>
                     </a>
@@ -183,7 +184,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>240/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>100rs-300rs</h4>
                             </div>
                         </div>
                     </a>
@@ -195,7 +196,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>300/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>130rs-250</h4>
                             </div>
                         </div>
                     </a>
@@ -207,7 +208,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>290/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>120rs-350rs</h4>
                             </div>
                         </div>
                     </a>
@@ -219,7 +220,7 @@
                             </div>
                             <div class="product-details mt-2 text-center">
                                 <h4 class="fs-6">Women Straight Block Printed Kurta and Pant Set with Dupatta</h4>
-                                <h4><span class="fs-6 text-black-50">Rs.</span>210/-</h4>
+                                <h4><span class="fs-6 text-black-50">Price : </span>150rs-300rs</h4>
                             </div>
                         </div>
                     </a>

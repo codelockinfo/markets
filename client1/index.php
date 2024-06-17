@@ -34,8 +34,8 @@ include 'header.php';
 
     <!-- Hero Start -->
     <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
-        <img class="banner" src="img/bannerimg.png" alt="no-image">
-        <img class="banner_2" src="img/saree/9.jpg" alt="no-image">
+        <img class="banner img-fluid" src="img/home-banner.webp" alt="no-image">
+        <img class="banner_2" src="img/banner-mobile.jpg" alt="no-image">
         <div class="container ">
             <div class="row g-5 align-items-center">
             </div>
@@ -201,14 +201,16 @@ include 'header.php';
                         </a>
                     </li>
                 </ul>
-                <select class="mb-5 form-select form-control visible-xs" id="tab_selector">
-                    <option selected>Open this select menu</option>
-                    <option value="tab-1">Kurti</option>
-                    <option value="tab-2">Saree</option>
-                    <option value="tab-3">Wedding cloth</option>
-                    <option value="tab-4">Tops</option>
-                    <option value="tab-5">Skirt</option>
-                </select>
+        <div class="dropdown dropdown-tabs mt-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Tab
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#tab1" data-toggle="tab">Tab 1</a>
+                <a class="dropdown-item" href="#tab2" data-toggle="tab">Tab 2</a>
+                <a class="dropdown-item" href="#tab3" data-toggle="tab">Tab 3</a>
+            </div>
+        </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show p-0 active" id="tab-1">
                         <div class="row g-4">
@@ -760,7 +762,7 @@ include 'header.php';
     <!-- FAQ End -->
 
     <!-- Book Us Start -->
-    <div class="container-fluid contact pt-3 wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container-fluid contact pt-3  wow bounceInUp" data-wow-delay="0.1s">
         <div class="container  ">
             <div class="d-flex flex-column align-items-center mb-3">
                <h1>Contact us</h1>

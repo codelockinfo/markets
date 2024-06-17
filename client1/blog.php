@@ -34,7 +34,7 @@
     <!-- Modal Search End -->
 
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-6 mt-0">
+    <div class="container-fluid bg-light py-5 mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Our Blog</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
@@ -48,7 +48,7 @@
 
 
     <!-- Blog Start -->
-    <div class="container-fluid blog py-6">
+    <div class="container-fluid blog py-5">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Blog</small>

@@ -34,7 +34,7 @@
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
                             <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
+                            <a class="text-body mb-3" href="contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                 </div>
