@@ -171,14 +171,14 @@ include 'header.php';
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-5">
           <form role="form" id="productinsert" enctype="multipart/form-data" method="POST">
-            <label for="title" class="font-weight-normal">Product Title</label>
+            <label for="title" class="font-weight-normal required">Product Title</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext product" placeholder="Product Name" name="pname">
               <span class="errormsg pname"></span>
             </div>
-            <label for="p-tags" class="font-weight-normal">Product Category</label>
+            <label for="p-tags" class="font-weight-normal required">Product Category</label>
             <div class="mb-3">
-              <select class="form-select" aria-label="Default select example" name="select_catagory">
+              <select class="form-select required" aria-label="Default select example" name="select_catagory">
                 <option selected value="">Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
@@ -214,24 +214,27 @@ include 'header.php';
               </select>
               <span class="errormsg select_catagory"></span>
             </div>
-            <label for="title" class="font-weight-normal">Product Price</label>
+            <label for="title" class="font-weight-normal required">Product Price</label>
             <div class="mb-3">
-              <input type="number" class="form-control" placeholder="price" name="p_price">
+              <input type="number" class="form-control price" placeholder="price" name="p_price">
               <span class="errormsg p_price"></span>
             </div>
-            <label for="p-image" class="font-weight-normal">Product Image</label>
+            <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                 <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
-                <div class="errormsg p_image"></div>
               </div>
               <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
             <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
             <div class="errormsg myFile p_image"></div>
             </div>
+            <label for="text" class="font-weight-normal">Image alt</label>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Product</label>
+              <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
+            </div>
+            <div class="mb-3">
+              <label for="text" class="font-weight-normal required">Product</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
@@ -239,12 +242,7 @@ include 'header.php';
               </select>
               <span class="errormsg p_tag"></span>
             </div>
-            <label for="text" class="font-weight-normal">Image alt</label>
-            <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
-              <span class="errormsg image_alt"></span>
-            </div>
-            <label for="p-description" class="font-weight-normal">Product Description</label>
+            <label for="p-description" class="font-weight-normal required">Product Description</label>
             <div class="mb-3">
               <textarea id="pro-description" class="w-100 form-control validtext" name="p_description"></textarea>
               <span class="errormsg p_description"></span>

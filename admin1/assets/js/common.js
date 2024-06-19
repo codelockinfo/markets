@@ -58,8 +58,9 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       thumbnailElement.innerHTML = "";
       thumbnailElement.appendChild(img);
       thumbnailElement.appendChild(closeButton);
+      $('.myFile').text('');
       // console.log(thumbnailElement);
-      // console.log(thumbnailElement.closest(".mb-3").html());
+      // console.log(thumbnailElement.closest(".mb-3"));
       // thumbnailElement.closest(".mb-3").find(".myFile").html('');
     });
 
