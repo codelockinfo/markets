@@ -2,6 +2,18 @@ console.log("common.js");
 
 // drag & drop js
 
+function showMessage(msg, type) {
+  var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+  Swal.fire({
+      title: alertTitle, 
+      text: msg,
+      icon: (type === "fail") ? "error" : type, 
+      timer: 5000,
+      timerProgressBar: true,
+      showConfirmButton: false
+   });
+}
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
     dropZoneElement.addEventListener("click", (e) => {
@@ -9,7 +21,14 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     });
     inputElement.addEventListener("change", (e) => {
       if (inputElement.files.length) {
-        updateThumbnail(dropZoneElement, inputElement.files[0]);
+        const file = inputElement.files[0];
+        if (file.type.startsWith("image/")) {
+          updateThumbnail(dropZoneElement, file);
+      } else {
+        showMessage("Only PNG, JPG, JPEG, GIF file are allowed!");
+          inputElement.value = "";  // Clear the input
+      }
+        // updateThumbnail(dropZoneElement, inputElement.files[0]);
       }
     });
     dropZoneElement.addEventListener("dragover", (e) => {
@@ -24,8 +43,15 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     dropZoneElement.addEventListener("drop", (e) => {
       e.preventDefault();
         if (e.dataTransfer.files.length) {
-          inputElement.files = e.dataTransfer.files;
-          updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+          const file = e.dataTransfer.files[0];
+          if (file.type.startsWith("image/")) {
+            inputElement.files = e.dataTransfer.files;
+            updateThumbnail(dropZoneElement, file);
+        } else {
+          showMessage("Only image files are allowed!");
+        }
+          // inputElement.files = e.dataTransfer.files;
+          // updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
         }
       dropZoneElement.classList.remove("drop-zone--over");
     });

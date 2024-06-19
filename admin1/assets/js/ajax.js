@@ -117,26 +117,17 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
 
     $(document).ready(function() {
       console.log("DOCUMENT READY ...");
-      function showMessage(msg, type) {
 
+      function showMessage(msg, type) {
         var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
-    
         Swal.fire({
-    
             title: alertTitle, 
-    
             text: msg,
-    
             icon: (type === "fail") ? "error" : type, 
-    
             timer: 5000,
-    
             timerProgressBar: true,
-    
             showConfirmButton: false
-    
          });
-    
       }
 
       if ($("textarea#myeditor").length > 0) {
