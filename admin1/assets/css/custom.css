@@ -444,3 +444,18 @@
 }
 
 /* multi select dropdown css in product form end */
+
+/* sign-in form css */
+
+@media (min-width: 450px) and (max-width: 768px){
+  .facebook{
+    width: 150px;
+    height: 20px;
+  }
+  .google{
+    width: 150px;
+    height: 20px;
+  }
+}
+
+/* sign-in form css end */
