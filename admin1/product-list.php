@@ -9,7 +9,7 @@ include 'header.php';
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 overflow-x-hidden">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
-      <div class="container-fluid py-1">
+      <div class="container-fluid py-4">
         <nav aria-label="breadcrumb">
           <h6 class="text-white font-weight-bolder ms-2">Product List</h6>
         </nav>
