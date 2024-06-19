@@ -68,8 +68,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">sustainable styale : 4 tips to find khadi suit  manufacturers in gujrat</a>
+                                <p class="fs-7 truncated-text ">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 truncated-text-h">Beyond the  print: 4 tips to find the right jaipuri kurti in gujrat</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -106,8 +106,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100  truncated-text-h text-capitalize">anarkali dreams: 4 tips to find your perfect kurti in  gujrat</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -125,8 +125,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">wedding lehenga love: a brides journey to finding the one</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -144,8 +144,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">the ultimate guide to opening a ready made garment shop in india</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -163,8 +163,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">boost your business 4 reasons to source from surat women wear manufacturer</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -182,8 +182,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">4 reasons to launch your  kidswear business a guide to success from home</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -201,8 +201,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">4 ways to find the largest cotton saree manufacturer in surat</a>
+                                <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
                     </div>
@@ -220,8 +220,8 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 ">How to get more test in your food from</a>
-                                <p class="fs-7">Lorem ipsum dolor, sit amet consectetur..</p>
+                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize">How to start a  saree business in india with (markets name)</a>
+                                <p  class="fs-7 truncated-text ">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                             </div>
                         </div>
                     </div>

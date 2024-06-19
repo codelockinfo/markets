@@ -556,6 +556,27 @@ h6,
     color: var(--bs-primary) !important;
 }
 
+.blog-p{
+    height: 20px;
+    overflow: hidden;
+}
+/* .truncated-text {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+} */
+
+/* .truncated-text-h { */
+    /* display: inline-block; */
+    /* max-width: 100%; */
+    /* white-space: nowrap; */
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom; */
+/* } */
 /*** Blog End ***/
 
 
