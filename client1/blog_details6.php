@@ -51,6 +51,9 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="blog_details_box">
+                    <div class="blog-head">
+                            <h4 class="fs-3 text-capitalize fw-bold ">boost your business 4 reasons to source from surat women wear manufacturer</h4>
+                        </div>
                         <div class="blog_img">
                             <img src="<?php echo CLS_SITE_URL; ?>img/blog_details6.webp" class="img-fluid w-100 rounded" alt="">
                         </div>
