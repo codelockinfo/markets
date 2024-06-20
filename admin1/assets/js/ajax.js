@@ -114,41 +114,6 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
             }
         });
     }
-    function insert_offers(file){
-      console.log(" offers save button click");
-      var form_data = $("#offersinsert")[0];
-      var form_data = new FormData(form_data);
-      form_data.append('file', file);
-      form_data.append('routine_name','insert_offers'); 
-      $.ajax({
-        url: "../admin1/ajax_call.php",
-        type: "post",
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        data: form_data, 
-        beforeSend: function () {
-            loading_show('.save_loader_show');
-        },
-        success: function (response) {
-          console.log(response);
-          var response = JSON.parse(response);
-          loading_hide('.save_loader_show', 'Save');
-          response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
-          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-          response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
-            if(response['data'] == "success"){
-                $("#offersinsert")[0].reset();
-                resetThumbnail();
-                showMessage(response.msg, "success");
-                $('.myFile').html('');
-              }
-            else{
-                showMessage(response.msg_error, "fail");
-              } 
-              }
-            });
-    }
 
     $(document).ready(function() {
       console.log("DOCUMENT READY ...");
@@ -538,7 +503,39 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
 
       $(document).on("click",".offerSave",function(event){
         event.preventDefault();
-        insert_offers();
+          console.log(" offers save button click");
+          var form_data = $("#offersinsert")[0];
+          var form_data = new FormData(form_data);
+          form_data.append('routine_name','insert_offers'); 
+          $.ajax({
+            url: "../admin1/ajax_call.php",
+            type: "post",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            data: form_data, 
+            beforeSend: function () {
+                loading_show('.save_loader_show');
+            },
+            success: function (response) {
+              console.log(response);
+              var response = JSON.parse(response);
+              loading_hide('.save_loader_show', 'Save');
+              response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+              response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+              response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
+                if(response['data'] == "success"){
+                    $("#offersinsert")[0].reset();
+                    resetThumbnail();
+                    showMessage(response.msg, "success");
+                    $('.myFile').html('');
+                  }
+                else{
+                    showMessage(response.msg_error, "fail");
+                  } 
+                  }
+                });
+        
       })
 
       $(document).on("click",".paragraphSave",function(event){

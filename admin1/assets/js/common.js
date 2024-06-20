@@ -25,7 +25,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         if (file.type.startsWith("image/")) {
           console.log("changefile" + file );
           updateThumbnail(dropZoneElement, file);
-          insert_offers(file);
+          
       } else {
         showMessage("Only image files are allowed!");
           inputElement.value = "";  // Clear the input
@@ -51,7 +51,8 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
             inputElement.files = e.dataTransfer.files;
             console.log("dropfile" + file );
             updateThumbnail(dropZoneElement, file);
-            insert_offers(file);
+            var form_data = $("form")[0];
+            form_data.append('file', file);
         } else {
           Swal.fire({
             icon: 'error',
