@@ -172,3 +172,23 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
     });
 });
 // event dropdown js end 
+document.addEventListener("DOMContentLoaded", function() {
+    const paragraphs = document.querySelectorAll('.truncated-text');
+    const anchors = document.querySelectorAll('.truncated-text-h');
+    
+    paragraphs.forEach(paragraph => {
+        const words = paragraph.innerText.split(' ');
+
+        if (words.length > 6) {
+            paragraph.innerText = words.slice(0, 6).join(' ') + '...';
+        }
+    });
+
+    anchors.forEach(anchor => {
+        const words = anchor.innerText.split(' ');
+
+        if (words.length > 9) {
+            anchor.innerText = words.slice(0, 9).join(' ') + '...';
+        }
+    });
+});

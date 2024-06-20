@@ -148,13 +148,13 @@ include 'header.php';
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">
-          <a href="#" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
             About Us
           </a>
-          <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
             Products
           </a>
-          <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
             Blog
           </a>
         </div>
@@ -177,7 +177,7 @@ include 'header.php';
           </div> -->
       </div>
       <div class="row">
-        <div class="col-8 ms-10 text-center mt-1">
+        <div class="mx-auto text-center mt-1">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())

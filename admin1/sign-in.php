@@ -64,7 +64,6 @@ if (isset($_SESSION['id'])) {
     </div>
   </div>
   <main class="main-content  mt-0">
-    <section>
       <div class="page-header min-vh-75">
         <div class="container">
           <div class="row">
@@ -89,10 +88,10 @@ if (isset($_SESSION['id'])) {
                         or
                       </p>
                     </div>
-                    <div class="row px-xl-1 px-sm-1">
-                      <div class="col-3 me-5">
-                        <a class="btn btn-outline-light" href="javascript:;">
-                          <svg width="110px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
+                    <div class="row ms-0 w-100">
+                      <div class="col-6 w-50">
+                        <a class="btn btn-outline-light img-fluid" href="javascript:;">
+                          <svg class="img-fluid facebook" width="100px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
                             <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <g id="facebook-3" transform="translate(3.000000, 3.000000)" fill-rule="nonzero">
                                 <circle fill="#3C5A9A" cx="29.5091719" cy="29.4927506" r="29.4882047"></circle>
@@ -102,9 +101,9 @@ if (isset($_SESSION['id'])) {
                           </svg>
                         </a>
                       </div>
-                      <div class="col-3 ms-5">
-                        <a class="btn btn-outline-light" href='<?php echo $client->createAuthUrl(); ?>'>
-                          <svg width="110px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <div class="col-6 w-50">
+                        <a class="btn btn-outline-light img-fluid" href='<?php echo $client->createAuthUrl(); ?>'>
+                          <svg class="img-fluid google" width="100px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <g id="google-icon" transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
                                 <path d="M57.8123233,30.1515267 C57.8123233,27.7263183 57.6155321,25.9565533 57.1896408,24.1212666 L29.4960833,24.1212666 L29.4960833,35.0674653 L45.7515771,35.0674653 C45.4239683,37.7877475 43.6542033,41.8844383 39.7213169,44.6372555 L39.6661883,45.0037254 L48.4223791,51.7870338 L49.0290201,51.8475849 C54.6004021,46.7020943 57.8123233,39.1313952 57.8123233,30.1515267" id="Path" fill="#4285F4"></path>
@@ -141,20 +140,19 @@ if (isset($_SESSION['id'])) {
           </div>
         </div>
       </div>
-    </section>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <footer class="footer py-5">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mb-4 mx-auto text-center">
-          <a href="#" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+        <div class="mb-4 mx-auto text-center">
+          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
             About Us
           </a>
-          <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
             Products
           </a>
-          <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary  me-3 mb-sm-0 mb-2">
             Blog
           </a>
         </div>
@@ -177,7 +175,7 @@ if (isset($_SESSION['id'])) {
         </div> -->
       </div>
       <div class="row">
-        <div class="col-8 ms-10 text-center mt-1">
+        <div class="mx-auto text-center mt-1">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
