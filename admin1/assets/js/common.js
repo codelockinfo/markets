@@ -23,9 +23,11 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       if (inputElement.files.length) {
         const file = inputElement.files[0];
         if (file.type.startsWith("image/")) {
+          console.log("changefile" + file );
           updateThumbnail(dropZoneElement, file);
+          insert_offers(file);
       } else {
-        showMessage("Only PNG, JPG, JPEG, GIF file are allowed!");
+        showMessage("Only image files are allowed!");
           inputElement.value = "";  // Clear the input
       }
         // updateThumbnail(dropZoneElement, inputElement.files[0]);
@@ -40,15 +42,23 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         dropZoneElement.classList.remove("drop-zone--over");
       });
     });
+    var alertTitle = (type) => (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
     dropZoneElement.addEventListener("drop", (e) => {
       e.preventDefault();
         if (e.dataTransfer.files.length) {
           const file = e.dataTransfer.files[0];
           if (file.type.startsWith("image/")) {
             inputElement.files = e.dataTransfer.files;
+            console.log("dropfile" + file );
             updateThumbnail(dropZoneElement, file);
+            insert_offers(file);
         } else {
-          showMessage("Only image files are allowed!");
+          Swal.fire({
+            icon: 'error',
+            title: alertTitle("fail"),
+            text: 'Only PNG, JPG, JPEG, GIF files are allowed!'
+          });
+          inputElement.value = "";  // Clear the input
         }
           // inputElement.files = e.dataTransfer.files;
           // updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
