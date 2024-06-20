@@ -16,21 +16,27 @@ function showMessage(msg, type) {
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
-    dropZoneElement.addEventListener("click", (e) => {
-      inputElement.click();
-    });
+    // dropZoneElement.addEventListener("click", (e) => {
+    //   inputElement.click();
+    // });
+    var alertTitle = (type) => (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+    dropZoneElement.addEventListener("click", () => inputElement.click());
+
     inputElement.addEventListener("change", (e) => {
       if (inputElement.files.length) {
         const file = inputElement.files[0];
         if (file.type.startsWith("image/")) {
           console.log("changefile" + file );
           updateThumbnail(dropZoneElement, file);
-          
       } else {
-        showMessage("Only image files are allowed!");
+        Swal.fire({
+          icon: 'error',
+          title: alertTitle("fail"),
+          text: 'Only PNG, JPG, JPEG, GIF files are allowed!'
+        });
           inputElement.value = "";  // Clear the input
       }
-        // updateThumbnail(dropZoneElement, inputElement.files[0]);
+        updateThumbnail(dropZoneElement, inputElement.files[0]);
       }
     });
     dropZoneElement.addEventListener("dragover", (e) => {
@@ -42,7 +48,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         dropZoneElement.classList.remove("drop-zone--over");
       });
     });
-    var alertTitle = (type) => (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+    
     dropZoneElement.addEventListener("drop", (e) => {
       e.preventDefault();
         if (e.dataTransfer.files.length) {
@@ -51,8 +57,8 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
             inputElement.files = e.dataTransfer.files;
             console.log("dropfile" + file );
             updateThumbnail(dropZoneElement, file);
-            var form_data = $("form")[0];
-            form_data.append('file', file);
+            // var form_data = $("form")[0];
+            // form_data.append('file', file);
         } else {
           Swal.fire({
             icon: 'error',
@@ -66,6 +72,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         }
       dropZoneElement.classList.remove("drop-zone--over");
     });
+    
   });
   function updateThumbnail(dropZoneElement, file) {
     let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
@@ -92,6 +99,11 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       const closeButton = document.createElement("button");
       closeButton.classList.add("close-button");
       closeButton.innerText = 'x';
+      closeButton.addEventListener("click", () => {
+        thumbnailElement.innerHTML = '';
+        thumbnailElement.classList.remove("drop-zone__thumb");
+        thumbnailElement.innerHTML = '<span class="drop-zone__prompt">Drop file here or click to upload</span>';
+      });
       thumbnailElement.innerHTML = "";
       thumbnailElement.appendChild(img);
       thumbnailElement.appendChild(closeButton);

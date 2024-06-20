@@ -532,7 +532,7 @@ class admin_functions {
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/brouse_textilectgry_img/" . $newFilename;
+        $folder = "assets/img/offers/" . $newFilename;
         move_uploaded_file($tmpfile,$folder);
 
         $error_array = array();
