@@ -524,7 +524,6 @@ class admin_functions {
     }
 
     function insert_offers(){
-
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
@@ -533,7 +532,7 @@ class admin_functions {
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/brouse_textilectgry_img/" . $newFilename;
+        $folder = "assets/img/offers/" . $newFilename;
         move_uploaded_file($tmpfile,$folder);
 
         $error_array = array();
