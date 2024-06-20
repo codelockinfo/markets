@@ -36,7 +36,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         });
           inputElement.value = "";  // Clear the input
       }
-        updateThumbnail(dropZoneElement, inputElement.files[0]);
+        // updateThumbnail(dropZoneElement, inputElement.files[0]);
       }
     });
     dropZoneElement.addEventListener("dragover", (e) => {
