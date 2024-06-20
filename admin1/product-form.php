@@ -215,8 +215,14 @@ include 'header.php';
               <span class="errormsg select_catagory"></span>
             </div>
             <label for="title" class="font-weight-normal required">Product Price</label>
-            <div class="mb-3">
-              <input type="number" class="form-control price" placeholder="price" name="p_price">
+            <div class="mb-3 row">
+              <div class="col">
+                <input type="number" class="form-control price" placeholder="Min Price" name="p_price">
+              </div>
+              <div class="col text-center">To</div>
+              <div class="col">
+                <input type="number" class="form-control price" placeholder="Max-Price" name="p_price">
+              </div>
               <span class="errormsg p_price"></span>
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>

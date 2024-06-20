@@ -150,7 +150,20 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-5 col-lg-9 col-md-6 mx-auto">
+        <div class="col-xl-4 col-md-4 ms-12">
+          <div class="card">
+            <li class="list-group-item border-0 ps-0 pb-0">
+              <strong class="text-dark text-sm p-3">Shop Photo:</strong> &nbsp;
+              <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
+                <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
+              </a>
+            </li>
+            <div class="ms-auto text-center">
+              <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-3 me-11">Edit</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-4">
           <div class="card h-100">
             <div class="card-header pb-0 p-3">
               <div class="row">
@@ -171,20 +184,11 @@ include 'header.php';
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop Name:</strong> &nbsp; Marco Men</li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; 1001, Sliver Hub, Mota-Varachha, Surat</li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile Number:</strong> &nbsp; (+91) 1234 123 123 </li>
-                <li class="list-group-item border-0 ps-0 pb-0">
-                  <strong class="text-dark text-sm">Shop Photo:</strong> &nbsp;
-                  <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
-                    <img src="<?php echo main_url('/admin1/assets/img/bruce-mars.jpg'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm mb-4">
-                  </a>
-                </li>
                 <li class="list-group-item border-0 ps-0 text-sm">
-                  <div class="ms-auto text-center">
-                    <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
-                  </div>
                 </li>
               </ul>
             </div>
-          </div>
+          </div>  
         </div>
         <div class="col-12 mt-4">
           <div class="card mb-4">
