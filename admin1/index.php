@@ -27,7 +27,7 @@
             $userinfo = mysqli_fetch_assoc($result);
             $token = $userinfo['id'];
           } else {
-              // header("Location: sign-in.php");
+              header("Location: sign-in.php");
               echo "User is not created";
               die;
           }
@@ -36,7 +36,7 @@
           $_SESSION['id'] = $token;
     } else {
       if (!isset($_SESSION['id'])) {
-        // header("Location: sign-in.php");
+        header("Location: sign-in.php");
         die();
       }
     
