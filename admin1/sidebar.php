@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
       <ul class="navbar-nav overflow-x-hidden">
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>index.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>index.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -29,7 +29,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="#">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -61,7 +61,7 @@
           </div>
         </div>  
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>profile.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>profile.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -81,7 +81,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>product-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>product-list.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -101,7 +101,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>gallery.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>gallery.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>box-3d-50</title>
@@ -122,7 +122,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>video-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>video-list.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
@@ -143,7 +143,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>blog-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>blog-list.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
@@ -167,7 +167,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>document</title>
@@ -187,7 +187,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="<?php echo SITE_ADMIN_URL ?>plans.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>plans.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>document</title>
@@ -215,10 +215,11 @@
           <div class="docs-info">
             <h6 class="text-white up mb-0">Need help?</h6>
             <p class="text-xs font-weight-bold">Please check our docs</p>
-            <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
+            <a href="#" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
           </div>
         </div>
       </div>
-      <a class="btn bg-gradient-primary mt-3 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Upgrade to pro</a>
+      <a class="btn bg-gradient-primary mt-3 w-100" href="#">Upgrade to pro</a>
     </div>
   </aside>
+  

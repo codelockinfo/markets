@@ -23,13 +23,13 @@ include 'header.php';
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                 <!-- <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="#">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/profile.html">
+                  <a class="nav-link me-2" href="profile.html">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
                     Profile
                   </a>
@@ -159,19 +159,19 @@ include 'header.php';
           </a>
         </div>
         <!-- <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-dribbble"></span>
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-twitter"></span>
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-instagram"></span>
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-pinterest"></span>
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-github"></span>
             </a>
           </div> -->

@@ -27,7 +27,7 @@ if (isset($_SESSION['id'])) {
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                 <!-- <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="#">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Dashboard
                   </a>
@@ -90,7 +90,7 @@ if (isset($_SESSION['id'])) {
                     </div>
                     <div class="row ms-0 w-100">
                       <div class="col-6 w-50">
-                        <a class="btn btn-outline-light img-fluid" href="javascript:;">
+                        <a class="btn btn-outline-light img-fluid" href="#">
                           <svg class="img-fluid facebook" width="100px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
                             <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <g id="facebook-3" transform="translate(3.000000, 3.000000)" fill-rule="nonzero">
@@ -157,19 +157,19 @@ if (isset($_SESSION['id'])) {
           </a>
         </div>
         <!-- <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+          <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-dribbble"></span>
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+          <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-twitter"></span>
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+          <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-instagram"></span>
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+          <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-pinterest"></span>
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+          <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-github"></span>
           </a>
         </div> -->
