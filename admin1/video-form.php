@@ -130,16 +130,14 @@ include 'header.php';
       </div>
       <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
         <div class="row gx-4">
-          <div class="col-auto">
-          </div>
-          <div class="col-auto my-auto">
+          <div class="col-auto mx-auto ms-sm-3 mt-2">
             <div class="h-100">
               <h5 class="mb-1">
                 Video Form
               </h5>
             </div>
-          </div>
-          <div class="col-lg-2 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          </div>  
+          <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
@@ -169,7 +167,7 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-        <div class="card z-index-0 p-5">
+        <div class="card z-index-0 p-3">
           <form role="form" id="videoinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal required">Video Title</label>
             <div class="mb-3">

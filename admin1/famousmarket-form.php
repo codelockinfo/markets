@@ -144,7 +144,7 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
-        <div class="card z-index-0 p-5">
+        <div class="card z-index-0 p-3">
         <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
           <label for="s-logo" class="font-weight-normal required">Shop Logo</label>
           <div class="mb-3">

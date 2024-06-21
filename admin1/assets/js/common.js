@@ -122,26 +122,11 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 
 // multi select js in product form page
 
-
-// $(document).ready(function() {
-  
-//   $(".js-select2").select2();
-
-  
-//   $(".js-select2-multi").select2();
-//   $(".js-select2-multi").val('Saree').trigger('change');
-  
-//   $(".large").select2({
-//     dropdownCssClass: "big-drop",
-//   });
-  
-// });
-
 $(document).ready(function() {
   $('.js-select2-multi').select2({
       placeholder: "Select products",
       allowClear: true,
-      tags: true, // This option allows the creation of new tags
+      tags: true,
       createTag: function (params) {
           var term = $.trim(params.term);
           if (term === '') {
@@ -150,8 +135,16 @@ $(document).ready(function() {
           return {
               id: term,
               text: term,
-              newTag: true // Add additional parameters
+              newTag: true
           };
       }
   });
 });
+
+
+
+// dropdown active add & remove js
+
+$(document).on('click', '.navigation ul li', function(){
+  $(this).addClass('active').siblings().removeClass('active')
+})

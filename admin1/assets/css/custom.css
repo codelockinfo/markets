@@ -7,7 +7,7 @@
 }
 
 
-/* plans css plans.html */
+/* plans page css  */
 .pricing .card {
   border: none;
   border-radius: 1rem;
@@ -64,7 +64,20 @@
     transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
   }
 }
-/* plans css end */
+
+@media (max-width:992px){
+  .plan-card{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width:1200px){
+  .plan-card{
+    width: 100%;
+  }
+}
+/* plans page css end */
 
 
 
@@ -138,6 +151,12 @@
 ::-webkit-scrollbar-thumb{
   background: #888; 
   border-radius: 10px; 
+}
+
+
+.navigation ul li.active a, .navigation ul li:hover a{
+  background-color: #eceaea;
+  
 }
 
 @media screen and (max-height: 450px){
@@ -287,6 +306,10 @@
   max-width: 100%;
 }
 
+.main-sec{
+  margin: 10px 0px;
+}
+
 .accordion {
   display: flex;
   flex-direction: column;
@@ -369,13 +392,6 @@
   }
   .accordion h1 {
     font-size: 22px;
-  }
-}
-
-@media (max-width:1200px){
-  .main-sec{
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
 }
 
@@ -482,14 +498,3 @@
   }
 }
 /* navigation bar media query end */
-
-
-
-/* plans page media query */
-@media (max-width:992px){
-  .plan-card{
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-/* plans page media query end */

@@ -50,7 +50,7 @@ include 'header.php';
               <!-- <li class="nav-item d-flex align-items-center">
                 <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
               </li> -->
-              <ul class="navbar-nav d-lg-block d-none">
+              <ul class="navbar-nav">
                 <li class="nav-item">
                   <a href="<?php echo CLS_SITE_URL; ?>" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
                 </li>
@@ -83,8 +83,8 @@ include 'header.php';
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="address" class="form-control" placeholder="Address" name="address">
-                      <span class="errormsg address"></span>
+                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <span class="errormsg email"></span>
                     </div>
                     <div class="mb-3">
                       <input type="tel" class="form-control" placeholder="Mobile No." name="phone_number">
@@ -105,6 +105,10 @@ include 'header.php';
                       <div class="errormsg image"></div>
                     </div>
                     <div class="mb-3">
+                      <input type="address" class="form-control" placeholder="Address" name="address">
+                      <span class="errormsg address"></span>
+                    </div>
+                    <div class="mb-3">
                       <input type="password" class="form-control password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
                       <span class="errormsg password"></span>
                     </div>
@@ -112,13 +116,9 @@ include 'header.php';
                       <input type="password" class="form-control Confirm_Password" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
-                    <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
-                      <span class="errormsg email"></span>
-                    </div>
                     <div class="text-center">
                       <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
-                      <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button>
+                      <!-- <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button> -->
                     </div>
                     <div class="text-center">
                       <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0">Sign up</button>
@@ -126,7 +126,7 @@ include 'header.php';
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
+                  <p class="mb-1 text-sm mx-auto">
                     Already have an account?
                     <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="text-info text-gradient font-weight-bold">Sign in</a>
                   </p>
@@ -144,11 +144,11 @@ include 'header.php';
     </section>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <footer class="footer py-5">
+  <footer class="footer py-3">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mb-4 mx-auto text-center">
-          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
+        <div class="col-lg-8 mb-0 mx-auto text-center">
+          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
             About Us
           </a>
           <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
@@ -177,7 +177,7 @@ include 'header.php';
           </div> -->
       </div>
       <div class="row">
-        <div class="mx-auto text-center mt-1">
+        <div class="mx-auto text-center mt-0">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
