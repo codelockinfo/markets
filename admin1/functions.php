@@ -46,7 +46,7 @@ class admin_functions {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
             $result = $this->db->query($query);
             if ($result) {
-                $userinfo = mysqli_fetch_assoc($result);
+                $userinfo = mysqli_result($result);
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'login successfully');
             } else {
@@ -140,9 +140,9 @@ class admin_functions {
             
             $query = "INSERT INTO users (name,shop,address,phone_number,business_type,shop_img,password,email) VALUES ('$name', '$shop','$address','$phone_number','$business_type','$newFilename','$password','$email')";
             $result = $this->db->query($query);
-      
+
             if ($result) {
-                $userinfo = mysqli_fetch_assoc($result);
+                $userinfo = mysqli_result($result);
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
             } else {
