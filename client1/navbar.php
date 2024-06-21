@@ -219,54 +219,54 @@
                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                      <div class="accordion-body bg-light">
                          <ul class="list-unstyled">
-                             <li><a href="#" class="text-capitalize text-secondary">Ragini Fashion</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Allia Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Amar Textiles</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Tulsi Saree</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Silver Textile</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Sagun Tex Fab (Digital Printing Hub)</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Shree Shyam Fashion</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Shakti International</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Venus Handloom & Furnishing</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Tater Silk Mills Pvt Ltd</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Radha Rani Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Shree Amba Trading Wholesale Depot</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Maa Ambey Prints</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Aarush Textile</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Silk INDIA Corporation</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Vijayshanti Texofin</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Mataji Fashion</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Scpi (Shree Chandaprabhu International)</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Rangoli Fashion</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Venus Handloom & Furnishing</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">K S Textiles</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">M S Collection</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Maa Ambey Prints</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Shree Hari Textiles</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Radhey Govind Textile</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">V R S Creation</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Varni Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Kamil Grey Cutpiece Shop</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Maheshwari Trading</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Vidya Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Niharikaa Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Varia Trading Co</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Kotwala Synthetics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Deepin Bleaching Pvt. Ltd.</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Manglam Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Sanskruti</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Mansi Textiles</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Singhal Fabric</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Krishna Textiles</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Textile World</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Radhika Texfeb</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Bajrang Garment</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Right Choice</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Angel Designer Studio</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Punya Pratap Fabrics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Asian Fabric Mills</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Sapphire Synthetics</a></li>
-                             <li><a href="#" class="text-capitalize text-secondary">Smita Fashion</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Ragini Fashion</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Allia Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Amar Textiles</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Tulsi Saree</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Silver Textile</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Sagun Tex Fab (Digital Printing Hub)</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Shree Shyam Fashion</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Shakti International</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Venus Handloom & Furnishing</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Tater Silk Mills Pvt Ltd</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Radha Rani Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Shree Amba Trading Wholesale Depot</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Maa Ambey Prints</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Aarush Textile</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Silk INDIA Corporation</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Vijayshanti Texofin</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Mataji Fashion</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Scpi (Shree Chandaprabhu International)</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Rangoli Fashion</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Venus Handloom & Furnishing</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">K S Textiles</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">M S Collection</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Maa Ambey Prints</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Shree Hari Textiles</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Radhey Govind Textile</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">V R S Creation</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Varni Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Kamil Grey Cutpiece Shop</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Maheshwari Trading</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Vidya Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Niharikaa Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Varia Trading Co</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Kotwala Synthetics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Deepin Bleaching Pvt. Ltd.</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Manglam Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Sanskruti</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Mansi Textiles</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Singhal Fabric</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Krishna Textiles</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Textile World</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Radhika Texfeb</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Bajrang Garment</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Right Choice</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Angel Designer Studio</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Punya Pratap Fabrics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Asian Fabric Mills</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Sapphire Synthetics</a></li>
+                             <li class="p-2 border-bottom" ><a href="#" class="text-capitalize text-secondary">Smita Fashion</a></li>
                          </ul>
                      </div>
                  </div>
@@ -280,37 +280,37 @@
                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                      <div class="accordion-body bg-light">
                          <ul class="list-unstyled">
-                             <li><a href="#" class="text-secondary">Armwear</a></li>
-                             <li><a href="#" class="text-secondary">Badges </a></li>
-                             <li><a href="#" class="text-secondary">Belts</a></li>
-                             <li><a href="#" class="text-secondary">Children's clothing</a></li>
-                             <li><a href="#" class="text-secondary">Clothing brands by type</a></li>
-                             <li><a href="#" class="text-secondary">Coats</a></li>
-                             <li><a href="#" class="text-secondary">Dresses</a></li>
-                             <li><a href="#" class="text-secondary">Footwear</a></li>
-                             <li><a href="#" class="text-secondary">Gowns</a></li>
-                             <li><a href="#" class="text-secondary">Handwear</a></li>
-                             <li><a href="#" class="text-secondary">Hosiery</a></li>
-                             <li><a href="#" class="text-secondary">Jackets</a></li>
-                             <li><a href="#" class="text-secondary">Jeans by type</a></li>
-                             <li><a href="#" class="text-secondary">Knee clothing</a></li>
-                             <li><a href="#" class="text-secondary">Masks</a></li>
-                             <li><a href="#" class="text-secondary">Neckwear</a></li>
-                             <li><a href="#" class="text-secondary">One-piece suits</a></li>
-                             <li><a href="#" class="text-secondary">Outerwear</a></li>
-                             <li><a href="#" class="text-secondary">Ponchos</a></li>
-                             <li><a href="#" class="text-secondary">Robes and cloaks</a></li>
-                             <li><a href="#" class="text-secondary">Royal attire</a></li>
-                             <li><a href="#" class="text-secondary">Saree</a></li>
-                             <li><a href="#" class="text-secondary">Sashes</a></li>
-                             <li><a href="#" class="text-secondary">Shawls and wraps</a></li>
-                             <li><a href="#" class="text-secondary">Skirts</a></li>
-                             <li><a href="#" class="text-secondary">Sportswear</a></li>
-                             <li><a href="#" class="text-secondary">Suits</a></li>
-                             <li><a href="#" class="text-secondary">Tops</a></li>
-                             <li><a href="#" class="text-secondary">Trousers and shorts</a></li>
-                             <li><a href="#" class="text-secondary">Undergarments</a></li>
-                             <li><a href="#" class="text-secondary">Wedding clothing</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Armwear</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Badges </a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Belts</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Children's clothing</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Clothing brands by type</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Coats</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Dresses</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Footwear</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Gowns</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Handwear</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Hosiery</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Jackets</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Jeans by type</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Knee clothing</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Masks</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Neckwear</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">One-piece suits</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Outerwear</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Ponchos</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Robes and cloaks</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Royal attire</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Saree</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Sashes</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Shawls and wraps</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Skirts</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Sportswear</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Suits</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Tops</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Trousers and shorts</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Undergarments</a></li>
+                             <li class="p-2 border-bottom"><a href="#" class="text-secondary">Wedding clothing</a></li>
                          </ul>
                      </div>
                  </div>
