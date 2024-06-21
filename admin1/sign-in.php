@@ -51,7 +51,7 @@ if (isset($_SESSION['id'])) {
                   </a>
                 </li>
               </ul>
-              <ul class="navbar-nav d-lg-block d-none">
+              <ul class="navbar-nav">
                 <li class="nav-item">
                   <a href="<?php echo CLS_SITE_URL; ?>" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
                 </li>
@@ -68,12 +68,12 @@ if (isset($_SESSION['id'])) {
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-              <div class="card card-plain mt-8">
+              <div class="card card-plain mt-6">
                 <div class="card-header pb-0 text-left bg-transparent text-center">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
-                <div class="card-body">
+                  <div class="card-body my-n3">
                   <form role="form">
                     <label>Email</label>
                     <div class="mb-3">
@@ -117,14 +117,14 @@ if (isset($_SESSION['id'])) {
                       </div>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                      <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0">Sign in</button>
                     </div>
                 </div>
                 <div class="text-center mb-2 position-relative">
                   <a href="#" class="font-weight-bold">Forget Password ?</a>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
+                  <p class="mb-0 text-sm mx-auto">
                     Don't have an account?
                     <a href="<?php echo SITE_ADMIN_URL ?>sign-up.php" class="text-info text-gradient font-weight-bold">Sign up</a>
                   </p>
@@ -142,11 +142,11 @@ if (isset($_SESSION['id'])) {
       </div>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <footer class="footer py-5">
+  <footer class="footer py-3">
     <div class="container">
       <div class="row">
-        <div class="mb-4 mx-auto text-center">
-          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
+        <div class="mb-1 mx-auto text-center footer-sec">
+          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
             About Us
           </a>
           <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
@@ -175,7 +175,7 @@ if (isset($_SESSION['id'])) {
         </div> -->
       </div>
       <div class="row">
-        <div class="mx-auto text-center mt-1">
+        <div class="mx-auto text-center mt-0">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())

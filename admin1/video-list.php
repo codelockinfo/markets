@@ -200,23 +200,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3327.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  <a class="border-radius-xl"> 
+                    <iframe width="100%" height="500px" src="https://www.youtube.com/embed/9_syYD5rmn4" class="border-radius-xl" title="ALL Beautiful ladies dress 😍👗handwork and machine work embroidery #shorts#shortsvideo #youtubeshorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Modern
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -225,23 +225,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/_PZoNhpcn5c" class="border-radius-xl" title="Shadding Blue color Designer Embroidery Lehenga choli || shop on www.blfabric.com #lehengas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Scandinavian
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -250,23 +250,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3326.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/NbR-BYJD7-w" class="border-radius-xl" title="ribbon kurti embroidery_beautiful and simple ribbon kurti embroidery_ribbon embroidery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Minimalist
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -275,23 +275,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2952.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/i5EzmMJTios" class="border-radius-xl" title="ORIGINAL CAPSULE PRINT, DUPATTA SET M, L, XL Size 👆" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Scandinavian
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -300,23 +300,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2952.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/xC_bqfRZ67Q" class="border-radius-xl" title="Boutique Premium collection, CASH ON DELIVERY, Quality super" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Modern
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -325,23 +325,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3327.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/OtJLsmEYmPw" class="border-radius-xl" title="Stylish &amp; Trendy Kurta from Madhuram Textiles." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Scandinavian
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -350,23 +350,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/hJF_BKnQ7Qk" class="border-radius-xl" title="👗😍beautiful design dress machine and handwork embroidery #shorts #shortsvideo #youtubeshorts #viral" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Minimalist
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>
@@ -375,23 +375,23 @@ include 'header.php';
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
-                  <a class="d-block shadow-xl border-radius-xl">
-                    <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001825889375-3326.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                  <a class="border-radius-xl"> 
+                  <iframe width="100%" height="500px" src="https://www.youtube.com/embed/3pb2nLFUzZ8" class="border-radius-xl" title="Latest lehenga 2023😍||designer lehenga||#shorts #viral" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   </a>
                 </div>
                 <div class="card-body px-1 pb-0">
-                  <a href="#">
+                  <!-- <a href="#">
                     <h5>
                       Scandinavian
                     </h5>
-                  </a>
+                  </a> -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex align-items-center text-sm">
                       $250
                     </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                      <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                      <!-- <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button> -->
                     </div>
                   </div>
                 </div>

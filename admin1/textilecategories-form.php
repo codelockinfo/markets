@@ -145,7 +145,7 @@ include 'header.php';
     <div class="container-fluid w-100 py-4">
       <div class="row">
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-5">
+          <div class="card z-index-0 p-3">
             <form role="form" id="b_textileCtgryinsert" enctype="multipart/form-data" method="POST">
               <label for="textile-img " class="font-weight-normal required">Image</label>
               <div class="mb-3">
@@ -175,14 +175,14 @@ include 'header.php';
           </div>
         </div>
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-4">
+          <div class="card z-index-0 p-3">
             <div class="row">
               <div class="mb-3 form-check-reverse text-right">
                 <i class="fa fa-eye p-3 mt-0" aria-hidden="true"></i>
                 <button type="button" class="btn btn-primary bg-dark btn-sm">Enable</button>
                 <button type="button" class="btn btn-secondary bg-dark btn-sm">Disable</button>
               </div>
-              <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
@@ -191,7 +191,7 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
@@ -200,7 +200,7 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
@@ -209,7 +209,7 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
@@ -218,7 +218,7 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
@@ -227,7 +227,7 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">

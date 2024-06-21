@@ -150,7 +150,7 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-4 col-md-4 ms-12">
+        <div class="col-xl-6 col-md-6 mt-3">
           <div class="card">
             <li class="list-group-item border-0 ps-0 pb-0">
               <strong class="text-dark text-sm p-3">Shop Photo:</strong> &nbsp;
@@ -158,12 +158,12 @@ include 'header.php';
                 <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
               </a>
             </li>
-            <div class="ms-auto text-center">
-              <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-3 me-11">Edit</button>
+            <div class="mx-auto text-center">
+              <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-3">Edit</button>
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-md-4">
+        <div class="col-xl-6 col-md-6 mt-3">
           <div class="card h-100">
             <div class="card-header pb-0 p-3">
               <div class="row">
@@ -178,7 +178,7 @@ include 'header.php';
               </div>
             </div>
             <div class="card-body p-3">
-              <hr class="horizontal gray-light my-4">
+              <hr class="horizontal gray-light">
               <ul class="list-group">
                 <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop Name:</strong> &nbsp; Marco Men</li>

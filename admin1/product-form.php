@@ -130,9 +130,7 @@ include 'header.php';
       </div>
       <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
         <div class="row gx-4">
-          <div class="col-auto">
-          </div>
-          <div class="col-auto my-auto">
+          <div class="col-auto mx-auto ms-sm-3  mt-2">
             <div class="h-100">
               <h5 class="mb-1">
                 Product Form
@@ -169,14 +167,14 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-        <div class="card z-index-0 p-5">
+        <div class="card z-index-0 p-3 product-main">
           <form role="form" id="productinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal required">Product Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext product" placeholder="Product Name" name="pname">
+              <input type="text" class="form-control validtext product w-100" placeholder="Product Name" name="pname">
               <span class="errormsg pname"></span>
             </div>
-            <label for="p-tags" class="font-weight-normal required">Product Category</label>
+            <label for="p-tags" class="font-weight-normal required w-100">Product Category</label>
             <div class="mb-3">
               <select class="form-select required" aria-label="Default select example" name="select_catagory">
                 <option selected value="">Category</option>
@@ -214,14 +212,14 @@ include 'header.php';
               </select>
               <span class="errormsg select_catagory"></span>
             </div>
-            <label for="title" class="font-weight-normal required">Product Price</label>
+            <label for="title" class="font-weight-normal required w-100">Product Price</label>
             <div class="mb-3 row">
               <div class="col">
-                <input type="number" class="form-control price" placeholder="Min Price" name="p_price">
+                <input type="number" class="form-control price w-100" placeholder="Min Price" name="p_price">
               </div>
-              <div class="col text-center">To</div>
+              <span class="col text-center price1">To</span>
               <div class="col">
-                <input type="number" class="form-control price" placeholder="Max-Price" name="p_price">
+                <input type="number" class="form-control price w-100" placeholder="Max-Price" name="p_price">
               </div>
               <span class="errormsg p_price"></span>
             </div>

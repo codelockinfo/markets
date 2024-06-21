@@ -144,7 +144,7 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-        <div class="card z-index-0 p-5">
+        <div class="card z-index-0 p-3">
           <form role="form" id="paragraphinsert" enctype="multipart/form-data" method="POST">
             <label for="body" class="font-weight-normal required">Paragraph</label>
             <div class="mb-3">
