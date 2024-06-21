@@ -155,6 +155,10 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
           showConfirmButton: false
       });
       }
+      
+      $('.signImage').on('input change', function() {
+       $(this).siblings('.imageError').text('');
+      });
 
       $('.validtext').on('keypress', function() {
         $(this).next('.errormsg').text('');
@@ -222,13 +226,6 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
         }
       }
       
-      document.getElementById('signImage').addEventListener('change', function() {
-        var imageError = document.getElementById('image');
-        if (this.files.length > 0) {
-            imageError.textContent = '';
-        }
-      });
-
       $(document).on("click",".signUpsave",function(e){
         e.preventDefault();   
         console.log("signUpsavebutton click");

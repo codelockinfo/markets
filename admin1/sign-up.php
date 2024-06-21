@@ -99,10 +99,10 @@ include 'header.php';
                       <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="file" class="form-control" name="image" id="signImage">
+                      <input type="file" class="form-control signImage" name="image">
                       <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
                       <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-                      <div class="errormsg image" id="image"></div>
+                      <div class="errormsg image imageError"></div>
                     </div>
                     <div class="mb-3">
                       <input type="password" class="form-control password validsignf" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
