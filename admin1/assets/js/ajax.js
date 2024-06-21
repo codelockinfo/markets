@@ -155,7 +155,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
           showConfirmButton: false
       });
       }
-      
+
       $('.signImage').on('input change', function() {
        $(this).siblings('.imageError').text('');
       });
@@ -225,6 +225,42 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
         }
       }
+
+      $(document).on("click", ".signInsave", function (e) {
+        e.preventDefault();
+        var form_data = $("#savesignin")[0];
+        var form_data = new FormData(form_data);
+        form_data.append("routine_name", "insert_signin");
+        $.ajax({
+          url: "../admin1/ajax_call.php",
+          type: "post",
+          dataType: "json",
+          contentType: false,
+          processData: false,
+          data: form_data,
+          beforeSend: function () {
+            loading_show(".save_loader_show");
+          },
+          success: function (response) {
+            console.log(response);
+            var response = JSON.parse(response);
+    
+            response["msg"]["password"] !== undefined
+              ? $(".password").html(response["msg"]["password"])
+              : $(".password").html("");
+            response["msg"]["email"] !== undefined
+              ? $(".email").html(response["msg"]["email"])
+              : $(".email").html("");
+            loading_hide(".save_loader_show", "Save");
+            if (response["data"] == "success") {
+              $("#savesignup")[0].reset();
+              showMessage(response.msg, "success");
+            }else {
+              showMessage(response.msg_error, "fail");
+            }
+          },
+        });
+      });
       
       $(document).on("click",".signUpsave",function(e){
         e.preventDefault();   
@@ -258,15 +294,12 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               loading_hide('.save_loader_show', 'Save');
               if(response['data'] == "success"){
                   $("#savesignup")[0].reset();
-                }
-              if (response.data === "success") {
                   showMessage(response.msg, "success");
-                } 
-              else{
-              showMessage(response.msg_error, "fail");
-                } 
-                }
-              });
+              }else{
+                showMessage(response.msg_error, "fail");
+              } 
+            }
+          });
       })
 
       $(document).on("click",".productSave",function(event){
