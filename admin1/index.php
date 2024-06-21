@@ -27,6 +27,13 @@
             $userinfo = mysqli_fetch_assoc($result);
             $_SESSION['user_id'] = $userinfo['user_id'];
             $_SESSION["errorMessage"] = "";
+              if (!empty($_SERVER['QUERY_STRING'])) {
+                $currentUrl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                $parsedUrl = parse_url($currentUrl);
+                $baseUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $parsedUrl['path'];
+                header("Location: $baseUrl");
+                exit;
+            }
           } else {
             $_SESSION["errorMessage"] = "User is not created";
               header("Location: sign-in.php");
