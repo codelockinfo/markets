@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['current_user'])) {
   header("Location: sign-in.php");
   die();
 }
