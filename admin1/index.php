@@ -25,7 +25,7 @@
           if (mysqli_num_rows($result) > 0) {
             // user is exists
             $userinfo = mysqli_fetch_assoc($result);
-            $_SESSION['user_id'] = $userinfo['user_id'];
+            $_SESSION['current_user'] = $userinfo;
             $_SESSION["errorMessage"] = "";
               if (!empty($_SERVER['QUERY_STRING'])) {
                 $currentUrl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -41,7 +41,7 @@
           }
         
     } else {
-      if (!isset($_SESSION['user_id'])) {
+      if (!isset($_SESSION['current_user'])) {
         header("Location: sign-in.php");
         die();
       }
