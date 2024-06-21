@@ -5,6 +5,7 @@ require_once 'googleconfig.php';
 if (isset($_SESSION['user_id'])) {
   header("Location: index.php");
 }
+$errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !== '') ? $_SESSION['errorMessage'] : '';
 ?>
 
 <body class="bg-white">
@@ -76,19 +77,22 @@ if (isset($_SESSION['user_id'])) {
                             <div class="card-header pb-0 text-left bg-transparent text-center">
                                 <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
                                 <p class="mb-0">Enter your email and password to sign in</p>
-                                <h5 class="errormsg "> <?php echo $_SESSION["errorMessage"]; ?></h5>
+                                <h5 class="errormsg "> <?php echo $errorMessage; ?></h5>
                             </div>
                             <div class="card-body">
-                                <form role="form">
+                                <form role="form" id="savesignin">
                                     <label>Email</label>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Email" aria-label="Email"
-                                            aria-describedby="email-addon">
+                                    <div class=" mb-3">
+                                        <input type="email" name="email" class="form-control" placeholder="Email"
+                                            aria-label="Email" aria-describedby="email-addon">
+                                        <span class="errormsg email"></span>
                                     </div>
                                     <label>Password</label>
                                     <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Password"
-                                            aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="Password" aria-label="Password"
+                                            aria-describedby="password-addon">
+                                        <span class="errormsg password"></span>
                                     </div>
                                     <div class="mt-3 position-relative text-center mb-3">
                                         <p
@@ -145,7 +149,8 @@ if (isset($_SESSION['user_id'])) {
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign
+                                        <button type="button"
+                                            class="btn bg-gradient-info w-100 mt-4 mb-0 signInsave">Sign
                                             in</button>
                                     </div>
                             </div>
