@@ -498,3 +498,12 @@
   }
 }
 /* navigation bar media query end */
+
+
+/* product form media query */
+@media (max-width:410px){
+  .price1{
+    display: none;
+  }
+}
+/* product form media query end */

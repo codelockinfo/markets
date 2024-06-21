@@ -11,7 +11,7 @@ include 'header.php';
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-          <h6 class="text-white font-weight-bolder ms-2">Famous Markets</h6>
+          <h6 class="text-white font-weight-bolder ms-2">Profile Form</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -135,7 +135,7 @@ include 'header.php';
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Famous Markets Form
+                Profile Form
               </h5>
             </div>
           </div>
@@ -144,64 +144,48 @@ include 'header.php';
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
-        <div class="card z-index-0 p-3">
-        <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-          <label for="s-logo" class="font-weight-normal required">Shop Logo</label>
-          <div class="mb-3">
-            <input type="text" class="form-control validtext" placeholder="Shop Logo" name="shop_logo">
-            <span class="errormsg shop_logo"></span>
-          </div>
-          <label for="b-image" class="font-weight-normal required">SVG Image</label>
-          <div class="mb-3">
-            <div class="drop-zone form-control">
-              <span class="drop-zone__prompt">Drop file here or click to upload</span>
-              <input type="file" name="svg_img" class="drop-zone__input">
-            </div>
-          </div>
-          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-          <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-          <div class="errormsg svg_img myFile"></div>
-          <label for="text" class="font-weight-normal">SVG image alt</label>
+        <div class="card card-body z-index-0 p-3">
+          <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
+            <label for="title" class="font-weight-normal required">Name</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="SVG image alt" name="svg_image_alt">
+              <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
+              <span class="errormsg name"></span>
             </div>
-          <label for="b-heading" class="font-weight-normal required">Heading</label>
-          <div class="mb-3">
-            <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
-            <span class="errormsg heading"></span>
-          </div>
-          <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
-          <div class="mb-3">
-            <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
-            <span class="errormsg sub_heading"></span>
-          </div>
-          <label for="market-img" class="font-weight-normal required">Image</label>
-          <div class="mb-3">
-            <div class="drop-zone form-control">
-              <span class="drop-zone__prompt">Drop file here or click to upload</span>
-              <input type="file" class="drop-zone__input" name="img">
-            </div>
-          </div>
-          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-          <div class="errormsg img myFile"></div>
-          <label for="text" class="font-weight-normal"> Image alt</label>
+            <label for="title" class="font-weight-normal required">Shop Name</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Image alt" name="heading">
+              <input type="shopname" class="form-control" placeholder="Shop Name" name="shop">
+              <span class="errormsg shop"></span>
             </div>
-          <div class="mb-3">
-            <button type="button" class="btn btn-primary bg-dark btn-sm marketSave formSave save_loader_show">Save</button>
-            <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel">Cancel</button>
-          </div>
-          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
-        </form>
-      </div>
+            <label for="title" class="font-weight-normal required">Mobile Number</label>
+            <div class="mb-3">
+              <input type="tel" class="form-control" placeholder="Mobile No." name="phone_number">
+              <span class="errormsg phone_number"></span>
+            </div>
+            <div class="mb-3">
+              <select class="form-select" aria-label="Default select example" name="business_type">
+                <option selected value="">Your Business Type</option>
+                <option value="1">Retail</option>
+                <option value="2">Wholesale</option>
+              </select>
+              <span class="errormsg business_type"></span>
+            </div>
+            <label for="title" class="font-weight-normal required">Address</label>
+            <div class="mb-3">
+              <input type="address" class="form-control" placeholder="Address" name="address">
+              <span class="errormsg address"></span>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
+              <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
+      <i class="fa fa-cog py-2"></i>
     </a>
     <div class="card shadow-lg ">
       <div class="card-header pb-0 pt-3 ">
