@@ -75,19 +75,19 @@ include 'header.php';
                 <div class="card-body">
                   <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
-                      <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
+                      <input type="fname" class="form-control validsignf" placeholder="Enter Your Name" name="name">
                       <span class="errormsg name"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="shopname" class="form-control" placeholder="Shop Name" name="shop">
+                      <input type="shopname" class="form-control validsignf" placeholder="Shop Name" name="shop">
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="address" class="form-control" placeholder="Address" name="address">
+                      <input type="address" class="form-control validsignf" placeholder="Address" name="address">
                       <span class="errormsg address"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="tel" class="form-control" placeholder="Mobile No." name="phone_number">
+                      <input type="tel" class="form-control number" placeholder="Mobile No." name="phone_number">
                       <span class="errormsg phone_number"></span>
                     </div>
                     <div class="mb-3">
@@ -99,29 +99,29 @@ include 'header.php';
                       <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="file" class="form-control" name="image">
+                      <input type="file" class="form-control signImage" name="image">
                       <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
                       <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-                      <div class="errormsg image"></div>
+                      <div class="errormsg image imageError"></div>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                      <input type="password" class="form-control password validsignf" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
                       <span class="errormsg password"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control Confirm_Password" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
+                      <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <input type="email" class="form-control validsignf" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
                       <span class="errormsg email"></span>
                     </div>
-                    <div class="text-center">
+                    <!-- <div class="text-center">
                       <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
                       <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button>
-                    </div>
+                    </div> -->
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0">Sign up</button>
+                      <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 signUpsave">Sign up</button>
                     </div>
                   </form>
                 </div>
