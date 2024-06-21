@@ -50,114 +50,114 @@ include 'header.php';
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Famous markets</h1>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
+            <div class="row2 ">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Arohi-Woman Fashion</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class="img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
+                                    <img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-md-6 col-6  wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Kavya Fabrics</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Global textile</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Timeless Elegance in Every Thread</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2"  data-wow-delay="0.7s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Vidya Fabrics</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Jay Ambe Fabrics</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">KS textile</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Draping You in Cultural Splendor</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Rajhans textile</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 wow bounceInUp" data-wow-delay="0.7s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.7s">
                     <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center p-4">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i>
+                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
                                 <h4 class="mb-3">Bal Krishna fabrics</h4>
-                                <p class="mb-4">Contrary to popular belief, ipsum is not simply random.</p>
+                                <p class="mb-4">Elegance Redefined, Heritage Preserved</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt="">
+                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt="">
                                 </div>
                             </div>
                         </div>
@@ -176,28 +176,28 @@ include 'header.php';
             </div>
             <div class="tabbable">
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs">
-                    <li class="tab-selector active">
-                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                    <li class="tab-selector ">
+                        <a class="d-flex mx-1 py-2 border border-primary  rounded-pill active" data-bs-toggle="pill" href="#tab-1">
                             <span class="text-dark" style="width: 150px;">Kurtis</span>
                         </a>
                     </li>
                     <li class="tab-selector">
-                        <a class="d-flex py-2 mx-1 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                        <a class="d-flex py-2 mx-1 border border-primary  rounded-pill" data-bs-toggle="pill" href="#tab-2">
                             <span class="text-dark" style="width: 150px;">Sarees</span>
                         </a>
                     </li>
                     <li class="tab-selector">
-                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                        <a class="d-flex mx-1 py-2 border border-primary rounded-pill" data-bs-toggle="pill" href="#tab-3">
                             <span class="text-dark" style="width: 150px;">Wedding cloths</span>
                         </a>
                     </li>
                     <li class="tab-selector">
-                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
+                        <a class="d-flex mx-1 py-2 border border-primary  rounded-pill" data-bs-toggle="pill" href="#tab-4">
                             <span class="text-dark" style="width: 150px;">Tops</span>
                         </a>
                     </li>
                     <li class="tab-selector">
-                        <a class="d-flex mx-1 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
+                        <a class="d-flex mx-1 py-2 border border-primary rounded-pill" data-bs-toggle="pill" href="#tab-5">
                             <span class="text-dark" style="width: 150px;">Skirts</span>
                         </a>
                     </li>
@@ -624,6 +624,9 @@ include 'header.php';
     <!-- Offer section  -->
     <section class="offer container-fluid pt-6">
         <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <h1 class="display-5 mb-5">New offers</h1>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt=""></a></div>
                 <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt=""></a></div>
