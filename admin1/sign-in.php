@@ -2,7 +2,7 @@
 include 'header.php';
 require_once 'googleconfig.php';
 
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['current_user'])) {
   header("Location: index.php");
 }
 $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !== '') ? $_SESSION['errorMessage'] : '';

@@ -27,6 +27,39 @@ class admin_functions {
             print_r($result);
         }
     }
+
+    function insert_signin(){
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+        if (empty($email)) {
+            $error_array['email'] = "Please enter an email address";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_array['email'] = "Please enter the valid email address";
+        }
+        if (empty($password)) {
+            $error_array['password'] = 'Please enter the password.';
+        } elseif (!preg_match($strongPasswordPattern, $password)) {
+            $error_array['password'] = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
+        }
+        if (empty($error_array)) {
+            $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+            $result = $this->db->query($query);
+            if ($result) {
+                $userinfo = mysqli_fetch_assoc($result);
+                $_SESSION['current_user'] = $userinfo;
+                $response_data = array('data' => 'success', 'msg' => 'login successfully');
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "Incorrect login!");
+            }
+
+        }else{
+            $response_data = array('data' => 'fail', 'msg' => $error_array); 
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
     function insert_signup(){
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["image"]["name"]) ? $_FILES["image"]["name"] : '';
@@ -109,6 +142,8 @@ class admin_functions {
             $result = $this->db->query($query);
       
             if ($result) {
+                $userinfo = mysqli_fetch_assoc($result);
+                $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
