@@ -255,6 +255,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
             if (response["data"] == "success") {
               $("#savesignin")[0].reset();
               showMessage(response.msg, "success");
+              window.location.href = 'index.php';
             }else {
               showMessage(response.msg_error, "fail");
             }
@@ -291,10 +292,11 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               response["msg"]["password"] !== undefined ? $(".password").html (response["msg"]["password"]) : $(".password").html("");
               response["msg"]["Confirm_Password"] !== undefined ? $(".Confirm_Password").html (response["msg"]["Confirm_Password"]) : $(".Confirm_Password").html("");
               response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
-              loading_hide('.save_loader_show', 'Save');
+              loading_hide('.save_loader_show', 'SIGN UP');
               if(response['data'] == "success"){
                   $("#savesignup")[0].reset();
                   showMessage(response.msg, "success");
+                  window.location.href = 'index.php';
               }else{
                 showMessage(response.msg_error, "fail");
               } 
@@ -378,11 +380,8 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               response["msg"]["youtube_vlogs"] !== undefined ? $(".youtube_vlogs").html (response["msg"]["youtube_vlogs"]) : $(".youtube_vlogs").html("");
               if(response['data'] == "success"){
                 $("#videoinsert")[0].reset();
-                }
-              if (response.data === "success") {
                 showMessage(response.msg, "success");
-                }
-            else{
+                }else{
                 showMessage(response.msg_error, "fail");
                 }  
                 }
@@ -424,16 +423,14 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   CKEDITOR.instances['myeditor'].setData('');
                   resetThumbnail();
                   $('.myFile').html('');
-                }
-              if(response.data === "success") {
                   showMessage(response.msg, "success");
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 }  
-                }
-              });
-      })
+              }
+            });
+    })       
+                
 
       $(document).on("click",".bannerSave",function(event){
         event.preventDefault();
@@ -466,8 +463,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   resetThumbnail();
                   $('.myFile').html('');
                   showMessage(response.msg, "success");
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 } 
                 }
@@ -506,8 +502,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   resetThumbnail();
                   showMessage(response.msg, "success");
                   $('.myFile').html('');
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 } 
                 }
@@ -542,8 +537,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   resetThumbnail();
                   showMessage(response.msg, "success");
                   $('.myFile').html('');
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 } 
                 }
@@ -578,8 +572,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                     resetThumbnail();
                     showMessage(response.msg, "success");
                     $('.myFile').html('');
-                  }
-                else{
+                  }else{
                     showMessage(response.msg_error, "fail");
                   } 
                   }
@@ -616,9 +609,8 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   $("#paragraphinsert")[0].reset();
                   CKEDITOR.instances['myeditor'].setData('');
                   showMessage(response.msg, "success");
-                }
-              else{
-              showMessage(response.msg_error, "fail");
+                }else{
+                  showMessage(response.msg_error, "fail");
                 }  
               }
             });
@@ -654,8 +646,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                 $("#faqinsert")[0].reset();
                 CKEDITOR.instances['myeditor'].setData('');
                 showMessage(response.msg, "success");
-                }
-              else{
+              }else{
                 showMessage(response.msg_error, "fail");
                 } 
               }
