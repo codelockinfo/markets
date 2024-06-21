@@ -91,6 +91,10 @@ include 'header.php';
                       <span class="errormsg phone_number"></span>
                     </div>
                     <div class="mb-3">
+                      <input type="email" class="form-control validsignf" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <span class="errormsg email"></span>
+                    </div>
+                    <div class="mb-3">
                       <select class="form-select" aria-label="Default select example" name="business_type">
                         <option selected value="">Your Business Type</option>
                         <option value="1">Retail</option>
@@ -112,16 +116,12 @@ include 'header.php';
                       <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
-                    <div class="mb-3">
-                      <input type="email" class="form-control validsignf" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
-                      <span class="errormsg email"></span>
-                    </div>
                     <!-- <div class="text-center">
                       <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
                       <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button>
                     </div> -->
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 signUpsave">Sign up</button>
+                      <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 signUpsave save_loader_show">Sign up</button>
                     </div>
                   </form>
                 </div>
