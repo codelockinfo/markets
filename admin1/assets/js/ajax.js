@@ -251,9 +251,9 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
             response["msg"]["email"] !== undefined
               ? $(".email").html(response["msg"]["email"])
               : $(".email").html("");
-            loading_hide(".save_loader_show", "Save");
+              loading_hide(".save_loader_show", "Sign in");
             if (response["data"] == "success") {
-              $("#savesignup")[0].reset();
+              $("#savesignin")[0].reset();
               showMessage(response.msg, "success");
             }else {
               showMessage(response.msg_error, "fail");
