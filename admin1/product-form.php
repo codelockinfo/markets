@@ -215,13 +215,15 @@ include 'header.php';
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
             <div class="mb-3 row">
               <div class="col">
-                <input type="number" class="form-control price w-100" placeholder="Min Price" name="p_price">
+                <input type="number" class="form-control price w-100" placeholder="Min Price" name="min_price">
+                <span class="errormsg min_price"></span>
               </div>
               <span class="col text-center price1">To</span>
               <div class="col">
-                <input type="number" class="form-control price w-100" placeholder="Max-Price" name="p_price">
+                <input type="number" class="form-control price  w-100" placeholder="Max-Price" name="max_price">
+                <span class="errormsg max_price"></span>
               </div>
-              <span class="errormsg p_price"></span>
+              
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">

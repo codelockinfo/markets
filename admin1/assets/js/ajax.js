@@ -98,7 +98,6 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
     }
 }
 
-    // DEMO FUNCTION CALLING ON LOAD
     function demo(){
         $.ajax({
             url: "../admin1/ajax_call.php",
@@ -157,8 +156,24 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
       });
       }
 
+      $('.signImage').on('input change', function() {
+       $(this).siblings('.imageError').text('');
+      });
+
       $('.validtext').on('keypress', function() {
         $(this).next('.errormsg').text('');
+      }); 
+
+      $('.validsignf').on('keypress', function() {
+        $(this).next('.errormsg').text('');
+      }); 
+
+      $('.number').on('keypress', function(e) {
+        if (e.which >= 48 && e.which <= 57) { 
+            $(this).next('.errormsg').text(''); 
+          } else {
+          e.preventDefault(); 
+          }
       }); 
 
       $('.validurl').on('keypress', function() {
@@ -211,6 +226,43 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
         }
       }
 
+      $(document).on("click", ".signInsave", function (e) {
+        e.preventDefault();
+        var form_data = $("#savesignin")[0];
+        var form_data = new FormData(form_data);
+        form_data.append("routine_name", "insert_signin");
+        $.ajax({
+          url: "../admin1/ajax_call.php",
+          type: "post",
+          dataType: "json",
+          contentType: false,
+          processData: false,
+          data: form_data,
+          beforeSend: function () {
+            loading_show(".save_loader_show");
+          },
+          success: function (response) {
+            console.log(response);
+            var response = JSON.parse(response);
+    
+            response["msg"]["password"] !== undefined
+              ? $(".password").html(response["msg"]["password"])
+              : $(".password").html("");
+            response["msg"]["email"] !== undefined
+              ? $(".email").html(response["msg"]["email"])
+              : $(".email").html("");
+              loading_hide(".save_loader_show", "Sign in");
+            if (response["data"] == "success") {
+              $("#savesignin")[0].reset();
+              showMessage(response.msg, "success");
+              window.location.href = 'index.php';
+            }else {
+              showMessage(response.msg_error, "fail");
+            }
+          },
+        });
+      });
+      
       $(document).on("click",".signUpsave",function(e){
         e.preventDefault();   
         console.log("signUpsavebutton click");
@@ -240,18 +292,16 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               response["msg"]["password"] !== undefined ? $(".password").html (response["msg"]["password"]) : $(".password").html("");
               response["msg"]["Confirm_Password"] !== undefined ? $(".Confirm_Password").html (response["msg"]["Confirm_Password"]) : $(".Confirm_Password").html("");
               response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
-              loading_hide('.save_loader_show', 'Save');
+              loading_hide('.save_loader_show', 'SIGN UP');
               if(response['data'] == "success"){
                   $("#savesignup")[0].reset();
-                }
-              if (response.data === "success") {
                   showMessage(response.msg, "success");
-                } 
-              else{
-              showMessage(response.msg_error, "fail");
-                } 
-                }
-              });
+                  window.location.href = 'index.php';
+              }else{
+                showMessage(response.msg_error, "fail");
+              } 
+            }
+          });
       })
 
       $(document).on("click",".productSave",function(event){
@@ -283,7 +333,8 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
             loading_hide('.save_loader_show', 'Save');
               response["msg"]["pname"] !== undefined ? $(".pname").html (response["msg"]["pname"]) : $(".pname").html("");
               response["msg"]["select_catagory"] !== undefined ? $(".select_catagory").html (response["msg"]["select_catagory"]) : $(".select_catagory").html("");
-              response["msg"]["p_price"] !== undefined ? $(".p_price").html (response["msg"]["p_price"]) : $(".p_price").html("");
+              response["msg"]["min_price"] !== undefined ? $(".min_price").html (response["msg"]["min_price"]) : $(".min_price").html("");
+              response["msg"]["max_price"] !== undefined ? $(".max_price").html (response["msg"]["max_price"]) : $(".max_price").html("");
               response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
               response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
               response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
@@ -329,11 +380,8 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               response["msg"]["youtube_vlogs"] !== undefined ? $(".youtube_vlogs").html (response["msg"]["youtube_vlogs"]) : $(".youtube_vlogs").html("");
               if(response['data'] == "success"){
                 $("#videoinsert")[0].reset();
-                }
-              if (response.data === "success") {
                 showMessage(response.msg, "success");
-                }
-            else{
+                }else{
                 showMessage(response.msg_error, "fail");
                 }  
                 }
@@ -375,16 +423,14 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   CKEDITOR.instances['myeditor'].setData('');
                   resetThumbnail();
                   $('.myFile').html('');
-                }
-              if(response.data === "success") {
                   showMessage(response.msg, "success");
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 }  
-                }
-              });
-      })
+              }
+            });
+    })       
+                
 
       $(document).on("click",".bannerSave",function(event){
         event.preventDefault();
@@ -417,8 +463,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   resetThumbnail();
                   $('.myFile').html('');
                   showMessage(response.msg, "success");
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 } 
                 }
@@ -457,8 +502,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   resetThumbnail();
                   showMessage(response.msg, "success");
                   $('.myFile').html('');
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 } 
                 }
@@ -493,8 +537,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   resetThumbnail();
                   showMessage(response.msg, "success");
                   $('.myFile').html('');
-                }
-              else{
+                }else{
                   showMessage(response.msg_error, "fail");
                 } 
                 }
@@ -529,8 +572,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                     resetThumbnail();
                     showMessage(response.msg, "success");
                     $('.myFile').html('');
-                  }
-                else{
+                  }else{
                     showMessage(response.msg_error, "fail");
                   } 
                   }
@@ -567,9 +609,8 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                   $("#paragraphinsert")[0].reset();
                   CKEDITOR.instances['myeditor'].setData('');
                   showMessage(response.msg, "success");
-                }
-              else{
-              showMessage(response.msg_error, "fail");
+                }else{
+                  showMessage(response.msg_error, "fail");
                 }  
               }
             });
@@ -605,8 +646,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
                 $("#faqinsert")[0].reset();
                 CKEDITOR.instances['myeditor'].setData('');
                 showMessage(response.msg, "success");
-                }
-              else{
+              }else{
                 showMessage(response.msg_error, "fail");
                 } 
               }
@@ -693,7 +733,6 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
           },
         },
       });
-
 
       var ctx2 = document.getElementById("chart-line").getContext("2d");
 
