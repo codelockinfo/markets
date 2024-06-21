@@ -26,13 +26,16 @@
             // user is exists
             $userinfo = mysqli_fetch_assoc($result);
             $_SESSION['user_id'] = $userinfo['user_id'];
+            $_SESSION["errorMessage"] = "";
           } else {
-              header("Location: sign-in.php?error=User is not created");
+            $_SESSION["errorMessage"] = "User is not created";
+              header("Location: sign-in.php");
               die;
           }
         
     } else {
       if (!isset($_SESSION['user_id'])) {
+        $_SESSION["errorMessage"] = "Something went wrong";
         header("Location: sign-in.php");
         die();
       }
@@ -43,6 +46,7 @@
       if (mysqli_num_rows($result) > 0) {
         // user is exists
         $userinfo = mysqli_fetch_assoc($result);
+        $_SESSION["errorMessage"] = "";
       }
     }
 

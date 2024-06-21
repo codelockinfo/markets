@@ -5,12 +5,6 @@ require_once 'googleconfig.php';
 if (isset($_SESSION['user_id'])) {
   header("Location: index.php");
 }
-if (isset($_GET['error'])) {
-    $emailMessage = $_GET['error'];
-} else {
-    $emailMessage = '';
-}
-
 ?>
 
 <body class="bg-white">
@@ -82,7 +76,7 @@ if (isset($_GET['error'])) {
                             <div class="card-header pb-0 text-left bg-transparent text-center">
                                 <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
                                 <p class="mb-0">Enter your email and password to sign in</p>
-                                <h5 class="errormsg "> <?php echo $emailMessage; ?></h5>
+                                <h5 class="errormsg "> <?php echo $_SESSION["errorMessage"]; ?></h5>
                             </div>
                             <div class="card-body">
                                 <form role="form">
