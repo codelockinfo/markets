@@ -35,7 +35,6 @@
         
     } else {
       if (!isset($_SESSION['user_id'])) {
-        $_SESSION["errorMessage"] = "Something went wrong";
         header("Location: sign-in.php");
         die();
       }
