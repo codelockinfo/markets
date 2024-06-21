@@ -130,13 +130,23 @@ include 'header.php';
       </div>
       <div class="card card-body blur shadow-blur mx-4 mt-n5 p-4 overflow-hidden">
         <div class="row gx-4">
-          <div class="col-auto">
-          </div>
-          <div class="col-auto my-auto">
+          <div class="col-auto mx-auto ms-sm-3 mt-2">
             <div class="h-100">
               <h5 class="mb-1">
                 Profile Form
               </h5>
+            </div>
+          </div>
+          <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">
+            <div class="nav-wrapper position-relative end-0">
+              <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 active" href="<?php echo SITE_ADMIN_URL ?>profile.php" role="tab" aria-selected="true">
+                    <i class="fa fa-eye p-2 mt-0" aria-hidden="true"></i>
+                    <span class="ms-1">Preview</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -146,21 +156,22 @@ include 'header.php';
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
         <div class="card card-body z-index-0 p-3">
           <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
-            <label for="title" class="font-weight-normal required">Name</label>
+            <label for="name" class="font-weight-normal required">Name</label>
             <div class="mb-3">
               <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
               <span class="errormsg name"></span>
             </div>
-            <label for="title" class="font-weight-normal required">Shop Name</label>
+            <label for="shopname" class="font-weight-normal required">Shop Name</label>
             <div class="mb-3">
               <input type="shopname" class="form-control" placeholder="Shop Name" name="shop">
               <span class="errormsg shop"></span>
             </div>
-            <label for="title" class="font-weight-normal required">Mobile Number</label>
+            <label for="mobilenumber" class="font-weight-normal required">Mobile Number</label>
             <div class="mb-3">
               <input type="tel" class="form-control" placeholder="Mobile No." name="phone_number">
               <span class="errormsg phone_number"></span>
             </div>
+            <label for="type" class="font-weight-normal required">Business Type</label>
             <div class="mb-3">
               <select class="form-select" aria-label="Default select example" name="business_type">
                 <option selected value="">Your Business Type</option>
@@ -169,7 +180,7 @@ include 'header.php';
               </select>
               <span class="errormsg business_type"></span>
             </div>
-            <label for="title" class="font-weight-normal required">Address</label>
+            <label for="address" class="font-weight-normal required">Address</label>
             <div class="mb-3">
               <input type="address" class="form-control" placeholder="Address" name="address">
               <span class="errormsg address"></span>
