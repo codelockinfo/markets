@@ -1,6 +1,8 @@
 <?php
 
 session_start();
-unset($_SESSION['user_token']);
+unset($_SESSION['current_user']);
 session_destroy();
 header("Location: index.php");
+exit();
+?>
