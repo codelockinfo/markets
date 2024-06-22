@@ -220,7 +220,7 @@ include 'header.php';
               </div>
               <span class="col text-center price1">To</span>
               <div class="col">
-                <input type="number" class="form-control price  w-100" placeholder="Max-Price" name="max_price">
+                <input type="number" class="form-control price  w-100" placeholder="Max Price" name="max_price">
                 <span class="errormsg max_price"></span>
               </div>
               
@@ -231,8 +231,8 @@ include 'header.php';
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                 <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
               </div>
-              <label class="font-weight-normal">Allowed File Types:PNG,JPG,JPEG,GIF</label><br>
-            <label class="font-weight-normal">File Size Limit:Each file should not exceed 5MB</label>
+              <label class="font-weight-normal"><strong>Allowed File Types:PNG,JPG,JPEG,GIF</strong></label><br>
+            <label class="font-weight-normal"><strong>File Size Limit:Each file should not exceed 5MB</strong></label>
             <div class="errormsg myFile p_image"></div>
             </div>
             <label for="text" class="font-weight-normal">Image alt</label>
