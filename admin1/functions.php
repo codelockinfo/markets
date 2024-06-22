@@ -69,7 +69,17 @@ class admin_functions {
         $fileExtension = strtolower(end($fileNameCmps));
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $newFilename = time(). '.' . $extension;
-        $folder = "assets/img/sigup_img/" . $newFilename;
+        $folder = "assets/img/sigup_img/";
+        $fullpath= $folder . $newFilename;
+        $error_array = array();
+
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         $error_array = array();
 
         if (!in_array($fileExtension, $allowedExtensions)) {
@@ -126,7 +136,7 @@ class admin_functions {
            $error_array['email'] = "Please enter a valid email address";
        }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$folder)) {
+            
             $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
             $name = str_replace("'", "\'", $name);
             $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';
@@ -137,18 +147,33 @@ class admin_functions {
             $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';
             $password = (isset($_POST['password']) && $_POST['password'] !== '') ? $_POST['password'] : '';
             $email = (isset($_POST['email']) && $_POST['email'] !== '') ? $_POST['email'] : '';
-            
-            $query = "INSERT INTO users (name,shop,address,phone_number,business_type,shop_img,password,email) VALUES ('$name', '$shop','$address','$phone_number','$business_type','$newFilename','$password','$email')";
-            $result = $this->db->query($query);
-
-            if ($result) {
-                $userinfo = mysqli_result($result);
-                $_SESSION['current_user'] = $userinfo;
-                $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
+            $email_check_query = "SELECT * FROM users WHERE email = '$email'";
+            $email_check_result = mysqli_query($this->db, $email_check_query);
+            if ($email_check_result->num_rows > 0) {
+                $error_arrayemail['email'] = "Email already reagister";
+                $response_data = array('data' => 'fail', 'msg' => $error_arrayemail);
+            }else{
+                if (move_uploaded_file($tmpfile,$fullpath)) {
+                    $query = "INSERT INTO users (name,shop,address,phone_number,business_type,shop_img,password,email) VALUES ('$name', '$shop','$address','$phone_number','$business_type','$newFilename','$password','$email')";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                        $last_id = mysqli_insert_id($this->db);
+                        $user_query = "SELECT * FROM users WHERE user_id = $last_id";
+                        $user_result = mysqli_query($this->db, $user_query);
+                
+                        if ($user_result) {
+                            $userinfo = mysqli_fetch_assoc($user_result);
+                            $_SESSION['current_user'] = $userinfo;
+                        } else {
+                            $response_data = array('data' => 'fail', 'msg' => "Error fetching user info");
+                        }
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => "Error");
+                    }
+                }
             }
-        }
+            
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
