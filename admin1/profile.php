@@ -51,7 +51,7 @@ include 'header.php';
                         </li>
                         <div class="mx-auto text-center">
                             <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
-                                <button type="button" class="btn bg-gradient-info btn-sm productSave save_loader_show">Profile Form</button>
+                                <button type="button" class="btn bg-gradient-info btn-sm">Profile Form</button>
                             </a>
                         </div>
                     </div>

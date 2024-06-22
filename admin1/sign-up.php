@@ -52,7 +52,7 @@ include 'header.php';
               </li> -->
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a href="<?php echo CLS_SITE_URL; ?>" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Preview</a>
+                  <a href="<?php echo CLS_SITE_URL; ?>" class="btn bg-gradient-info btn-sm btn-round mb-0 me-1">Preview</a>
                 </li>
               </ul>
             </div>
