@@ -4,14 +4,13 @@
          <nav class="navbar navbar-light navbar-expand-lg">
              <a href="index.php" class="navbar-brand">
                  <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
-                 <!-- <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span></h1> -->
              </a>
              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                  <span class="fa fa-bars text-primary"></span>
              </button>
              <div class="collapse navbar-collapse" id="navbarCollapse">
                  <div class="navbar-nav mx-auto">
-                   <a href="#" class="nav-item nav-link text-capitalize">View All Markets</a>
+                   <a href="collection2.php" class="nav-item nav-link text-capitalize">View All Markets</a>
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown"> markets</a>
                          <div class="dropdown-menu  bg-light">
@@ -171,21 +170,8 @@
                              </div>
                          </div>
                      </div>
-                     <!-- <div class="nav-item dropdown">
-                            <a href="service.php" class=" nav-link dropdown-toggle" data-bs-toggle="dropdown">Retails</a>
-                            <div class="dropdown-menu  bg-light">
-                                <ul class="list-unstyled text-center m-0 p-0 w-auto">
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                    <li class="w-100"><a href="#" class="w-100">Retails</a></li>
-                                </ul>
-                            </div>
-                        </div> -->
-                     <!-- <a href="event.php" class="nav-item nav-link text-capitalize">wholesale</a> -->
                      <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
                      <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
-                     <!-- <a href="contact.php" class="nav-item nav-link text-capitalize">plans</a> -->
                  </div>
                  <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                  <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize">register your shop</a>
@@ -202,7 +188,7 @@
      </div>
      <div class="offcanvas-body">
          <div class="accordion accordion-flush" id="accordionFlushExample">
-         <div class="accordion-item"> <a href="#">
+         <div class="accordion-item"> <a href="collection2.php">
                      <h4 class="accordion-header ">
                          <button class="megamenu_b bg-light collapsed" type="button">
                              View All Markets
@@ -315,39 +301,6 @@
                      </div>
                  </div>
              </div>
-             <!-- <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
-                            Retails
-                        </button>
-                    </h4>
-                    <div id="flush-collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body bg-light">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Retails</a></li>
-                                <li><a href="#">Retails</a></li>
-                                <li><a href="#">Retails</a></li>
-                                <li><a href="#">Retails</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> -->
-             <!-- <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-four">
-                            wholesale
-                        </button>
-                    </h4>
-                </div> -->
-
-             <!-- <div class="accordion-item">
-                    <h4 class="accordion-header ">
-                        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
-                            plans
-                        </button>
-                    </h4>
-
-                </div> -->
              <div class="accordion-item"> <a href="blog.php">
                      <h4 class="accordion-header ">
                          <button class="megamenu_b bg-light collapsed" type="button">

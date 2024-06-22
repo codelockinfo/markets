@@ -28,7 +28,7 @@ include($myRoot . '/markets/connection.php');
         <script src="<?php echo main_url('/admin1/assets/js/plugins/smooth-scrollbar.min.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/plugins/chartjs.min.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/buttons.js'); ?>"></script>
-        <script src="<?php echo main_url('/admin1/assets/js/soft-ui-dashboard.min.js?v=1.0.7'); ?>"></script>
+        <script src="<?php echo main_url('/admin1/assets/js/soft-ui-dashboard.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/ckeditor/ckeditor.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/ajax.js'); ?>"></script>

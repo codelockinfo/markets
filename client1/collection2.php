@@ -12,15 +12,46 @@ include 'header.php';
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Collection2</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">Collection2</li>
             </ol>
         </div>
     </div>
     <!-- Hero End -->
+    <!-- filter and latest section start -->
+    <section class="co_filter pt-4  ">
+        <div class="container">
+            <div class="co_box d-flex justify-content-end">
+            <div class="dropdown me-2">
+            <button class="btn btn-primary w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Category
+            </button>
+            <ul class="dropdown-menu w-100">
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-1">Kurtis</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-2">Sarees</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-3">Wedding cloths</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-4">Tops</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-5">Skirts</a></li>
+            </ul>
+        </div>
+        <div class="dropdown ">
+            <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Category
+            </button>
+            <ul class="dropdown-menu w-100">
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-1">Kurtis</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-2">Sarees</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-3">Wedding cloths</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-4">Tops</a></li>
+                <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-5">Skirts</a></li>
+            </ul>
+        </div>
+            </div>
+        </div>
+    </section>
+    <!-- filter and latest section end -->
     <!-- Collection2 Start -->
-    <section class="collection pt-5">
+    <section class="collection pt-4">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
@@ -65,7 +96,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -114,7 +145,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -163,7 +194,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -212,7 +243,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -261,7 +292,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -310,7 +341,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -359,7 +390,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -408,7 +439,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>
@@ -457,7 +488,7 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex justify-content-between mt-3" >
+                            <div class="market-button d-flex justify-content-between mt-3">
                                 <button class="btn btn-primary me-1 w-40 fs-6">Contact Seller</button>
                                 <button class="btn btn-dark ms-1 w-40 fs-6">Send Inquriy</button>
                             </div>

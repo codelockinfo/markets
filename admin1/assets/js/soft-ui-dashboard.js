@@ -380,7 +380,11 @@ function sidebarType(a) {
 
 
 // Toggle Sidenav
+window.onload = function() {
+
 const iconNavbarSidenav = document.getElementById('iconNavbarSidenav');
+console.log("---------------------");
+console.log(iconNavbarSidenav);
 const iconSidenav = document.getElementById('iconSidenav');
 const sidenav = document.getElementById('sidenav-main');
 let body = document.getElementsByTagName('body')[0];
@@ -393,7 +397,6 @@ if (iconNavbarSidenav) {
 if (iconSidenav) {
   iconSidenav.addEventListener("click", toggleSidenav);
 }
-
 function toggleSidenav() {
   if (body.classList.contains(className)) {
     body.classList.remove(className);
@@ -408,6 +411,7 @@ function toggleSidenav() {
     sidenav.classList.remove('bg-transparent');
     iconSidenav.classList.remove('d-none');
   }
+}
 }
 
 // Resize navbar color depends on configurator active type of sidenav

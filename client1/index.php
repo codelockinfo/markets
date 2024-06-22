@@ -168,7 +168,7 @@ include 'header.php';
     </div>
     <!-- famous market End -->
 
-    <!-- Events Start -->
+    <!-- Events brouse by category Start -->
     <div class="container-fluid event pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
@@ -219,7 +219,7 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -228,7 +228,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -237,7 +237,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -246,7 +246,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -255,7 +255,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -264,7 +264,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -273,7 +273,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -282,7 +282,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -299,7 +299,7 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -308,7 +308,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -317,7 +317,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -326,7 +326,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -335,7 +335,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -344,7 +344,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -353,7 +353,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -362,7 +362,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -379,7 +379,7 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -388,7 +388,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -397,7 +397,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -406,7 +406,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -415,7 +415,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -424,7 +424,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -433,7 +433,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -442,7 +442,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -459,7 +459,7 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -468,7 +468,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -477,7 +477,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -486,7 +486,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -495,7 +495,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -504,7 +504,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -513,7 +513,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -522,7 +522,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -539,7 +539,7 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -548,7 +548,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -557,7 +557,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -566,7 +566,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -575,7 +575,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -584,7 +584,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -593,7 +593,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -602,7 +602,7 @@ include 'header.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                                         <div class="event-img position-relative">
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
@@ -637,7 +637,7 @@ include 'header.php';
     </section>
     <!-- Offer section end  -->
 
-    <!-- paragraph  -->
+    <!-- paragraph  start-->
     <section class="paragraph pt-6 container-fluid ">
         <div class="container">
             <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>

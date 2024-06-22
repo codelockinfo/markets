@@ -98,10 +98,10 @@ include 'header.php';
                       </select>
                       <span class="errormsg business_type"></span>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                       <input type="file" class="form-control signImage" name="image">
-                      <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-                      <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
+                      <label class="font-weight-normal m-0"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
+                      <label class="font-weight-normal m-0"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
                       <div class="errormsg image imageError"></div>
                     </div>
                     <div class="mb-3">
@@ -144,11 +144,11 @@ include 'header.php';
     </section>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <footer class="footer py-3">
+  <footer class="footer mt-3 py-3">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-0 mx-auto text-center">
-          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
+          <a href="<?php echo CLS_SITE_URL ?>about-us.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
             About Us
           </a>
           <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
