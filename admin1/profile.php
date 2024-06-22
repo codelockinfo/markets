@@ -167,7 +167,7 @@ include 'header.php';
                         </li>
                         <div class="mx-auto text-center">
                             <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
-                                <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-3">Edit</button>
+                                <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-3">Profile Form</button>
                             </a>
                         </div>
                     </div>
