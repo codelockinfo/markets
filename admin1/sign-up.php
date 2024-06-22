@@ -144,11 +144,11 @@ include 'header.php';
     </section>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <footer class="footer py-3">
+  <footer class="footer mt-3 py-3">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-0 mx-auto text-center">
-          <a href="#" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
+          <a href="<?php echo CLS_SITE_URL ?>about-us.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
             About Us
           </a>
           <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">

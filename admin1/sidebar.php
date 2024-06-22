@@ -219,7 +219,7 @@
           </div>
         </div>
       </div>
-      <a class="btn bg-gradient-primary mt-3 w-100" href="#">Upgrade to pro</a>
+      <a class="btn bg-gradient-info mt-3 w-100" href="#">Upgrade to pro</a>
     </div>
   </aside>
   
