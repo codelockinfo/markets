@@ -18,11 +18,11 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Top categories</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
                         </div>
                     </div>
                 </div>
@@ -30,11 +30,11 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Policies</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
-                            <a class="text-body mb-3" href="contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
+                            <a class="text-muted mb-3" href="privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
+                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
+                            <a class="text-muted mb-3" href="contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -42,10 +42,10 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><a href="#" class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
-                            <p><a href="tel:7600464414" class="text-body"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
-                            <p><a href="mailto:codelockinfo@gmail.com" class="text-body"><i class="fas fa-envelope text-primary me-2"></i>codelockinfo@gmail.com</a></p>
-                            <p><a href="#" class="text-body"><i class="fa fa-clock text-primary me-2"></i> 12/7  Hours Service</a></p>
+                            <p><a href="#" class="text-muted"><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
+                            <p><a href="tel:7600464414" class="text-muted"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
+                            <p><a href="mailto:codelockinfo@gmail.com" class="text-muted"><i class="fas fa-envelope text-primary me-2"></i>codelockinfo@gmail.com</a></p>
+                            <p><a href="#" class="text-muted"><i class="fa fa-clock text-primary me-2"></i> 12/7  Hours Service</a></p>
                         </div>
                     </div>
                 </div>

@@ -339,7 +339,7 @@ h6,
 /*** Events End ***/
 
 /* paragraph start  */
-.div::marker {
+.paragraph .div::marker {
     unicode-bidi: isolate;
     font-variant-numeric: tabular-nums;
     text-transform: none;
@@ -348,7 +348,7 @@ h6,
     text-align-last: start !important;
 }
 
-.div {
+.paragraph .div {
     list-style-type: decimal;
 
 }
@@ -962,3 +962,21 @@ h6,
 .faq .accordion-item {
    margin-bottom: 12px;
 }
+/* privacy policy start  */
+/* .privacy .div::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+    color:#000;
+    font-weight: bolder ;
+}
+
+.privacy .div {
+    list-style-type: decimal;
+
+} */
+
+/* privacy policy end  */

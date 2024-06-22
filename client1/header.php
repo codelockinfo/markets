@@ -33,6 +33,7 @@ include($myRoot . '/markets/connection.php');
     <!-- Template Stylesheet -->
     <!-- <link href="css/style.css" rel="stylesheet"> -->   
     <link href="<?php echo main_url('/client1/css/style.css');?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/css/animate.min.css');?>"  rel="stylesheet"/>
 
     <!-- JavaScript Libraries -->
     <script src="<?php echo main_url('/client1/js/jquery.min.js'); ?>"></script>
@@ -47,6 +48,7 @@ include($myRoot . '/markets/connection.php');
     <script src="<?php echo main_url('/client1/lib/counterup/counterup.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/lightbox/js/lightbox.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
+    
     <!-- Template Javascript -->
     <script src="<?php echo main_url('/client1/js/main.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/custom.js'); ?>"></script>
