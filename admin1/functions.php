@@ -61,6 +61,7 @@ class admin_functions {
     }
     
     function insert_signup(){
+        $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["image"]["name"]) ? $_FILES["image"]["name"] : '';
         $tmpfile = isset($_FILES["image"]["tmp_name"]) ? $_FILES["image"]["tmp_name"] : '';
@@ -71,8 +72,7 @@ class admin_functions {
         $newFilename = time(). '.' . $extension;
         $folder = "assets/img/sigup_img/";
         $fullpath= $folder . $newFilename;
-        $error_array = array();
-
+        
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
@@ -80,8 +80,6 @@ class admin_functions {
                 return json_encode($response_data);
             }
         }
-        $error_array = array();
-
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -194,8 +192,15 @@ class admin_functions {
         $fileName = $_FILES['p_image']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/product_img/" . $newFilename;
-
+        $folder = "assets/img/product_img/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -224,7 +229,7 @@ class admin_functions {
             $error_array['p_description'] = "Please enter description.";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile, $folder)) {
+            if (move_uploaded_file($tmpfile, $fullpath)) {
                 $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
                 $product_name = str_replace("'", "\'", $product_name);
                 $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
@@ -312,6 +317,7 @@ class admin_functions {
     }
 
     function insert_blog(){ 
+        $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
         $tmpfile = isset($_FILES["blog_image"]["tmp_name"]) ? $_FILES["blog_image"]["tmp_name"] : '';
@@ -320,11 +326,15 @@ class admin_functions {
         $fileName = $_FILES['blog_image']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/blog_img/" . $newFilename;
-        // move_uploaded_file($tmpfile,$folder);
-       
-
-        $error_array = array();
+        $folder = "assets/img/blog_img/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -351,7 +361,7 @@ class admin_functions {
             $error_array['author_name'] = "Please enter author name";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$folder)) {
+            if (move_uploaded_file($tmpfile,$fullpath)) {
                 $blog_title = (isset($_POST['blog_title']) && $_POST['blog_title'] !== '') ? $_POST['blog_title'] : '';
                 $blog_category = (isset($_POST['blog_category']) && $_POST['blog_category'] !== '') ? $_POST['blog_category'] : '';
                 $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
@@ -386,7 +396,7 @@ class admin_functions {
     }
 
     function insert_banner(){
-
+        $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
@@ -395,11 +405,15 @@ class admin_functions {
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/banner_img/" . $newFilename;
-        // move_uploaded_file($tmpfile,$folder);
-        // print_r($_FILES);
-        $error_array = array();
-       
+        $folder = "assets/img/banner_img/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -431,7 +445,7 @@ class admin_functions {
             $error_array['banner_btn_link'] = "Please enter a valid banner button link";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$folder)) {
+            if (move_uploaded_file($tmpfile,$fullpath)) {
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
             $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
@@ -454,9 +468,8 @@ class admin_functions {
     }
     
     function insert_market(){
-
+        $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        // $filename = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
         $svg_img = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
         $svgtmpfile = isset($_FILES["svg_img"]["tmp_name"]) ? $_FILES["svg_img"]["tmp_name"] : '';
         $extension = pathinfo($svg_img, PATHINFO_EXTENSION);
@@ -464,10 +477,15 @@ class admin_functions {
         $fileName = $_FILES['svg_img']['name'];
         $fileNameCmps = explode(".", $svg_img);
         $svgfileExtension = strtolower(end($fileNameCmps));
-        $svgfolder = "assets/img/famous_market/svg_img/" . $svg_newFilename;
-        // move_uploaded_file($svgtmpfile,$folder);
-
-
+        $svgfolder = "assets/img/famous_market/svg_img/";
+        $svgfullpath= $svgfolder . $svg_newFilename;
+        if (!is_dir($svgfolder)) {
+            $mkdir = mkdir($svgfolder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         $filename = isset($_FILES["img"]["name"]) ? $_FILES["img"]["name"] : '';
         $tmpfile = isset($_FILES["img"]["tmp_name"]) ? $_FILES["img"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -475,11 +493,15 @@ class admin_functions {
         $fileName = $_FILES['img']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/famous_market/img/" . $newFilename;
-        // move_uploaded_file($tmpfile,$folder);
-        
-        $error_array = array();
-       
+        $folder = "assets/img/famous_market/img/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -520,8 +542,8 @@ class admin_functions {
             $error_array['sub_heading'] = "Please enter sub heading";
         }
         if (empty($error_array)) {
-            $movefirst = move_uploaded_file($svgtmpfile,$svgfolder);
-            $movesecond = move_uploaded_file($tmpfile,$folder);
+            $movefirst = move_uploaded_file($svgtmpfile,$svgfullpath);
+            $movesecond = move_uploaded_file($tmpfile,$fullpath);
             if ($movefirst && $movesecond) {
             $shop_logo = (isset($_POST['shop_logo']) && $_POST['shop_logo'] !== '') ? $_POST['shop_logo'] : '';
             $shop_logo = str_replace("'", "\'", $shop_logo);
@@ -545,7 +567,7 @@ class admin_functions {
         return $response;
     }
     function insert_brousetxt(){
-
+        $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
@@ -554,11 +576,15 @@ class admin_functions {
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/brouse_textilectgry_img/" . $newFilename;
-        // move_uploaded_file($tmpfile,$folder);
-
-        $error_array = array();
-      
+        $folder = "assets/img/brouse_textilectgry_img/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -580,7 +606,7 @@ class admin_functions {
             $error_array['img_link'] = "Please enter a valid image link";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$folder)) {
+            if (move_uploaded_file($tmpfile,$fullpath)) {
             $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $query = "INSERT INTO b_textile_catagory (img,img_alt,img_link) VALUES ('$newFilename','$image_alt','$img_link')";
@@ -600,6 +626,7 @@ class admin_functions {
     }
 
     function insert_offers(){
+        $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
@@ -608,11 +635,15 @@ class admin_functions {
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/offers/" . $newFilename;
-        // move_uploaded_file($tmpfile,$folder);
-
-        $error_array = array();
-      
+        $folder = "assets/img/offers/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
         }
@@ -631,7 +662,7 @@ class admin_functions {
             $error_array['img_link'] = "Please enter a valid image link";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$folder)){
+            if (move_uploaded_file($tmpfile,$fullpath)){
             $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $query = "INSERT INTO offers (img,img_alt,img_link) VALUES ('$newFilename','$image_alt','$img_link')";

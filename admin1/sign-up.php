@@ -83,7 +83,7 @@ include 'header.php';
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <input type="email" class="form-control validsignf" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
                       <span class="errormsg email"></span>
                     </div>
                     <div class="mb-3">
@@ -105,7 +105,7 @@ include 'header.php';
                       <div class="errormsg image imageError"></div>
                     </div>
                     <div class="mb-3">
-                      <input type="address" class="form-control" placeholder="Address" name="address">
+                      <input type="address" class="form-control validsignf" placeholder="Address" name="address">
                       <span class="errormsg address"></span>
                     </div>
                     <div class="mb-3">
