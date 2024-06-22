@@ -45,9 +45,8 @@
         header("Location: sign-in.php");
         die();
       }
-    
       // checking if user is already exists in database
-      $sql = "SELECT * FROM users WHERE user_id ='{$_SESSION['user_id']}'";
+      $sql = "SELECT * FROM users WHERE user_id ='{$_SESSION['current_user']['user_id']}'";
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {
         // user is exists
@@ -55,7 +54,6 @@
         $_SESSION["errorMessage"] = "";
       }
     }
-
 ?>
 
 <body class="g-sidenav-show  bg-gray-100">
