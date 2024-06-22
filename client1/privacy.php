@@ -18,7 +18,7 @@ include 'header.php';
     </div>
     <!-- Hero End -->
   <!-- privacy policy strat  -->
-     <section class="privacy pt-5">
+     <section class="privacy pt-5 container-fluid">
          <div class="container">
          <h5 class=" mb-3 display-5 text-primary  animate__animated animate__backInLeft "><strong>Privacy Policy</strong></h5> 
          <h4 class="fs-4 fw-bold mb-4">Introduction</h4>
