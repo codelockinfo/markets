@@ -254,10 +254,10 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               loading_hide(".save_loader_show", "Sign in");
             if (response["data"] == "success") {
               $("#savesignin")[0].reset();
-              showMessage(response.msg, "success");
+              // showMessage(response.msg, "success");
               window.location.href = 'index.php';
             }else {
-              showMessage(response.msg_error, "fail");
+              // showMessage(response.msg_error, "fail");
             }
           },
         });
@@ -295,10 +295,10 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               loading_hide('.save_loader_show', 'SIGN UP');
               if(response['data'] == "success"){
                   $("#savesignup")[0].reset();
-                  showMessage(response.msg, "success");
+                  // showMessage(response.msg, "success");
                   window.location.href = 'index.php';
               }else{
-                showMessage(response.msg_error, "fail");
+                // showMessage(response.msg_error, "fail");
               } 
             }
           });

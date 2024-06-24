@@ -126,11 +126,6 @@
   background-color: #eceaea;
 }
 
-.custom2:hover{
-  color: rgb(76, 71, 71);
-  background-color: #eceaea;
-}
-
 .fa-caret-down{
   float: right;
   padding-right: 8px;
@@ -507,3 +502,12 @@
   }
 }
 /* product form media query end */
+
+/* profile page css */
+@media (max-width:768px){
+  .profile-sec{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* profile page css end */
