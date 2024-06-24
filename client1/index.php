@@ -39,6 +39,8 @@ include 'header.php';
         <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="no-image">
         <div class="container ">
             <div class="row g-5 align-items-center">
+                <div class="banner-content-main">
+                </div>
             </div>
         </div>
     </div>
@@ -48,7 +50,7 @@ include 'header.php';
     <div class="container-fluid famous pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Famous markets</h1>
+                <h1 class="display-5 mb-5">Famous markets in surat</h1>
             </div>
             <div class="row2 ">
                 <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
@@ -56,10 +58,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Arohi-Woman Fashion</h4>
+                                <h4 class="mb-3 text-capitalize">Arohi-Woman Fashion</h4>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
                                     <img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -70,10 +80,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Kavya Fabrics</h4>
+                                <h4 class="mb-3 text-capitalize">Kavya Fabrics</h4>
                                 <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <i class="fa-regular fa-star text-primary"></i>
+                                <h6>(3.5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -84,10 +102,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Global textile</h4>
+                                <h4 class="mb-3 text-capitalize">Global textile</h4>
                                 <p class="mb-4">Timeless Elegance in Every Thread</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <h6>(5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -98,10 +124,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Vidya Fabrics</h4>
+                                <h4 class="mb-3 text-capitalize">Vidya Fabrics</h4>
                                 <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <i class="fa-regular fa-star text-primary"></i>
+                                <h6>(3.5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -112,10 +146,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Jay Ambe Fabrics</h4>
+                                <h4 class="mb-3 text-capitalize">Jay Ambe Fabrics</h4>
                                 <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -126,10 +168,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">KS textile</h4>
+                                <h4 class="mb-3 text-capitalize">KS textile</h4>
                                 <p class="mb-4">Draping You in Cultural Splendor</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <h6>(5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -140,10 +190,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Rajhans textile</h4>
+                                <h4 class="mb-3 text-capitalize">Rajhans textile</h4>
                                 <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -154,10 +212,18 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3">Bal Krishna fabrics</h4>
-                                <p class="mb-4">Elegance Redefined, Heritage Preserved</p>
+                                <h4 class="mb-3 text-capitalize">Bal Krishna fabrics</h4>
+                                <p class="mb-4">Elegance Redefined</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt="">
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <i class="fa-regular fa-star text-primary"></i>
+                                <h6>(3.5)</h6>
                                 </div>
                             </div>
                         </div>
@@ -617,6 +683,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
+            <button></button>
         </div>
     </div>
     <!-- Events End -->

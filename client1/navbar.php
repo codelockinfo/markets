@@ -131,17 +131,17 @@
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Hosiery</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Jackets</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Jeans by type</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Knee clothing</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Masks</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Neckwear</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">One-piece suits</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Outerwear</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Ponchos</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Robes and cloaks</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Shawls and wraps</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Hosiery</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Jackets</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Jeans by type</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Knee clothing</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Masks</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Neckwear</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">One-piece suits</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Outerwear</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Ponchos</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Robes and cloaks</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Shawls and wraps</a></li>
                                              </ul>
                                          </div>
                                      </div>
@@ -153,16 +153,16 @@
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Royal attire</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">saree</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Sashes</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Skirts</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Sportswear</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Suits</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Tops</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Trousers and shorts</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Undergarments</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none">Wedding clothing</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Royal attire</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">saree</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sashes</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Skirts</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sportswear</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Suits</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Tops</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Trousers and shorts</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Undergarments</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Wedding clothing</a></li>
                                              </ul>
                                          </div>
                                      </div>
@@ -174,7 +174,7 @@
                      <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
                  </div>
                  <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                 <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize">register your shop</a>
+                 <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize header_button">register your shop</a>
              </div>
          </nav>
      </div>

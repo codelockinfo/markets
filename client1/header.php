@@ -38,8 +38,8 @@ include($myRoot . '/markets/connection.php');
     <!-- JavaScript Libraries -->
     <script src="<?php echo main_url('/client1/js/jquery.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/jquery.min2.js'); ?>"></script>
-    <script src="<?php echo main_url('/client1/js/swiper-bundle.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo main_url('/client1/js/swiper-bundle.min.js'); ?>"></script>
     
     <!-- animation js  -->
     <script src="<?php echo main_url('/client1/lib/wow/wow.min.js'); ?>"></script>
@@ -48,6 +48,7 @@ include($myRoot . '/markets/connection.php');
     <script src="<?php echo main_url('/client1/lib/counterup/counterup.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/lightbox/js/lightbox.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
     
     <!-- Template Javascript -->
     <script src="<?php echo main_url('/client1/js/main.js'); ?>"></script>

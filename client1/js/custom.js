@@ -192,3 +192,66 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+// filter collection category button strat 
+document.addEventListener("DOMContentLoaded", function() {
+    var byCategory = document.getElementById("byCategory");
+    var latestMarket = document.getElementById("latestMarket");
+    var categoryButton = document.getElementById("categoryButton");
+    var categoryItems = document.querySelectorAll("#categoryList .dropdown-item");
+
+    byCategory.addEventListener("click", function(event) {
+        event.preventDefault();
+        categoryButton.classList.remove("d-none");
+        categoryButton.classList.add("d-block");
+    });
+
+    latestMarket.addEventListener("click", function(event) {
+        event.preventDefault();
+        categoryButton.classList.remove("d-block");
+        categoryButton.classList.add("d-none");
+    });
+
+    categoryItems.forEach(function(item) {
+        item.addEventListener("click", function(event) {
+            event.preventDefault();
+            categoryButton.classList.remove("d-block");
+            categoryButton.classList.add("d-none");
+        });
+    });
+});
+// filter collection category button end 
+
+
+
+
+
+
+function getVals(){
+    // Get slider values
+    let parent = this.parentNode;
+    let slides = parent.getElementsByTagName("input");
+      let slide1 = parseFloat( slides[0].value );
+      let slide2 = parseFloat( slides[1].value );
+    // Neither slider will clip the other, so make sure we determine which is larger
+    if( slide1 > slide2 ){ let tmp = slide2; slide2 = slide1; slide1 = tmp; }
+    
+    let displayElement = parent.getElementsByClassName("rangeValues")[0];
+        displayElement.innerHTML = "Rs" + slide1 + " - Rs" + slide2;
+  }
+  
+  window.onload = function(){
+    // Initialize Sliders
+    let sliderSections = document.getElementsByClassName("range-slider");
+        for( let x = 0; x < sliderSections.length; x++ ){
+          let sliders = sliderSections[x].getElementsByTagName("input");
+          for( let y = 0; y < sliders.length; y++ ){
+            if( sliders[y].type ==="range" ){
+              sliders[y].oninput = getVals;
+              // Manually trigger event first time to display values
+              sliders[y].oninput();
+            }
+          }
+        }
+  }

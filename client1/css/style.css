@@ -198,8 +198,21 @@ h6,
 .navbar-collapse .dropdown-menu{
     left: -150% !important;
 }
-
-
+.header_button{
+    animation: header 2s infinite ;
+}
+@keyframes header{
+    0%{
+        background-color: var(--bs-primary);
+        color: var(--bs-dark);
+   }
+    
+    50%{
+        background-color: var(--bs-dark);
+        color: var(--bs-primary);
+    }
+    
+  }
 @media (max-width: 1340px) {
     .navbar-collapse .dropdown-menu{
         left: -200% !important;
@@ -971,7 +984,7 @@ h6,
     text-align: start !important;
     text-align-last: start !important;
     color:#000;
-    font-weight: bolder ;
+    font-weight: bolder ;s
 }
 
 .privacy .div {
@@ -980,3 +993,137 @@ h6,
 } */
 
 /* privacy policy end  */
+
+/* collection 2 page start  */
+.co_filter .hcategory .dropdown-menu{
+    height: 300px;
+    width: 208px !important;
+    left: -80px !important;
+    overflow: auto;
+}
+.co_filter .hcategory .dropdown-menu::-webkit-scrollbar  {
+    width: 5px;
+}
+.co_filter .hcategory .dropdown-menu::-webkit-scrollbar-thumb  {
+   background-color: var(--bs-primary);
+}
+.co_filter .hcategory .dropdown-menu::-webkit-scrollbar-track  {
+   background-color: var(--bs-light);
+}
+
+/* collection 2 page end  */
+
+.collection .market-content .market-button .btn{
+    font-weight: normal !important;
+}
+
+
+.range-slider {
+    width: auto;
+    text-align: center;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .range-slider .rangeValues {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type=range] {
+    -webkit-appearance: none;
+    border: 1px solid white;
+    width: auto;
+    position: absolute;
+    left: 0;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--bs-primary);
+    margin-top: -4px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  
+  input[type=range]:focus {
+    outline: none;
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+  }
+  
+  input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--bs-primary);
+  }
+  
+  /*hide the outline behind the border*/
+  input[type=range]:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+  }
+  
+  input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+    /*remove default tick marks*/
+    color: transparent;
+    z-index: -4;
+  }
+  
+  input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+  }
+  
+  input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+  }
+  
+  input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background:var(--bs-primary);
+  }
+  
+  input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+  }
+  
+  input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+  }
