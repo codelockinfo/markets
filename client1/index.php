@@ -230,6 +230,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
+            <a href="famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
         </div>
     </div>
     <!-- famous market End -->
@@ -241,7 +242,7 @@ include 'header.php';
                 <h1 class="display-5 mb-5">Brouse by category</h1>
             </div>
             <div class="tabbable">
-                <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs">
+                <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs wow bounceInUp">
                     <li class="tab-selector ">
                         <a class="d-flex mx-1 py-2 border border-primary  rounded-pill active" data-bs-toggle="pill" href="#tab-1">
                             <span class="text-dark" style="width: 150px;">Kurtis</span>
@@ -683,7 +684,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <button></button>
+            <a href="collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
         </div>
     </div>
     <!-- Events End -->
