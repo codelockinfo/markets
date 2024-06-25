@@ -1,3 +1,12 @@
+ <!-- anouncebar start  -->
+ <section class="bg-dark">
+ <div class="container overflow-hidden">
+ <div class="anounce px-1 text-capitalize text-primary py-2 m-0 text-center w-auto">
+    <div class="anounce_text ms-5">most famous markets in surat</div>
+ </div>
+ </div>
+ </section>
+ <!-- anouncebar end  -->
  <!-- Navbar start -->
  <div class="container-fluid nav-bar">
      <div class="container">

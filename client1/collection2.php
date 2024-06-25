@@ -34,7 +34,7 @@ include 'header.php';
                         Filter
                     </button>
                     <ul class="dropdown-menu w-100">
-                        <li><a class="dropdown-item nav-link" href="#">Latest Market</a></li>
+                        <li><a class="dropdown-item nav-link" href="latestMarket">Latest Market</a></li>
                         <li><a class="dropdown-item nav-link" id="byCategory" href="#">By category</a></li>
                     </ul>
                 </div>
@@ -534,6 +534,7 @@ include 'header.php';
     ?>
 
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
