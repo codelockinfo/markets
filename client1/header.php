@@ -18,29 +18,30 @@ include($myRoot . '/markets/connection.php');
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="<?php echo main_url('/client1/css/all.min.css');?>" rel="stylesheet">
-    <link href="<?php echo main_url('/client1/css/swiper-bundle.min.css');?>" rel="stylesheet">
-    <link href="<?php echo main_url('/client1/css/bootstrap-icons.css');?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/css/all.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/css/swiper-bundle.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/css/bootstrap-icons.css'); ?>" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="<?php echo main_url('/client1/lib/animate/animate.min.css');?>" rel="stylesheet">
-    <link href="<?php echo main_url('/client1/lib/lightbox/css/lightbox.min.css');?>" rel="stylesheet">
-    <link href="<?php echo main_url('/client1/lib/owlcarousel/owl.carousel.min.css');?>" rel="stylesheet">
-   
+    <link href="<?php echo main_url('/client1/lib/animate/animate.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/lib/lightbox/css/lightbox.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/lib/owlcarousel/owl.carousel.min.css'); ?>" rel="stylesheet">
+
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?php echo main_url('/client1/css/bootstrap.min.css');?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <!-- <link href="css/style.css" rel="stylesheet"> -->   
-    <link href="<?php echo main_url('/client1/css/style.css');?>" rel="stylesheet">
-    <link href="<?php echo main_url('/client1/css/animate.min.css');?>"  rel="stylesheet"/>
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <link href="<?php echo main_url('/client1/css/style.css'); ?>" rel="stylesheet">
+    <link href="<?php echo main_url('/client1/css/animate.min.css'); ?>" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha384-wEmeIV1mKuiNpNBbnlA8dPHlIKz1LY+4E3pOtEw7QmSuC2yKqJ8I+zffpB9S9B2S" crossorigin="anonymous" rel="stylesheet">
 
     <!-- JavaScript Libraries -->
     <script src="<?php echo main_url('/client1/js/jquery.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/jquery.min2.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/swiper-bundle.min.js'); ?>"></script>
-    
+
     <!-- animation js  -->
     <script src="<?php echo main_url('/client1/lib/wow/wow.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/easing/easing.min.js'); ?>"></script>
@@ -48,8 +49,9 @@ include($myRoot . '/markets/connection.php');
     <script src="<?php echo main_url('/client1/lib/counterup/counterup.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/lightbox/js/lightbox.min.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha384-wEmeIV1mKuiNpNBbnlA8dPHlIKz1LY+4E3pOtEw7QmSuC2yKqJ8I+zffpB9S9B2S" crossorigin="anonymous"></script>
+
     <!-- Template Javascript -->
     <script src="<?php echo main_url('/client1/js/main.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/custom.js'); ?>"></script>

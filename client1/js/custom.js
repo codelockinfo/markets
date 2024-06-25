@@ -195,30 +195,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // filter collection category button strat 
-document.addEventListener("DOMContentLoaded", function() {
-    var byCategory = document.getElementById("byCategory");
-    var latestMarket = document.getElementById("latestMarket");
-    var categoryButton = document.getElementById("categoryButton");
-    var categoryItems = document.querySelectorAll("#categoryList .dropdown-item");
 
-    byCategory.addEventListener("click", function(event) {
-        event.preventDefault();
-        categoryButton.classList.remove("d-none");
-        categoryButton.classList.add("d-block");
+$(document).ready(function() {
+    // Initialize Bootstrap components
+    var dropdowns = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    var dropdownList = dropdowns.map(function(dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
     });
 
-    latestMarket.addEventListener("click", function(event) {
+    // Handle click events
+    $('#byCategory').on('click', function(event) {
         event.preventDefault();
-        categoryButton.classList.remove("d-block");
-        categoryButton.classList.add("d-none");
+        $('#categoryButton').removeClass('d-none').addClass('d-block');
     });
 
-    categoryItems.forEach(function(item) {
-        item.addEventListener("click", function(event) {
-            event.preventDefault();
-            categoryButton.classList.remove("d-block");
-            categoryButton.classList.add("d-none");
-        });
+    $('#latestMarket').on('click', function(event) {
+        event.preventDefault();
+        $('#categoryButton').removeClass('d-block').addClass('d-none');
+    });
+
+    // Handle category item click
+    $('#categoryList .dropdown-item').on('click', function(event) {
+        event.preventDefault();
+        $('#categoryButton').removeClass('d-block').addClass('d-none');
     });
 });
 // filter collection category button end 
@@ -226,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+// price range slider start
 
 function getVals(){
     // Get slider values
@@ -255,3 +254,4 @@ function getVals(){
           }
         }
   }
+  // price range slider end

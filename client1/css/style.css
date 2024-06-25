@@ -201,6 +201,24 @@ h6,
 .header_button{
     animation: header 2s infinite ;
 }
+
+/* anouncebar start  */
+.anounce{
+    animation: marquee 15s linear infinite running;
+}
+.anounce_text{
+    width: 75%;
+}
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* anouncebar end  */
 @keyframes header{
     0%{
         background-color: var(--bs-primary);
