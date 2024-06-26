@@ -45,7 +45,7 @@ include 'header.php';
                         <div class="col-sm-4 mt-2 mt-sm-0">
                             <div class="banner-main-box p-1 wow bounceInUp">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white counter m-0" data-count="346866"></h3>
+                                    <h3 class="text-white counter m-0" data-count="346866">346866</h3>
                                     <p class="text-capitalize m-0 text-white">verified suppliers</p>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ include 'header.php';
                         <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 counter" data-count="382936"></h3>
+                                    <h3 class="text-white  m-0 counter" data-count="382936">382936</h3>
                                     <p class="text-capitalize m-0 text-white">products</p>
                                 </div>
                             </div>
