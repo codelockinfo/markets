@@ -37,7 +37,23 @@ $(Document).on("click",".submit",function (event) {
   });
 
   // contact form validation end
-
+//   on load popup js start 
+$(document).ready(function() {
+    // Check if popup has been shown before
+    var popupShown = localStorage.getItem('popupShown');
+    
+    // If popupShown is null or false, show the modal overlay
+    if (!popupShown) {
+        $('#modalOverlay').show(); // Display the modal overlay
+    }
+    
+    $('#yesButton').click(function() {
+        $('#modalOverlay').hide(); // Hide the modal overlay
+        localStorage.setItem('popupShown', true); // Set localStorage flag
+        return false; // Prevent default link behavior
+    });
+});
+//   on load popup js end 
 
   // product gallery slider start 
   document.addEventListener('DOMContentLoaded', function() {
