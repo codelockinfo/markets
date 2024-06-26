@@ -12,6 +12,13 @@
     opacity: 1;
 }
 
+/* offcanvace strat  */
+@media (max-width:500px) {
+    .offcanvas{
+        width: 100%;
+    }
+}
+/* offcanvace end  */
 /*** Spinner End ***/
 
 

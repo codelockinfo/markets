@@ -13,58 +13,61 @@ include 'header.php';
     <?php
     include 'navbar.php';
     ?>
-     
-   
-     <div id="modalOverlay" >
-		<div class="modalPopup bg-white p-3 p-md-5">
-			<div class="headerBar bg-white m-0 text-center w-100">
-                 <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL;?>img/shop_1/logo1.png" alt="no-image">
-			</div>
-			<div class="modalContent text-center">
-					 <p class="text-capitalize m-0">are you looking for Wholesalers?</p>
-					 <p class="text-capitalize ">in surat (the texttile hub)</p>
-					 <div class="justify-content-center d-flex  mt-3">
-                                <a href="#" id="yesButton"><button class="btn btn-primary me-1 fs-6 px-5">Yes</button></a>
-                                <a href="https://www.google.com/"><button class="btn btn-dark ms-1  fs-6 px-5">No</button></a>
-                    </div>
-			</div>
-		</div>
-	</div>
-  <!--p class="returnToProfile"><a href="https://codepen.io/ptamaro" target="_parent">Return to profile</a></p-->
+    
+   <!-- on load popup box strat  -->
+    <div id="modalOverlay">
+        <div class="modalPopup bg-white p-3 p-md-5">
+            <div class="headerBar bg-white m-0 text-center w-100">
+                <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
+            </div>
+            <div class="modalContent text-center">
+                <p class="text-capitalize m-0">are you looking for Wholesalers?</p>
+                <p class="text-capitalize ">in surat (the texttile hub)</p>
+                <div class="justify-content-center d-flex  mt-3">
+                    <a href="#" id="yesButton"><button class="btn btn-primary me-1 fs-6 px-5">Yes</button></a>
+                    <a href="https://www.google.com/"><button class="btn btn-dark ms-1  fs-6 px-5">No</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- on load popup box end  -->
+
+    <!--p class="returnToProfile"><a href="https://codepen.io/ptamaro" target="_parent">Return to profile</a></p-->
+
     <!-- Hero Start -->
     <section class="banner_section">
         <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
             <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="no-image">
             <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="no-image">
-            <div class="container banner_content ">
-                    <div class="banner-content-main w-100">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-sm-4 mt-2 mt-sm-0">
-                                <div class="banner-main-box p-1">
-                                <div class="banner-content-box py-3 w-100 text-center rounded     bg-dark-opacity">
-                                    <h3 class="text-white  m-0">346,866</h3>
+            <div class=" banner_content">
+                <div class="banner-content-main container">
+                    <div class="row">
+                        <div class="col-sm-4 mt-2 mt-sm-0">
+                            <div class="banner-main-box p-1 wow bounceInUp">
+                                <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
+                                    <h3 class="text-white counter m-0" data-count="346866"></h3>
                                     <p class="text-capitalize m-0 text-white">verified suppliers</p>
                                 </div>
-                                </div>
                             </div>
-                            <div class="col-12 col-sm-4 mt-2 mt-sm-0">
-                                <div class="banner-main-box p-1">
-                                <div class="banner-content-box py-3 w-100 text-center rounded     bg-dark-opacity">
-                                    <h3 class="text-white  m-0">382,936</h3>
+                        </div>
+                        <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
+                            <div class="banner-main-box p-1">
+                                <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
+                                    <h3 class="text-white  m-0 counter" data-count="382936"></h3>
                                     <p class="text-capitalize m-0 text-white">products</p>
                                 </div>
-                                </div>
                             </div>
-                            <div class="col-12 col-sm-4 mt-2 mt-sm-0">
-                               <div class="banner-main-box p-1">
-                               <div class="banner-content-box py-3 w-100 text-center rounded     bg-dark-opacity">
-                                    <h3 class="text-white  m-0">519,407</h3>
+                        </div>
+                        <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
+                            <div class="banner-main-box p-1">
+                                <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
+                                    <h3 class="text-white  m-0 counter"data-count="519407">519,407</h3>
                                     <p class="text-capitalize m-0 text-white">trusted buyers</p>
                                 </div>
-                               </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </section>
