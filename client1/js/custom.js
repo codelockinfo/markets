@@ -202,11 +202,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // filter collection category button strat
 document.addEventListener('DOMContentLoaded', (event) => {
     const byCategoryButton = document.getElementById('byCategory');
+    const latestMarketsButton = document.getElementById('latestMarkets');
     const categoryDropdown = document.getElementById('categoryDropdown');
     const categoryItems = document.querySelectorAll('.category-item');
 
     byCategoryButton.addEventListener('click', () => {
         categoryDropdown.style.display = 'block';
+    });
+
+    latestMarketsButton.addEventListener('click', () => {
+        categoryDropdown.style.display = 'none';
     });
 
     categoryItems.forEach(item => {
@@ -215,6 +220,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
+
 // filter collection category button end
 
 // price range slider start

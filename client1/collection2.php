@@ -34,7 +34,7 @@ include 'header.php';
                     Filter
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item text-capitalize nav-link" href="#">latest markets</a></li>
+                        <li><a class="dropdown-item text-capitalize nav-link" href="#" id="latestMarkets">latest markets</a></li>
                         <li><a class="dropdown-item text-capitalize nav-link" href="#" id="byCategory">by categoty</a></li>
                     </ul>
                 </div>
