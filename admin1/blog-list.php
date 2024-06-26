@@ -9,12 +9,12 @@ include 'header.php';
   <?php
   include 'adminheader.php';
   ?>
-  <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 overflow-x-hidden">
+  <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <div class="container-fluid">
       <div class="page-header min-height-300 border-radius-xl mt-4">
         <span class="mask bg-gradient-info opacity-6"></span>
       </div>
-      <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="card card-body blur shadow-blur mx-4 mt-n6">
         <div class="row gx-4">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
@@ -31,11 +31,11 @@ include 'header.php';
               </p>
             </div>
           </div>
-          <div class="col-lg-2 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active " href="<?php echo SITE_ADMIN_URL ?>blog-form.php" role="tab" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active" href="<?php echo SITE_ADMIN_URL ?>blog-form.php" role="tab" aria-selected="true">
                     <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -59,7 +59,7 @@ include 'header.php';
         </div>
       </div>
     </div>
-    <div class="col-12 mt-4">
+    <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3">
           <div class="card-header pb-0 p-3">

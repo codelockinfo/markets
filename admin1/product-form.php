@@ -118,17 +118,17 @@ include 'header.php';
               </div>
               <div class="col">
                 <div class="row mt-2">
-                <label class="font-weight-normal"><strong> File Types:PNG,JPG,JPEG,GIF</strong></label>
+                  <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
                 </div>
                 <div class="row mt-lg-n1">
-                <label class="font-weight-normal"><strong> Size Limit:Each file should not exceed 5MB</strong></label>
+                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                 </div>
               </div>
             <div class="errormsg myFile p_image"></div>
             </div>
             <label for="text" class="font-weight-normal">Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
+              <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
             </div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product Tag</label>

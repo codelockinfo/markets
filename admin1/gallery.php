@@ -26,7 +26,7 @@ include 'header.php';
         </div>
       </div>
     </div>
-    <div class="col-12 mt-4">
+    <div class="col-12 mt-4 p-4">
       <div class="card mb-4">
         <div class="card-body p-3">
           <div class="row">

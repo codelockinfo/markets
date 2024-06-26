@@ -2,9 +2,9 @@
   <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2 mt-2">
     <div class="container-fluid">
       <nav aria-label="breadcrumb">
-        <h6 class="text-white font-weight-bolder ms-2">Banner Image</h6>
+        <h6 class="text-white font-weight-bolder ms-2 pt-1">Banner Image</h6>
       </nav>
-      <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
+      <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-0" id="navbar">
         <div class="ms-md-auto pe-md-0 d-flex align-items-center">
           <div class="input-group search-btn">
             <!-- <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>

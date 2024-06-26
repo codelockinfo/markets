@@ -88,13 +88,13 @@ include 'header.php';
                 </div>
                 <div class="col-12 mt-4">
                     <div class="card mb-4">
-                        <div class="card-body p-3 row">
+                        <div class="card-body d-flex p-3 row">
                             <div class="col-auto mx-auto ms-sm-3 mt-2">
                                 <h6 class="mb-1">
                                     Your Product
                                 </h6>
                             </div>
-                            <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">
+                            <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
                                 <div class="nav-wrapper position-relative end-0">
                                     <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
                                         <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0">View All Product</button>

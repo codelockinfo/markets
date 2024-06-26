@@ -10,7 +10,7 @@ include 'header.php';
   include 'adminheader.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-  <div class="container-fluid">
+    <div class="container-fluid">
       <div class="page-header min-height-300 border-radius-xl mt-4">
         <span class="mask bg-gradient-info opacity-6"></span>
       </div>
@@ -39,13 +39,19 @@ include 'header.php';
                   <span class="drop-zone__prompt">Drop file here or click to upload</span>
                   <input type="file" name="myFile" class="drop-zone__input">
                 </div>
+                <div class="col">
+                  <div class="row mt-2">
+                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                  </div>
+                  <div class="row mt-lg-n1">
+                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                  </div>
+                </div>
+                <div class="errormsg myFile"></div>
               </div>
-              <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-              <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-              <div class="errormsg myFile"></div>
-              <label for="text" class="font-weight-normal">Image alt</label>
+              <label for="text" class="font-weight-normal">Image Alt</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Image alt" name="image_alt">
+                <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
                 <span class="errormsg image_alt"></span>
               </div>
               <label for="image-link" class="font-weight-normal required">Image Link</label>
@@ -65,9 +71,13 @@ include 'header.php';
           <div class="card z-index-0 p-3">
             <div class="row">
               <div class="mb-3 form-check-reverse text-right">
-                <i class="fa fa-eye p-3 mt-0" aria-hidden="true"></i>
-                <button type="button" class="btn bg-gradient-info btn-sm">Enable</button>
-                <button type="button" class="btn bg-gradient-info btn-sm">Disable</button>
+                <div class="container">
+                  <div class="btn-group btn-toggle">
+                    <i class="fa fa-eye p-2 mt-0" aria-hidden="true"></i>
+                    <button class="btn btn-sm active">Enable</button>
+                    <button class="btn btn-sm bg-gradient-info active">Disable</button>
+                  </div>
+                </div>
               </div>
               <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
                 <div class="card card-blog card-plain">
@@ -132,7 +142,7 @@ include 'header.php';
     </div>
   </div>
   </div>
- <div class="fixed-plugin">
+  <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="fa fa-phone"></i>
     </a>
