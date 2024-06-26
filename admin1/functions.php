@@ -208,7 +208,7 @@ class admin_functions {
             $error_array['p_image'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
-            $error_array['p_image'] = "Please upload your product image.";
+            $error_array['p_image'] = "Please upload product images.";
         }
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
@@ -222,9 +222,9 @@ class admin_functions {
         if (isset($_POST['max_price']) && $_POST['max_price'] == '') {
             $error_array['max_price'] = "Please enter a maximum price.";
         }
-        if (empty($_POST['p_tag']) || !is_array($_POST['p_tag'])) {
-            $error_array['p_tag'] = "Please enter product tag.";
-        }
+        // if (empty($_POST['p_tag']) || !is_array($_POST['p_tag'])) {
+        //     $error_array['p_tag'] = "Please enter product tag.";
+        // }
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter description.";
         }
