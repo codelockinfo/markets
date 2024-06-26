@@ -45,7 +45,7 @@ include 'header.php';
                         <div class="col-sm-4 mt-2 mt-sm-0">
                             <div class="banner-main-box p-1 wow bounceInUp">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white counter m-0" data-count="346866">346866</h3>
+                                    <h3 class="text-white count m-0">346866</h3>
                                     <p class="text-capitalize m-0 text-white">verified suppliers</p>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ include 'header.php';
                         <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 counter" data-count="382936">382936</h3>
+                                    <h3 class="text-white  m-0 count" >382936</h3>
                                     <p class="text-capitalize m-0 text-white">products</p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ include 'header.php';
                         <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 counter"data-count="519407">519,407</h3>
+                                    <h3 class="text-white  m-0 count">519407</h3>
                                     <p class="text-capitalize m-0 text-white">trusted buyers</p>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Vidya Fabrics</h4>
+                                <h4 class="mb-3 text-capitalize">krishna textile</h4>
                                 <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="">

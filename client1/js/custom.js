@@ -33,10 +33,16 @@ $(Document).on("click", ".submit", function (event) {
 // contact form validation end
 
 //   on load popup js start
-// document.getElementById("yesButton").addEventListener("click", function(event) {
-//     event.preventDefault();
-//     document.getElementById("modalOverlay").style.display = "none";
-// });
+document.addEventListener("DOMContentLoaded", function() {
+    if (!sessionStorage.getItem('popupDisplayed')) {
+        document.getElementById("modalOverlay").style.display = "block";
+        sessionStorage.setItem('popupDisplayed', 'true');
+    }
+
+    document.getElementById("yesButton").addEventListener("click", function() {
+        document.getElementById("modalOverlay").style.display = "none";
+    });
+});
 //   on load popup js end
 
 // product gallery slider start
@@ -196,11 +202,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // filter collection category button strat
 document.addEventListener('DOMContentLoaded', (event) => {
     const byCategoryButton = document.getElementById('byCategory');
+    const latestMarketsButton = document.getElementById('latestMarkets');
     const categoryDropdown = document.getElementById('categoryDropdown');
     const categoryItems = document.querySelectorAll('.category-item');
 
     byCategoryButton.addEventListener('click', () => {
         categoryDropdown.style.display = 'block';
+    });
+
+    latestMarketsButton.addEventListener('click', () => {
+        categoryDropdown.style.display = 'none';
     });
 
     categoryItems.forEach(item => {
@@ -209,6 +220,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
+
 // filter collection category button end
 
 // price range slider start
@@ -244,28 +256,14 @@ window.onload = function () {
   }
 };
 // price range slider end
-$('.counter').each(function(event) {
-    event.preventDefault();
-    var $this = $(this),
-        countTo = $this.attr('data-count');
-    
-    $({ countNum: $this.text()}).animate({
-      countNum: countTo
-    },
-  
-    {
-      duration: 3000,
-      easing:'linear',
-      step: function() {
-        $this.text(Math.floor(this.countNum));
-      },
-      complete: function() {
-        $this.text(this.countNum);
-        //alert('finished');
-      }
-  
-    });  
-    
-    
-  
-  });
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
