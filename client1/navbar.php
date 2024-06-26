@@ -1,7 +1,8 @@
  <!-- anouncebar start  -->
  <section class="bg-dark">
      <div class="container overflow-hidden">
-         <div class="anounce px-1 text-capitalize text-primary py-2 m-0 text-center w-auto">
+         <div class="anounce px-1 text-capitalize text-primary py-2 m-0 text-end d-flex w-auto">
+             <div class="anounce_text ms-5">most famous markets in surat</div>
              <div class="anounce_text ms-5">most famous markets in surat</div>
          </div>
      </div>
