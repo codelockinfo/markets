@@ -83,7 +83,7 @@ include 'header.php';
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/offer1.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
                     </a>
                   </div>
                   <div class="d-flex justify-content-between mb-3">
@@ -97,7 +97,7 @@ include 'header.php';
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/offer2.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
                     </a>
                   </div>
                   <div class="d-flex justify-content-between mb-3">
@@ -111,7 +111,7 @@ include 'header.php';
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/offer3.png'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
                     </a>
                   </div>
                   <div class="d-flex justify-content-between mb-3">
@@ -125,7 +125,7 @@ include 'header.php';
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                      <img src="<?php echo main_url('/admin1/assets/img/offer4.png'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
                     </a>
                   </div>
                   <div class="d-flex justify-content-between mb-3">
