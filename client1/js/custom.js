@@ -33,21 +33,10 @@ $(Document).on("click", ".submit", function (event) {
 // contact form validation end
 
 //   on load popup js start
-$(document).ready(function () {
-  // Check if popup has been shown before
-  var popupShown = localStorage.getItem("popupShown");
-
-  // If popupShown is null or false, show the modal overlay
-  if (!popupShown) {
-    $("#modalOverlay").show(); // Display the modal overlay
-  }
-
-  $("#yesButton").click(function () {
-    $("#modalOverlay").hide(); // Hide the modal overlay
-    localStorage.setItem("popupShown", true); // Set localStorage flag
-    return false; // Prevent default link behavior
-  });
-});
+// document.getElementById("yesButton").addEventListener("click", function(event) {
+//     event.preventDefault();
+//     document.getElementById("modalOverlay").style.display = "none";
+// });
 //   on load popup js end
 
 // product gallery slider start
@@ -205,7 +194,21 @@ document.addEventListener("DOMContentLoaded", function () {
 // blog content js end 
 
 // filter collection category button strat
+document.addEventListener('DOMContentLoaded', (event) => {
+    const byCategoryButton = document.getElementById('byCategory');
+    const categoryDropdown = document.getElementById('categoryDropdown');
+    const categoryItems = document.querySelectorAll('.category-item');
 
+    byCategoryButton.addEventListener('click', () => {
+        categoryDropdown.style.display = 'block';
+    });
+
+    categoryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            categoryDropdown.style.display = 'none';
+        });
+    });
+});
 // filter collection category button end
 
 // price range slider start
