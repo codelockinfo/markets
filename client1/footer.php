@@ -68,6 +68,5 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
-
     <script src="js/custom.js"></script>
     
