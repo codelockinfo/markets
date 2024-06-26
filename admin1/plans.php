@@ -47,7 +47,7 @@ include 'header.php';
                   <li><span class="fa-li"></span>Shop Front View</li>
                 </ul> 
               </div>
-              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+              <a href="#" class="btn btn-block btn-light text-uppercase mx-auto">Choose Plan</a>
             </div>
           </div>
           <div class="col-lg-4  plan-card">
@@ -72,7 +72,7 @@ include 'header.php';
                   <li><span class="fa-li"></span>Exclusive Offers</li>
                 </ul>
               </div>
-              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+              <a href="#" class="btn btn-block btn-light text-uppercase mx-auto">Choose Plan</a>
             </div>
           </div>
           <div class="col-lg-4  plan-card">
@@ -99,7 +99,7 @@ include 'header.php';
                   <li><span class="fa-li"></span>Promotional Campaigns</li>
                 </ul>
               </div>
-              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+              <a href="#" class="btn btn-block btn-light text-uppercase mx-auto">Choose Plan</a>
             </div>
           </div>
         </div>

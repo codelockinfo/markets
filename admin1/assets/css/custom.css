@@ -7,6 +7,23 @@
 }
 
 
+
+/* sign-in & sign-up background img css */
+.b-img{
+  transform: skewX(-8deg);
+  overflow: hidden;
+  width: 60%;
+  right: -14rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.b-img .b-img1{
+  transform: skewX(8deg);
+}
+/* sign-in & sign-up background img css end */
+
+
+
 /* plans page css  */
 .pricing .card {
   border: none;
@@ -510,3 +527,4 @@
   }
 }
 /* profile page css end */
+

@@ -39,13 +39,19 @@ include 'header.php';
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                 <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
               </div>
+              <div class="col">
+                <div class="row mt-2">
+                  <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                </div>
+                <div class="row mt-lg-n1">
+                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                </div>
+              </div>
+              <div class="errormsg myFile"></div>
             </div>
-            <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-            <div class="errormsg myFile"></div>
-            <label for="text" class="font-weight-normal">Banner image alt</label>
+            <label for="text" class="font-weight-normal">Banner Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Banner image alt" name="image_alt">
+              <input type="text" class="form-control validtext" placeholder="Banner Image Alt" name="image_alt">
             </div>
             <label for="b-heading" class="font-weight-normal required">Heading</label>
             <div class="mb-3">

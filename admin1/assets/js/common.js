@@ -125,8 +125,6 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 $(document).ready(function() {
   $('.js-select2-multi').select2({
       placeholder: "Select products",
-      allowClear: true,
-      tags: true,
       createTag: function (params) {
           var term = $.trim(params.term);
           if (term === '') {
@@ -147,4 +145,6 @@ $(document).ready(function() {
 
 $(document).on('click', '.navigation ul li', function(){
   $(this).addClass('active').siblings().removeClass('active')
-})
+});
+
+

@@ -57,13 +57,13 @@ include 'header.php';
           <form role="form" id="videoinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal required">Video Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Video Name" name="video_title">
+              <input type="text" class="form-control validtext" placeholder="Video Title" name="video_title">
               <span class="errormsg video_title"></span>
             </div>
             <label for="p-tags" class="font-weight-normal required">Video Category</label>
             <div class="mb-3">
               <select class="form-select" aria-label="Default select example" name="video_category">
-                <option selected value="">Category</option>
+                <option selected value="">Select Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>

@@ -43,13 +43,19 @@ include 'header.php';
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" name="svg_img" class="drop-zone__input">
             </div>
+            <div class="col">
+              <div class="row mt-2">
+                <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+              </div>
+              <div class="row mt-lg-n1">
+                <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+              </div>
+            </div>
+            <div class="errormsg svg_img myFile"></div>
           </div>
-          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-          <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-          <div class="errormsg svg_img myFile"></div>
-          <label for="text" class="font-weight-normal">SVG image alt</label>
+          <label for="text" class="font-weight-normal">SVG Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="SVG image alt" name="svg_image_alt">
+              <input type="text" class="form-control validtext" placeholder="SVG Image Alt" name="svg_image_alt">
             </div>
           <label for="b-heading" class="font-weight-normal required">Heading</label>
           <div class="mb-3">
@@ -67,13 +73,19 @@ include 'header.php';
               <span class="drop-zone__prompt">Drop file here or click to upload</span>
               <input type="file" class="drop-zone__input" name="img">
             </div>
+            <div class="col">
+              <div class="row mt-2">
+                <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+              </div>
+              <div class="row mt-lg-n1">
+                <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+              </div>
+            </div>
+            <div class="errormsg img myFile"></div>
           </div>
-          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-          <div class="errormsg img myFile"></div>
-          <label for="text" class="font-weight-normal"> Image alt</label>
+          <label for="text" class="font-weight-normal"> Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Image alt" name="heading">
+              <input type="text" class="form-control validtext" placeholder="Image Alt" name="heading">
             </div>
           <div class="mb-3">
             <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
