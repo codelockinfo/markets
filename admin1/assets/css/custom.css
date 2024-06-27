@@ -24,7 +24,24 @@
 
 
 /* sign-in form space css */
-
+.card-space{
+  margin-top: -35px; 
+}
+@media (max-width:768px){
+  .card-space{
+    margin-top: -42px;
+  }
+}
+@media (min-width:600px) and (max-width:768px){
+  .space1{
+    margin-bottom: -65px;
+  }
+}
+@media (max-width:600px){
+  .space1{
+    margin-bottom: -55px;
+  }
+}
 /* sign-in form space css end */
 
 
