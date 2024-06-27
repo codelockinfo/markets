@@ -266,7 +266,7 @@ include 'header.php';
     <div class="container-fluid event pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Brouse by category</h1>
+                <h1 class="display-5 mb-5">Browse by category</h1>
             </div>
             <div class="tabbable">
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs wow bounceInUp">
