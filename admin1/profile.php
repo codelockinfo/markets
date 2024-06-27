@@ -60,18 +60,17 @@ include 'header.php';
                     <div class="card h-100">
                         <div class="card-header">
                             <div class="row">
-                                <div class="col-md-6 d-flex">
+                                <div class="col-md-6 col-auto me-auto d-flex">
                                     <h6 class="mb-0">Profile Information</h6>
                                 </div>
-                                <div class="col-md-6 text-end">
+                                <div class="col-md-6 col-auto ms-auto text-end">
                                     <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
                                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-header">
-                            <hr class="horizontal gray-light">
+                        <div class="card-header profile-section">
                             <ul class="list-group">
                                 <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop

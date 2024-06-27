@@ -66,7 +66,7 @@ include 'header.php';
             <h6 class="mb-1 mt-1 text-lg">Products</h6>
           </div>  
           <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
-            <div class="input-group search-btn">
+            <div class="input-group search-btn search-icon">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control search-btn_1" placeholder="Type here...">
             </div>
@@ -87,6 +87,10 @@ include 'header.php';
             </ul>
           </div>
         </div>
+        <div class="input-group search-btn search-icon1 w-80 mx-auto">
+              <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control search-btn_1" placeholder="Type here...">
+            </div>
         <div class="card-body p-3">
           <div class="row">
             <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
