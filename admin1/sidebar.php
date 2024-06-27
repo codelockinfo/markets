@@ -54,7 +54,7 @@
           <div class="dropdown-container">
             <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner</a>
             <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets</a>
-            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Brouse by textile</a>
+            <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Browser by textile</a>
             <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
             <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
             <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>

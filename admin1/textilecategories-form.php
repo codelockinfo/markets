@@ -21,7 +21,7 @@ include 'header.php';
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Brouse By Textile Categories Form
+                Browser By Textile Categories Form
               </h5>
             </div>
           </div>

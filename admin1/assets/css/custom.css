@@ -341,10 +341,6 @@
   max-width: 100%;
 }
 
-.main-sec{
-  margin: 10px 0px;
-}
-
 .accordion {
   display: flex;
   flex-direction: column;
@@ -573,3 +569,11 @@
   }
 }
 /* paragraph form css end */
+
+/* banner and other form media query  css for margin */
+@media (max-width:1200px){
+  .main-sec{
+    margin: 10px 0px;
+  }
+}
+/* banner and other form css end */
