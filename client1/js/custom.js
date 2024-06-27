@@ -33,15 +33,55 @@ $(Document).on("click", ".submit", function (event) {
 // contact form validation end
 
 //   on load popup js start
-document.addEventListener("DOMContentLoaded", function() {
-    if (!sessionStorage.getItem('popupDisplayed')) {
-        document.getElementById("modalOverlay").style.display = "block";
-        sessionStorage.setItem('popupDisplayed', 'true');
-    }
+function createCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toGMTString();
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
 
-    document.getElementById("yesButton").addEventListener("click", function() {
-        document.getElementById("modalOverlay").style.display = "none";
-    });
+//Cookie reading function
+function readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+// Cookie deletion function
+function eraseCookie(name) {
+  createCookie(name, "", -1);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var modalOverlay = document.getElementById('modalOverlay');
+  var yesButton = document.getElementById('yesButton');
+  var noButton = document.getElementById('noButton');
+
+  // Check the cookie
+  var popupSeen = readCookie('popupSeen');
+  if (popupSeen === null) {
+      modalOverlay.style.display = 'block';
+  }
+
+  // On clicking yes button
+  yesButton.addEventListener('click', function() {
+      createCookie('popupSeen', 'yes', 365);
+      modalOverlay.style.display = 'none';
+  });
+
+  // On clicking no button
+  noButton.addEventListener('click', function() {
+      eraseCookie('popupSeen');
+      modalOverlay.style.display = 'none';
+  });
 });
 //   on load popup js end
 

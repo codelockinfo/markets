@@ -257,7 +257,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <a href="famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
+            <a href="<?php echo CLS_SITE_URL ?>famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
         </div>
     </div>
     <!-- famous market End -->
@@ -711,7 +711,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <a href="collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
+            <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
         </div>
     </div>
     <!-- Events End -->
