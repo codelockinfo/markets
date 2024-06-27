@@ -23,6 +23,11 @@
 /* sign-in & sign-up background img css end */
 
 
+/* sign-in form space css */
+
+/* sign-in form space css end */
+
+
 
 /* plans page css  */
 .pricing .card {
@@ -528,3 +533,9 @@
 }
 /* profile page css end */
 
+/* enable & disable buttton css */
+.btn-enable:hover{
+  background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+  color: white;
+}
+/* enablew & disable button css end */

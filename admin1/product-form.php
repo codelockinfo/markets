@@ -63,7 +63,7 @@ include 'header.php';
             <label for="p-tags" class="font-weight-normal required w-100">Product Category</label>
             <div class="mb-3">
               <select class="form-select required" aria-label="Default select example" name="select_catagory">
-                <option selected value="">Select Category</option>
+                <option selected value="0">Select Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>
@@ -131,7 +131,7 @@ include 'header.php';
               <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
             </div>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Product Tag</label>
+              <label for="text" class="font-weight-normal">Product</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
@@ -155,7 +155,7 @@ include 'header.php';
     </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
