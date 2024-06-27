@@ -115,6 +115,8 @@
 @media (max-width:1200px){
   .plan-card{
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 /* plans page css end */
@@ -530,6 +532,11 @@
     margin-left: 10px;
   }
 }
+@media (max-width:520px){
+  .search-btn{
+    display: none;
+  }
+}
 /* navigation bar media query end */
 
 
@@ -556,3 +563,13 @@
   color: white;
 }
 /* enablew & disable button css end */
+
+
+/* paragraph form css */
+@media (max-width:1200px){
+  .para-main{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* paragraph form css end */
