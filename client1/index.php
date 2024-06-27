@@ -74,7 +74,7 @@ include 'header.php';
     <!-- Hero End -->
 
     <!-- famous market Start -->
-    <div class="container-fluid famous pt-6">
+    <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Famous markets in surat</h1>
@@ -263,7 +263,7 @@ include 'header.php';
     <!-- famous market End -->
 
     <!-- Events brouse by category Start -->
-    <div class="container-fluid event pt-6">
+    <div class="container-fluid event pt-5 pt-md-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Browse by category</h1>
@@ -717,7 +717,7 @@ include 'header.php';
     <!-- Events End -->
 
     <!-- Offer section  -->
-    <section class="offer container-fluid pt-6">
+    <section class="offer container-fluid pt-5 pt-md-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">New offers</h1>
@@ -733,7 +733,7 @@ include 'header.php';
     <!-- Offer section end  -->
 
     <!-- paragraph  start-->
-    <section class="paragraph pt-6 container-fluid ">
+    <section class="paragraph pt-5 pt-md-6 container-fluid ">
         <div class="container">
             <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
             <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
@@ -763,7 +763,7 @@ include 'header.php';
     <!-- paragraph end -->
 
     <!-- FAQ Start -->
-    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 container-fluid faq">
+    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-5 pt-md-6 container-fluid faq">
         <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
             <div class="row align-items-center">

@@ -22,7 +22,7 @@ include 'header.php';
     <section class="co_filter pt-4  container-fluid">
         <div class="container">
             <div class="co_box d-flex justify-content-end align-items-center">
-                <div class="w-auto me-5 me-md-3">
+                <div class="w-auto me-3 me-md-5">
                     <div class="range-slider">
                         <span class="rangeValues"></span>
                         <input value="100" min="100" max="1000" step="200" type="range">

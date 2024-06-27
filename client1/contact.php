@@ -37,7 +37,7 @@
 
 
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-5 my-6 mt-0">
+    <div class="container-fluid bg-light py-5  mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Contact</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
@@ -51,9 +51,9 @@
 
 
     <!-- Contact Start -->
-    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container-fluid contact pt-5 pt-md-6    wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="p-5 bg-light rounded contact-form">
+            <div class="p-2 p-sm-5 bg-light rounded contact-form">
                 <div class="row g-4">
                     <div class="col-12">
                        
@@ -80,11 +80,13 @@
                             <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">
                                 <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                 <div class="">
-                                    <h4>Mail Us</h4>
-                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p>
+                                <h4>Mail Us</h4>
+                             <a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a>
+                                    <!-- <h4>Mail Us</h4>
+                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p> -->
                                 </div>
                             </div>
-                            <div class="d-inline-flex w-100 border border-primary p-4 rounded">
+                            <div class="d-inline-flex w-100 border border-primary p-4 rounded ">
                                 <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                 <div class="">
                                     <h4>Telephone</h4>

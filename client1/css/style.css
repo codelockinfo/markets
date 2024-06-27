@@ -208,10 +208,38 @@ h6,
     left: -150% !important;
 }
 .header_button{
-    animation: header 2s infinite ;
+    animation: header 2s linear infinite ;
 }
-
-/* anouncebar start  */
+@keyframes header{
+    0%{
+        background-color: var(--bs-primary);
+        color: var(--bs-dark);
+   }
+    
+    50%{
+        background-color: var(--bs-dark);
+        color: var(--bs-primary);
+    }
+    
+  }
+.header_button2{
+    animation: header2 2s linear infinite ;
+}
+@keyframes header2{
+    0%{
+        background-color: var(--bs-primary);
+        color: var(--bs-dark);
+        border: 1px solid var(--bs-primary);
+   }
+    
+    100%{
+        background-color: var(--bs-white);
+        color: var(--bs-primary);
+        border: 1px solid var(--bs-dark);
+    }
+    
+  }
+  /* anouncebar start  */
 .anounce{
     animation: marquee 15s linear infinite ;
 }
@@ -226,20 +254,8 @@ h6,
         transform: translateX(-100%);
     }
 }
-
 /* anouncebar end  */
-@keyframes header{
-    0%{
-        background-color: var(--bs-primary);
-        color: var(--bs-dark);
-   }
-    
-    50%{
-        background-color: var(--bs-dark);
-        color: var(--bs-primary);
-    }
-    
-  }
+
 @media (max-width: 1340px) {
     .navbar-collapse .dropdown-menu{
         left: -200% !important;
@@ -278,6 +294,13 @@ h6,
     .navbar-collapse .dropdown .megamenu-box {
         width: 200px;
     }
+  
+}
+@media (min-width: 800px) {
+    .pt-md-6{
+        padding-top: 6rem !important;
+    }
+  
 }
 
 .dropdown .dropdown-menu a:hover {
@@ -1202,4 +1225,9 @@ h6,
   
   input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
+  }
+  @media (max-width:400px) {
+    .range-slider .rangeValues {
+        font-size: 12px;
+    }
   }
