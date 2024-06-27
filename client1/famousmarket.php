@@ -10,20 +10,17 @@ include 'header.php';
     <!-- Hero Start -->
     <div class="container-fluid bg-light py-5 mt-0">
         <div class="container text-center animated bounceInDown">
-            <h1 class="display-1 mb-4">All markets in Surat</h1>
+            <h1 class="display-1 mb-4">All Famous markets in Surat</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
                 <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
-                <li class="breadcrumb-item text-dark" aria-current="page">All markets in Surat</li>
+                <li class="breadcrumb-item text-dark" aria-current="page">All Famous markets in Surat</li>
             </ol>
         </div>
     </div>
 
    <!-- famous market Start -->
-   <div class="container-fluid famous pt-6">
+   <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
-            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Famous markets in surat</h1>
-            </div>
             <div class="row2 ">
                 <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">

@@ -37,7 +37,7 @@
     <!-- Modal Search End -->
 
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-5 my-6 mt-0">
+    <div class="container-fluid bg-light py-5 mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Product page</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
@@ -50,7 +50,7 @@
     <!-- Hero End -->
 
     <!-- product details section start -->
-    <section class="product">
+    <section class="product pt-5 pt-md-6">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6">
