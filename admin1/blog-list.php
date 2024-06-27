@@ -103,9 +103,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -128,9 +125,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -153,9 +147,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -178,9 +169,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -203,9 +191,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -228,9 +213,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -253,9 +235,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
@@ -278,9 +257,6 @@ include 'header.php';
                     </h5>
                   </a>
                   <div class="d-flex justify-content-between mb-3">
-                    <div class="d-flex align-items-center text-sm">
-                      $250
-                    </div>
                     <div class="ms-auto text-end">
                       <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
                       <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
