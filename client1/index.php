@@ -257,7 +257,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <a href="famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
+            <a href="<?php echo CLS_SITE_URL ?>famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
         </div>
     </div>
     <!-- famous market End -->
@@ -266,7 +266,7 @@ include 'header.php';
     <div class="container-fluid event pt-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Brouse by category</h1>
+                <h1 class="display-5 mb-5">Browse by category</h1>
             </div>
             <div class="tabbable">
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs wow bounceInUp">
@@ -711,7 +711,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <a href="collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
+            <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
         </div>
     </div>
     <!-- Events End -->

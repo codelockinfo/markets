@@ -1,7 +1,8 @@
  <!-- anouncebar start  -->
  <section class="bg-dark">
      <div class="container overflow-hidden">
-         <div class="anounce px-1 text-capitalize text-primary py-2 m-0 text-center w-auto">
+         <div class="anounce px-1 text-capitalize text-primary py-2 m-0 text-end d-flex w-auto">
+             <div class="anounce_text ms-5">most famous markets in surat</div>
              <div class="anounce_text ms-5">most famous markets in surat</div>
          </div>
      </div>
@@ -11,7 +12,7 @@
  <div class="container-fluid nav-bar">
      <div class="container">
          <nav class="navbar navbar-light navbar-expand-lg">
-             <a href="index.php" class="navbar-brand">
+             <a href="<?php echo CLS_SITE_URL ?>index.php" class="navbar-brand">
                  <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
              </a>
              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
@@ -19,7 +20,7 @@
              </button>
              <div class="collapse navbar-collapse" id="navbarCollapse">
                  <div class="navbar-nav mx-auto">
-                     <a href="collection2.php" class="nav-item nav-link text-capitalize">View All Markets</a>
+                     <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="nav-item nav-link text-capitalize">View All Markets</a>
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown"> markets</a>
                          <div class="dropdown-menu  bg-light">
@@ -179,8 +180,8 @@
                              </div>
                          </div>
                      </div>
-                     <a href="blog.php" class="nav-item nav-link text-capitalize">blogs</a>
-                     <a href="menu.php" class="nav-item nav-link text-capitalize">videos</a>
+                     <a href="<?php echo CLS_SITE_URL ?>blog.php" class="nav-item nav-link text-capitalize">blogs</a>
+                     <a href="<?php echo CLS_SITE_URL ?>menu.php" class="nav-item nav-link text-capitalize">videos</a>
                  </div>
                  <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                  <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize header_button">register your shop</a>
@@ -192,12 +193,12 @@
  <!-- megamenu md view  -->
  <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
      <div class="offcanvas-header">
-         <a href="index.php"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image"></a>
+         <a href="<?php echo CLS_SITE_URL ?>index.php"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image"></a>
          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
      </div>
      <div class="offcanvas-body">
          <div class="accordion accordion-flush" id="accordionFlushExample">
-             <div class="accordion-item"> <a href="collection2.php">
+             <div class="accordion-item"> <a href="<?php echo CLS_SITE_URL ?>collection2.php">
                      <h4 class="accordion-header ">
                          <button class="megamenu_b bg-light collapsed" type="button">
                              View All Markets
@@ -310,7 +311,7 @@
                      </div>
                  </div>
              </div>
-             <div class="accordion-item"> <a href="blog.php">
+             <div class="accordion-item"> <a href="<?php echo CLS_SITE_URL ?>blog.php">
                      <h4 class="accordion-header ">
                          <button class="megamenu_b bg-light collapsed" type="button">
                              Blog

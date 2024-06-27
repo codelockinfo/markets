@@ -213,17 +213,17 @@ h6,
 
 /* anouncebar start  */
 .anounce{
-    animation: marquee 15s linear infinite running;
+    animation: marquee 15s linear infinite ;
 }
 .anounce_text{
-    width: 75%;
+    min-width: 100%;
 }
 @keyframes marquee {
     from {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
 }
 

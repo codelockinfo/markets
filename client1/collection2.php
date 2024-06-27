@@ -12,7 +12,7 @@ include 'header.php';
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">All markets in Surat</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">All markets in Surat</li>
             </ol>
         </div>
@@ -22,7 +22,7 @@ include 'header.php';
     <section class="co_filter pt-4  container-fluid">
         <div class="container">
             <div class="co_box d-flex justify-content-end align-items-center">
-                <div class="w-auto me-3">
+                <div class="w-auto me-5 me-md-3">
                     <div class="range-slider">
                         <span class="rangeValues"></span>
                         <input value="100" min="100" max="1000" step="200" type="range">
