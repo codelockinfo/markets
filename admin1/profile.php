@@ -23,7 +23,7 @@ include 'header.php';
                 <div class="row gx-4">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="<?php echo main_url('/admin1/assets/img/bruce-mars.jpg'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                            <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>
                     <div class="col-auto my-auto">
@@ -44,7 +44,7 @@ include 'header.php';
                 <div class="col-xl-6 col-md-6 profile-sec">
                     <div class="card">
                         <li class="list-group-item border-0 ps-0 pb-0">
-                            <strong class="text-dark text-sm p-3">Shop Photo:</strong> &nbsp;
+                            <strong class="text-dark text-sm p-3">Your Shop:</strong> &nbsp;
                             <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
                                 <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
                             </a>
@@ -64,7 +64,7 @@ include 'header.php';
                                     <h6 class="mb-0">Profile Information</h6>
                                 </div>
                                 <div class="col-md-4 text-end">
-                                    <a href="#">
+                                    <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
                                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                     </a>
                                 </div>
@@ -197,7 +197,7 @@ include 'header.php';
         </div>
     </div>
     <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">

@@ -53,12 +53,15 @@ include 'header.php';
         </div>
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
           <div class="card z-index-0 p-3 main-sec">
-            <div class="mb-3 form-check-reverse text-right">
+            <div class="mb-3 form-check-reverse text-right ">
               <div class="container">
-                <div class="btn-group btn-toggle">
-                  <i class="fa fa-eye p-2 mt-0" aria-hidden="true"></i>
-                  <button class="btn btn-sm btn-default">Enable</button>
-                  <button class="btn btn-sm bg-gradient-info active">Disable</button>
+                <div class="btn-group">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="form-check form-switch ps-0">
+                    <i class="fa fa-eye p-1 me-2 mt-0" aria-hidden="true"></i>
+                      <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,7 +145,7 @@ include 'header.php';
     </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
