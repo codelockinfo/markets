@@ -58,20 +58,20 @@ include 'header.php';
                 </div>
                 <div class="col-xl-6 col-md-6 profile-sec">
                     <div class="card h-100">
-                        <div class="card-header pb-0">
+                        <div class="card-header">
                             <div class="row">
-                                <div class="col-md-6 mx-auto d-flex align-items-center">
+                                <div class="col-md-6 d-flex">
                                     <h6 class="mb-0">Profile Information</h6>
                                 </div>
-                                <div class="col-md-6 mx-auto text-end">
+                                <div class="col-md-6 text-end">
                                     <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
                                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-3">
-                            <hr class="horizontal gray-light my-4">
+                        <div class="card-header">
+                            <hr class="horizontal gray-light">
                             <ul class="list-group">
                                 <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop
