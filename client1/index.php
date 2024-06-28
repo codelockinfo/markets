@@ -774,15 +774,11 @@ include 'header.php';
                     <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
                     <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
                     <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-            <a href="video.php" class="btn btn-primary mx-auto">View All Videos</a>
+            <a href="<?php echo CLS_SITE_URL ?>video.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
         </div>
     </section>
     <!-- video section end -->
