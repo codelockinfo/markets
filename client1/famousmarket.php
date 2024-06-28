@@ -39,7 +39,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6>(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6>(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>

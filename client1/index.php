@@ -97,7 +97,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6>(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6>(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -251,7 +251,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -765,15 +765,15 @@ include 'header.php';
     <section class="video pt-5 pt-md-6 container-fluid">
         <div class="container">
         <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Our Trending Videos</h1>
+                <h1 class="display-5 mb-5">Our trending videos</h1>
             </div>
             <div class="swiper videoSwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -920,17 +920,17 @@ include 'header.php';
     <section class="testimonial pt-5 pt-md-6 container-fluid">
         <div class="container">
             <div class="d-flex flex-column align-items-center mb-3">
-                <h1>Markets by Reviews</h1>
+                <h1>Markets by reviews</h1>
             </div>
             <div class="swiper testimonalSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5"> 
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop1.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3"> Aarohi Fation</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -947,10 +947,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop2.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3"> Kavya Fabrics</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -967,10 +967,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop3.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3"> Global Textile</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -987,10 +987,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop4.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3">Krishna Textile</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -1007,10 +1007,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop5.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3">Jay Ambe Fabrics</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -1027,10 +1027,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop6.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3">KS textile</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -1047,10 +1047,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/logo (1).png" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3">Rajhans Textile</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
@@ -1067,30 +1067,10 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop8.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
-                            <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <h6>(4.5)</h6>
-                            </div>
-                            <div class="coma-box rounded">
-                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
-                            <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
-                            </div>
-                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
-                            <h4 class="mt-3"> Client's Name</h4>
+                            <h4 class="mt-3">Bal Krishna Fabrics</h4>
                             <div class="d-flex justify-content-center mt-2">
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <i class="fa-solid fa-star text-primary"></i>
