@@ -85,7 +85,7 @@ include 'header.php';
     <!-- Collection2 Start -->
     <section class="collection pt-4 container-fluid">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">

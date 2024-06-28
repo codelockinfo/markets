@@ -68,6 +68,6 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
     <!-- call start  -->
-    <a href="#" class="btn btn-md-square btn-primary rounded-circle telephone"><img src="img/customer-support (1).png" alt=""></a>
+    <a href="tel:7600464414" class="btn btn-md-square btn-primary rounded-circle telephone"><img src="img/customer-support (1).png" alt=""></a>
     <script src="js/custom.js"></script>
     
