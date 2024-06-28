@@ -159,7 +159,7 @@ class admin_functions {
                         $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                         
                         $message = file_get_contents('user/thankemail_template.php');
-                        $to = $shopuinfo->shop->email;	
+                        $to = $email;	
                         $subject = "Market Search"; 
                         $headers ="From:codelockinfo@gmail.com"." \r\n";     
                         $headers = "MIME-Version: 1.0\r\n";
