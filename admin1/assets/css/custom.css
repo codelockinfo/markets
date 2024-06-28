@@ -212,7 +212,7 @@
 /* banner image & markets form css */
 .drop-zone {
   position: relative;
-  max-width: 100%;
+  max-width: 50%;
   height: 200px;
   padding: 25px;
   display: flex;
