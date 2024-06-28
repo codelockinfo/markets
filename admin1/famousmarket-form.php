@@ -29,71 +29,146 @@ include 'header.php';
       </div>
     </div>
     <div class="container-fluid py-4">
-      <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
-        <div class="card z-index-0 p-3">
-        <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-          <label for="s-logo" class="font-weight-normal required">Shop Logo</label>
-          <div class="mb-3">
-            <input type="text" class="form-control validtext" placeholder="Shop Logo" name="shop_logo">
-            <span class="errormsg shop_logo"></span>
-          </div>
-          <label for="b-image" class="font-weight-normal required">SVG Image</label>
-          <div class="mb-3">
-            <div class="drop-zone form-control">
-              <span class="drop-zone__prompt">Drop file here or click to upload</span>
-              <input type="file" name="svg_img" class="drop-zone__input">
-            </div>
-            <div class="col">
-              <div class="row mt-2">
-                <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+      <div class="row">
+        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
+          <div class="card z-index-0 p-3">
+            <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
+              <label for="s-logo" class="font-weight-normal required">Shop Logo</label>
+              <div class="mb-3">
+                <input type="text" class="form-control validtext" placeholder="Shop Logo" name="shop_logo">
+                <span class="errormsg shop_logo"></span>
               </div>
-              <div class="row mt-lg-n1">
-                <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+              <label for="b-image" class="font-weight-normal required">SVG Image</label>
+              <div class="mb-3">
+                <div class="drop-zone form-control">
+                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                  <input type="file" name="svg_img" class="drop-zone__input">
+                </div>
+                <div class="col">
+                  <div class="row mt-2">
+                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                  </div>
+                  <div class="row mt-lg-n1">
+                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                  </div>
+                </div>
+                <div class="errormsg svg_img myFile"></div>
+              </div>
+              <label for="text" class="font-weight-normal">SVG Image Alt</label>
+              <div class="mb-3">
+                <input type="text" class="form-control validtext" placeholder="SVG Image Alt" name="svg_image_alt">
+              </div>
+              <label for="b-heading" class="font-weight-normal required">Heading</label>
+              <div class="mb-3">
+                <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
+                <span class="errormsg heading"></span>
+              </div>
+              <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
+              <div class="mb-3">
+                <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
+                <span class="errormsg sub_heading"></span>
+              </div>
+              <label for="market-img" class="font-weight-normal required">Image</label>
+              <div class="mb-3">
+                <div class="drop-zone form-control">
+                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                  <input type="file" class="drop-zone__input" name="img">
+                </div>
+                <div class="col">
+                  <div class="row mt-2">
+                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                  </div>
+                  <div class="row mt-lg-n1">
+                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                  </div>
+                </div>
+                <div class="errormsg img myFile"></div>
+              </div>
+              <label for="text" class="font-weight-normal"> Image Alt</label>
+              <div class="mb-3">
+                <input type="text" class="form-control validtext" placeholder="Image Alt" name="heading">
+              </div>
+              <div class="mb-3">
+                <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
+                <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
+              </div>
+              <div class="alert" role="alert" id="success_message" name="success_alert"></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
+          <div class="card z-index-0 p-3">
+            <div class="row">
+              <div class="mb-3 form-check-reverse text-right ">
+                <div class="container">
+                  <div class="btn-group">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <div class="form-check form-switch ps-0">
+                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
+                <div class="card card-blog card-plain">
+                  <div class="position-relative">
+                    <a class="d-block border-radius-xl">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                    </a>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="ms-auto text-end">
+                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
+                <div class="card card-blog card-plain">
+                  <div class="position-relative">
+                    <a class="d-block border-radius-xl">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                    </a>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="ms-auto text-end">
+                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
+                <div class="card card-blog card-plain">
+                  <div class="position-relative">
+                    <a class="d-block border-radius-xl">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                    </a>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="ms-auto text-end">
+                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
+                <div class="card card-blog card-plain">
+                  <div class="position-relative">
+                    <a class="d-block border-radius-xl">
+                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
+                    </a>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="ms-auto text-end">
+                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="errormsg svg_img myFile"></div>
           </div>
-          <label for="text" class="font-weight-normal">SVG Image Alt</label>
-            <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="SVG Image Alt" name="svg_image_alt">
-            </div>
-          <label for="b-heading" class="font-weight-normal required">Heading</label>
-          <div class="mb-3">
-            <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
-            <span class="errormsg heading"></span>
-          </div>
-          <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
-          <div class="mb-3">
-            <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
-            <span class="errormsg sub_heading"></span>
-          </div>
-          <label for="market-img" class="font-weight-normal required">Image</label>
-          <div class="mb-3">
-            <div class="drop-zone form-control">
-              <span class="drop-zone__prompt">Drop file here or click to upload</span>
-              <input type="file" class="drop-zone__input" name="img">
-            </div>
-            <div class="col">
-              <div class="row mt-2">
-                <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
-              </div>
-              <div class="row mt-lg-n1">
-                <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
-              </div>
-            </div>
-            <div class="errormsg img myFile"></div>
-          </div>
-          <label for="text" class="font-weight-normal"> Image Alt</label>
-            <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Image Alt" name="heading">
-            </div>
-          <div class="mb-3">
-            <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
-            <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
-          </div>
-          <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
-        </form>
-      </div>
+        </div>
       </div>
     </div>
   </div>

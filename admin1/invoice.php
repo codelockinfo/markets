@@ -16,64 +16,11 @@ include 'header.php';
       </div>
       <div class="card card-body blur shadow-blur mx-4 mt-n5 p-4 overflow-hidden">
         <div class="row gx-4">
-          <div class="col-auto">
-          </div>
-          <div class="col-auto my-auto">
+          <div class="col-auto mx-auto ms-sm-3 mt-2">
             <div class="h-100">
               <h5 class="mb-1">
-                Paragraph Form
+                Invoice
               </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto para-main">
-          <div class="card z-index-0 p-3">
-            <form role="form" id="paragraphinsert" enctype="multipart/form-data" method="POST">
-              <label for="body" class="font-weight-normal required">Paragraph</label>
-              <div class="mb-3">
-                <textarea name="myeditor" id="myeditor"></textarea>
-                <span class="errormsg myeditor"></span>
-              </div>
-              <div class="mb-3">
-                <button type="button" class="btn bg-gradient-info btn-sm paragraphSave save_loader_show">Save</button>
-                <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
-              </div>
-              <div class="alert" role="alert" id="success_message" name="success_alert"></div>
-            </form>
-          </div>
-        </div>
-        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto para-main">
-          <div class="card z-index-0 p-3">
-            <div class="mb-3 form-check-reverse text-right ">
-              <div class="container">
-                <div class="btn-group">
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                    <div class="form-check form-switch ps-0">
-                      <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-12 wow bounceInUp">
-              <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
-              <p class="fs-7">
-                Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform
-                connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether
-                you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast
-                selection to suit every need.
-              </p>
-              <h5 class="fw-bold">Designer Lehengas Suppliers in India </h5>
-              <p class="fs-7">
-                Explore our extensive network of designer lehenga suppliers across India. We bring you the finest collection of 
-                lehengas, perfect for weddings, festivals, and special occasions. Our suppliers offer a variety of styles, including 
-                bridal lehengas, party-wear lehengas, and contemporary lehenga cholis, crafted with attention to detail and the latest 
-                fashion trends.
-              </p>
             </div>
           </div>
         </div>
@@ -142,6 +89,8 @@ include 'header.php';
       </div>
     </div>
   </div>
+  <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
 
 </html>

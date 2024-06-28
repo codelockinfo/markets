@@ -21,7 +21,7 @@ include 'header.php';
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Brouse By Textile Categories Form
+                Browser By Textile Categories Form
               </h5>
             </div>
           </div>
@@ -74,7 +74,6 @@ include 'header.php';
                   <div class="btn-group">
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <div class="form-check form-switch ps-0">
-                        <i class="fa fa-eye p-1 me-2 mt-0" aria-hidden="true"></i>
                         <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
                       </div>
                     </div>
