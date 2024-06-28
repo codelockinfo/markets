@@ -1146,4 +1146,16 @@ h6,
     top: 5%;
     text-align: center;
   }
+  .testimonial-main-box .testi-img-box{
+    width: 200px;
+    height: 200px;
+    background-color: var(--bs-white);
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    }
+
   /* testimonial section end  */
