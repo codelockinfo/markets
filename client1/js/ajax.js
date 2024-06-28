@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log("CLient ajax call");
     $('.contactForm').click(function(){
         console.log("contactForm");
         $.ajax({

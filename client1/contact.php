@@ -73,7 +73,7 @@
                                 placeholder="Enter Your Email" name="email">
                             <textarea class="w-100 form-control mb-4 p-3 border-primary bg-light" rows="4" cols="10"
                                 placeholder="Your Message" name="message"></textarea>
-                            <button
+                            <button type="button"
                                 class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill contactForm">Submit
                                 Now</button>
                         </form>

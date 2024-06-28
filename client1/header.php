@@ -52,7 +52,7 @@ include($myRoot . '/markets/connection.php');
     <script src="<?php echo main_url('/client1/lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
 
     <!-- Template Javascript -->
+    <script src="<?php echo main_url('/client1/js/ajax.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/main.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/custom.js'); ?>"></script>
-    <script src="<?php echo main_url('/client1/js/ajax.js'); ?>"></script>
 </head>
