@@ -768,7 +768,30 @@ include 'header.php';
         </div>
     </section>
     <!-- paragraph end -->
-
+    <!-- video section start  -->
+    <section class="video pt-5 pt-md-6 container-fluid">
+        <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <h1 class="display-5 mb-5">Our Trending Videos</h1>
+            </div>
+            <div class="swiper videoSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+    <!-- video section end -->
     <!-- FAQ Start -->
     <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-5 pt-md-6 container-fluid faq">
         <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
@@ -912,7 +935,7 @@ include 'header.php';
             <div class="swiper testimonalSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -932,7 +955,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -952,7 +975,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -972,7 +995,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -992,7 +1015,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -1012,7 +1035,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -1032,7 +1055,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -1052,7 +1075,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -1072,7 +1095,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
                             </div>
@@ -1091,7 +1114,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
