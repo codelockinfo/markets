@@ -48,6 +48,46 @@ function redirect403() {
     window.location = "https://www.shopify.com/admin/apps";
 }
 
+    function loadData(routineName) {
+        console.log(routineName + " on load");
+
+        $.ajax({
+            url: "../admin1/ajax_call.php",
+            type: 'post',
+            dataType: "json",
+            data: {"routine_name": routineName},
+            success: function (response) {
+                var response = JSON.parse(response);
+                $("#getdata").html(response.outcome);
+            }
+        });
+    }
+
+    function listproduct() {
+       loadData('productlisting');
+     }
+
+    function listblog() {
+       loadData('bloglisting');
+    }
+
+    function offerlist() {
+      loadData('offerlisting');
+    }
+
+    function listvideo() {
+      loadData('videolisting');
+    }
+
+    function listbrousetextile() {
+      loadData('brousetextilelisting');
+    }
+
+    function listFAQ() {
+      loadData('FAQlisting');
+    }
+
+
 var loadShopifyAJAX= null;
 var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
     if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
@@ -128,6 +168,25 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
             showConfirmButton: false
          });
       }
+
+    //   $('.Disable').click(function() {
+    //       var button = $(this);
+
+    //       // Disable the button
+    //       button.prop('disabled', true);
+    //       button.prop('disabled', true);
+    //       // Remove the data element
+    //       $('#getdata').hide();
+    //  });
+
+    //  $('.Enable').click(function() {
+    //     var button = $(this);
+        
+    //     // Disable the button
+    //     button.prop('disabled', true);
+
+    //     $('#getdata').show();
+    // });
 
       if ($("textarea#myeditor").length > 0) {
           CKEDITOR.replace('myeditor');
@@ -353,6 +412,86 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
             }
           });
       })
+
+    function confirmAndDelete(employeeId, routineName, type, onSuccess) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  var data = {
+                      routine_name: routineName
+                  };
+                  if (type === 'product') {
+                      data.product_id = employeeId;
+                  } else if (type === 'blog') {
+                      data.blog_id = employeeId;
+                  }
+                  else if (type === 'video') {
+                    data.video_id = employeeId; 
+                  }
+                $.ajax({
+                    url: "../admin1/ajax_call.php",
+                    type: 'POST',
+                    dataType: "json",
+                    data: data,
+                    success: function(response) {
+                        var result = JSON.parse(response);
+                        if (result.data === 'success') {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your record has been deleted.',
+                                'success'
+                            );
+                            // Call the onSuccess callback function if provided
+                            if (typeof onSuccess === 'function') {
+                                onSuccess();
+                            }
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                'There was a problem deleting the record.',
+                                'error'
+                            );
+                        }
+                    },
+                    error: function() {
+                        Swal.fire(
+                            'Error!',
+                            'There was a problem with the server.',
+                            'error'
+                        );
+                    }
+                });
+            }
+        });
+    }
+   
+    $(document).delegate(".delete-button", "click", function() {
+          var employeeId = $(this).attr('data-id');
+          confirmAndDelete(employeeId,'productdelete','product', function() {
+            listproduct();
+          });
+    });  
+
+    $(document).delegate(".delete-blog", "click", function() {
+         var employeeId = $(this).attr('data-id');
+         confirmAndDelete(employeeId, 'blogdelete' , 'blog', function() {
+           listblog();
+         });
+    });  
+
+    $(document).delegate(".video-delete", "click", function() {
+      var employeeId = $(this).attr('data-id');
+      confirmAndDelete(employeeId, 'videodelete' , 'video', function() {
+        listvideo()
+      });
+ });  
 
       $(document).on("click",".videoSave",function(event){
         event.preventDefault();
@@ -667,7 +806,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
           }
         });
       }
-      
+     
       var ctx = document.getElementById("chart-bars").getContext("2d");
 
       new Chart(ctx, {
