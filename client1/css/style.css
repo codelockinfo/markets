@@ -25,10 +25,16 @@
 .back-to-top {
     position: fixed;
     right: 30px;
-    bottom: 80px;
+    bottom: 130px;
     z-index: 99;
 }
 .Add-your-shop {
+    position: fixed;
+    right: 30px;
+    bottom: 80px;
+    z-index: 99;
+}
+.telephone {
     position: fixed;
     right: 30px;
     bottom: 30px;
@@ -1098,10 +1104,19 @@ h6,
   input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
   }
-  @media (max-width:400px) {
-    .range-slider .rangeValues {
-        font-size: 12px;
+  @media (max-width:576px) {
+     input[type=range]::-webkit-slider-runnable-track{
+        width: 100%;
+     }
+    input[type=range]::-ms-track {
+        width: 100%;
+    } 
+    input[type=range]::-moz-range-track {
+        width: 100%;
+    } input[type=range]{
+        width: 100%;
     }
+   
   }
 
   /* testimonial section strat  */

@@ -67,6 +67,7 @@
     <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
+    <!-- call start  -->
+    <a href="#" class="btn btn-md-square btn-primary rounded-circle telephone"><img src="img/customer-support (1).png" alt=""></a>
     <script src="js/custom.js"></script>
     
