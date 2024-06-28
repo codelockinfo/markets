@@ -50,7 +50,7 @@
     <!-- Hero End -->
 
     <!-- product details section start -->
-    <section class="product pt-5 pt-md-6">
+    <section class="product pt-5 pt-md-6 container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6">
@@ -125,7 +125,7 @@
     <!-- product details section end -->
 
     <!-- related product start  -->
-    <section class="related-product mt-6">
+    <section class="related-product mt-6 container-fluid">
         <div class="container">
             <div class="swiper relatedslider">
                 <div class="swiper-wrapper">

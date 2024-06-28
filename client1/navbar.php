@@ -186,7 +186,7 @@
                          </div>
                      </div>
                      <a href="<?php echo CLS_SITE_URL ?>blog.php" class="nav-item nav-link text-capitalize">blogs</a>
-                     <a href="<?php echo CLS_SITE_URL ?>menu.php" class="nav-item nav-link text-capitalize">videos</a>
+                     <a href="<?php echo CLS_SITE_URL ?>video.php" class="nav-item nav-link text-capitalize">videos</a>
                  </div>
                  <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                  <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize header_button">register your shop</a>
@@ -324,7 +324,7 @@
                      </h4>
                  </a>
              </div>
-             <div class="accordion-item"> <a href="#">
+             <div class="accordion-item"> <a href="<?php echo CLS_SITE_URL ?>video.php">
                      <h4 class="accordion-header ">
                          <button class="megamenu_b bg-light collapsed" type="button">
                              Videos

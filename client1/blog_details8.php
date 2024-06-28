@@ -47,7 +47,7 @@
     <!-- Hero End -->
 
     <!-- Blogdetails start  -->
-    <section class="blog_details pt-5 pt-md-6">
+    <section class="blog_details  container-fluid pt-5 pt-md-6">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">

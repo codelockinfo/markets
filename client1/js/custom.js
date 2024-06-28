@@ -341,3 +341,38 @@ var swiper = new Swiper(".testimonalSwiper", {
   },
 });
 // testimonial slider end
+// testimonial slider strat 
+var swiper = new Swiper(".videoSwiper", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop:true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    320: {
+      slidesPerView: 1,
+    },
+    650: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1000: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  },
+});
+// testimonial slider end
