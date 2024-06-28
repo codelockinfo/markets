@@ -15,7 +15,8 @@ include($myRoot . '/markets/connection.php');
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="<?php echo main_url('/client1/css/all.min.css'); ?>" rel="stylesheet">
@@ -34,7 +35,7 @@ include($myRoot . '/markets/connection.php');
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="<?php echo main_url('/client1/css/style.css'); ?>" rel="stylesheet">
     <link href="<?php echo main_url('/client1/css/animate.min.css'); ?>" rel="stylesheet" />
-    
+
 
     <!-- JavaScript Libraries -->
     <script src="<?php echo main_url('/client1/js/jquery.min.js'); ?>"></script>
@@ -53,4 +54,5 @@ include($myRoot . '/markets/connection.php');
     <!-- Template Javascript -->
     <script src="<?php echo main_url('/client1/js/main.js'); ?>"></script>
     <script src="<?php echo main_url('/client1/js/custom.js'); ?>"></script>
+    <script src="<?php echo main_url('/client1/js/ajax.js'); ?>"></script>
 </head>

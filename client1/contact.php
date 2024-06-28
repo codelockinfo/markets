@@ -5,7 +5,8 @@
 <body>
 
     <!-- Spinner Start -->
-    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
@@ -26,7 +27,8 @@
                 </div>
                 <div class="modal-body d-flex align-items-center">
                     <div class="input-group w-75 mx-auto d-flex">
-                        <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                        <input type="search" class="form-control bg-transparent p-3" placeholder="keywords"
+                            aria-describedby="search-icon-1">
                         <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                     </div>
                 </div>
@@ -56,16 +58,24 @@
             <div class="p-2 p-sm-5 bg-light rounded contact-form">
                 <div class="row g-4">
                     <div class="col-12">
-                       
+
                         <h1 class="display-5 mb-0">Contact Us For Any Queries!</h1>
                     </div>
                     <div class="col-md-6 col-lg-7">
-                        <p class="mb-4">Whether you’re a wholesaler of fabrics, a textile shop owner, or someone interested in our platform, we are here to assist you. Our dedicated team is ready to answer any questions, provide support, or guide you through the process of registering your business on our platform. Please use the form below to get in touch with us.
-                        <form>
-                            <input type="text" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Your Name">
-                            <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Enter Your Email">
-                            <textarea class="w-100 form-control mb-4 p-3 border-primary bg-light" rows="4" cols="10" placeholder="Your Message"></textarea>
-                            <button class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit">Submit Now</button>
+                        <p class="mb-4">Whether you’re a wholesaler of fabrics, a textile shop owner, or someone
+                            interested in our platform, we are here to assist you. Our dedicated team is ready to answer
+                            any questions, provide support, or guide you through the process of registering your
+                            business on our platform. Please use the form below to get in touch with us.
+                        <form method="POST">
+                            <input type=" text" class="w-100 form-control p-3 mb-4 border-primary bg-light"
+                                placeholder="Your Name" name="name">
+                            <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light"
+                                placeholder="Enter Your Email" name="email">
+                            <textarea class="w-100 form-control mb-4 p-3 border-primary bg-light" rows="4" cols="10"
+                                placeholder="Your Message" name="message"></textarea>
+                            <button
+                                class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill contactForm">Submit
+                                Now</button>
                         </form>
                     </div>
                     <div class="col-md-6 col-lg-5">
@@ -74,14 +84,15 @@
                                 <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
                                 <div class="">
                                     <h4>Address</h4>
-                                    <p>2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</p>
+                                    <p>2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat
+                                        395006</p>
                                 </div>
                             </div>
                             <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">
                                 <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                 <div class="">
-                                <h4>Mail Us</h4>
-                             <a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a>
+                                    <h4>Mail Us</h4>
+                                    <a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a>
                                     <!-- <h4>Mail Us</h4>
                                     <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p> -->
                                 </div>
@@ -105,7 +116,7 @@
     <?php 
         include 'footer.php';
     ?>
-  
+
 </body>
 
 </html>
