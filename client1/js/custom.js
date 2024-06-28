@@ -307,3 +307,37 @@ $('.count').each(function () {
         }
     });
 });
+
+
+// testimonial slider strat 
+var swiper = new Swiper(".testimonalSwiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop:true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    320: {
+      slidesPerView: 1,
+    },
+    650: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1000: {
+      slidesPerView: 3,
+    },
+  },
+});
+// testimonial slider end

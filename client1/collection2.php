@@ -21,15 +21,16 @@ include 'header.php';
     <!-- filter and latest section start -->
     <section class="co_filter pt-4  container-fluid">
         <div class="container">
-            <div class="co_box d-flex justify-content-end align-items-center">
-                <div class="w-auto me-3 me-md-5">
+            <div class="co_box d-block d-sm-flex justify-content-end align-items-center">
+                <div class="w-auto me-4 me-md-5 order-2 ">
                     <div class="range-slider">
                         <span class="rangeValues"></span>
                         <input value="100" min="100" max="1000" step="200" type="range">
                         <input value="1000" min="100" max="1000" step="200" type="range">
                     </div>
                 </div>
-                <div class="dropdown ms-2">
+               <div class="d-flex order-1">
+               <div class="dropdown ms-2">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Filter
                     </button>
@@ -76,6 +77,7 @@ include 'header.php';
                         <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Wedding">Wedding clothing</a></li>
                     </ul>
                 </div>
+               </div>
             </div>
         </div>
     </section>

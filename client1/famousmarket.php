@@ -27,7 +27,7 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Arohi-Woman Fashion</h4>
+                                <a href="#" class="mb-3 h4 text-dark text-capitalize">Arohi-Woman Fashion</a>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
                                     <img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
@@ -40,6 +40,7 @@ include 'header.php';
                                 <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                 <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -62,6 +63,7 @@ include 'header.php';
                                 <i class="fa-regular fa-star text-primary"></i>
                                 <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -84,6 +86,7 @@ include 'header.php';
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <h6>(5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -106,6 +109,7 @@ include 'header.php';
                                 <i class="fa-regular fa-star text-primary"></i>
                                 <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -128,6 +132,7 @@ include 'header.php';
                                 <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                 <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -150,6 +155,7 @@ include 'header.php';
                                 <i class="fa-solid fa-star text-primary"></i>
                                 <h6>(5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -172,6 +178,7 @@ include 'header.php';
                                 <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                 <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -194,6 +201,7 @@ include 'header.php';
                                 <i class="fa-regular fa-star text-primary"></i>
                                 <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>

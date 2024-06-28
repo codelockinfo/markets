@@ -13,8 +13,8 @@ include 'header.php';
     <?php
     include 'navbar.php';
     ?>
-    
-   <!-- on load popup box strat  -->
+
+    <!-- on load popup box strat  -->
     <div id="modalOverlay">
         <div class="modalPopup bg-white p-3 p-md-5">
             <div class="headerBar bg-white m-0 text-center w-100">
@@ -53,7 +53,7 @@ include 'header.php';
                         <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 count" >382936</h3>
+                                    <h3 class="text-white  m-0 count">382936</h3>
                                     <p class="text-capitalize m-0 text-white">products</p>
                                 </div>
                             </div>
@@ -84,8 +84,7 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Arohi-Woman Fashion</h4>
+                                <a href="#" class="mb-3 text-capitalize ha text-dark">Arohi-Woman Fashion</a>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
                                     <img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
@@ -98,6 +97,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ include 'header.php';
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
                                 <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Kavya Fabrics</h4>
+                                <a class="mb-3 text-capitalize ha text-dark">Kavya Fabrics</a>
                                 <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
                                     <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="">
@@ -120,6 +120,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -142,6 +143,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6>(5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -164,6 +166,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -186,6 +189,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -208,6 +212,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6>(5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -230,6 +235,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -252,6 +258,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -896,7 +903,202 @@ include 'header.php';
         </div>
     </div>
     <!-- Book Us End -->
-
+    <!-- testimonial section start -->
+    <section class="testimonial pt-5 pt-md-6 container-fluid">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center mb-3">
+                <h1>Markets by Reviews</h1>
+            </div>
+            <div class="swiper testimonalSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial section end -->
     <?php
     include 'footer.php';
     ?>

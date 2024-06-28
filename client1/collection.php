@@ -20,7 +20,7 @@
     </div>
     <!-- Hero End -->
     <!-- Collection Start -->
-    <div class=" text-center py-5">
+    <div class=" text-center py-5 collectionp">
         <div class="container ">
             <div class="row">
                 <div class="col-12 col-md-4">
