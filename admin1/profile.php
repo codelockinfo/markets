@@ -23,7 +23,7 @@ include 'header.php';
                 <div class="row gx-4">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="<?php echo main_url('/admin1/assets/img/bruce-mars.jpg'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                            <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>
                     <div class="col-auto my-auto">
@@ -44,34 +44,33 @@ include 'header.php';
                 <div class="col-xl-6 col-md-6 profile-sec">
                     <div class="card">
                         <li class="list-group-item border-0 ps-0 pb-0">
-                            <strong class="text-dark text-sm p-3">Shop Photo:</strong> &nbsp;
+                            <strong class="text-dark text-sm p-3">Your Shop:</strong> &nbsp;
                             <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
                                 <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
                             </a>
                         </li>
                         <div class="mx-auto text-center">
                             <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
-                                <button type="button" class="btn bg-gradient-info btn-sm">Profile Form</button>
+                                <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6 profile-sec">
                     <div class="card h-100">
-                        <div class="card-header pb-0 p-3">
+                        <div class="card-header">
                             <div class="row">
-                                <div class="col-md-8 d-flex align-items-center">
+                                <div class="col-md-6 col-auto me-auto d-flex">
                                     <h6 class="mb-0">Profile Information</h6>
                                 </div>
-                                <div class="col-md-4 text-end">
-                                    <a href="#">
+                                <div class="col-md-6 col-auto ms-auto text-end">
+                                    <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
                                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-3">
-                            <hr class="horizontal gray-light my-4">
+                        <div class="card-header profile-section">
                             <ul class="list-group">
                                 <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop
@@ -88,9 +87,19 @@ include 'header.php';
                 </div>
                 <div class="col-12 mt-4">
                     <div class="card mb-4">
-                        <div class="card-header pb-0 p-3">
-                            <h6 class="mb-1">Projects</h6>
-                            <p class="text-sm">Architects design houses</p>
+                        <div class="card-body d-flex p-3 row">
+                            <div class="col-auto mx-auto ms-sm-3 mt-2">
+                                <h6 class="mb-1">
+                                    Your Product
+                                </h6>
+                            </div>
+                            <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
+                                <div class="nav-wrapper position-relative end-0">
+                                    <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
+                                        <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0">View All Product</button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body p-3">
                             <div class="row">
@@ -187,8 +196,8 @@ include 'header.php';
         </div>
     </div>
     <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <i class="fa fa-cog py-2"> </i>
+        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+            <i class="fa fa-phone"></i>
         </a>
         <div class="card shadow-lg ">
             <div class="card-header pb-0 pt-3 ">
@@ -201,11 +210,9 @@ include 'header.php';
                         <i class="fa fa-close"></i>
                     </button>
                 </div>
-                <!-- End Toggle Button -->
             </div>
             <hr class="horizontal dark my-1">
             <div class="card-body pt-sm-3 pt-0">
-                <!-- Sidebar Backgrounds -->
                 <div>
                     <h6 class="mb-0">Sidebar Colors</h6>
                 </div>
@@ -219,7 +226,6 @@ include 'header.php';
                         <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
                     </div>
                 </a>
-                <!-- Sidenav Type -->
                 <div class="mt-3">
                     <h6 class="mb-0">Sidenav Type</h6>
                     <p class="text-sm">Choose between 2 different sidenav types.</p>
@@ -229,7 +235,6 @@ include 'header.php';
                     <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
                 </div>
                 <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-                <!-- Navbar Fixed -->
                 <div class="mt-3">
                     <h6 class="mb-0">Navbar Fixed</h6>
                 </div>

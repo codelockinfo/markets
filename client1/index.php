@@ -14,40 +14,67 @@ include 'header.php';
     include 'navbar.php';
     ?>
 
-    <!-- Modal Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- on load popup box strat  -->
+    <div id="modalOverlay">
+        <div class="modalPopup bg-white p-3 p-md-5">
+            <div class="headerBar bg-white m-0 text-center w-100">
+                <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
+            </div>
+            <div class="modalContent text-center">
+                <p class="text-capitalize m-0">are you looking for Wholesalers?</p>
+                <p class="text-capitalize ">in surat (the texttile hub)</p>
+                <div class="justify-content-center d-flex  mt-3">
+                    <a href="#" id="yesButton"><button class="btn btn-primary me-1 fs-6 px-5">Yes</button></a>
+                    <a href="https://www.google.com/"><button class="btn btn-dark ms-1  fs-6 px-5">No</button></a>
                 </div>
-                <div class="modal-body d-flex align-items-center">
-                    <div class="input-group w-75 mx-auto d-flex">
-                        <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- on load popup box end  -->
+
+    <!--p class="returnToProfile"><a href="https://codepen.io/ptamaro" target="_parent">Return to profile</a></p-->
+
+    <!-- Hero Start -->
+    <section class="banner_section">
+        <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
+            <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="no-image">
+            <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="no-image">
+            <div class=" banner_content">
+                <div class="banner-content-main container">
+                    <div class="row">
+                        <div class="col-sm-4 mt-2 mt-sm-0">
+                            <div class="banner-main-box p-1 wow bounceInUp">
+                                <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
+                                    <h3 class="text-white count m-0">346866</h3>
+                                    <p class="text-capitalize m-0 text-white">verified suppliers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
+                            <div class="banner-main-box p-1">
+                                <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
+                                    <h3 class="text-white  m-0 count">382936</h3>
+                                    <p class="text-capitalize m-0 text-white">products</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
+                            <div class="banner-main-box p-1">
+                                <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
+                                    <h3 class="text-white  m-0 count">519407</h3>
+                                    <p class="text-capitalize m-0 text-white">trusted buyers</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal Search End -->
-
-    <!-- Hero Start -->
-    <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
-        <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="no-image">
-        <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="no-image">
-        <div class="container ">
-            <div class="row g-5 align-items-center">
-                <div class="banner-content-main">
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
     <!-- Hero End -->
 
     <!-- famous market Start -->
-    <div class="container-fluid famous pt-6">
+    <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Famous markets in surat</h1>
@@ -57,20 +84,20 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Arohi-Woman Fashion</h4>
+                                <a href="collection2.php" class="mb-3 text-capitalize h4 text-dark">Arohi-Woman Fashion</a>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
-                                </div>
+                                   <a href="collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
+                                   </div></a>
                                 <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <h6>(4.5)</h6>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                    <h6>(4.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -79,20 +106,20 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Kavya Fabrics</h4>
+                                <a href="collection2.php" class="mb-3 text-capitalize h4 text-dark">Kavya Fabrics</a>
                                 <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="">
+                                   <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <i class="fa-regular fa-star text-primary"></i>
-                                <h6>(3.5)</h6>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                    <i class="fa-regular fa-star text-primary"></i>
+                                    <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -101,108 +128,20 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Global textile</h4>
+                                <a href="collection2.php" class="mb-3 h4 text-capitalize">Global textile</a>
                                 <p class="mb-4">Timeless Elegance in Every Thread</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt="">
+                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <h6>(5)</h6>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <h6>(5)</h6>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2"  data-wow-delay="0.7s">
-                    <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
-                            <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Vidya Fabrics</h4>
-                                <p class="mb-4">Reviving Roots with Every Stitch</p>
-                                <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="">
-                                </div>
-                                <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <i class="fa-regular fa-star text-primary"></i>
-                                <h6>(3.5)</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.1s">
-                    <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
-                            <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Jay Ambe Fabrics</h4>
-                                <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
-                                <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt="">
-                                </div>
-                                <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <h6>(4.5)</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
-                    <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
-                            <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">KS textile</h4>
-                                <p class="mb-4">Draping You in Cultural Splendor</p>
-                                <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt="">
-                                </div>
-                                <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <h6>(5)</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
-                    <div class="bg-light rounded famous-item">
-                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
-                            <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Rajhans textile</h4>
-                                <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
-                                <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt="">
-                                </div>
-                                <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <h6>(4.5)</h6>
-                                </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
@@ -211,35 +150,123 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <!-- <i class="fa-solid fa-cart-shopping fa-3x text-primary mb-4"></i> -->
-                                <h4 class="mb-3 text-capitalize">Bal Krishna fabrics</h4>
-                                <p class="mb-4">Elegance Redefined</p>
+                                <a href="collection2.php" class="mb-3 h4 text-capitalize">krishna textile</a>
+                                <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
-                                    <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt="">
+                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star text-primary"></i>
-                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                <i class="fa-regular fa-star text-primary"></i>
-                                <h6>(3.5)</h6>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                    <i class="fa-regular fa-star text-primary"></i>
+                                    <h6>(3.5)</h6>
                                 </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.1s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
+                            <div class="famous-content-icon  text-center">
+                                <a href="collection2.php" class="mb-3 h4 text-capitalize">Jay Ambe Fabrics</a>
+                                <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
+                                <div class="famous-img rounded-circle">
+                                <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt=""></a>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                    <h6>(4.5)</h6>
+                                </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
+                            <div class="famous-content-icon text-center">
+                            <a href="collection2.php" class="mb-3 h4 text-capitalize">KS textile</a>
+                                <p class="mb-4">Draping You in Cultural Splendor</p>
+                                <div class="famous-img rounded-circle">
+                                <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt=""></a>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <h6>(5)</h6>
+                                </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
+                            <div class="famous-content-icon text-center">
+                            <a href="collection2.php"class="mb-3 h4 text-capitalize">Rajhans textile</a>
+                                <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
+                                <div class="famous-img rounded-circle">
+                                   <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt=""></a>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                    <h6>(4.5)</h6>
+                                </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.7s">
+                    <div class="bg-light rounded famous-item">
+                        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
+                            <div class="famous-content-icon text-center">
+                                <a href="collection2.php" class="mb-3 text-capitalize h4">Bal Krishna fabrics</a>
+                                <p class="mb-4">Elegance Redefined</p>
+                                <div class="famous-img rounded-circle">
+                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt=""></a>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star text-primary"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                    <i class="fa-regular fa-star text-primary"></i>
+                                    <h6>(3.5)</h6>
+                                </div>
+                                <a href="product.php" class="btn btn-primary mt-3">View Product</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
+            <a href="<?php echo CLS_SITE_URL ?>famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
         </div>
     </div>
     <!-- famous market End -->
 
     <!-- Events brouse by category Start -->
-    <div class="container-fluid event pt-6">
+    <div class="container-fluid event pt-5 pt-md-6">
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Brouse by category</h1>
+                <h1 class="display-5 mb-5">Browse by category</h1>
             </div>
             <div class="tabbable">
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs wow bounceInUp">
@@ -271,7 +298,7 @@ include 'header.php';
                 </ul>
                 <div class="dropdown mb-4">
                     <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                       Category
+                        Category
                     </button>
                     <ul class="dropdown-menu w-100">
                         <li><a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-1">Kurtis</a></li>
@@ -684,15 +711,15 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <a href="collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
+            <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
         </div>
     </div>
     <!-- Events End -->
 
     <!-- Offer section  -->
-    <section class="offer container-fluid pt-6">
+    <section class="offer container-fluid pt-5 pt-md-6">
         <div class="container">
-        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">New offers</h1>
             </div>
             <div class="row">
@@ -706,7 +733,7 @@ include 'header.php';
     <!-- Offer section end  -->
 
     <!-- paragraph  start-->
-    <section class="paragraph pt-6 container-fluid ">
+    <section class="paragraph pt-5 pt-md-6 container-fluid ">
         <div class="container">
             <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
             <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
@@ -734,9 +761,29 @@ include 'header.php';
         </div>
     </section>
     <!-- paragraph end -->
-
+    <!-- video section start  -->
+    <section class="video pt-5 pt-md-6 container-fluid">
+        <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <h1 class="display-5 mb-5">Our Trending Videos</h1>
+            </div>
+            <div class="swiper videoSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" controls autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <a href="<?php echo CLS_SITE_URL ?>video.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
+        </div>
+    </section>
+    <!-- video section end -->
     <!-- FAQ Start -->
-    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-6 container-fluid faq">
+    <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-5 pt-md-6 container-fluid faq">
         <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
             <h1 class="fs-1 ">Frequently ask questions</h1>
             <div class="row align-items-center">
@@ -869,11 +916,206 @@ include 'header.php';
         </div>
     </div>
     <!-- Book Us End -->
+    <!-- testimonial section start -->
+    <section class="testimonial pt-5 pt-md-6 container-fluid">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center mb-3">
+                <h1>Markets by Reviews</h1>
+            </div>
+            <div class="swiper testimonalSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ">
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                            <div class="testi-img-box overflow-hidden ">
+                                <a href="#"><img src="img/shop_1/client1.webp" class=" img-fluid mx-auto w-50 rounded-circle" alt=""></a>
+                            </div>
+                            <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
+                            <h4 class="mt-3"> Client's Name</h4>
+                            <div class="d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star text-primary"></i>
+                                <i class="fa-solid fa-star-half-stroke text-primary"></i>
+                                <h6>(4.5)</h6>
+                            </div>
+                            <div class="coma-box rounded">
+                                <i class="fa-solid fa-quote-right text-primary fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial section end -->
     <?php
     include 'footer.php';
     ?>
-   
+
 </body>
 
 </html>

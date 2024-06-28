@@ -100,8 +100,14 @@ include 'header.php';
                     </div>
                     <div class="mb-2">
                       <input type="file" class="form-control signImage" name="image">
-                      <label class="font-weight-normal m-0"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-                      <label class="font-weight-normal m-0"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
+                      <div class="col">
+                        <div class="row mt-2">
+                          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                        </div>
+                        <div class="row mt-lg-n1">
+                          <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                        </div>
+                      </div>
                       <div class="errormsg image imageError"></div>
                     </div>
                     <div class="mb-3">
@@ -134,8 +140,8 @@ include 'header.php';
               </div>
             </div>
             <div class="col-md-6">
-              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n7" style="background-image:url('assets/img/sign-in-up.jpeg')"></div>
+              <div class="b-img position-absolute top-0 h-100 d-md-block d-none me-n8">
+                <div class="b-img1 bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('assets/img/698472_R-1049.jpeg')"></div>
               </div>
             </div>
           </div>

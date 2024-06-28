@@ -47,7 +47,7 @@ include 'header.php';
                   <li><span class="fa-li"></span>Shop Front View</li>
                 </ul> 
               </div>
-              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+              <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
             </div>
           </div>
           <div class="col-lg-4  plan-card">
@@ -72,7 +72,7 @@ include 'header.php';
                   <li><span class="fa-li"></span>Exclusive Offers</li>
                 </ul>
               </div>
-              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+              <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
             </div>
           </div>
           <div class="col-lg-4  plan-card">
@@ -99,7 +99,7 @@ include 'header.php';
                   <li><span class="fa-li"></span>Promotional Campaigns</li>
                 </ul>
               </div>
-              <a href="#" class="btn btn-block btn-light text-uppercase">Choose Plan</a>
+              <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
             </div>
           </div>
         </div>
@@ -108,8 +108,8 @@ include 'header.php';
   </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+      <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
       <div class="card-header pb-0 pt-3 ">
@@ -122,11 +122,9 @@ include 'header.php';
             <i class="fa fa-close"></i>
           </button>
         </div>
-        <!-- End Toggle Button -->
       </div>
       <hr class="horizontal dark my-1">
       <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
         <div>
           <h6 class="mb-0">Sidebar Colors</h6>
         </div>
@@ -140,7 +138,6 @@ include 'header.php';
             <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
           </div>
         </a>
-        <!-- Sidenav Type -->
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
           <p class="text-sm">Choose between 2 different sidenav types.</p>
@@ -150,7 +147,6 @@ include 'header.php';
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
         </div>
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
         <div class="mt-3">
           <h6 class="mb-0">Navbar Fixed</h6>
         </div>

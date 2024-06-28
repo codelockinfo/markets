@@ -34,11 +34,11 @@
     <!-- Modal Search End -->
 
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-5 my-6 mt-0">
+    <div class="container-fluid bg-light py-5 mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Blog details</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">Blog details</li>
             </ol>
@@ -47,7 +47,7 @@
     <!-- Hero End -->
 
     <!-- Blogdetails start  -->
-    <section class="blog_details">
+    <section class="blog_details pt-5 pt-md-6 container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">

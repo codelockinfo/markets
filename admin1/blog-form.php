@@ -63,7 +63,7 @@ include 'header.php';
             <label for="p-tags" class="font-weight-normal required">Blog Category</label>
             <div class="mb-3">
               <select class="form-select" aria-label="Default select example" name="blog_category">
-                <option selected value="">Category</option>
+                <option selected value="">Select Category</option>
                 <option value="1">Armwear</option>
                 <option value="2">Badges</option>
                 <option value="3">Belts</option>
@@ -114,13 +114,19 @@ include 'header.php';
                 <span class="drop-zone__prompt" id="dragfile">Drop file here or click to upload</span>
                 <input type="file" name="blog_image" class="drop-zone__input">
               </div>  
+              <div class="col">
+                <div class="row mt-2">
+                  <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                </div>
+                <div class="row mt-lg-n1">
+                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                </div>
+              </div>
+              <div class="errormsg blog_image myFile"></div>
             </div>
-            <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG, JPG, JPEG, GIF file </label><br>
-            <label class="font-weight-normal"><strong>File Size Limit:</strong> Each file should not exceed 5 MB </label>
-            <div class="errormsg blog_image myFile"></div>
-            <label for="text" class="font-weight-normal">Blog image alt</label>
+            <label for="text" class="font-weight-normal">Blog Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="blog image alt" name="blog_image_alt">
+              <input type="text" class="form-control validtext" placeholder="Blog Image Alt" name="blog_image_alt">
             </div>
             <div class="mb-3">
               <button type="button" class="btn bg-gradient-info btn-sm blogSave save_loader_show">Save</button>
@@ -133,8 +139,8 @@ include 'header.php';
     </div>  
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+      <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
       <div class="card-header pb-0 pt-3 ">
@@ -147,11 +153,9 @@ include 'header.php';
             <i class="fa fa-close"></i>
           </button>
         </div>
-        <!-- End Toggle Button -->
       </div>
       <hr class="horizontal dark my-1">
       <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
         <div>
           <h6 class="mb-0">Sidebar Colors</h6>
         </div>
@@ -165,7 +169,6 @@ include 'header.php';
             <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
           </div>
         </a>
-        <!-- Sidenav Type -->
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
           <p class="text-sm">Choose between 2 different sidenav types.</p>
@@ -175,7 +178,6 @@ include 'header.php';
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
         </div>
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
         <div class="mt-3">
           <h6 class="mb-0">Navbar Fixed</h6>
         </div>

@@ -1,5 +1,5 @@
     <!-- Footer Start -->
-    <div class="container-fluid footer py-6 mt-5  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container-fluid footer py-4 py-md-5 mt-5  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -30,11 +30,11 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Policies</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <a class="text-muted mb-3" href="privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
+                            <a class="text-muted mb-3" href="<?php echo CLS_SITE_URL ?>privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
                             <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
                             <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
                             <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
-                            <a class="text-muted mb-3" href="contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
+                            <a class="text-muted mb-3" href="<?php echo CLS_SITE_URL ?>contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -67,6 +67,7 @@
     <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-
+    <!-- call start  -->
+    <a href="tel:7600464414" class="btn btn-md-square btn-primary rounded-circle telephone"><img src="img/customer-support (1).png" alt=""></a>
     <script src="js/custom.js"></script>
+    

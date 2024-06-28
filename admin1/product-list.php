@@ -9,12 +9,12 @@ include 'header.php';
   <?php
   include 'adminheader.php';
   ?>
-  <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 overflow-x-hidden">
+  <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <div class="container-fluid">
       <div class="page-header min-height-300 border-radius-xl mt-4">
         <span class="mask bg-gradient-info opacity-6"></span>
       </div>
-      <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="card card-body blur shadow-blur mx-4 mt-n6">
         <div class="row gx-4">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
@@ -31,7 +31,7 @@ include 'header.php';
               </p>
             </div>
           </div>
-          <div class="col-lg-2 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                 <li class="nav-item">
@@ -59,11 +59,17 @@ include 'header.php';
         </div>
       </div>
     </div>
-    <div class="col-12 mt-4">
+    <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3">
           <div class="card-header pb-0 p-3">
             <h6 class="mb-1 mt-1 text-lg">Products</h6>
+          </div>
+          <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
+            <div class="input-group search-btn search-icon">
+              <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control search-btn_1" placeholder="Type here...">
+            </div>
           </div>
           <div class="dropdown mt-3">
             <button class="btn bg-gradient-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,6 +86,10 @@ include 'header.php';
               <li><a class="dropdown-item" href="#">Date, new to old</a></li>
             </ul>
           </div>
+        </div>
+        <div class="input-group search-btn search-icon1 w-80 mx-auto">
+          <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+          <input type="text" class="form-control search-btn_1" placeholder="Type here...">
         </div>
         <div class="card-body p-3">
           <div class="row">
@@ -307,11 +317,9 @@ include 'header.php';
       </div>
     </div>
   </div>
-  </div>
-  </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+      <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
       <div class="card-header pb-0 pt-3 ">
@@ -324,11 +332,9 @@ include 'header.php';
             <i class="fa fa-close"></i>
           </button>
         </div>
-        <!-- End Toggle Button -->
       </div>
       <hr class="horizontal dark my-1">
       <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
         <div>
           <h6 class="mb-0">Sidebar Colors</h6>
         </div>
@@ -342,7 +348,6 @@ include 'header.php';
             <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
           </div>
         </a>
-        <!-- Sidenav Type -->
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
           <p class="text-sm">Choose between 2 different sidenav types.</p>
@@ -352,7 +357,6 @@ include 'header.php';
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
         </div>
         <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
         <div class="mt-3">
           <h6 class="mb-0">Navbar Fixed</h6>
         </div>
