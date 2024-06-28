@@ -585,3 +585,24 @@
   }
 }
 /* banner and other form css end */
+
+
+
+/* invoice page css */
+.bill-to{
+  margin: 10px;
+}
+.bill-to:hover{
+  border: 1px solid rgb(238, 219, 219);
+  border-radius: 10px;
+  padding: 10px;
+}
+.ship-to{
+  margin: 10px;
+}
+.ship-to:hover{
+  border: 1px solid rgb(238, 219, 219);
+  border-radius: 10px;
+  padding: 10px;
+}
+/* invoice page css end */
