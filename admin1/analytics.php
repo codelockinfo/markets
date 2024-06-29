@@ -132,7 +132,7 @@ include 'header.php';
                 <div class="row">
                   <div class="col-3 py-3 ps-0">
                     <div class="d-flex mb-2">
-                      <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                      <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <title>document</title>
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -182,7 +182,7 @@ include 'header.php';
                   </div>
                   <div class="col-3 py-3 ps-0">
                     <div class="d-flex mb-2">
-                      <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+                      <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <title>credit-card</title>
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -206,7 +206,7 @@ include 'header.php';
                   </div>
                   <div class="col-3 py-3 ps-0">
                     <div class="d-flex mb-2">
-                      <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-danger text-center me-2 d-flex align-items-center justify-content-center">
+                      <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <title>settings</title>
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
