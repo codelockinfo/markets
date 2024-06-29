@@ -10,6 +10,7 @@ class admin_functions {
 
     public $cls_errors = array();
     public $msg = array();
+    protected $db;
 
     public function __construct() {
         $db_connection = new DB_Class();
@@ -156,6 +157,15 @@ class admin_functions {
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                        
+                        $message = file_get_contents('user/thankemail_template.php');
+                        $to = $email;	
+                        $subject = "Market Search"; 
+                        $headers ="From:codelockinfo@gmail.com"." \r\n";     
+                        $headers = "MIME-Version: 1.0\r\n";
+                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                        $responceEmail = mail ($to, $subject, $message, $headers);	
+                        
                         $last_id = mysqli_insert_id($this->db);
                         $user_query = "SELECT * FROM users WHERE user_id = $last_id";
                         $user_result = mysqli_query($this->db, $user_query);
@@ -265,7 +275,7 @@ class admin_functions {
         $allowedPatterns = array(
             '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/',
             '/^https?:\/\/youtu\.be\/[a-zA-Z0-9_-]+$/',
-            '/^https?:\/\/(www\.)?youtube\.com\/shorts\/[a-zA-Z0-9_-]+$/'
+            '/^https?:\/\/(www\.)?youtube\.com\/embed\/[a-zA-Z0-9_-]+$/'
         );
         foreach ($allowedPatterns as $pattern) {
             if (preg_match($pattern, $url)) {
@@ -597,9 +607,6 @@ class admin_functions {
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your image";
         }
-        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image alt";
-        }
         if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
             $error_array['img_link'] = "Please enter image link";
         } elseif (isset($_POST['img_link']) && !$this->isValidURL($_POST['img_link'])) {
@@ -729,4 +736,217 @@ class admin_functions {
         return $response;
     }
 
+    function productlisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM products"; // Correct query syntax
+        $result = $this->db->query($query);
+        $output="";
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["p_image"];
+                    $imagePath = "../admin1/assets/img/product_img/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    $title =  $row['title'];
+                    $price = $row['maxprice'];
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '      <a href="#">';
+                    $output .= '        <h5> '. $title .'</h5>';
+                    $output .= '      </a>';
+                    $output .= '      <div class="d-flex justify-content-between mb-3">';
+                    $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
+                    $output .= '        <div class="ms-auto text-end">';
+                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete-button">Delete</button>';
+                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
+                    $output .= '        </div>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';     
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+                $response = json_encode($response_data);
+                return $response;
+    }
+    
+    function bloglisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM blogs"; // Correct query syntax
+        $result = $this->db->query($query);
+        $output="";      
+         if ($result) {
+            while ($row = mysqli_fetch_array($result)) {  
+                $image = $row["image"];
+                $imagePath = "../admin1/assets/img/blog_img/".$image;
+                $decodedPath = htmlspecialchars_decode($imagePath);
+                $title =  $row['title'];
+                // $price = $row['maxprice'];
+                $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                $output .= '  <div class="card card-blog card-plain">';
+                $output .= '    <div class="position-relative">';
+                $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                $output .= '      </a>';
+                $output .= '    </div>';
+                $output .= '    <div class="card-body px-1 pb-0">';
+                $output .= '      <a href="#">';
+                $output .= '        <h5> '. $title .'</h5>';
+                $output .= '      </a>';
+                $output .= '      <div class="d-flex justify-content-between mb-3">';
+                $output .= '        <div class="ms-auto text-end">';
+                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete-blog">Delete</button>';
+                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
+                $output .= '        </div>';
+                $output .= '      </div>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';     
+                // print_r($row) ;    
+                
+            }
+            $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+            $response = json_encode($response_data);
+            return $response;
+    }
+
+    function videolisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM videos"; // Correct query syntax
+        $result = $this->db->query($query);
+        $output = "";
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {  
+                $link = $row["short_link"];
+                $title =  $row['title'];
+                $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                $output .= '<div class="card card-blog card-plain">';
+                $output .= '<div class="position-relative">';
+                $output .= '<a class="border-radius-xl">';
+                $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="'. $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+                $output .= '</a>';
+                $output .= '</div>';
+                $output .= '<div class="card-body px-1 pb-0">';
+                $output .= '<div class="d-flex justify-content-between mb-3">';
+                $output .= '<div class="ms-auto text-end">';
+                $output .= '<button data-id="'.$row['video_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 video-delete">Delete</button>';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';
+            }
+            $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function offerlisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM offers"; // Correct query syntax
+        $result = $this->db->query($query);
+        $output="";
+          if ($result) {
+            while ($row = mysqli_fetch_array($result)) {  
+                $image = $row["img"];
+                $imagePath = "../admin1/assets/img/offers/".$image;
+                $decodedPath = htmlspecialchars_decode($imagePath);
+                $output .= ' <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">';
+                $output .= '<div class="card card-blog card-plain">';
+                $output .= '<div class="position-relative">';
+                $output .= '<a class="d-block border-radius-xl">';
+                $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">';
+                $output .= '</a>';
+                $output .= ' </div>';
+                $output .= '</div>';
+                $output .= ' </div>'   ;              
+            }
+            $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function brousetextilelisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM b_textile_catagory"; // Correct query syntax
+        $result = $this->db->query($query);
+        $output="";
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["img"];
+                    $imagePath = "../admin1/assets/img/brouse_textilectgry_img/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    $output .= '<div class="col-xl-4 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block border-radius-xl">';
+                    $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>' ;  
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+                $response = json_encode($response_data);
+                return $response;
+    }
+
+    function FAQlisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM faq"; // Correct query syntax
+        $result = $this->db->query($query);
+        $output="";
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $output .= '<div class="accordion-item">';
+                    $output .= '<input type="checkbox" id="'. $row["id"] .'">';
+                    $output .= '<label for="'. $row["id"] .'" class="accordion-item-title"><span class="icon"></span>'.$row["question"].'</label>';
+                    $output .= '<div class="accordion-item-desc">' . $row["answer"] . '</div>';
+                    $output .= '</div>'; 
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+                $response = json_encode($response_data);
+                return $response;
+    }
+
+    function deleteRecord($table, $delete_id) {
+        $delete_id = $this->db->real_escape_string($delete_id);
+        $table_singular = rtrim($table, 's');
+        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
+        $result = $this->db->query($query);
+        if ($result === TRUE) {
+            $response_data = array('data' => 'success', 'message' => "Delete successfully");
+        } else {
+            $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
+        }
+        return json_encode($response_data);
+    }
+
+    function productdelete() {
+        $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
+        return $this->deleteRecord('products', $delete_id);
+    }
+    
+    function blogdelete() {
+        $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
+        return $this->deleteRecord('blogs', $delete_id);
+    }
+    
+    function videodelete() {
+        $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
+        return $this->deleteRecord('videos', $delete_id);
+    }
 }
