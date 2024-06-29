@@ -33,56 +33,56 @@ $(Document).on("click", ".submit", function (event) {
 // contact form validation end
 
 //   on load popup js start
+document.addEventListener("DOMContentLoaded", function () {
+  var modalOverlay = document.getElementById("modalOverlay");
+  var yesButton = document.getElementById("yesButton");
+  var noButton = document.getElementById("noButton");
+
+  // Check the cookie
+  var popupSeen = readCookie("popupSeen");
+  if (popupSeen === null) {
+      modalOverlay.style.display = "flex";  // Changed from "block" to "flex" to center the modal
+  }
+  if (yesButton) {
+      yesButton.addEventListener("click", function () {
+          createCookie("popupSeen", "yes", 365);
+          modalOverlay.style.display = "none";
+      });
+  }
+  if (noButton) {
+      noButton.addEventListener("click", function () {
+          eraseCookie("popupSeen");
+          modalOverlay.style.display = "none";
+      });
+  }
+});
+
 function createCookie(name, value, days) {
-  var expires = "";
+  var expires;
   if (days) {
       var date = new Date();
       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
       expires = "; expires=" + date.toGMTString();
+  } else {
+      expires = "";
   }
   document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-//Cookie reading function
 function readCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(';');
   for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
   }
   return null;
 }
 
-// Cookie deletion function
 function eraseCookie(name) {
   createCookie(name, "", -1);
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  var modalOverlay = document.getElementById('modalOverlay');
-  var yesButton = document.getElementById('yesButton');
-  var noButton = document.getElementById('noButton');
-
-  // Check the cookie
-  var popupSeen = readCookie('popupSeen');
-  if (popupSeen === null) {
-      modalOverlay.style.display = 'block';
-  }
-
-  // On clicking yes button
-  yesButton.addEventListener('click', function() {
-      createCookie('popupSeen', 'yes', 365);
-      modalOverlay.style.display = 'none';
-  });
-
-  // On clicking no button
-  noButton.addEventListener('click', function() {
-      eraseCookie('popupSeen');
-      modalOverlay.style.display = 'none';
-  });
-});
 //   on load popup js end
 
 // product gallery slider start
@@ -237,30 +237,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-// blog content js end 
+// blog content js end
 
 // filter collection category button strat
-document.addEventListener('DOMContentLoaded', (event) => {
-    const byCategoryButton = document.getElementById('byCategory');
-    const latestMarketsButton = document.getElementById('latestMarkets');
-    const categoryDropdown = document.getElementById('categoryDropdown');
-    const categoryItems = document.querySelectorAll('.category-item');
+document.addEventListener("DOMContentLoaded", (event) => {
+  const byCategoryButton = document.getElementById("byCategory");
+  const latestMarketsButton = document.getElementById("latestMarkets");
+  const categoryDropdown = document.getElementById("categoryDropdown");
+  const categoryItems = document.querySelectorAll(".category-item");
 
-    byCategoryButton.addEventListener('click', () => {
-        categoryDropdown.style.display = 'block';
-    });
+  if (byCategoryButton) {
+      byCategoryButton.addEventListener("click", () => {
+          categoryDropdown.style.display = "block";
+      });
+  }
 
-    latestMarketsButton.addEventListener('click', () => {
-        categoryDropdown.style.display = 'none';
-    });
+  if (latestMarketsButton) {
+      latestMarketsButton.addEventListener("click", () => {
+          categoryDropdown.style.display = "none";
+      });
+  }
 
-    categoryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            categoryDropdown.style.display = 'none';
-        });
-    });
+  if (categoryItems) {
+      categoryItems.forEach((item) => {
+          item.addEventListener("click", () => {
+              categoryDropdown.style.display = "none";
+          });
+      });
+  }
 });
-
 // filter collection category button end
 
 // price range slider start
@@ -296,24 +301,28 @@ window.onload = function () {
   }
 };
 // price range slider end
-$('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
+$(".count").each(function () {
+  $(this)
+    .prop("Counter", 0)
+    .animate(
+      {
+        Counter: $(this).text(),
+      },
+      {
         duration: 4000,
-        easing: 'swing',
+        easing: "swing",
         step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
+          $(this).text(Math.ceil(now));
+        },
+      }
+    );
 });
 
-
-// testimonial slider strat 
+// testimonial slider strat
 var swiper = new Swiper(".testimonalSwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
-  loop:true,
+  loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -341,11 +350,11 @@ var swiper = new Swiper(".testimonalSwiper", {
   },
 });
 // testimonial slider end
-// testimonial slider strat 
+// testimonial slider strat
 var swiper = new Swiper(".videoSwiper", {
   slidesPerView: 4,
   spaceBetween: 30,
-  loop:true,
+  loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
