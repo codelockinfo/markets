@@ -66,7 +66,7 @@ include 'header.php';
                     <span class="text-normal">Date</span>
                   </div>
                   <div class="col">
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="date" name="date" id="" class="form-control">
                   </div>
                 </div>
                 <div class="row ms-auto text-end mt-2">
@@ -74,7 +74,7 @@ include 'header.php';
                     <span class="text-normal">Payment Terms</span>
                   </div>
                   <div class="col">
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="payment_terms" id="" class="form-control">
                   </div>
                 </div>
                 <div class="row ms-auto text-end mt-2">
@@ -82,7 +82,7 @@ include 'header.php';
                     <span class="text-normal">Due Date</span>
                   </div>
                   <div class="col">
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="date" name="due-date" id="" class="form-control">
                   </div>
                 </div>
                 <div class="row ms-auto text-end mt-2">
@@ -90,7 +90,7 @@ include 'header.php';
                     <span class="text-normal">PO Number</span>
                   </div>
                   <div class="col">
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="po-number" id="" class="form-control">
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ include 'header.php';
                     <span class="text-normal">Amount Paid</span>
                   </div>
                   <div class="col text-center">
-                    <input type="description" class="form-control mt-1 max-width-200" placeholder="$ 0">
+                    <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0">
                   </div>
                 </div>
                 <div class="row ms-auto text-end mt-2">

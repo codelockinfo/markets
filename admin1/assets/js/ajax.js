@@ -896,7 +896,7 @@ var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
               tension: 0.4,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#cb0c9f",
+              borderColor: "#77C0FC",
               borderWidth: 3,
               backgroundColor: gradientStroke1,
               fill: true,
