@@ -149,6 +149,15 @@ class admin_functions {
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                        
+                        $message = file_get_contents('user/thankemail_template.php');
+                        $to = $email;	
+                        $subject = "Market Search"; 
+                        $headers ="From:codelockinfo@gmail.com"." \r\n";     
+                        $headers = "MIME-Version: 1.0\r\n";
+                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                        $responceEmail = mail ($to, $subject, $message, $headers);	
+                        
                         $last_id = mysqli_insert_id($this->db);
                         $user_query = "SELECT * FROM users WHERE user_id = $last_id";
                         $user_result = mysqli_query($this->db, $user_query);                
