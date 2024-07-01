@@ -26,165 +26,6 @@ include 'header.php';
         </div>
       </div>
     </div>
-    <!-- <div class="container-fluid py-4">
-      <div class="col-xl-8 col-md-10 mx-auto">
-        <div class="card z-index-0 p-4 product-main">
-          <form action="">
-            <div class="row w-100">
-              <div class="col w-50">
-                <div class="row">
-                  <div class="col w-50 mb-3">
-                    <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500"></textarea>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <span class="text-normal">Bill To</span>
-                    <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-400"></textarea>
-                  </div>
-                  <div class="col">
-                    <span class="text-normal">Ship To</span>
-                    <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-400"></textarea>
-                  </div>
-                </div>
-              </div>
-              <div class="col w-50">
-                <div class="row ms-auto text-end">
-                  <h1 class="text-normal fs-2">INVOICE</h1>
-                </div>
-                <div class="row">
-                  <input type="text" placeholder="1" class="form-control max-width-200 ms-auto text-end">
-                </div>
-                <div class="row ms-auto text-end mt-7">
-                  <div class="col">
-                    <span class="text-normal">Date</span>
-                  </div>
-                  <div class="col">
-                    <input type="date" name="date" id="" class="form-control">
-                  </div>
-                </div>
-                <div class="row ms-auto text-end mt-2">
-                  <div class="col">
-                    <span class="text-normal">Payment Terms</span>
-                  </div>
-                  <div class="col">
-                    <input type="text" name="payment_terms" id="" class="form-control">
-                  </div>
-                </div>
-                <div class="row ms-auto text-end mt-2">
-                  <div class="col">
-                    <span class="text-normal">Due Date</span>
-                  </div>
-                  <div class="col">
-                    <input type="date" name="due-date" id="" class="form-control">
-                  </div>
-                </div>
-                <div class="row ms-auto text-end mt-2">
-                  <div class="col">
-                    <span class="text-normal">PO Number</span>
-                  </div>
-                  <div class="col">
-                    <input type="text" name="po-number" id="" class="form-control">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <table class="mt-4 w-100">
-                <tr class="border-redius">
-                  <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
-                  <th class="w-10 bg-gradient-info text-light ps-3 text-bold">Quantity</th>
-                  <th class="w-10 bg-gradient-info text-light ps-3 text-bold">Rate</th>
-                  <th class="w-10 bg-gradient-info text-light ps-3 text-bold">Amount</th>
-                </tr>
-                <tr>
-                  <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                  <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                </tr>
-                <tr>
-                  <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                  <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                </tr>
-                <tr>
-                  <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                  <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                </tr>
-              </table>
-              <div class="row max-width-200 mt-3">
-                <button class="btn bg-gradient-info">+ Line Item</button>
-              </div>
-            </div>
-            <div class="row w-100">
-              <div class="col w-50">
-                <div class="row">
-                  <span class="text-normal ps-4">Notes</span>
-                  <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500 mt-2"></textarea>
-                </div>
-                <div class="row mt-2">
-                  <span class="text-normal ps-4">Terms</span>
-                  <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500 mt-2"></textarea>
-                </div>
-              </div>
-              <div class="col w-50">
-                <div class="row ms-auto text-end">
-                  <div class="col">
-                    <span class="text-normal">Subtotal</span>
-                  </div>
-                  <div class="col text-center">
-                    <span>₹ 0.00</span>
-                  </div>
-                </div>
-                <div class="row ms-auto text-end w-90 mt-3">
-                  <div class="col">
-                    <button class="btn bg-gradient-info">+ Discount</button>
-                  </div>
-                  <div class="col text-center">
-                    <button class="btn bg-gradient-info">+ Tax</button>
-                  </div>
-                  <div class="col text-center">
-                    <button class="btn bg-gradient-info">+ Shipping</button>
-                  </div>
-                </div>
-                <div class="row ms-auto text-end mt-2">
-                  <div class="col">
-                    <span class="text-normal">Total</span>
-                  </div>
-                  <div class="col text-center">
-                    <span>₹ 0.00</span>
-                  </div>
-                </div>
-                <div class="row ms-auto text-end mt-2">
-                  <div class="col mt-2">
-                    <span class="text-normal">Amount Paid</span>
-                  </div>
-                  <div class="col text-center">
-                    <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0">
-                  </div>
-                </div>
-                <div class="row ms-auto text-end mt-2">
-                  <div class="col">
-                    <span class="text-normal">Balance Due</span>
-                  </div>
-                  <div class="col text-center">
-                    <span>₹ 0.00</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div> -->
-
     <div class="container-fluid py-4">
       <div class="col-xl-6 mx-auto">
         <div class="card z-index-0 p-4 product-main">
@@ -228,7 +69,7 @@ include 'header.php';
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                <input type="date" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="date" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
                 </div>
               </div>
               <div class="row w-60 mt-2">
@@ -236,7 +77,7 @@ include 'header.php';
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl">
-                <input type="text" class="form-control mt-1 max-width-200">
+                  <input type="text" class="form-control mt-1 max-width-200">
                 </div>
               </div>
               <div class="row w-60 mt-2">
@@ -252,7 +93,7 @@ include 'header.php';
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl">
-                <input type="text" class="form-control mt-1 max-width-200">
+                  <input type="text" class="form-control mt-1 max-width-200">
                 </div>
               </div>
             </div>
@@ -296,7 +137,7 @@ include 'header.php';
                   <span class="text-normal">Subtotal :</span>
                 </div>
                 <div class="col-xl">
-                <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
                 </div>
               </div>
               <div class="row mt-2">
@@ -304,7 +145,7 @@ include 'header.php';
                   <span class="text-normal">Total :</span>
                 </div>
                 <div class="col-xl">
-                <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
                 </div>
               </div>
               <div class="row mt-2">
@@ -320,21 +161,21 @@ include 'header.php';
                   <span class="text-normal">Balance Due :</span>
                 </div>
                 <div class="col-xl">
-                <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
                 </div>
               </div>
             </div>
             <div class="row mt-3 btn-group">
-                <div class="col">
-                  <button class="btn bg-gradient-info">Discount</button>
-                </div>
-                <div class="col text-center">
-                  <button class="btn bg-gradient-info">Tax</button>
-                </div>
-                <div class="col text-center">
-                  <button class="btn bg-gradient-info">Shipping</button>
-                </div>
+              <div class="col">
+                <button class="btn bg-gradient-info">Discount</button>
               </div>
+              <div class="col text-center">
+                <button class="btn bg-gradient-info">Tax</button>
+              </div>
+              <div class="col text-center">
+                <button class="btn bg-gradient-info">Shipping</button>
+              </div>
+            </div>
             <div class="row w-100 mt-4">
               <div class="col w-50">
                 <div class="row">
