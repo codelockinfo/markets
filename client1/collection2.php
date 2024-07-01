@@ -89,7 +89,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -122,7 +122,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -171,7 +171,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -179,7 +179,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -187,7 +187,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -220,7 +220,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -269,7 +269,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -285,7 +285,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -318,7 +318,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -326,7 +326,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -334,7 +334,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -367,7 +367,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -375,7 +375,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -383,7 +383,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -416,7 +416,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -424,7 +424,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -432,7 +432,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -465,7 +465,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -473,7 +473,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>
@@ -481,7 +481,7 @@ include 'header.php';
                 <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box border rounded">
                         <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-normal ms-3 mt-3">Net 3 peace salwar suit</h6>
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                         </div>
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
@@ -514,7 +514,7 @@ include 'header.php';
                                             <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
                                         </div>
                                         <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-primary">L T fabrics</h4>
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
                                             <p class="fs-6 p-0 m-0">surat,gujrat</p>
                                         </div>
                                     </div>
@@ -522,7 +522,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex  mt-3">
                                 <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-dark ms-1  fs-6">Send Inquriy</button>
+                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
                             </div>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ include 'header.php';
                     </a>    
                    </div>
                 </div>
-                <div class="col-md-6 col-lg-6 wow bounceInUp">
+                <div class="col-md-6 col-lg-6 wow bounceInUp mt-md-0 mt-4">
                     <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
                     <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
                     <h5 class="fw-bold">Designer Lehengas Suppliers in India </h5>
@@ -39,7 +39,7 @@ include 'header.php';
     <section class="about paragraph container-fluid pt-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 col-lg-6 wow bounceInUp order-2 order-md-1">
+                <div class="col-md-6 col-lg-6 wow bounceInUp order-2 order-md-1 mt-md-0 mt-4">
                    <div class="about-content">
                    <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
                     <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
@@ -48,7 +48,7 @@ include 'header.php';
                     </p>
                    </div>
                 </div>
-                <div class="col-md-6 col-lg-6 wow bounceInUp">
+                <div class="col-md-6 col-lg-6 wow bounceInUp order-1 order-md-2 ">
                     <a href="#">
                         <img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt="offer1">
                     </a>

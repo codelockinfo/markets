@@ -18,34 +18,35 @@
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Top categories</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
+                            <a class="text-muted  footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Policies</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <a class="text-muted mb-3" href="<?php echo CLS_SITE_URL ?>privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
-                            <a class="text-muted mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
-                            <a class="text-muted mb-3" href="<?php echo CLS_SITE_URL ?>contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
+                            <a class="text-muted mb-3 footer-btn" href="<?php echo CLS_SITE_URL ?>privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
+                            <a class="text-muted  footer-btn" href="<?php echo CLS_SITE_URL ?>contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
                     <div class="footer-item mt-4 mt-md-0">
                         <h4 class="mb-4">Contact Us</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <p><a href="#" class="text-muted"><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
-                            <p><a href="tel:7600464414" class="text-muted"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
-                            <p><a href="mailto:codelockinfo@gmail.com" class="text-muted"><i class="fas fa-envelope text-primary me-2"></i>codelockinfo@gmail.com</a></p>
-                            <p><a href="#" class="text-muted"><i class="fa fa-clock text-primary me-2"></i> 12/7  Hours Service</a></p>
+                            <p class="text-primary"><a href="#" class="text-muted "><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
+                            <p class="text-primary"><a href="tel:7600464414" class="text-muted"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
+                            <p class="text-primary"><a href="mailto:codelockinfo@gmail.com" class="text-muted 
+                            "><i class="fas fa-envelope text-primary me-2"></i>codelockinfo@gmail.com</a></p>
+                            <p class="text-primary"><a href="#" class="text-muted"><i class="fa fa-clock text-primary me-2"></i> 12/7  Hours Service</a></p>
                         </div>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
             <div class="text-center mb-3 mb-md-0">
-                <span class="text-light"><a href="https://codelocksolutions.in/"><i class="fas fa-copyright text-light me-2"></i>Codelock solution</a>, All right reserved. </span>
+                <span class="text-light"><a href="https://codelocksolutions.in/" class="text-second"><i class="fas fa-copyright text-second me-2"></i>Codelock solution</a>, All right reserved. </span>
             </div>
         </div>
     </div>
@@ -68,6 +69,9 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
     <!-- call start  -->
-    <a href="tel:7600464414" class="btn btn-md-square btn-primary rounded-circle telephone"><img src="img/customer-support (1).png" alt=""></a>
+    <a href="tel:7600464414" class="btn btn-md-square btn-primary rounded-circle telephone">
+        <img src="img/customer-support (2).png" alt="" class="c-img-1">
+        <img src="img/customer-service.png" alt="" class="c-img-2"></a>
+
     <script src="js/custom.js"></script>
     

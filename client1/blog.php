@@ -63,8 +63,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -82,8 +82,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -101,8 +101,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -120,8 +120,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -139,8 +139,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -158,8 +158,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -177,8 +177,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -196,8 +196,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
@@ -215,8 +215,8 @@
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
                                 <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                    <p class="fw-bold mb-0">16</p>
-                                    <p class="fw-bold mb-0">Sep</p>
+                                    <p class="fw-bold mb-0 text-white">16</p>
+                                    <p class="fw-bold mb-0 text-white">Sep</p>
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">

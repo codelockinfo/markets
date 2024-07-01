@@ -53,26 +53,26 @@
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="blog_details_box">
                     <div class="blog-head">
-                            <h4 class="fs-3 text-capitalize fw-bold">How to start a  saree business in india with (markets name)</h4>
+                            <h4 class="fs-3 text-capitalize fw-bold text-primary">How to start a  saree business in india with (markets name)</h4>
                         </div>
                         <div class="blog_img">
                             <img src="<?php echo CLS_SITE_URL; ?>img/blog_details9.jpg" class="img-fluid w-100 rounded" alt="">
                         </div>
                         <div class="blog_details_contant mt-4">
-                            <h4 class="fs-5 ">Lorem, ipsum dolor sit amet consectetur adipisicing.</h4>
+                            <h4 class="fs-5 text-second">Lorem, ipsum dolor sit amet consectetur adipisicing.</h4>
                             <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
                             <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             <p class="fs-6"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum .</p>
-                            <h4 class="  fs-5 mt-3">Lorem ipsum dolor sit amet. ?</h4>
+                            <h4 class="  fs-5 mt-3 text-second">Lorem ipsum dolor sit amet. ?</h4>
                             <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <h4 class="  fs-4 mt-3">Lorem ipsum dolor sit amet. ?</h4>
+                            <h4 class="  fs-4 mt-3 text-second">Lorem ipsum dolor sit amet. ?</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
                                 <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
                                 <li class="mb-3"><i class="fa-solid fa-circle fs-05 text-primary me-2"></i>Lorem ipsum dolor sit amet consectetur.</li>
                             </ul>
-                            <h4 class="  fs-5 ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</h4>
+                            <h4 class="  fs-5 text-second">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</h4>
                             <p class="fs-6 mt-3"> Vel blanditiis, ea possimus impedit deleniti error laborum corrupti fuga laudantium iste suscipit illo iure cum ipsam quas expedita quia hic libero?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore provident molestias perferendis animi ut earum, minus eum ex quae expedita reiciendis tempora! Iste odio velit dolorem consequuntur a fuga.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-second fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-second fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
-                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-primary fw-bold">By Stevan Smith</span></h6>
+                                    <h6 class="fw-normal fs-7">12 June 2016 by <span class="text-second fw-bold">By Stevan Smith</span></h6>
                                 </div>
                             </div>
                         </div>

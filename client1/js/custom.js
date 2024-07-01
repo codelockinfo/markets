@@ -101,12 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
       spaceBetween: 10,
       freeMode: true,
       watchSlidesProgress: true,
+      loop: true, // Enable loop for thumbnails slider
     });
 
     mainImageSwiper = new Swiper(".main-image-slider", {
-      // direction: 'vertical',
       slidesPerView: 1,
       spaceBetween: 10,
+      loop: true,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -122,20 +123,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update current thumbnail on slide change
     mainImageSwiper.on("slideChange", function () {
-      const currentIndex = mainImageSwiper.activeIndex;
+      const realIndex = mainImageSwiper.realIndex;
+      thumbnailSwiper.slideTo(realIndex);
       document.querySelectorAll(".thumbnail-button").forEach((thumb, index) => {
         thumb.removeAttribute("aria-current");
-        if (index === currentIndex) {
+        if (index === realIndex) {
           thumb.setAttribute("aria-current", "true");
         }
       });
     });
+
+    // Add click event to thumbnail buttons to sync with main image swiper
+    document.querySelectorAll(".thumbnail-button").forEach((thumb, index) => {
+      thumb.addEventListener("click", function () {
+        mainImageSwiper.slideTo(index);
+      });
+    });
   }
 
-  // Initialize swipers on load
   initializeSwipers();
-
-  // Reinitialize swipers on resize
   window.addEventListener("resize", initializeSwipers);
 });
 // product gallery slider end
@@ -265,7 +271,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           });
       });
   }
-});
+}); 
 // filter collection category button end
 
 // price range slider start

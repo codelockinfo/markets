@@ -84,20 +84,20 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 text-capitalize h4 text-dark">Arohi-Woman Fashion</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Arohi-Woman Fashion</a>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
-                                   <a href="collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
-                                   </div></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
+                                </div></a>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                    <h6>(4.5)</h6>
+                                    <h6 class="rate-icon ">(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -106,10 +106,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 text-capitalize h4 text-dark">Kavya Fabrics</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Kavya Fabrics</a>
                                 <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
-                                   <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -117,9 +117,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <i class="fa-regular fa-star text-primary"></i>
-                                    <h6>(3.5)</h6>
+                                    <h6 class=rate-icon>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -128,10 +128,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 h4 text-capitalize">Global textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Global textile</a>
                                 <p class="mb-4">Timeless Elegance in Every Thread</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -139,9 +139,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
-                                    <h6>(5)</h6>
+                                    <h6 class=rate-icon>(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -150,10 +150,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 h4 text-capitalize">krishna textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">krishna textile</a>
                                 <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -161,9 +161,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <i class="fa-regular fa-star text-primary"></i>
-                                    <h6>(3.5)</h6>
+                                    <h6 class=rate-icon>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -172,10 +172,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon  text-center">
-                                <a href="collection2.php" class="mb-3 h4 text-capitalize">Jay Ambe Fabrics</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Jay Ambe Fabrics</a>
                                 <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
                                 <div class="famous-img rounded-circle">
-                                <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -183,9 +183,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                    <h6>(4.5)</h6>
+                                    <h6 class=rate-icon>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -194,10 +194,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                            <a href="collection2.php" class="mb-3 h4 text-capitalize">KS textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">KS textile</a>
                                 <p class="mb-4">Draping You in Cultural Splendor</p>
                                 <div class="famous-img rounded-circle">
-                                <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -205,9 +205,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
-                                    <h6>(5)</h6>
+                                    <h6 class=rate-icon>(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -216,10 +216,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                            <a href="collection2.php"class="mb-3 h4 text-capitalize">Rajhans textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Rajhans textile</a>
                                 <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
                                 <div class="famous-img rounded-circle">
-                                   <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -227,9 +227,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                    <h6>(4.5)</h6>
+                                    <h6 class=rate-icon>(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -238,10 +238,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 text-capitalize h4">Bal Krishna fabrics</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Bal Krishna fabrics</a>
                                 <p class="mb-4">Elegance Redefined</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -249,9 +249,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <i class="fa-regular fa-star text-primary"></i>
-                                    <h6>(3.5)</h6>
+                                    <h6 class=rate-icon>(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -272,27 +272,27 @@ include 'header.php';
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs wow bounceInUp">
                     <li class="tab-selector ">
                         <a class="d-flex mx-1 py-2 border border-primary  rounded-pill active" data-bs-toggle="pill" href="#tab-1">
-                            <span class="text-dark" style="width: 150px;">Kurtis</span>
+                            <span class="fw-bold" style="width: 150px;">Kurtis</span>
                         </a>
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex py-2 mx-1 border border-primary  rounded-pill" data-bs-toggle="pill" href="#tab-2">
-                            <span class="text-dark" style="width: 150px;">Sarees</span>
+                            <span class="fw-bold" style="width: 150px;">Sarees</span>
                         </a>
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex mx-1 py-2 border border-primary rounded-pill" data-bs-toggle="pill" href="#tab-3">
-                            <span class="text-dark" style="width: 150px;">Wedding cloths</span>
+                            <span class="fw-bold" style="width: 150px;">Wedding cloths</span>
                         </a>
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex mx-1 py-2 border border-primary  rounded-pill" data-bs-toggle="pill" href="#tab-4">
-                            <span class="text-dark" style="width: 150px;">Tops</span>
+                            <span class="fw-bold" style="width: 150px;">Tops</span>
                         </a>
                     </li>
                     <li class="tab-selector">
                         <a class="d-flex mx-1 py-2 border border-primary rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                            <span class="text-dark" style="width: 150px;">Skirts</span>
+                            <span class="fw-bold" style="width: 150px;">Skirts</span>
                         </a>
                     </li>
                 </ul>
@@ -318,7 +318,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -327,7 +327,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -336,7 +336,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -345,7 +345,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -354,7 +354,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -363,7 +363,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -372,7 +372,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -381,7 +381,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -398,7 +398,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -407,7 +407,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -416,7 +416,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -425,7 +425,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -434,7 +434,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -443,7 +443,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -452,7 +452,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -461,7 +461,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -478,7 +478,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -487,7 +487,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -496,7 +496,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -505,7 +505,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -514,7 +514,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -523,7 +523,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -532,7 +532,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -541,7 +541,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -558,7 +558,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>mg/top/top1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>mg/top/top1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -567,7 +567,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -576,7 +576,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -585,7 +585,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -594,7 +594,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -603,7 +603,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -612,7 +612,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -621,7 +621,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -638,7 +638,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -647,7 +647,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -656,7 +656,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -665,7 +665,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -674,7 +674,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -683,7 +683,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -692,7 +692,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -701,7 +701,7 @@ include 'header.php';
                                             <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
                                             <div class="event-overlay d-flex flex-column p-4">
                                                 <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -735,27 +735,27 @@ include 'header.php';
     <!-- paragraph  start-->
     <section class="paragraph pt-5 pt-md-6 container-fluid ">
         <div class="container">
-            <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
+            <h5 class="fw-bold text-primary">Sarees Manufacturers in Surat</h5>
             <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
-            <h5 class="fw-bold">Designer Lehengas Suppliers in India </h5>
+            <h5 class="fw-bold text-primary">Designer Lehengas Suppliers in India </h5>
             <p class="fs-7">Explore our extensive network of designer lehenga suppliers across India. We bring you the finest collection of lehengas, perfect for weddings, festivals, and special occasions. Our suppliers offer a variety of styles, including bridal lehengas, party-wear lehengas, and contemporary lehenga cholis, crafted with attention to detail and the latest fashion trends.
             </p>
             <p class="fs-7">Connect with leading designer lehenga exporters who cater to international markets. Our platform provides access to exporters renowned for their high-quality fabrics and stunning designs. Whether you are looking to import traditional or modern lehengas, our exporters ensure timely delivery and competitive pricing.
             </p>
             <ul class="content-box ms-5 list-unstyled">
                 <li class="div mt-2">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Kurtis :</strong>Find the best kurtis from reliable suppliers across India. Our platform features a diverse range of kurtis, from everyday casual wear to festive and formal designs. Browse through a variety of fabrics, patterns, and styles to meet the demands of your customers.
+                    <p class="d-inline"><strong class="text-primary fw-bold">Kurtis :</strong>Find the best kurtis from reliable suppliers across India. Our platform features a diverse range of kurtis, from everyday casual wear to festive and formal designs. Browse through a variety of fabrics, patterns, and styles to meet the demands of your customers.
                     </p>
                 </li>
                 <li class="div mt-2">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Dresses :</strong>Browse through our collection of stylish and trendy dresses from top manufacturers and suppliers. We offer a variety of dresses, including anarkalis, maxi dresses, and gowns,suitable for different occasions. Our dresses are designed to cater to the latest fashion trends and customer preferences.
+                    <p class="d-inline"><strong class="text-primary fw-bold">Dresses :</strong>Browse through our collection of stylish and trendy dresses from top manufacturers and suppliers. We offer a variety of dresses, including anarkalis, maxi dresses, and gowns,suitable for different occasions. Our dresses are designed to cater to the latest fashion trends and customer preferences.
                     </p>
                 </li>
                 <li class="div mt-2">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Dupattas :</strong>Enhance your inventory with beautifully crafted dupattas available on our platform. Our suppliers offer a wide range of dupattas in various fabrics, including silk, cotton, chiffon, and georgette. From embroidered to printed dupattas, find the perfect pieces to complement your sarees and suits.</p>
+                    <p class="d-inline"><strong class="text-primary fw-bold">Dupattas :</strong>Enhance your inventory with beautifully crafted dupattas available on our platform. Our suppliers offer a wide range of dupattas in various fabrics, including silk, cotton, chiffon, and georgette. From embroidered to printed dupattas, find the perfect pieces to complement your sarees and suits.</p>
                 </li>
                 <li class="div mt-2">
-                    <p class="d-inline"><strong class="text-dark fw-bold">Palazzo Pants :</strong>Expand your collection with fashionable palazzo pants from trusted manufacturers. Our platform provides access to a variety of palazzo pants, ideal for casual and formal wear.</p>
+                    <p class="d-inline"><strong class="text-primary fw-bold">Palazzo Pants :</strong>Expand your collection with fashionable palazzo pants from trusted manufacturers. Our platform provides access to a variety of palazzo pants, ideal for casual and formal wear.</p>
                 </li>
         </div>
         </div>
@@ -764,16 +764,29 @@ include 'header.php';
     <!-- video section start  -->
     <section class="video pt-5 pt-md-6 container-fluid">
         <div class="container">
-        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Our trending videos</h1>
             </div>
             <div class="swiper videoSwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                            <source src="img/IMG_1924.MOV">
+                        </video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                            <source src="img/IMG_6892.MP4">
+                        </video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                            <source src="img/IMG_1924.MOV">
+                        </video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                            <source src="img/IMG_6892.MP4">
+                        </video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                            <source src="img/IMG_1924.MOV">
+                        </video></div>
+                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                            <source src="img/IMG_6892.MP4">
+                        </video></div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -925,7 +938,7 @@ include 'header.php';
             <div class="swiper testimonalSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5"> 
+                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop1.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>

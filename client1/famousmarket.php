@@ -2,7 +2,6 @@
 include 'header.php';
 ?>
 
-
 <body>
     <?php
     include 'navbar.php';
@@ -18,28 +17,28 @@ include 'header.php';
         </div>
     </div>
 
-   <!-- famous market Start -->
-   <div class="container-fluid famous pt-5 pt-md-6">
+    <!-- famous market Start -->
+    <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
             <div class="row2 ">
-            <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 text-capitalize h4 text-dark">Arohi-Woman Fashion</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Arohi-Woman Fashion</a>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
-                                   <a href="collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
-                                   </div></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
+                                </div></a>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                    <h6>(4.5)</h6>
+                                    <h6 class="rate-icon">(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -48,10 +47,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 text-capitalize h4 text-dark">Kavya Fabrics</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Kavya Fabrics</a>
                                 <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
-                                   <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -59,9 +58,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <i class="fa-regular fa-star text-primary"></i>
-                                    <h6>(3.5)</h6>
+                                    <h6 class="rate-icon">(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -70,10 +69,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 h4 text-capitalize">Global textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Global textile</a>
                                 <p class="mb-4">Timeless Elegance in Every Thread</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -81,9 +80,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
-                                    <h6>(5)</h6>
+                                    <h6 class="rate-icon">(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -92,10 +91,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 h4 text-capitalize">krishna textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitaliz text-second">krishna textile</a>
                                 <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -103,9 +102,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <i class="fa-regular fa-star text-primary"></i>
-                                    <h6>(3.5)</h6>
+                                    <h6 class="rate-icon">(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -114,10 +113,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon  text-center">
-                                <a href="collection2.php" class="mb-3 h4 text-capitalize">Jay Ambe Fabrics</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Jay Ambe Fabrics</a>
                                 <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
                                 <div class="famous-img rounded-circle">
-                                <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -125,9 +124,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                    <h6>(4.5)</h6>
+                                    <h6 class="rate-icon">(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -136,10 +135,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                            <a href="collection2.php" class="mb-3 h4 text-capitalize">KS textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">KS textile</a>
                                 <p class="mb-4">Draping You in Cultural Splendor</p>
                                 <div class="famous-img rounded-circle">
-                                <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -147,9 +146,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
-                                    <h6>(5)</h6>
+                                    <h6 class="rate-icon ">(5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -158,10 +157,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                            <a href="collection2.php"class="mb-3 h4 text-capitalize">Rajhans textile</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Rajhans textile</a>
                                 <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
                                 <div class="famous-img rounded-circle">
-                                   <a href="collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -169,9 +168,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
-                                    <h6>(4.5)</h6>
+                                    <h6 class="rate-icon">(4.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -180,10 +179,10 @@ include 'header.php';
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
-                                <a href="collection2.php" class="mb-3 text-capitalize h4">Bal Krishna fabrics</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Bal Krishna fabrics</a>
                                 <p class="mb-4">Elegance Redefined</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt=""></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -191,9 +190,9 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <i class="fa-regular fa-star text-primary"></i>
-                                    <h6>(3.5)</h6>
+                                    <h6 class="rate-icon">(3.5)</h6>
                                 </div>
-                                <a href="product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -205,8 +204,6 @@ include 'header.php';
     <?php
     include 'footer.php';
     ?>
-
-
 
 </body>
 

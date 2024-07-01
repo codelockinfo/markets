@@ -21,15 +21,15 @@ include 'header.php';
     <section class="video pt-5 pt-md-6">
       <div class="container">
           <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden"  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden mt-4 mt-sm-0"  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 mt-lg-0"  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 "  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 "  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 "  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 "  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 "  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
-            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded h-100 overflow-hidden  mt-4 "  autoplay muted loop><source src="img/001mp4.mp4"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden"  autoplay muted loop><source src="img/IMG_1924.MOV"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden mt-4 mt-sm-0"  autoplay muted loop><source src="img/IMG_6892.MP4"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 mt-lg-0"  autoplay muted loop><source src="img/IMG_1924.MOV"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 "  autoplay muted loop><source src="img/IMG_6892.MP4"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 "  autoplay muted loop><source src="img/IMG_1924.MOV"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 "  autoplay muted loop><source src="img/IMG_6892.MP4"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 "  autoplay muted loop><source src="img/IMG_1924.MOV"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 "  autoplay muted loop><source src="img/IMG_6892.MP4"></video></div>
+            <div class="col-12 col-md-6 col-lg-4"><video class="w-100 rounded overflow-hidden  mt-4 "  autoplay muted loop><source src="img/IMG_1924.MOV"></video></div>
           </div>
       </div>
     </section> 

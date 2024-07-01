@@ -1,7 +1,7 @@
  <!-- anouncebar start  -->
- <section class="bg-dark">
+ <section class="bg-primary mb-0">
      <div class="container overflow-hidden">
-         <div class="anounce px-1 text-capitalize text-primary py-2 m-0 text-end d-flex w-auto">
+         <div class="anounce px-1 text-capitalize text-white py-2 m-0 text-end d-flex w-auto">
              <div class="anounce_text ms-5">most famous markets in surat</div>
              <div class="anounce_text ms-5">most famous markets in surat</div>
          </div>
@@ -9,7 +9,7 @@
  </section>
  <!-- anouncebar end  -->
   <!-- mobileview shop button start -->
-   <section class="reg_p d-block d-sm-none">
+   <section class="reg_p d-block d-sm-none mt-0">
      <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4  text-capitalize w-100 rounded-0 header_button2">register your shop</a>
    </section>
   <!-- mobileview shop button end -->
