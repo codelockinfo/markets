@@ -32,8 +32,8 @@
                         <div class="d-flex flex-column align-items-start">
                             <a class="text-muted mb-3 footer-btn" href="<?php echo CLS_SITE_URL ?>privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
                             <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a>
+                            <!-- <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
+                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a> -->
                             <a class="text-muted  footer-btn" href="<?php echo CLS_SITE_URL ?>contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
