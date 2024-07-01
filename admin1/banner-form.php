@@ -84,74 +84,8 @@ include 'header.php';
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-3">
-            <div class="row">
-              <div class="mb-3 form-check-reverse text-right ">
-                <div class="container">
-                  <div class="btn-group">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="row" id="getdata">
+          
             </div>
           </div>
         </div>
@@ -223,3 +157,7 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("banner LIST");
+listbanner()
+</script>

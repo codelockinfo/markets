@@ -48,931 +48,920 @@ function redirect403() {
     window.location = "https://www.shopify.com/admin/apps";
 }
 
-    function loadData(routineName) {
-        console.log(routineName + " on load");
+function loadData(routineName) {
+  console.log(routineName + " on load");
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: 'post',
+    dataType: "json",
+    data: {"routine_name": routineName},
+    success: function (response) {
+        var response = JSON.parse(response);
+        $("#getdata").html(response.outcome);
+      }
+  });
+}
 
-        $.ajax({
-            url: "../admin1/ajax_call.php",
-            type: 'post',
-            dataType: "json",
-            data: {"routine_name": routineName},
-            success: function (response) {
-                var response = JSON.parse(response);
-                $("#getdata").html(response.outcome);
-            }
-        });
-    }
+function listproduct() {
+  loadData('productlisting');
+}
 
-    function listproduct() {
-       loadData('productlisting');
-     }
+function listblog() {
+  loadData('bloglisting');
+}
 
-    function listblog() {
-       loadData('bloglisting');
-    }
+function offerlist() {
+  loadData('offerlisting');
+}
 
-    function offerlist() {
-      loadData('offerlisting');
-    }
+function listvideo() {
+  loadData('videolisting');
+}
 
-    function listvideo() {
-      loadData('videolisting');
-    }
+function listbrousetextile() {
+  loadData('brousetextilelisting');
+}
 
-    function listbrousetextile() {
-      loadData('brousetextilelisting');
-    }
+function listFAQ() {
+  loadData('FAQlisting');
+}
 
-    function listFAQ() {
-      loadData('FAQlisting');
-    }
+function listparagraph() {
+  loadData('paragraphlisting');
+}
 
+function listbanner() {
+  loadData('bannerlisting');
+}
+
+function listfamousmarket() {
+  loadData('famousmarketlisting');
+}
 
 var loadShopifyAJAX= null;
 var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
-    if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
-        loadShopifyAJAX.abort();
-    }
+  if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
+    loadShopifyAJAX.abort();
+  }
     var searchKEY = $("#" + listingID + "SearchKeyword").val();
     var searchKEYLEN = (searchKEY != undefined) ? searchKEY.length : 0;
     if (searchKEYLEN == 0 || searchKEYLEN >= 3) {
-        var shopifyApi = $('#' + listingID).attr('data-apiName');  
-        var limit = $("#" + listingID + "limit").val();
-        var from = $('#' + listingID).data('from');
-        var routineNAME = 'take_' + from + '_shopify_data';
-        var fields = $('#' + listingID).attr('data-fields');
-        fields = (fields != undefined) ? fields : '*';
-        var searchFields = $('#' + listingID).attr('data-search');
-        pageno = (pageno != undefined) ? pageno : 1;
-        loadShopifyAJAX = $.ajax({  
-            url: "ajax_call.php",
-            type: "post",
-            dataType: "json",
-            data: {
-                routine_name: routineNAME,
-                shopify_api: shopifyApi,
-                fields: fields,
-                store: store,
-                limit: limit,
-                pageno: pageno,
-                search_key: searchKEY,
-                listing_id: listingID,
-                search_fields: searchFields,
-                pagination_method: js_loadShopifyDATA.name
-            }, 
-            beforeSend: function () {
-                var listingTH = $('#' + listingID + ' thead tr th').length;
-                table_loader("table#" + listingID + " tbody", listingTH);
-            },  
-            success:function(comeback){
-                if (comeback['code'] != undefined && comeback['code'] == '403') {
-                    redirect403();
-                } else if (comeback['outcome'] == 'true') {
-                    var tablehtml =  comeback['html'] !== undefined && comeback['html'] != '' ? comeback['html'] : '<td  colspan="10" class="nodata"> NO DATA FOUND </td>';
-                    $('table#' + listingID + ' tbody').html(tablehtml);
-                    $('#' + listingID + 'Pagination').html(comeback['pagination_html']);
-                } else {
-                }
+    var shopifyApi = $('#' + listingID).attr('data-apiName');  
+    var limit = $("#" + listingID + "limit").val();
+    var from = $('#' + listingID).data('from');
+    var routineNAME = 'take_' + from + '_shopify_data';
+    var fields = $('#' + listingID).attr('data-fields');
+    fields = (fields != undefined) ? fields : '*';
+    var searchFields = $('#' + listingID).attr('data-search');
+    pageno = (pageno != undefined) ? pageno : 1;
+    loadShopifyAJAX = $.ajax({  
+        url: "ajax_call.php",
+        type: "post",
+        dataType: "json",
+        data: {
+            routine_name: routineNAME,
+            shopify_api: shopifyApi,
+            fields: fields,
+            store: store,
+            limit: limit,
+            pageno: pageno,
+            search_key: searchKEY,
+            listing_id: listingID,
+            search_fields: searchFields,
+            pagination_method: js_loadShopifyDATA.name
+        }, 
+        beforeSend: function () {
+            var listingTH = $('#' + listingID + ' thead tr th').length;
+            table_loader("table#" + listingID + " tbody", listingTH);
+        },  
+        success:function(comeback){
+            if (comeback['code'] != undefined && comeback['code'] == '403') {
+                redirect403();
+            } else if (comeback['outcome'] == 'true') {
+                var tablehtml =  comeback['html'] !== undefined && comeback['html'] != '' ? comeback['html'] : '<td  colspan="10" class="nodata"> NO DATA FOUND </td>';
+                $('table#' + listingID + ' tbody').html(tablehtml);
+                $('#' + listingID + 'Pagination').html(comeback['pagination_html']);
+            } else {
             }
-        });
-    }
+        }
+    });
+  }
 }
 
-    function demo(){
-        $.ajax({
-            url: "../admin1/ajax_call.php",
-            type: "post",
-            dataType: "json",
-            data: {"routine_name":"demo_function"},
-            beforeSend: function () {
-                // loading_show('save_loader_show');
-            },
-            success: function (response) {
-                console.log(response);
-                // loading_hide('save_loader_show', 'Save');
-            }
-        });
-    }
-
-    $(document).ready(function() {
-      console.log("DOCUMENT READY ...");
-
-      function showMessage(msg, type) {
-        var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
-        Swal.fire({
-            title: alertTitle, 
-            text: msg,
-            icon: (type === "fail") ? "error" : type, 
-            timer: 5000,
-            timerProgressBar: true,
-            showConfirmButton: false
-         });
+function demo(){
+  $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {"routine_name":"demo_function"},
+      beforeSend: function () {          
+      },
+      success: function (response) {
+          console.log(response);         
       }
+  });
+}
 
-    //   $('.Disable').click(function() {
-    //       var button = $(this);
+$(document).ready(function() {
+  console.log("DOCUMENT READY ...");
 
-    //       // Disable the button
-    //       button.prop('disabled', true);
-    //       button.prop('disabled', true);
-    //       // Remove the data element
-    //       $('#getdata').hide();
-    //  });
-
-    //  $('.Enable').click(function() {
-    //     var button = $(this);
-        
-    //     // Disable the button
-    //     button.prop('disabled', true);
-
-    //     $('#getdata').show();
-    // });
-
-      if ($("textarea#myeditor").length > 0) {
-          CKEDITOR.replace('myeditor');
-      } 
-      
-      $('.validtext').on('input', function() {
-        var c = this.selectionStart,
-            r = /[^a-zA-Z\s']/g,
-            v = $(this).val();
-        if(r.test(v)) {
-            $(this).val(v.replace(r, ''));
-            c--;
-          }
-          this.setSelectionRange(c, c);
+  function showMessage(msg, type) {  
+    var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+    Swal.fire({
+        title: alertTitle, 
+        text: msg,
+        icon: (type === "fail") ? "error" : type, 
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false
       });
+  }
+  
+  if ($("textarea#myeditor").length > 0) {
+      CKEDITOR.replace('myeditor');
+  } 
 
-      function showMessage(msg, type) {
-      var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
-      Swal.fire({
-          title: alertTitle, 
-          text: msg,
-          icon: (type === "fail") ? "error" : type, 
-          timer: 5000,
-          timerProgressBar: true,
-          showConfirmButton: false
-      });
+  $('.validtext').on('input', function() {
+    var c = this.selectionStart,
+        r = /[^a-zA-Z\s']/g,
+        v = $(this).val();
+    if(r.test(v)) {
+        $(this).val(v.replace(r, ''));
+        c--;
       }
+      this.setSelectionRange(c, c);
+  });
 
-      $('.signImage').on('input change', function() {
-       $(this).siblings('.imageError').text('');
-      });
+  function showMessage(msg, type) {
+  var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+  Swal.fire({
+      title: alertTitle, 
+      text: msg,
+      icon: (type === "fail") ? "error" : type, 
+      timer: 5000,
+      timerProgressBar: true,
+      showConfirmButton: false
+    });
+  }
 
-      $('.validtext').on('keypress', function() {
-        $(this).next('.errormsg').text('');
-      }); 
+  $('.signImage').on('input change', function() {
+    $(this).siblings('.imageError').text('');
+  });
 
-      $('.validsignf').on('keypress', function() {
-        $(this).next('.errormsg').text('');
-      }); 
+  $('.validtext').on('keypress', function() {
+    $(this).next('.errormsg').text('');
+  }); 
 
-      $('.number').on('keypress', function(e) {
-        if (e.which >= 48 && e.which <= 57) { 
-            $(this).next('.errormsg').text(''); 
-          } else {
-          e.preventDefault(); 
-          }
-      }); 
+  $('.validsignf').on('keypress', function() {
+    $(this).next('.errormsg').text('');
+  }); 
 
-      $('.validurl').on('keypress', function() {
-        $(this).next('.errormsg').text('');
-      }); 
-
-      $('.price').on('keypress', function(e) {
-        if (e.which >= 48 && e.which <= 57) { 
-            $(this).next('.errormsg').text(''); 
-          } else {
-          e.preventDefault(); 
-          }
-      }); 
-
-      if (CKEDITOR.instances['myeditor']) {
-            CKEDITOR.instances['myeditor'].on('change', function() {
-        if (CKEDITOR.instances['myeditor'].getData().length >  0){
-            $('.myeditor').html('');
-            }
-        });
+  $('.number').on('keypress', function(e) {
+    if (e.which >= 48 && e.which <= 57) { 
+        $(this).next('.errormsg').text(''); 
+      } else {
+      e.preventDefault(); 
       }
+  }); 
 
-      $('.form-select').on('input change', function() {
-        $(this).siblings('.errormsg').text('');
+  $('.validurl').on('keypress', function() {
+    $(this).next('.errormsg').text('');
+  }); 
 
-      });
+  $('.price').on('keypress', function(e) {
+    if (e.which >= 48 && e.which <= 57) { 
+        $(this).next('.errormsg').text(''); 
+      } else {
+      e.preventDefault(); 
+      }
+  }); 
 
-      $('.formCancel').click(function(){
-        console.log("CCCCC");
-        $('.errormsg').html('');
-        $(".multiple_tag").val(null).trigger("change");
-        $(this).closest("form")[0].reset();
-        if (CKEDITOR.instances['myeditor']) {
-        CKEDITOR.instances['myeditor'].setData('');  
-        } 
-        var $thumbnailElement = $(".drop-zone__thumb");
+  if (CKEDITOR.instances['myeditor']) {
+    CKEDITOR.instances['myeditor'].on('change', function() {
+    if (CKEDITOR.instances['myeditor'].getData().length >  0){
+        $('.myeditor').html('');
+      }
+    });
+  }
+
+  $('.form-select').on('input change', function() {
+    $(this).siblings('.errormsg').text('');
+  });
+
+  $('.formCancel').click(function(){
+    console.log("CCCCC");
+    $('.errormsg').html('');
+    $(".multiple_tag").val(null).trigger("change");
+    $(this).closest("form")[0].reset();
+    if (CKEDITOR.instances['myeditor']) {
+    CKEDITOR.instances['myeditor'].setData('');  
+    } 
+    var $thumbnailElement = $(".drop-zone__thumb");
+    if ($thumbnailElement.length > 0) {
+        $thumbnailElement.html('');
+        $thumbnailElement.removeClass("drop-zone__thumb");
+        $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
+    } 
+  });
+
+  function resetThumbnail() {
+      var $thumbnailElement = $(".drop-zone__thumb");
         if ($thumbnailElement.length > 0) {
-            $thumbnailElement.html('');
-            $thumbnailElement.removeClass("drop-zone__thumb");
-            $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-        } 
-      });
-
-      function resetThumbnail() {
-          var $thumbnailElement = $(".drop-zone__thumb");
-          if ($thumbnailElement.length > 0) {
-              $thumbnailElement.html('');
-              $thumbnailElement.removeClass("drop-zone__thumb");
-              $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-        }
-      }
-
-      $(document).on("click", ".signInsave", function (e) {
-        e.preventDefault();
-        var form_data = $("#savesignin")[0];
-        var form_data = new FormData(form_data);
-        form_data.append("routine_name", "insert_signin");
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data,
-          beforeSend: function () {
-            loading_show(".save_loader_show");
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-    
-            response["msg"]["password"] !== undefined
-              ? $(".password").html(response["msg"]["password"])
-              : $(".password").html("");
-            response["msg"]["email"] !== undefined
-              ? $(".email").html(response["msg"]["email"])
-              : $(".email").html("");
-              loading_hide(".save_loader_show", "Sign in");
-            if (response["data"] == "success") {
-              $("#savesignin")[0].reset();
-              // showMessage(response.msg, "success");
-              window.location.href = 'index.php';
-            }else {
-              // showMessage(response.msg_error, "fail");
-            }
-          },
-        });
-      });
-      
-      $(document).on("click",".signUpsave",function(e){
-        e.preventDefault();   
-        console.log("signUpsavebutton click");
-        var form_data = $("#savesignup")[0]; 
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_signup'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-              console.log(response);
-              var response = JSON.parse(response);
-              console.log(response['msg']['name']);
-              response["msg"]["name"] !== undefined ? $(".name").html (response["msg"]["name"]) : $(".name").html("");
-              response["msg"]["shop"] !== undefined ? $(".shop").html (response["msg"]["shop"]) : $(".shop").html("");
-              response["msg"]["address"] !== undefined ? $(".address").html (response["msg"]["address"]) : $(".address").html("");
-              response["msg"]["phone_number"] !== undefined ? $(".phone_number").html (response["msg"]["phone_number"]) : $(".phone_number").html("");
-              response["msg"]["business_type"] !== undefined ? $(".business_type").html (response["msg"]["business_type"]) : $(".business_type").html("");
-              response["msg"]["image"] !== undefined ? $(".image").html (response["msg"]["image"]) : $(".image").html(""); 
-              response["msg"]["password"] !== undefined ? $(".password").html (response["msg"]["password"]) : $(".password").html("");
-              response["msg"]["Confirm_Password"] !== undefined ? $(".Confirm_Password").html (response["msg"]["Confirm_Password"]) : $(".Confirm_Password").html("");
-              response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
-              loading_hide('.save_loader_show', 'SIGN UP');
-              if(response['data'] == "success"){
-                  $("#savesignup")[0].reset();
-                  // showMessage(response.msg, "success");
-                  window.location.href = 'index.php';
-              }else{
-                // showMessage(response.msg_error, "fail");
-              } 
-            }
-          });
-      })
-
-      $(document).on("click",".productSave",function(event){
-        event.preventDefault();
-        console.log("Product save button click");
-        var form_data = $("#productinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_products'); 
-        var selectedTags = $(".multiple_tag").val();
-        if (selectedTags !== null) {
-            for (var i = 0; i < selectedTags.length; i++) {
-                form_data.append('p_tag[]', selectedTags[i]);
-            }
-        }
-
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-              response["msg"]["pname"] !== undefined ? $(".pname").html (response["msg"]["pname"]) : $(".pname").html("");
-              response["msg"]["select_catagory"] !== undefined ? $(".select_catagory").html (response["msg"]["select_catagory"]) : $(".select_catagory").html("");
-              response["msg"]["min_price"] !== undefined ? $(".min_price").html (response["msg"]["min_price"]) : $(".min_price").html("");
-              response["msg"]["max_price"] !== undefined ? $(".max_price").html (response["msg"]["max_price"]) : $(".max_price").html("");
-              response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
-              response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-              response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
-              response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
-              if(response['data'] == "success"){
-                $("#productinsert")[0].reset();
-                resetThumbnail();
-                $(".multiple_tag").val(null).trigger("change");
-                console.log("hi");
-                $('.myFile').html('');
-                showMessage(response.msg, "success");
-                }
-              else{
-              showMessage(response.msg_error, "fail");
-              } 
-            }
-          });
-      })
-
-    function confirmAndDelete(employeeId, routineName, type, onSuccess) {
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                  var data = {
-                      routine_name: routineName
-                  };
-                  if (type === 'product') {
-                      data.product_id = employeeId;
-                  } else if (type === 'blog') {
-                      data.blog_id = employeeId;
-                  }
-                  else if (type === 'video') {
-                    data.video_id = employeeId; 
-                  }
-                $.ajax({
-                    url: "../admin1/ajax_call.php",
-                    type: 'POST',
-                    dataType: "json",
-                    data: data,
-                    success: function(response) {
-                        var result = JSON.parse(response);
-                        if (result.data === 'success') {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your record has been deleted.',
-                                'success'
-                            );
-                            // Call the onSuccess callback function if provided
-                            if (typeof onSuccess === 'function') {
-                                onSuccess();
-                            }
-                        } else {
-                            Swal.fire(
-                                'Error!',
-                                'There was a problem deleting the record.',
-                                'error'
-                            );
-                        }
-                    },
-                    error: function() {
-                        Swal.fire(
-                            'Error!',
-                            'There was a problem with the server.',
-                            'error'
-                        );
-                    }
-                });
-            }
-        });
+          $thumbnailElement.html('');
+          $thumbnailElement.removeClass("drop-zone__thumb");
+          $thumbnailElement.html('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
     }
-   
-    $(document).delegate(".delete-button", "click", function() {
-          var employeeId = $(this).attr('data-id');
-          confirmAndDelete(employeeId,'productdelete','product', function() {
-            listproduct();
-          });
-    });  
+  }
 
-    $(document).delegate(".delete-blog", "click", function() {
-         var employeeId = $(this).attr('data-id');
-         confirmAndDelete(employeeId, 'blogdelete' , 'blog', function() {
-           listblog();
-         });
-    });  
+  $(document).on("click", ".signInsave", function (e) {
+    e.preventDefault();
+    var form_data = $("#savesignin")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "insert_signin");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
 
-    $(document).delegate(".video-delete", "click", function() {
-      var employeeId = $(this).attr('data-id');
-      confirmAndDelete(employeeId, 'videodelete' , 'video', function() {
-        listvideo()
+        response["msg"]["password"] !== undefined
+          ? $(".password").html(response["msg"]["password"])
+          : $(".password").html("");
+        response["msg"]["email"] !== undefined
+          ? $(".email").html(response["msg"]["email"])
+          : $(".email").html("");
+          loading_hide(".save_loader_show", "Sign in");
+        if (response["data"] == "success") {
+          $("#savesignin")[0].reset();
+          // showMessage(response.msg, "success");
+          window.location.href = 'index.php';
+        }else {
+          // showMessage(response.msg_error, "fail");
+        }
+      },
+    });
+  });
+      
+  $(document).on("click",".signUpsave",function(e){
+    e.preventDefault();   
+    console.log("signUpsavebutton click");
+    var form_data = $("#savesignup")[0]; 
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_signup'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          console.log(response['msg']['name']);
+          response["msg"]["name"] !== undefined ? $(".name").html (response["msg"]["name"]) : $(".name").html("");
+          response["msg"]["shop"] !== undefined ? $(".shop").html (response["msg"]["shop"]) : $(".shop").html("");
+          response["msg"]["address"] !== undefined ? $(".address").html (response["msg"]["address"]) : $(".address").html("");
+          response["msg"]["phone_number"] !== undefined ? $(".phone_number").html (response["msg"]["phone_number"]) : $(".phone_number").html("");
+          response["msg"]["business_type"] !== undefined ? $(".business_type").html (response["msg"]["business_type"]) : $(".business_type").html("");
+          response["msg"]["image"] !== undefined ? $(".image").html (response["msg"]["image"]) : $(".image").html(""); 
+          response["msg"]["password"] !== undefined ? $(".password").html (response["msg"]["password"]) : $(".password").html("");
+          response["msg"]["Confirm_Password"] !== undefined ? $(".Confirm_Password").html (response["msg"]["Confirm_Password"]) : $(".Confirm_Password").html("");
+          response["msg"]["email"] !== undefined ? $(".email").html (response["msg"]["email"]) : $(".email").html("");
+          loading_hide('.save_loader_show', 'SIGN UP');
+          if(response['data'] == "success"){
+              $("#savesignup")[0].reset();             
+              window.location.href = 'index.php';
+          }else{
+            // showMessage(response.msg_error, "fail");
+          } 
+        }
       });
- });  
+  })
 
-      $(document).on("click",".videoSave",function(event){
-        event.preventDefault();
-        console.log("video save button click");
-        var form_data = $("#videoinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_videos'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-              response["msg"]["video_title"] !== undefined ? $(".video_title").html (response["msg"]["video_title"]) : $(".video_title").html("");
-              response["msg"]["video_category"] !== undefined ? $(".video_category").html (response["msg"]["video_category"]) : $(".video_category").html("");
-              response["msg"]["youtube_shorts"] !== undefined ? $(".youtube_shorts").html (response["msg"]["youtube_shorts"]) : $(".youtube_shorts").html("");
-              response["msg"]["youtube_vlogs"] !== undefined ? $(".youtube_vlogs").html (response["msg"]["youtube_vlogs"]) : $(".youtube_vlogs").html("");
-              if(response['data'] == "success"){
-                $("#videoinsert")[0].reset();
-                showMessage(response.msg, "success");
-                }else{
-                showMessage(response.msg_error, "fail");
-                }  
-                }
-              });
-      })
-
-      $(document).on("click",".blogSave",function(event){
-        event.preventDefault();
-        console.log("Blog save button click");
-        var $contentheader =  CKEDITOR.instances["myeditor"];
-        if($contentheader != undefined){
-            CKEDITOR.instances["myeditor"].updateElement();
+  $(document).on("click",".productSave",function(event){
+    event.preventDefault();
+    console.log("Product save button click");
+    var form_data = $("#productinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_products'); 
+    var selectedTags = $(".multiple_tag").val();
+    if (selectedTags !== null) {
+        for (var i = 0; i < selectedTags.length; i++) {
+            form_data.append('p_tag[]', selectedTags[i]);
         }
-        var form_data = $("#bloginsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_blog'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-              response["msg"]["blog_title"] !== undefined ? $(".blog_title").html (response["msg"]["blog_title"]) : $(".blog_title").html("");
-              response["msg"]["blog_category"] !== undefined ? $(".blog_category").html (response["msg"]["blog_category"]) : $(".blog_category").html("");
-              response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
-              response["msg"]["author_name"] !== undefined ? $(".author_name").html (response["msg"]["author_name"]) : $(".author_name").html("");
-              response["msg"]["blog_image"] !== undefined ? $(".blog_image").html (response["msg"]["blog_image"]) : $(".blog_image").html("");
-              response["msg"]["blog_image_alt"] !== undefined ? $(".blog_image_alt").html (response["msg"]["blog_image_alt"]) : $(".blog_image_alt").html("");
-              if(response['data'] == "success"){
-                  $("#bloginsert")[0].reset();
-                  CKEDITOR.instances['myeditor'].setData('');
-                  resetThumbnail();
-                  $('.myFile').html('');
-                  showMessage(response.msg, "success");
-                }else{
-                  showMessage(response.msg_error, "fail");
-                }  
+    }
+
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+          response["msg"]["pname"] !== undefined ? $(".pname").html (response["msg"]["pname"]) : $(".pname").html("");
+          response["msg"]["select_catagory"] !== undefined ? $(".select_catagory").html (response["msg"]["select_catagory"]) : $(".select_catagory").html("");
+          response["msg"]["min_price"] !== undefined ? $(".min_price").html (response["msg"]["min_price"]) : $(".min_price").html("");
+          response["msg"]["max_price"] !== undefined ? $(".max_price").html (response["msg"]["max_price"]) : $(".max_price").html("");
+          response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
+          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
+          response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
+          if(response['data'] == "success"){
+            $("#productinsert")[0].reset();
+            resetThumbnail();
+            $(".multiple_tag").val(null).trigger("change");
+            console.log("hi");
+            $('.myFile').html('');
+            showMessage(response.msg, "success");
+            }
+          else{
+          showMessage(response.msg_error, "fail");
+          } 
+        }
+      });
+  })
+
+  function confirmAndDelete(employeeId, routineName, type, onSuccess) {
+      Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+          if (result.isConfirmed) {
+              var data = { routine_name: routineName };
+              if (type === 'product') {
+                  data.product_id = employeeId;
+              } else if (type === 'blog') {
+                  data.blog_id = employeeId;
+              } else if (type === 'video') {
+                  data.video_id = employeeId;
+              } else if (type === 'banner') {
+                  data.banner_id = employeeId;
+              } else if (type === 'famous_market') {
+                  data.famous_market_id = employeeId;
+              } else if (type === 'b_textile_catagory') {
+                  data.b_textile_catagory_id = employeeId;
+              } else if (type === 'offer') {
+                  data.offer_id = employeeId;
+              } else if (type === 'faq') {
+                  data.faq_id = employeeId;
               }
-            });
-    })       
-                
-
-      $(document).on("click",".bannerSave",function(event){
-        event.preventDefault();
-        console.log("Banner save button click");
-        var form_data = $("#bannerinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_banner'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-              response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
-              response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-              response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
-              response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
-              response["msg"]["banner_text"] !== undefined ? $(".banner_text").html (response["msg"]["banner_text"]) : $(".banner_text").html("");
-              response["msg"]["banner_btn_link"] !== undefined ? $(".banner_btn_link").html (response["msg"]["banner_btn_link"]) : $(".banner_btn_link").html("");
-              if(response['data'] == "success"){
-                  $("#bannerinsert")[0].reset();
-                  resetThumbnail();
-                  $('.myFile').html('');
-                  showMessage(response.msg, "success");
-                }else{
-                  showMessage(response.msg_error, "fail");
-                } 
-                }
-              });
-      })
-
-      $(document).on("click",".marketSave",function(event){
-        event.preventDefault();
-        console.log("market save button click");
-        var form_data = $("#f_marketinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_market'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-              response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-              response["msg"]["svg_image_alt"] !== undefined ? $(".svg_image_alt").html (response["msg"]["svg_image_alt"]) : $(".svg_image_alt").html("");
-              response["msg"]["shop_logo"] !== undefined ? $(".shop_logo").html (response["msg"]["shop_logo"]) : $(".shop_logo").html("");
-              response["msg"]["svg_img"] !== undefined ? $(".svg_img").html (response["msg"]["svg_img"]) : $(".svg_img").html("");
-              response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
-              response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
-              response["msg"]["img"] !== undefined ? $(".img").html (response["msg"]["img"]) : $(".img").html("");
-              if(response['data'] == "success"){
-                  $("#f_marketinsert")[0].reset();
-                  resetThumbnail();
-                  showMessage(response.msg, "success");
-                  $('.myFile').html('');
-                }else{
-                  showMessage(response.msg_error, "fail");
-                } 
-                }
-              });
-      })
-
-      $(document).on("click",".brouseSave",function(event){
-        event.preventDefault();
-        console.log(" brouseSave save button click");
-        var form_data = $("#b_textileCtgryinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_brousetxt'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-            response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
-            response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-            response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
-              if(response['data'] == "success"){
-                  $("#b_textileCtgryinsert")[0].reset();
-                  resetThumbnail();
-                  showMessage(response.msg, "success");
-                  $('.myFile').html('');
-                }else{
-                  showMessage(response.msg_error, "fail");
-                } 
-                }
-              });
-      })
-
-      $(document).on("click",".offerSave",function(event){
-        event.preventDefault();
-          console.log(" offers save button click");
-          var form_data = $("#offersinsert")[0];
-          var form_data = new FormData(form_data);
-          form_data.append('routine_name','insert_offers'); 
-          $.ajax({
-            url: "../admin1/ajax_call.php",
-            type: "post",
-            dataType: "json",
-            contentType: false,
-            processData: false,
-            data: form_data, 
-            beforeSend: function () {
-                loading_show('.save_loader_show');
-            },
-            success: function (response) {
-              console.log(response);
-              var response = JSON.parse(response);
-              loading_hide('.save_loader_show', 'Save');
-              response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
-              response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-              response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
-                if(response['data'] == "success"){
-                    $("#offersinsert")[0].reset();
-                    resetThumbnail();
-                    showMessage(response.msg, "success");
-                    $('.myFile').html('');
-                  }else{
-                    showMessage(response.msg_error, "fail");
-                  } 
+              $.ajax({
+                  url: "../admin1/ajax_call.php",
+                  type: 'POST',
+                  dataType: "json",
+                  data: data,
+                  success: function(response) {
+                      var result = JSON.parse(response);
+                      if (result.data === 'success') {
+                          Swal.fire(
+                              'Deleted!',
+                              'Your record has been deleted.',
+                              'success'
+                          );
+                          if (typeof onSuccess === 'function') {
+                              onSuccess();
+                          }
+                      } else {
+                          Swal.fire(
+                              'Error!',
+                              'There was a problem deleting the record.',
+                              'error'
+                          );
+                      }
+                  },
+                  error: function() {
+                      Swal.fire(
+                          'Error!',
+                          'There was a problem with the server.',
+                          'error'
+                      );
                   }
-                });
+              });
+          }
+      });
+  }
+    
+  $(document).delegate(".delete", "click", function() {
+      var employeeId = $(this).attr('data-id');
+      var deleteType = $(this).attr('data-delete-type');    
+      var deleteMapping = {
+          'product': { routine: 'productdelete', callback: listproduct },
+          'blog': { routine: 'blogdelete', callback: listblog },
+          'video': { routine: 'videodelete', callback: listvideo },
+          'banner': { routine: 'bannerdelete', callback: listbanner },
+          'famous_market': { routine: 'famousmarketdelete', callback: listfamousmarket },
+          'b_textile_catagory': { routine: 'b_textile_catagorysdelete', callback: listbrousetextile },
+          'offer': { routine: 'offerdelete', callback: offerlist },
+          'faq': { routine: 'faqdelete', callback: listFAQ }  
+      };    
+      if (deleteMapping[deleteType]) {
+          var routine = deleteMapping[deleteType].routine;
+          var callback = deleteMapping[deleteType].callback;
+          confirmAndDelete(employeeId, routine, deleteType, callback);
+      } else {
+          console.error('Delete type not found:', deleteType);
+      }
+  });
         
-      })
+  $(document).on("click",".videoSave",function(event){
+    event.preventDefault();
+    console.log("video save button click");
+    var form_data = $("#videoinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_videos'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+          response["msg"]["video_title"] !== undefined ? $(".video_title").html (response["msg"]["video_title"]) : $(".video_title").html("");
+          response["msg"]["video_category"] !== undefined ? $(".video_category").html (response["msg"]["video_category"]) : $(".video_category").html("");
+          response["msg"]["youtube_shorts"] !== undefined ? $(".youtube_shorts").html (response["msg"]["youtube_shorts"]) : $(".youtube_shorts").html("");
+          response["msg"]["youtube_vlogs"] !== undefined ? $(".youtube_vlogs").html (response["msg"]["youtube_vlogs"]) : $(".youtube_vlogs").html("");
+          if(response['data'] == "success"){
+            $("#videoinsert")[0].reset();
+            showMessage(response.msg, "success");
+            }else{
+            showMessage(response.msg_error, "fail");
+            }  
+            }
+          });
+  })
 
-      $(document).on("click",".paragraphSave",function(event){
-        event.preventDefault();
-        console.log(" paragraph save button click");
-        var $contentheader =  CKEDITOR.instances["myeditor"];
-        if($contentheader != undefined){
-            CKEDITOR.instances["myeditor"].updateElement();
-        }
-        var form_data = $("#paragraphinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_paragraph'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-            response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
-              if(response['data'] == "success"){
-                  $("#paragraphinsert")[0].reset();
-                  CKEDITOR.instances['myeditor'].setData('');
-                  showMessage(response.msg, "success");
-                }else{
-                  showMessage(response.msg_error, "fail");
-                }  
-              }
-            });
-      })
-
-      $(document).on("click",".faqSave",function(event){
-        event.preventDefault();
-        console.log(" faqSave save button click");
-        var $contentheader =  CKEDITOR.instances["myeditor"];
-        if($contentheader != undefined){
-            CKEDITOR.instances["myeditor"].updateElement();
-        }
-        var form_data = $("#faqinsert")[0];
-        var form_data = new FormData(form_data);
-        form_data.append('routine_name','insert_faq'); 
-        $.ajax({
-          url: "../admin1/ajax_call.php",
-          type: "post",
-          dataType: "json",
-          contentType: false,
-          processData: false,
-          data: form_data, 
-          beforeSend: function () {
-              loading_show('.save_loader_show');
-          },
-          success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            loading_hide('.save_loader_show', 'Save');
-            response["msg"]["faq_question"] !== undefined ? $(".faq_question").html (response["msg"]["faq_question"]) : $(".faq_question").html("");
-            response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
-              if(response['data'] == "success"){
-                $("#faqinsert")[0].reset();
-                CKEDITOR.instances['myeditor'].setData('');
-                showMessage(response.msg, "success");
-              }else{
-                showMessage(response.msg_error, "fail");
-                } 
-              }
-            });
-      })
-      
-      var dropdown = document.getElementsByClassName("dropdown-btn");
-      var i;
-      
-      for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var dropdownContent = this.nextElementSibling;
-          if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-          } else {
-            dropdownContent.style.display = "block";
+  $(document).on("click",".blogSave",function(event){
+    event.preventDefault();
+    console.log("Blog save button click");
+    var $contentheader =  CKEDITOR.instances["myeditor"];
+    if($contentheader != undefined){
+        CKEDITOR.instances["myeditor"].updateElement();
+    }
+    var form_data = $("#bloginsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_blog'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+          response["msg"]["blog_title"] !== undefined ? $(".blog_title").html (response["msg"]["blog_title"]) : $(".blog_title").html("");
+          response["msg"]["blog_category"] !== undefined ? $(".blog_category").html (response["msg"]["blog_category"]) : $(".blog_category").html("");
+          response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
+          response["msg"]["author_name"] !== undefined ? $(".author_name").html (response["msg"]["author_name"]) : $(".author_name").html("");
+          response["msg"]["blog_image"] !== undefined ? $(".blog_image").html (response["msg"]["blog_image"]) : $(".blog_image").html("");
+          response["msg"]["blog_image_alt"] !== undefined ? $(".blog_image_alt").html (response["msg"]["blog_image_alt"]) : $(".blog_image_alt").html("");
+          if(response['data'] == "success"){
+              $("#bloginsert")[0].reset();
+              CKEDITOR.instances['myeditor'].setData('');
+              resetThumbnail();
+              $('.myFile').html('');
+              showMessage(response.msg, "success");
+            }else{
+              showMessage(response.msg_error, "fail");
+            }  
           }
         });
+  })     
+             
+  $(document).on("click",".bannerSave",function(event){
+    event.preventDefault();
+    console.log("Banner save button click");
+    var form_data = $("#bannerinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_banner'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+          response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
+          response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
+          response["msg"]["banner_text"] !== undefined ? $(".banner_text").html (response["msg"]["banner_text"]) : $(".banner_text").html("");
+          response["msg"]["banner_btn_link"] !== undefined ? $(".banner_btn_link").html (response["msg"]["banner_btn_link"]) : $(".banner_btn_link").html("");
+          if(response['data'] == "success"){
+              $("#bannerinsert")[0].reset();
+              resetThumbnail();
+              $('.myFile').html('');
+              showMessage(response.msg, "success");
+            }else{
+              showMessage(response.msg_error, "fail");
+            } 
+            }
+          });
+  })
+
+  $(document).on("click",".marketSave",function(event){
+    event.preventDefault();
+    console.log("market save button click");
+    var form_data = $("#f_marketinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_market'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["svg_image_alt"] !== undefined ? $(".svg_image_alt").html (response["msg"]["svg_image_alt"]) : $(".svg_image_alt").html("");
+          response["msg"]["shop_logo"] !== undefined ? $(".shop_logo").html (response["msg"]["shop_logo"]) : $(".shop_logo").html("");
+          response["msg"]["svg_img"] !== undefined ? $(".svg_img").html (response["msg"]["svg_img"]) : $(".svg_img").html("");
+          response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
+          response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
+          response["msg"]["img"] !== undefined ? $(".img").html (response["msg"]["img"]) : $(".img").html("");
+          if(response['data'] == "success"){
+              $("#f_marketinsert")[0].reset();
+              resetThumbnail();
+              showMessage(response.msg, "success");
+              $('.myFile').html('');
+            }else{
+              showMessage(response.msg_error, "fail");
+            } 
+            }
+          });
+  })
+
+  $(document).on("click",".brouseSave",function(event){
+    event.preventDefault();
+    console.log(" brouseSave save button click");
+    var form_data = $("#b_textileCtgryinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_brousetxt'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+        response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+        response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+        response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
+          if(response['data'] == "success"){
+              $("#b_textileCtgryinsert")[0].reset();
+              resetThumbnail();
+              showMessage(response.msg, "success");
+              $('.myFile').html('');
+            }else{
+              showMessage(response.msg_error, "fail");
+            } 
+            }
+          });
+  })
+
+  $(document).on("click",".offerSave",function(event){
+    event.preventDefault();
+      console.log(" offers save button click");
+      var form_data = $("#offersinsert")[0];
+      var form_data = new FormData(form_data);
+      form_data.append('routine_name','insert_offers'); 
+      $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data, 
+        beforeSend: function () {
+            loading_show('.save_loader_show');
+        },
+        success: function (response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          loading_hide('.save_loader_show', 'Save');
+          response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
+          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
+            if(response['data'] == "success"){
+                $("#offersinsert")[0].reset();
+                resetThumbnail();
+                showMessage(response.msg, "success");
+                $('.myFile').html('');
+              }else{
+                showMessage(response.msg_error, "fail");
+              } 
+              }
+            });
+    
+  })
+
+  $(document).on("click",".paragraphSave",function(event){
+    event.preventDefault();
+    console.log(" paragraph save button click");
+    var $contentheader =  CKEDITOR.instances["myeditor"];
+    if($contentheader != undefined){
+        CKEDITOR.instances["myeditor"].updateElement();
+    }
+    var form_data = $("#paragraphinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_paragraph'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+        response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
+          if(response['data'] == "success"){
+              $("#paragraphinsert")[0].reset();
+              CKEDITOR.instances['myeditor'].setData('');
+              showMessage(response.msg, "success");
+            }else{
+              showMessage(response.msg_error, "fail");
+            }  
+          }
+        });
+  })
+
+  $(document).on("click",".faqSave",function(event){
+    event.preventDefault();
+    console.log(" faqSave save button click");
+    var $contentheader =  CKEDITOR.instances["myeditor"];
+    if($contentheader != undefined){
+        CKEDITOR.instances["myeditor"].updateElement();
+    }
+    var form_data = $("#faqinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_faq'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');
+        response["msg"]["faq_question"] !== undefined ? $(".faq_question").html (response["msg"]["faq_question"]) : $(".faq_question").html("");
+        response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
+          if(response['data'] == "success"){
+            $("#faqinsert")[0].reset();
+            CKEDITOR.instances['myeditor'].setData('');
+            showMessage(response.msg, "success");
+          }else{
+            showMessage(response.msg_error, "fail");
+            } 
+          }
+        });
+  })
+      
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
+      
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
       }
+    });
+  }
      
-      var ctx = document.getElementById("chart-bars").getContext("2d");
+  var ctx = document.getElementById("chart-bars").getContext("2d");
 
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-          datasets: [{
-            label: "Sales",
-            tension: 0.4,
-            borderWidth: 0,
-            borderRadius: 4,
-            borderSkipped: false,
-            backgroundColor: "#fff",
-            data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-            maxBarThickness: 6
-          }, ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            }
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      datasets: [{
+        label: "Sales",
+        tension: 0.4,
+        borderWidth: 0,
+        borderRadius: 4,
+        borderSkipped: false,
+        backgroundColor: "#fff",
+        data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+        maxBarThickness: 6
+      }, ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        }
+      },
+      interaction: {
+        intersect: false,
+        mode: 'index',
+      },
+      scales: {
+        y: {
+          grid: {
+            drawBorder: false,
+            display: false,
+            drawOnChartArea: false,
+            drawTicks: false,
           },
-          interaction: {
-            intersect: false,
-            mode: 'index',
-          },
-          scales: {
-            y: {
-              grid: {
-                drawBorder: false,
-                display: false,
-                drawOnChartArea: false,
-                drawTicks: false,
-              },
-              ticks: {
-                suggestedMin: 0,
-                suggestedMax: 500,
-                beginAtZero: true,
-                padding: 15,
-                font: {
-                  size: 14,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-                color: "#fff"
-              },
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 500,
+            beginAtZero: true,
+            padding: 15,
+            font: {
+              size: 14,
+              family: "Open Sans",
+              style: 'normal',
+              lineHeight: 2
             },
-            x: {
-              grid: {
-                drawBorder: false,
-                display: false,
-                drawOnChartArea: false,
-                drawTicks: false
-              },
-              ticks: {
-                display: false
-              },
-            },
+            color: "#fff"
           },
         },
-      });
-
-      var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-      gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-      gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-      var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-      gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-      gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-      new Chart(ctx2, {
-        type: "line",
-        data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-          datasets: [{
-              label: "Mobile apps",
-              tension: 0.4,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: "#cb0c9f",
-              borderWidth: 3,
-              backgroundColor: gradientStroke1,
-              fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-              maxBarThickness: 6
-
-            },
-            {
-              label: "Websites",
-              tension: 0.4,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: "#3A416F",
-              borderWidth: 3,
-              backgroundColor: gradientStroke2,
-              fill: true,
-              data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-              maxBarThickness: 6
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            }
+        x: {
+          grid: {
+            drawBorder: false,
+            display: false,
+            drawOnChartArea: false,
+            drawTicks: false
           },
-          interaction: {
-            intersect: false,
-            mode: 'index',
-          },
-          scales: {
-            y: {
-              grid: {
-                drawBorder: false,
-                display: true,
-                drawOnChartArea: true,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                padding: 10,
-                color: '#b2b9bf',
-                font: {
-                  size: 11,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
-            x: {
-              grid: {
-                drawBorder: false,
-                display: false,
-                drawOnChartArea: false,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                color: '#b2b9bf',
-                padding: 20,
-                font: {
-                  size: 11,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
+          ticks: {
+            display: false
           },
         },
-      });
+      },
+    },
+  });
+
+  var ctx2 = document.getElementById("chart-line").getContext("2d");
+  var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+  gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+  gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+  gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+  var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+  gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+  gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+  gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+  new Chart(ctx2, {
+    type: "line",
+    data: {
+      labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      datasets: [{
+          label: "Mobile apps",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#cb0c9f",
+          borderWidth: 3,
+          backgroundColor: gradientStroke1,
+          fill: true,
+          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          maxBarThickness: 6
+
+        },
+        {
+          label: "Websites",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#3A416F",
+          borderWidth: 3,
+          backgroundColor: gradientStroke2,
+          fill: true,
+          data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+          maxBarThickness: 6
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        }
+      },
+      interaction: {
+        intersect: false,
+        mode: 'index',
+      },
+      scales: {
+        y: {
+          grid: {
+            drawBorder: false,
+            display: true,
+            drawOnChartArea: true,
+            drawTicks: false,
+            borderDash: [5, 5]
+          },
+          ticks: {
+            display: true,
+            padding: 10,
+            color: '#b2b9bf',
+            font: {
+              size: 11,
+              family: "Open Sans",
+              style: 'normal',
+              lineHeight: 2
+            },
+          }
+        },
+        x: {
+          grid: {
+            drawBorder: false,
+            display: false,
+            drawOnChartArea: false,
+            drawTicks: false,
+            borderDash: [5, 5]
+          },
+          ticks: {
+            display: true,
+            color: '#b2b9bf',
+            padding: 20,
+            font: {
+              size: 11,
+              family: "Open Sans",
+              style: 'normal',
+              lineHeight: 2
+            },
+          }
+        },
+      },
+    },
+  });
    
 });
