@@ -59,21 +59,10 @@ include 'header.php';
                 </div>
               </div>
             </div>
+            <div id="getdata">
             <div class="col-md-12 col-lg-12 wow bounceInUp">
-              <h5 class="fw-bold">Sarees Manufacturers in Surat</h5>
-              <p class="fs-7">
-                Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform
-                connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether
-                you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast
-                selection to suit every need.
-              </p>
-              <h5 class="fw-bold">Designer Lehengas Suppliers in India </h5>
-              <p class="fs-7">
-                Explore our extensive network of designer lehenga suppliers across India. We bring you the finest collection of 
-                lehengas, perfect for weddings, festivals, and special occasions. Our suppliers offer a variety of styles, including 
-                bridal lehengas, party-wear lehengas, and contemporary lehenga cholis, crafted with attention to detail and the latest 
-                fashion trends.
-              </p>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -145,3 +134,7 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("listparagraph LIST");
+listparagraph();
+</script>

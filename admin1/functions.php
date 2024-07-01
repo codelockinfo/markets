@@ -7,17 +7,14 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 include_once '../connection.php';
 
 class admin_functions {
-
     public $cls_errors = array();
     public $msg = array();
     protected $db;
-
     public function __construct() {
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
     }
 
-    // CALLING THIS FUNCTION ON PAGE LOAd
     public function demo_function(){
         $sql = "SELECT * FROM users"; 
         $result = $this->db->query($sql);
@@ -57,8 +54,8 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array); 
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
     
     function insert_signup(){
@@ -73,6 +70,8 @@ class admin_functions {
         $newFilename = time(). '.' . $extension;
         $folder = "assets/img/sigup_img/";
         $fullpath= $folder . $newFilename;
+        $file = $_FILES['image'];
+        $maxSize = 5 * 1024 * 1024;  
         
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
@@ -83,16 +82,10 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-
-        $file = $_FILES['image'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }  
         if ($file['size'] > $maxSize) {
-            $error_array['image'] = "File size must be 5MB or less.";
-           
+            $error_array['image'] = "File size must be 5MB or less.";          
         }
-
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
         }
@@ -134,8 +127,7 @@ class admin_functions {
        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
            $error_array['email'] = "Please enter a valid email address";
        }
-        if (empty($error_array)) {
-            
+       if (empty($error_array)) {            
             $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
             $name = str_replace("'", "\'", $name);
             $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';
@@ -168,8 +160,7 @@ class admin_functions {
                         
                         $last_id = mysqli_insert_id($this->db);
                         $user_query = "SELECT * FROM users WHERE user_id = $last_id";
-                        $user_result = mysqli_query($this->db, $user_query);
-                
+                        $user_result = mysqli_query($this->db, $user_query);                
                         if ($user_result) {
                             $userinfo = mysqli_fetch_assoc($user_result);
                             $_SESSION['current_user'] = $userinfo;
@@ -180,13 +171,12 @@ class admin_functions {
                         $response_data = array('data' => 'fail', 'msg' => "Error");
                     }
                 }
+            }            
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
             }
-            
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
-        }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
 
     function insert_products() {
@@ -231,10 +221,7 @@ class admin_functions {
         }
         if (isset($_POST['max_price']) && $_POST['max_price'] == '') {
             $error_array['max_price'] = "Please enter a maximum price.";
-        }
-        // if (empty($_POST['p_tag']) || !is_array($_POST['p_tag'])) {
-        //     $error_array['p_tag'] = "Please enter product tag.";
-        // }
+        }       
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter description.";
         }
@@ -264,10 +251,9 @@ class admin_functions {
             }
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
-        }
-    
-        $response = json_encode($response_data);
-        return $response;
+        }    
+            $response = json_encode($response_data);
+            return $response;
     }
     
 
@@ -284,6 +270,7 @@ class admin_functions {
         }
         return false;
     }
+
     function insert_videos(){
         $error_array = array();
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
@@ -301,8 +288,7 @@ class admin_functions {
             $error_array['youtube_vlogs'] = "Please enter YouTube vlogs link";
         } elseif (isset($_POST['youtube_vlogs']) && !$this->isValidYouTubeURL($_POST['youtube_vlogs'])) {
             $error_array['youtube_vlogs'] = "Please enter a valid YouTube vlogs link";
-        }
-        
+        }        
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
             $video_title = (isset($_POST['video_title']) && $_POST['video_title'] !== '') ? $_POST['video_title'] : '';
@@ -318,12 +304,11 @@ class admin_functions {
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
 
     function insert_blog(){ 
@@ -338,6 +323,9 @@ class admin_functions {
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/blog_img/";
         $fullpath= $folder . $newFilename;
+        $file = $_FILES['blog_image'];
+        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
@@ -347,13 +335,9 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        $file = $_FILES['blog_image'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }      
         if ($file['size'] > $maxSize) {
-            $error_array['blog_image'] = "File size must be 5MB or less.";
-           
+            $error_array['blog_image'] = "File size must be 5MB or less.";           
         }
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
             $error_array['blog_title'] = "Please enter blog title";
@@ -389,8 +373,8 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
 
     function isValidURL($url) {
@@ -417,6 +401,9 @@ class admin_functions {
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/banner_img/";
         $fullpath= $folder . $newFilename;
+        $file = $_FILES['myFile'];
+        $maxSize = 5 * 1024 * 1024;
+
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
@@ -426,10 +413,7 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        $file = $_FILES['myFile'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }      
         if ($file['size'] > $maxSize) {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
@@ -438,8 +422,7 @@ class admin_functions {
         }
         if (isset($_POST['myFile']) && $_POST['myFile'] == '') {
             $error_array['myFile'] = "Please enter video title";
-        }
-        // print_r($_POST);
+        }       
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
             $error_array['heading'] = "Please enter heading";
         }
@@ -462,7 +445,7 @@ class admin_functions {
             $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
             $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
           
-            $query = "INSERT INTO banner (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link')";
+            $query = "INSERT INTO banners (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link')";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Banner inserted successfully!');
@@ -473,12 +456,14 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
     
     function insert_market(){
         $error_array = array();
+        $file = $_FILES['img'];
+        $maxSize = 5 * 1024 * 1024;
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $svg_img = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
         $svgtmpfile = isset($_FILES["svg_img"]["tmp_name"]) ? $_FILES["svg_img"]["tmp_name"] : '';
@@ -496,6 +481,8 @@ class admin_functions {
                 return json_encode($response_data);
             }
         }
+        $file = $_FILES['svg_img'];
+        $maxSize = 5 * 1024 * 1024; 
         $filename = isset($_FILES["img"]["name"]) ? $_FILES["img"]["name"] : '';
         $tmpfile = isset($_FILES["img"]["tmp_name"]) ? $_FILES["img"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -514,10 +501,7 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        $file = $_FILES['img'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }       
         if ($file['size'] > $maxSize) {
             $error_array['img'] = "File size must be 5MB or less.";
         }
@@ -529,10 +513,7 @@ class admin_functions {
         }
         if (!in_array($svgfileExtension, $allowedExtensions)) {
             $error_array['svg_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        $file = $_FILES['svg_img'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }        
         if ($file['size'] > $maxSize) {
             $error_array['svg_img'] = "File size must be 5MB or less.";
         }
@@ -573,11 +554,14 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
+
     function insert_brousetxt(){
         $error_array = array();
+        $file = $_FILES['myFile'];
+        $maxSize = 5 * 1024 * 1024; 
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
@@ -597,10 +581,7 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        $file = $_FILES['myFile'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }        
         if ($file['size'] > $maxSize) {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
@@ -616,10 +597,9 @@ class admin_functions {
             if (move_uploaded_file($tmpfile,$fullpath)) {
             $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-            $query = "INSERT INTO b_textile_catagory (img,img_alt,img_link) VALUES ('$newFilename','$image_alt','$img_link')";
+            $query = "INSERT INTO b_textile_catagorys (img,img_alt,img_link) VALUES ('$newFilename','$image_alt','$img_link')";
             $result = $this->db->query($query);
-            if ($result) {
-                
+            if ($result) {                
                 $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -628,12 +608,14 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
 
     function insert_offers(){
         $error_array = array();
+        $file = $_FILES['myFile'];
+        $maxSize = 5 * 1024 * 1024;
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
@@ -653,10 +635,7 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        $file = $_FILES['myFile'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+        }       
         if ($file['size'] > $maxSize) {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
@@ -683,9 +662,10 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
+
     function insert_paragraph(){ 
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
@@ -701,12 +681,11 @@ class admin_functions {
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
     
     function insert_faq(){ 
@@ -721,7 +700,7 @@ class admin_functions {
             $faq_question = (isset($_POST['faq_question']) && $_POST['faq_question'] !== '') ? $_POST['faq_question'] : '';
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
             $myeditor = str_replace("'", "\'", $myeditor);
-            $query = "INSERT INTO faq (question,answer) VALUES ('$faq_question','$myeditor')";
+            $query = "INSERT INTO faqs (question,answer) VALUES ('$faq_question','$myeditor')";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'FAQ inserted successfully!');
@@ -732,13 +711,13 @@ class admin_functions {
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
-        $response = json_encode($response_data);
-        return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
 
     function productlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM products"; // Correct query syntax
+        $query = "SELECT * FROM products";
         $result = $this->db->query($query);
         $output="";
             if ($result) {
@@ -762,7 +741,7 @@ class admin_functions {
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete-button">Delete</button>';
+                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
                     $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
                     $output .= '        </div>';
                     $output .= '      </div>';
@@ -770,15 +749,15 @@ class admin_functions {
                     $output .= '  </div>';
                     $output .= '</div>';     
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output);
+                    $response_data = array('data' => 'success', 'outcome' => $output);
             }
-                $response = json_encode($response_data);
-                return $response;
+                    $response = json_encode($response_data);
+                    return $response;
     }
     
     function bloglisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM blogs"; // Correct query syntax
+        $query = "SELECT * FROM blogs";
         $result = $this->db->query($query);
         $output="";      
          if ($result) {
@@ -786,8 +765,7 @@ class admin_functions {
                 $image = $row["image"];
                 $imagePath = "../admin1/assets/img/blog_img/".$image;
                 $decodedPath = htmlspecialchars_decode($imagePath);
-                $title =  $row['title'];
-                // $price = $row['maxprice'];
+                $title =  $row['title'];             
                 $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                 $output .= '  <div class="card card-blog card-plain">';
                 $output .= '    <div class="position-relative">';
@@ -801,25 +779,23 @@ class admin_functions {
                 $output .= '      </a>';
                 $output .= '      <div class="d-flex justify-content-between mb-3">';
                 $output .= '        <div class="ms-auto text-end">';
-                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete-blog">Delete</button>';
+                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
                 $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
                 $output .= '        </div>';
                 $output .= '      </div>';
                 $output .= '    </div>';
                 $output .= '  </div>';
-                $output .= '</div>';     
-                // print_r($row) ;    
-                
+                $output .= '</div>';                   
             }
-            $response_data = array('data' => 'success', 'outcome' => $output);
+                $response_data = array('data' => 'success', 'outcome' => $output);
         }
-            $response = json_encode($response_data);
-            return $response;
+                $response = json_encode($response_data);
+                return $response;
     }
 
     function videolisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM videos"; // Correct query syntax
+        $query = "SELECT * FROM videos"; 
         $result = $this->db->query($query);
         $output = "";
         if ($result) {
@@ -836,65 +812,100 @@ class admin_functions {
                 $output .= '<div class="card-body px-1 pb-0">';
                 $output .= '<div class="d-flex justify-content-between mb-3">';
                 $output .= '<div class="ms-auto text-end">';
-                $output .= '<button data-id="'.$row['video_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 video-delete">Delete</button>';
+                $output .= '<button data-id="'.$row['video_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="video">Delete</button>';
                 $output .= '</div>';
                 $output .= '</div>';
                 $output .= '</div>';
                 $output .= '</div>';
                 $output .= '</div>';
             }
-            $response_data = array('data' => 'success', 'outcome' => $output);
+                $response_data = array('data' => 'success', 'outcome' => $output);
         }
-        $response = json_encode($response_data);
-        return $response;
+                $response = json_encode($response_data);
+                return $response;
     }
 
     function offerlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM offers"; // Correct query syntax
+        $query = "SELECT * FROM offers"; 
         $result = $this->db->query($query);
         $output="";
-          if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
-                $image = $row["img"];
-                $imagePath = "../admin1/assets/img/offers/".$image;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                $output .= ' <div class="col-xl-4 col-md-6 mb-xl-0 mb-2">';
-                $output .= '<div class="card card-blog card-plain">';
-                $output .= '<div class="position-relative">';
-                $output .= '<a class="d-block border-radius-xl">';
-                $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">';
-                $output .= '</a>';
-                $output .= ' </div>';
-                $output .= '</div>';
-                $output .= ' </div>'   ;              
+        $output .= '<div class="mb-3 form-check-reverse text-right">
+                    <div class="container">
+                    <div class="btn-group">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                    </div>
+                    </div>  
+                    </div>
+                    </div>
+                    </div>';
+        $output .= '</div>';
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {  
+                    $image = $row["img"];
+                    $imagePath = "../admin1/assets/img/offers/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block border-radius-xl">';
+                    $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '<button data-id="'.$row['offer_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="offer" >Delete</button>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
             }
-            $response_data = array('data' => 'success', 'outcome' => $output);
-        }
-
-        $response = json_encode($response_data);
-        return $response;
+                    $response = json_encode($response_data);
+                    return $response;
     }
 
     function brousetextilelisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM b_textile_catagory"; // Correct query syntax
+        $query = "SELECT * FROM b_textile_catagorys"; 
         $result = $this->db->query($query);
         $output="";
+        $output .= '<div class="card z-index-0 p-3">';
+        $output .= ' <div class="row">';
+        $output .= '<div class="mb-3 form-check-reverse text-right">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["img"];
                     $imagePath = "../admin1/assets/img/brouse_textilectgry_img/".$image;
                     $decodedPath = htmlspecialchars_decode($imagePath);
-                    $output .= '<div class="col-xl-4 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '<div class="card card-blog card-plain">';
-                    $output .= '<div class="position-relative">';
-                    $output .= '<a class="d-block border-radius-xl">';
-                    $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 mt-3">';
-                    $output .= '</a>';
-                    $output .= '</div>';
-                    $output .= '</div>';
-                    $output .= '</div>' ;  
+                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="d-flex justify-content-between mb-3">';
+                    $output .= '      <div class="ms-auto text-end">';
+                    $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';                    
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             }
@@ -904,23 +915,130 @@ class admin_functions {
 
     function FAQlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faq"; // Correct query syntax
+        $query = "SELECT * FROM faqs"; 
         $result = $this->db->query($query);
         $output="";
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
-
-                    $output .= '<div class="accordion-item">';
-                    $output .= '<input type="checkbox" id="'. $row["id"] .'">';
-                    $output .= '<label for="'. $row["id"] .'" class="accordion-item-title"><span class="icon"></span>'.$row["question"].'</label>';
-                    $output .= '<div class="accordion-item-desc">' . $row["answer"] . '</div>';
-                    $output .= '</div>'; 
+                    $output .= '<div class="row mb-3">';
+                    $output .= '  <div class="col-xl-11 accordion-item">';
+                    $output .= '    <input type="checkbox" id="' . $row["faq_id"] . '">';
+                    $output .= '    <label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon"></span> ' . $row["question"] . '</label>';
+                    $output .= '    <div class="accordion-item-desc">';
+                    $output .= '        ' . $row["answer"] . '';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '  <div class="col-xl-1">';
+                    $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faq" aria-hidden="true"></i>';
+                    $output .= '  </div>';
+                    $output .= '</div>';                                  
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             }
                 $response = json_encode($response_data);
                 return $response;
     }
+
+    function paragraphlisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM paragraph"; 
+        $result = $this->db->query($query);
+        $output = "";
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {  
+                    $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';                
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+                $response = json_encode($response_data);
+                return $response;
+    }
+
+    function bannerlisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM banners";
+        $result = $this->db->query($query);
+        $output = "";
+        $output .= '<div class="mb-3 form-check-reverse text-right">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {  
+                $image = $row["banner_img"];
+                $imagePath = "../admin1/assets/img/banner_img/".$image;
+                $decodedPath = htmlspecialchars_decode($imagePath);
+                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                $output .= '<div class="card card-blog card-plain">';
+                $output .= '<div class="position-relative">';
+                $output .= '<a class="d-block border-radius-xl">';
+                $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                $output .= '</a>';
+                $output .= '</div>';
+                $output .= '<div class="d-flex justify-content-between mb-3">';
+                $output .= '<div class="ms-auto text-end">';
+                $output .= '<button type="button" data-id="'.$row['banner_id'].'" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="banner">Delete</button>';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';                
+            }
+               $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+               $response = json_encode($response_data);
+               return $response;
+    } 
+
+    function famousmarketlisting (){ 
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM famous_markets"; 
+        $result = $this->db->query($query);
+        $output = "";
+        $output .= '<div class="mb-3 form-check-reverse text-right">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {  
+                // $svgimage = $row["SVG_img"];
+                $image = $row["Image"];
+                $imagePath = "../admin1/assets/img/famous_market/img/".$image;
+                // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
+                $decodedPath = htmlspecialchars_decode($imagePath);
+                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                $output .= '  <div class="card card-blog card-plain">';
+                $output .= '    <div class="position-relative">';
+                $output .= '      <a class="d-block border-radius-xl">';
+                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                $output .= '      </a>';
+                $output .= '    </div>';
+                $output .= '    <div class="d-flex justify-content-between mb-3">';
+                $output .= '      <div class="ms-auto text-end">';
+                $output .= '        <button data-id="'.$row['famous_market_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                $output .= '      </div>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';        
+            }
+            $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+            $response = json_encode($response_data);
+            return $response;
+    } 
 
     function deleteRecord($table, $delete_id) {
         $delete_id = $this->db->real_escape_string($delete_id);
@@ -932,7 +1050,7 @@ class admin_functions {
         } else {
             $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
         }
-        return json_encode($response_data);
+            return json_encode($response_data);   
     }
 
     function productdelete() {
@@ -948,5 +1066,30 @@ class admin_functions {
     function videodelete() {
         $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
         return $this->deleteRecord('videos', $delete_id);
+    }
+
+    function bannerdelete() {
+        $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
+        return $this->deleteRecord('banners', $delete_id);
+    }
+
+    function famousmarketdelete() {
+        $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
+        return $this->deleteRecord('famous_markets', $delete_id);
+    }
+
+    function b_textile_catagorysdelete() {
+        $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
+        return $this->deleteRecord('b_textile_catagorys', $delete_id);
+    }
+
+    function offerdelete() {
+        $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
+        return $this->deleteRecord('offers', $delete_id);
+    }
+
+    function faqdelete() {
+        $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
+        return $this->deleteRecord('faqs', $delete_id);
     }
 }
