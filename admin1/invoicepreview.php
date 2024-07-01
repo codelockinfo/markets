@@ -26,7 +26,7 @@ include 'header.php';
         </div>
       </div>
     </div>
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-2">
       <div class="col-xl-6 mx-auto">
         <div class="card z-index-0 p-4 product-main">
           <form action="">
@@ -88,8 +88,8 @@ include 'header.php';
                 </div>
               </div>
             </div>
-            <div class="row">
-              <table class="mt-4 w-100">
+            <div class="row table-scroll">
+              <table class="mt-4">
                 <tr class="border-redius">
                   <th class="w-50 bg-gradient-info text-light ps-3 text-bold">item</th>
                   <th class="w-16 bg-gradient-info text-light ps-3 text-bold">Quantity</th>
@@ -129,13 +129,13 @@ include 'header.php';
                 </div>
                 <div class="row mt-2">
                   <div class="col">
-                    <span class="text-normal"><strong>Discount (10%) :</strong></span>
-                    <span class="text-normal">₹ 5175.00</span>
+                    <span class="text-normal"><strong>Tax (05%) :</strong></span>
+                    <span class="text-normal">₹ 6037.05</span>
                   </div>
                 </div>
                 <div class="row mt-2">
                   <div class="col">
-                    <span class="text-normal"><strong>Tax (05%) :</strong></span>
+                    <span class="text-normal"><strong>Discount (10%) :</strong></span>
                     <span class="text-normal">₹ 5433.75</span>
                   </div>
                 </div>
@@ -148,13 +148,13 @@ include 'header.php';
                 <div class="row mt-2">
                   <div class="col">
                     <span class="text-normal"><strong>Total :</strong></span>
-                    <span class="text-normal">₹ 5483.75</span>
+                    <span class="text-normal">₹ 5433.75</span>
                   </div>
                 </div>
                 <div class="row mt-2">
                   <div class="col">
                     <span class="text-normal"><strong>Amount Paid :</strong></span>
-                    <span class="text-normal">₹ 5483.75</span>
+                    <span class="text-normal">₹ 5433.75</span>
                   </div>
                 </div>
                 <div class="row mt-2">
@@ -179,7 +179,7 @@ include 'header.php';
               </div>
             </div>
           </form>
-          <div class="text-center mt-5">
+          <div class="text-end mt-5">
             <button class="btn bg-gradient-info">Print</button>
           </div>
         </div>

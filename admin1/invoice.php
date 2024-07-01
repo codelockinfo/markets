@@ -52,7 +52,7 @@ include 'header.php';
                   </div>
                 </div>
                 <div class="row mt-4">
-                  <div class="col-xl-6">
+                  <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
                     <textarea name="text" id="" placeholder="Who is this form?" class="form-control"></textarea>
                   </div>
@@ -90,47 +90,35 @@ include 'header.php';
               </div>
               <div class="row w-60 mt-2">
                 <div class="col-xl mt-2">
-                  <span class="text-normal">PO Number :</span>
+                  <span class="text-normal">PO Number :
+
+                  </span>
                 </div>
                 <div class="col-xl">
                   <input type="text" class="form-control mt-1 max-width-200">
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row table-scroll1" id="attributes"    >
               <table class="mt-4 w-100">
                 <tr class="border-redius">
                   <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
-                  <th class="w-10 bg-gradient-info text-light ps-3 text-bold">Quantity</th>
-                  <th class="w-10 bg-gradient-info text-light ps-3 text-bold">Rate</th>
-                  <th class="w-10 bg-gradient-info text-light ps-3 text-bold">Amount</th>
+                  <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
+                  <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
+                  <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
                 </tr>
-                <tr>
+                <tr class="attr">
                   <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
                   <td><input type="description" class="form-control mt-1" placeholder="1"></td>
                   <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
                   <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                </tr>
-                <tr>
-                  <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                  <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                </tr>
-                <tr>
-                  <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                  <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times" aria-hidden="true"></i></td>
+                  <td><i class="fa fa-times remove" aria-hidden="true"></i></td>
                 </tr>
               </table>
-              <div class="row max-width-200 mt-3">
-                <button class="btn bg-gradient-info">+ Line Item</button>
-              </div>
             </div>
+            <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
+                <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
+              </div>
             <div class="col w-60">
               <div class="row">
                 <div class="col-xl mt-2">
@@ -165,16 +153,10 @@ include 'header.php';
                 </div>
               </div>
             </div>
-            <div class="row mt-3 btn-group">
-              <div class="col">
-                <button class="btn bg-gradient-info">Discount</button>
-              </div>
-              <div class="col text-center">
-                <button class="btn bg-gradient-info">Tax</button>
-              </div>
-              <div class="col text-center">
-                <button class="btn bg-gradient-info">Shipping</button>
-              </div>
+            <div class="btn-group  mt-3" role="group" aria-label="Basic example">
+              <button type="button" class="btn bg-gradient-info">+ Discount</button>
+              <button type="button" class="btn bg-gradient-info">+ Tax</button>
+              <button type="button" class="btn bg-gradient-info">+ Shipping</button>
             </div>
             <div class="row w-100 mt-4">
               <div class="col w-50">
@@ -189,7 +171,7 @@ include 'header.php';
               </div>
             </div>
           </form>
-          <div class="text-center mt-5">
+          <div class="text-end mt-5">
             <button class="btn bg-gradient-info">Download</button>
           </div>
         </div>
@@ -258,7 +240,6 @@ include 'header.php';
       </div>
     </div>
     <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
 
 </html>

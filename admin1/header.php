@@ -32,6 +32,6 @@ include($myRoot . '/markets/connection.php');
         <script src="<?php echo main_url('/admin1/assets/js/ckeditor/ckeditor.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
         <script src="<?php echo main_url('/admin1/assets/js/ajax.js'); ?>"></script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </head>       
    

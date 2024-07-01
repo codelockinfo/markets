@@ -148,3 +148,39 @@ $(document).on('click', '.navigation ul li', function(){
 });
 
 
+// invoice page add remove functionality 
+
+/* Variables */
+var row = $(".attr");
+
+function addRow() {
+  row.clone(true, true).appendTo("#attributes");
+}
+
+function removeRow(button) {
+  button.closest("tr.attr").remove();
+}
+
+$('#attributes .attr:first-child').find('.remove').hide();
+
+/* Doc ready */
+$(".add").on('click', function () {
+  addRow();  
+  if($("#attributes .attr").length > 1) {
+    //alert("Can't remove row.");
+    $(".remove").show();
+  }
+});
+$(".remove").on('click', function () {
+  if($("#attributes .attr").size() == 1) {
+    //alert("Can't remove row.");
+    $(".remove").hide();
+  } else {
+    removeRow($(this));
+    
+    if($("#attributes .attr").size() == 1) {
+        $(".remove").hide();
+    }
+    
+  }
+});
