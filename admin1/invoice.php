@@ -90,35 +90,33 @@ include 'header.php';
               </div>
               <div class="row w-60 mt-2">
                 <div class="col-xl mt-2">
-                  <span class="text-normal">PO Number :
-
-                  </span>
+                  <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl">
                   <input type="text" class="form-control mt-1 max-width-200">
                 </div>
               </div>
             </div>
-            <div class="row table-scroll1" id="attributes"    >
+            <div class="row table-scroll1" id="attributes">
               <table class="mt-4 w-100">
-                <tr class="border-redius">
+                <tr>
                   <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
                   <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
                   <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
                   <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
                 </tr>
-                <tr class="attr">
+                <tr class="attr w-100">
                   <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
                   <td><input type="description" class="form-control mt-1" placeholder="1"></td>
                   <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
                   <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times remove" aria-hidden="true"></i></td>
+                  <td><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
                 </tr>
               </table>
             </div>
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
-                <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
-              </div>
+              <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
+            </div>
             <div class="col w-60">
               <div class="row">
                 <div class="col-xl mt-2">
