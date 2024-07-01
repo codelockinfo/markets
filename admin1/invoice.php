@@ -97,15 +97,15 @@ include 'header.php';
                 </div>
               </div>
             </div>
-            <div class="row table-scroll1" id="attributes">
-              <table class="mt-4 w-100">
+            <div class="row table-scroll1">
+              <table class="mt-4 w-100"  id="attributes">
                 <tr>
                   <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
                   <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
                   <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
                   <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
                 </tr>
-                <tr class="attr w-100">
+                <tr class="attr">
                   <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
                   <td><input type="description" class="form-control mt-1" placeholder="1"></td>
                   <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
