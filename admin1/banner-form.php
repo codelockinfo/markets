@@ -84,7 +84,7 @@ include 'header.php';
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-3">
-            <div class="row" id="getdata">
+            <div class="row" id="getdata">              
             </div>
           </div>
         </div>
