@@ -128,9 +128,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -177,9 +178,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -226,9 +228,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -275,9 +278,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -324,9 +328,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -373,9 +378,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -422,9 +428,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -471,9 +478,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
@@ -520,9 +528,10 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="market-button d-flex  mt-3">
-                                <button class="btn btn-primary me-1  fs-6">Contact Seller</button>
-                                <button class="btn btn-query ms-1  fs-6">Send Inquriy</button>
+                            <div class="market-button d-flex mt-3">
+                                <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
                     </div>
