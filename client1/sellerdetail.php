@@ -2,87 +2,111 @@
 include 'header.php';
 ?>
 
-
 <body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
     <?php
     include 'navbar.php';
     ?>
-    <!-- Hero Start -->
-    <div class="container-fluid bg-light py-5 mt-0">
-        <div class="container text-center animated bounceInDown">
-            <h1 class="display-1 mb-4">All markets in Surat</h1>
-            <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
-                <li class="breadcrumb-item text-dark" aria-current="page">All markets in Surat</li>
-            </ol>
-        </div>
-    </div>
-    <!-- Hero End -->
-    <!-- filter and latest section start -->
-    <section class="co_filter pt-4  container-fluid">
-        <div class="container">
-            <div class="co_box d-block d-sm-flex justify-content-end align-items-center">
-                <div class="d-flex order-1 order-sm-2 justify-content-end">
-                    <div class="dropdown ms-2">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filter
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item text-capitalize nav-link" href="#" id="latestMarkets">latest markets</a></li>
-                            <li><a class="dropdown-item text-capitalize nav-link" href="#" id="byCategory">by categoty</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown ms-2 hcategory" id="categoryDropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                            Category
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Armwear">Armwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Badges">Badges</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Belts">Belts</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Children">Children's clothing</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Clothingbrands">Clothing brands by type </a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Coats">Coats</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Dresses">Dresses</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Footwear">Footwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Gowns">Gowns</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Handwear">Handwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Hosiery">Hosiery</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Jackets">Jackets</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Jeans">Jeans by type</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Kneeclothing">Knee clothing</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Masks">Masks</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Neckwear">Neckwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="One-piece">One-piece suits</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Outerwear">Outerwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Ponchos">Ponchos</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Robesandcloaks">Robes and cloaks</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Shawlsandwraps">Shawls and wraps</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Royalattire">Royal attire</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="saree">saree</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Sashes">Sashes</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Skirts">Skirts</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Sportswear">Sportswear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Suits">Suits</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Tops">Tops</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Trousersandshorts">Trousers and shorts</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Undergarments">Undergarments</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Wedding">Wedding clothing</a></li>
-                        </ul>
-                    </div>
+
+
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="w-auto  me-sm-5 order-1 ">
-                    <div class="range-slider">
-                        <span class="rangeValues"></span>
-                        <input value="100" min="100" max="1000" step="200" type="range">
-                        <input value="1000" min="100" max="1000" step="200" type="range">
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- filter and latest section end -->
-    <!-- Collection2 Start -->
+    </div>
+    <!-- Modal Search End -->
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-light py-5  mt-0">
+        <div class="container text-center animated bounceInDown">
+            <h1 class="display-1 mb-4">Seller Details</h1>
+            <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
+                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item text-dark" aria-current="page">Seller Details</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid contact pt-5 pt-md-6    wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="p-2 p-sm-5 bg-light rounded contact-form">
+                <div class="row g-4">
+                    <div class="col-xl-4">
+                        <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="seller-image border-radius-lg shadow-sm">
+                    </div>
+                    <div class="col-xl-8">
+                        <span class="text-capitalize text-dark"><strong>name :</strong></span>
+                        <span class="text-capitalize">kalpesh vaghani</span>
+                        <div class="mt-1">
+                            <span class="text-capitalize text-dark"><strong>shop name :</strong></span>
+                            <span class="text-capitalize">marco men</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7">
+                        <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm mb-4">
+                    </div>
+                    <div class="col-md-6 col-lg-5">
+                        <div>
+                            <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                                <div class="">
+                                    <h4>Address</h4>
+                                    <p>2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat
+                                        395006</p>
+                                </div>
+                            </div>
+                            <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">
+                                <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                                <div class="">
+                                    <h4>Mail Us</h4>
+                                    <a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a>
+                                    <!-- <h4>Mail Us</h4>
+                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p> -->
+                                </div>
+                            </div>
+                            <div class="d-inline-flex w-100 border border-primary p-4 rounded ">
+                                <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                                <div class="">
+                                    <h4>Telephone</h4>
+                                    <p><a href="tel:7600464414" class="text-body">+91 7600464414</a></p>
+                                </div>
+                            </div>
+                            <div class="d-inline-flex w-100 p-4 rounded ">
+                                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                                <a href="https://api.whatsapp.com/send?phone=6325487985&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+                                    <i class="fa fa-whatsapp fa-2x text-primary me-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="collection pt-4 container-fluid">
         <div class="container">
             <div class="row justify-content-center">
@@ -539,13 +563,12 @@ include 'header.php';
             </div>
         </div>
     </section>
-    <!-- Collection2 End -->
+    <!-- Contact End -->
+
+
     <?php
     include 'footer.php';
     ?>
-
-
-
 
 </body>
 
