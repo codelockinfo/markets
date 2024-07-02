@@ -46,7 +46,7 @@ include 'header.php';
                             <div class="banner-main-box p-1 wow bounceInUp">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
                                     <h3 class="text-white count m-0">346866</h3>
-                                    <p class="text-capitalize m-0 text-white">verified suppliers</p>
+                                    <p class="text-capitalize m-0 text-white">verified markets</p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6 class="rate-icon ">(4.5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6 class=rate-icon>(3.5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6 class=rate-icon>(5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6 class=rate-icon>(3.5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6 class=rate-icon>(4.5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star text-primary"></i>
                                     <h6 class=rate-icon>(5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@ include 'header.php';
                                     <i class="fa-solid fa-star-half-stroke text-primary"></i>
                                     <h6 class=rate-icon>(4.5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -251,7 +251,7 @@ include 'header.php';
                                     <i class="fa-regular fa-star text-primary"></i>
                                     <h6 class=rate-icon>(3.5)</h6>
                                 </div>
-                                <a href="<?php echo CLS_SITE_URL ?>product.php" class="btn btn-primary mt-3">View Products</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary mt-3">View Products</a>
                             </div>
                         </div>
                     </div>
@@ -313,75 +313,403 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Kurti</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -393,75 +721,403 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Saree</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -473,75 +1129,403 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Wedding</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -553,75 +1537,403 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>mg/top/top1.jpg" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Top</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -633,75 +1945,403 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" data-lightbox="event-1" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" data-lightbox="event-2" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" data-lightbox="event-3" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" data-lightbox="event-4" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" data-lightbox="event-5" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" data-lightbox="event-6" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" data-lightbox="event-7" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
-                                        <div class="event-img position-relative">
-                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
-                                            <div class="event-overlay d-flex flex-column p-4">
-                                                <h4 class="mx-auto">Skirt</h4>
-                                                <a href="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" data-lightbox="event-17" class="my-auto mx-auto"><i class="fas fa-search-plus text-primary fa-2x"></i></a>
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="market_list_mian_box border rounded">
+                                            <div class="market-head border-bottom">
+                                                <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                                            </div>
+                                            <div class="market-content p-3">
+                                                <div class="d-flex justify-content-between pb-2 ">
+                                                    <div class="col-3">
+                                                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class=" ms-4">
+                                                            <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                                            <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                                            <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3 text-end">
+                                                        <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                        </div>
+                                                        <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-footer  border-top">
+                                                    <div class="market-name">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="m-icon">
+                                                                <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                                            </div>
+                                                            <div class="m-name mt-2 ms-2">
+                                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                                                <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="market-button d-flex mt-3">
+                                                    <button class="btn btn-primary me-1 fs-6">Contact Seller</button>
+                                                    <button class="btn btn-dark ms-1 fs-6">Send Inquriy</button>
+                                                    <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
