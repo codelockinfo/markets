@@ -97,22 +97,24 @@ include 'header.php';
                 </div>
               </div>
             </div>
-            <div class="row table-scroll1">
-              <table class="mt-4 w-100"  id="attributes">
-                <tr>
-                  <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
-                  <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
-                  <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
-                  <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
-                </tr>
-                <tr class="attr">
-                  <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                  <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                  <td class="text-center">₹ 0.00</td>
-                  <td><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
-                </tr>
-              </table>
+            <div class="table-scroll1">
+              <div class="row">
+                <table class="mt-4 w-100" id="attributes">
+                  <tr>
+                    <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
+                    <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
+                    <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
+                    <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
+                  </tr>
+                  <tr class="attr">
+                    <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
+                    <td><input type="description" class="form-control mt-1" placeholder="1"></td>
+                    <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
+                    <td class="text-center">₹ 0.00</td>
+                    <td><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
+                  </tr>
+                </table>
+              </div>
             </div>
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
               <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
