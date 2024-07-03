@@ -419,21 +419,18 @@ class admin_functions {
         }
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your banner image";
-        }
-        if (isset($_POST['myFile']) && $_POST['myFile'] == '') {
-            $error_array['myFile'] = "Please enter video title";
-        }       
+        }      
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
-            $error_array['heading'] = "Please enter heading";
+            $error_array['heading'] = "Please enter the heading";
         }
         if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
-            $error_array['sub_heading'] = "Please enter sub heading";
+            $error_array['sub_heading'] = "Please enter the sub heading";
         }
         if (isset($_POST['banner_text']) && $_POST['banner_text'] == '') {
-            $error_array['banner_text'] = "Please enter banner text";
+            $error_array['banner_text'] = "Please enter the banner text";
         }
         if (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] == '') {
-            $error_array['banner_btn_link'] = "Please enter banner button link";
+            $error_array['banner_btn_link'] = "Please enter the banner button link";
         } elseif (isset($_POST['banner_btn_link']) && !$this->isValidURL($_POST['banner_btn_link'])) {
             $error_array['banner_btn_link'] = "Please enter a valid banner button link";
         }
@@ -462,7 +459,7 @@ class admin_functions {
     
     function insert_market(){
         $error_array = array();
-        $file = $_FILES['img'];
+        $file = $_FILES['svg_img'];       
         $maxSize = 5 * 1024 * 1024;
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $svg_img = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
@@ -481,7 +478,7 @@ class admin_functions {
                 return json_encode($response_data);
             }
         }
-        $file = $_FILES['svg_img'];
+        $file = $_FILES['img'];
         $maxSize = 5 * 1024 * 1024; 
         $filename = isset($_FILES["img"]["name"]) ? $_FILES["img"]["name"] : '';
         $tmpfile = isset($_FILES["img"]["tmp_name"]) ? $_FILES["img"]["tmp_name"] : '';
@@ -498,18 +495,9 @@ class admin_functions {
                 $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
                 return json_encode($response_data);
             }
-        }
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }       
-        if ($file['size'] > $maxSize) {
-            $error_array['img'] = "File size must be 5MB or less.";
-        }
-        if (empty($filename)) {
-            $error_array['img'] = "Please upload your image";
-        }
-        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image alt";
+        }          
+        if (isset($_POST['shop_logo']) && $_POST['shop_logo'] == '') {
+            $error_array['shop_logo'] = "Please enter the shop logo";
         }
         if (!in_array($svgfileExtension, $allowedExtensions)) {
             $error_array['svg_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
@@ -519,19 +507,22 @@ class admin_functions {
         }
         if (empty($svg_img)) {
             $error_array['svg_img'] = "Please upload your svg image";
-        }
-        if (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] == '') {
-            $error_array['svg_image_alt'] = "Please enter image alt";
-        }
-        if (isset($_POST['shop_logo']) && $_POST['shop_logo'] == '') {
-            $error_array['shop_logo'] = "Please enter shop logo";
-        }
+        }    
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
-            $error_array['heading'] = "Please enter heading";
+            $error_array['heading'] = "Please enter the heading";
         }
         if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
-            $error_array['sub_heading'] = "Please enter sub heading";
+            $error_array['sub_heading'] = "Please enter the sub heading";
         }
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }       
+        if ($file['size'] > $maxSize) {
+            $error_array['img'] = "File size must be 5MB or less.";
+        }
+        if (empty($filename)) {
+            $error_array['img'] = "Please upload your image";
+        }     
         if (empty($error_array)) {
             $movefirst = move_uploaded_file($svgtmpfile,$svgfullpath);
             $movesecond = move_uploaded_file($tmpfile,$fullpath);
@@ -542,8 +533,7 @@ class admin_functions {
             $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
             $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
             $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
-
-            $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt')";
+            $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt')";           
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'market inserted successfully!');
@@ -714,6 +704,65 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     }
+    
+    function insert_review(){
+        $error_array = array();
+        $file = $_FILES['shop_image'];
+        $maxSize = 5 * 1024 * 1024; 
+        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+        $filename = isset($_FILES["shop_image"]["name"]) ? $_FILES["shop_image"]["name"] : '';
+        $tmpfile = isset($_FILES["shop_image"]["tmp_name"]) ? $_FILES["shop_image"]["tmp_name"] : '';
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $newFilename = time(). '.' . $extension;
+        $fileName = $_FILES['shop_image']['name'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+        $folder = "assets/img/marketreview/";
+        $fullpath= $folder . $newFilename;
+        if (!is_dir($folder)) {
+            $mkdir = mkdir($folder, 0777, true);
+            if (!$mkdir) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
+            }
+        }
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            $error_array['shop_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+        }        
+        if ($file['size'] > $maxSize) {
+            $error_array['shop_image'] = "File size must be 5MB or less.";
+        }
+        if (empty($filename)) {
+            $error_array['shop_image'] = "Please upload a shop logo.";
+        }
+        if (isset($_POST['shop_description']) && $_POST['shop_description'] == '') {
+            $error_array['shop_description'] = "Please enter the shop description";
+        }
+        if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
+            $error_array['shop_name'] = "Please enter the shop name";
+        }
+        if (isset($_POST['review']) && $_POST['review'] == '') {
+            $error_array['review'] = "Please give a review";
+        }
+        if (empty($error_array)) {
+            if (move_uploaded_file($tmpfile,$fullpath)) {
+            $shop_description = (isset($_POST['shop_description']) && $_POST['shop_description'] !== '') ? $_POST['shop_description'] : '';
+            $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
+            $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
+            $query = "INSERT INTO marketreviews (logo_img,description,shopname,review) VALUES ('$newFilename','$shop_description','$shop_name','$review')";
+            $result = $this->db->query($query);
+            if ($result) {                
+                $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "Error");
+            }
+        }
+        }else{
+            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
+        }
+            $response = json_encode($response_data);
+            return $response;
+    }  
 
     function productlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -742,12 +791,13 @@ class admin_functions {
                     $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
                     $output .= '        <div class="ms-auto text-end">';
                     $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
-                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
+                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</button>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
-                    $output .= '</div>';     
+                    $output .= '</div>'; 
+                    print_r($row);    
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
             }
@@ -1040,10 +1090,53 @@ class admin_functions {
             return $response;
     } 
 
+    function reviewlisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM marketreviews";
+        $result = $this->db->query($query);
+        $output="";
+        $output .= '<div class="mb-3 form-check-reverse text-right ">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["logo_img"];
+                    $imagePath = "../admin1/assets/img/marketreview/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);               
+                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="d-flex justify-content-between mb-3">';
+                    $output .= '      <div class="ms-auto text-end">';
+                    $output .= '        <button data-id="'.$row['marketreview_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="review">Delete</button>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';
+                    
+                }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+                    $response = json_encode($response_data);
+                    return $response;
+    }
+
     function deleteRecord($table, $delete_id) {
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
-        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
+        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";        
         $result = $this->db->query($query);
         if ($result === TRUE) {
             $response_data = array('data' => 'success', 'message' => "Delete successfully");
@@ -1091,5 +1184,10 @@ class admin_functions {
     function faqdelete() {
         $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
         return $this->deleteRecord('faqs', $delete_id);
+    }
+
+    function reviewdelete() {
+        $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
+        return $this->deleteRecord('marketreviews', $delete_id);
     }
 }

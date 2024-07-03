@@ -98,6 +98,10 @@ function listfamousmarket() {
   loadData('famousmarketlisting');
 }
 
+function listreview() {
+  loadData('reviewlisting');
+}
+
 var loadShopifyAJAX= null;
 var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
   if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
@@ -428,7 +432,9 @@ $(document).ready(function() {
                   data.offer_id = employeeId;
               } else if (type === 'faq') {
                   data.faq_id = employeeId;
-              }
+              } else if (type === 'review') {
+                data.marketreview_id = employeeId;
+              }                           
               $.ajax({
                   url: "../admin1/ajax_call.php",
                   type: 'POST',
@@ -476,7 +482,8 @@ $(document).ready(function() {
           'famous_market': { routine: 'famousmarketdelete', callback: listfamousmarket },
           'b_textile_catagory': { routine: 'b_textile_catagorysdelete', callback: listbrousetextile },
           'offer': { routine: 'offerdelete', callback: offerlist },
-          'faq': { routine: 'faqdelete', callback: listFAQ }  
+          'faq': { routine: 'faqdelete', callback: listFAQ },
+          'review': { routine: 'reviewdelete', callback: listreview }
       };    
       if (deleteMapping[deleteType]) {
           var routine = deleteMapping[deleteType].routine;
@@ -622,8 +629,8 @@ $(document).ready(function() {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide('.save_loader_show', 'Save');
-          response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-          response["msg"]["svg_image_alt"] !== undefined ? $(".svg_image_alt").html (response["msg"]["svg_image_alt"]) : $(".svg_image_alt").html("");
+          // response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          // response["msg"]["svg_image_alt"] !== undefined ? $(".svg_image_alt").html (response["msg"]["svg_image_alt"]) : $(".svg_image_alt").html("");
           response["msg"]["shop_logo"] !== undefined ? $(".shop_logo").html (response["msg"]["shop_logo"]) : $(".shop_logo").html("");
           response["msg"]["svg_img"] !== undefined ? $(".svg_img").html (response["msg"]["svg_img"]) : $(".svg_img").html("");
           response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
@@ -784,8 +791,44 @@ $(document).ready(function() {
           }
         });
   })
-  
-  var dropdown = document.getElementsByClassName("dropdown-btn");
+
+  $(document).on("click",".reviewSave",function(event){
+    event.preventDefault();
+    console.log("review save button click");
+    var form_data = $("#reviewinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','insert_review'); 
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data, 
+      beforeSend: function () {
+          loading_show('.save_loader_show');
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide('.save_loader_show', 'Save');        
+          response["msg"]["shop_image"] !== undefined ? $(".shop_image").html (response["msg"]["shop_image"]) : $(".shop_image").html("");
+          response["msg"]["shop_description"] !== undefined ? $(".shop_description").html (response["msg"]["shop_description"]) : $(".shop_description").html("");
+          response["msg"]["shop_name"] !== undefined ? $(".shop_name").html (response["msg"]["shop_name"]) : $(".shop_name").html("");
+          response["msg"]["review"] !== undefined ? $(".review").html (response["msg"]["review"]) : $(".review").html("");
+          if(response['data'] == "success"){
+              $("#reviewinsert")[0].reset();
+              resetThumbnail();
+              showMessage(response.msg, "success");
+              $('.shop_logo').html('');
+            }else{
+              showMessage(response.msg_error, "fail");
+            } 
+            }
+          });
+  })
+ 
+    var dropdown = document.getElementsByClassName("dropdown-btn");
   var i;
   
   for (i = 0; i < dropdown.length; i++) {

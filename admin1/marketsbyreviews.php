@@ -30,12 +30,12 @@ include 'header.php';
       <div class="row">
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
           <div class="card z-index-0 p-3 product-main">
-            <form role="form" id="productinsert" enctype="multipart/form-data" method="POST">
+            <form role="form" id="reviewinsert" enctype="multipart/form-data" method="POST">
               <label for="p-image" class="font-weight-normal required">Shop Logo</label>
               <div class="mb-3">
                 <div class="drop-zone form-control">
                   <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                  <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
+                  <input type="file" name="shop_image" id="removeImage" class="drop-zone__input">
                 </div>
                 <div class="col">
                   <div class="row mt-2">
@@ -45,25 +45,25 @@ include 'header.php';
                     <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                   </div>
                 </div>
-                <div class="errormsg myFile p_image"></div>
+                <div class="errormsg myFile shop_image"></div>
               </div>
               <label for="p-description" class="font-weight-normal required">Shop Description</label>
               <div class="mb-3">
-                <textarea id="shop-description" class="w-100 form-control validtext" name="p_description"></textarea>
-                <span class="errormsg p_description"></span>
+                <textarea id="shop-description" class="w-100 form-control validtext" name="shop_description"></textarea>
+                <span class="errormsg shop_description"></span>
               </div>
               <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext product w-100" placeholder="Shop Name" name="pname">
-                <span class="errormsg pname"></span>
+                <input type="text" class="form-control validtext product w-100" placeholder="Shop Name" name="shop_name">
+                <span class="errormsg shop_name"></span>
               </div>
               <label for="review" class="font-weight-normal required">Shop Reviews</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext product w-100" placeholder="Shop Reviews" name="pname">
-                <span class="errormsg pname"></span>
+                <input type="text" class="form-control validtext product w-100" placeholder="Shop Reviews" name="review">
+                <span class="errormsg review"></span>
               </div>
               <div class="mb-3">
-                <button type="button" class="btn bg-gradient-info btn-sm productSave save_loader_show">Save</button>
+                <button type="button" class="btn bg-gradient-info btn-sm reviewSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm pform_reset formCancel">Cancel</button>
               </div>
               <!-- <div class="alert" role="alert" id="success_message" name="success_alert"></div> -->
@@ -72,74 +72,7 @@ include 'header.php';
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-3">
-            <div class="row">
-              <div class="mb-3 form-check-reverse text-right ">
-                <div class="container">
-                  <div class="btn-group">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-6 mb-xl-0 mb-2">
-                <div class="card card-blog card-plain">
-                  <div class="position-relative">
-                    <a class="d-block border-radius-xl">
-                      <img src="<?php echo main_url('/admin1/assets/img/kurti/msg-1001446435108-2955.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">
-                    </a>
-                  </div>
-                  <div class="d-flex justify-content-between mb-3">
-                    <div class="ms-auto text-end">
-                      <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="row"  id="getdata">              
             </div>
           </div>
         </div>
@@ -213,3 +146,7 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("listbrousetextile LIST");
+listreview()
+</script>

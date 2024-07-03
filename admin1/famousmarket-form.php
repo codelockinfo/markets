@@ -86,7 +86,7 @@ include 'header.php';
               </div>
               <label for="text" class="font-weight-normal"> Image Alt</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Image Alt" name="heading">
+                <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
               </div>
               <div class="mb-3">
                 <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
