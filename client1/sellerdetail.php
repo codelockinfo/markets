@@ -55,7 +55,7 @@ include 'header.php';
         <div class="container">
             <div class="p-2 p-sm-5 bg-light rounded contact-form">
                 <div class="row g-4">
-                    <div class="col-xl-4">
+                    <div class="col-xl-2">
                         <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="seller-image border-radius-lg shadow-sm">
                     </div>
                     <div class="col-xl-8">
@@ -97,8 +97,8 @@ include 'header.php';
                             </div>
                             <div class="d-inline-flex w-100 p-4 rounded ">
                                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-                                <a href="https://api.whatsapp.com/send?phone=6325487985&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
-                                    <i class="fa fa-whatsapp fa-2x text-primary me-4"></i>
+                                <a href="https://api.whatsapp.com/send?phone=6325487985&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float ms-auto p-3" target="_blank">
+                                    <i class="fa fa-whatsapp fa-2x text-light"></i>
                                 </a>
                             </div>
                         </div>
