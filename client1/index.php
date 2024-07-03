@@ -2578,7 +2578,7 @@ include 'header.php';
             <div class="swiper testimonalSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop1.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2598,7 +2598,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop2.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2618,7 +2618,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop3.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2638,7 +2638,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop4.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2658,7 +2658,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop5.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2678,7 +2678,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop6.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2698,7 +2698,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/logo (1).png" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
@@ -2718,7 +2718,7 @@ include 'header.php';
                         </div>
                     </div>
                     <div class="swiper-slide ">
-                        <div class="testimonial-main-box rounded  p-2  bg-light mt-2 py-5">
+                        <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop8.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
                             </div>
