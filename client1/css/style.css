@@ -5,6 +5,9 @@
 .text-second {
     color: var(--bs-secondary-text);
 }
+.bg-second {
+    color: var(--bs-secondary-text);
+}
 
 /*** Spinner Start ***/
 #spinner {
@@ -129,6 +132,13 @@ h6,
 
 .bg-dark-opacity {
     background-color: #36150086 !important;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff; /* or any other background color */
 }
 
 /*** Button Start ***/

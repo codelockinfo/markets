@@ -14,7 +14,7 @@
    </section>
   <!-- mobileview shop button end -->
  <!-- Navbar start -->
- <div class="container-fluid nav-bar">
+ <div id="stickyHeader" class="container-fluid nav-bar">
      <div class="container">
          <nav class="navbar navbar-light navbar-expand-lg">
              <a href="<?php echo CLS_SITE_URL ?>index.php" class="navbar-brand">
