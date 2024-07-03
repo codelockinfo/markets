@@ -2,24 +2,24 @@ console.log("common.js");
 
 // drag & drop js
 
-function showMessage(msg, type) {
-  var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
-  Swal.fire({
-      title: alertTitle, 
-      text: msg,
-      icon: (type === "fail") ? "error" : type, 
-      timer: 5000,
-      timerProgressBar: true,
-      showConfirmButton: false
-   });
-}
+// function showMessage(msg, type) {
+//   var alertTitle = (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+//   Swal.fire({
+//       title: alertTitle, 
+//       text: msg,
+//       icon: (type === "fail") ? "error" : type, 
+//       timer: 5000,
+//       timerProgressBar: true,
+//       showConfirmButton: false
+//    });
+// }
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
     // dropZoneElement.addEventListener("click", (e) => {
     //   inputElement.click();
     // });
-    var alertTitle = (type) => (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+    // var alertTitle = (type) => (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
     dropZoneElement.addEventListener("click", () => inputElement.click());
 
     inputElement.addEventListener("change", (e) => {
@@ -34,14 +34,14 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
           title: alertTitle("fail"),
           text: 'Only PNG, JPG, JPEG, GIF files are allowed!'
         });
-          inputElement.value = "";  // Clear the input
+          // inputElement.value = "";  // Clear the input
       }
         // updateThumbnail(dropZoneElement, inputElement.files[0]);
       }
     });
     dropZoneElement.addEventListener("dragover", (e) => {
       e.preventDefault();
-        dropZoneElement.classList.add("drop-zone--over");
+        // dropZoneElement.classList.add("drop-zone--over");
     });
     ["dragleave", "dragend"].forEach((type) => {
       dropZoneElement.addEventListener(type, (e) => {
@@ -52,11 +52,11 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     dropZoneElement.addEventListener("drop", (e) => {
       e.preventDefault();
         if (e.dataTransfer.files.length) {
-          const file = e.dataTransfer.files[0];
+          // const file = e.dataTransfer.files[0];
           if (file.type.startsWith("image/")) {
-            inputElement.files = e.dataTransfer.files;
-            console.log("dropfile" + file );
-            updateThumbnail(dropZoneElement, file);
+            // inputElement.files = e.dataTransfer.files;
+            // console.log("dropfile" + file );
+            // updateThumbnail(dropZoneElement, file);
             // var form_data = $("form")[0];
             // form_data.append('file', file);
         } else {
@@ -65,12 +65,12 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
             title: alertTitle("fail"),
             text: 'Only PNG, JPG, JPEG, GIF files are allowed!'
           });
-          inputElement.value = "";  // Clear the input
+          // inputElement.value = "";  // Clear the input
         }
           // inputElement.files = e.dataTransfer.files;
           // updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
         }
-      dropZoneElement.classList.remove("drop-zone--over");
+      // dropZoneElement.classList.remove("drop-zone--over");
     });
     
   });
@@ -86,7 +86,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       thumbnailElement.classList.add("drop-zone__thumb");
       dropZoneElement.appendChild(thumbnailElement);
     }
-    thumbnailElement.dataset.label = file.name;
+    // thumbnailElement.dataset.label = file.name;
     // Show thumbnail for image files
     if (file.type.startsWith("image/")) {
       const reader = new FileReader();
@@ -108,9 +108,9 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       thumbnailElement.appendChild(img);
       thumbnailElement.appendChild(closeButton);
       $('.myFile').text('');
-      // console.log(thumbnailElement);
-      // console.log(thumbnailElement.closest(".mb-3"));
-      // thumbnailElement.closest(".mb-3").find(".myFile").html('');
+      console.log(thumbnailElement);
+      console.log(thumbnailElement.closest(".mb-3"));
+      thumbnailElement.closest(".mb-3").find(".myFile").html('');
     });
 
       reader.readAsDataURL(file);
