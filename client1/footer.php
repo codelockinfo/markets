@@ -58,7 +58,7 @@
     <!-- Copyright Start -->
     <div class="container-fluid copyright bg-primary py-4">
         <div class="container">
-            <div class="text-center mb-3 mb-md-0">
+            <div class="text-center">
                 <span class="text-light"><a href="https://codelocksolutions.in/" class="text-second"><i class="fas fa-copyright text-second me-2"></i>Codelock solution</a>, All right reserved. </span>
             </div>
         </div>
