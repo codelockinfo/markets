@@ -1322,3 +1322,11 @@ input[type=range]:focus::-ms-fill-upper {
     transition: 0.2s;
 }
 /* border hover end */
+
+/* btn hover start */
+.send-btn:hover{
+    background-color: #CC9544;
+    color: black;
+    border-color: #CC9544;
+}
+/* btn hover end */

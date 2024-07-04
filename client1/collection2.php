@@ -130,7 +130,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -180,7 +180,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -230,7 +230,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -280,7 +280,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -330,7 +330,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -380,7 +380,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -430,7 +430,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -480,7 +480,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
@@ -530,7 +530,7 @@ include 'header.php';
                             </div>
                             <div class="market-button d-flex mt-3">
                                 <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
                                 <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
                             </div>
                         </div>
