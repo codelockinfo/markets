@@ -26,7 +26,7 @@
                 <div class="col-12 col-md-4">
                     <img class="img-fluid" style="border-radius: 5px; object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                 </div>
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-8 mt-4 mt-md-0">
                     <div class="swiper mySwiper">
                         <div class="swiper-button-next"></div>
                         <div class="swiper-wrapper d-flex align-items-center justify-content-between">

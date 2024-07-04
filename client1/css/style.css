@@ -178,7 +178,13 @@ h6,
 }
 
 /*** Button End ***/
-
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff; / or any other background color /
+}
 
 /*** Navbar Start ***/
 .nav-bar {
