@@ -314,7 +314,7 @@ include 'header.php';
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -364,7 +364,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -414,7 +414,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -464,7 +464,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -514,7 +514,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -564,7 +564,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -614,7 +614,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -664,7 +664,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -722,7 +722,7 @@ include 'header.php';
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -772,7 +772,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -822,7 +822,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -872,7 +872,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -922,7 +922,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -972,7 +972,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1022,7 +1022,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1072,7 +1072,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1130,7 +1130,7 @@ include 'header.php';
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1180,7 +1180,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1230,7 +1230,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1280,7 +1280,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1330,7 +1330,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1380,7 +1380,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1430,7 +1430,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1480,7 +1480,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1538,7 +1538,7 @@ include 'header.php';
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1588,7 +1588,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1638,7 +1638,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1688,7 +1688,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1738,7 +1738,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1788,7 +1788,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1838,7 +1838,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1888,7 +1888,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1946,7 +1946,7 @@ include 'header.php';
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -1996,7 +1996,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -2046,7 +2046,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -2096,7 +2096,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -2146,7 +2146,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -2196,7 +2196,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -2246,7 +2246,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>
@@ -2296,7 +2296,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
-                                        <div class="market_list_mian_box border rounded">
+                                        <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
                                             </div>

@@ -1305,3 +1305,14 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: rgb(12, 166, 12);
 }
 /* seller detail page start */
+
+/* border hover start */
+.market_list_mian_box{
+    border: 1px solid rgb(237, 221, 221);
+    border-radius: 8px;
+}
+.market_list_mian_box:hover{
+    border: 1px solid #36150086;
+    transition: 0.2s;
+}
+/* border hover end */
