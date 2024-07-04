@@ -1,17 +1,4 @@
-// Header sticky jquery start 
-$(document).ready(function () {
-  var header = $("#stickyHeader");
-  var sticky = header.offset().top;
 
-  $(window).scroll(function () {
-      if ($(window).scrollTop() > sticky) {
-          header.addClass("sticky");
-      } else {
-          header.removeClass("sticky");
-      }
-  });
-});
-// Header sticky jquery end 
 
 // contact form validation
 $(Document).on("click", ".submit", function (event) {
