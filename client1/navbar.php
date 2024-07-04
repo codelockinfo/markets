@@ -18,7 +18,7 @@
      <div class="container">
          <nav class="navbar navbar-light navbar-expand-lg">
              <a href="<?php echo CLS_SITE_URL ?>index.php" class="navbar-brand">
-                 <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
+                 <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1">
              </a>
              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                  <span class="fa fa-bars text-primary"></span>
@@ -33,7 +33,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="kurti4">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2 mt-md-0 ">
@@ -60,7 +60,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="wedding2">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -87,7 +87,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="top1">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -121,7 +121,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" class="img-fluid d-none d-md-block rounded" alt="saree1">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -142,7 +142,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" class="img-fluid d-none d-md-block rounded" alt="skirt1">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -164,7 +164,7 @@
                                  <div class="col-12 col-md-4">
                                      <div class="megamenu-box">
                                          <div class="megamenu-img">
-                                             <img src="<?php echo CLS_SITE_URL; ?>img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="">
+                                             <img src="<?php echo CLS_SITE_URL; ?>img/gown/IMG_6358.jpg" class="img-fluid d-none d-md-block rounded" alt="IMG_6358">
                                          </div>
                                          <div class="megamenu-content">
                                              <ul class="list-unstyled mt-2">
@@ -198,7 +198,7 @@
  <!-- megamenu md view  -->
  <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
      <div class="offcanvas-header">
-         <a href="<?php echo CLS_SITE_URL ?>index.php"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image"></a>
+         <a href="<?php echo CLS_SITE_URL ?>index.php"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1"></a>
          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
      </div>
      <div class="offcanvas-body">

@@ -55,7 +55,7 @@
                             <h4 class="fs-3 text-capitalize fw-bold text-primary">boost your business 4 reasons to source from surat women wear manufacturer</h4>
                         </div>
                         <div class="blog_img">
-                            <img src="<?php echo CLS_SITE_URL; ?>img/blog_details6.webp" class="img-fluid w-100 rounded" alt="">
+                            <img src="<?php echo CLS_SITE_URL; ?>img/blog_details6.webp" class="img-fluid w-100 rounded" alt="blog_details6">
                         </div>
                         <div class="blog_details_contant mt-4">
                             <h4 class="fs-5 text-second">Lorem, ipsum dolor sit amet consectetur adipisicing.</h4>
@@ -90,7 +90,7 @@
                             <h4 class="fs-5 ">Related blogs</h4>
                             <div class="row mt-3">
                                 <div class="col-4">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="kurti2">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-4">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" class="img-fluid rounded" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" class="img-fluid rounded" alt="wedding1">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-4">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid rounded" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid rounded" alt="top1">
                                 </div>
                                 <div class="col-8">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, iusto.</p>

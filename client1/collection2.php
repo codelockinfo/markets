@@ -94,7 +94,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -105,13 +105,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -155,13 +155,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -205,13 +205,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -255,13 +255,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -305,13 +305,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -344,7 +344,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -355,13 +355,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -394,7 +394,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -405,13 +405,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -444,7 +444,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -455,13 +455,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>
@@ -494,7 +494,7 @@ include 'header.php';
                         <div class="market-content p-3">
                             <div class="d-flex justify-content-between pb-2 ">
                                 <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
                                 </div>
                                 <div class="col-6">
                                     <div class=" ms-4">
@@ -505,13 +505,13 @@ include 'header.php';
                                 </div>
                                 <div class="col-3 text-end">
                                     <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
                                     </div>
                                     <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
                                     </div>
                                     <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
                                     </div>
                                 </div>
                             </div>

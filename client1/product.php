@@ -58,11 +58,11 @@ include 'header.php';
                         <!-- Thumbnail track carousel -->
                         <div class="thumbnails-slider swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide thumbnail-button" aria-current="true"><img src="<?php echo CLS_SITE_URL; ?>img/k1.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k2.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k3.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k4.jpg" alt=""></div>
-                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k5.jpg" alt=""> </div>
+                                <div class="swiper-slide thumbnail-button" aria-current="true"><img src="<?php echo CLS_SITE_URL; ?>img/k1.jpg" alt="k1"></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k2.jpg" alt="k2"></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k3.jpg" alt="k3"></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k4.jpg" alt="k4"></div>
+                                <div class="swiper-slide thumbnail-button"><img src="<?php echo CLS_SITE_URL; ?>img/k5.jpg" alt="k5"> </div>
                             </div>
                         </div>
 
@@ -70,19 +70,19 @@ include 'header.php';
                         <div class="main-image-slider swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide image-link">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/k1.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k1.jpg" alt="k1">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/k2.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k2.jpg" alt="k2">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/k3.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k3.jpg" alt="k3">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/k4.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k4.jpg" alt="k4">
                                 </div>
                                 <div class="swiper-slide image-link">
-                                    <img src="<?php echo CLS_SITE_URL; ?>img/k5.jpg" alt="">
+                                    <img src="<?php echo CLS_SITE_URL; ?>img/k5.jpg" alt="k5">
                                 </div>
                             </div>
 
@@ -137,7 +137,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="kurti1">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -148,13 +148,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="kurti1">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="kurti1">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" class="img-fluid rounded" alt="kurti1">
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="kurti2">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -200,13 +200,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="kurti2">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="kurti2">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" class="img-fluid rounded" alt="kurti2">
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="kurti3">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -252,13 +252,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="kurti3">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="kurti3">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" class="img-fluid rounded" alt="kurti3">
                                         </div>
                                     </div>
                                 </div>
@@ -293,7 +293,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="kurti4">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -304,13 +304,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="kurti4">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="kurti4">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid rounded" alt="kurti4">
                                         </div>
                                     </div>
                                 </div>
@@ -345,7 +345,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="kurti5">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -356,13 +356,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="kurti5">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="kurti5">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" class="img-fluid rounded" alt="kurti5">
                                         </div>
                                     </div>
                                 </div>
@@ -397,7 +397,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="kurti6">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -408,13 +408,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="kurti6">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="kurti6">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" class="img-fluid rounded" alt="kurti6">
                                         </div>
                                     </div>
                                 </div>
@@ -449,7 +449,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="kurti7">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -460,13 +460,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="kurti7">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="kurti7">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" class="img-fluid rounded" alt="kurti7">
                                         </div>
                                     </div>
                                 </div>
@@ -501,7 +501,7 @@ include 'header.php';
                             <div class="market-content p-3">
                                 <div class="d-flex justify-content-between pb-2 ">
                                     <div class="col-3">
-                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="">
+                                        <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="kurti8">
                                     </div>
                                     <div class="col-6">
                                         <div class=" ms-4">
@@ -512,13 +512,13 @@ include 'header.php';
                                     </div>
                                     <div class="col-3 text-end">
                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="kurti8">
                                         </div>
                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="kurti8">
                                         </div>
                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="">
+                                            <img src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" class="img-fluid rounded" alt="kurti8">
                                         </div>
                                     </div>
                                 </div>

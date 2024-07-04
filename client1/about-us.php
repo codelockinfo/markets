@@ -63,22 +63,22 @@ include 'header.php';
         <div class="row">
             <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="event-img position-relative p-2">
-                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="skirt1">
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
                 <div class="event-img position-relative p-2">
-                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="skirt2">
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
                 <div class="event-img position-relative p-2">
-                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="skirt3">
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
                 <div class="event-img position-relative p-2">
-                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                    <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="skirt4">
                 </div>
             </div>
         </div>

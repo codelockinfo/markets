@@ -18,7 +18,7 @@ include 'header.php';
     <div id="modalOverlay">
         <div class="modalPopup bg-white p-3 p-md-5">
             <div class="headerBar bg-white m-0 text-center w-100">
-                <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="no-image">
+                <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1">
             </div>
             <div class="modalContent text-center">
                 <p class="text-capitalize m-0">are you looking for Wholesalers?</p>
@@ -37,8 +37,8 @@ include 'header.php';
     <!-- Hero Start -->
     <section class="banner_section">
         <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
-            <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="no-image">
-            <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="no-image">
+            <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="home-banner">
+            <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="banner-mobile">
             <div class=" banner_content">
                 <div class="banner-content-main container">
                     <div class="row">
@@ -87,7 +87,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Arohi-Woman Fashion</a>
                                 <p class="mb-4">Embrace Tradition, Celebrate Style.</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="">
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class="img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop1.jpg" alt="shop1">
                                 </div></a>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -109,7 +109,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Kavya Fabrics</a>
                                 <p class="mb-4">Where Heritage Meets Haute Couture</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop2.jpg" alt="shop2"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -131,7 +131,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Global textile</a>
                                 <p class="mb-4">Timeless Elegance in Every Thread</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop3.jpg" alt="shop3"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -153,7 +153,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">krishna textile</a>
                                 <p class="mb-4">Reviving Roots with Every Stitch</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop4.jpg" alt="shop4"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -175,7 +175,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Jay Ambe Fabrics</a>
                                 <p class="mb-4">Ethereal Elegance, Ethnic Excellence</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop5.jpg" alt="shop5"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -197,7 +197,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">KS textile</a>
                                 <p class="mb-4">Draping You in Cultural Splendor</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop6.jpg" alt="shop6"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -219,7 +219,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 h4 text-capitalize text-second">Rajhans textile</a>
                                 <p class="mb-4">Weaving Traditions, Crafting Dreams</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"> <img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo (1).png" alt="logo (1)"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -241,7 +241,7 @@ include 'header.php';
                                 <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="mb-3 text-capitalize h4 text-second">Bal Krishna fabrics</a>
                                 <p class="mb-4">Elegance Redefined</p>
                                 <div class="famous-img rounded-circle">
-                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg   " alt=""></a>
+                                    <a href="<?php echo CLS_SITE_URL ?>collection2.php"><img class=" img-fluid2" src="<?php echo CLS_SITE_URL; ?>img/shop_1/shop8.jpg" alt="shop8"></a>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2">
                                     <i class="fa-solid fa-star text-primary"></i>
@@ -321,7 +321,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="kurti1">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -332,13 +332,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="kurti1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="kurti1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/1.jpg" alt="kurti1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -371,7 +371,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="kurti2">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -382,13 +382,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="kurti2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="kurti2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/2.jpg" alt="kurti2">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -421,7 +421,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="kurti3">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -432,13 +432,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="kurti3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="kurti3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/3.jpg" alt="kurti3">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -471,7 +471,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="kurti4">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -482,13 +482,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="kurti4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="kurti4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" alt="kurti4">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -521,7 +521,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="kurti5">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -532,13 +532,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="kurti5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="kurti5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/5.jpg" alt="kurti5">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -571,7 +571,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="kurti6">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -582,13 +582,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="kurti6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="kurti6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/6.jpg" alt="kurti6">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -621,7 +621,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="kurti7">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -632,13 +632,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="kurti7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="kurti7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/7.jpg" alt="kurti7">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -671,7 +671,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="kurti8">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -682,13 +682,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="kurti8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="kurti8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/kurti/8.jpg" alt="kurti8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -729,7 +729,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="saree1">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -740,13 +740,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="saree1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="saree1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg" alt="saree1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -779,7 +779,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="saree2">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -790,13 +790,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="saree2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="saree2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg" alt="saree2">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -829,7 +829,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="saree3">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -840,13 +840,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="saree3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="saree3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg" alt="saree3">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -879,7 +879,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="saree4">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -890,13 +890,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="saree4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="saree4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg" alt="saree4">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -929,7 +929,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="saree5">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -940,13 +940,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="saree5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="saree5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg" alt="saree5">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -979,7 +979,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="saree6">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -990,13 +990,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="saree6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="saree6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg" alt="saree6">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1029,7 +1029,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="saree7">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1040,13 +1040,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="saree7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="saree7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg" alt="saree7">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1079,7 +1079,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1090,13 +1090,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1137,7 +1137,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="wedding1">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1148,13 +1148,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="wedding1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="wedding1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding1.webp" alt="wedding1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1187,7 +1187,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="wedding2">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1198,13 +1198,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="wedding2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="wedding2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" alt="wedding2">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1237,7 +1237,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="wedding3">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1248,13 +1248,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="wedding3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="wedding3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding3.jpg" alt="wedding3">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1287,7 +1287,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="wedding4">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1298,13 +1298,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="wedding4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="wedding4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding4.jpg" alt="wedding4">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1337,7 +1337,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="wedding5">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1348,13 +1348,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="wedding5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="wedding5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding5.jpg" alt="wedding5">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1387,7 +1387,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="wedding6">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1398,13 +1398,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="wedding6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="wedding6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding6.jpg" alt="wedding6">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1437,7 +1437,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="wedding7">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1448,13 +1448,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="wedding7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="wedding7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding7.jpg" alt="wedding7">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1487,7 +1487,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="wedding8">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1498,13 +1498,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="wedding8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="wedding8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding8.png" alt="wedding8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1545,7 +1545,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="top1">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1556,13 +1556,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="top1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="top1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" alt="top1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1595,7 +1595,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="top2">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1606,13 +1606,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="top2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="top2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top2.webp" alt="top2">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1645,7 +1645,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="top3">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1656,13 +1656,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="top3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="top3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top3.jpg" alt="top3">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1695,7 +1695,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="top4">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1706,13 +1706,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="top4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="top4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top4.jpg" alt="top4">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1745,7 +1745,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="top5">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1756,13 +1756,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="top5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="top5">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top5.webp" alt="top5">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1795,7 +1795,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="top6">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1806,13 +1806,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="top6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="top6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top6.webp" alt="top6">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1845,7 +1845,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="top7">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1856,13 +1856,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="top7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="top7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top7.jpg" alt="top7">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1895,7 +1895,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="top8">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1906,13 +1906,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="top8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="top8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/top/top8.jpg" alt="top8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1953,7 +1953,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="skirt1">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -1964,13 +1964,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="skirt1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="skirt1">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt1.webp" alt="skirt1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2003,7 +2003,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="skirt2">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2014,13 +2014,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="skirt2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="skirt2">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt2.webp" alt="skirt2">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2053,7 +2053,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="skirt3">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2064,13 +2064,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="skirt3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="skirt3">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt3.jpg" alt="skirt3">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2103,7 +2103,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="skirt4">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2114,13 +2114,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="skirt4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="skirt4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt4.webp" alt="skirt4">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2153,7 +2153,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="skir4">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2164,13 +2164,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="skir4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="skir4">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skir4.webp" alt="skir4">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2203,7 +2203,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="skirt6">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2214,13 +2214,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="skirt6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="skirt6">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt6.jpg" alt="skirt6">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2253,7 +2253,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="skirt7">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2264,13 +2264,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="skirt7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="skirt7">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt7.jpg" alt="skirt7">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2303,7 +2303,7 @@ include 'header.php';
                                             <div class="market-content p-3">
                                                 <div class="d-flex justify-content-between pb-2 ">
                                                     <div class="col-3">
-                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                        <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="skirt8">
                                                     </div>
                                                     <div class="col-6">
                                                         <div class=" ms-4">
@@ -2314,13 +2314,13 @@ include 'header.php';
                                                     </div>
                                                     <div class="col-3 text-end">
                                                         <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="skirt8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="skirt8">
                                                         </div>
                                                         <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="">
+                                                            <img class="img-fluid rounded w-100" src="<?php echo CLS_SITE_URL; ?>img/skirt/skirt8.jpg" alt="skirt8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2363,10 +2363,10 @@ include 'header.php';
                 <h1 class="display-5 mb-5">New offers</h1>
             </div>
             <div class="row">
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt=""></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt=""></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer3.png" class="img-fluid mt-4" alt=""></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer4.png" class="img-fluid mt-4" alt=""></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt="img-fluid"></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt="img-fluid"></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer3.png" class="img-fluid mt-4" alt="img-fluid"></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer4.png" class="img-fluid mt-4" alt="img-fluid"></a></div>
             </div>
         </div>
     </section>
@@ -2528,7 +2528,7 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="content_2 col-12 col-lg-4 col-md-6">
-                    <img class="img-fluid  fit-cover rounded" src="<?php echo CLS_SITE_URL; ?>img/faq.jpg" alt="">
+                    <img class="img-fluid  fit-cover rounded" src="<?php echo CLS_SITE_URL; ?>img/faq.jpg" alt="faq">
                 </div>
             </div>
         </div>
@@ -2580,7 +2580,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop1.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop1.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop1"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3"> Aarohi Fation</h4>
@@ -2599,8 +2599,8 @@ include 'header.php';
                     </div>
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
-                            <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop2.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                            <div class="testi-img-box overflow-hidden ">    
+                                <a href="#"><img src="img/shop_1/shop2.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop2"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3"> Kavya Fabrics</h4>
@@ -2620,7 +2620,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop3.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop3.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop3"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3"> Global Textile</h4>
@@ -2640,7 +2640,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop4.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop4.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop4"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3">Krishna Textile</h4>
@@ -2660,7 +2660,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop5.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop5.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop5"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3">Jay Ambe Fabrics</h4>
@@ -2680,7 +2680,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop6.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop6.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop6"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3">KS textile</h4>
@@ -2700,7 +2700,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/logo (1).png" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/logo (1).png" class=" img-fluid mx-auto  rounded-circle" alt="logo (1)"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3">Rajhans Textile</h4>
@@ -2720,7 +2720,7 @@ include 'header.php';
                     <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 border-primary p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
-                                <a href="#"><img src="img/shop_1/shop8.jpg" class=" img-fluid mx-auto  rounded-circle" alt=""></a>
+                                <a href="#"><img src="img/shop_1/shop8.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop8"></a>
                             </div>
                             <p class="mt-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ab provident. Dolorum distinctio beatae molestias nam deserunt expedita quis dolorem quaerat.</p>
                             <h4 class="mt-3">Bal Krishna Fabrics</h4>

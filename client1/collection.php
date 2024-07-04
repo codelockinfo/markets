@@ -24,7 +24,7 @@
         <div class="container ">
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <img class="img-fluid" style="border-radius: 5px; object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="">
+                    <img class="img-fluid" style="border-radius: 5px; object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                 </div>
                 <div class="col-12 col-md-8">
                     <div class="swiper mySwiper">
@@ -35,7 +35,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/6.jpg"
-                                        alt="">
+                                        alt="saree6">
                                     <h2>saree 1</h2>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg"
-                                        alt="">
+                                        alt="saree1">
                                     <h2>saree 2</h2>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg"
-                                        alt="">
+                                        alt="saree3">
                                     <h2>saree 3</h2>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg"
-                                        alt="">
+                                        alt="saree5">
                                     <h2>saree 4</h2>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg"
-                                        alt="">
+                                        alt="saree4">
                                     <h2>saree 5</h2>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg"
-                                        alt="">
+                                        alt="saree7">
                                     <h2>saree 6</h2>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                 <div class="d-flex flex-column align-items-center">
                                     <img class="rounded-top w-100"
                                         style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg"
-                                        alt="">
+                                        alt="saree2">
                                     <h2>saree 7</h2>
                                 </div>
                             </div>
