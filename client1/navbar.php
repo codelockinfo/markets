@@ -25,7 +25,7 @@
              </button>
              <div class="collapse navbar-collapse" id="navbarCollapse">
                  <div class="navbar-nav mx-auto">
-                     <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="nav-item nav-link text-capitalize">View All Markets</a>
+                     <a href="<?php echo CLS_SITE_URL ?>allmarkets.php" class="nav-item nav-link text-capitalize">View All Markets</a>
                      <div class="nav-item dropdown">
                          <a href="#" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown"> markets</a>
                          <div class="dropdown-menu  bg-light">
