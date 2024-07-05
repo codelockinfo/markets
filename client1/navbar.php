@@ -18,7 +18,8 @@
      <div class="container">
          <nav class="navbar navbar-light navbar-expand-lg">
              <a href="<?php echo CLS_SITE_URL ?>index.php" class="navbar-brand">
-                 <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1">
+                <span class="ms-1 font-weight-bold">Market Search</span>
+                 <!-- <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1"> -->
              </a>
              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                  <span class="fa fa-bars text-primary"></span>
