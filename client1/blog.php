@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">sustainable styale : 4 tips to find khadi suit  manufacturers in gujrat</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details1.php" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">sustainable styale : 4 tips to find khadi suit  manufacturers in gujrat</a>
                                 <p class="fs-7 truncated-text ">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 truncated-text-h">Beyond the  print: 4 tips to find the right jaipuri kurti in gujrat</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details2.php" class="h6 lh-base my-auto h-100 truncated-text-h">Beyond the  print: 4 tips to find the right jaipuri kurti in gujrat</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100  truncated-text-h text-capitalize">anarkali dreams: 4 tips to find your perfect kurti in  gujrat</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details3.php" class="h6 lh-base my-auto h-100  truncated-text-h text-capitalize">anarkali dreams: 4 tips to find your perfect kurti in  gujrat</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">wedding lehenga love: a brides journey to finding the one</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details4.php" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">wedding lehenga love: a brides journey to finding the one</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">the ultimate guide to opening a ready made garment shop in india</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details5.php" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h">the ultimate guide to opening a ready made garment shop in india</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">boost your business 4 reasons to source from surat women wear manufacturer</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details6.php" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">boost your business 4 reasons to source from surat women wear manufacturer</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">4 reasons to launch your  kidswear business a guide to success from home</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details7.php" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">4 reasons to launch your  kidswear business a guide to success from home</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">4 ways to find the largest cotton saree manufacturer in surat</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details8.php" class="h6 lh-base my-auto h-100 text-capitalize truncated-text-h ">4 ways to find the largest cotton saree manufacturer in surat</a>
                                 <p class="fs-7 truncated-text">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, esse!</p>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
                                 </div>
                             </div>
                             <div class="ms-2 pt-2">
-                                <a href="#" class="h6 lh-base my-auto h-100 text-capitalize">How to start a  saree business in india with (markets name)</a>
+                                <a href="<?php echo CLS_SITE_URL ?>blog_details9.php" class="h6 lh-base my-auto h-100 text-capitalize">How to start a  saree business in india with (markets name)</a>
                                 <p  class="fs-7 truncated-text ">Lorem ipsum dolor, sit amet consectetur Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                             </div>
                         </div>
