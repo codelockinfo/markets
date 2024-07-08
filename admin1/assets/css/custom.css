@@ -1,7 +1,8 @@
 .required:after {
-  content:" *";
+  content: " *";
   color: red;
 }
+
 .errormsg {
   color: red;
 }
@@ -9,7 +10,7 @@
 
 
 /* sign-in & sign-up background img css */
-.b-img{
+.b-img {
   transform: skewX(-8deg);
   overflow: hidden;
   width: 60%;
@@ -17,31 +18,36 @@
   border-bottom-left-radius: 1rem;
 }
 
-.b-img .b-img1{
+.b-img .b-img1 {
   transform: skewX(8deg);
 }
+
 /* sign-in & sign-up background img css end */
 
 
 /* sign-in form space css */
-.card-space{
-  margin-top: -35px; 
+.card-space {
+  margin-top: -35px;
 }
-@media (max-width:768px){
-  .card-space{
+
+@media (max-width:768px) {
+  .card-space {
     margin-top: -42px;
   }
 }
-@media (min-width:600px) and (max-width:768px){
-  .space1{
+
+@media (min-width:600px) and (max-width:768px) {
+  .space1 {
     margin-bottom: -65px;
   }
 }
-@media (max-width:600px){
-  .space1{
+
+@media (max-width:600px) {
+  .space1 {
     margin-bottom: -55px;
   }
 }
+
 /* sign-in form space css end */
 
 
@@ -105,20 +111,21 @@
   }
 }
 
-@media (max-width:992px){
-  .plan-card{
+@media (max-width:992px) {
+  .plan-card {
     margin-top: 10px;
     margin-bottom: 10px;
   }
 }
 
-@media (max-width:1200px){
-  .plan-card{
+@media (max-width:1200px) {
+  .plan-card {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 }
+
 /* plans page css end */
 
 
@@ -162,49 +169,51 @@
   width: 90%;
 }
 
-.custom1:hover{
+.custom1:hover {
   font-weight: bold;
   color: rgb(76, 71, 71);
   background-color: #eceaea;
 }
 
-.fa-caret-down{
+.fa-caret-down {
   float: right;
   padding-right: 8px;
 }
 
-.dropdown-btn{
+.dropdown-btn {
   font-size: 14px;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 4px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-::-webkit-scrollbar-thumb{
-  background: #888; 
-  border-radius: 10px; 
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }
 
 
-.navigation ul li.active a, .navigation ul li:hover a{
+.navigation ul li.active a,
+.navigation ul li:hover a {
   background-color: #eceaea;
-  
+
 }
 
-@media screen and (max-height: 450px){
-  .sidenav1{
+@media screen and (max-height: 450px) {
+  .sidenav1 {
     padding-top: 15px;
   }
 
-  .sidenav1 a{
+  .sidenav1 a {
     font-size: 18px;
   }
 }
+
 /* sidebar dropdown css end */
 
 
@@ -248,6 +257,7 @@
   font-size: 14px;
   text-align: center;
 }
+
 /* banner image form css end */
 
 
@@ -332,12 +342,13 @@
   width: 100%;
   height: 100%;
 }
+
 /* offer form css end */
 
 
 
 /* FAQ's accordion css */
-.main-editor{
+.main-editor {
   max-width: 100%;
 }
 
@@ -362,7 +373,7 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px 0px;
 }
 
-.accordion-item .accordion-item-title{
+.accordion-item .accordion-item-title {
   position: relative;
   margin: 0;
   display: flex;
@@ -376,7 +387,7 @@
   align-items: center;
 }
 
-.accordion-item .accordion-item-desc{
+.accordion-item .accordion-item-desc {
   display: none;
   font-size: 14px;
   line-height: 22px;
@@ -387,23 +398,23 @@
   box-sizing: border-box;
 }
 
-.accordion-item input[type="checkbox"]{
+.accordion-item input[type="checkbox"] {
   position: absolute;
   height: 0;
   width: 0;
   opacity: 0;
 }
 
-.accordion-item input[type="checkbox"]:checked~.accordion-item-desc{
+.accordion-item input[type="checkbox"]:checked~.accordion-item-desc {
   display: block;
 }
 
-.accordion-item input[type="checkbox"]:checked~.accordion-item-title .icon:after{
+.accordion-item input[type="checkbox"]:checked~.accordion-item-title .icon:after {
   content: "-";
   font-size: 20px;
 }
 
-.accordion-item input[type="checkbox"]~.accordion-item-title .icon:after{
+.accordion-item input[type="checkbox"]~.accordion-item-title .icon:after {
   content: "+";
   font-size: 20px;
 }
@@ -421,6 +432,7 @@
   .accordion {
     padding: 0 16px;
   }
+
   .accordion h1 {
     font-size: 22px;
   }
@@ -456,6 +468,7 @@
   width: 100%;
   max-height: 150px;
 }
+
 /* preview & close button css end */
 
 
@@ -494,136 +507,201 @@
   font-weight: bold;
   font-size: 16px;
 }
+
 /* multi select dropdown css in product form end */
 
 
 
 /* sign-in form media query */
-@media (min-width: 450px) and (max-width: 768px){
-  .facebook{
+@media (min-width: 450px) and (max-width: 768px) {
+  .facebook {
     width: 150px;
     height: 20px;
   }
-  .google{
+
+  .google {
     width: 150px;
     height: 20px;
   }
 }
+
 /* sign-in form media query end */
 
 
 
 /* navigation bar media query */
-@media (min-width:576px) and (max-width: 620px){
-  .search-btn{
+@media (min-width:576px) and (max-width: 620px) {
+  .search-btn {
     margin-right: 5px;
   }
-  .online-btn{
+
+  .online-btn {
     margin-left: 5px;
   }
 }
-@media (max-width:530px){
-  .online-btn{
+
+@media (max-width:530px) {
+  .online-btn {
     width: 150px;
     margin-left: 10px;
   }
 }
-@media (max-width:520px){
-  .search-icon{
+
+@media (max-width:520px) {
+  .search-icon {
     display: none;
   }
 }
-@media (min-width:520px){
-  .search-icon1{
+
+@media (min-width:520px) {
+  .search-icon1 {
     display: none;
   }
 }
+
 /* navigation bar media query end */
 
 
 /* product form media query */
-@media (max-width:410px){
-  .price1{
+@media (max-width:410px) {
+  .price1 {
     display: none;
   }
 }
+
 /* product form media query end */
 
 /* profile page css */
-@media (max-width:768px){
-  .profile-sec{
+@media (max-width:768px) {
+  .profile-sec {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  .profile-section{
+
+  .profile-section {
     margin-top: -30px;
-  } 
+  }
 }
+
 /* profile page css end */
 
 /* enable & disable buttton css */
-.btn-enable:hover{
+.btn-enable:hover {
   background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
   color: white;
 }
+
 /* enablew & disable button css end */
 
 
 /* paragraph form css */
-@media (max-width:1200px){
-  .para-main{
+@media (max-width:1200px) {
+  .para-main {
     margin-top: 10px;
     margin-bottom: 10px;
   }
 }
+
 /* paragraph form css end */
 
 /* banner and other form media query  css for margin */
-@media (max-width:1200px){
-  .main-sec{
+@media (max-width:1200px) {
+  .main-sec {
     margin: 10px 0px;
   }
 }
+
 /* banner and other form css end */
 
 
 
 /* invoice page css */
-.bill-to{
+.bill-to {
   margin: 10px;
 }
-.bill-to:hover{
+
+.bill-to:hover {
   border: 1px solid rgb(238, 219, 219);
   border-radius: 10px;
   padding: 10px;
 }
-.ship-to{
+
+.ship-to {
   margin: 10px;
 }
-.ship-to:hover{
+
+.ship-to:hover {
   border: 1px solid rgb(238, 219, 219);
   border-radius: 10px;
   padding: 10px;
 }
-@media (max-width:600px){
-  .drop-control{
+
+@media (max-width:600px) {
+  .drop-control {
     width: 100%;
   }
 }
-@media (max-width:575px){
-  .table-scroll1{
+
+@media (max-width:575px) {
+  .table-scroll1 {
     width: 100%;
     overflow-x: scroll;
   }
 }
+
 /* invoice page css end */
 
 
 /* invoice preview page css */
-@media (max-width:575px){
-  .table-scroll{
+@media (max-width:575px) {
+  .table-scroll {
     width: 100%;
     overflow-x: scroll;
   }
 }
+
 /* invoice preview page css end */
+
+
+
+/* quantity css start */
+#qty_selector{
+  width: 100%;
+}
+
+#qty_display {
+  border-width: 0px;
+  border-color: white;
+  background-color: transparent;
+  width: 35%;
+  margin: 0px 10px;
+  padding-left: 5px;
+} 
+
+#qty_select {
+  border: solid rgb(232, 201, 201);
+  border-width: 1px 1px;
+  border-radius: 10px;
+}
+
+.decrement-btn{
+  padding: 7px;
+}
+
+.increment-btn{
+  padding: 7px;
+}
+
+@media (max-width:475px) {
+  .quantity1 {
+    display: none;
+  }
+}
+
+@media (min-width:476px) {
+  .quantity2 {
+    display: none;
+  }
+}
+
+/* quantity css end */

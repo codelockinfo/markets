@@ -61,42 +61,79 @@ include 'header.php';
               <span class="errormsg pname"></span>
             </div>
             <label for="p-tags" class="font-weight-normal required w-100">Product Category</label>
+            <div class="mb-3 row">
+              <div class="col">
+                <select class="form-select required" aria-label="Default select example" name="select_catagory">
+                  <option selected value="0">Select Category</option>
+                  <option value="1">Armwear</option>
+                  <option value="2">Badges</option>
+                  <option value="3">Belts</option>
+                  <option value="4">Children's clothing</option>
+                  <option value="5">Clothing brands by type</option>
+                  <option value="6">Coats</option>
+                  <option value="7">Dresses</option>
+                  <option value="8">Footwear</option>
+                  <option value="9">Gowns</option>
+                  <option value="10">Handwear</option>
+                  <option value="11">Hosiery</option>
+                  <option value="12">Jackets</option>
+                  <option value="13">Jeans by type</option>
+                  <option value="14">Knee clothing</option>
+                  <option value="15">Masks</option>
+                  <option value="16">Neckwear</option>
+                  <option value="17">One-piece suits</option>
+                  <option value="18">Outerwear</option>
+                  <option value="19">Ponchos</option>
+                  <option value="20">Robes and cloaks</option>
+                  <option value="21">Royal attire</option>
+                  <option value="22">Saris</option>
+                  <option value="23">Sashes</option>
+                  <option value="24">Shawls and wraps</option>
+                  <option value="25">Skirts</option>
+                  <option value="26">Sportswear</option>
+                  <option value="27">Suits</option>
+                  <option value="28">Tops</option>
+                  <option value="29">Trousers and shorts</option>
+                  <option value="30">Undergarments</option>
+                  <option value="31">Wedding clothing</option>
+                </select>
+              </div>
+              <div class="col quantity1">
+                <div class="d-flex flex-row justify-content-between">
+                  <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
+                    <input type="hidden" value=" 1 " class="prod_id">
+                    <div class="input-group text-center" id="qty_selector">
+                      <a class="decrement-btn">
+                        <i class="fa fa-minus"></i>
+                      </a>
+                      <input type="text" readonly="readonly" id="qty_display" class="qty-input text-center form-control" value="1" />
+                      <a class="increment-btn">
+                        <i class="fa fa-plus"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 quantity2">
+              <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
+                  <input type="hidden" value=" 1 " class="prod_id">
+                  <div class="input-group text-center" id="qty_selector">
+                    <a class="decrement-btn">
+                      <i class="fa fa-minus"></i>
+                    </a>
+                    <input type="text" readonly="readonly" id="qty_display" class="qty-input text-center form-control" value="1" />
+                    <a class="increment-btn">
+                      <i class="fa fa-plus"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <label for="title" class="font-weight-normal w-100">SKU</label>
             <div class="mb-3">
-              <select class="form-select required" aria-label="Default select example" name="select_catagory">
-                <option selected value="0">Select Category</option>
-                <option value="1">Armwear</option>
-                <option value="2">Badges</option>
-                <option value="3">Belts</option>
-                <option value="4">Children's clothing</option>
-                <option value="5">Clothing brands by type</option>
-                <option value="6">Coats</option>
-                <option value="7">Dresses</option>
-                <option value="8">Footwear</option>
-                <option value="9">Gowns</option>
-                <option value="10">Handwear</option>
-                <option value="11">Hosiery</option>
-                <option value="12">Jackets</option>
-                <option value="13">Jeans by type</option>
-                <option value="14">Knee clothing</option>
-                <option value="15">Masks</option>
-                <option value="16">Neckwear</option>
-                <option value="17">One-piece suits</option>
-                <option value="18">Outerwear</option>
-                <option value="19">Ponchos</option>
-                <option value="20">Robes and cloaks</option>
-                <option value="21">Royal attire</option>
-                <option value="22">Saris</option>
-                <option value="23">Sashes</option>
-                <option value="24">Shawls and wraps</option>
-                <option value="25">Skirts</option>
-                <option value="26">Sportswear</option>
-                <option value="27">Suits</option>
-                <option value="28">Tops</option>
-                <option value="29">Trousers and shorts</option>
-                <option value="30">Undergarments</option>
-                <option value="31">Wedding clothing</option>
-              </select>
-              <span class="errormsg select_catagory"></span>
+              <input type="text" class="form-control w-100" placeholder="SKU" name="sku">
             </div>
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
             <div class="mb-3 row">
@@ -124,7 +161,7 @@ include 'header.php';
                   <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                 </div>
               </div>
-            <div class="errormsg myFile p_image"></div>
+              <div class="errormsg myFile p_image"></div>
             </div>
             <label for="text" class="font-weight-normal">Image Alt</label>
             <div class="mb-3">
