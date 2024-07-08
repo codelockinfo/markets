@@ -25,64 +25,82 @@ include 'header.php';
                     <video class="w-100 rounded overflow-hidden" autoplay muted loop>
                         <source src="img/IMG_1924.MOV">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden mt-4 mt-sm-0" autoplay muted loop>
                         <source src="img/IMG_6892.MP4">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 mt-lg-0" autoplay muted loop>
                         <source src="img/IMG_1924.MOV">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 " autoplay muted loop>
                         <source src="img/IMG_6892.MP4">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 " autoplay muted loop>
                         <source src="img/IMG_1924.MOV">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 " autoplay muted loop>
                         <source src="img/IMG_6892.MP4">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 " autoplay muted loop>
                         <source src="img/IMG_1924.MOV">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 " autoplay muted loop>
                         <source src="img/IMG_6892.MP4">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden  mt-4 " autoplay muted loop>
                         <source src="img/IMG_1924.MOV">
                     </video>
-                    <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2 fs-6">Contact Seller</a>
-                    <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    <div class="ms-auto text-end">
+                        <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
+                        <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
+                    </div>
                 </div>
             </div>
         </div>
