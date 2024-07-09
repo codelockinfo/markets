@@ -22,7 +22,8 @@
                             <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
                             <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
                             <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
-                            <a class="text-muted  footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
+                            <a class="text-muted mb-3  footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
+                            <a class="text-muted  footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Blogs</a>
                         </div>
                     </div>
                 </div>

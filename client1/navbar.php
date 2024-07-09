@@ -186,7 +186,7 @@
                              </div>
                          </div>
                      </div>
-                     <a href="<?php echo CLS_SITE_URL ?>blog.php" class="nav-item nav-link text-capitalize">blogs</a>
+                     <a href="<?php echo CLS_SITE_URL ?>allproducts.php" class="nav-item nav-link text-capitalize">all products</a>
                      <a href="<?php echo CLS_SITE_URL ?>video.php" class="nav-item nav-link text-capitalize">videos</a>
                  </div>
                  <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
