@@ -14,12 +14,14 @@
   transform: skewX(-8deg);
   overflow: hidden;
   width: 60%;
-  right: -14rem;
+  right: -15rem;
   border-bottom-left-radius: 1rem;
+  height: 800px;
 }
 
 .b-img .b-img1 {
   transform: skewX(8deg);
+ height: 800px;
 }
 
 /* sign-in & sign-up background img css end */
