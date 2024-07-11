@@ -16,4 +16,22 @@ $(document).ready(function() {
             }
         });
     });
+
 });
+function loadData(routineName) {
+    console.log(routineName + " on load");
+    $.ajax({
+        url: "../client1/ajax_call.php",
+        type: 'post',
+        dataType: "json",
+        data: {"routine_name": routineName}, // Correctly pass the routineName parameter
+        success: function (response) {
+            var response = JSON.parse(response);
+            $("#getdata").html(response.outcome);
+        }
+    });
+}
+
+function latestbanner() {
+    loadData('bannershow');
+}  

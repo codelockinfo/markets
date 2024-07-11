@@ -797,7 +797,7 @@ class admin_functions {
                     $output .= '    </div>';
                     $output .= '  </div>';
                     $output .= '</div>'; 
-                    print_r($row);    
+                    // print_r($row);    
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
             }
@@ -973,7 +973,7 @@ class admin_functions {
                     $output .= '<div class="row mb-3">';
                     $output .= '  <div class="col-xl-11 accordion-item">';
                     $output .= '    <input type="checkbox" id="' . $row["faq_id"] . '">';
-                    $output .= '    <label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon"></span> ' . $row["question"] . '</label>';
+                    $output .= '    <label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon "></span> ' . $row["question"] . '</label>';
                     $output .= '    <div class="accordion-item-desc">';
                     $output .= '        ' . $row["answer"] . '';
                     $output .= '    </div>';
