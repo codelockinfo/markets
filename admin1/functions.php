@@ -150,7 +150,7 @@ class admin_functions {
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                         
-                        $message = file_get_contents('user/thankemail_template.php');
+                        $message = file_get_contents('thankemail_template.php');
                         $to = $email;	
                         $subject = "Market Search"; 
                         $headers ="From:codelockinfo@gmail.com"." \r\n";     
