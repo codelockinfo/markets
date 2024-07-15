@@ -50,7 +50,7 @@ $(document).ready(function() {
                 response["msg"]["message"] !== undefined ? $(".message").html (response["msg"]["message"]) : $(".message").html("");
                 if(response['data'] == "success"){
                     showMessage(response.msg, "success");
-                    $("#client_contact_form")[0].reset();    
+                    $(".client_contact_form")[0].reset();    
                 } 
             }
         });
