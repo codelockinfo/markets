@@ -1209,8 +1209,6 @@ class admin_functions {
                 $result = $this->db->query($query);
                 if ($result) {
                     $reset_link = SITE_ADMIN_URL."reset_password.php?token=" . $token;
-                    echo "<pre>";
-                    print_r($reset_link);
                     $subject = "Password Reset Request";
                     $message = "Click on the following link to reset your password: " . $reset_link;
                     $headers = "From: no-reply@marketsearch.com";
