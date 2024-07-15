@@ -37,7 +37,7 @@ class client_functions {
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
             $responceEmail = mail ($to, $subject, $message, $headers);	
-            $response_data = array('data' => 'success', 'msg' => 'Send email successfully!');
+            $response_data = array('data' => 'success', 'msg' => 'Send mail successfully!');
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array);
         }

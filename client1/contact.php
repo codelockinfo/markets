@@ -83,7 +83,7 @@
                                 <span class="errormsg message"></span>
                             </div>
                             <button type="button"
-                                class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill contactForm">Submit
+                                class="save_loader_show w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill contactForm">Submit
                                 Now</button>
                         </form>
                     </div>
