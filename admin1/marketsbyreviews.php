@@ -1,5 +1,9 @@
 <?php
 include 'header.php';
+if (!isset($_SESSION['current_user']['user_id'])) {
+  header("Location: sign-in.php");
+  die();
+}
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -59,7 +63,7 @@ include 'header.php';
               </div>
               <label for="review" class="font-weight-normal required">Shop Reviews</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext product w-100" placeholder="Shop Reviews" name="review">
+                <input type="number" class="form-control product w-100" placeholder="Shop Reviews" name="review">
                 <span class="errormsg review"></span>
               </div>
               <div class="mb-3">

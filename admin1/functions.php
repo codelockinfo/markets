@@ -44,7 +44,7 @@ class admin_functions {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
             $result = $this->db->query($query);
             if ($result) {
-                $userinfo = mysqli_result($result);
+                $userinfo = mysqli_fetch_array($result);
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'login successfully');
             } else {
@@ -237,9 +237,12 @@ class admin_functions {
                 $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
                 $p_description = str_replace("'", "\'", $p_description);
     
-                $query = "INSERT INTO products (title, category, minprice, maxprice, p_image, product_img_alt, p_tag, p_description) 
-                          VALUES ('$product_name', '$select_catagory', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description')";
-                $result = $this->db->query($query);
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    // print_r($user_id);                   
+                    $query = "INSERT INTO products (title, category, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                              VALUES ('$product_name', '$select_catagory', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                    $result = $this->db->query($query);
     
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
@@ -247,15 +250,18 @@ class admin_functions {
                     $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
                 }
             } else {
+                $response_data = array('data' => 'fail', 'msg' => "User not logged in.");
+            }
+
+            } else {
                 $error_array['p_image'] = "Error moving uploaded file.";
             }
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
-        }    
+        }
             $response = json_encode($response_data);
             return $response;
-    }
-    
+    } 
 
     function isValidYouTubeURL($url) {
         $allowedPatterns = array(
@@ -297,8 +303,11 @@ class admin_functions {
             $youtube_shorts = (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] !== '') ? $_POST['youtube_shorts'] : '';
             $youtube_vlogs = (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] !== '') ? $_POST['youtube_vlogs'] : '';
           
-            $query = "INSERT INTO videos (title,category,short_link,vlog_link) VALUES ('$video_title', '$video_category','$youtube_shorts','$youtube_vlogs')";
-            $result = $this->db->query($query);
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO videos (title,category,short_link,vlog_link,user_id) VALUES ('$video_title', '$video_category','$youtube_shorts','$youtube_vlogs','$user_id')";
+                $result = $this->db->query($query);
+            }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Youtube Link inserted successfully!');
             } else {
@@ -362,8 +371,11 @@ class admin_functions {
                 $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
                 $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
                
-                $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt) VALUES ('$blog_title', '$blog_category','$myeditor','$author_name','$newFilename','$blog_image_alt')";
-                $result = $this->db->query($query);
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES ('$blog_title', '$blog_category','$myeditor','$author_name','$newFilename','$blog_image_alt','$user_id')";
+                    $result = $this->db->query($query);
+                }
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Blog inserted successfully!');
                 } else {
@@ -442,8 +454,11 @@ class admin_functions {
             $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
             $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
           
-            $query = "INSERT INTO banners (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link')";
-            $result = $this->db->query($query);
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO banners (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link','$user_id')";
+                $result = $this->db->query($query);
+            }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Banner inserted successfully!');
             } else {
@@ -533,8 +548,12 @@ class admin_functions {
             $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
             $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
             $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
-            $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt')";           
-            $result = $this->db->query($query);
+
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt,user_id) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt','$user_id')";           
+                $result = $this->db->query($query);
+            }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'market inserted successfully!');
             } else {
@@ -587,8 +606,12 @@ class admin_functions {
             if (move_uploaded_file($tmpfile,$fullpath)) {
             $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-            $query = "INSERT INTO b_textile_catagorys (img,img_alt,img_link) VALUES ('$newFilename','$image_alt','$img_link')";
-            $result = $this->db->query($query);
+
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO b_textile_catagorys (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
+                $result = $this->db->query($query);
+            }
             if ($result) {                
                 $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
             } else {
@@ -641,8 +664,12 @@ class admin_functions {
             if (move_uploaded_file($tmpfile,$fullpath)){
             $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-            $query = "INSERT INTO offers (img,img_alt,img_link) VALUES ('$newFilename','$image_alt','$img_link')";
-            $result = $this->db->query($query);
+
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO offers (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
+                $result = $this->db->query($query);
+            }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Offers Form inserted successfully!');
             } else {
@@ -664,8 +691,12 @@ class admin_functions {
         if (empty($error_array)) {
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
             $myeditor = str_replace("'", "\'", $myeditor);
-            $query = "INSERT INTO paragraph (paragraph) VALUES ('$myeditor')";
-            $result = $this->db->query($query);
+
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO paragraph (paragraph,user_id) VALUES ('$myeditor','$user_id')";
+                $result = $this->db->query($query);
+            }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'paragraph inserted successfully!');
             } else {
@@ -690,8 +721,12 @@ class admin_functions {
             $faq_question = (isset($_POST['faq_question']) && $_POST['faq_question'] !== '') ? $_POST['faq_question'] : '';
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
             $myeditor = str_replace("'", "\'", $myeditor);
-            $query = "INSERT INTO faqs (question,answer) VALUES ('$faq_question','$myeditor')";
+
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+            $query = "INSERT INTO faqs (question,answer,user_id) VALUES ('$faq_question','$myeditor','$user_id')";
             $result = $this->db->query($query);
+            }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'FAQ inserted successfully!');
             } else {
@@ -749,8 +784,12 @@ class admin_functions {
             $shop_description = (isset($_POST['shop_description']) && $_POST['shop_description'] !== '') ? $_POST['shop_description'] : '';
             $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
             $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
-            $query = "INSERT INTO marketreviews (logo_img,description,shopname,review) VALUES ('$newFilename','$shop_description','$shop_name','$review')";
-            $result = $this->db->query($query);
+
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO marketreviews (logo_img,description,shopname,review,user_id) VALUES ('$newFilename','$shop_description','$shop_name','$review','$user_id')";
+                $result = $this->db->query($query);
+            }
             if ($result) {                
                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
             } else {
@@ -766,9 +805,13 @@ class admin_functions {
 
     function productlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM products";
-        $result = $this->db->query($query);
-        $output="";
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
@@ -804,38 +847,112 @@ class admin_functions {
                     $response = json_encode($response_data);
                     return $response;
     }
-    
+
+    // function profileproductlisting (){
+    //     $output="";
+    //     // $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+    //     //     $output .= ' <div class="card h-100 card-plain border">';
+    //     //     $output .= '  <div class="card-body d-flex flex-column justify-content-center text-center">';
+    //     //     $output .= '  <a href="' . SITE_ADMIN_URL . 'product-form.php">';
+    //     //     $output .= '   <i class="fa fa-plus text-secondary mb-3"></i>';
+    //     //     $output .= '  <h5 class="text-secondary">Add New Product</h5>';
+    //     //     $output .= ' </a>';
+    //     //     $output .= '</div>';
+    //     //     $output .= ' </div>';
+    //     //     $output .= '</div>';
+    //     $response_data = array('data' => 'fail', 'msg' => "Error");
+    //     if (isset($_SESSION['current_user']['user_id'])) {
+    //         $user_id = $_SESSION['current_user']['user_id'];
+    //         // print_r($user_id);
+    //         $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+    //         $result = $this->db->query($query);
+           
+    //     }
+    //         // if (isset($_SESSION['current_user']['user_id'])) {
+    //         //     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+    //         //     $output .= ' <div class="card h-100 card-plain border">';
+    //         //     $output .= '  <div class="card-body d-flex flex-column justify-content-center text-center">';
+    //         //     $output .= '  <a href="' . SITE_ADMIN_URL . 'product-form.php">';
+    //         //     $output .= '   <i class="fa fa-plus text-secondary mb-3"></i>';
+    //         //     $output .= '  <h5 class="text-secondary">Add New Product</h5>';
+    //         //     $output .= ' </a>';
+    //         //     $output .= '</div>';
+    //         //     $output .= ' </div>';
+    //         //     $output .= '</div>';
+    //         // }                               
+                
+    //         if ($result) {
+    //             while ($row = mysqli_fetch_array($result)) {
+    //                 $image = $row["p_image"];
+    //                 $imagePath = "../admin1/assets/img/product_img/".$image;
+    //                 $decodedPath = htmlspecialchars_decode($imagePath);
+    //                 $title =  $row['title'];
+    //                 $price = $row['maxprice'];
+    //                 $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+    //                 $output .= '  <div class="card card-blog card-plain">';
+    //                 $output .= '    <div class="position-relative">';
+    //                 $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+    //                 $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+    //                 $output .= '      </a>';
+    //                 $output .= '    </div>';
+    //                 $output .= '    <div class="card-body px-1 pb-0">';
+    //                 $output .= '      <a href="#">';
+    //                 $output .= '        <h5> '. $title .'</h5>';
+    //                 $output .= '      </a>';
+    //                 $output .= '      <div class="d-flex justify-content-between mb-3">';
+    //                 $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
+    //                 $output .= '        <div class="ms-auto text-end">';
+    //                 $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
+    //                 $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</button>';
+    //                 $output .= '        </div>';
+    //                 $output .= '      </div>';
+    //                 $output .= '    </div>';
+    //                 $output .= '  </div>';
+    //                 $output .= '</div>'; 
+                  
+    //                 // print_r($row);    
+    //             }             
+    //                 $response_data = array('data' => 'success', 'outcome' => $output);
+    //         }
+    //                 $response = json_encode($response_data);
+    //                 return $response;
+    // }
+        
     function bloglisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM blogs";
-        $result = $this->db->query($query);
-        $output="";      
-         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
-                $image = $row["image"];
-                $imagePath = "../admin1/assets/img/blog_img/".$image;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                $title =  $row['title'];             
-                $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                $output .= '  <div class="card card-blog card-plain">';
-                $output .= '    <div class="position-relative">';
-                $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
-                $output .= '      </a>';
-                $output .= '    </div>';
-                $output .= '    <div class="card-body px-1 pb-0">';
-                $output .= '      <a href="#">';
-                $output .= '        <h5> '. $title .'</h5>';
-                $output .= '      </a>';
-                $output .= '      <div class="d-flex justify-content-between mb-3">';
-                $output .= '        <div class="ms-auto text-end">';
-                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
-                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
-                $output .= '        </div>';
-                $output .= '      </div>';
-                $output .= '    </div>';
-                $output .= '  </div>';
-                $output .= '</div>';                   
+        $response_data = array('data' => 'fail', 'msg' => "Error");       
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM blogs WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }                           
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {  
+                    $image = $row["image"];
+                    $imagePath = "../admin1/assets/img/blog_img/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    $title =  $row['title'];             
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '      <a href="#">';
+                    $output .= '        <h5> '. $title .'</h5>';
+                    $output .= '      </a>';
+                    $output .= '      <div class="d-flex justify-content-between mb-3">';
+                    $output .= '        <div class="ms-auto text-end">';
+                    $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
+                    $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
+                    $output .= '        </div>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';                   
             }
                 $response_data = array('data' => 'success', 'outcome' => $output);
         }
@@ -845,10 +962,14 @@ class admin_functions {
 
     function videolisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM videos"; 
-        $result = $this->db->query($query);
-        $output = "";
-        if ($result) {
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM videos WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }             
+          if ($result) {
             while ($row = mysqli_fetch_array($result)) {  
                 $link = $row["short_link"];
                 $title =  $row['title'];
@@ -876,22 +997,26 @@ class admin_functions {
     }
 
     function offerlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM offers"; 
-        $result = $this->db->query($query);
-        $output="";
-        $output .= '<div class="mb-3 form-check-reverse text-right">
-                    <div class="container">
-                    <div class="btn-group">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                    <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
-                    </div>
-                    </div>  
-                    </div>
-                    </div>
-                    </div>';
-        $output .= '</div>';
+        $response_data = array('data' => 'fail', 'msg' => "Error");       
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM offers WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
+            $output .= '<div class="mb-3 form-check-reverse text-right">
+                        <div class="container">
+                        <div class="btn-group">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                        <div class="form-check form-switch ps-0">
+                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                        </div>
+                        </div>  
+                        </div>
+                        </div>
+                        </div>';
+            $output .= '</div>';
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {  
                     $image = $row["img"];
@@ -920,23 +1045,27 @@ class admin_functions {
     }
 
     function brousetextilelisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM b_textile_catagorys"; 
-        $result = $this->db->query($query);
-        $output="";
-        $output .= '<div class="card z-index-0 p-3">';
-        $output .= ' <div class="row">';
-        $output .= '<div class="mb-3 form-check-reverse text-right">';
-        $output .= '  <div class="container">';
-        $output .= '    <div class="btn-group">';
-        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-        $output .= '        <div class="form-check form-switch ps-0">';
-        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
-        $output .= '        </div>';
-        $output .= '      </div>';
-        $output .= '    </div>';
-        $output .= '  </div>';
-        $output .= '</div>';
+        $response_data = array('data' => 'fail', 'msg' => "Error");        
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }                
+            $output .= '<div class="card z-index-0 p-3">';
+            $output .= ' <div class="row">';
+            $output .= '<div class="mb-3 form-check-reverse text-right">';
+            $output .= '  <div class="container">';
+            $output .= '    <div class="btn-group">';
+            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+            $output .= '        <div class="form-check form-switch ps-0">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '        </div>';
+            $output .= '      </div>';
+            $output .= '    </div>';
+            $output .= '  </div>';
+            $output .= '</div>';
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["img"];
@@ -964,10 +1093,14 @@ class admin_functions {
     }
 
     function FAQlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs"; 
-        $result = $this->db->query($query);
-        $output="";
+        $response_data = array('data' => 'fail', 'msg' => "Error");       
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM faqs WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $output .= '<div class="row mb-3">';
@@ -991,9 +1124,13 @@ class admin_functions {
 
     function paragraphlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM paragraph"; 
-        $result = $this->db->query($query);
-        $output = "";
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM paragraph WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {  
                     $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';                
@@ -1005,21 +1142,25 @@ class admin_functions {
     }
 
     function bannerlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM banners";
-        $result = $this->db->query($query);
-        $output = "";
-        $output .= '<div class="mb-3 form-check-reverse text-right">';
-        $output .= '  <div class="container">';
-        $output .= '    <div class="btn-group">';
-        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-        $output .= '        <div class="form-check form-switch ps-0">';
-        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
-        $output .= '        </div>';
-        $output .= '      </div>';
-        $output .= '    </div>';
-        $output .= '  </div>';
-        $output .= '</div>';
+        $response_data = array('data' => 'fail', 'msg' => "Error");      
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM banners WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }       
+            $output .= '<div class="mb-3 form-check-reverse text-right">';
+            $output .= '  <div class="container">';
+            $output .= '    <div class="btn-group">';
+            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+            $output .= '        <div class="form-check form-switch ps-0">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '        </div>';
+            $output .= '      </div>';
+            $output .= '    </div>';
+            $output .= '  </div>';
+            $output .= '</div>';
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {  
                 $image = $row["banner_img"];
@@ -1047,21 +1188,25 @@ class admin_functions {
     } 
 
     function famousmarketlisting (){ 
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM famous_markets"; 
-        $result = $this->db->query($query);
-        $output = "";
-        $output .= '<div class="mb-3 form-check-reverse text-right">';
-        $output .= '  <div class="container">';
-        $output .= '    <div class="btn-group">';
-        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-        $output .= '        <div class="form-check form-switch ps-0">';
-        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
-        $output .= '        </div>';
-        $output .= '      </div>';
-        $output .= '    </div>';
-        $output .= '  </div>';
-        $output .= '</div>';
+        $response_data = array('data' => 'fail', 'msg' => "Error");    
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM famous_markets WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
+            $output .= '<div class="mb-3 form-check-reverse text-right">';
+            $output .= '  <div class="container">';
+            $output .= '    <div class="btn-group">';
+            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+            $output .= '        <div class="form-check form-switch ps-0">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '        </div>';
+            $output .= '      </div>';
+            $output .= '    </div>';
+            $output .= '  </div>';
+            $output .= '</div>';
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {  
                 // $svgimage = $row["SVG_img"];
@@ -1091,21 +1236,25 @@ class admin_functions {
     } 
 
     function reviewlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM marketreviews";
-        $result = $this->db->query($query);
-        $output="";
-        $output .= '<div class="mb-3 form-check-reverse text-right ">';
-        $output .= '  <div class="container">';
-        $output .= '    <div class="btn-group">';
-        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-        $output .= '        <div class="form-check form-switch ps-0">';
-        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
-        $output .= '        </div>';
-        $output .= '      </div>';
-        $output .= '    </div>';
-        $output .= '  </div>';
-        $output .= '</div>';
+        $response_data = array('data' => 'fail', 'msg' => "Error");      
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM marketreviews WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
+            $output .= '<div class="mb-3 form-check-reverse text-right ">';
+            $output .= '  <div class="container">';
+            $output .= '    <div class="btn-group">';
+            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+            $output .= '        <div class="form-check form-switch ps-0">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '        </div>';
+            $output .= '      </div>';
+            $output .= '    </div>';
+            $output .= '  </div>';
+            $output .= '</div>';
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["logo_img"];

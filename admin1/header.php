@@ -1,6 +1,10 @@
 <?php
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
 include($myRoot . '/markets/connection.php');
+// if (!isset($_SESSION['current_user']['user_id'])) {
+//     header("Location: sign-in.php");
+//     die();
+//   }
 ?>
 
 <!DOCTYPE html>

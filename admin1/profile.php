@@ -1,9 +1,9 @@
 <?php
 include 'header.php';
-// if (!isset($_SESSION['user_id'])) {
-//   header("Location: sign-in.php");
-//   die();
-// }
+if (!isset($_SESSION['current_user']['user_id'])) {
+  header("Location: sign-in.php");
+  die();
+}
 
 ?>
 
@@ -101,9 +101,9 @@ include 'header.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                        <div class="card-body p-3" >
+                            <div class="row" id="getdata">
+                                <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                                     <div class="card card-blog card-plain">
                                         <div class="position-relative">
                                             <a class="d-block shadow-xl border-radius-xl">
@@ -178,6 +178,57 @@ include 'header.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                                    <div class="card card-blog card-plain">
+                                        <div class="position-relative">
+                                            <a class="d-block shadow-xl border-radius-xl">
+                                                <img src="<?php echo main_url('/admin1/assets/img/265844_COVER.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                            </a>
+                                        </div>
+                                        <div class="card-body px-1 pb-0">
+                                            <a href="#">
+                                                <h5>
+                                                    Minimalist
+                                                </h5>
+                                            </a>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $250
+                                                </div>
+                                                <div class="ms-auto text-end">
+                                                    <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
+                                                    <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                                    <div class="card card-blog card-plain">
+                                        <div class="position-relative">
+                                            <a class="d-block shadow-xl border-radius-xl">
+                                                <img src="<?php echo main_url('/admin1/assets/img/265844_COVER.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                            </a>
+                                        </div>
+                                        <div class="card-body px-1 pb-0">
+                                            <a href="#">
+                                                <h5>
+                                                    Minimalist
+                                                </h5>
+                                            </a>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="d-flex align-items-center text-sm">
+                                                    $250
+                                                </div>
+                                                <div class="ms-auto text-end">
+                                                    <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
+                                                    <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                
                                 <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                                     <div class="card h-100 card-plain border">
                                         <div class="card-body d-flex flex-column justify-content-center text-center">
@@ -260,3 +311,7 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("productlist LIST");
+listproduct();
+</script>

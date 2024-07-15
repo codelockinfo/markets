@@ -18,20 +18,51 @@ $(document).ready(function() {
     });
 
 });
-function loadData(routineName) {
+
+function loadData(routineName, elementId) {
     console.log(routineName + " on load");
     $.ajax({
         url: "../client1/ajax_call.php",
         type: 'post',
         dataType: "json",
-        data: {"routine_name": routineName}, // Correctly pass the routineName parameter
+        data: {"routine_name": routineName},
         success: function (response) {
             var response = JSON.parse(response);
-            $("#getdata").html(response.outcome);
+            $("#" + elementId).append(response.outcome); 
+            console.log("----");
+            console.log(response.outcome);
+        },
+        error: function(xhr, status, error) {
+            console.error("Error occurred:", error);
         }
     });
 }
 
-function latestbanner() {
-    loadData('bannershow');
-}  
+    function latestbanner() {
+        loadData('bannershow', 'getdata');
+    }
+
+    function famousmarket() {
+        loadData('famousmarketshow', 'getmarket'); 
+    }
+    function offersshow() {
+        loadData('offershow', 'getoffer'); 
+    }
+    function paragraphs() {
+        loadData('paragraphshow', 'getparagraph'); 
+    }
+    function videos() {
+        loadData('videoshow', 'getvideo'); 
+    }
+    function FAQshow() {
+        loadData('FAQshow', 'accordionExample'); 
+    }
+    function reviewshow() {
+        loadData('reviewshow', 'getreview'); 
+    }
+    function productshowclientside() {
+        loadData('productshowclientside', 'getproduct'); 
+    }
+
+    
+

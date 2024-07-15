@@ -20,8 +20,8 @@ include 'header.php';
     <!-- Hero End -->
     <section class="video pt-5 pt-md-6">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4">
+            <div class="row justify-content-center" id=getvideo>
+                <!-- <div class="col-12 col-md-6 col-lg-4">
                     <video class="w-100 rounded overflow-hidden" autoplay muted loop>
                         <source src="img/IMG_1924.MOV">
                     </video>
@@ -101,7 +101,7 @@ include 'header.php';
                         <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary my-2">Contact Seller</a>
                         <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="btn btn-primary my-2">View Products</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -115,3 +115,7 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("productlist LIST");
+videos();
+</script>

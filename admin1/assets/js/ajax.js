@@ -90,6 +90,10 @@ function listparagraph() {
   loadData('paragraphlisting');
 }
 
+// function listproductprofile() {
+//   loadData('profileproductlisting');
+// }
+
 function listbanner() {
   loadData('bannerlisting');
 }

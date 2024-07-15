@@ -36,9 +36,11 @@ include 'header.php';
 
     <!-- Hero Start -->
     <section class="banner_section">
-        <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto">
-            <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="home-banner">
-            <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="banner-mobile">
+        <div class="container-fluid bg-light ps-0 pe-0 mt-0 w-auto" >
+            <div id="getdata">
+            <!-- <img class="banner img-fluid" src="<?php echo CLS_SITE_URL; ?>img/home-banner.webp" alt="home-banner"> -->
+            <!-- <img class="banner_2" src="<?php echo CLS_SITE_URL; ?>img/banner-mobile.jpg" alt="banner-mobile"> -->
+            </div>
             <div class=" banner_content">
                 <div class="banner-content-main container">
                     <div class="row">
@@ -78,9 +80,9 @@ include 'header.php';
         <div class="container">
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">Famous markets in surat</h1>
-            </div>
-            <div class="row2 ">
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
+            </div>         
+            <div class="row2" id="getmarket">               
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -101,8 +103,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6  wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6  wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -123,8 +125,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -145,8 +147,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.7s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.7s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -167,8 +169,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.1s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon  text-center">
@@ -189,8 +191,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.3s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -211,8 +213,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.5s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -233,8 +235,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.7s">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1  p-md-2" data-wow-delay="0.7s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -255,8 +257,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+             </div>             
             <a href="<?php echo CLS_SITE_URL ?>famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
         </div>
     </div>
@@ -312,8 +314,8 @@ include 'header.php';
                     <div class="tab-pane fade show p-0 active" id="tab-1">
                         <div class="row g-4">
                             <div class="col-lg-12">
-                                <div class="row g-4">
-                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                <div class="row g-4" id="getproduct" >
+                                    <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
@@ -712,7 +714,7 @@ include 'header.php';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -2362,11 +2364,11 @@ include 'header.php';
             <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                 <h1 class="display-5 mb-5">New offers</h1>
             </div>
-            <div class="row">
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt="img-fluid"></a></div>
+            <div class="row" id="getoffer">
+                <!-- <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt="img-fluid"></a></div>
                 <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt="img-fluid"></a></div>
                 <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer3.png" class="img-fluid mt-4" alt="img-fluid"></a></div>
-                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer4.png" class="img-fluid mt-4" alt="img-fluid"></a></div>
+                <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer4.png" class="img-fluid mt-4" alt="img-fluid"></a></div> -->
             </div>
         </div>
     </section>
@@ -2374,8 +2376,9 @@ include 'header.php';
 
     <!-- paragraph  start-->
     <section class="paragraph pt-5 pt-md-6 container-fluid ">
-        <div class="container">
-            <h5 class="fw-bold text-primary">Sarees Manufacturers in Surat</h5>
+        <div class="container" id="getparagraph">
+
+            <!-- <h5 class="fw-bold text-primary">Sarees Manufacturers in Surat</h5>
             <p class="fs-7">Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether you're looking for traditional silk sarees, trendy georgette sarees, or elegant chiffon sarees, you'll find a vast selection to suit every need. </p>
             <h5 class="fw-bold text-primary">Designer Lehengas Suppliers in India </h5>
             <p class="fs-7">Explore our extensive network of designer lehenga suppliers across India. We bring you the finest collection of lehengas, perfect for weddings, festivals, and special occasions. Our suppliers offer a variety of styles, including bridal lehengas, party-wear lehengas, and contemporary lehenga cholis, crafted with attention to detail and the latest fashion trends.
@@ -2396,7 +2399,7 @@ include 'header.php';
                 </li>
                 <li class="div mt-2">
                     <p class="d-inline"><strong class="text-primary fw-bold">Palazzo Pants :</strong>Expand your collection with fashionable palazzo pants from trusted manufacturers. Our platform provides access to a variety of palazzo pants, ideal for casual and formal wear.</p>
-                </li>
+                </li> -->
         </div>
         </div>
     </section>
@@ -2408,8 +2411,8 @@ include 'header.php';
                 <h1 class="display-5 mb-5">Our trending videos</h1>
             </div>
             <div class="swiper videoSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                <div class="swiper-wrapper" id="getvideo">
+                    <!-- <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
                             <source src="img/IMG_1924.MOV">
                         </video></div>
                     <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
@@ -2423,10 +2426,10 @@ include 'header.php';
                         </video></div>
                     <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
                             <source src="img/IMG_1924.MOV">
-                        </video></div>
-                    <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
+                        </video></div> -->
+                    <!-- <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
                             <source src="img/IMG_6892.MP4">
-                        </video></div>
+                        </video></div> -->
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -2447,7 +2450,7 @@ include 'header.php';
                     <div>
                         <div class="accordion" id="accordionExample">
 
-                            <div class="accordion-item border">
+                            <!-- <div class="accordion-item border">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <h6 class="m-0">How do I register my business on marketsearch?</h6>
@@ -2523,7 +2526,7 @@ include 'header.php';
                                         You can contact customer support by emailing [codelockinfo@gmail.com] or using the contact form available on our website.
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -2575,9 +2578,10 @@ include 'header.php';
             <div class="d-flex flex-column align-items-center mb-3">
                 <h1>Markets by reviews</h1>
             </div>
-            <div class="swiper testimonalSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide ">
+            <div class="swiper testimonalSwiper" >
+                <div class="swiper-wrapper"  id="getreview">
+                    
+                    <!-- <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">
                                 <a href="#"><img src="img/shop_1/shop1.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop1"></a>
@@ -2596,8 +2600,8 @@ include 'header.php';
                                 <i class="fa-solid fa-quote-right text-primary fs-2"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide ">
+                    </div> -->
+                    <!-- <div class="swiper-slide ">
                         <div class="testimonial-main-box rounded border rounded-3 p-2  bg-light mt-2 py-5">
                             <div class="testi-img-box overflow-hidden ">    
                                 <a href="#"><img src="img/shop_1/shop2.jpg" class=" img-fluid mx-auto  rounded-circle" alt="shop2"></a>
@@ -2736,7 +2740,7 @@ include 'header.php';
                                 <i class="fa-solid fa-quote-right text-primary fs-2"></i>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="swiper-button-next"></div>
@@ -2752,3 +2756,14 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("bannerlatest LIST");
+famousmarket();
+latestbanner();
+offersshow();
+paragraphs();
+videos();
+FAQshow();
+reviewshow();
+productshowclientside();
+</script>
