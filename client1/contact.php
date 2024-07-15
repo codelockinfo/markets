@@ -66,13 +66,22 @@
                             interested in our platform, we are here to assist you. Our dedicated team is ready to answer
                             any questions, provide support, or guide you through the process of registering your
                             business on our platform. Please use the form below to get in touch with us.
-                        <form method="POST">
-                            <input type=" text" class="w-100 form-control p-3 mb-4 border-primary bg-light"
-                                placeholder="Your Name" name="name">
-                            <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light"
-                                placeholder="Enter Your Email" name="email">
-                            <textarea class="w-100 form-control mb-4 p-3 border-primary bg-light" rows="4" cols="10"
-                                placeholder="Your Message" name="message"></textarea>
+                        <form method="POST" class="client_contact_form">
+                            <div class="mb-4">
+                                <input type=" text" class="w-100 form-control p-3 border-primary bg-light"
+                                    placeholder="Your Name" name="name">
+                                <span class="errormsg name"></span>
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" class="w-100 form-control p-3 border-primary bg-light"
+                                    placeholder="Enter Your Email" name="email">
+                                <span class="errormsg email"></span>
+                            </div>
+                            <div class="mb-4">
+                                <textarea class="w-100 form-control p-3 border-primary bg-light" rows="4" cols="10"
+                                    placeholder="Your Message" name="message"></textarea>
+                                <span class="errormsg message"></span>
+                            </div>
                             <button type="button"
                                 class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill contactForm">Submit
                                 Now</button>

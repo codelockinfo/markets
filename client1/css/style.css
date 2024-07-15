@@ -187,7 +187,7 @@ h6,
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #fff; / or any other background color /
+    background-color: #fff;
 }
 
 /*** Navbar Start ***/
@@ -1334,3 +1334,6 @@ input[type=range]:focus::-ms-fill-upper {
     border-color: #CC9544;
 }
 /* btn hover end */
+.errormsg {
+    color: red;
+}
