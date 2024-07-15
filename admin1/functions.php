@@ -150,7 +150,7 @@ class admin_functions {
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                         
-                        $message = file_get_contents('user/thankemail_template.php');
+                        $message = file_get_contents('thankemail_template.php');
                         $to = $email;	
                         $subject = "Market Search"; 
                         $headers ="From:codelockinfo@gmail.com"." \r\n";     
@@ -1292,7 +1292,7 @@ class admin_functions {
         } else {
             $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
         }
-            return json_encode($response_data);   
+        return json_encode($response_data);   
     }
 
     function productdelete() {
@@ -1338,5 +1338,83 @@ class admin_functions {
     function reviewdelete() {
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
+    }
+    
+    function forget_password(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        if (empty($email)) {
+            $error_msg = "Please enter an email address";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_msg = "Please enter a valid email address";
+        }
+        if (empty($error_msg)) {
+            $query = "SELECT * FROM users WHERE email = '$email'";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $token = bin2hex(random_bytes(50));
+                $expires = date("U") + 3600;
+                $query = "INSERT INTO password_resets(email,token,expires) VALUES ('$email', '$token','$expires')";
+                $result = $this->db->query($query);
+                if ($result) {
+                    $reset_link = SITE_ADMIN_URL."reset_password.php?token=" . $token;
+                    $subject = "Password Reset Request";
+                    $message = "Click on the following link to reset your password: " . $reset_link;
+                    $headers = "From: no-reply@marketsearch.com";
+            
+                    if (mail($email, $subject, $message, $headers)) {
+                        $response_data = array('data' => 'success', 'msg' => 'Password reset link has been sent to your email.');
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => 'Failed to send reset link. Please try again.');
+                    }  
+                }
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => 'No account found with that email address.');
+            }  
+        }else{
+            $response_data = array('data' => 'fail', 'msg' => $error_msg);
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
+    function reset_passwordform(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $token = isset($_POST['token']) ? $_POST['token'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+        if (empty($password)) {
+            $error = 'Please enter a password.';
+        } elseif (!preg_match($strongPasswordPattern, $password)) {
+            $error = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
+        }
+        $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+        if(empty($error)){
+            if ($password === $confirm_password) {
+                $current_time = date("U");
+                $query = "SELECT email FROM password_resets WHERE token = '$token' AND expires >= '$current_time'";
+                $result = $this->db->query($query);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $email = $row['email'];
+                    $query = "UPDATE users SET password = '$password' WHERE email = '$email'";
+                    $result = $this->db->query($query); 
+                    if($result){
+                        $query = "DELETE FROM password_resets WHERE email = '$email'";        
+                        $result = $this->db->query($query);
+                        $response_data = array('data' => 'success', 'msg' => 'Your password has been reset successfully.');  
+                    }else{
+                        $response_data = array('data' => 'fail', 'msg' => 'Invalid or expired token.');   
+                    }
+                }
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => 'Passwords do not match.');  
+            }
+        }else{
+            $response_data = array('data' => 'fail', 'msg' => $error);  
+        }
+       
+        $response = json_encode($response_data);
+        return $response;
     }
 }

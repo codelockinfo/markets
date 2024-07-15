@@ -36,6 +36,7 @@ include($myRoot . '/markets/connection.php');
     <link href="<?php echo main_url('/client1/css/style.css'); ?>" rel="stylesheet">
     <link href="<?php echo main_url('/client1/css/animate.min.css'); ?>" rel="stylesheet" />
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- JavaScript Libraries -->
     <script src="<?php echo main_url('/client1/js/jquery.min.js'); ?>"></script>

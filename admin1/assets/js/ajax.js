@@ -831,8 +831,64 @@ $(document).ready(function() {
             }
           });
   })
- 
-    var dropdown = document.getElementsByClassName("dropdown-btn");
+  
+  $('.forgotPasswordForm').on('click', function(event) {
+      event.preventDefault();
+      var form_data = $("#forgetpassword")[0];
+      var form_data = new FormData(form_data);
+      form_data.append("routine_name", "forget_password");
+      $.ajax({
+          url: 'ajax_call.php',
+          type: 'POST',
+          dataType: "json",
+          contentType: false,
+          processData: false,
+          data: form_data,
+          success: function(response) {
+            console.log(response);
+            var response = JSON.parse(response);
+            if(response['data'] == "success"){
+            }else{
+              response["msg"] !== undefined ? $(".email").html(response["msg"]) : $(".email").html("");
+            }
+          },
+          error: function() {
+              showMessage(response.msg_error, "fail");
+          }
+      });
+  });
+  
+  $('.resetPasswordForm').on('click', function(event) {
+    event.preventDefault();
+    var form_data = $("#reset-password-form")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "reset_passwordform");
+    
+    $.ajax({
+        url: 'ajax_call.php',
+        type: 'POST',
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function(response) {
+          console.log(response);
+          var response = JSON.parse(response);
+          console.log( response['msg']);
+          if(response['data'] == "success"){
+            showMessage( response['msg'], "success");
+            window.location.href = 'sign-in.php';
+          }else{
+            showMessage( response['msg'], "fail");
+          } 
+        },
+        error: function() {
+          showMessage(response.msg_error, "fail");
+        }
+    });
+});
+
+  var dropdown = document.getElementsByClassName("dropdown-btn");
   var i;
   
   for (i = 0; i < dropdown.length; i++) {
