@@ -654,6 +654,7 @@ $(document).ready(function() {
 
   $(document).on("click",".brouseSave",function(event){
     event.preventDefault();
+    console.log("JJJJJ");
     console.log(" brouseSave save button click");
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
@@ -671,15 +672,12 @@ $(document).ready(function() {
       success: function (response) {
         console.log(response);
         var response = JSON.parse(response);
-        loading_hide('.save_loader_show', 'Save');
-        response["msg"]["myFile"] !== undefined ? $(".myFile").html (response["msg"]["myFile"]) : $(".myFile").html("");
-        response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-        response["msg"]["img_link"] !== undefined ? $(".img_link").html (response["msg"]["img_link"]) : $(".img_link").html("");
+        loading_hide('.save_loader_show', 'Save');     
+        response["msg"]["categories"] !== undefined ? $(".categories").html (response["msg"]["categories"]) : $(".categories").html("");       
           if(response['data'] == "success"){
-              $("#b_textileCtgryinsert")[0].reset();
-              resetThumbnail();
+              $("#b_textileCtgryinsert")[0].reset();           
               showMessage(response.msg, "success");
-              $('.myFile').html('');
+              // $('.myFile').html('');
             }else{
               showMessage(response.msg_error, "fail");
             } 

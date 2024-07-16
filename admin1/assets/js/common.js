@@ -136,6 +136,20 @@ $(document).ready(function () {
       };
     },
   });
+  $(".js-select2-multi_categories").select2({
+    placeholder: "Select a category",
+    createTag: function (params) {
+      var term = $.trim(params.term);
+      if (term === "") {
+        return null;
+      }
+      return {
+        id: term,
+        text: term,
+        newTag: true,
+      };
+    },
+  });
 });
 
 // dropdown active add & remove js

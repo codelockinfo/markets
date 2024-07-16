@@ -102,6 +102,15 @@ function loadData(routineName, elementId) {
     function productshowclientside() {
         loadData('productshowclientside', 'getproduct'); 
     }
+    function marketlistshowclientside() {
+        loadData('marketlistshowclientside', 'get'); 
+    }
+    function marketlist2showclientside() {
+        loadData('marketlist2showclientside', 'get_market'); 
+    }
+    function marketlist3showclientside() {
+        loadData('marketlist3showclientside', 'get_market_next'); 
+    }
 
     
 
