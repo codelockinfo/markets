@@ -30,7 +30,9 @@ class client_functions {
         }
         
         if (empty($error_array)) {  
-            $message = $_POST['message'];
+            $message = "Name : "  .$_POST['name'];
+            $message .= "<br> Email : "  .$email;
+            $message .= "<br> Message : "  .$_POST['message'];
             $to = "codelock2021@gmail.com";	
             $subject = "Market Search"; 
             $headers = $_POST['email']." \r\n";     

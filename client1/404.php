@@ -1,8 +1,6 @@
 <?php 
-        include 'header.php';
-    ?>
-
-
+    include 'header.php';
+?>
 <body>
 
     <!-- Spinner Start -->
@@ -14,8 +12,7 @@
     <?php 
         include 'navbar.php';   
     ?>
-
-
+    
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
@@ -34,7 +31,6 @@
         </div>
     </div>
     <!-- Modal Search End -->
-
 
     <!-- Hero Start -->
     <div class="container-fluid bg-light py-5 my-6 mt-0">
@@ -68,9 +64,6 @@
     <?php 
         include 'footer.php';
     ?>
-
-
-    <script src="js/custom.js"></script>
 </body>
 
 </html>

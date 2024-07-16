@@ -1,11 +1,6 @@
 <?php
 include 'header.php';
 require_once 'googleconfig.php';
-
-if (isset($_SESSION['current_user'])) {
-    header("Location: index.php");
-}
-$errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !== '') ? $_SESSION['errorMessage'] : '';
 ?>
 
 <body class="bg-white">
@@ -63,7 +58,7 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                             <div class="card-header text-left bg-transparent text-center card-space1">
                                 <h3 class="font-weight-bolder text-info text-gradient">Forget password</h3>
                                 <p class="mb-0">Enter the email id to send password reset link.</p>
-                                <h5 class="errormsg"> <?php echo $errorMessage; ?></h5>
+                                <h5 class="errormsg"> </h5>
                             </div>
                             <div class="card-body card-space">
                                 <form role="form" id="forgetpassword">

@@ -1,9 +1,11 @@
 <?php
 include 'header.php';
+
 if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
 }
+
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
