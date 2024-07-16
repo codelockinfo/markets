@@ -55,9 +55,10 @@ class client_functions {
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {  
                 $image = $row["banner_img"];
+                // print_r($image);
                 $imagePath = "../admin1/assets/img/banner_img/".$image;
                 $decodedPath = htmlspecialchars_decode($imagePath);
-                $output .= '<img class="banner img-fluid" src="'.$decodedPath.'" alt="no-image">';
+                $output .= '<img class="banner img-fluid" src="'.$decodedPath.'" alt="home-banner">';
             }
                $response_data = array('data' => 'success', 'outcome' => $output);
         }
@@ -120,6 +121,7 @@ class client_functions {
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {  
                 $image = $row["img"];
+                // print_r($image);
                 $imagePath = "../admin1/assets/img/offers/".$image;
                 $decodedPath = htmlspecialchars_decode($imagePath);      
                 $output .= '<div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="' .$decodedPath . '" class="img-fluid" alt="img-fluid"></a></div>';
