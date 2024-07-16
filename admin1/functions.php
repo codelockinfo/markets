@@ -30,6 +30,7 @@ class admin_functions {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+        $error_array = array();
         if (empty($email)) {
             $error_array['email'] = "Please enter an email address";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -43,19 +44,19 @@ class admin_functions {
         if (empty($error_array)) {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
             $result = $this->db->query($query);
-            if ($result) {
+            if ($result->num_rows > 0) {
                 $userinfo = mysqli_fetch_array($result);
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'login successfully');
             } else {
-                $response_data = array('data' => 'fail', 'msg' => "Incorrect login!");
+                $error_array['errormsg'] = 'Incorrect login!';
+                $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
-
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array); 
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
     
     function insert_signup(){

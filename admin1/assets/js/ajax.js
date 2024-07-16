@@ -299,20 +299,14 @@ $(document).ready(function() {
       success: function (response) {
         console.log(response);
         var response = JSON.parse(response);
-
-        response["msg"]["password"] !== undefined
-          ? $(".password").html(response["msg"]["password"])
-          : $(".password").html("");
-        response["msg"]["email"] !== undefined
-          ? $(".email").html(response["msg"]["email"])
-          : $(".email").html("");
-          loading_hide(".save_loader_show", "Sign in");
+        loading_hide(".save_loader_show", "Sign in");
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
-          // showMessage(response.msg, "success");
           window.location.href = 'index.php';
         }else {
-          // showMessage(response.msg_error, "fail");
+          response["msg"]["password"] !== undefined ? $(".password").html(response["msg"]["password"]): $(".password").html("");
+          response["msg"]["email"] !== undefined ? $(".email").html(response["msg"]["email"]) : $(".email").html("");
+          response["msg"]["errormsg"] !== undefined ? $(".error-msg").html(response["msg"]["errormsg"]) : $(".error-msg").html("");
         }
       },
     });
