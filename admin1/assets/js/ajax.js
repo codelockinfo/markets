@@ -842,6 +842,7 @@ $(document).ready(function() {
             console.log(response);
             var response = JSON.parse(response);
             if(response['data'] == "success"){
+              showMessage(response.msg, "success");
             }else{
               response["msg"] !== undefined ? $(".email").html(response["msg"]) : $(".email").html("");
             }
