@@ -217,6 +217,9 @@ class admin_functions {
         if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
             $error_array['select_catagory'] = "Please select product category.";
         }
+        if (isset($_POST['sku']) && $_POST['sku'] == '') {
+            $error_array['sku'] = "Please enter a SKU.";
+        }
         if (isset($_POST['min_price']) && $_POST['min_price'] == '') {
             $error_array['min_price'] = "Please enter a minimum price.";
         }
@@ -226,6 +229,9 @@ class admin_functions {
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter description.";
         }
+        if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
+            $error_array['p_tag'] = "Please select categories";
+        }
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
                 $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
@@ -234,17 +240,17 @@ class admin_functions {
                 $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
                 $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
                 $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
+                $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';              
                 $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
                 $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
                 $p_description = str_replace("'", "\'", $p_description);
     
                 if (isset($_SESSION['current_user']['user_id'])) {
-                    $user_id = $_SESSION['current_user']['user_id'];
-                    // print_r($user_id);                   
-                    $query = "INSERT INTO products (title, category, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                              VALUES ('$product_name', '$select_catagory', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                    $user_id = $_SESSION['current_user']['user_id'];                                      
+                    $query = "INSERT INTO products (title, category,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                              VALUES ('$product_name', '$select_catagory','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                     $result = $this->db->query($query);
-    
+                   
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
                 } else {
@@ -570,55 +576,26 @@ class admin_functions {
 
     function insert_brousetxt(){
         $error_array = array();
-        $file = $_FILES['myFile'];
-        $maxSize = 5 * 1024 * 1024; 
-        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
-        $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
-        $fileName = $_FILES['myFile']['name'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/brouse_textilectgry_img/";
-        $fullpath= $folder . $newFilename;
-        if (!is_dir($folder)) {
-            $mkdir = mkdir($folder, 0777, true);
-            if (!$mkdir) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
-            }
+        if (!isset($_POST['categories']) || $_POST['categories'] == '') {
+            $error_array['categories'] = "Please select categories";
         }
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }        
-        if ($file['size'] > $maxSize) {
-            $error_array['myFile'] = "File size must be 5MB or less.";
-        }
-        if (empty($filename)) {
-            $error_array['myFile'] = "Please upload your image";
-        }
-        if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
-            $error_array['img_link'] = "Please enter image link";
-        } elseif (isset($_POST['img_link']) && !$this->isValidURL($_POST['img_link'])) {
-            $error_array['img_link'] = "Please enter a valid image link";
-        }
-        if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$fullpath)) {
-            $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
-            $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
 
+        if (empty($error_array)) {          
+                 $categories = (isset($_POST['categories']) && is_array($_POST['categories'])) ? implode(',', $_POST['categories']) : '';
+                 print_r($categories);
+                 die;
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO b_textile_catagorys (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
+                $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
                 $result = $this->db->query($query);
+                // print_r($result);
             }
             if ($result) {                
                 $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-        }
+       
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
@@ -804,7 +781,7 @@ class admin_functions {
             return $response;
     }  
 
-    function productlisting (){
+    function productlisting (){ 
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -814,6 +791,7 @@ class admin_functions {
             $output="";
         }        
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
                     $imagePath = "../admin1/assets/img/product_img/".$image;
@@ -844,9 +822,12 @@ class admin_functions {
                     // print_r($row);    
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
             }
-                    $response = json_encode($response_data);
-                    return $response;
+            $response = json_encode($response_data);
+            return $response;
     }
 
     // function profileproductlisting (){
@@ -929,6 +910,7 @@ class admin_functions {
             $output="";
         }                           
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {  
                     $image = $row["image"];
                     $imagePath = "../admin1/assets/img/blog_img/".$image;
@@ -956,6 +938,9 @@ class admin_functions {
                     $output .= '</div>';                   
             }
                 $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
         }
                 $response = json_encode($response_data);
                 return $response;
@@ -971,6 +956,7 @@ class admin_functions {
             $output="";
         }             
           if ($result) {
+            if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {  
                 $link = $row["short_link"];
                 $title =  $row['title'];
@@ -992,6 +978,9 @@ class admin_functions {
                 $output .= '</div>';
             }
                 $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
         }
                 $response = json_encode($response_data);
                 return $response;
@@ -1019,6 +1008,7 @@ class admin_functions {
                         </div>';
             $output .= '</div>';
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {  
                     $image = $row["img"];
                     $imagePath = "../admin1/assets/img/offers/".$image;
@@ -1040,6 +1030,9 @@ class admin_functions {
                     $output .= '</div>';
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
             }
                     $response = json_encode($response_data);
                     return $response;
@@ -1068,6 +1061,7 @@ class admin_functions {
             $output .= '  </div>';
             $output .= '</div>';
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["img"];
                     $imagePath = "../admin1/assets/img/brouse_textilectgry_img/".$image;
@@ -1088,7 +1082,10 @@ class admin_functions {
                     $output .= '</div>';                    
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
+        }
                 $response = json_encode($response_data);
                 return $response;
     }
@@ -1103,6 +1100,7 @@ class admin_functions {
             $output="";
         }        
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $output .= '<div class="row mb-3">';
                     $output .= '  <div class="col-xl-11 accordion-item">';
@@ -1118,7 +1116,10 @@ class admin_functions {
                     $output .= '</div>';                                  
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
+        }
                 $response = json_encode($response_data);
                 return $response;
     }
@@ -1133,24 +1134,28 @@ class admin_functions {
             $output="";
         }        
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {  
                     $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';                
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
+        }
                 $response = json_encode($response_data);
                 return $response;
     }
 
-    function bannerlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");      
+    function bannerlisting() {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
             $query = "SELECT * FROM banners WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }       
+            $output = "";
+    
+            // HTML structure for the header part
             $output .= '<div class="mb-3 form-check-reverse text-right">';
             $output .= '  <div class="container">';
             $output .= '    <div class="btn-group">';
@@ -1162,32 +1167,40 @@ class admin_functions {
             $output .= '    </div>';
             $output .= '  </div>';
             $output .= '</div>';
-        if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
-                $image = $row["banner_img"];
-                $imagePath = "../admin1/assets/img/banner_img/".$image;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                $output .= '<div class="card card-blog card-plain">';
-                $output .= '<div class="position-relative">';
-                $output .= '<a class="d-block border-radius-xl">';
-                $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
-                $output .= '</a>';
-                $output .= '</div>';
-                $output .= '<div class="d-flex justify-content-between mb-3">';
-                $output .= '<div class="ms-auto text-end">';
-                $output .= '<button type="button" data-id="'.$row['banner_id'].'" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="banner">Delete</button>';
-                $output .= '</div>';
-                $output .= '</div>';
-                $output .= '</div>';
-                $output .= '</div>';                
+    
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        $image = $row["banner_img"];
+                        $imagePath = "../admin1/assets/img/banner_img/" . $image;
+                        $decodedPath = htmlspecialchars_decode($imagePath);
+                        $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                        $output .= '<div class="card card-blog card-plain">';
+                        $output .= '<div class="position-relative">';
+                        $output .= '<a class="d-block border-radius-xl">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                        $output .= '</a>';
+                        $output .= '</div>';
+                        $output .= '<div class="d-flex justify-content-between mb-3">';
+                        $output .= '<div class="ms-auto text-end">';
+                        $output .= '<button type="button" data-id="' . $row['banner_id'] . '" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="banner">Delete</button>';
+                        $output .= '</div>';
+                        $output .= '</div>';
+                        $output .= '</div>';
+                        $output .= '</div>';
+                    }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
             }
-               $response_data = array('data' => 'success', 'outcome' => $output);
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => "User not logged in");
         }
-               $response = json_encode($response_data);
-               return $response;
-    } 
-
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
     function famousmarketlisting (){ 
         $response_data = array('data' => 'fail', 'msg' => "Error");    
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1209,6 +1222,7 @@ class admin_functions {
             $output .= '  </div>';
             $output .= '</div>';
         if ($result) {
+            if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {  
                 // $svgimage = $row["SVG_img"];
                 $image = $row["Image"];
@@ -1231,7 +1245,10 @@ class admin_functions {
                 $output .= '</div>';        
             }
             $response_data = array('data' => 'success', 'outcome' => $output);
+        } else {
+            $response_data = array('data' => 'fail', 'outcome' => "No data found");
         }
+    }
             $response = json_encode($response_data);
             return $response;
     } 
@@ -1257,6 +1274,7 @@ class admin_functions {
             $output .= '  </div>';
             $output .= '</div>';
             if ($result) {
+                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["logo_img"];
                     $imagePath = "../admin1/assets/img/marketreview/".$image;
@@ -1278,6 +1296,9 @@ class admin_functions {
                     
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
             }
                     $response = json_encode($response_data);
                     return $response;

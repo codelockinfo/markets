@@ -68,7 +68,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3 row">
               <div class="col">
                 <select class="form-select required" aria-label="Default select example" name="select_catagory">
-                  <option selected value="0">Select Category</option>
+                  <option selected value="">Select Category</option>
                   <option value="1">Armwear</option>
                   <option value="2">Badges</option>
                   <option value="3">Belts</option>
@@ -101,7 +101,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <option value="30">Undergarments</option>
                   <option value="31">Wedding clothing</option>
                 </select>
-              </div>
+                <div class="errormsg select_catagory"></div>
+              </div>             
               <div class="col quantity1">
                 <div class="d-flex flex-row justify-content-between">
                   <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
@@ -137,7 +138,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="title" class="font-weight-normal w-100">SKU</label>
             <div class="mb-3">
-              <input type="text" class="form-control w-100" placeholder="SKU" name="sku">
+              <input type="text" class="form-control w-100 number" placeholder="SKU" name="sku">
+              <div class="errormsg sku"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
             <div class="mb-3 row">
@@ -174,6 +176,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
+                <option value="">Select products</option>
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
                 <option value="Women">Women</option>

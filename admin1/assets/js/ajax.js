@@ -56,8 +56,13 @@ function loadData(routineName) {
     dataType: "json",
     data: {"routine_name": routineName},
     success: function (response) {
+      console.log(response);
         var response = JSON.parse(response);
-        $("#getdata").html(response.outcome);
+        if (response.outcome === "No data found") {
+          $("#getdata").html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
+      } else {
+          $("#getdata").html(response.outcome);
+      }   
       }
   });
 }
@@ -385,6 +390,7 @@ $(document).ready(function() {
           response["msg"]["max_price"] !== undefined ? $(".max_price").html (response["msg"]["max_price"]) : $(".max_price").html("");
           response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
           response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
+          response["msg"]["sku"] !== undefined ? $(".sku").html (response["msg"]["sku"]) : $(".sku").html("");
           response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
           response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
           if(response['data'] == "success"){
@@ -653,6 +659,12 @@ $(document).ready(function() {
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append('routine_name','insert_brousetxt'); 
+     var selectedTags = $(".multiple_tag").val();
+    if (selectedTags !== null) {
+        for (var i = 0; i < selectedTags.length; i++) {
+            form_data.append('categories[]', selectedTags[i]);
+        }
+    }
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -669,7 +681,9 @@ $(document).ready(function() {
         loading_hide('.save_loader_show', 'Save');     
         response["msg"]["categories"] !== undefined ? $(".categories").html (response["msg"]["categories"]) : $(".categories").html("");       
           if(response['data'] == "success"){
-              $("#b_textileCtgryinsert")[0].reset();           
+              $("#b_textileCtgryinsert")[0].reset();   
+              $(".multiple_tag").val(null).trigger("change");
+              console.log("hi");        
               showMessage(response.msg, "success");
               // $('.myFile').html('');
             }else{

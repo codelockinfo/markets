@@ -42,9 +42,9 @@ if ($_SESSION['current_user']['role'] == 1) {
           <div class="card z-index-0 p-3">
             <form role="form" id="b_textileCtgryinsert" enctype="multipart/form-data" method="POST">
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Categories</label>
-              <select class="js-select2-multi_categories form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="categories">
-                  <option value="">Select a category</option>
+              <label for="text" class="font-weight-normal">Categories</label>             
+                <select class="form-select required" aria-label="Default select example" id="mySelect" name="select_catagory">
+                  <option selected value="">Select Category</option>
                   <option value="1">Armwear</option>
                   <option value="2">Badges</option>
                   <option value="3">Belts</option>
@@ -76,7 +76,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                   <option value="29">Trousers and shorts</option>
                   <option value="30">Undergarments</option>
                   <option value="31">Wedding clothing</option>
-              </select>
+                </select>                                    
               <span class="errormsg categories"></span>
             </div>
               <div class="mb-3">
