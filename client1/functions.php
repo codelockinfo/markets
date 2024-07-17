@@ -312,4 +312,63 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
     }
+
+    function marketlistshowclientside (){            
+        $response_data = array('data' => 'fail', 'msg' => "Error");       
+        $query = "SELECT name FROM markets LIMIT 30";
+        $result = $this->db->query($query);            
+        $output="";
+    if ($result) {
+        while ($row = mysqli_fetch_array($result)) {     
+            // $image = $row["p_image"];
+            // $imagePath = "../admin1/assets/img/product_img/".$image;
+            // $decodedPath = htmlspecialchars_decode($imagePath);
+            $marketname =  $row['name'];        
+            $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">'.$marketname.'</a></li>';
+        }
+        $response_data = array('data' => 'success', 'outcome' => $output);
+ }
+    $response = json_encode($response_data);
+    return $response;
+}
+
+function marketlist2showclientside (){            
+    $response_data = array('data' => 'fail', 'msg' => "Error");       
+    $query = "SELECT name FROM markets LIMIT 30 OFFSET 30";
+    $result = $this->db->query($query);            
+    $output="";
+if ($result) {
+    while ($row = mysqli_fetch_array($result)) {     
+        // $image = $row["p_image"];
+        // $imagePath = "../admin1/assets/img/product_img/".$image;
+        // $decodedPath = htmlspecialchars_decode($imagePath);
+        $marketname =  $row['name'];        
+        $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">'.$marketname.'</a></li>';
+    }
+    $response_data = array('data' => 'success', 'outcome' => $output);
+}
+$response = json_encode($response_data);
+return $response;
+}
+
+function marketlist3showclientside (){            
+    $response_data = array('data' => 'fail', 'msg' => "Error");     
+    $query = "SELECT name FROM markets LIMIT 18446744073709551615 OFFSET 60";
+    $result = $this->db->query($query);     
+    // print_r( $result);       
+    $output="";
+if ($result) {
+    while ($row = mysqli_fetch_array($result)) {     
+        // $image = $row["p_image"];
+        // $imagePath = "../admin1/assets/img/product_img/".$image;
+        // $decodedPath = htmlspecialchars_decode($imagePath);
+        $marketname =  $row['name'];        
+        $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">'.$marketname.'</a></li>';
+    }
+    $response_data = array('data' => 'success', 'outcome' => $output);
+}
+$response = json_encode($response_data);
+return $response;
+}
+
 }

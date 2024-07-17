@@ -37,8 +37,8 @@
                                              <img src="<?php echo CLS_SITE_URL; ?>img/kurti/4.jpg" class="img-fluid d-none d-md-block rounded" alt="kurti4">
                                          </div>
                                          <div class="megamenu-content">
-                                             <ul class="list-unstyled mt-2 mt-md-0 ">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Ragini Fashion</a></li>
+                                             <ul class="list-unstyled mt-2 mt-md-0 " id="get">
+                                                 <!-- <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Ragini Fashion</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Allia Fabrics</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Amar Textiles</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Tulsi Saree</a></li>
@@ -53,7 +53,7 @@
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maa Ambey Prints</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Aarush Textile</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Silk INDIA Corporation</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">S. Goyal</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">S. Goyal</a></li> -->
                                              </ul>
                                          </div>
                                      </div>
@@ -64,8 +64,8 @@
                                              <img src="<?php echo CLS_SITE_URL; ?>img/wedding/wedding2.jpg" class="img-fluid d-none d-md-block rounded" alt="wedding2">
                                          </div>
                                          <div class="megamenu-content">
-                                             <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vijayshanti Texofin</a></li>
+                                             <ul class="list-unstyled mt-2" id="get_market">
+                                                 <!-- <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vijayshanti Texofin</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Mataji Fashion</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Scpi (Shree Chandaprabhu International)</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Rangoli Fashion</a></li>
@@ -80,7 +80,7 @@
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Maheshwari Trading</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Vidya Fabrics</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Niharikaa Fabrics</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Varia Trading Co</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Varia Trading Co</a></li> -->
                                              </ul>
                                          </div>
                                      </div>
@@ -91,8 +91,8 @@
                                              <img src="<?php echo CLS_SITE_URL; ?>img/top/top1.jpg" class="img-fluid d-none d-md-block rounded" alt="top1">
                                          </div>
                                          <div class="megamenu-content">
-                                             <ul class="list-unstyled mt-2">
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kotwala Synthetics</a></li>
+                                             <ul class="list-unstyled mt-2" id="get_market_next">
+                                                 <!-- <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Kotwala Synthetics</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Deepin Bleaching Pvt. Ltd. </a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Manglam Fabrics</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sanskruti</a></li>
@@ -107,7 +107,7 @@
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Punya Pratap Fabrics</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Asian Fabric Mills</a></li>
                                                  <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Sapphire Synthetics</a></li>
-                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Smita Fashion</a></li>
+                                                 <li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">Smita Fashion</a></li> -->
                                              </ul>
                                          </div>
                                      </div>

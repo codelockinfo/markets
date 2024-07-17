@@ -42,8 +42,8 @@ include 'header.php';
     <!-- Collection2 Start -->
     <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
-            <div class="row2 ">
-                <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
+            <div class="row2 " id="getmarket">
+                <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
                             <div class="famous-content-icon text-center">
@@ -218,7 +218,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <a href="<?php echo CLS_SITE_URL ?>famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
         </div>
@@ -234,3 +234,10 @@ include 'header.php';
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("bannerlatest LIST");
+famousmarket();
+marketlistshowclientside();
+marketlist2showclientside();
+marketlist3showclientside();
+</script>

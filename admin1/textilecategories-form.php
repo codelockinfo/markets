@@ -41,31 +41,44 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-3">
             <form role="form" id="b_textileCtgryinsert" enctype="multipart/form-data" method="POST">
-              <label for="textile-img " class="font-weight-normal required">Image</label>
-              <div class="mb-3">
-                <div class="drop-zone form-control">
-                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                  <input type="file" name="myFile" class="drop-zone__input">
-                </div>
-                <div class="col">
-                  <div class="row mt-2">
-                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
-                  </div>
-                  <div class="row mt-lg-n1">
-                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
-                  </div>
-                </div>
-                <div class="errormsg myFile"></div>
-              </div>
-              <label for="text" class="font-weight-normal">Image Alt</label>
-              <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
-              </div>
-              <label for="image-link" class="font-weight-normal required">Image Link</label>
-              <div class="mb-3">
-                <input type="url" class="form-control validurl" placeholder="https://example.com" name="img_link">
-                <span class="errormsg img_link"></span>
-              </div>
+            <div class="mb-3">
+              <label for="text" class="font-weight-normal">Categories</label>
+              <select class="js-select2-multi_categories form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="categories">
+                  <option value="">Select a category</option>
+                  <option value="1">Armwear</option>
+                  <option value="2">Badges</option>
+                  <option value="3">Belts</option>
+                  <option value="4">Children's clothing</option>
+                  <option value="5">Clothing brands by type</option>
+                  <option value="6">Coats</option>
+                  <option value="7">Dresses</option>
+                  <option value="8">Footwear</option>
+                  <option value="9">Gowns</option>
+                  <option value="10">Handwear</option>
+                  <option value="11">Hosiery</option>
+                  <option value="12">Jackets</option>
+                  <option value="13">Jeans by type</option>
+                  <option value="14">Knee clothing</option>
+                  <option value="15">Masks</option>
+                  <option value="16">Neckwear</option>
+                  <option value="17">One-piece suits</option>
+                  <option value="18">Outerwear</option>
+                  <option value="19">Ponchos</option>
+                  <option value="20">Robes and cloaks</option>
+                  <option value="21">Royal attire</option>
+                  <option value="22">Saris</option>
+                  <option value="23">Sashes</option>
+                  <option value="24">Shawls and wraps</option>
+                  <option value="25">Skirts</option>
+                  <option value="26">Sportswear</option>
+                  <option value="27">Suits</option>
+                  <option value="28">Tops</option>
+                  <option value="29">Trousers and shorts</option>
+                  <option value="30">Undergarments</option>
+                  <option value="31">Wedding clothing</option>
+              </select>
+              <span class="errormsg categories"></span>
+            </div>
               <div class="mb-3">
                 <button type="button" class="btn bg-gradient-info btn-sm brouseSave formSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
@@ -146,6 +159,7 @@ if ($_SESSION['current_user']['role'] == 1) {
       </div>
     </div>
     <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
 
 </html>
