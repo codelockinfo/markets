@@ -51,7 +51,7 @@ class client_functions {
 
     function bannershow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM banners ORDER BY banner_id DESC LIMIT 1";
+        $query = "SELECT * FROM banners WHERE status='1' ORDER BY banner_id DESC LIMIT 1";
         $result = $this->db->query($query);
         $output = "";               
         if ($result) {
@@ -72,7 +72,7 @@ class client_functions {
     
     function famousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT Heading, Sub_Heading,Image FROM famous_markets";
+        $query = "SELECT Heading, Sub_Heading,Image FROM famous_markets WHERE status='1'";
         $result = $this->db->query($query);
         $output = "";       
         // print_r($query);
