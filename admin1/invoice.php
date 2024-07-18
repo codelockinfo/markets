@@ -31,7 +31,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
     </div>
     <div class="container-fluid py-4">
-      <div class="col-xl-6 mx-auto">
+      <div class="col-xl-12 mx-auto">
         <div class="card z-index-0 p-4 product-main">
           <form action="">
             <div class="col w-100">
@@ -156,11 +156,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
                 </div>
               </div>
-            </div>
-            <div class="btn-group  mt-3" role="group" aria-label="Basic example">
-              <button type="button" class="btn bg-gradient-info">+ Discount</button>
-              <button type="button" class="btn bg-gradient-info">+ Tax</button>
-              <button type="button" class="btn bg-gradient-info">+ Shipping</button>
             </div>
             <div class="row w-100 mt-4">
               <div class="col w-50">
