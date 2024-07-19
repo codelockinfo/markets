@@ -12,13 +12,10 @@
           </div>
         </div>
         <ul class="navbar-nav justify-content-end">
-          <!-- <li class="nav-item d-flex align-items-center online-btn">
-              <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="#">Online Builder</a>
-            </li> -->
           <li class="nav-item d-flex align-items-center">
-            <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="nav-link text-white font-weight-bold px-0">
+            <a href="<?php echo SITE_ADMIN_URL ?>profile.php" class="nav-link text-white font-weight-bold px-0">
               <i class="fa fa-user me-sm-1"></i>
-              <span class="d-sm-inline d-none">Sign In</span>
+              <span class="d-sm-inline d-none">Profile</span>
             </a>
           </li>
           <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">

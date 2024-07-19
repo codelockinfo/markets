@@ -341,7 +341,7 @@ $(document).ready(function() {
         loading_hide(".save_loader_show", "Sign in");
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
-          window.location.href = 'index.php';
+          window.location.href = 'analytics.php';
         }else {
           response["msg"]["password"] !== undefined ? $(".password").html(response["msg"]["password"]): $(".password").html("");
           response["msg"]["email"] !== undefined ? $(".email").html(response["msg"]["email"]) : $(".email").html("");

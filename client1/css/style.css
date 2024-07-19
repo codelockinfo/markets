@@ -5,6 +5,7 @@
 .text-second {
     color: var(--bs-secondary-text);
 }
+
 .bg-second {
     color: var(--bs-secondary-text);
 }
@@ -1310,30 +1311,35 @@ input[type=range]:focus::-ms-fill-upper {
     width: 120px;
     height: auto;
 }
-.float{
+
+.float {
     border-radius: 100%;
     background-color: rgb(12, 166, 12);
 }
+
 /* seller detail page start */
 
 /* border hover start */
-.market_list_mian_box{
+.market_list_mian_box {
     border: 1px solid rgb(237, 221, 221);
     border-radius: 8px;
 }
-.market_list_mian_box:hover{
+
+.market_list_mian_box:hover {
     border: 1px solid #36150086;
     transition: 0.2s;
 }
+
 /* border hover end */
 
 /* btn hover start */
-.send-btn:hover{
+.send-btn:hover {
     background-color: #CC9544;
     color: black;
     border-color: #CC9544;
 }
+
 /* btn hover end */
 .errormsg {
-    color: red;
+    color: #f56b6b;
 }

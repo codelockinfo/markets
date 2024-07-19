@@ -49,7 +49,7 @@ class admin_functions {
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'login successfully');
             } else {
-                $error_array['errormsg'] = 'Incorrect login!';
+                $error_array['errormsg'] = 'User does not exist! <a href="signup.php">Sign Up</a>';
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         }else{
@@ -118,7 +118,7 @@ class admin_functions {
        if (empty($confirmPassword)) {
            $error_array['Confirm_Password'] ="Please enter a confirm password";
        } elseif ($password !== $confirmPassword) {
-           $error_array['Confirm_Password'] ="Passwords do not match";
+           $error_array['Confirm_Password'] ="Password Mismatch";
        }
        if ($error) {
            $error_array['password'] = $error;
@@ -1434,7 +1434,7 @@ class admin_functions {
                     }
                 }
             }else{
-                $response_data = array('data' => 'fail', 'msg' => 'Passwords do not match.');  
+                $response_data = array('data' => 'fail', 'msg' => 'Password Mismatch.');  
             }
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error);  
