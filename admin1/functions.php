@@ -96,20 +96,25 @@ class admin_functions {
         if (isset($_POST['address']) && $_POST['address'] == '') {
             $error_array['address'] = "Please enter address";
         }
-        if (isset($_POST['phone_number']) && $_POST['phone_number'] == '') {
-            $error_array['phone_number'] = "Please enter phone number";
-        }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
             $error_array['business_type'] = "Please select business type";
         }
         if (empty($filename)) {
             $error_array['image'] = "Please select image";
        }
+       $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
        $password = isset($_POST['password']) ? $_POST['password'] : '';
        $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
        $email = isset($_POST['email']) ? $_POST['email'] : '';
        $error = '';
        $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+       $mobilepattern = "/^[789]\d{9}$/";
+       
+       if(empty($phone_number)){
+            $error_array['phone_number'] = "Please enter phone number";
+       }elseif (!preg_match($mobilepattern, $phone_number)) {
+            $error_array['phone_number'] = "The mobile number is invalid.";
+       }
        if (empty($password)) {
            $error = 'Please enter a password.';
        } elseif (!preg_match($strongPasswordPattern, $password)) {
