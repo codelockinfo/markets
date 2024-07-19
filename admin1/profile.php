@@ -21,8 +21,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <span class="mask bg-gradient-info opacity-6"></span>
             </div>
             <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="row gx-4">
-                    <div class="col-auto">
+                <div class="row gx-4"  id="profile_data">
+                    <!-- <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
                             <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                         </div>
@@ -36,7 +36,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                 CEO / Co-Founder
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -316,5 +316,4 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 console.log("productlist LIST");
 listproduct();
 listprofile();
-img();
 </script>
