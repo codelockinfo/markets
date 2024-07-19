@@ -898,9 +898,8 @@ class admin_functions {
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["shop_img"];
-                    $imagePath = "../admin1/assets/img/sigup_img/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
-                    // print_r($decodedPath);
+                    $imagePath = "../admin1/assets/img/sigup_img/".$image;                    
+                    $decodedPath = htmlspecialchars_decode($imagePath);                     
                     $name =  $row['name'];
                     $shop = $row['shop'];
                     $phone_number = $row['phone_number'];
@@ -925,12 +924,8 @@ class admin_functions {
                     </div>              
                     </ul>'; 
 
-                    $output['logo'] = '<div class="col-auto">
-                    <div class="avatar avatar-xl position-relative">
-                  <img src="' . $decodedPath . '" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                   </div>
-                   </div>
-                   <div class="col-auto my-auto">
+                    
+                   $output['logo'] = '<div class="col-auto my-auto">
                    <div class="h-100">
                    <h5 class="mb-1">' . $shop . '</h5>
                      </div>
