@@ -67,6 +67,7 @@ function loadData(routineName) {
   });
 }
 
+
 function listproduct() {
   loadData('productlisting');
 }
@@ -110,6 +111,39 @@ function listfamousmarket() {
 function listreview() {
   loadData('reviewlisting');
 }
+
+function profileLoadData(routineName, elementId) {
+  console.log(routineName + " on load");
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: 'post',
+    dataType: "json",
+    data: {"routine_name": routineName},
+    success: function(response) {
+      console.log(response);
+      var response = JSON.parse(response);
+      if (response.outcome === "No data found") {
+        $("#" + elementId).html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
+      } else {
+        $("#" + elementId).html(response.outcome);
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error("Error occurred:", error);
+    }
+  });
+}
+
+function listprofile() {
+  profileLoadData('listprofile', 'getdataa');
+}
+
+function img() {
+  profileLoadData('img', 'img');
+}
+
+
+
 
 var loadShopifyAJAX= null;
 var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {

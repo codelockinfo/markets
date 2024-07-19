@@ -43,8 +43,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-xl-6 col-md-6 profile-sec">
-                    <div class="card">
-                        <li class="list-group-item border-0 ps-0 pb-0">
+                    <div class="card" id="img">
+                        <!-- <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm p-3">Your Shop:</strong> &nbsp;
                             <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
                                 <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
@@ -54,7 +54,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                             <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
                                 <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6 profile-sec">
@@ -71,9 +71,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="card-header profile-section">
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
+                        <div class="card-header profile-section"  id="getdataa">
+                            <!-- <ul class="list-group"> -->
+                                <!-- <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop
                                         Name:</strong> &nbsp; Marco Men</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; 1001, Sliver Hub, Mota-Varachha,
@@ -81,8 +81,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile
                                         Number:</strong> &nbsp; (+91) 1234 123 123 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                </li>
-                            </ul>
+                                </li> -->
+                            <!-- </ul> -->
                         </div>
                     </div>
                 </div>
@@ -315,4 +315,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 <script type="text/javascript"> 
 console.log("productlist LIST");
 listproduct();
+listprofile();
+img();
 </script>
