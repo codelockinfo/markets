@@ -871,7 +871,7 @@ class admin_functions {
                     $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
                     $output .= '        <div class="ms-auto text-end">';
                     $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
-                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</button>';
+                    $output .= '          <a href="product-form.php?id='.$row['product_id'].'" data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1473,6 +1473,20 @@ class admin_functions {
             $response_data = array('data' => 'fail', 'msg' => $error);  
         }
        
+        $response = json_encode($response_data);
+        return $response;
+    }
+    function getproduct(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        if(!empty($id)){
+            $query = "SELECT  * from  products WHERE product_id = $id AND  status = 1";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $response_data = array('data' => 'success', 'outcome' => $row);
+            }
+        }
         $response = json_encode($response_data);
         return $response;
     }

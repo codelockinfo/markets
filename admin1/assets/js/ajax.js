@@ -208,6 +208,21 @@ function demo(){
   });
 }
 
+function get_product(id){
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: {"routine_name":"getproduct","id":id},
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);        
+      response["outcome"]["title"] !== undefined ? $("input[name='pname']").val(response["outcome"]["title"]): '';
+   
+    }
+});
+}
+
 $(document).ready(function() {
   console.log("DOCUMENT READY ...");
 
