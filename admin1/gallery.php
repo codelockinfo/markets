@@ -33,8 +33,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="col-12 mt-4 p-4">
       <div class="card mb-4">
         <div class="card-body p-3">
-          <div class="row">
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+          <div class="row" id="getdata">
+            <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block border-radius-xl">
@@ -96,8 +96,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   </a>
                 </div>
               </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+            </div> -->
+            <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
               <div class="card card-blog card-plain">
                 <div class="position-relative">
                   <a class="d-block border-radius-xl">
@@ -124,7 +124,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
           </div>
         </div>
       </div>
@@ -229,3 +229,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </body>
 
 </html>
+<script type="text/javascript"> 
+console.log("productlist LIST");
+listgallary();
+
+</script>

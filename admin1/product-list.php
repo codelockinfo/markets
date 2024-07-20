@@ -20,19 +20,19 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
       <div class="card card-body blur shadow-blur mx-4 mt-n6">
         <div class="row gx-4">
-          <div class="col-auto">
+          <!-- <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
               <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
-          </div>
+          </div> -->
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
                 Product List
               </h5>
-              <p class="mb-0 font-weight-bold text-sm">
+              <!-- <p class="mb-0 font-weight-bold text-sm">
                 Shop Name
-              </p>
+              </p> -->
             </div>
           </div>
           <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">

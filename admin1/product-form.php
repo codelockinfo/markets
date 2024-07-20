@@ -111,7 +111,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <a class="decrement-btn">
                         <i class="fa fa-minus"></i>
                       </a>
-                      <input type="text" readonly="readonly" id="qty_display" class="qty-input text-center form-control" value="1" />
+                      <input type="text" readonly="readonly" name="qty" id="qty_display" class="qty-input text-center form-control" value="1" />
                       <a class="increment-btn">
                         <i class="fa fa-plus"></i>
                       </a>
@@ -128,7 +128,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     <a class="decrement-btn">
                       <i class="fa fa-minus"></i>
                     </a>
-                    <input type="text" readonly="readonly" id="qty_display" class="qty-input text-center form-control" value="1" />
+                    <input type="text" readonly="readonly"  id="qty_display" class="qty-input text-center form-control" value="1" />
                     <a class="increment-btn">
                       <i class="fa fa-plus"></i>
                     </a>
@@ -157,7 +157,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3">
               <div class="drop-zone form-control">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
+                <input type="file"  name="p_image" id="removeImage" class="drop-zone__input">
               </div>
               <div class="col">
                 <div class="row mt-2">
@@ -174,7 +174,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
             </div>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Product</label>
+              <label for="text" class="font-weight-normal">Product tag</label>
               <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="">Select products</option>
                 <option value="Saree">Saree</option>

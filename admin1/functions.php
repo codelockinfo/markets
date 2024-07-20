@@ -96,20 +96,25 @@ class admin_functions {
         if (isset($_POST['address']) && $_POST['address'] == '') {
             $error_array['address'] = "Please enter address";
         }
-        if (isset($_POST['phone_number']) && $_POST['phone_number'] == '') {
-            $error_array['phone_number'] = "Please enter phone number";
-        }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
             $error_array['business_type'] = "Please select business type";
         }
         if (empty($filename)) {
             $error_array['image'] = "Please select image";
        }
+       $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
        $password = isset($_POST['password']) ? $_POST['password'] : '';
        $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
        $email = isset($_POST['email']) ? $_POST['email'] : '';
        $error = '';
        $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+       $mobilepattern = "/^[789]\d{9}$/";
+       
+       if(empty($phone_number)){
+            $error_array['phone_number'] = "Please enter phone number";
+       }elseif (!preg_match($mobilepattern, $phone_number)) {
+            $error_array['phone_number'] = "The mobile number is invalid.";
+       }
        if (empty($password)) {
            $error = 'Please enter a password.';
        } elseif (!preg_match($strongPasswordPattern, $password)) {
@@ -240,15 +245,16 @@ class admin_functions {
                 $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
                 $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
                 $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
-                $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';              
+                $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';   
+                $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';              
                 $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
                 $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
                 $p_description = str_replace("'", "\'", $p_description);
     
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];                                      
-                    $query = "INSERT INTO products (title, category,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                              VALUES ('$product_name', '$select_catagory','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                    $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                              VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                     $result = $this->db->query($query);
                    
                 if ($result) {
@@ -781,11 +787,63 @@ class admin_functions {
             return $response;
     }  
 
+    function listgallary (){ 
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];           
+            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["p_image"];
+                    $imagePath = "../admin1/assets/img/product_img/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);                   
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';
+                    // $output .= '<nav aria-label="Page navigation example">';
+                    // $output .= '  <ul class="pagination justify-content-center">';
+                    // $output .= '    <li class="page-item">';
+                    // $output .= '      <a class="page-link" href="#" aria-label="Previous">';
+                    // $output .= '        <span aria-hidden="true">&laquo;</span>';
+                    // $output .= '        <span class="sr-only">Previous</span>';
+                    // $output .= '      </a>';
+                    // $output .= '    </li>';
+                    // $output .= '    <li class="page-item"><a class="page-link" href="#">1</a></li>';
+                    // $output .= '    <li class="page-item"><a class="page-link" href="#">2</a></li>';
+                    // $output .= '    <li class="page-item"><a class="page-link" href="#">3</a></li>';
+                    // $output .= '    <li class="page-item">';
+                    // $output .= '      <a class="page-link" href="#" aria-label="Next">';
+                    // $output .= '        <span aria-hidden="true">&raquo;</span>';
+                    // $output .= '        <span class="sr-only">Next</span>';
+                    // $output .= '      </a>';
+                    // $output .= '    </li>';
+                    // $output .= '  </ul>';
+                    // $output .= '</nav>';
+                    // print_r($row);    
+                }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
+            }
+            $response = json_encode($response_data);
+            return $response;
+    }
+
     function productlisting (){ 
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
+            $user_id = $_SESSION['current_user']['user_id'];                   
             $query = "SELECT * FROM products WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output="";
@@ -818,8 +876,7 @@ class admin_functions {
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
-                    $output .= '</div>'; 
-                    // print_r($row);    
+                    $output .= '</div>';                     
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
                 } else {
@@ -830,75 +887,55 @@ class admin_functions {
             return $response;
     }
 
-    // function profileproductlisting (){
-    //     $output="";
-    //     // $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //     //     $output .= ' <div class="card h-100 card-plain border">';
-    //     //     $output .= '  <div class="card-body d-flex flex-column justify-content-center text-center">';
-    //     //     $output .= '  <a href="' . SITE_ADMIN_URL . 'product-form.php">';
-    //     //     $output .= '   <i class="fa fa-plus text-secondary mb-3"></i>';
-    //     //     $output .= '  <h5 class="text-secondary">Add New Product</h5>';
-    //     //     $output .= ' </a>';
-    //     //     $output .= '</div>';
-    //     //     $output .= ' </div>';
-    //     //     $output .= '</div>';
-    //     $response_data = array('data' => 'fail', 'msg' => "Error");
-    //     if (isset($_SESSION['current_user']['user_id'])) {
-    //         $user_id = $_SESSION['current_user']['user_id'];
-    //         // print_r($user_id);
-    //         $query = "SELECT * FROM products WHERE user_id = '$user_id'";
-    //         $result = $this->db->query($query);
-           
-    //     }
-    //         // if (isset($_SESSION['current_user']['user_id'])) {
-    //         //     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //         //     $output .= ' <div class="card h-100 card-plain border">';
-    //         //     $output .= '  <div class="card-body d-flex flex-column justify-content-center text-center">';
-    //         //     $output .= '  <a href="' . SITE_ADMIN_URL . 'product-form.php">';
-    //         //     $output .= '   <i class="fa fa-plus text-secondary mb-3"></i>';
-    //         //     $output .= '  <h5 class="text-secondary">Add New Product</h5>';
-    //         //     $output .= ' </a>';
-    //         //     $output .= '</div>';
-    //         //     $output .= ' </div>';
-    //         //     $output .= '</div>';
-    //         // }                               
-                
-    //         if ($result) {
-    //             while ($row = mysqli_fetch_array($result)) {
-    //                 $image = $row["p_image"];
-    //                 $imagePath = "../admin1/assets/img/product_img/".$image;
-    //                 $decodedPath = htmlspecialchars_decode($imagePath);
-    //                 $title =  $row['title'];
-    //                 $price = $row['maxprice'];
-    //                 $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //                 $output .= '  <div class="card card-blog card-plain">';
-    //                 $output .= '    <div class="position-relative">';
-    //                 $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-    //                 $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
-    //                 $output .= '      </a>';
-    //                 $output .= '    </div>';
-    //                 $output .= '    <div class="card-body px-1 pb-0">';
-    //                 $output .= '      <a href="#">';
-    //                 $output .= '        <h5> '. $title .'</h5>';
-    //                 $output .= '      </a>';
-    //                 $output .= '      <div class="d-flex justify-content-between mb-3">';
-    //                 $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
-    //                 $output .= '        <div class="ms-auto text-end">';
-    //                 $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
-    //                 $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</button>';
-    //                 $output .= '        </div>';
-    //                 $output .= '      </div>';
-    //                 $output .= '    </div>';
-    //                 $output .= '  </div>';
-    //                 $output .= '</div>'; 
-                  
-    //                 // print_r($row);    
-    //             }             
-    //                 $response_data = array('data' => 'success', 'outcome' => $output);
-    //         }
-    //                 $response = json_encode($response_data);
-    //                 return $response;
-    // }
+    function listprofile (){
+            $output = array();            
+            $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];            
+            $query = "SELECT shop_img,name,shop,phone_number,address FROM users WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);           
+        }                         
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["shop_img"];
+                    $imagePath = "../admin1/assets/img/sigup_img/".$image;                    
+                    $decodedPath = htmlspecialchars_decode($imagePath);                     
+                    $name =  $row['name'];
+                    $shop = $row['shop'];
+                    $phone_number = $row['phone_number'];
+                    $address = $row['address'];
+                    $output['profile_deatils'] = '<ul class="list-group">
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp;  '. $name .'</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop Name:</strong> &nbsp; '. $shop .'</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; '. $address .'</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile Number:</strong> &nbsp; '. $phone_number .'</li>
+                    </div>
+                    </ul>';  
+
+                    $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0">                   
+                   <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
+                   <img src="' . $decodedPath . '"alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
+                   </a>
+                   </li>
+                   <div class="mx-auto text-center">
+                 <a href="' . SITE_ADMIN_URL . 'profile-form.php">
+                  <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
+                    </a>
+                    </div>              
+                    </ul>'; 
+
+                    
+                   $output['logo'] = '<div class="col-auto my-auto">
+                   <div class="h-100">
+                   <h5 class="mb-1">' . $shop . '</h5>
+                     </div>
+                   </div>';               
+                }             
+                    $response_data = array('data' => 'success', 'outcome' => $output );
+            }
+                    $response = json_encode($response_data);
+                    return $response;
+    }
         
     function bloglisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");       

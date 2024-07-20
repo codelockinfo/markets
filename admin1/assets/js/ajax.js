@@ -67,6 +67,10 @@ function loadData(routineName) {
   });
 }
 
+function listgallary() {
+  loadData('listgallary');
+}
+
 function listproduct() {
   loadData('productlisting');
 }
@@ -109,6 +113,35 @@ function listfamousmarket() {
 
 function listreview() {
   loadData('reviewlisting');
+}
+
+function profileLoadData(routineName) {
+  console.log(routineName + " on load");
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: 'post',
+    dataType: "json",
+    data: {"routine_name": routineName},
+    success: function(response) {
+      var response = JSON.parse(response);
+      console.log("---------------------")
+      console.log(response);
+      if (response.outcome === "No data found") {
+        // $("#" + elementId).html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
+      } else {       
+        response["outcome"]["profile_deatils"] !== undefined ? $("#getdataa").html(response["outcome"]["profile_deatils"]): $("#getdataa").html("");
+        response["outcome"]["deatils"] !== undefined ? $("#img").html(response["outcome"]["deatils"]): $("#img").html("");
+        response["outcome"]["logo"] !== undefined ? $("#profile_data").append(response["outcome"]["logo"]): $("#profile_data").html("");
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error("Error occurred:", error);
+    }
+  });
+}
+
+function listprofile() {
+  profileLoadData('listprofile');
 }
 
 var loadShopifyAJAX= null;
@@ -391,6 +424,7 @@ $(document).ready(function() {
           response["msg"]["p_image"] !== undefined ? $(".p_image").html (response["msg"]["p_image"]) : $(".p_image").html("");
           response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
           response["msg"]["sku"] !== undefined ? $(".sku").html (response["msg"]["sku"]) : $(".sku").html("");
+          response["msg"]["qty"] !== undefined ? $(".qty").html (response["msg"]["qty"]) : $(".qty").html("");
           response["msg"]["p_tag"] !== undefined ? $(".p_tag").html (response["msg"]["p_tag"]) : $(".p_tag").html("");
           response["msg"]["p_description"] !== undefined ? $(".p_description").html (response["msg"]["p_description"]) : $(".p_description").html("");
           if(response['data'] == "success"){
