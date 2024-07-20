@@ -21,7 +21,7 @@
 
 .b-img .b-img1 {
   transform: skewX(8deg);
- height: 800px;
+  height: 800px;
 }
 
 /* sign-in & sign-up background img css end */
@@ -638,16 +638,35 @@
   padding: 10px;
 }
 
-@media (max-width:600px) {
-  .drop-control {
-    width: 100%;
-  }
-}
-
-@media (max-width:575px) {
+@media (max-width:700px) {
   .table-scroll1 {
     width: 100%;
     overflow-x: scroll;
+  }
+
+  ::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width:331px) {
+  .invoice-title1 {
+    display: none;
+  }
+}
+
+@media (min-width:331px) {
+  .invoice-title {
+    display: none;
   }
 }
 
@@ -667,7 +686,7 @@
 
 
 /* quantity css start */
-#qty_selector{
+#qty_selector {
   width: 100%;
 }
 
@@ -678,7 +697,7 @@
   width: 35%;
   margin: 0px 10px;
   padding-left: 5px;
-} 
+}
 
 #qty_select {
   border: solid rgb(232, 201, 201);
@@ -686,11 +705,11 @@
   border-radius: 10px;
 }
 
-.decrement-btn{
+.decrement-btn {
   padding: 7px;
 }
 
-.increment-btn{
+.increment-btn {
   padding: 7px;
 }
 

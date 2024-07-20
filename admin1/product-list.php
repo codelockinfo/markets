@@ -22,7 +22,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         <div class="row gx-4">
           <!-- <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="<?php echo main_url('/admin1/assets/img/bruce-mars.jpg'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div> -->
           <div class="col-auto my-auto">
@@ -97,7 +97,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">
-           
+
             <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
@@ -187,7 +187,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </body>
 
 </html>
-<script type="text/javascript"> 
-console.log("productlist LIST");
-listproduct();
+<script type="text/javascript">
+  console.log("productlist LIST");
+  listproduct();
 </script>

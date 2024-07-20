@@ -91,7 +91,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         <div class="card-body d-flex p-3 row">
                             <div class="col-auto mx-auto ms-sm-3 mt-2">
                                 <h6 class="mb-1">
-                                    Your Product
+                                    Your Products
                                 </h6>
                             </div>
                             <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
