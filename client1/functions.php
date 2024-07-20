@@ -178,7 +178,7 @@ class client_functions {
                 while ($row = mysqli_fetch_array($result)) {                 
                     $output .= '<div class="accordion-item border">';
                     $output .= '    <h2 class="accordion-header" id="heading' . $row["faq_id"] . '">';
-                    $output .= '        <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
+                    $output .= '        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
                     $output .= '            <h6 class="m-0">' . $row["question"] . '</h6>';
                     $output .= '        </button>';
                     $output .= '    </h2>';

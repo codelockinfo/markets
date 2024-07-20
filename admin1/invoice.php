@@ -36,13 +36,17 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <form action="">
             <div class="col w-100">
               <div class="row mb-3">
+                <div class="col invoice-title">
+                  <h1 class="text-normal fs-2 text-end">INVOICE</h1>
+                  <input type="text" placeholder="# 101" class="form-control max-width-200 ms-auto text-end mb-3">
+                </div>
                 <div class="col mb-3">
                   <div class="drop-zone form-control max-width-300">
                     <span class="drop-zone__prompt">Drop file here or click to upload</span>
                     <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
                   </div>
                 </div>
-                <div class="col">
+                <div class="col invoice-title1">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
                   <input type="text" placeholder="# 101" class="form-control max-width-200 ms-auto text-end">
                 </div>
@@ -68,50 +72,50 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
             </div>
             <div class="col w-100">
-              <div class="row w-60">
+              <div class="row w-100">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="date" class="form-control mt-1" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row w-60 mt-2">
+              <div class="row w-100 mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1 max-width-200">
+                  <input type="text" class="form-control mt-1">
                 </div>
               </div>
-              <div class="row w-60 mt-2">
+              <div class="row w-100 mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="date" class="form-control mt-1" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row w-60 mt-2">
+              <div class="row w-100 mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1 max-width-200">
+                  <input type="text" class="form-control mt-1">
                 </div>
               </div>
             </div>
             <div class="table-scroll1">
               <div class="row">
-                <table class="mt-4 w-100" id="attributes">
+                <table class="mt-4" id="attributes">
                   <tr>
-                    <th class="w-70 bg-gradient-info text-light ps-3 text-bold">item</th>
-                    <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
-                    <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
-                    <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
+                    <th class="w-70 bg-gradient-info text-light ps-3 text-bold item-th">Item</th>
+                    <th class="w-10 bg-gradient-info text-light text-center text-bold quantity-th">Quantity</th>
+                    <th class="w-10 bg-gradient-info text-light text-center text-bold rate-th">Rate</th>
+                    <th class="w-10 bg-gradient-info text-light text-center text-bold amount-th">Amount</th>
                   </tr>
                   <tr class="attr">
-                    <td><input type="description" class="form-control mt-1" placeholder="Description of item/service"></td>
+                    <td><input type="description" class="form-control mt-1" placeholder="Item Title"></td>
                     <td><input type="description" class="form-control mt-1" placeholder="1"></td>
                     <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
                     <td class="text-center">₹ 0.00</td>
@@ -123,47 +127,47 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
               <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
             </div>
-            <div class="col w-60">
-              <div class="row">
+            <div class="col">
+              <div class="row w-100">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Subtotal :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row mt-2">
+              <div class="row w-100 mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Total :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row mt-2">
+              <div class="row w-100 mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Amount Paid :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row mt-2">
+              <div class="row w-100 mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Balance Due :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1 max-width-200" placeholder="₹ 0.00">
+                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
                 </div>
               </div>
             </div>
             <div class="row w-100 mt-4">
               <div class="col w-50">
-                <div class="row">
+                <div class="row notes">
                   <span class="text-normal ps-4 fs-5"><strong>Notes :</strong></span>
                   <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500 mt-2"></textarea>
                 </div>
-                <div class="row mt-2">
+                <div class="row mt-2 terms">
                   <span class="text-normal ps-4 fs-5"><strong>Terms :</strong></span>
                   <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500 mt-2"></textarea>
                 </div>
