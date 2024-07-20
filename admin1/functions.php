@@ -49,7 +49,7 @@ class admin_functions {
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'login successfully');
             } else {
-                $error_array['errormsg'] = 'User does not exist! <a href="signup.php">Sign Up</a>';
+                $error_array['errormsg'] = 'User does not exist! <a href="sign-up.php">Sign Up</a>';
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         }else{
