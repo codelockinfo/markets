@@ -38,17 +38,17 @@ if ($_SESSION['current_user']['role'] == 1) {
     </div>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-          <div class="card z-index-0 p-3 main-sec">
+        <div class="col-xl-6">
+          <div class="card p-3">
             <form role="form" class="form main-editor" id="faqinsert" enctype="multipart/form-data" method="POST">
               <label for="faq-question" class="font-weight-normal required">Question</label>
               <div class="mb-3">
-                <textarea name="faq_question" id="faq-question" class="w-100 form-control validsignf"></textarea>
+                <textarea name="faq_question" id="faq-question" class="form-control validsignf"></textarea>
                 <span class="errormsg faq_question"></span>
               </div>
-              <label for="body" class="font-weight-normal required">Answer</label>
-              <div class="mb-3 editor">
-                <textarea id="myeditor" name="myeditor"></textarea>
+              <label for="body" class="font-weight-normal required">Paragraph</label>
+              <div class="mb-3">
+                <textarea name="myeditor" id="myeditor"></textarea>
                 <span class="errormsg myeditor"></span>
               </div>
               <div class="mb-3">
@@ -59,8 +59,8 @@ if ($_SESSION['current_user']['role'] == 1) {
             </form>
           </div>
         </div>
-        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-          <div class="card z-index-0 p-3 main-sec">
+        <div class="col-xl-6">
+          <div class="card p-3">
             <div class="mb-3 form-check-reverse text-right ">
               <div class="container">
                 <div class="btn-group">
@@ -73,7 +73,6 @@ if ($_SESSION['current_user']['role'] == 1) {
               </div>
             </div>
             <div class="accordion"  id="getdata">
-          
             </div>
           </div>
         </div>
