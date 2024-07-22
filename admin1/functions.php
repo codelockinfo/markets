@@ -59,6 +59,49 @@ class admin_functions {
         return $response;
     }
     
+    function profile_updatedata(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if($_SESSION['current_user']['user_id']){
+            if (isset($_POST['name']) && $_POST['name'] == '') {
+                $error_array['name'] = "Please enter name";
+            }
+            if (isset($_POST['shop']) && $_POST['shop'] == '') {
+                $error_array['shop'] = "Please enter shop name";
+            }
+            $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
+            $mobilepattern = "/^[789]\d{9}$/";
+            if(empty($phone_number)){
+                    $error_array['phone_number'] = "Please enter phone number";
+            }elseif (!preg_match($mobilepattern, $phone_number)) {
+                    $error_array['phone_number'] = "The mobile number is invalid.";
+            }
+            if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
+                $error_array['business_type'] = "Please select business type";
+            }
+            if (isset($_POST['address']) && $_POST['address'] == '') {
+                $error_array['address'] = "Please enter address";
+            }
+            if (empty($error_array)) {
+                $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';                   
+                $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';                   
+                $phone_number = (isset($_POST['phone_number']) && $_POST['phone_number'] !== '') ? $_POST['phone_number'] : '';                   
+                $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';                   
+                $address = (isset($_POST['address']) && $_POST['address'] !== '') ? $_POST['address'] : '';    
+                $user_id = $_SESSION['current_user']['user_id'];                
+                
+                $query = "UPDATE users SET name = '$name', shop = '$shop', phone_number = '$phone_number', business_type = '$business_type', address = '$address'  WHERE user_id  = $user_id";
+                $result = $this->db->query($query);
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
+                }
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
     function insert_signup(){
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
@@ -252,9 +295,14 @@ class admin_functions {
                 $p_description = str_replace("'", "\'", $p_description);
     
                 if (isset($_SESSION['current_user']['user_id'])) {
-                    $user_id = $_SESSION['current_user']['user_id'];                                      
-                    $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                              VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                    $user_id = $_SESSION['current_user']['user_id']; 
+                    $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';                                         
+                    if($id == ''){
+                        $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                                VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                    }else{
+                        // update query
+                    }
                     $result = $this->db->query($query);
                    
                 if ($result) {
@@ -386,7 +434,12 @@ class admin_functions {
                
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES ('$blog_title', '$blog_category','$myeditor','$author_name','$newFilename','$blog_image_alt','$user_id')";
+                    $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';                                         
+                    if($id == ''){
+                        $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES ('$blog_title', '$blog_category','$myeditor','$author_name','$newFilename','$blog_image_alt','$user_id')";
+                    }else{
+                        //blog update query
+                    }
                     $result = $this->db->query($query);
                 }
                 if ($result) {
@@ -888,15 +941,15 @@ class admin_functions {
     }
 
     function listprofile (){
-            $output = array();            
-            $response_data = array('data' => 'fail', 'msg' => "Error");
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
+            $output = array();            
             $user_id = $_SESSION['current_user']['user_id'];            
-            $query = "SELECT shop_img,name,shop,phone_number,address FROM users WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM users WHERE user_id = '$user_id'";
             $result = $this->db->query($query);           
-        }                         
+                               
             if ($result) {
-                while ($row = mysqli_fetch_array($result)) {
+                $row = $result->fetch_assoc();
                     $image = $row["shop_img"];
                     $imagePath = "../admin1/assets/img/sigup_img/".$image;                    
                     $decodedPath = htmlspecialchars_decode($imagePath);                     
@@ -918,23 +971,23 @@ class admin_functions {
                    </a>
                    </li>
                    <div class="mx-auto text-center">
-                 <a href="' . SITE_ADMIN_URL . 'profile-form.php">
-                  <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
+                    <a href="' . SITE_ADMIN_URL . 'profile-form.php">
+                    <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                     </a>
                     </div>              
                     </ul>'; 
-
                     
                    $output['logo'] = '<div class="col-auto my-auto">
                    <div class="h-100">
                    <h5 class="mb-1">' . $shop . '</h5>
                      </div>
                    </div>';               
-                }             
-                    $response_data = array('data' => 'success', 'outcome' => $output );
+                           
+                    $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row );
             }
-                    $response = json_encode($response_data);
-                    return $response;
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
         
     function bloglisting (){
@@ -967,7 +1020,7 @@ class admin_functions {
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '        <div class="ms-auto text-end">';
                     $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
-                    $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>';
+                    $output .= '          <a href="blog-form.php?id='.$row['blog_id'].'" data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1481,6 +1534,20 @@ class admin_functions {
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if(!empty($id)){
             $query = "SELECT  * from  products WHERE product_id = $id AND  status = 1";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $response_data = array('data' => 'success', 'outcome' => $row);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    function getblog(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        if(!empty($id)){
+            $query = "SELECT  * from  blogs WHERE blog_id = $id AND  status = 1";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
