@@ -129,6 +129,12 @@ function profileLoadData(routineName) {
       if (response.outcome === "No data found") {
         // $("#" + elementId).html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
       } else {       
+        response["profiledata"]["name"] !== undefined ? $("input[name='name']").val(response["profiledata"]["name"]): '';
+        response["profiledata"]["shop"] !== undefined ? $("input[name='shop']").val(response["profiledata"]["shop"]): '';
+        response["profiledata"]["phone_number"] !== undefined ? $("input[name='phone_number']").val(response["profiledata"]["phone_number"]): '';
+        response["profiledata"]["business_type"] !== undefined ? $("select[name='business_type']").val(response["profiledata"]["business_type"]).change() : '';
+        response["profiledata"]["address"] !== undefined ? $("input[name='address']").val(response["profiledata"]["address"]): '';
+        
         response["outcome"]["profile_deatils"] !== undefined ? $("#getdataa").html(response["outcome"]["profile_deatils"]): $("#getdataa").html("");
         response["outcome"]["deatils"] !== undefined ? $("#img").html(response["outcome"]["deatils"]): $("#img").html("");
         response["outcome"]["logo"] !== undefined ? $("#profile_data").append(response["outcome"]["logo"]): $("#profile_data").html("");
@@ -216,14 +222,69 @@ function get_product(id){
     data: {"routine_name":"getproduct","id":id},
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);        
+      console.log(response);              
       response["outcome"]["title"] !== undefined ? $("input[name='pname']").val(response["outcome"]["title"]): '';
-   
+      response["outcome"]["category"] !== undefined ? $("select[name='select_catagory']").val(response["outcome"]["category"]).change() : '';
+      response["outcome"]["qty"] !== undefined ? $("input[name='qty']").val(response["outcome"]["qty"]): '';
+      response["outcome"]["sku"] !== undefined ? $("input[name='sku']").val(response["outcome"]["sku"]): '';
+      response["outcome"]["minprice"] !== undefined ? $("input[name='min_price']").val(response["outcome"]["minprice"]): '';
+      response["outcome"]["maxprice"] !== undefined ? $("input[name='max_price']").val(response["outcome"]["maxprice"]): '';
+      response["outcome"]["product_img_alt"] !== undefined ? $("input[name='image_alt']").val(response["outcome"]["product_img_alt"]): '';
+      response["outcome"]["p_tag"] !== undefined ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change() : '';
+      response["outcome"]["p_description"] !== undefined ? $("textarea[name='p_description']").val(response["outcome"]["p_description"]): '';
+      var p_image = response["outcome"]["p_image"] !== undefined ?  response["outcome"]["p_image"] : '';
+      console.log(p_image);
+      if(p_image != ''){
+        $(".drop-zone__prompt").html('');
+        var imagePreview = '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/'+p_image+'" class="picture__img"/><button class="close-button">x</button></div>';
+        $('.drop-zone').append(imagePreview);
+      }
+    }
+});
+}
+function get_blog(id){
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: {"routine_name":"getblog","id":id},
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);        
+            
+      response["outcome"]["title"] !== undefined ? $("input[name='blog_title']").val(response["outcome"]["title"]): '';
+      response["outcome"]["category"] !== undefined ? $("select[name='blog_category']").val(response["outcome"]["category"]).change() : '';
+      response["outcome"]["author_name"] !== undefined ? $("input[name='author_name']").val(response["outcome"]["author_name"]): '';
+      response["outcome"]["blog_img_alt"] !== undefined ? $("input[name='blog_image_alt']").val(response["outcome"]["blog_img_alt"]): '';
+      response["outcome"]["body"] !== undefined ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"]) : '';
+      var image = response["outcome"]["image"] !== undefined ?  response["outcome"]["image"] : '';
+      console.log(image);
+      if(image != ''){
+        $(".drop-zone__prompt").html('');
+        var imagePreview = '<div class="drop-zone__thumb"><img src="../admin1/assets/img/blog_img/'+image+'" class="picture__img"/><button class="close-button">x</button></div>';
+        $('.drop-zone').append(imagePreview);
+      }
     }
 });
 }
 
+function activeSidebarMenu(){
+  var path = window.location.pathname;
+  var page = path.split("/").pop();
+  $('.nav-link').removeClass('active');
+  $('.nav-item').each(function() {
+      var href = $(this).find(".nav-link").attr('href');
+      if (typeof href !== 'undefined') {
+        var pagehref = href.split("/").pop();
+      }
+      if (page === pagehref) {
+        $(this).find(".nav-link").addClass('active');
+      }
+  });
+  
+}
 $(document).ready(function() {
+  activeSidebarMenu();
   console.log("DOCUMENT READY ...");
 
   function showMessage(msg, type) {  
@@ -365,6 +426,35 @@ $(document).ready(function() {
     });
   });
       
+  $(document).on("click",".profileDataUpdate",function(e){
+    var form_data = $("#profileUpdate")[0]; 
+    var form_data = new FormData(form_data);
+    form_data.append('routine_name','profile_updatedata'); 
+      $.ajax({
+          url: "../admin1/ajax_call.php",
+          type: "post",
+          dataType: "json",
+          contentType: false,
+          processData: false,
+          data: form_data, 
+          beforeSend: function () {
+              loading_show('.save_loader_show');
+          },
+          success: function (response) {
+              console.log(response);
+              var response = JSON.parse(response);
+              response["msg"]["name"] !== undefined ? $(".name").html (response["msg"]["name"]) : $(".name").html("");
+              response["msg"]["shop"] !== undefined ? $(".shop").html (response["msg"]["shop"]) : $(".shop").html("");
+              response["msg"]["address"] !== undefined ? $(".address").html (response["msg"]["address"]) : $(".address").html("");
+              response["msg"]["phone_number"] !== undefined ? $(".phone_number").html (response["msg"]["phone_number"]) : $(".phone_number").html("");
+              response["msg"]["business_type"] !== undefined ? $(".business_type").html (response["msg"]["business_type"]) : $(".business_type").html("");
+              loading_hide('.save_loader_show', 'SIGN UP');
+              if(response['data'] == "success"){ 
+                showMessage(response.msg, "success");     
+              }
+          }
+      })
+  });
   $(document).on("click",".signUpsave",function(e){
     e.preventDefault();   
     console.log("signUpsavebutton click");
@@ -401,8 +491,8 @@ $(document).ready(function() {
           }else{
             // showMessage(response.msg_error, "fail");
           } 
-        }
-      });
+      }
+    });
   })
 
   $(document).on("click",".productSave",function(event){
@@ -655,6 +745,7 @@ $(document).ready(function() {
               resetThumbnail();
               $('.myFile').html('');
               showMessage(response.msg, "success");
+              listbanner();
             }else{
               showMessage(response.msg_error, "fail");
             } 
@@ -689,11 +780,12 @@ $(document).ready(function() {
           response["msg"]["heading"] !== undefined ? $(".heading").html (response["msg"]["heading"]) : $(".heading").html("");
           response["msg"]["sub_heading"] !== undefined ? $(".sub_heading").html (response["msg"]["sub_heading"]) : $(".sub_heading").html("");
           response["msg"]["img"] !== undefined ? $(".img").html (response["msg"]["img"]) : $(".img").html("");
-          if(response['data'] == "success"){
+            if(response['data'] == "success"){
               $("#f_marketinsert")[0].reset();
               resetThumbnail();
               showMessage(response.msg, "success");
               $('.myFile').html('');
+              listfamousmarket();
             }else{
               showMessage(response.msg_error, "fail");
             } 
@@ -725,16 +817,14 @@ $(document).ready(function() {
           loading_show('.save_loader_show');
       },
       success: function (response) {
-        console.log(response);
         var response = JSON.parse(response);
         loading_hide('.save_loader_show', 'Save');     
         response["msg"]["categories"] !== undefined ? $(".categories").html (response["msg"]["categories"]) : $(".categories").html("");       
           if(response['data'] == "success"){
               $("#b_textileCtgryinsert")[0].reset();   
-              $(".multiple_tag").val(null).trigger("change");
-              console.log("hi");        
+              $(".multiple_tag").val(null).trigger("change");      
               showMessage(response.msg, "success");
-              // $('.myFile').html('');
+              listbrousetextile();
             }else{
               showMessage(response.msg_error, "fail");
             } 
@@ -770,6 +860,7 @@ $(document).ready(function() {
                 resetThumbnail();
                 showMessage(response.msg, "success");
                 $('.myFile').html('');
+                offerlist();
               }else{
                 showMessage(response.msg_error, "fail");
               } 
@@ -803,10 +894,11 @@ $(document).ready(function() {
         var response = JSON.parse(response);
         loading_hide('.save_loader_show', 'Save');
         response["msg"]["myeditor"] !== undefined ? $(".myeditor").html (response["msg"]["myeditor"]) : $(".myeditor").html("");
-          if(response['data'] == "success"){
+            if(response['data'] == "success"){
               $("#paragraphinsert")[0].reset();
               CKEDITOR.instances['myeditor'].setData('');
               showMessage(response.msg, "success");
+              listparagraph();
             }else{
               showMessage(response.msg_error, "fail");
             }  
@@ -844,6 +936,7 @@ $(document).ready(function() {
             $("#faqinsert")[0].reset();
             CKEDITOR.instances['myeditor'].setData('');
             showMessage(response.msg, "success");
+            listFAQ();
           }else{
             showMessage(response.msg_error, "fail");
             } 
@@ -880,6 +973,7 @@ $(document).ready(function() {
               resetThumbnail();
               showMessage(response.msg, "success");
               $('.shop_logo').html('');
+              listreview();
             }else{
               showMessage(response.msg_error, "fail");
             } 

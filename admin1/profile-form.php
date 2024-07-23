@@ -1,12 +1,12 @@
 <?php
 include 'header.php';
-
-
 if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
+}else{?>
+  <script>profileLoadData('listprofile');</script>
+<?php
 }
-
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -48,7 +48,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
         <div class="card card-body z-index-0 p-3">
-          <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
+          <form role="form" id="profileUpdate" enctype="multipart/form-data" method="POST">
             <label for="name" class="font-weight-normal required">Name</label>
             <div class="mb-3">
               <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
@@ -68,8 +68,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3">
               <select class="form-select" aria-label="Default select example" name="business_type">
                 <option selected value="">Your Business Type</option>
-                <option value="1">Retail</option>
-                <option value="2">Wholesale</option>
+                <option value="0">Retail</option>
+                <option value="1">Wholesale</option>
               </select>
               <span class="errormsg business_type"></span>
             </div>
@@ -79,8 +79,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <span class="errormsg address"></span>
             </div>
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-info btn-sm signUpsave save_loader_show">Save</button>
-              <button type="button" class="btn bg-gradient-info btn-sm formCancel signUpcancel">Cancel</button>
+              <button type="button" class="btn bg-gradient-info btn-sm profileDataUpdate save_loader_show">Save</button>
             </div>
           </form>
         </div>

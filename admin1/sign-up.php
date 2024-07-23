@@ -93,8 +93,8 @@ include 'header.php';
                     <div class="mb-3">
                       <select class="form-select" aria-label="Default select example" name="business_type">
                         <option selected value="">Your Business Type</option>
-                        <option value="1">Retail</option>
-                        <option value="2">Wholesale</option>
+                        <option value="0">Retail</option>
+                        <option value="1">Wholesale</option>
                       </select>
                       <span class="errormsg business_type"></span>
                     </div>

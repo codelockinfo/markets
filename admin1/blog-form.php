@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
 if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
@@ -59,6 +60,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-3">
           <form role="form" id="bloginsert" enctype="multipart/form-data" method="post">
+          <input type="hidden" name="id" value="<?php echo $id;?>"/>
             <label for="title" class="font-weight-normal required">Blog Title</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="Blog Title" name="blog_title">
@@ -207,3 +209,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
 </html>
+
+<script>
+    var id = "<?php echo $id; ?>";
+    get_blog(id);
+</script>

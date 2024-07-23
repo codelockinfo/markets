@@ -8,7 +8,7 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse w-auto navigation" id="sidenav-collapse-main">
       <ul class="navbar-nav overflow-x-hidden">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>index.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -48,18 +48,18 @@
                 </div>
               </a>
             </li>
-            <div class="sidenav1 dropdown">
+            <div class="sidenav1 dropdown nav-item">
               <button class="dropdown-btn text-dark nav-link-text dropdown-toggle">
                 Customize 
               </button>
               <div class="dropdown-container">
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner</a>
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets</a>
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Browse by textile</a>
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
-                <a class="custom1" href="<?php echo SITE_ADMIN_URL ?>marketsbyreviews.php">Markets By Reviews</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Browse by textile</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>marketsbyreviews.php">Markets By Reviews</a>
               </div>
             </div>  
         <?php } ?>

@@ -1,4 +1,3 @@
-console.log("common.js");
 
 // drag & drop js
 
@@ -122,34 +121,40 @@ function updateThumbnail(dropZoneElement, file) {
 // multi select js in product form page
 
 $(document).ready(function () {
-  $(".js-select2-multi").select2({
-    placeholder: "Select products",
-    createTag: function (params) {
-      var term = $.trim(params.term);
-      if (term === "") {
-        return null;
-      }
-      return {
-        id: term,
-        text: term,
-        newTag: true,
-      };
-    },
-  });
-  $(".js-select2-multi_categories").select2({
-    placeholder: "Select a category",
-    createTag: function (params) {
-      var term = $.trim(params.term);
-      if (term === "") {
-        return null;
-      }
-      return {
-        id: term,
-        text: term,
-        newTag: true,
-      };
-    },
-  });
+  var jsselect2multiple = $(".js-select2-multi");
+  var jsselect2multiplecategories = $(".js-select2-multi_categories");
+  if (jsselect2multiple.length > 0) {
+    $(".js-select2-multi").select2({
+      placeholder: "Select products",
+      createTag: function (params) {
+        var term = $.trim(params.term);
+        if (term === "") {
+          return null;
+        }
+        return {
+          id: term,
+          text: term,
+          newTag: true,
+        };
+      },
+    });
+  }
+  if (jsselect2multiplecategories.length > 0) {
+    $(".js-select2-multi_categories").select2({
+      placeholder: "Select a category",
+      createTag: function (params) {
+        var term = $.trim(params.term);
+        if (term === "") {
+          return null;
+        }
+        return {
+          id: term,
+          text: term,
+          newTag: true,
+        };
+      },
+    });
+  }
 });
 
 // dropdown active add & remove js
