@@ -95,7 +95,7 @@ function updateThumbnail(dropZoneElement, file) {
       img.src = readerTarget.result;
       img.classList.add("picture__img");
       const closeButton = document.createElement("button");
-      closeButton.classList.add("close-button");
+      closeButton.classList.add("close-button","d-none");
       closeButton.innerText = "x";
       closeButton.addEventListener("click", () => {
         thumbnailElement.innerHTML = "";

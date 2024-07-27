@@ -231,34 +231,41 @@ class admin_functions {
     function insert_products() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-        $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
-        $tmpfile = isset($_FILES["p_image"]["tmp_name"]) ? $_FILES["p_image"]["tmp_name"] : '';
-        $file = $_FILES['p_image'];
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time() . '.' . $extension;
-        $fileName = $_FILES['p_image']['name'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/product_img/";
-        $fullpath= $folder . $newFilename;
-        if (!is_dir($folder)) {
-            $mkdir = mkdir($folder, 0777, true);
-            if (!$mkdir) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
+        
+        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';   
+        
+        if($_FILES["p_image"]["name"] != "" && $id != "" || isset($_FILES["p_image"]["name"]) && isset($_FILES["p_image"]["name"]) != '' &&  $id == ""){
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+            $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+            $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
+            $tmpfile = isset($_FILES["p_image"]["tmp_name"]) ? $_FILES["p_image"]["tmp_name"] : '';
+            $file = $_FILES['p_image'];
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newFilename = time() . '.' . $extension;
+            $fileName = $_FILES['p_image']['name'];
+            $fileNameCmps = explode(".", $fileName);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $folder = "assets/img/product_img/";
+            $fullpath= $folder . $newFilename;
+            if (!is_dir($folder)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
+                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                    return json_encode($response_data);
+                }
             }
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }
+            if ($file['size'] > $maxSize) {
+                $error_array['p_image'] = "File size must be 5MB or less.";
+            }
+            if (empty($filename)) {
+                $error_array['p_image'] = "Please upload product images.";
+            }
+            
         }
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        if ($file['size'] > $maxSize) {
-            $error_array['p_image'] = "File size must be 5MB or less.";
-        }
-        if (empty($filename)) {
-            $error_array['p_image'] = "Please upload product images.";
-        }
+        
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
         }
@@ -281,41 +288,51 @@ class admin_functions {
             $error_array['p_tag'] = "Please select categories";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile, $fullpath)) {
-                $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
-                $product_name = str_replace("'", "\'", $product_name);
-                $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
-                $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
-                $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
-                $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
-                $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';   
-                $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';              
-                $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-                $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
-                $p_description = str_replace("'", "\'", $p_description);
-    
-                if (isset($_SESSION['current_user']['user_id'])) {
-                    $user_id = $_SESSION['current_user']['user_id']; 
-                    $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';                                         
-                    if($id == ''){
-                        $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                                VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
-                    }else{
-                        // update query
-                    }
+            $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
+            $product_name = str_replace("'", "\'", $product_name);
+            $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
+            $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
+            $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
+            $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
+            $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';   
+            $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';              
+            $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
+            $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
+            $p_description = str_replace("'", "\'", $p_description);
+            if($id == ''){
+                if (move_uploaded_file($tmpfile, $fullpath)) {
+        
+                    $user_id = $_SESSION['current_user']['user_id'];    
+                    $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                        VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                     $result = $this->db->query($query);
-                   
-                if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
+        
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                    }  
+                    
                 } else {
-                    $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                    $error_array['p_image'] = "Error moving uploaded file.";
                 }
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "User not logged in.");
-            }
-
-            } else {
-                $error_array['p_image'] = "Error moving uploaded file.";
+            }else{
+                if (isset($newFilename) && $newFilename != '') {
+                    
+                    if (move_uploaded_file($tmpfile, $fullpath)) {
+                        $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
+                        maxprice = '$max_price',p_image = '$newFilename',product_img_alt = '$product_image_alt',p_tag = '$p_tag',p_description = '$p_description'  WHERE product_id  = $id";
+                    }
+                }else{
+                    $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
+                    maxprice = '$max_price',product_img_alt = '$product_image_alt',p_tag = '$p_tag',p_description = '$p_description'  WHERE product_id  = $id";
+                }
+                $result = $this->db->query($query);
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Product data updated',"updated_product_id" => $id);
+                }else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
+                }
             }
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
@@ -383,32 +400,41 @@ class admin_functions {
 
     function insert_blog(){ 
         $error_array = array();
-        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
-        $tmpfile = isset($_FILES["blog_image"]["tmp_name"]) ? $_FILES["blog_image"]["tmp_name"] : '';
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
-        $fileName = $_FILES['blog_image']['name'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/blog_img/";
-        $fullpath= $folder . $newFilename;
-        $file = $_FILES['blog_image'];
-        $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';   
+        
+        if($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' &&  $id == ""){
 
-        if (!is_dir($folder)) {
-            $mkdir = mkdir($folder, 0777, true);
-            if (!$mkdir) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+            $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
+            $tmpfile = isset($_FILES["blog_image"]["tmp_name"]) ? $_FILES["blog_image"]["tmp_name"] : '';
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newFilename = time(). '.' . $extension;
+            $fileName = $_FILES['blog_image']['name'];
+            $fileNameCmps = explode(".", $fileName);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $folder = "assets/img/blog_img/";
+            $fullpath= $folder . $newFilename;
+            $file = $_FILES['blog_image'];
+            $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+
+            if (!is_dir($folder)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
+                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                    return json_encode($response_data);
+                }
+            }
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }      
+            if ($file['size'] > $maxSize) {
+                $error_array['blog_image'] = "File size must be 5MB or less.";           
+            }
+            if (empty($filename)) {
+                $error_array['blog_image'] = "Please upload your blog image";
             }
         }
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }      
-        if ($file['size'] > $maxSize) {
-            $error_array['blog_image'] = "File size must be 5MB or less.";           
-        }
+        
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
             $error_array['blog_title'] = "Please enter blog title";
         }
@@ -418,34 +444,48 @@ class admin_functions {
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
             $error_array['myeditor'] = "Please fill body textarea";
         }
-        if (empty($filename)) {
-            $error_array['blog_image'] = "Please upload your blog image";
-        }
         if (isset($_POST['author_name']) && $_POST['author_name'] == '') {
             $error_array['author_name'] = "Please enter author name";
         }
+        
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$fullpath)) {
-                $blog_title = (isset($_POST['blog_title']) && $_POST['blog_title'] !== '') ? $_POST['blog_title'] : '';
-                $blog_category = (isset($_POST['blog_category']) && $_POST['blog_category'] !== '') ? $_POST['blog_category'] : '';
-                $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
-                $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
-                $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
-               
-                if (isset($_SESSION['current_user']['user_id'])) {
-                    $user_id = $_SESSION['current_user']['user_id'];
-                    $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';                                         
-                    if($id == ''){
-                        $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES ('$blog_title', '$blog_category','$myeditor','$author_name','$newFilename','$blog_image_alt','$user_id')";
-                    }else{
-                        //blog update query
+            $blog_title = (isset($_POST['blog_title']) && $_POST['blog_title'] !== '') ? $_POST['blog_title'] : '';
+            $blog_category = (isset($_POST['blog_category']) && $_POST['blog_category'] !== '') ? $_POST['blog_category'] : '';
+            $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
+            $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
+            $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
+            if($id == ''){
+                if (move_uploaded_file($tmpfile,$fullpath)) {
+                
+                    if (isset($_SESSION['current_user']['user_id'])) {
+                            $user_id = $_SESSION['current_user']['user_id'];   
+                            $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
+                            ('$blog_title', '$blog_category','$myeditor',
+                            '$author_name','$newFilename','$blog_image_alt','$user_id')";
+                            $result = $this->db->query($query);
                     }
-                    $result = $this->db->query($query);
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Blog inserted successfully!');
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => "Error");
+                    }
                 }
+            }else{
+                if (isset($newFilename) && $newFilename != '') {
+                    
+                    if (move_uploaded_file($tmpfile, $fullpath)) {
+                        $query = "UPDATE blogs SET title = '$blog_title', category = '$blog_category', body = '$myeditor', 
+                        author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
+                    }
+                }else{
+                    $query = "UPDATE blogs SET title = '$blog_title', category = '$blog_category', body = '$myeditor', 
+                        author_name = '$author_name',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
+                }
+                $result = $this->db->query($query);
                 if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Blog inserted successfully!');
-                } else {
-                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                    $response_data = array('data' => 'success', 'msg' => 'Blog data updated',"updated_blog_id" => $id);
+                }else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
                 }
             }
         }else{
