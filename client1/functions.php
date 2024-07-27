@@ -116,7 +116,7 @@ class client_functions {
 
     function offershow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT img FROM offers";
+        $query = "SELECT img FROM offers WHERE status='1'";
         $result = $this->db->query($query);
         $output = "";       
         // print_r($query);
@@ -138,7 +138,7 @@ class client_functions {
     }
     function paragraphshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM paragraph"; 
+        $query = "SELECT * FROM paragraph WHERE status='1'"; 
         $result = $this->db->query($query);
         $output = "";
             if ($result) {
@@ -153,7 +153,7 @@ class client_functions {
 
     function videoshow (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM videos"; 
+        $query = "SELECT * FROM videos WHERE status='1'"; 
         $result = $this->db->query($query);
         $output = "";
         if ($result) {
@@ -171,7 +171,7 @@ class client_functions {
 
     function FAQshow (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs"; 
+        $query = "SELECT * FROM faqs WHERE status='1'"; 
         $result = $this->db->query($query);
         $output="";
             if ($result) {
@@ -197,7 +197,7 @@ class client_functions {
 
     function reviewshow (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT logo_img,shopname,review,description FROM marketreviews";
+        $query = "SELECT logo_img,shopname,review,description FROM marketreviews WHERE status='1'";
         $result = $this->db->query($query);
         $output="";        
                if ($result) {
@@ -243,7 +243,7 @@ class client_functions {
 
     function productshowclientside (){            
             $response_data = array('data' => 'fail', 'msg' => "Error");       
-            $query = "SELECT p.title, p.maxprice, p.p_image, p.p_description, u.shop, u.address FROM products p LEFT JOIN users u ON p.user_id = u.user_id";
+            $query = "SELECT p.title, p.maxprice, p.p_image, p.p_description, u.shop, u.address FROM products WHERE status='1' p LEFT JOIN users u ON p.user_id = u.user_id";
             $result = $this->db->query($query);            
             $output="";
         if ($result) {

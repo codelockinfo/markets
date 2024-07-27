@@ -62,6 +62,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <div class="form-check form-switch ps-0">
                       <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                      <input type="hidden" id="toggleStatus" name="status" value="paragraph">
                     </div>
                   </div>
                 </div>

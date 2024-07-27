@@ -753,6 +753,126 @@ $(document).ready(function() {
           });
   })
 
+  $(document).ready(function(){
+    check_toggle_status();
+  });
+  
+  function check_toggle_status(){
+    var table_name = $("#toggleStatus").val();
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {"routine_name":"check_toggle_status","table_name":table_name},
+      beforeSend: function () {          
+      },
+      success: function (response) {
+        var response = JSON.parse(response);
+        if(response['outcome'] !== undefined){
+          var check_status = response['outcome']['status'];
+          if(check_status == 1){
+            $('#flexSwitchCheckDefault').prop('checked', true);
+          }else{
+            $('#flexSwitchCheckDefault').prop('checked', false);
+          }
+        }else{
+          console.log("Something went wrong")
+        }
+      }
+  });
+  }
+
+  $(document).on("click", "#flexSwitchCheckDefault", function () {
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"banner_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    });
+  })
+
+  $(document).on ("click", "#flexSwitchCheckDefault", function(){
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"market_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    })
+  })
+
+  $(document).on ("click", "#flexSwitchCheckDefault", function(){
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"offer_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    })
+  })
+
+  $(document).on ("click", "#flexSwitchCheckDefault", function(){
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"paragraph_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    })
+  })
+
+  $(document).on ("click", "#flexSwitchCheckDefault", function(){
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"faqs_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    })
+  })
+
+  $(document).on ("click", "#flexSwitchCheckDefault", function(){
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"rivews_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    })
+  })
+
+  $(document).on("click","#flexSwitchCheckDefault",function(){
+    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"textile_enabledisable","checkvalue":ischecked_value},
+      success: function (response){
+        console.log(response + "status");
+      }
+    })
+  })
+
   $(document).on("click",".marketSave",function(event){
     event.preventDefault();
     console.log("market save button click");
@@ -800,7 +920,7 @@ $(document).ready(function() {
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append('routine_name','insert_brousetxt'); 
-     var selectedTags = $(".multiple_tag").val();
+    var selectedTags = $(".multiple_tag").val();
     if (selectedTags !== null) {
         for (var i = 0; i < selectedTags.length; i++) {
             form_data.append('categories[]', selectedTags[i]);
