@@ -1126,7 +1126,7 @@ class admin_functions {
                         <div class="btn-group">
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="offers" checked>
                         <input type="hidden" id="toggleStatus" name="status" value="offers">    
                         </div>
                         </div>  
@@ -1181,7 +1181,7 @@ class admin_functions {
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
             $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
             $output .= '        </div>';
             $output .= '      </div>';
@@ -1289,7 +1289,7 @@ class admin_functions {
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group">';
             $output .= '        <div class="form-check form-switch ps-0 toggle_offon">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="banners" checked>';
             $output .= '          <input type="hidden" id="toggleStatus" name="status" value="banners">';
             $output .= '        </div>';
             $output .= '      </div>';
@@ -1344,7 +1344,7 @@ class admin_functions {
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
             $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
             $output .= '        </div>';
             $output .= '      </div>';
@@ -1397,7 +1397,7 @@ class admin_functions {
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
             $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
             $output .= '        </div>';
             $output .= '      </div>';
@@ -1614,99 +1614,18 @@ class admin_functions {
         return $response;
     }
 
-    function banner_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE banners SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function market_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE famous_markets SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function offer_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE offers SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function paragraph_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE paragraph SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function faqs_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE faqs SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function rivews_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE marketreviews SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function textile_enabledisable(){
-        $checkvalue = $_POST['checkvalue'];
-        $query = "UPDATE b_textile_catagorys SET status='$checkvalue'";
-        $result = $this->db->query($query);
-
-        if($result){ 
-            $response_data = array('data' => 'success', 'msg' => 'status updated successfully');
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => "Error");   
+    function toggle_enabledisable(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if(isset($_POST['ischecked_value']) && isset($_POST['table_name'])){
+            $table_name = $_POST['table_name'];
+            $ischecked_value = $_POST['ischecked_value'];
+            $query = "UPDATE $table_name SET status= '$ischecked_value'";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'outcome' => "Update successfully");
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+            }
         }
         $response = json_encode($response_data);
         return $response;

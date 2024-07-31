@@ -963,102 +963,32 @@ $(document).ready(function () {
             $('#flexSwitchCheckDefault').prop('checked', false);
           }
         }else{
-          console.log("Something went wrong")
+          console.log("Something went wrong");
         }
       }
   });
   }
 
-  $(document).on("click", "#flexSwitchCheckDefault", function () {
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "POST",
-      dataType: "json",
-      data: {"routine_name":"banner_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
-      }
-    });
-  })
-
-  $(document).on ("click", "#flexSwitchCheckDefault", function(){
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "POST",
-      dataType: "json",
-      data: {"routine_name":"market_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
-      }
-    })
-  })
-
-  $(document).on ("click", "#flexSwitchCheckDefault", function(){
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "POST",
-      dataType: "json",
-      data: {"routine_name":"offer_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
-      }
-    })
-  })
-
-  $(document).on ("click", "#flexSwitchCheckDefault", function(){
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "POST",
-      dataType: "json",
-      data: {"routine_name":"paragraph_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
-      }
-    })
-  })
-
-  $(document).on ("click", "#flexSwitchCheckDefault", function(){
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "POST",
-      dataType: "json",
-      data: {"routine_name":"faqs_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
-      }
-    })
-  })
-
-  $(document).on ("click", "#flexSwitchCheckDefault", function(){
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "POST",
-      dataType: "json",
-      data: {"routine_name":"rivews_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
-      }
-    })
-  })
-
   $(document).on("click","#flexSwitchCheckDefault",function(){
-    var ischecked_value = $(this).is(':checked') ? 1 : 0;
+    toggle_enabledisable(this);
+  })
+  
+  function toggle_enabledisable(thisObj){
+    var table_name = $("#flexSwitchCheckDefault").val();
+    var ischecked_value = $(thisObj).is(':checked') ? 1 : 0;
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
       dataType: "json",
-      data: {"routine_name":"textile_enabledisable","checkvalue":ischecked_value},
-      success: function (response){
-        console.log(response + "status");
+      data: {"routine_name":"toggle_enabledisable","ischecked_value":ischecked_value,"table_name":table_name},
+      beforeSend: function () { 
+        loading_show(".save_loader_show");         
+      },
+      success: function (response) {
+        console.log("Ajax response received: ", response);
       }
     })
-  })
+  }
 
   $(document).on("click",".marketSave",function(event){
     event.preventDefault();
