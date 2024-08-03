@@ -1000,7 +1000,58 @@ $(document).on("click", ".invoice ", function (event) {
     });
   });
 
-  $(document).on("click", ".marketSave", function (event) {
+
+  $(document).ready(function(){
+    check_toggle_status();
+  });
+  
+  function check_toggle_status(){
+    var table_name = $("#toggleStatus").val();
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {"routine_name":"check_toggle_status","table_name":table_name},
+      beforeSend: function () {          
+      },
+      success: function (response) {
+        var response = JSON.parse(response);
+        if(response['outcome'] !== undefined){
+          var check_status = response['outcome']['status'];
+          if(check_status == 1){
+            $('#flexSwitchCheckDefault').prop('checked', true);
+          }else{
+            $('#flexSwitchCheckDefault').prop('checked', false);
+          }
+        }else{
+          console.log("Something went wrong");
+        }
+      }
+  });
+  }
+
+  $(document).on("click","#flexSwitchCheckDefault",function(){
+    toggle_enabledisable(this);
+  })
+  
+  function toggle_enabledisable(thisObj){
+    var table_name = $("#flexSwitchCheckDefault").val();
+    var ischecked_value = $(thisObj).is(':checked') ? 1 : 0;
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {"routine_name":"toggle_enabledisable","ischecked_value":ischecked_value,"table_name":table_name},
+      beforeSend: function () { 
+        loading_show(".save_loader_show");         
+      },
+      success: function (response) {
+        console.log("Ajax response received: ", response);
+      }
+    })
+  }
+
+  $(document).on("click",".marketSave",function(event){
     event.preventDefault();
     console.log("market save button click");
     var form_data = $("#f_marketinsert")[0];
@@ -1055,7 +1106,7 @@ $(document).on("click", ".invoice ", function (event) {
     console.log(" brouseSave save button click");
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
-    form_data.append("routine_name", "insert_brousetxt");
+    form_data.append('routine_name','insert_brousetxt'); 
     var selectedTags = $(".multiple_tag").val();
     if (selectedTags !== null) {
       for (var i = 0; i < selectedTags.length; i++) {

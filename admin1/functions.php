@@ -670,7 +670,7 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     }
-    
+
     function insert_market(){
         $error_array = array();
         $file = $_FILES['svg_img'];       
@@ -766,28 +766,24 @@ class admin_functions {
             return $response;
     }
 
-    function insert_brousetxt(){
+    function insert_brousetxt(){ 
         $error_array = array();
         if (!isset($_POST['categories']) || $_POST['categories'] == '') {
             $error_array['categories'] = "Please select categories";
         }
 
         if (empty($error_array)) {          
-                 $categories = (isset($_POST['categories']) && is_array($_POST['categories'])) ? implode(',', $_POST['categories']) : '';
-                 print_r($categories);
-                 die;
+                $categories = (isset($_POST['categories']) && is_array($_POST['categories'])) ? implode(',', $_POST['categories']) : '';
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
                 $result = $this->db->query($query);
-                // print_r($result);
             }
             if ($result) {                
                 $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-       
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
@@ -1223,7 +1219,8 @@ class admin_functions {
                         <div class="btn-group">
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="offers" checked>
+                        <input type="hidden" id="toggleStatus" name="status" value="offers">    
                         </div>
                         </div>  
                         </div>
@@ -1270,14 +1267,15 @@ class admin_functions {
             $result = $this->db->query($query);
             $output="";
         }                
-            $output .= '<div class="card z-index-0 p-3">';
-            $output .= ' <div class="row">';
+            // $output .= '<div class="card z-index-0 p-3">';
+            // $output .= ' <div class="row">';
             $output .= '<div class="mb-3 form-check-reverse text-right">';
             $output .= '  <div class="container">';
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
+            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
             $output .= '        </div>';
             $output .= '      </div>';
             $output .= '    </div>';
@@ -1286,14 +1284,14 @@ class admin_functions {
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["img"];
-                    $imagePath = "../admin1/assets/img/brouse_textilectgry_img/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    // $image = $row["img"];
+                    // $imagePath = "../admin1/assets/img/brouse_textilectgry_img/".$image;
+                    // $decodedPath = htmlspecialchars_decode($imagePath);
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    // $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="d-flex justify-content-between mb-3">';
@@ -1382,9 +1380,10 @@ class admin_functions {
             $output .= '<div class="mb-3 form-check-reverse text-right">';
             $output .= '  <div class="container">';
             $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '      <div class="btn-group" role="group">';
+            $output .= '        <div class="form-check form-switch ps-0 toggle_offon">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="banners" checked>';
+            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="banners">';
             $output .= '        </div>';
             $output .= '      </div>';
             $output .= '    </div>';
@@ -1438,7 +1437,8 @@ class admin_functions {
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
+            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
             $output .= '        </div>';
             $output .= '      </div>';
             $output .= '    </div>';
@@ -1490,7 +1490,8 @@ class admin_functions {
             $output .= '    <div class="btn-group">';
             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
+            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
             $output .= '        </div>';
             $output .= '      </div>';
             $output .= '    </div>';
@@ -1685,6 +1686,38 @@ class admin_functions {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $response_data = array('data' => 'success', 'outcome' => $row);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function check_toggle_status(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if(isset($_POST['table_name'])){
+            $table_name = $_POST['table_name'];
+            $query = "SELECT status from $table_name";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $response_data = array('data' => 'success', 'outcome' => $row);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function toggle_enabledisable(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if(isset($_POST['ischecked_value']) && isset($_POST['table_name'])){
+            $table_name = $_POST['table_name'];
+            $ischecked_value = $_POST['ischecked_value'];
+            $query = "UPDATE $table_name SET status= '$ischecked_value'";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'outcome' => "Update successfully");
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
             }
         }
         $response = json_encode($response_data);
