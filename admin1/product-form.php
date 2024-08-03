@@ -6,7 +6,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+ 
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -108,14 +110,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="col quantity1">
                 <div class="d-flex flex-row justify-content-between">
                   <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
-                    <input type="hidden" value=" 1 " class="prod_id">
+                    <input type="hidden" value=" 1 " min="1" class="prod_id">
                     <div class="input-group text-center" id="qty_selector">
-                      <a class="decrement-btn">
+                      <a class="decrement-btn" id="decrement-btn">
                         <i class="fa fa-minus"></i>
                       </a>
-                      <input type="text" readonly="readonly" name="qty" id="qty_display" class="qty-input text-center form-control" value="1" />
-                      <a class="increment-btn">
-                        <i class="fa fa-plus"></i>
+                      <input type="text" readonly="readonly" name="qty" id="qty_display" class="qty-input text-center form-control" value="1"/>
+                      <a class="increment-btn ">
+                        <i class="fa fa-plus" id="increment-btn"></i>
                       </a>
                     </div>
                   </div>
@@ -177,7 +179,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product tag</label>
-              <select class="js-select2-multi form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
+              <select class="js-select2  form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="">Select products</option>
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>

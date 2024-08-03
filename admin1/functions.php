@@ -280,7 +280,16 @@ class admin_functions {
         }
         if (isset($_POST['max_price']) && $_POST['max_price'] == '') {
             $error_array['max_price'] = "Please enter a maximum price.";
-        }       
+        }  
+        if (isset($_POST['min_price']) && $_POST['max_price']) {
+            $min_price = filter_input(INPUT_POST, 'min_price', FILTER_VALIDATE_FLOAT);
+            $max_price = filter_input(INPUT_POST, 'max_price', FILTER_VALIDATE_FLOAT);  
+            
+            if ($min_price >= $max_price) {
+                $error_array['max_price']= "Max price must be greater than min price.";
+            
+            }
+        }
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter description.";
         }
@@ -340,6 +349,90 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     } 
+
+    function invoice() {
+        $error_array = array();
+        $id = isset($_POST['id']) ? $_POST['id'] : ''; // ID for update or empty for insert
+    
+        // Validate file upload if any
+        if (!empty($_FILES["i_image"]["name"]) || (!empty($id) && isset($_FILES["i_image"]["name"]))) {
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+            $maxSize = 5 * 1024 * 1024; // 5MB in bytes
+            $filename = $_FILES["i_image"]["name"];
+            $tmpfile = $_FILES["i_image"]["tmp_name"];
+            $file = $_FILES['i_image'];
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newFilename = time() . '.' . $extension;
+            $folder = "assets/img/invoice_img/";
+            $fullpath = $folder . $newFilename;
+    
+            if (!is_dir($folder)) {
+                if (!mkdir($folder, 0777, true)) {
+                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                    return json_encode($response_data);
+                }
+            }
+            if (!in_array($extension, $allowedExtensions)) {
+                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }
+            if ($file['size'] > $maxSize) {
+                $error_array['i_image'] = "File size must be 5MB or less.";
+            }
+            if (empty($filename)) {
+                $error_array['i_image'] = "Please upload invoice images.";
+            }
+        }
+    
+        // Validate other fields
+        if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
+        if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
+        if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
+        if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
+        if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
+        if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
+        if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
+    
+        if (empty($error_array)) {
+            $i_name = $_POST['i_name'];
+            $bill_no = $_POST['bill_no'];
+            $ship_to = $_POST['ship_to'];
+            $date = $_POST['date'];
+            $terms = $_POST['terms'];
+            $due_date = $_POST['due_date'];
+            $po_number = $_POST['po_number'];
+            $user_id = $_SESSION['current_user']['user_id'];
+    
+            if (isset($newFilename) && !empty($newFilename)) {
+                if (!move_uploaded_file($tmpfile, $fullpath)) {
+                    $error_array['i_image'] = "Error moving uploaded file.";
+                }
+            }
+    
+            if (empty($error_array)) {
+                if (empty($id)) { // Insert new record
+                    $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`)
+                              VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id')";
+                } else { // Update existing record
+                    $query = "UPDATE invoice SET i_name = '$i_name',bill_no = '$bill_no',ship_to = '$ship_to',date = '$date', terms = '$terms',due_date = '$due_date',
+                              po_number = '$po_number'" . (!empty($newFilename) ? ", i_image = '$newFilename'" : "") . "
+                              WHERE id = $id";
+                }
+                $result = $this->db->query($query);
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => 'Error inserting/updating invoice in database');
+                }
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
+            }
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
+        }
+    
+        return json_encode($response_data);
+    }
+    
 
     function isValidYouTubeURL($url) {
         $allowedPatterns = array(
@@ -979,7 +1072,7 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     }
-
+    
     function listprofile (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
