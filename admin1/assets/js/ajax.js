@@ -45,10 +45,8 @@ function loading_show($selector) {
 
 function loading_hide($selector, $buttonName, $buttonIcon) {
   if ($buttonIcon != undefined) {
-    console.log("IN IF");
     $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
   } else {
-    console.log("else");
     $buttonIcon = "Save";
   }
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
@@ -138,7 +136,6 @@ function profileLoadData(routineName) {
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log("---------------------");
       console.log(response);
       if (response.outcome === "No data found") {
         // $("#" + elementId).html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
@@ -296,7 +293,6 @@ function get_product(id) {
         response["outcome"]["p_image"] !== undefined
           ? response["outcome"]["p_image"]
           : "";
-      console.log(p_image);
       if (p_image != "") {
         $(".drop-zone__prompt").html("");
         var imagePreview =
@@ -338,7 +334,6 @@ function get_blog(id) {
         response["outcome"]["image"] !== undefined
           ? response["outcome"]["image"]
           : "";
-      console.log(image);
       if (image != "") {
         $(".drop-zone__prompt").html("");
         var imagePreview =
@@ -581,7 +576,6 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         var response = JSON.parse(response);
-        console.log(response["msg"]["name"]);
         response["msg"]["name"] !== undefined
           ? $(".name").html(response["msg"]["name"])
           : $(".name").html("");
@@ -1042,7 +1036,6 @@ $(document).ready(function () {
 
   $(document).on("click", ".brouseSave", function (event) {
     event.preventDefault();
-    console.log("JJJJJ");
     console.log(" brouseSave save button click");
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
@@ -1294,7 +1287,6 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         var response = JSON.parse(response);
-        console.log(response["msg"]);
         if (response["data"] == "success") {
           showMessage(response["msg"], "success");
           window.location.href = "sign-in.php";
