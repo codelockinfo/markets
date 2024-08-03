@@ -33,7 +33,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="container-fluid py-4">
       <div class="col-xl-12 mx-auto">
         <div class="card z-index-0 p-4 product-main">
-          <form action="">
+          <form action="" id="invoice_frm">
             <div class="col w-100">
               <div class="row mb-3">
                 <div class="col invoice-title">
@@ -43,8 +43,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col mb-3">
                   <div class="drop-zone form-control max-width-300">
                     <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                    <input type="file" name="p_image" id="removeImage" class="drop-zone__input">
+                    <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
                   </div>
+                      <span class="errormsg i_image"></span>
+
                 </div>
                 <div class="col invoice-title1">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
@@ -56,17 +58,23 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3">
                 <div class="row">
                   <div class="col w-50 mb-3">
-                    <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500"></textarea>
+                    <textarea type="text"  placeholder="Who is this form?" class="form-control max-width-500"  name="i_name"></textarea>
+                   <span class="errormsg i_name"></span>
+
                   </div>
                 </div>
                 <div class="row mt-4">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
-                    <textarea name="text" id="" placeholder="Who is this form?" class="form-control"></textarea>
+                    <textarea type="text" placeholder="Who is this form?" class="form-control "  name= "bill_no"></textarea>
+                   <span class="errormsg bill_no"></span>
+
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
-                    <textarea name="text" id="" placeholder="Who is this form?" class="form-control"></textarea>
+                    <textarea type="text" placeholder="Who is this form?" class="form-control" name="ship_to"></textarea>
+                   <span class="errormsg ship_to"></span>
+
                   </div>
                 </div>
               </div>
@@ -77,7 +85,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1" placeholder="₹ 0.00">
+                  <input type="date" class="form-control mt-1" name="date">
+                  <span class="errormsg date"></span>
+
                 </div>
               </div>
               <div class="row w-100 mt-2">
@@ -85,7 +95,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1">
+                  <input type="text" class="form-control mt-1" name="terms">
+                  <span class="errormsg terms"></span>
+
                 </div>
               </div>
               <div class="row w-100 mt-2">
@@ -93,7 +105,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1" placeholder="₹ 0.00">
+                  <input type="date" class="form-control mt-1"  name="due_date">
+                  <span class="errormsg due_date"></span>
+
                 </div>
               </div>
               <div class="row w-100 mt-2">
@@ -101,7 +115,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1">
+                  <input type="text" class="form-control mt-1" name="po_number">
+                  <span class="errormsg po_number"></span>
+
                 </div>
               </div>
             </div>
@@ -175,7 +191,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
           </form>
           <div class="text-end mt-5">
-            <button class="btn bg-gradient-info">Download</button>
+            <button class="btn bg-gradient-info invoice" >Download</button>
           </div>
         </div>
       </div>

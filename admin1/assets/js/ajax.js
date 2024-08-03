@@ -688,6 +688,73 @@ $(document).ready(function () {
       },
     });
   });
+  
+
+
+// invoice
+$(document).on("click", ".invoice ", function (event) {
+  event.preventDefault();
+  console.log("invoice  button click");
+  var form_data = $("#invoice_frm")[0];
+  var form_data = new FormData(form_data);
+  form_data.append("routine_name", "invoice");
+
+  $.ajax({
+    url:"../admin1/ajax_call.php",
+    method:"POST",
+    dataType: "json",
+    contentType: false,
+    processData: false,
+    data: form_data,
+    beforeSend: function () {
+      loading_show(".save_loader_show");
+    },
+    success :function(response){
+      console.log(response);
+      var response = JSON.parse(response);
+      loading_hide(".save_loader_show", "Save");
+         response["msg"]["i_image"] !== undefined
+         ? $(".i_image").html(response["msg"]["i_image"])
+         : $(".i_image").html("");
+
+         response["msg"]["i_name"] !== undefined 
+         ?$(".i_name").html(response["msg"]['i_name'])
+         : $(".i_name").html("");
+
+         response["msg"]["bill_no"] !== undefined
+         ? $(".bill_no").html(response["msg"]["bill_no"])
+         : $(".bill_no").html("");
+
+         response["msg"]["ship_to"] !== undefined
+         ? $(".ship_to").html(response["msg"]["ship_to"])
+         : $(".ship_to").html("");
+
+         response["msg"]["date"] !== undefined
+         ? $(".date").html(response["msg"]["date"])
+         : $(".date").html("");
+
+         response["msg"]["terms"] !== undefined
+         ? $(".terms").html(response["msg"]["terms"])
+         : $(".terms").html("");
+
+         response["msg"]["due_date"] !== undefined
+         ? $(".due_date").html(response["msg"]["due_date"])
+         : $(".due_date").html("");
+
+         response["msg"]["po_number"] !== undefined
+         ? $(".po_number").html(response["msg"]["po_number"])
+         : $(".po_number").html("");
+        
+         if(response['data'] ==="success"){
+          console.log(response);
+          $("#invoice_frm")[0].reset();
+          $("#removeimage").val('');
+         }
+    }
+    
+  })
+
+})
 
   function confirmAndDelete(employeeId, routineName, type, onSuccess) {
     Swal.fire({
