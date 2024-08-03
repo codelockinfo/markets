@@ -6,9 +6,15 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
- 
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+</head>
+  
+
+
+
+
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -265,7 +271,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script> -->
 </body>
 
 </html>
@@ -273,4 +279,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 <script>
     var id = "<?php echo $id; ?>";
     get_product(id);
+
+    $(".js-select2").select2({
+  closeOnSelect : false,
+  placeholder : "select product",
+
+  allowHtml: true,
+  allowClear: true,
+  tags: true 
+});
 </script>
