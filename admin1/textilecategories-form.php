@@ -39,7 +39,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <div class="container-fluid w-100 py-4">
       <div class="row">
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-3">
+          <div class="card z-index-0 p-5">
             <form role="form" id="b_textileCtgryinsert" enctype="multipart/form-data" method="POST">
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Categories</label>             
@@ -88,7 +88,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           </div>
         </div>
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-3">
+          <div class="card z-index-0 p-5">
             <div class="row" id="getdata">
         
             </div>

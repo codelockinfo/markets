@@ -39,7 +39,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-6">
-          <div class="card p-3">
+          <div class="card p-5">
             <form role="form" class="form main-editor" id="faqinsert" enctype="multipart/form-data" method="POST">
               <label for="faq-question" class="font-weight-normal required">Question</label>
               <div class="mb-3">
@@ -60,7 +60,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           </div>
         </div>
         <div class="col-xl-6">
-          <div class="card p-3">
+          <div class="card p-5">
             <div class="mb-3 form-check-reverse text-right ">
               <div class="container">
                 <div class="btn-group">

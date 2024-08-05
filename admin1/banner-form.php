@@ -40,7 +40,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-3">
+          <div class="card z-index-0 p-5">
             <form role="form" id="bannerinsert" enctype="multipart/form-data" method="POST">
               <label for="b-image" class="font-weight-normal required">Banner Image</label>
               <div class="mb-3">
@@ -91,7 +91,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           </div>
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-3">
+          <div class="card z-index-0 p-5">
             <div class="row" id="getdata">     
              </div>
           </div>

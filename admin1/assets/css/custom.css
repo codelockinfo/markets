@@ -733,3 +733,7 @@
 }
 
 /* quantity css end */
+.navbar-vertical .navbar-nav .nav-link.active{
+  color: #344767;
+  background-color: #fff;
+}

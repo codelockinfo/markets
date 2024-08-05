@@ -357,9 +357,20 @@ function activeSidebarMenu() {
     var href = $(this).find(".nav-link").attr("href");
     if (typeof href !== "undefined") {
       var pagehref = href.split("/").pop();
+      if (page === pagehref) {
+        $(this).find(".nav-link").addClass("active");
+      }
     }
-    if (page === pagehref) {
-      $(this).find(".nav-link").addClass("active");
+  });
+  $(".dropdown-container .nav-link").each(function () {
+    console.log("DROPDOWN");
+    var href = $(this).attr("href");
+    if (typeof href !== "undefined") {
+      var pagehref = href.split("/").pop();
+      if (page === pagehref) {
+        $(".dropdown-container").css("display", "block");
+        $(this).addClass("active");
+      }
     }
   });
 }
