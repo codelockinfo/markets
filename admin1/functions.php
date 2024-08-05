@@ -1322,7 +1322,7 @@ class admin_functions {
                                 $output .= '      <a class="d-block border-radius-xl">'. $categories[$row['categories']].'</a>';
                                 $output .= '    </div>';
                                 $output .= '      <div class="ms-auto text-end">';
-                                $output .= '        <button data-id="'.$row['categories'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                                $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
                                 $output .= '      </div>';
                                 $output .= '    </div>';
                                 $output .= '  </div>';
