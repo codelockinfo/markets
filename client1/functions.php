@@ -118,16 +118,20 @@ class client_functions {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT img FROM offers WHERE status='1'";
         $result = $this->db->query($query);
-        $output = "";       
+        $output = $class = "";     
+        $counter = 0;
+
         // print_r($query);
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
+            while ($row = mysqli_fetch_array($result)) { 
+                $counter = $counter + 1;
+                if ($counter > 2) {
+                    $class = 'mt-4';
+                }
                 $image = $row["img"];
-                // print_r($image);
                 $imagePath = "../admin1/assets/img/offers/".$image;
                 $decodedPath = htmlspecialchars_decode($imagePath);      
-                $output .= '<div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="' .$decodedPath . '" class="img-fluid" alt="img-fluid"></a></div>';
-
+                $output .= '<div class="col-12 col-md-6 wow bounceInUp"><a href="#"><img src="' . $decodedPath . '" class="img-fluid '. $class .'" alt="img-fluid"></a></div>';
             }
                $response_data = array('data' => 'success', 'outcome' => $output);
         }

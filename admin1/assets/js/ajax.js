@@ -688,73 +688,69 @@ $(document).ready(function () {
       },
     });
   });
-  
 
+  // invoice
+  $(document).on("click", ".invoice ", function (event) {
+    event.preventDefault();
+    console.log("invoice  button click");
+    var form_data = $("#invoice_frm")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "invoice");
 
-// invoice
-$(document).on("click", ".invoice ", function (event) {
-  event.preventDefault();
-  console.log("invoice  button click");
-  var form_data = $("#invoice_frm")[0];
-  var form_data = new FormData(form_data);
-  form_data.append("routine_name", "invoice");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      method: "POST",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        loading_hide(".save_loader_show", "Save");
+        response["msg"]["i_image"] !== undefined
+          ? $(".i_image").html(response["msg"]["i_image"])
+          : $(".i_image").html("");
 
-  $.ajax({
-    url:"../admin1/ajax_call.php",
-    method:"POST",
-    dataType: "json",
-    contentType: false,
-    processData: false,
-    data: form_data,
-    beforeSend: function () {
-      loading_show(".save_loader_show");
-    },
-    success :function(response){
-      console.log(response);
-      var response = JSON.parse(response);
-      loading_hide(".save_loader_show", "Save");
-         response["msg"]["i_image"] !== undefined
-         ? $(".i_image").html(response["msg"]["i_image"])
-         : $(".i_image").html("");
+        response["msg"]["i_name"] !== undefined
+          ? $(".i_name").html(response["msg"]["i_name"])
+          : $(".i_name").html("");
 
-         response["msg"]["i_name"] !== undefined 
-         ?$(".i_name").html(response["msg"]['i_name'])
-         : $(".i_name").html("");
+        response["msg"]["bill_no"] !== undefined
+          ? $(".bill_no").html(response["msg"]["bill_no"])
+          : $(".bill_no").html("");
 
-         response["msg"]["bill_no"] !== undefined
-         ? $(".bill_no").html(response["msg"]["bill_no"])
-         : $(".bill_no").html("");
+        response["msg"]["ship_to"] !== undefined
+          ? $(".ship_to").html(response["msg"]["ship_to"])
+          : $(".ship_to").html("");
 
-         response["msg"]["ship_to"] !== undefined
-         ? $(".ship_to").html(response["msg"]["ship_to"])
-         : $(".ship_to").html("");
+        response["msg"]["date"] !== undefined
+          ? $(".date").html(response["msg"]["date"])
+          : $(".date").html("");
 
-         response["msg"]["date"] !== undefined
-         ? $(".date").html(response["msg"]["date"])
-         : $(".date").html("");
+        response["msg"]["terms"] !== undefined
+          ? $(".terms").html(response["msg"]["terms"])
+          : $(".terms").html("");
 
-         response["msg"]["terms"] !== undefined
-         ? $(".terms").html(response["msg"]["terms"])
-         : $(".terms").html("");
+        response["msg"]["due_date"] !== undefined
+          ? $(".due_date").html(response["msg"]["due_date"])
+          : $(".due_date").html("");
 
-         response["msg"]["due_date"] !== undefined
-         ? $(".due_date").html(response["msg"]["due_date"])
-         : $(".due_date").html("");
+        response["msg"]["po_number"] !== undefined
+          ? $(".po_number").html(response["msg"]["po_number"])
+          : $(".po_number").html("");
 
-         response["msg"]["po_number"] !== undefined
-         ? $(".po_number").html(response["msg"]["po_number"])
-         : $(".po_number").html("");
-        
-         if(response['data'] ==="success"){
+        if (response["data"] === "success") {
           console.log(response);
           $("#invoice_frm")[0].reset();
-          $("#removeimage").val('');
-         }
-    }
-    
-  })
-
-})
+          $("#removeimage").val("");
+        }
+      },
+    });
+  });
 
   function confirmAndDelete(employeeId, routineName, type, onSuccess) {
     Swal.fire({
@@ -1000,58 +996,60 @@ $(document).on("click", ".invoice ", function (event) {
     });
   });
 
-
-  $(document).ready(function(){
+  $(document).ready(function () {
     check_toggle_status();
   });
-  
-  function check_toggle_status(){
+
+  function check_toggle_status() {
     var table_name = $("#toggleStatus").val();
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
       dataType: "json",
-      data: {"routine_name":"check_toggle_status","table_name":table_name},
-      beforeSend: function () {          
-      },
+      data: { routine_name: "check_toggle_status", table_name: table_name },
+      beforeSend: function () {},
       success: function (response) {
         var response = JSON.parse(response);
-        if(response['outcome'] !== undefined){
-          var check_status = response['outcome']['status'];
-          if(check_status == 1){
-            $('#flexSwitchCheckDefault').prop('checked', true);
-          }else{
-            $('#flexSwitchCheckDefault').prop('checked', false);
+        if (response["outcome"] !== undefined) {
+          var check_status = response["outcome"]["status"];
+          if (check_status == 1) {
+            $("#flexSwitchCheckDefault").prop("checked", true);
+          } else {
+            $("#flexSwitchCheckDefault").prop("checked", false);
           }
-        }else{
+        } else {
           console.log("Something went wrong");
         }
-      }
-  });
+      },
+    });
   }
 
-  $(document).on("click","#flexSwitchCheckDefault",function(){
+  $(document).on("click", "#flexSwitchCheckDefault", function () {
     toggle_enabledisable(this);
-  })
-  
-  function toggle_enabledisable(thisObj){
+  });
+
+  function toggle_enabledisable(thisObj) {
     var table_name = $("#flexSwitchCheckDefault").val();
-    var ischecked_value = $(thisObj).is(':checked') ? 1 : 0;
+    var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
       dataType: "json",
-      data: {"routine_name":"toggle_enabledisable","ischecked_value":ischecked_value,"table_name":table_name},
-      beforeSend: function () { 
-        loading_show(".save_loader_show");         
+      data: {
+        routine_name: "toggle_enabledisable",
+        ischecked_value: ischecked_value,
+        table_name: table_name,
+      },
+      beforeSend: function () {
+        loading_show(".save_loader_show");
       },
       success: function (response) {
         console.log("Ajax response received: ", response);
-      }
-    })
+      },
+    });
   }
 
-  $(document).on("click",".marketSave",function(event){
+  $(document).on("click", ".marketSave", function (event) {
     event.preventDefault();
     console.log("market save button click");
     var form_data = $("#f_marketinsert")[0];
@@ -1106,13 +1104,7 @@ $(document).on("click", ".invoice ", function (event) {
     console.log(" brouseSave save button click");
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
-    form_data.append('routine_name','insert_brousetxt'); 
-    var selectedTags = $(".multiple_tag").val();
-    if (selectedTags !== null) {
-      for (var i = 0; i < selectedTags.length; i++) {
-        form_data.append("categories[]", selectedTags[i]);
-      }
-    }
+    form_data.append("routine_name", "insert_brousetxt");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
