@@ -48,7 +48,7 @@
                 </div>
               </a>
             </li>
-            <div class="sidenav1 dropdown nav-item">
+            <div class="sidenav1 dropdown">
               <button class="dropdown-btn text-dark nav-link-text dropdown-toggle">
                 Customize 
               </button>
