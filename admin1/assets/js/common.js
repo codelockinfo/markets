@@ -220,12 +220,3 @@ $(".decrement-btn").click(function (e) {
       console.log("After decrement: ", value);
   }
 });
-// multiple  select2 codepen
-$(".js-select2").select2({
-  closeOnSelect : false,
-  placeholder : "select product",
-
-  allowHtml: true,
-  allowClear: true,
-  tags: true 
-});
