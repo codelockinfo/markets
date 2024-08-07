@@ -72,7 +72,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
             <div class="input-group search-btn search-icon">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control search-btn_1" placeholder="Type here...">
+              <input type="text" id="blog_search" class="form-control search-btn_1" placeholder="Type here...">
             </div>
           </div>
           <div class="dropdown mt-3">
@@ -96,28 +96,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <input type="text" class="form-control search-btn_1" placeholder="Type here...">
         </div>
         <div class="card-body p-3">
-          <div class="row" id="getdata">
-
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <div class="row" id="getdata"></div>
+              <div id="pagination"></div>
         </div>
       </div>
     </div>

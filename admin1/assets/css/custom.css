@@ -727,3 +727,17 @@
 }
 
 /* quantity css end */
+
+
+.pagination {
+  justify-content: center;
+  }
+  
+  .pagination a{
+    padding: 1px 9px !important;
+    border: 1px solid black; 
+     margin: 10px; 
+     border-radius: 14px
+     
+    
+ }

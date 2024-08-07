@@ -1,4 +1,7 @@
 <?php
+
+use Google\Service\Adsense\Cell;
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
@@ -6,27 +9,31 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 // include_once '../append/Login.php';
 include_once '../connection.php';
 
-class admin_functions {
+class admin_functions
+{
     public $cls_errors = array();
     public $msg = array();
     protected $db;
-    public function __construct() {
+    public function __construct()
+    {
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
     }
 
-    public function demo_function(){
-        $sql = "SELECT * FROM users"; 
+    public function demo_function()
+    {
+        $sql = "SELECT * FROM users";
         $result = $this->db->query($sql);
 
         if ($result === false) {
             die("Query failed: " . $this->db->error);
-        }else{
+        } else {
             print_r($result);
         }
     }
 
-    function insert_signin(){
+    function insert_signin()
+    {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -52,16 +59,17 @@ class admin_functions {
                 $error_array['errormsg'] = 'User does not exist! <a href="sign-up.php">Sign Up</a>';
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array); 
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function profile_updatedata(){
+
+    function profile_updatedata()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
-        if($_SESSION['current_user']['user_id']){
+        if ($_SESSION['current_user']['user_id']) {
             if (isset($_POST['name']) && $_POST['name'] == '') {
                 $error_array['name'] = "Please enter name";
             }
@@ -70,10 +78,10 @@ class admin_functions {
             }
             $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
             $mobilepattern = "/^[789]\d{9}$/";
-            if(empty($phone_number)){
-                    $error_array['phone_number'] = "Please enter phone number";
-            }elseif (!preg_match($mobilepattern, $phone_number)) {
-                    $error_array['phone_number'] = "The mobile number is invalid.";
+            if (empty($phone_number)) {
+                $error_array['phone_number'] = "Please enter phone number";
+            } elseif (!preg_match($mobilepattern, $phone_number)) {
+                $error_array['phone_number'] = "The mobile number is invalid.";
             }
             if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
                 $error_array['business_type'] = "Please select business type";
@@ -82,27 +90,28 @@ class admin_functions {
                 $error_array['address'] = "Please enter address";
             }
             if (empty($error_array)) {
-                $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';                   
-                $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';                   
-                $phone_number = (isset($_POST['phone_number']) && $_POST['phone_number'] !== '') ? $_POST['phone_number'] : '';                   
-                $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';                   
-                $address = (isset($_POST['address']) && $_POST['address'] !== '') ? $_POST['address'] : '';    
-                $user_id = $_SESSION['current_user']['user_id'];                
-                
+                $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
+                $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';
+                $phone_number = (isset($_POST['phone_number']) && $_POST['phone_number'] !== '') ? $_POST['phone_number'] : '';
+                $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';
+                $address = (isset($_POST['address']) && $_POST['address'] !== '') ? $_POST['address'] : '';
+                $user_id = $_SESSION['current_user']['user_id'];
+
                 $query = "UPDATE users SET name = '$name', shop = '$shop', phone_number = '$phone_number', business_type = '$business_type', address = '$address'  WHERE user_id  = $user_id";
                 $result = $this->db->query($query);
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
                 }
-            }else{
-                $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
             }
         }
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function insert_signup(){
+
+    function insert_signup()
+    {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["image"]["name"]) ? $_FILES["image"]["name"] : '';
@@ -111,12 +120,12 @@ class admin_functions {
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
+        $newFilename = time() . '.' . $extension;
         $folder = "assets/img/sigup_img/";
-        $fullpath= $folder . $newFilename;
+        $fullpath = $folder . $newFilename;
         $file = $_FILES['image'];
-        $maxSize = 5 * 1024 * 1024;  
-        
+        $maxSize = 5 * 1024 * 1024;
+
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
@@ -126,9 +135,9 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }  
+        }
         if ($file['size'] > $maxSize) {
-            $error_array['image'] = "File size must be 5MB or less.";          
+            $error_array['image'] = "File size must be 5MB or less.";
         }
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
@@ -144,39 +153,39 @@ class admin_functions {
         }
         if (empty($filename)) {
             $error_array['image'] = "Please select image";
-       }
-       $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-       $password = isset($_POST['password']) ? $_POST['password'] : '';
-       $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
-       $email = isset($_POST['email']) ? $_POST['email'] : '';
-       $error = '';
-       $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
-       $mobilepattern = "/^[789]\d{9}$/";
-       
-       if(empty($phone_number)){
+        }
+        $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $error = '';
+        $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+        $mobilepattern = "/^[789]\d{9}$/";
+
+        if (empty($phone_number)) {
             $error_array['phone_number'] = "Please enter phone number";
-       }elseif (!preg_match($mobilepattern, $phone_number)) {
+        } elseif (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
-       }
-       if (empty($password)) {
-           $error = 'Please enter a password.';
-       } elseif (!preg_match($strongPasswordPattern, $password)) {
-           $error = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
-       }
-       if (empty($confirmPassword)) {
-           $error_array['Confirm_Password'] ="Please enter a confirm password";
-       } elseif ($password !== $confirmPassword) {
-           $error_array['Confirm_Password'] ="Password Mismatch";
-       }
-       if ($error) {
-           $error_array['password'] = $error;
-       }
-       if (empty($email)) {
-           $error_array['email'] = "Please enter an email address";
-       } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-           $error_array['email'] = "Please enter a valid email address";
-       }
-       if (empty($error_array)) {            
+        }
+        if (empty($password)) {
+            $error = 'Please enter a password.';
+        } elseif (!preg_match($strongPasswordPattern, $password)) {
+            $error = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
+        }
+        if (empty($confirmPassword)) {
+            $error_array['Confirm_Password'] = "Please enter a confirm password";
+        } elseif ($password !== $confirmPassword) {
+            $error_array['Confirm_Password'] = "Password Mismatch";
+        }
+        if ($error) {
+            $error_array['password'] = $error;
+        }
+        if (empty($email)) {
+            $error_array['email'] = "Please enter an email address";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_array['email'] = "Please enter a valid email address";
+        }
+        if (empty($error_array)) {
             $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
             $name = str_replace("'", "\'", $name);
             $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';
@@ -192,24 +201,24 @@ class admin_functions {
             if ($email_check_result->num_rows > 0) {
                 $error_arrayemail['email'] = "Email already reagister";
                 $response_data = array('data' => 'fail', 'msg' => $error_arrayemail);
-            }else{
-                if (move_uploaded_file($tmpfile,$fullpath)) {
+            } else {
+                if (move_uploaded_file($tmpfile, $fullpath)) {
                     $query = "INSERT INTO users (name,shop,address,phone_number,business_type,shop_img,password,email) VALUES ('$name', '$shop','$address','$phone_number','$business_type','$newFilename','$password','$email')";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-                        
+
                         $message = file_get_contents('thankemail_template.php');
-                        $to = $email;	
-                        $subject = "Market Search"; 
-                        $headers ="From:codelockinfo@gmail.com"." \r\n";     
+                        $to = $email;
+                        $subject = "Market Search";
+                        $headers = "From:codelockinfo@gmail.com" . " \r\n";
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                        $responceEmail = mail ($to, $subject, $message, $headers);	
-                        
+                        $responceEmail = mail($to, $subject, $message, $headers);
+
                         $last_id = mysqli_insert_id($this->db);
                         $user_query = "SELECT * FROM users WHERE user_id = $last_id";
-                        $user_result = mysqli_query($this->db, $user_query);                
+                        $user_result = mysqli_query($this->db, $user_query);
                         if ($user_result) {
                             $userinfo = mysqli_fetch_assoc($user_result);
                             $_SESSION['current_user'] = $userinfo;
@@ -220,21 +229,22 @@ class admin_functions {
                         $response_data = array('data' => 'fail', 'msg' => "Error");
                     }
                 }
-            }            
-            }else{
-                $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
             }
-            $response = json_encode($response_data);
-            return $response;
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function insert_products() {
+    function insert_products()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        
-        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';   
-        
-        if($_FILES["p_image"]["name"] != "" && $id != "" || isset($_FILES["p_image"]["name"]) && isset($_FILES["p_image"]["name"]) != '' &&  $id == ""){
+
+        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
+
+        if ($_FILES["p_image"]["name"] != "" && $id != "" || isset($_FILES["p_image"]["name"]) && isset($_FILES["p_image"]["name"]) != '' &&  $id == "") {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
             $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
@@ -246,7 +256,7 @@ class admin_functions {
             $fileNameCmps = explode(".", $fileName);
             $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/product_img/";
-            $fullpath= $folder . $newFilename;
+            $fullpath = $folder . $newFilename;
             if (!is_dir($folder)) {
                 $mkdir = mkdir($folder, 0777, true);
                 if (!$mkdir) {
@@ -263,9 +273,8 @@ class admin_functions {
             if (empty($filename)) {
                 $error_array['p_image'] = "Please upload product images.";
             }
-            
         }
-        
+
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
         }
@@ -280,14 +289,13 @@ class admin_functions {
         }
         if (isset($_POST['max_price']) && $_POST['max_price'] == '') {
             $error_array['max_price'] = "Please enter a maximum price.";
-        }  
+        }
         if (isset($_POST['min_price']) && $_POST['max_price']) {
             $min_price = filter_input(INPUT_POST, 'min_price', FILTER_VALIDATE_FLOAT);
-            $max_price = filter_input(INPUT_POST, 'max_price', FILTER_VALIDATE_FLOAT);  
-            
+            $max_price = filter_input(INPUT_POST, 'max_price', FILTER_VALIDATE_FLOAT);
+
             if ($min_price >= $max_price) {
-                $error_array['max_price']= "Max price must be greater than min price.";
-            
+                $error_array['max_price'] = "Max price must be greater than min price.";
             }
         }
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
@@ -303,57 +311,57 @@ class admin_functions {
             $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
             $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
-            $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';   
-            $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';              
+            $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';
+            $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
             $p_description = str_replace("'", "\'", $p_description);
-            if($id == ''){
+            if ($id == '') {
                 if (move_uploaded_file($tmpfile, $fullpath)) {
-        
-                    $user_id = $_SESSION['current_user']['user_id'];    
+
+                    $user_id = $_SESSION['current_user']['user_id'];
                     $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
                         VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                     $result = $this->db->query($query);
-        
+
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
-                    }  
-                    
+                    }
                 } else {
                     $error_array['p_image'] = "Error moving uploaded file.";
                 }
-            }else{
+            } else {
                 if (isset($newFilename) && $newFilename != '') {
-                    
+
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
                         maxprice = '$max_price',p_image = '$newFilename',product_img_alt = '$product_image_alt',p_tag = '$p_tag',p_description = '$p_description'  WHERE product_id  = $id";
                     }
-                }else{
+                } else {
                     $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
                     maxprice = '$max_price',product_img_alt = '$product_image_alt',p_tag = '$p_tag',p_description = '$p_description'  WHERE product_id  = $id";
                 }
                 $result = $this->db->query($query);
                 if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Product data updated',"updated_product_id" => $id);
-                }else {
+                    $response_data = array('data' => 'success', 'msg' => 'Product data updated', "updated_product_id" => $id);
+                } else {
                     $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
                 }
             }
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
-            $response = json_encode($response_data);
-            return $response;
-    } 
+        $response = json_encode($response_data);
+        return $response;
+    }
 
-    function invoice() {
+    function invoice()
+    {
         $error_array = array();
         $id = isset($_POST['id']) ? $_POST['id'] : ''; // ID for update or empty for insert
-    
+
         // Validate file upload if any
         if (!empty($_FILES["i_image"]["name"]) || (!empty($id) && isset($_FILES["i_image"]["name"]))) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
@@ -365,7 +373,7 @@ class admin_functions {
             $newFilename = time() . '.' . $extension;
             $folder = "assets/img/invoice_img/";
             $fullpath = $folder . $newFilename;
-    
+
             if (!is_dir($folder)) {
                 if (!mkdir($folder, 0777, true)) {
                     $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
@@ -382,7 +390,7 @@ class admin_functions {
                 $error_array['i_image'] = "Please upload invoice images.";
             }
         }
-    
+
         // Validate other fields
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
@@ -391,7 +399,7 @@ class admin_functions {
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-    
+
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
@@ -401,13 +409,13 @@ class admin_functions {
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
             $user_id = $_SESSION['current_user']['user_id'];
-    
+
             if (isset($newFilename) && !empty($newFilename)) {
                 if (!move_uploaded_file($tmpfile, $fullpath)) {
                     $error_array['i_image'] = "Error moving uploaded file.";
                 }
             }
-    
+
             if (empty($error_array)) {
                 if (empty($id)) { // Insert new record
                     $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`)
@@ -429,12 +437,13 @@ class admin_functions {
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
-    
+
         return json_encode($response_data);
     }
-    
 
-    function isValidYouTubeURL($url) {
+
+    function isValidYouTubeURL($url)
+    {
         $allowedPatterns = array(
             '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/',
             '/^https?:\/\/youtu\.be\/[a-zA-Z0-9_-]+$/',
@@ -448,7 +457,8 @@ class admin_functions {
         return false;
     }
 
-    function insert_videos(){
+    function insert_videos()
+    {
         $error_array = array();
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
             $error_array['video_title'] = "Please enter video title";
@@ -465,7 +475,7 @@ class admin_functions {
             $error_array['youtube_vlogs'] = "Please enter YouTube vlogs link";
         } elseif (isset($_POST['youtube_vlogs']) && !$this->isValidYouTubeURL($_POST['youtube_vlogs'])) {
             $error_array['youtube_vlogs'] = "Please enter a valid YouTube vlogs link";
-        }        
+        }
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
             $video_title = (isset($_POST['video_title']) && $_POST['video_title'] !== '') ? $_POST['video_title'] : '';
@@ -473,7 +483,7 @@ class admin_functions {
             $video_category = (isset($_POST['video_category']) && $_POST['video_category'] !== '') ? $_POST['video_category'] : '';
             $youtube_shorts = (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] !== '') ? $_POST['youtube_shorts'] : '';
             $youtube_vlogs = (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] !== '') ? $_POST['youtube_vlogs'] : '';
-          
+
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "INSERT INTO videos (title,category,short_link,vlog_link,user_id) VALUES ('$video_title', '$video_category','$youtube_shorts','$youtube_vlogs','$user_id')";
@@ -484,29 +494,30 @@ class admin_functions {
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function insert_blog(){ 
+    function insert_blog()
+    {
         $error_array = array();
-        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';   
-        
-        if($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' &&  $id == ""){
+        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
+
+        if ($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' &&  $id == "") {
 
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
             $tmpfile = isset($_FILES["blog_image"]["tmp_name"]) ? $_FILES["blog_image"]["tmp_name"] : '';
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
-            $newFilename = time(). '.' . $extension;
+            $newFilename = time() . '.' . $extension;
             $fileName = $_FILES['blog_image']['name'];
             $fileNameCmps = explode(".", $fileName);
             $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/blog_img/";
-            $fullpath= $folder . $newFilename;
+            $fullpath = $folder . $newFilename;
             $file = $_FILES['blog_image'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
 
@@ -519,15 +530,15 @@ class admin_functions {
             }
             if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }      
+            }
             if ($file['size'] > $maxSize) {
-                $error_array['blog_image'] = "File size must be 5MB or less.";           
+                $error_array['blog_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
                 $error_array['blog_image'] = "Please upload your blog image";
             }
         }
-        
+
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
             $error_array['blog_title'] = "Please enter blog title";
         }
@@ -540,22 +551,22 @@ class admin_functions {
         if (isset($_POST['author_name']) && $_POST['author_name'] == '') {
             $error_array['author_name'] = "Please enter author name";
         }
-        
+
         if (empty($error_array)) {
             $blog_title = (isset($_POST['blog_title']) && $_POST['blog_title'] !== '') ? $_POST['blog_title'] : '';
             $blog_category = (isset($_POST['blog_category']) && $_POST['blog_category'] !== '') ? $_POST['blog_category'] : '';
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
             $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
             $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
-            if($id == ''){
-                if (move_uploaded_file($tmpfile,$fullpath)) {
-                
+            if ($id == '') {
+                if (move_uploaded_file($tmpfile, $fullpath)) {
+
                     if (isset($_SESSION['current_user']['user_id'])) {
-                            $user_id = $_SESSION['current_user']['user_id'];   
-                            $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
+                        $user_id = $_SESSION['current_user']['user_id'];
+                        $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
                             ('$blog_title', '$blog_category','$myeditor',
                             '$author_name','$newFilename','$blog_image_alt','$user_id')";
-                            $result = $this->db->query($query);
+                        $result = $this->db->query($query);
                     }
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Blog inserted successfully!');
@@ -563,34 +574,35 @@ class admin_functions {
                         $response_data = array('data' => 'fail', 'msg' => "Error");
                     }
                 }
-            }else{
+            } else {
                 if (isset($newFilename) && $newFilename != '') {
-                    
+
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE blogs SET title = '$blog_title', category = '$blog_category', body = '$myeditor', 
                         author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                     }
-                }else{
+                } else {
                     $query = "UPDATE blogs SET title = '$blog_title', category = '$blog_category', body = '$myeditor', 
                         author_name = '$author_name',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
                 $result = $this->db->query($query);
                 if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Blog data updated',"updated_blog_id" => $id);
-                }else {
+                    $response_data = array('data' => 'success', 'msg' => 'Blog data updated', "updated_blog_id" => $id);
+                } else {
                     $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
                 }
             }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function isValidURL($url) {
+    function isValidURL($url)
+    {
         $allowedPatterns = array(
-          "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i"
+            "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i"
         );
         foreach ($allowedPatterns as $pattern) {
             if (preg_match($pattern, $url)) {
@@ -600,18 +612,19 @@ class admin_functions {
         return false;
     }
 
-    function insert_banner(){
+    function insert_banner()
+    {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
+        $newFilename = time() . '.' . $extension;
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/banner_img/";
-        $fullpath= $folder . $newFilename;
+        $fullpath = $folder . $newFilename;
         $file = $_FILES['myFile'];
         $maxSize = 5 * 1024 * 1024;
 
@@ -624,13 +637,13 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }      
+        }
         if ($file['size'] > $maxSize) {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload your banner image";
-        }      
+        }
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
             $error_array['heading'] = "Please enter the heading";
         }
@@ -646,45 +659,46 @@ class admin_functions {
             $error_array['banner_btn_link'] = "Please enter a valid banner button link";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$fullpath)) {
-            $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-            $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
-            $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
-            $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
-            $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
-          
-            if (isset($_SESSION['current_user']['user_id'])) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO banners (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link','$user_id')";
-                $result = $this->db->query($query);
+            if (move_uploaded_file($tmpfile, $fullpath)) {
+                $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
+                $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
+                $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
+                $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
+                $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
+
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO banners (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link','$user_id')";
+                    $result = $this->db->query($query);
+                }
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Banner inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
             }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => 'Banner inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
-        }
-        }else{
+        } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function insert_market(){
+    function insert_market()
+    {
         $error_array = array();
-        $file = $_FILES['svg_img'];       
+        $file = $_FILES['svg_img'];
         $maxSize = 5 * 1024 * 1024;
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $svg_img = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
         $svgtmpfile = isset($_FILES["svg_img"]["tmp_name"]) ? $_FILES["svg_img"]["tmp_name"] : '';
         $extension = pathinfo($svg_img, PATHINFO_EXTENSION);
-        $svg_newFilename = time(). '.' . $extension;
+        $svg_newFilename = time() . '.' . $extension;
         $fileName = $_FILES['svg_img']['name'];
         $fileNameCmps = explode(".", $svg_img);
         $svgfileExtension = strtolower(end($fileNameCmps));
         $svgfolder = "assets/img/famous_market/svg_img/";
-        $svgfullpath= $svgfolder . $svg_newFilename;
+        $svgfullpath = $svgfolder . $svg_newFilename;
         if (!is_dir($svgfolder)) {
             $mkdir = mkdir($svgfolder, 0777, true);
             if (!$mkdir) {
@@ -693,35 +707,35 @@ class admin_functions {
             }
         }
         $file = $_FILES['img'];
-        $maxSize = 5 * 1024 * 1024; 
+        $maxSize = 5 * 1024 * 1024;
         $filename = isset($_FILES["img"]["name"]) ? $_FILES["img"]["name"] : '';
         $tmpfile = isset($_FILES["img"]["tmp_name"]) ? $_FILES["img"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
+        $newFilename = time() . '.' . $extension;
         $fileName = $_FILES['img']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/famous_market/img/";
-        $fullpath= $folder . $newFilename;
+        $fullpath = $folder . $newFilename;
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
                 $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
                 return json_encode($response_data);
             }
-        }          
+        }
         if (isset($_POST['shop_logo']) && $_POST['shop_logo'] == '') {
             $error_array['shop_logo'] = "Please enter the shop logo";
         }
         if (!in_array($svgfileExtension, $allowedExtensions)) {
             $error_array['svg_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }        
+        }
         if ($file['size'] > $maxSize) {
             $error_array['svg_img'] = "File size must be 5MB or less.";
         }
         if (empty($svg_img)) {
             $error_array['svg_img'] = "Please upload your svg image";
-        }    
+        }
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
             $error_array['heading'] = "Please enter the heading";
         }
@@ -730,68 +744,70 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }       
+        }
         if ($file['size'] > $maxSize) {
             $error_array['img'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
             $error_array['img'] = "Please upload your image";
-        }     
+        }
         if (empty($error_array)) {
-            $movefirst = move_uploaded_file($svgtmpfile,$svgfullpath);
-            $movesecond = move_uploaded_file($tmpfile,$fullpath);
+            $movefirst = move_uploaded_file($svgtmpfile, $svgfullpath);
+            $movesecond = move_uploaded_file($tmpfile, $fullpath);
             if ($movefirst && $movesecond) {
-            $shop_logo = (isset($_POST['shop_logo']) && $_POST['shop_logo'] !== '') ? $_POST['shop_logo'] : '';
-            $shop_logo = str_replace("'", "\'", $shop_logo);
-            $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-            $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
-            $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
-            $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
+                $shop_logo = (isset($_POST['shop_logo']) && $_POST['shop_logo'] !== '') ? $_POST['shop_logo'] : '';
+                $shop_logo = str_replace("'", "\'", $shop_logo);
+                $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
+                $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
+                $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
+                $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
 
-            if (isset($_SESSION['current_user']['user_id'])) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt,user_id) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt','$user_id')";           
-                $result = $this->db->query($query);
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt,user_id) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt','$user_id')";
+                    $result = $this->db->query($query);
+                }
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'market inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
             }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => 'market inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
-        }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function insert_brousetxt(){ 
+    function insert_brousetxt()
+    {
         $error_array = array();
         if (!isset($_POST['categories']) || $_POST['categories'] == '') {
             $error_array['categories'] = "Please select categories";
         }
 
-        if (empty($error_array)) {          
-                $categories = (isset($_POST['categories']) && is_array($_POST['categories'])) ? implode(',', $_POST['categories']) : '';
+        if (empty($error_array)) {
+            $categories = (isset($_POST['categories']) && is_array($_POST['categories'])) ? implode(',', $_POST['categories']) : '';
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
                 $result = $this->db->query($query);
             }
-            if ($result) {                
+            if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function insert_offers(){
+    function insert_offers()
+    {
         $error_array = array();
         $file = $_FILES['myFile'];
         $maxSize = 5 * 1024 * 1024;
@@ -799,12 +815,12 @@ class admin_functions {
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
         $tmpfile = isset($_FILES["myFile"]["tmp_name"]) ? $_FILES["myFile"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
+        $newFilename = time() . '.' . $extension;
         $fileName = $_FILES['myFile']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/offers/";
-        $fullpath= $folder . $newFilename;
+        $fullpath = $folder . $newFilename;
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
@@ -814,7 +830,7 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['myFile'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }       
+        }
         if ($file['size'] > $maxSize) {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
@@ -827,29 +843,30 @@ class admin_functions {
             $error_array['img_link'] = "Please enter a valid image link";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$fullpath)){
-            $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
-            $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
+            if (move_uploaded_file($tmpfile, $fullpath)) {
+                $img_link = (isset($_POST['img_link']) && $_POST['img_link'] !== '') ? $_POST['img_link'] : '';
+                $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
 
-            if (isset($_SESSION['current_user']['user_id'])) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO offers (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
-                $result = $this->db->query($query);
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO offers (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
+                    $result = $this->db->query($query);
+                }
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Offers Form inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
             }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => 'Offers Form inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
-        }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function insert_paragraph(){ 
+    function insert_paragraph()
+    {
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
             $error_array['myeditor'] = "Please enter paragraph";
@@ -868,14 +885,15 @@ class admin_functions {
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
-    
-    function insert_faq(){ 
+
+    function insert_faq()
+    {
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
             $error_array['faq_question'] = "Please enter question";
@@ -890,36 +908,36 @@ class admin_functions {
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-            $query = "INSERT INTO faqs (question,answer,user_id) VALUES ('$faq_question','$myeditor','$user_id')";
-            $result = $this->db->query($query);
+                $query = "INSERT INTO faqs (question,answer,user_id) VALUES ('$faq_question','$myeditor','$user_id')";
+                $result = $this->db->query($query);
             }
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'FAQ inserted successfully!');
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
             }
-
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
-    
-    function insert_review(){
+
+    function insert_review()
+    {
         $error_array = array();
         $file = $_FILES['shop_image'];
-        $maxSize = 5 * 1024 * 1024; 
+        $maxSize = 5 * 1024 * 1024;
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["shop_image"]["name"]) ? $_FILES["shop_image"]["name"] : '';
         $tmpfile = isset($_FILES["shop_image"]["tmp_name"]) ? $_FILES["shop_image"]["tmp_name"] : '';
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
+        $newFilename = time() . '.' . $extension;
         $fileName = $_FILES['shop_image']['name'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
         $folder = "assets/img/marketreview/";
-        $fullpath= $folder . $newFilename;
+        $fullpath = $folder . $newFilename;
         if (!is_dir($folder)) {
             $mkdir = mkdir($folder, 0777, true);
             if (!$mkdir) {
@@ -929,7 +947,7 @@ class admin_functions {
         }
         if (!in_array($fileExtension, $allowedExtensions)) {
             $error_array['shop_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }        
+        }
         if ($file['size'] > $maxSize) {
             $error_array['shop_image'] = "File size must be 5MB or less.";
         }
@@ -946,43 +964,44 @@ class admin_functions {
             $error_array['review'] = "Please give a review";
         }
         if (empty($error_array)) {
-            if (move_uploaded_file($tmpfile,$fullpath)) {
-            $shop_description = (isset($_POST['shop_description']) && $_POST['shop_description'] !== '') ? $_POST['shop_description'] : '';
-            $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
-            $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
+            if (move_uploaded_file($tmpfile, $fullpath)) {
+                $shop_description = (isset($_POST['shop_description']) && $_POST['shop_description'] !== '') ? $_POST['shop_description'] : '';
+                $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
+                $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
 
-            if (isset($_SESSION['current_user']['user_id'])) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO marketreviews (logo_img,description,shopname,review,user_id) VALUES ('$newFilename','$shop_description','$shop_name','$review','$user_id')";
-                $result = $this->db->query($query);
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO marketreviews (logo_img,description,shopname,review,user_id) VALUES ('$newFilename','$shop_description','$shop_name','$review','$user_id')";
+                    $result = $this->db->query($query);
+                }
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
             }
-            if ($result) {                
-                $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
-        }
-            $response = json_encode($response_data);
-            return $response;
-    }  
+        $response = json_encode($response_data);
+        return $response;
+    }
 
-    function listgallary (){ 
+    function listgallary()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];           
+            $user_id = $_SESSION['current_user']['user_id'];
             $query = "SELECT * FROM products WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
+            $output = "";
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);                   
+                    $imagePath = "../admin1/assets/img/product_img/" . $image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
@@ -1013,28 +1032,38 @@ class admin_functions {
                     // $output .= '</nav>';
                     // print_r($row);    
                 }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $response = json_encode($response_data);
-            return $response;
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function productlisting (){ 
+    function productlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
+       
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];                   
-            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $limit = 2;
+            $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+            $offset = ($page - 1) * $limit;
+            $user_id = $_SESSION['current_user']['user_id'];
+            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%'AND user_id =$user_id LIMIT $offset,$limit";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
+         
+            //  $result;
+
+            $output = "";
+            $pagination="";
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/".$image;
+                    $imagePath = "../admin1/assets/img/product_img/" . $image;
                     $decodedPath = htmlspecialchars_decode($imagePath);
                     $title =  $row['title'];
                     $price = $row['maxprice'];
@@ -1047,54 +1076,67 @@ class admin_functions {
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
-                    $output .= '        <h5> '. $title .'</h5>';
+                    $output .= '        <h5> ' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
+                    $output .= '        <div class="d-flex align-items-center text-sm">' . $price . '</div>';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
-                    $output .= '          <a href="product-form.php?id='.$row['product_id'].'" data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
+                    $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
+                    $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
-                    $output .= '</div>';                     
+                    $output .= '</div>';
                 }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $response = json_encode($response_data);
-            return $response;
+        }
+        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' AND user_id = '$user_id'";
+        $res_count = $this->db->query($query);
+        $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+        $total_pages = Ceil($total_recodes / $limit);
+
+        $pagination .= '<div class="pagination" id="pagination-product">';
+        for ($i = 1; $i <= $total_pages; $i++) {
+            $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
+        }
+        $pagination .= '</div>';
+        $response_data['pagination'] = $pagination;
+        $response = json_encode($response_data);
+        return $response;
     }
-    
-    function listprofile (){
+
+
+    function listprofile()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $output = array();            
-            $user_id = $_SESSION['current_user']['user_id'];            
+            $output = array();
+            $user_id = $_SESSION['current_user']['user_id'];
             $query = "SELECT * FROM users WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);           
-                               
+            $result = $this->db->query($query);
+
             if ($result) {
                 $row = $result->fetch_assoc();
-                    $image = $row["shop_img"];
-                    $imagePath = "../admin1/assets/img/sigup_img/".$image;                    
-                    $decodedPath = htmlspecialchars_decode($imagePath);                     
-                    $name =  $row['name'];
-                    $shop = $row['shop'];
-                    $phone_number = $row['phone_number'];
-                    $address = $row['address'];
-                    $output['profile_deatils'] = '<ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp;  '. $name .'</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop Name:</strong> &nbsp; '. $shop .'</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; '. $address .'</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile Number:</strong> &nbsp; '. $phone_number .'</li>
+                $image = $row["shop_img"];
+                $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                $decodedPath = htmlspecialchars_decode($imagePath);
+                $name =  $row['name'];
+                $shop = $row['shop'];
+                $phone_number = $row['phone_number'];
+                $address = $row['address'];
+                $output['profile_deatils'] = '<ul class="list-group">
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp;  ' . $name . '</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop Name:</strong> &nbsp; ' . $shop . '</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; ' . $address . '</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile Number:</strong> &nbsp; ' . $phone_number . '</li>
                     </div>
-                    </ul>';  
+                    </ul>';
 
-                    $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center">                   
+                $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center">                   
                    <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
                    <img src="' . $decodedPath . '"alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
                    </a>
@@ -1104,117 +1146,138 @@ class admin_functions {
                     <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                     </a>
                     </div>              
-                    </ul>'; 
-                    
-                   $output['logo'] = '<div class="col-auto my-auto">
+                    </ul>';
+
+                $output['logo'] = '<div class="col-auto my-auto">
                    <div class="h-100">
                    <h5 class="mb-1">' . $shop . '</h5>
                      </div>
-                   </div>';               
-                           
-                    $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row );
+                   </div>';
+
+                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
             }
         }
         $response = json_encode($response_data);
         return $response;
     }
+
+    function bloglisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         
-    function bloglisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");       
         if (isset($_SESSION['current_user']['user_id'])) {
+            $limit = 2;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+            $offset = ($page - 1) * $limit;
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
-            $query = "SELECT * FROM blogs WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' AND user_id = '$user_id' LIMIT $offset, $limit";
             $result = $this->db->query($query);
-            $output="";
-        }                           
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {  
-                    $image = $row["image"];
-                    $imagePath = "../admin1/assets/img/blog_img/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
-                    $title =  $row['title'];             
+            $output = "";
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $image = htmlspecialchars_decode("../admin1/assets/img/blog_img/" . $row["image"]);
+                    $title = htmlspecialchars($row['title']);
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= '        <img src="' . $image . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
-                    $output .= '        <h5> '. $title .'</h5>';
+                    $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
-                    $output .= '          <a href="blog-form.php?id='.$row['blog_id'].'" data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
+                    $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
+                    $output .= '          <a href="blog-form.php?id=' . $row['blog_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
-                    $output .= '</div>';                   
-            }
-                $response_data = array('data' => 'success', 'outcome' => $output);
+                    $output .= '</div>';
+                }
+                $response_data['data'] = 'success';
+                $response_data['outcome'] = $output;
             } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                $response_data['data'] = 'fail';
+                $response_data['outcome'] = "No data found";
             }
+
+            // Pagination count query
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' AND user_id = '$user_id'";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $total_pages = ceil($total_records / $limit);
+
+           $pagination = '<div class="pagination" id="pagination-blog">';
+           for ($i = 1; $i <= $total_pages; $i++) {
+               $pagination .= "<a href='#' data-page='{$i}' data-routine='{bloglisting}'>{$i}</a>";
+           }
+           $pagination .= '</div>';
+
+            $response_data['pagination'] = $pagination;
+            $response = json_encode($response_data);
+
+            return $response;
         }
-                $response = json_encode($response_data);
-                return $response;
     }
 
-    function videolisting (){
+
+    function videolisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
             $query = "SELECT * FROM videos WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }             
-          if ($result) {
+            $output = "";
+        }
+        if ($result) {
             if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {  
-                $link = $row["short_link"];
-                $title =  $row['title'];
-                $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                $output .= '<div class="card card-blog card-plain">';
-                $output .= '<div class="position-relative">';
-                $output .= '<a class="border-radius-xl">';
-                $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="'. $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-                $output .= '</a>';
-                $output .= '</div>';
-                $output .= '<div class="card-body px-1 pb-0">';
-                $output .= '<div class="d-flex justify-content-between mb-3">';
-                $output .= '<div class="ms-auto text-end">';
-                $output .= '<button data-id="'.$row['video_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="video">Delete</button>';
-                $output .= '</div>';
-                $output .= '</div>';
-                $output .= '</div>';
-                $output .= '</div>';
-                $output .= '</div>';
-            }
+                while ($row = mysqli_fetch_array($result)) {
+                    $link = $row["short_link"];
+                    $title =  $row['title'];
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="border-radius-xl">';
+                    $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '<button data-id="' . $row['video_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="video">Delete</button>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-                $response = json_encode($response_data);
-                return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function offerlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");       
+    function offerlisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
             $query = "SELECT * FROM offers WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            $output .= '<div class="mb-3 form-check-reverse text-right">
+            $output = "";
+        }
+        $output .= '<div class="mb-3 form-check-reverse text-right">
                         <div class="container">
                         <div class="btn-group">
                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -1226,63 +1289,64 @@ class admin_functions {
                         </div>
                         </div>
                         </div>';
-            $output .= '</div>';
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {  
+        $output .= '</div>';
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
                     $image = $row["img"];
-                    $imagePath = "../admin1/assets/img/offers/".$image;
+                    $imagePath = "../admin1/assets/img/offers/" . $image;
                     $decodedPath = htmlspecialchars_decode($imagePath);
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
                     $output .= '<div class="card card-blog card-plain">';
                     $output .= '<div class="position-relative">';
                     $output .= '<a class="d-block border-radius-xl">';
-                    $output .= '<img src="'.$decodedPath.'" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
                     $output .= '</a>';
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '<button data-id="'.$row['offer_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="offer" >Delete</button>';
+                    $output .= '<button data-id="' . $row['offer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="offer" >Delete</button>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
                 }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-                    $response = json_encode($response_data);
-                    return $response;
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function brousetextilelisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");        
+    function brousetextilelisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
             $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }                
-            // $output .= '<div class="card z-index-0 p-3">';
-            // $output .= ' <div class="row">';
-            $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
+            $output = "";
+        }
+        // $output .= '<div class="card z-index-0 p-3">';
+        // $output .= ' <div class="row">';
+        $output .= '<div class="mb-3 form-check-reverse text-right">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
+        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     // $image = $row["img"];
                     // $imagePath = "../admin1/assets/img/brouse_textilectgry_img/".$image;
@@ -1296,32 +1360,33 @@ class admin_functions {
                     $output .= '    </div>';
                     $output .= '    <div class="d-flex justify-content-between mb-3">';
                     $output .= '      <div class="ms-auto text-end">';
-                    $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                    $output .= '        <button data-id="' . $row['b_textile_catagory_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
-                    $output .= '</div>';                    
+                    $output .= '</div>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-                $response = json_encode($response_data);
-                return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function FAQlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");       
+    function FAQlisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
             $query = "SELECT * FROM faqs WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
+            $output = "";
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $output .= '<div class="row mb-3">';
                     $output .= '  <div class="col-xl-11 accordion-item">';
@@ -1334,48 +1399,50 @@ class admin_functions {
                     $output .= '  <div class="col-xl-1">';
                     $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faq" aria-hidden="true"></i>';
                     $output .= '  </div>';
-                    $output .= '</div>';                                  
+                    $output .= '</div>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-                $response = json_encode($response_data);
-                return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function paragraphlisting (){
+    function paragraphlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
             $query = "SELECT * FROM paragraph WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {  
-                    $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';                
+            $output = "";
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-                $response = json_encode($response_data);
-                return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function bannerlisting() {
+    function bannerlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             $query = "SELECT * FROM banners WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
-    
+
             // HTML structure for the header part
             $output .= '<div class="mb-3 form-check-reverse text-right">';
             $output .= '  <div class="container">';
@@ -1389,7 +1456,7 @@ class admin_functions {
             $output .= '    </div>';
             $output .= '  </div>';
             $output .= '</div>';
-    
+
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
@@ -1422,87 +1489,37 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function famousmarketlisting (){ 
-        $response_data = array('data' => 'fail', 'msg' => "Error");    
+
+    function famousmarketlisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
             $query = "SELECT * FROM famous_markets WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
+            $output = "";
+        }
+        $output .= '<div class="mb-3 form-check-reverse text-right">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
+        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {  
-                // $svgimage = $row["SVG_img"];
-                $image = $row["Image"];
-                $imagePath = "../admin1/assets/img/famous_market/img/".$image;
-                // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                $output .= '  <div class="card card-blog card-plain">';
-                $output .= '    <div class="position-relative">';
-                $output .= '      <a class="d-block border-radius-xl">';
-                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
-                $output .= '      </a>';
-                $output .= '    </div>';
-                $output .= '    <div class="d-flex justify-content-between mb-3">';
-                $output .= '      <div class="ms-auto text-end">';
-                $output .= '        <button data-id="'.$row['famous_market_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
-                $output .= '      </div>';
-                $output .= '    </div>';
-                $output .= '  </div>';
-                $output .= '</div>';        
-            }
-            $response_data = array('data' => 'success', 'outcome' => $output);
-        } else {
-            $response_data = array('data' => 'fail', 'outcome' => "No data found");
-        }
-    }
-            $response = json_encode($response_data);
-            return $response;
-    } 
-
-    function reviewlisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");      
-        if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
-            $query = "SELECT * FROM marketreviews WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
-            $output="";
-        }        
-            $output .= '<div class="mb-3 form-check-reverse text-right ">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["logo_img"];
-                    $imagePath = "../admin1/assets/img/marketreview/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);               
+                    // $svgimage = $row["SVG_img"];
+                    $image = $row["Image"];
+                    $imagePath = "../admin1/assets/img/famous_market/img/" . $image;
+                    // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
@@ -1512,81 +1529,143 @@ class admin_functions {
                     $output .= '    </div>';
                     $output .= '    <div class="d-flex justify-content-between mb-3">';
                     $output .= '      <div class="ms-auto text-end">';
-                    $output .= '        <button data-id="'.$row['marketreview_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="review">Delete</button>';
+                    $output .= '        <button data-id="' . $row['famous_market_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
                     $output .= '</div>';
-                    
                 }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-                    $response = json_encode($response_data);
-                    return $response;
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function deleteRecord($table, $delete_id) {
+    function reviewlisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            // print_r($user_id);
+            $query = "SELECT * FROM marketreviews WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output = "";
+        }
+        $output .= '<div class="mb-3 form-check-reverse text-right ">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
+        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["logo_img"];
+                    $imagePath = "../admin1/assets/img/marketreview/" . $image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="d-flex justify-content-between mb-3">';
+                    $output .= '      <div class="ms-auto text-end">';
+                    $output .= '        <button data-id="' . $row['marketreview_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="review">Delete</button>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function deleteRecord($table, $delete_id)
+    {
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
-        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";        
+        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
         $result = $this->db->query($query);
         if ($result === TRUE) {
             $response_data = array('data' => 'success', 'message' => "Delete successfully");
         } else {
             $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
         }
-        return json_encode($response_data);   
+        return json_encode($response_data);
     }
 
-    function productdelete() {
+    function productdelete()
+    {
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
     }
-    
-    function blogdelete() {
+
+    function blogdelete()
+    {
         $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
         return $this->deleteRecord('blogs', $delete_id);
     }
-    
-    function videodelete() {
+
+    function videodelete()
+    {
         $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
         return $this->deleteRecord('videos', $delete_id);
     }
 
-    function bannerdelete() {
+    function bannerdelete()
+    {
         $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
         return $this->deleteRecord('banners', $delete_id);
     }
 
-    function famousmarketdelete() {
+    function famousmarketdelete()
+    {
         $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
         return $this->deleteRecord('famous_markets', $delete_id);
     }
 
-    function b_textile_catagorysdelete() {
+    function b_textile_catagorysdelete()
+    {
         $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
         return $this->deleteRecord('b_textile_catagorys', $delete_id);
     }
 
-    function offerdelete() {
+    function offerdelete()
+    {
         $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
         return $this->deleteRecord('offers', $delete_id);
     }
 
-    function faqdelete() {
+    function faqdelete()
+    {
         $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
         return $this->deleteRecord('faqs', $delete_id);
     }
 
-    function reviewdelete() {
+    function reviewdelete()
+    {
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
     }
-    
-    function forget_password(){
+
+    function forget_password()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -1603,28 +1682,29 @@ class admin_functions {
                 $query = "INSERT INTO password_resets(email,token,expires) VALUES ('$email', '$token','$expires')";
                 $result = $this->db->query($query);
                 if ($result) {
-                    $reset_link = SITE_ADMIN_URL."reset_password.php?token=" . $token;
+                    $reset_link = SITE_ADMIN_URL . "reset_password.php?token=" . $token;
                     $subject = "Password Reset Request";
                     $message = "Click on the following link to reset your password: " . $reset_link;
                     $headers = "From: no-reply@marketsearch.com";
-            
+
                     if (mail($email, $subject, $message, $headers)) {
                         $response_data = array('data' => 'success', 'msg' => 'Password reset link has been sent to your email.');
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Failed to send reset link. Please try again.');
-                    }  
+                    }
                 }
-            }else{
+            } else {
                 $response_data = array('data' => 'fail', 'msg' => 'No account found with that email address.');
-            }  
-        }else{
+            }
+        } else {
             $response_data = array('data' => 'fail', 'msg' => $error_msg);
         }
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function reset_passwordform(){
+
+    function reset_passwordform()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $token = isset($_POST['token']) ? $_POST['token'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -1635,7 +1715,7 @@ class admin_functions {
             $error = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
         }
         $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
-        if(empty($error)){
+        if (empty($error)) {
             if ($password === $confirm_password) {
                 $current_time = date("U");
                 $query = "SELECT email FROM password_resets WHERE token = '$token' AND expires >= '$current_time'";
@@ -1644,29 +1724,30 @@ class admin_functions {
                     $row = $result->fetch_assoc();
                     $email = $row['email'];
                     $query = "UPDATE users SET password = '$password' WHERE email = '$email'";
-                    $result = $this->db->query($query); 
-                    if($result){
-                        $query = "DELETE FROM password_resets WHERE email = '$email'";        
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        $query = "DELETE FROM password_resets WHERE email = '$email'";
                         $result = $this->db->query($query);
-                        $response_data = array('data' => 'success', 'msg' => 'Your password has been reset successfully.');  
-                    }else{
-                        $response_data = array('data' => 'fail', 'msg' => 'Invalid or expired token.');   
+                        $response_data = array('data' => 'success', 'msg' => 'Your password has been reset successfully.');
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => 'Invalid or expired token.');
                     }
                 }
-            }else{
-                $response_data = array('data' => 'fail', 'msg' => 'Password Mismatch.');  
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => 'Password Mismatch.');
             }
-        }else{
-            $response_data = array('data' => 'fail', 'msg' => $error);  
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error);
         }
-       
+
         $response = json_encode($response_data);
         return $response;
     }
-    function getproduct(){
+    function getproduct()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
-        if(!empty($id)){
+        if (!empty($id)) {
             $query = "SELECT  * from  products WHERE product_id = $id AND  status = 1";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
@@ -1677,10 +1758,11 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function getblog(){
+    function getblog()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
-        if(!empty($id)){
+        if (!empty($id)) {
             $query = "SELECT  * from  blogs WHERE blog_id = $id AND  status = 1";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
@@ -1692,9 +1774,10 @@ class admin_functions {
         return $response;
     }
 
-    function check_toggle_status(){
+    function check_toggle_status()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-        if(isset($_POST['table_name'])){
+        if (isset($_POST['table_name'])) {
             $table_name = $_POST['table_name'];
             $query = "SELECT status from $table_name";
             $result = $this->db->query($query);
@@ -1707,9 +1790,10 @@ class admin_functions {
         return $response;
     }
 
-    function toggle_enabledisable(){
+    function toggle_enabledisable()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-        if(isset($_POST['ischecked_value']) && isset($_POST['table_name'])){
+        if (isset($_POST['ischecked_value']) && isset($_POST['table_name'])) {
             $table_name = $_POST['table_name'];
             $ischecked_value = $_POST['ischecked_value'];
             $query = "UPDATE $table_name SET status= '$ischecked_value'";
