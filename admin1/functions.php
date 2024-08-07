@@ -1750,4 +1750,112 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    
+    function data_sort_by(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
+        if(!empty($sort)){
+            $filterQuery = '';
+            $tablename = isset($_POST['tablename']) ? $_POST['tablename'] : '';
+            $user_id = $_SESSION['current_user']['user_id'];
+
+            switch ($sort) {
+                case 'best_selling':
+                    $filterQuery = 'ORDER BY best_selling DESC';
+                    break;
+                case 'alphabetically_az':
+                    $filterQuery = 'ORDER BY title ASC';
+                    break;
+                case 'alphabetically_za':
+                    $filterQuery = 'ORDER BY title DESC';
+                    break;
+                case 'price_low_high':
+                    $filterQuery = 'ORDER BY price ASC';
+                    break;
+                case 'price_high_low':
+                    $filterQuery = 'ORDER BY price DESC';
+                    break;
+                case 'date_new_old':
+                    $filterQuery = 'ORDER BY created_at DESC';
+                    break;
+                case 'date_old_new':
+                    $filterQuery = 'ORDER BY created_at ASC';
+                    break;
+                case 'featured':
+                default:
+                    $filterQuery = 'ORDER BY featured DESC';
+                    break;
+            }
+            $sql = "SELECT * FROM $tablename where user_id ='$user_id' $filterQuery ";
+            $result = $this->db->query($sql);
+
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $output = "";
+                    while ($row = mysqli_fetch_array($result)) {
+                        if($tablename == "products"){
+                            $image = $row["p_image"];
+                            $imagePath = "../admin1/assets/img/product_img/".$image;
+                            $decodedPath = htmlspecialchars_decode($imagePath);
+                            $title =  $row['title'];
+                            $price = $row['maxprice'];
+                            $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                            $output .= '  <div class="card card-blog card-plain">';
+                            $output .= '    <div class="position-relative">';
+                            $output .= '      <a class="d-block border-radius-xl text-center">';
+                            $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid  shadow-xl border-radius-xl">';
+                            $output .= '      </a>';
+                            $output .= '    </div>';
+                            $output .= '    <div class="card-body px-1 pb-0">';
+                            $output .= '      <a href="#">';
+                            $output .= '        <h5> '. $title .'</h5>';
+                            $output .= '      </a>';
+                            $output .= '      <div class="d-flex justify-content-between mb-3">';
+                            $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
+                            $output .= '        <div class="ms-auto text-end">';
+                            $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
+                            $output .= '          <a href="product-form.php?id='.$row['product_id'].'" data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
+                            $output .= '        </div>';
+                            $output .= '      </div>';
+                            $output .= '    </div>';
+                            $output .= '  </div>';
+                            $output .= '</div>';     
+                            
+                        }else if($tablename == "blogs"){
+                            $image = $row["image"];
+                            $imagePath = "../admin1/assets/img/blog_img/".$image;
+                            $decodedPath = htmlspecialchars_decode($imagePath);
+                            $title =  $row['title'];             
+                            $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                            $output .= '  <div class="card card-blog card-plain">';
+                            $output .= '    <div class="position-relative">';
+                            $output .= '      <a class="d-block border-radius-xl text-center">';
+                            $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow-xl border-radius-xl">';
+                            $output .= '      </a>';
+                            $output .= '    </div>';
+                            $output .= '    <div class="card-body px-1 pb-0">';
+                            $output .= '      <a href="#">';
+                            $output .= '        <h5> '. $title .'</h5>';
+                            $output .= '      </a>';
+                            $output .= '      <div class="d-flex justify-content-between mb-3">';
+                            $output .= '        <div class="ms-auto text-end">';
+                            $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
+                            $output .= '          <a href="blog-form.php?id='.$row['blog_id'].'" data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
+                            $output .= '        </div>';
+                            $output .= '      </div>';
+                            $output .= '    </div>';
+                            $output .= '  </div>';
+                            $output .= '</div>';  
+                            
+                        }                
+                    }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
 }

@@ -1370,6 +1370,30 @@ $(document).ready(function () {
     });
   });
 
+  $(".dropdown .dropdown-item").click(function () {
+    console.log($(this).html());
+    var sortValue = $(this).data("value");
+    var tablename = $(this).closest(".dropdown-menu").data("table");
+    $.ajax({
+      url: "ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {
+        routine_name: "data_sort_by",
+        sortValue: sortValue,
+        tablename: tablename,
+      },
+      success: function (response) {
+        var response = JSON.parse(response);
+        console.log(response.outcome);
+        if (response.outcome != "") {
+          $("#getdata").html(response.outcome);
+        } else {
+        }
+      },
+    });
+  });
+
   var dropdown = document.getElementsByClassName("dropdown-btn");
   var i;
 
