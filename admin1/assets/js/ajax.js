@@ -57,6 +57,7 @@ function redirect403() {
 }
 
 function loadData(routineName) {
+  
   console.log(routineName + " on load");
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -66,6 +67,7 @@ function loadData(routineName) {
     success: function (response) {
       console.log(response);
       var response = JSON.parse(response);
+      console.log(response);
       if (response.outcome === "No data found") {
         $("#getdata").html(
           '<div style="color: red; text-align: center;">' +
@@ -74,11 +76,13 @@ function loadData(routineName) {
         );
       } else {
         $("#getdata").html(response.outcome);
+        if(response.pagination != ""){
+          $("#pagination").html(response.pagination);
+        }
       }
     },
   });
 }
-
 function listgallary() {
   loadData("listgallary");
 }
@@ -1006,6 +1010,102 @@ $(document).ready(function () {
       },
     });
   });
+  // search product
+
+  $('#search').on('keyup', function() {
+    
+    var search_text = $(this).val();
+        $.ajax({
+            url: "../admin1/ajax_call.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "search_text": search_text,
+                "routine_name": "productlisting"
+            },
+            success: function(data) {
+              var data = JSON.parse(data);
+                if (data.data == "success") {
+                    $("#getdata").html(data.outcome);
+                } else {
+                    $("#getdata").html("Data not found...");
+                }
+            },
+        });
+  
+})
+// product pagination
+  $(document).on('click', '#pagination-product a', function(event) {
+    event.preventDefault();
+    var page = $(this).data('page');
+    $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        data: {
+            "page": page,
+            "search_text": $("#search_text").val(),
+            "routine_name": "productlisting"
+        },
+        success: function(data) {
+          var data = JSON.parse(data);
+            if (data.data === 'success') {
+                $("#getdata").html(data.outcome);
+                $("#pagination").html(data.pagination);
+            } else {
+                $("#getdata").html("Data not found");
+                $("#pagination").html("Pagination not found");
+            }
+        },
+    });
+  });
+  // blog pagination
+  $(document).on('click', '#pagination-blog a', function(event) {
+    event.preventDefault();
+    var page = $(this).data('page');
+    $.ajax({
+        url: "../admin1/ajax_call.php",
+        type: "post",
+        dataType: "json",
+        data: {
+            "page": page,
+            "search_text": $("#search_text").val(),
+            "routine_name": "bloglisting"
+        },
+        success: function(data) {
+          var data = JSON.parse(data);
+            if (data.data == 'success') {
+                $("#getdata").html(data.outcome);
+                $("#pagination").html(data.pagination);
+            } else {
+                $("#getdata").html("Data not found");
+                $("#pagination").html("Pagination not found");
+            }
+        },
+    });
+});
+// blogsearching
+$("#blog_search").on("keyup",function(){
+  // alert("ok")
+  var search_text =$(this).val();
+  $.ajax({
+    url:"../admin1/ajax_call.php",
+    type :"post",
+    dataType:"json",
+    data:{"search_text":search_text,"routine_name":"bloglisting"},
+    success: function(data){
+      var data = JSON.parse(data);
+      console.log(data.data);
+      if(data.data=='success')
+      {
+        $("#getdata").html(data.outcome );
+      }else{
+        $("#getdata").html("data is not found");
+      }
+    }
+
+  })
+})
 
   $(document).ready(function () {
     check_toggle_status();

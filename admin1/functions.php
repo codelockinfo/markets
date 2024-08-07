@@ -1021,51 +1021,67 @@ class admin_functions {
             return $response;
     }
 
-    function productlisting (){ 
+    function productlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];                   
-            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $limit = 9;
+            $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+            $offset = ($page - 1) * $limit;
+            $user_id = $_SESSION['current_user']['user_id'];
+            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%'AND user_id =$user_id LIMIT $offset,$limit";
             $result = $this->db->query($query);
-            $output="";
-        }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
+            $output = "";
+            $pagination="";
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/".$image;
+                    $imagePath = "../admin1/assets/img/product_img/" . $image;
                     $decodedPath = htmlspecialchars_decode($imagePath);
                     $title =  $row['title'];
                     $price = $row['maxprice'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl text-center">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid  shadow-xl border-radius-xl">';
+                    $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
-                    $output .= '        <h5> '. $title .'</h5>';
+                    $output .= '        <h5> ' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '        <div class="d-flex align-items-center text-sm">'. $price .'</div>';
+                    $output .= '        <div class="d-flex align-items-center text-sm">' . $price . '</div>';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '          <button data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
-                    $output .= '          <a href="product-form.php?id='.$row['product_id'].'" data-id="'.$row['product_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
+                    $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
+                    $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
-                    $output .= '</div>';                     
+                    $output .= '</div>';
                 }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $response = json_encode($response_data);
-            return $response;
+        }
+        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' AND user_id = '$user_id'";
+        $res_count = $this->db->query($query);
+        $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+        $total_pages = Ceil($total_recodes / $limit);
+
+        $pagination .= '<div class="pagination" id="pagination-product">';
+        for ($i = 1; $i <= $total_pages; $i++) {
+            $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
+        }
+        $pagination .= '</div>';
+        $response_data['pagination'] = $pagination;
+        $response = json_encode($response_data);
+        return $response;
     }
     
     function listprofile (){
@@ -1118,51 +1134,71 @@ class admin_functions {
         return $response;
     }
         
-    function bloglisting (){
-        $response_data = array('data' => 'fail', 'msg' => "Error");       
+    function bloglisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        
         if (isset($_SESSION['current_user']['user_id'])) {
+            $limit = 9;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+            $offset = ($page - 1) * $limit;
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
-            $query = "SELECT * FROM blogs WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' AND user_id = '$user_id' LIMIT $offset, $limit";
             $result = $this->db->query($query);
-            $output="";
-        }                           
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {  
-                $image = $row["image"];
-                $imagePath = "../admin1/assets/img/blog_img/".$image;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                $title =  $row['title'];             
-                $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                $output .= '  <div class="card card-blog card-plain">';
-                $output .= '    <div class="position-relative">';
-                $output .= '      <a class="d-block border-radius-xl text-center">';
-                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow-xl border-radius-xl">';
-                $output .= '      </a>';
-                $output .= '    </div>';
-                $output .= '    <div class="card-body px-1 pb-0">';
-                $output .= '      <a href="#">';
-                $output .= '        <h5> '. $title .'</h5>';
-                $output .= '      </a>';
-                $output .= '      <div class="d-flex justify-content-between mb-3">';
-                $output .= '        <div class="ms-auto text-end">';
-                $output .= '          <button data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
-                $output .= '          <a href="blog-form.php?id='.$row['blog_id'].'" data-id="'.$row['blog_id'].'" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
-                $output .= '        </div>';
-                $output .= '      </div>';
-                $output .= '    </div>';
-                $output .= '  </div>';
-                $output .= '</div>';                   
+
+            $output = "";
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $image = htmlspecialchars_decode("../admin1/assets/img/blog_img/" . $row["image"]);
+                    $title = htmlspecialchars($row['title']);
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+                    $output .= '        <img src="' . $image . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '      <a href="#">';
+                    $output .= '        <h5>' . $title . '</h5>';
+                    $output .= '      </a>';
+                    $output .= '      <div class="d-flex justify-content-between mb-3">';
+                    $output .= '        <div class="ms-auto text-end">';
+                    $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
+                    $output .= '          <a href="blog-form.php?id=' . $row['blog_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
+                    $output .= '        </div>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';
+                }
+                $response_data['data'] = 'success';
+                $response_data['outcome'] = $output;
+            } else {
+                $response_data['data'] = 'fail';
+                $response_data['outcome'] = "No data found";
             }
-            $response_data = array('data' => 'success', 'outcome' => $output);
-        } else {
-            $response_data = array('data' => 'fail', 'outcome' => "No data found");
+
+            // Pagination count query
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' AND user_id = '$user_id'";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $total_pages = ceil($total_records / $limit);
+
+           $pagination = '<div class="pagination" id="pagination-blog">';
+           for ($i = 1; $i <= $total_pages; $i++) {
+               $pagination .= "<a href='#' data-page='{$i}' data-routine='{bloglisting}'>{$i}</a>";
+           }
+           $pagination .= '</div>';
+
+            $response_data['pagination'] = $pagination;
+            $response = json_encode($response_data);
+
+            return $response;
         }
-        }
-        $response = json_encode($response_data);
-        return $response;
     }
+
 
     function videolisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
