@@ -355,24 +355,27 @@ class admin_functions {
         $id = isset($_POST['id']) ? $_POST['id'] : ''; // ID for update or empty for insert
     
         // Validate file upload if any
-        if (!empty($_FILES["i_image"]["name"]) || (!empty($id) && isset($_FILES["i_image"]["name"]))) {
+        if($_FILES["i_image"]["name"] != "" && $id != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != '' &&  $id == ""){
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-            $maxSize = 5 * 1024 * 1024; // 5MB in bytes
-            $filename = $_FILES["i_image"]["name"];
-            $tmpfile = $_FILES["i_image"]["tmp_name"];
+            $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
+            $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["i_image"]["name"] : '';
+            $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
             $file = $_FILES['i_image'];
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
+            $fileName = $_FILES['i_image']['name'];
+            $fileNameCmps = explode(".", $fileName);
+            $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/invoice_img/";
-            $fullpath = $folder . $newFilename;
-    
+            $fullpath= $folder . $newFilename;
             if (!is_dir($folder)) {
-                if (!mkdir($folder, 0777, true)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
                     $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
                     return json_encode($response_data);
                 }
             }
-            if (!in_array($extension, $allowedExtensions)) {
+            if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
             if ($file['size'] > $maxSize) {
@@ -381,6 +384,7 @@ class admin_functions {
             if (empty($filename)) {
                 $error_array['i_image'] = "Please upload invoice images.";
             }
+            
         }
     
         // Validate other fields
@@ -418,7 +422,62 @@ class admin_functions {
                               WHERE id = $id";
                 }
                 $result = $this->db->query($query);
-                if ($result) {
+                if ($result) {           
+                    $last_id =$this->db->insert_id;
+                    
+                        $items = $_POST['item'];
+                        $quantities = $_POST['quantity'];
+                        $rates = $_POST['rate'];
+                    
+                        $user_id = $_SESSION['current_user']['user_id'];
+                        // $lastid = "SELECT * FROM `invoice`ORDER BY `id` DESC LIMIT 1";
+                        $values = [];
+                
+                        foreach ($items as $index => $item) {
+                            $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                            $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                            $amount = $quantity * $rate;
+                        
+                            // Validate inputs
+                            if (empty($item)) {
+                                $error_array[$index]['item'] = "Please enter item.";
+                            }
+                            if (empty($quantity) || !is_numeric($quantity)) {
+                                $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                            }
+                            if (empty($rate) || !is_numeric($rate)) {
+                                $error_array[$index]['rate'] = "Please enter valid rate.";
+                            }
+                            if ($amount <= 0) {
+                                $error_array[$index]['amount'] = "Amount is not valid.";
+                            }
+                        
+                            if (empty($error_array[$index])) {
+                                // Ensure all values are properly quoted
+                                $item = $this->db->real_escape_string($item);
+                                $quantity = $this->db->real_escape_string($quantity);
+                                $rate = $this->db->real_escape_string($rate);
+                                $amount = $this->db->real_escape_string($amount);
+                                $user_id = $this->db->real_escape_string($user_id);
+                                $last_id = $this->db->real_escape_string($last_id);
+                        
+                                // Add the row values to the $values array
+                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                            } 
+                        }
+                        
+                        // If there are no errors, insert all the values in one query
+                        if (!empty($values)) {
+                            $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                            $res1 = $this->db->query($sql1);
+                        
+                            if ($res1) {
+                                $responses[] = array('data' => 'success', 'msg' => 'Items successfully added');
+                            } else {
+                                $responses[] = array('data' => 'fail', 'msg' => 'Failed to add items');
+                            }
+                        }   
+                    
                     $response_data = array('data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully');
                 } else {
                     $response_data = array('data' => 'fail', 'msg' => 'Error inserting/updating invoice in database');
@@ -429,11 +488,8 @@ class admin_functions {
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
-    
         return json_encode($response_data);
     }
-    
-
     function isValidYouTubeURL($url) {
         $allowedPatterns = array(
             '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/',

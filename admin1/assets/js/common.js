@@ -157,43 +157,44 @@ $(document).ready(function () {
   }
 });
 
-// dropdown active add & remove js
-
-$(document).on("click", ".navigation ul li", function () {
-  $(this).addClass("active").siblings().removeClass("active");
-});
-
-// invoice page add remove functionality
-
-var row = $(".attr");
-
-function addRow() {
-  row.clone(true, true).appendTo("#attributes");
-}
-
-function removeRow(button) {
-  button.closest("tr.attr").remove();
-}
-
-$("#attributes .attr:first-child").find(".remove").hide();
-
-$(".add").on("click", function () {
-  addRow();
-  if ($("#attributes .attr").length > 1) {
-    $(".remove").show();
+$(document).ready(function() {
+  // Function to add a new row to the invoice table
+  function addRow() {
+      const row = $(".attr").first().clone(true, true);
+      row.find("input").val("");  
+      row.find(".remove").show(); 
+      $("#attributes-body").append(row);
+      updateRemoveButtonVisibility();
   }
-});
-$(".remove").on("click", function () {
-  if ($("#attributes .attr").size() == 1) {
-    $(".remove").hide();
-  } else {
-    removeRow($(this));
-
-    if ($("#attributes .attr").size() == 1) {
-      $(".remove").hide();
-    }
+  function removeRow(button) {
+      button.closest("tr.attr").remove();
+      updateRemoveButtonVisibility();  
   }
+  function updateRemoveButtonVisibility() {
+      const rows = $("#attributes-body .attr"); 
+      rows.each(function(index) {
+          $(this).find(".remove").toggle(rows.length > 1); 
+      });
+  }
+  $(".add").off("click").on("click", function() {
+      addRow(); 
+  });
+  $("#attributes-body").on("click", ".remove", function() {
+      removeRow($(this)); 
+  });
+  function calculateAmount(row) {
+      const quantity = parseFloat(row.find('input[name="quantity[]"]').val()) || 0;
+      const rate = parseFloat(row.find('input[name="rate[]"]').val()) || 0;
+      const amount = quantity * rate;
+      row.find('input[name="amount[]"]').val(`₹ ${amount.toFixed(2)}`);
+  }
+  $("#attributes-body").on("input", 'input[name="quantity[]"], input[name="rate[]"]', function() {
+      const row = $(this).closest('tr');
+      calculateAmount(row); 
+  });
+  updateRemoveButtonVisibility();
 });
+
 
 // duantity js
 $(".increment-btn").click(function (e) {

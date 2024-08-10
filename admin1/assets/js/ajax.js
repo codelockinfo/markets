@@ -724,8 +724,7 @@ $(document).ready(function () {
       },
       success: function (response) {
         console.log(response);
-        var response = JSON.parse(response);
-        loading_hide(".save_loader_show", "Save");
+        var response = JSON.parse(response); 
         response["msg"]["i_image"] !== undefined
           ? $(".i_image").html(response["msg"]["i_image"])
           : $(".i_image").html("");
@@ -758,15 +757,31 @@ $(document).ready(function () {
           ? $(".po_number").html(response["msg"]["po_number"])
           : $(".po_number").html("");
 
+          response["msg"]["item"] !== undefined
+          ? $(".item").html(response["msg"]["item"])
+          : $(".item").html("");
+  
+          response["msg"]["quantity"] !== undefined
+          ? $(".quantity").html(response["msg"]["quantity"])
+          : $(".quantity").html("");
+  
+          response["msg"]["rate"] !== undefined
+          ? $(".rate").html(response["msg"]["rate"])
+          : $(".rate").html("");
+  
+          response["msg"]["amount"] !== undefined
+          ? $(".amount").html(response["msg"]["amount"])
+          : $(".amount").html("");
+  
+
         if (response["data"] === "success") {
           console.log(response);
           $("#invoice_frm")[0].reset();
-          $("#removeimage").val("");
+        
         }
       },
     });
   });
-
   function confirmAndDelete(employeeId, routineName, type, onSuccess) {
     Swal.fire({
       title: "Are you sure?",

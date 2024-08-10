@@ -45,7 +45,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     <span class="drop-zone__prompt">Drop file here or click to upload</span>
                     <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
                   </div>
-                      <span class="errormsg i_image"></span>
+                  <span class="errormsg i_image"></span>
 
                 </div>
                 <div class="col invoice-title1">
@@ -58,22 +58,22 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3">
                 <div class="row">
                   <div class="col w-50 mb-3">
-                    <textarea type="text"  placeholder="Who is this form?" class="form-control max-width-500"  name="i_name"></textarea>
-                   <span class="errormsg i_name"></span>
+                    <textarea type="text" placeholder="invoice name" class="form-control max-width-500" name="i_name"></textarea>
+                    <span class="errormsg i_name"></span>
 
                   </div>
                 </div>
                 <div class="row mt-4">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
-                    <textarea type="text" placeholder="Who is this form?" class="form-control "  name= "bill_no"></textarea>
-                   <span class="errormsg bill_no"></span>
+                    <textarea type="text" placeholder="bill to" class="form-control " name="bill_no"></textarea>
+                    <span class="errormsg bill_no"></span>
 
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
-                    <textarea type="text" placeholder="Who is this form?" class="form-control" name="ship_to"></textarea>
-                   <span class="errormsg ship_to"></span>
+                    <textarea type="text" placeholder="ship to " class="form-control" name="ship_to"></textarea>
+                    <span class="errormsg ship_to"></span>
 
                   </div>
                 </div>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="terms">
+                  <input type="text" class="form-control mt-1" placeholder="Payment Terms" name="terms">
                   <span class="errormsg terms"></span>
 
                 </div>
@@ -105,7 +105,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1"  name="due_date">
+                  <input type="date" class="form-control mt-1" name="due_date">
                   <span class="errormsg due_date"></span>
 
                 </div>
@@ -115,7 +115,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="po_number">
+                  <input type="text" class="form-control mt-1" placeholder=" product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
                 </div>
@@ -124,32 +124,39 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="table-scroll1">
               <div class="row">
                 <table class="mt-4" id="attributes">
-                  <tr>
-                    <th class="w-70 bg-gradient-info text-light ps-3 text-bold item-th">Item</th>
-                    <th class="w-10 bg-gradient-info text-light text-center text-bold quantity-th">Quantity</th>
-                    <th class="w-10 bg-gradient-info text-light text-center text-bold rate-th">Rate</th>
-                    <th class="w-10 bg-gradient-info text-light text-center text-bold amount-th">Amount</th>
-                  </tr>
-                  <tr class="attr">
-                    <td><input type="description" class="form-control mt-1" placeholder="Item Title"></td>
-                    <td><input type="description" class="form-control mt-1" placeholder="1"></td>
-                    <td><input type="description" class="form-control mt-1" placeholder="₹ 0"></td>
-                    <td class="text-center">₹ 0.00</td>
-                    <td><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
-                  </tr>
+                  <thead>
+                    <tr>
+                      <th class="w-70 bg-gradient-info text-light ps-3 text-bold">Item</th>
+                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
+                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
+                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
+                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="attributes-body">
+                    <tr class="attr">
+                      <td><input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]"> <span class="errormsg item"></span></td>
+                      <td><input type="number" class="form-control mt-1" placeholder="1" name="quantity[]"> <span class="errormsg quantity"></span></td>
+                      <td><input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]"> <span class="errormsg rate"></span></td>
+                      <td><input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled> <span class="errormsg item"></span></td>
+                      <td><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
               <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
             </div>
+          
+
             <div class="col">
               <div class="row w-100">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Subtotal :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
+                  <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="subtotal" disabled>
                 </div>
               </div>
               <div class="row w-100 mt-2">
@@ -191,7 +198,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
           </form>
           <div class="text-end mt-5">
-            <button class="btn bg-gradient-info invoice" >Download</button>
+            <button class="btn bg-gradient-info invoice">Download</button>
           </div>
         </div>
       </div>
