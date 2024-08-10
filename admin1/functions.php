@@ -746,6 +746,7 @@ class admin_functions {
             $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
             $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
+            $heading = str_replace("'", "\'", $heading);
             $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
 
             if (isset($_SESSION['current_user']['user_id'])) {
@@ -946,21 +947,25 @@ class admin_functions {
         }
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile,$fullpath)) {
-            $shop_description = (isset($_POST['shop_description']) && $_POST['shop_description'] !== '') ? $_POST['shop_description'] : '';
-            $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
-            $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
+                $shop_description = (isset($_POST['shop_description']) && $_POST['shop_description'] !== '') ? $_POST['shop_description'] : '';
+                $shop_description = str_replace("'", "\'", $shop_description);
+                
+                $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
+                $shop_name = str_replace("'", "\'", $shop_name);
+                
+                $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
 
-            if (isset($_SESSION['current_user']['user_id'])) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO marketreviews (logo_img,description,shopname,review,user_id) VALUES ('$newFilename','$shop_description','$shop_name','$review','$user_id')";
-                $result = $this->db->query($query);
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO marketreviews (logo_img,description,shopname,review,user_id) VALUES ('$newFilename','$shop_description','$shop_name','$review','$user_id')";
+                    $result = $this->db->query($query);
+                }
+                if ($result) {                
+                    $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
             }
-            if ($result) {                
-                $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
-        }
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
         }
