@@ -57,38 +57,45 @@ function redirect403() {
 }
 
 function loadData(routineName) {
-  
   console.log(routineName + " on load");
   $.ajax({
-    url: "../admin1/ajax_call.php",
-    type: "post",
-    dataType: "json",
-    data: { routine_name: routineName },
-    success: function (response) {
-      console.log(response);
-      var response = JSON.parse(response);
-      console.log(response);
-      if (response.outcome === "No data found") {
-        $("#getdata").html(
-          '<div style="color: red; text-align: center;">' +
-            response.outcome +
-            "</div>"
-        );
-      } else {
-        $("#getdata").html(response.outcome);
-        if(response.pagination != ""){
-          $("#pagination").html(response.pagination);
-        }
+      url: "../admin1/ajax_call.php", // Your PHP script URL
+      type: "post",
+      dataType: "json",
+      data: { routine_name: routineName },
+      success: function(response) {
+        var response = JSON.parse(response);
+          console.log(response);
+          console.log("Sending routine_name:", routineName);
+          if (response.outcome === "No data found") {
+              $("#getdata").html(
+                  '<tr><td colspan="5" style="color: red; text-align: center;">' +
+                  response.outcome +
+                  "</td></tr>"
+              );
+          } else {
+              console.log("Data found");
+              $("#getdata").html(response.outcome);
+              if (response.pagination != "") {
+                  $("#pagination").html(response.pagination);
+              }
+          }
       }
-    },
   });
 }
+
+
 function listgallary() {
   loadData("listgallary");
 }
 
 function listproduct() {
+  console.log("product function called");
   loadData("productlisting");
+}
+function listcustomer() {
+  console.log("customerlist function called");
+  loadData("customerlisting");
 }
 
 function listblog() {
@@ -115,9 +122,9 @@ function listparagraph() {
   loadData("paragraphlisting");
 }
 
-// function listproductprofile() {
-//   loadData('profileproductlisting');
-// }
+function listproductprofile() {
+  loadData('profileproductlisting');
+}
 
 function listbanner() {
   loadData("bannerlisting");
@@ -252,6 +259,7 @@ function demo() {
 }
 
 function get_product(id) {
+  console.log("product get ....")
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -306,8 +314,47 @@ function get_product(id) {
         $(".drop-zone").append(imagePreview);
       }
     },
+  })
+;}
+function get_customer(id) { 
+  var routine_name = "getcustomer";
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json", 
+    data: { routine_name: routine_name, id: id },
+    success: function(response) {
+      console.log("Response received:"); 
+      console.log(response); 
+      var response= JSON.parse(response);
+      response["outcome"]["name"] !== undefined
+      ? $("input[name='name']").val(response["outcome"]["name"])
+      : "";
+    response["outcome"]["email"] !== undefined
+      ? $("input[name='email']").val(response["outcome"]["email"])
+      : "";
+    response["outcome"]["contact"] !== undefined
+      ? $("input[name='contact']").val(response["outcome"]["contact"])
+      : "";
+      console.log($("input[name='address']"));
+      response["outcome"]["address"] !== undefined
+      ? $("input[name='address']").val(response["outcome"]["address"])
+      : "";
+    var c_image = response['outcome']['c_image'] !== undefined
+      ? response["outcome"]["c_image"]
+      : "";
+    if (c_image != "") {
+      $(".drop-zone__prompts").html("");
+      var imagePreview =
+        '<div class="drop-zone__thumb"><img src="../admin1/assets/img/customer/' +
+        c_image +
+        '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+      $(".drop-zone").append(imagePreview);
+    }
+    }
   });
 }
+
 function get_blog(id) {
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -703,6 +750,55 @@ $(document).ready(function () {
       },
     });
   });
+  // custemer
+  $(document).on("click",".customersave",function(event){
+    event.preventDefault();
+    console.log("customer click");
+    var form_data =$("#custemer_frm")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "add_customer");
+    $.ajax({
+      url : "../admin1/ajax_call.php",
+      method :"POST",
+      dataType:"JSON",
+      contentType :false,
+      processData:false,
+      data : form_data,
+      success :function(data){
+        console.log(data);
+        var response = JSON.parse(data);
+        response["msg"]["name"] !== undefined
+        ? $(".name").html(response["msg"]["name"])
+        : $(".name").html("");
+        response["msg"]["email"] !== undefined
+        ? $(".email").html(response["msg"]["email"])
+        : $(".email").html("");
+        response["msg"]["contact"] !== undefined
+        ? $(".contact").html(response["msg"]["contact"])
+        : $(".contact").html("");
+        response["msg"]["c_image"] !== undefined
+        ? $(".c_image").html(response["msg"]["c_image"])
+        : $(".c_image").html("");
+        response["msg"]["address"] !== undefined
+        ? $(".address").html(response["msg"]["address"])
+        : $(".address").html("");
+        if (response["data"] == "success") {
+          console.log(response);
+          console.log("Updated Customer ID:", response["updated_customer_id"]);
+          if (!response["updated_customer_id"]) {
+            $("#custemer_frm")[0].reset();
+            resetThumbnail();
+            $(".myFile").html("");
+          } else {
+            window.location.href = "customer_list.php";
+          }
+          showMessage(response.msg, "success");
+        } else {
+          showMessage(response.msg_error, "fail");
+        }
+      }
+    })
+  });
 
   // invoice
   $(document).on("click", ".invoice ", function (event) {
@@ -772,12 +868,10 @@ $(document).ready(function () {
           response["msg"]["amount"] !== undefined
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
-  
 
         if (response["data"] === "success") {
           console.log(response);
           $("#invoice_frm")[0].reset();
-        
         }
       },
     });
@@ -812,6 +906,8 @@ $(document).ready(function () {
           data.faq_id = employeeId;
         } else if (type === "review") {
           data.marketreview_id = employeeId;
+        } else if(type ==="customer"){
+          data.customer_id =employeeId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -850,6 +946,7 @@ $(document).ready(function () {
     var deleteType = $(this).attr("data-delete-type");
     var deleteMapping = {
       product: { routine: "productdelete", callback: listproduct },
+      customer: { routine: "customerdelete", callback: listcustomer },
       blog: { routine: "blogdelete", callback: listblog },
       video: { routine: "videodelete", callback: listvideo },
       banner: { routine: "bannerdelete", callback: listbanner },

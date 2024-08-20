@@ -231,9 +231,9 @@ class admin_functions {
     function insert_products() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        
+
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';   
-        
+
         if($_FILES["p_image"]["name"] != "" && $id != "" || isset($_FILES["p_image"]["name"]) && isset($_FILES["p_image"]["name"]) != '' &&  $id == ""){
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
@@ -265,7 +265,7 @@ class admin_functions {
             }
             
         }
-        
+
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
         }
@@ -349,9 +349,155 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     } 
+    function add_customer(){
+        $error_array =array(); 
+        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';      
+        if($_FILES["c_image"]["name"] != "" || isset($_FILES["c_image"]["name"]) && isset($_FILES["c_image"]["name"]) != ''){
+        $allowedExtensions=['jpg','png','jpeg','gif','svg','webp'];
+        $maxSize = 5* 1024 *1024;
+        $filename = isset($_FILES["c_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
+        $tmpfile = isset($_FILES["c_image"]["tmp_name"]) ? $_FILES["c_image"]["tmp_name"] : '';
+        $file = $_FILES['c_image'];
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $newFilename = time() . '.' . $extension;
+        $fileName = $_FILES['c_image']['name'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+        $folder = "assets/img/customer/";
+        $fullpath= $folder . $newFilename;
+            if (!is_dir($folder)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
+                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                    return json_encode($response_data);
+                }
+            }
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }
+            if ($file['size'] > $maxSize) {
+                $error_array['c_image'] = "File size must be 5MB or less.";
+            }
+            if (empty($filename)) {
+                $error_array['c_image'] = "Please upload product images.";
+            }
+        }
+        if(isset($_POST['name']) && $_POST['name'] == ''){
+            $error_array['name']="plase eneter your name";
+        }
+        if(isset($_POST['email']) && $_POST['email'] == ''){
+            $error_array['email']="enter your email";
+        }
+        if(isset($_POST['contact']) && $_POST['contact'] == ''){
+            $error_array['contact']="eneter contact number";
+        }
+        if(isset($_POST['address']) && $_POST['address'] == ''){
+            $error_array['address']="enter address";
+        }
+        if(empty($error_array)){
+            $name= (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
+            $email=(isset($_POST['email']) && $_POST['email']!=='') ? $_POST['email'] :'';
+            $contact =(isset($_POST['contact']) && $_POST['contact']) ? $_POST['contact'] :'';
+            $address= (isset($_POST['address']) && $_POST['address']) ? $_POST['address'] : '';
+            if($id == ''){
+             if (move_uploaded_file($tmpfile, $fullpath)) {
+                $user_id = $_SESSION['current_user']['user_id'];    
+                 $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
+                    VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
+                     $result = $this->db->query($query);
+    
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'customer inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                }  
+                
+            } else {
+                $error_array['c_image'] = "Error moving uploaded file.";
+            }
+        }else{
+            if (isset($newFilename) && $newFilename != '') {
+                    
+                if (move_uploaded_file($tmpfile, $fullpath)) {
+                    $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
+                   c_image = '$newFilename', address = '$address'  WHERE customer_id  = $id";
+                }
+            }else{
+                $query = "UPDATE coustomer SET name = '$name', email = '$email', contact = '$contact', 
+                   c_image = '$newFilename',address = '$address'  WHERE customer_id  = $id";
+            }
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'msg' => 'Product data updated',"updated_customer_id" => $id);
+            }else {
+                $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
+            }
+        }   
+        }else{
+         $response_data= array('data'=> 'fail', 'msg'=> $error_array, 'msg_error' => "oops! somthing went wrong");
+
+        }
+        $response =json_encode($response_data);
+        return $response ;
+    }
+    function listgallary (){ 
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];           
+            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output="";
+        }        
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row["p_image"];
+                    $imagePath = "../admin1/assets/img/product_img/".$image;
+                    $decodedPath = htmlspecialchars_decode($imagePath);                   
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';
+                    // $output .= '<nav aria-label="Page navigation example">';
+                    // $output .= '  <ul class="pagination justify-content-center">';
+                    // $output .= '    <li class="page-item">';
+                    // $output .= '      <a class="page-link" href="#" aria-label="Previous">';
+                    // $output .= '        <span aria-hidden="true">&laquo;</span>';
+                    // $output .= '        <span class="sr-only">Previous</span>';
+                    // $output .= '      </a>';
+                    // $output .= '    </li>';
+                    // $output .= '    <li class="page-item"><a class="page-link" href="#">1</a></li>';
+                    // $output .= '    <li class="page-item"><a class="page-link" href="#">2</a></li>';
+                    // $output .= '    <li class="page-item"><a class="page-link" href="#">3</a></li>';
+                    // $output .= '    <li class="page-item">';
+                    // $output .= '      <a class="page-link" href="#" aria-label="Next">';
+                    // $output .= '        <span aria-hidden="true">&raquo;</span>';
+                    // $output .= '        <span class="sr-only">Next</span>';
+                    // $output .= '      </a>';
+                    // $output .= '    </li>';
+                    // $output .= '  </ul>';
+                    // $output .= '</nav>';
+                    // print_r($row);    
+                }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
+            }
+            $response = json_encode($response_data);
+            return $response;
+    } 
 
     function invoice() {
         $error_array = array();
+        $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
+        // print_r($_POST);
+        // die();
         $id = isset($_POST['id']) ? $_POST['id'] : ''; // ID for update or empty for insert
     
         // Validate file upload if any
@@ -384,7 +530,6 @@ class admin_functions {
             if (empty($filename)) {
                 $error_array['i_image'] = "Please upload invoice images.";
             }
-            
         }
     
         // Validate other fields
@@ -395,6 +540,7 @@ class admin_functions {
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
+        
     
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
@@ -404,6 +550,9 @@ class admin_functions {
             $terms = $_POST['terms'];
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
+            $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] : 0;
+            $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
+            $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0; 
             $user_id = $_SESSION['current_user']['user_id'];
     
             if (isset($newFilename) && !empty($newFilename)) {
@@ -411,11 +560,10 @@ class admin_functions {
                     $error_array['i_image'] = "Error moving uploaded file.";
                 }
             }
-    
             if (empty($error_array)) {
                 if (empty($id)) { // Insert new record
-                    $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`)
-                              VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id')";
+                   $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `subtotal`, `amount_paid`, `balance_due`)
+                    VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$subtotal', '$amount_paid', '$balance_due')";
                 } else { // Update existing record
                     $query = "UPDATE invoice SET i_name = '$i_name',bill_no = '$bill_no',ship_to = '$ship_to',date = '$date', terms = '$terms',due_date = '$due_date',
                               po_number = '$po_number'" . (!empty($newFilename) ? ", i_image = '$newFilename'" : "") . "
@@ -485,11 +633,11 @@ class admin_functions {
             } else {
                 $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
             }
-        } else {
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
-        }
+        } 
+        
         return json_encode($response_data);
     }
+
     function isValidYouTubeURL($url) {
         $allowedPatterns = array(
             '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/',
@@ -506,6 +654,7 @@ class admin_functions {
 
     function insert_videos(){
         $error_array = array();
+
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
             $error_array['video_title'] = "Please enter video title";
         }
@@ -1024,58 +1173,7 @@ class admin_functions {
             return $response;
     }  
 
-    function listgallary (){ 
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];           
-            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
-            $output="";
-        }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);                   
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';
-                    // $output .= '<nav aria-label="Page navigation example">';
-                    // $output .= '  <ul class="pagination justify-content-center">';
-                    // $output .= '    <li class="page-item">';
-                    // $output .= '      <a class="page-link" href="#" aria-label="Previous">';
-                    // $output .= '        <span aria-hidden="true">&laquo;</span>';
-                    // $output .= '        <span class="sr-only">Previous</span>';
-                    // $output .= '      </a>';
-                    // $output .= '    </li>';
-                    // $output .= '    <li class="page-item"><a class="page-link" href="#">1</a></li>';
-                    // $output .= '    <li class="page-item"><a class="page-link" href="#">2</a></li>';
-                    // $output .= '    <li class="page-item"><a class="page-link" href="#">3</a></li>';
-                    // $output .= '    <li class="page-item">';
-                    // $output .= '      <a class="page-link" href="#" aria-label="Next">';
-                    // $output .= '        <span aria-hidden="true">&raquo;</span>';
-                    // $output .= '        <span class="sr-only">Next</span>';
-                    // $output .= '      </a>';
-                    // $output .= '    </li>';
-                    // $output .= '  </ul>';
-                    // $output .= '</nav>';
-                    // print_r($row);    
-                }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
-            }
-            $response = json_encode($response_data);
-            return $response;
-    }
+
 
     function productlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1136,10 +1234,45 @@ class admin_functions {
         }
         $pagination .= '</div>';
         $response_data['pagination'] = $pagination;
+
         $response = json_encode($response_data);
         return $response;
     }
+    function customerlisting(){
+        if(isset($_SESSION['current_user']['user_id'])) {
+            $output = "";
+            $user_id = $_SESSION['current_user']['user_id'];
+            
+            $stmt = $this->db->prepare("SELECT * FROM customer WHERE user_id = ?");
+            $stmt->bind_param('i', $user_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
     
+            if($result && $result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $profiledata[] = $row;
+                    $image = $row["c_image"];
+                    $imagePath = "../admin1/assets/img/customer/" . htmlspecialchars($image);
+                    $output .= '<tr>';
+                    $output .= '<td class="align-middle">'.$row['customer_id'].'</td>';
+                    $output .= '<td class="align-middle">'.$row['name'].'</td>';
+                    $output .= '<td class="align-middle">'.$row['email'].'</td>';
+                    $output .= '<td class="align-middle">'.$row['contact'].'</td>';
+                    $output .= '<td><img src="' . $imagePath . '" alt="Customer Image" class="shadow" width="100px" height="100px" style="object-fit: cover;"></td>';
+                    $output .= '<td class="align-middle">'.$row['address'].'</td>';
+                    $output .= '<td class="align-middle"><button data-id="'. $row['customer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="customer">Delete</button></td>';
+                    $output .= '<td class="align-middle"><a href="customer.php?id='. $row['customer_id'] . '" data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="customer">Edit</a></td>';
+                    $output .= '</tr>';
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $profiledata );
+            } else {
+                $response_data = array( 'data' => 'fail',  'outcome' => "No data found");
+            }
+            return json_encode($response_data);
+        }
+    }
+    
+
     function listprofile (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1664,7 +1797,10 @@ class admin_functions {
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
     }
-    
+    function customerdelete(){
+       $delete_id =isset($_POST['customer_id']) ? $_POST['customer_id'] :'2';
+       return $this->deleteRecord('customer',$delete_id);
+    }
     function blogdelete() {
         $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
         return $this->deleteRecord('blogs', $delete_id);
@@ -1796,6 +1932,25 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    function getcustomer(){
+        $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        if(!empty($id)){
+            $query = "SELECT  * from  customer  WHERE customer_id = $id ";
+            $result = $this->db->query($query);
+
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                $response_data = array('data' => 'success', 'outcome' => $row);
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => 'Customer not found');
+            }
+        }
+    
+       $response = json_encode($response_data);
+       return $response;
+    }
+    
     function getblog(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
