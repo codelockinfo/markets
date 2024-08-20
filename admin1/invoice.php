@@ -164,7 +164,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Total :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
+                  <input type="text" class="form-control mt-1" name="total" placeholder="₹ 0.00">
                 </div>
               </div>
               <div class="row w-100 mt-2">
@@ -172,7 +172,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Amount Paid :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
+                  <input type="text" class="form-control mt-1" name="amount_paid" placeholder="₹ 0.00">
                 </div>
               </div>
               <div class="row w-100 mt-2">
@@ -180,7 +180,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Balance Due :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="description" class="form-control mt-1" placeholder="₹ 0.00">
+                  <input type="text" class="form-control mt-1" name="balance_due" placeholder="₹ 0.00">
                 </div>
               </div>
             </div>

@@ -160,30 +160,34 @@ $(document).ready(function () {
 $(document).ready(function() {
   function addRow() {
       const row = $(".attr").first().clone(true, true);
-      row.find("input").val("");  
-      row.find(".remove").show(); 
+      row.find("input").val("");
+      row.find(".remove").show();
       $("#attributes-body").append(row);
       updateRemoveButtonVisibility();
-      updateSubtotal(); 
+      updateSubtotal();
   }
+
   function removeRow(button) {
       button.closest("tr.attr").remove();
       updateRemoveButtonVisibility();
       updateSubtotal();
   }
+
   function updateRemoveButtonVisibility() {
-      const rows = $("#attributes-body .attr"); 
+      const rows = $("#attributes-body .attr");
       rows.each(function(index) {
-          $(this).find(".remove").toggle(rows.length > 1); 
+          $(this).find(".remove").toggle(rows.length > 1);
       });
   }
+
   function calculateAmount(row) {
       const quantity = parseFloat(row.find('input[name="quantity[]"]').val()) || 0;
       const rate = parseFloat(row.find('input[name="rate[]"]').val()) || 0;
       const amount = quantity * rate;
-      row.find('input[name="amount[]"]').val(amount.toFixed(2)); 
-      updateSubtotal(); 
+      row.find('input[name="amount[]"]').val(amount.toFixed(2));
+      updateSubtotal();
   }
+
   function updateSubtotal() {
       let subtotal = 0;
       $('#attributes-body .attr').each(function() {
@@ -191,25 +195,32 @@ $(document).ready(function() {
           const amount = parseFloat(amountText) || 0;
           subtotal += amount;
       });
-      $('input[name="subtotal"]').val(subtotal.toFixed(2)); 
-      $('input[name="total"]').val(subtotal.toFixed(2)); 
+
       const amountPaid = parseFloat($('input[name="amount_paid"]').val()) || 0;
       const balanceDue = subtotal - amountPaid;
-      $('input[name="balance_due"]').val(balanceDue.toFixed(2)); 
+
+      $('input[name="subtotal"]').val(subtotal.toFixed(2));
+      $('input[name="total"]').val(subtotal.toFixed(2));
+      $('input[name="balance_due"]').val(balanceDue.toFixed(2));
   }
+
   $(".add").off("click").on("click", function() {
-      addRow(); 
+      addRow();
   });
+
   $("#attributes-body").on("click", ".remove", function() {
-      removeRow($(this)); 
+      removeRow($(this));
   });
+
   $("#attributes-body").on("input", 'input[name="quantity[]"], input[name="rate[]"]', function() {
       const row = $(this).closest('tr');
-      calculateAmount(row); 
+      calculateAmount(row);
   });
-  $('input[name="total"], input[name="amount_paid"]').on('input', function() {
+
+  $('input[name="amount_paid"]').on('input', function() {
       updateSubtotal();
   });
+
   updateRemoveButtonVisibility();
   updateSubtotal();
 });
