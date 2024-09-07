@@ -1967,7 +1967,7 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if(isset($_POST['table_name'])){
             $table_name = $_POST['table_name'];
-            $query = "SELECT status from $table_name";
+            $query = "SELECT * from $table_name WHERE status='1'";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();

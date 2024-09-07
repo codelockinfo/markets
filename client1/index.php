@@ -43,8 +43,8 @@ include 'header.php';
             </div>
             <div class=" banner_content">
                 <div class="banner-content-main container">
-                    <div class="row">
-                        <div class="col-sm-4 mt-2 mt-sm-0">
+                    <div class="row bannerContent">
+                        <!-- <div class="col-sm-4 mt-2 mt-sm-0">
                             <div class="banner-main-box p-1 wow bounceInUp">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
                                     <h3 class="text-white count m-0">346866</h3>
@@ -67,7 +67,7 @@ include 'header.php';
                                     <p class="text-capitalize m-0 text-white">categories</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -78,9 +78,7 @@ include 'header.php';
     <!-- famous market Start -->
     <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
-            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Famous markets in surat</h1>
-            </div>         
+            <div class="famousMarketTitle"></div>       
             <div class="row2" id="getmarket">               
                 <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
@@ -259,7 +257,7 @@ include 'header.php';
                     </div>
                 </div> -->
              </div>             
-            <a href="<?php echo CLS_SITE_URL ?>famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>
+             <div class="famousMarketButton"></div>
         </div>
     </div>
     <!-- famous market End -->
@@ -267,8 +265,7 @@ include 'header.php';
     <!-- Events brouse by category Start -->
     <div class="container-fluid event pt-5 pt-md-6">
         <div class="container">
-            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Browse by category</h1>
+            <div class="browseCategoryTitle">
             </div>
             <div class="tabbable">
                 <ul class="mb-5 nav nav-pills nav-justified form-tabs hidden-xs wow bounceInUp">
@@ -315,7 +312,7 @@ include 'header.php';
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4" id="getproduct" >
-                                    <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">
                                         <div class="market_list_mian_box">
                                             <div class="market-head border-bottom">
                                                 <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
@@ -714,7 +711,7 @@ include 'header.php';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2353,7 +2350,8 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-            <a href="<?php echo CLS_SITE_URL ?>collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
+            <div class="browseCategoryButton">
+            </div>   
         </div>
     </div>
     <!-- Events End -->
@@ -2361,9 +2359,7 @@ include 'header.php';
     <!-- Offer section  -->
     <section class="offer container-fluid pt-5 pt-md-6">
         <div class="container">
-            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">New offers</h1>
-            </div>
+            <div class="offersTitle"></div>    
             <div class="row" id="getoffer">
                 <!-- <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer1.jpg" class="img-fluid" alt="img-fluid"></a></div>
                 <div class="col-12 col-md-6  wow bounceInUp"><a href="#"><img src="<?php echo CLS_SITE_URL; ?>img/offer2.jpg" class="img-fluid mt-4 mt-md-0" alt="img-fluid"></a></div>
@@ -2407,9 +2403,7 @@ include 'header.php';
     <!-- video section start  -->
     <section class="video pt-5 pt-md-6 container-fluid">
         <div class="container">
-            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                <h1 class="display-5 mb-5">Our trending videos</h1>
-            </div>
+            <div class="videoTitle"></div>
             <div class="swiper videoSwiper">
                 <div class="swiper-wrapper" id="getvideo">
                     <!-- <div class="swiper-slide"><video class="w-100 rounded h-100" autoplay muted loop>
@@ -2434,18 +2428,18 @@ include 'header.php';
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-            <a href="<?php echo CLS_SITE_URL ?>video.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>
+           <div class="videoButton"></div>
         </div>
     </section>
     <!-- video section end -->
     <!-- FAQ Start -->
     <div class="w-100 d-flex justify-content-center align-items-center h-auto pt-5 pt-md-6 container-fluid faq">
         <div class="mainContent container d-flex flex-column justify-content-center align-items-center gap-3">
-            <h1 class="fs-1 ">Frequently ask questions</h1>
-            <div class="row align-items-center">
+        <div class="faqTitle"></div>
+        <div class="row align-items-center">
                 <div class="content_1 col-12 col-lg-8 col-md-6">
-                    <div class="">
-                        <p class="fs-6 mb-6">When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>
+                    <div class="faqContent">
+                       
                     </div>
                     <div>
                         <div class="accordion" id="accordionExample">
@@ -2530,8 +2524,8 @@ include 'header.php';
                         </div>
                     </div>
                 </div>
-                <div class="content_2 col-12 col-lg-4 col-md-6">
-                    <img class="img-fluid  fit-cover rounded" src="<?php echo CLS_SITE_URL; ?>img/faq.jpg" alt="faq">
+                <div class="content_2 col-12 col-lg-4 col-md-6 faqImage">
+                    
                 </div>
             </div>
         </div>
@@ -2575,8 +2569,7 @@ include 'header.php';
     <!-- testimonial section start -->
     <section class="testimonial pt-5 pt-md-6 container-fluid">
         <div class="container">
-            <div class="d-flex flex-column align-items-center mb-3">
-                <h1>Markets by reviews</h1>
+            <div class="marketReviewTitle">
             </div>
             <div class="swiper testimonalSwiper" >
                 <div class="swiper-wrapper"  id="getreview">
