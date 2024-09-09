@@ -1185,7 +1185,7 @@ class admin_functions {
                     $output .= '        <h5> ' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '        <div class="d-flex align-items-center text-sm">' . $price . '</div>';
+                    $output .= '        <div class="d-flex align-items-center text-sm"><div class="fw-normal d-inline fs-6">Rs:</div>' . $price . '</div>';
                     $output .= '        <div class="ms-auto text-end">';
                     $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
                     $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
@@ -1371,7 +1371,7 @@ class admin_functions {
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             // print_r($user_id);
-            $query = "SELECT * FROM videos WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM videos";
             $result = $this->db->query($query);
             $output="";
         }             
