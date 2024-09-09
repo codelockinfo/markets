@@ -16,6 +16,20 @@ function loading_hide($selector, $buttonName, $buttonIcon) {
 }
 
 $(document).ready(function () {
+  $(".tab-selector [href^=tab]").click(function () {
+    console.log("--------------");
+    // get tab id and tab url
+    tabId = $(this).attr("id");
+    tabUrl = jQuery("#" + tabId).attr("href");
+
+    jQuery("[id^=tab]").removeClass("current");
+    jQuery("#" + tabId).addClass("current");
+
+    // load tab content
+    loadTabContent(tabUrl);
+    return false;
+  });
+
   function showMessage(msg, type) {
     var alertTitle =
       type === "success" ? "Success" : type === "fail" ? "Failure" : "Error";
@@ -114,14 +128,71 @@ function loadData(routineName, elementId) {
         response.browsecategorybutton !== undefined
           ? $(".browseCategoryButton").append(response.browsecategorybutton)
           : "";
-        response.browsecategorytab !== undefined
-          ? $(".browseCategoryTab").append(response.browsecategorytab)
-          : "";
-        response.browsecategorytabmobile !== undefined
-          ? $(".browsecategorytab-mobile").append(
-              response.browsecategorytabmobile
-            )
-          : "";
+        // Desktop Browser categories
+        if (
+          response.browsecategorytab !== undefined &&
+          response.browsecategorytab !== ""
+        ) {
+          var categories = response.browsecategorytab.split(",");
+          $.each(categories, function (index, category) {
+            category = category.trim(); // Remove any extra spaces
+            if (
+              response.outcome[category] != undefined &&
+              response.outcome[category] !== ""
+            ) {
+              console.log(response.outcome[category]);
+              console.log("-------------------------------");
+              $(".tab-content #producttab-" + (index + 1)).append(
+                response.outcome[category]
+              );
+            }
+            if (category !== "" && response.outcome[category] != "") {
+              var activeClass = index === 0 ? "active" : "";
+
+              var liElement =
+                '<li class="tab-selector">' +
+                '<a class="d-flex mx-1 py-2 border border-primary rounded-pill ' +
+                activeClass +
+                '" data-bs-toggle="pill" href="#tab-' +
+                (index + 1) +
+                '">' +
+                '<span class="fw-bold" style="width: 150px;">' +
+                category +
+                "</span>" +
+                "</a>" +
+                "</li>";
+            }
+            $(".browseCategoryTab").append(liElement);
+          });
+        }
+        // Desktop Browser categories
+        // Mobile Browser categories
+        if (
+          response.browsecategorytabmobile !== undefined &&
+          response.browsecategorytabmobile !== ""
+        ) {
+          var mobilecategories = response.browsecategorytabmobile.split(",");
+          $.each(mobilecategories, function (index, mobilecategories) {
+            category = mobilecategories.trim(); // Remove any extra spaces
+            if (category !== "" && response.outcome[category] != "") {
+              var MobileliElement =
+                "<li>" +
+                '<a class="dropdown-item nav-link" data-bs-toggle="pill" href="#tab-' +
+                (index + 1) +
+                '">' +
+                category +
+                "</a>" +
+                "</li>";
+              $(
+                '.browsecategorytab-mobile a[ href="#tab-' + (index + 1) + '"]'
+              ).removeClass("d-none");
+              $(
+                '.browsecategorytab-mobile a[ href="#tab-' + (index + 1) + '"]'
+              ).html(category);
+            }
+          });
+        }
+        // Mobile Browser categories
       }
     },
     error: function (xhr, status, error) {

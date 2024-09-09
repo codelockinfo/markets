@@ -463,26 +463,6 @@ class admin_functions {
                     $output .= '    </div>';
                     $output .= '  </div>';
                     $output .= '</div>';
-                    // $output .= '<nav aria-label="Page navigation example">';
-                    // $output .= '  <ul class="pagination justify-content-center">';
-                    // $output .= '    <li class="page-item">';
-                    // $output .= '      <a class="page-link" href="#" aria-label="Previous">';
-                    // $output .= '        <span aria-hidden="true">&laquo;</span>';
-                    // $output .= '        <span class="sr-only">Previous</span>';
-                    // $output .= '      </a>';
-                    // $output .= '    </li>';
-                    // $output .= '    <li class="page-item"><a class="page-link" href="#">1</a></li>';
-                    // $output .= '    <li class="page-item"><a class="page-link" href="#">2</a></li>';
-                    // $output .= '    <li class="page-item"><a class="page-link" href="#">3</a></li>';
-                    // $output .= '    <li class="page-item">';
-                    // $output .= '      <a class="page-link" href="#" aria-label="Next">';
-                    // $output .= '        <span aria-hidden="true">&raquo;</span>';
-                    // $output .= '        <span class="sr-only">Next</span>';
-                    // $output .= '      </a>';
-                    // $output .= '    </li>';
-                    // $output .= '  </ul>';
-                    // $output .= '</nav>';
-                    // print_r($row);    
                 }
                     $response_data = array('data' => 'success', 'outcome' => $output);
                 } else {
