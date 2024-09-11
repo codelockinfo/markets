@@ -443,34 +443,38 @@ class admin_functions {
     function listgallary (){ 
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];           
-            $query = "SELECT * FROM products WHERE user_id = '$user_id'";
+            $userid = '';
+            if($_SESSION['current_user']['role'] == 1){
+                $user_id = $_SESSION['current_user']['user_id'];
+                $userid = "WHERE user_id =$user_id";
+            }         
+            $query = "SELECT * FROM products  $userid";
             $result = $this->db->query($query);
             $output="";
         }        
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);                   
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';
-                }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                $image = $row["p_image"];
+                $imagePath = "../admin1/assets/img/product_img/".$image;
+                $decodedPath = htmlspecialchars_decode($imagePath);                   
+                $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                $output .= '  <div class="card card-blog card-plain">';
+                $output .= '    <div class="position-relative">';
+                $output .= '      <a class="d-block border-radius-xl">';
+                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">';
+                $output .= '      </a>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';
             }
-            $response = json_encode($response_data);
-            return $response;
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
     } 
 
     function invoice() {
@@ -1150,8 +1154,6 @@ class admin_functions {
             return $response;
     }  
 
-
-
     function productlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1159,8 +1161,12 @@ class admin_functions {
             $limit = 9;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
-            $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%'AND user_id =$user_id LIMIT $offset,$limit";
+            $userid = '';
+            if($_SESSION['current_user']['role'] == 1){
+                $user_id = $_SESSION['current_user']['user_id'];
+                $userid = "AND user_id =$user_id";
+            }
+            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid LIMIT $offset,$limit";
             $result = $this->db->query($query);
             $output = "";
             $pagination="";
@@ -1200,7 +1206,7 @@ class admin_functions {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' AND user_id = '$user_id'";
+        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid";
         $res_count = $this->db->query($query);
         $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         $total_pages = Ceil($total_recodes / $limit);
@@ -1215,6 +1221,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    
     function customerlisting(){
         if(isset($_SESSION['current_user']['user_id'])) {
             $output = "";
@@ -1248,7 +1255,6 @@ class admin_functions {
             return json_encode($response_data);
         }
     }
-    
 
     function listprofile (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1298,10 +1304,8 @@ class admin_functions {
         }
         $response = json_encode($response_data);
         return $response;
-    }
-        
-    function bloglisting()
-    {
+    }    
+    function bloglisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1309,8 +1313,12 @@ class admin_functions {
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' AND user_id = '$user_id' LIMIT $offset, $limit";
+            $userid = '';
+            if($_SESSION['current_user']['role'] == 1){
+                $user_id = $_SESSION['current_user']['user_id'];
+                $userid = "AND user_id =$user_id";
+            }
+            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid LIMIT $offset, $limit";
             $result = $this->db->query($query);
 
             $output = "";
@@ -1347,7 +1355,7 @@ class admin_functions {
             }
 
             // Pagination count query
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' AND user_id = '$user_id'";
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $total_pages = ceil($total_records / $limit);
@@ -1365,13 +1373,16 @@ class admin_functions {
         }
     }
 
-
     function videolisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];
+            $userid = '';
+            if($_SESSION['current_user']['role'] == 1){
+                $user_id = $_SESSION['current_user']['user_id'];
+                $userid = "WHERE user_id =$user_id";
+            }
             // print_r($user_id);
-            $query = "SELECT * FROM videos";
+            $query = "SELECT * FROM videos $userid";
             $result = $this->db->query($query);
             $output="";
         }             
@@ -1540,7 +1551,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-
+    
     function FAQlisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");       
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1596,7 +1607,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-
+    
     function bannerlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1661,48 +1672,48 @@ class admin_functions {
             $result = $this->db->query($query);
             $output="";
         }        
-            $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
+        $output .= '<div class="mb-3 form-check-reverse text-right">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
+        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {  
-                // $svgimage = $row["SVG_img"];
-                $image = $row["Image"];
-                $imagePath = "../admin1/assets/img/famous_market/img/".$image;
-                // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                $output .= '  <div class="card card-blog card-plain">';
-                $output .= '    <div class="position-relative">';
-                $output .= '      <a class="d-block border-radius-xl">';
-                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
-                $output .= '      </a>';
-                $output .= '    </div>';
-                $output .= '    <div class="d-flex justify-content-between mb-3">';
-                $output .= '      <div class="ms-auto text-end">';
-                $output .= '        <button data-id="'.$row['famous_market_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
-                $output .= '      </div>';
-                $output .= '    </div>';
-                $output .= '  </div>';
-                $output .= '</div>';        
-            }
-            $response_data = array('data' => 'success', 'outcome' => $output);
-        } else {
-            $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                while ($row = mysqli_fetch_array($result)) {  
+                    // $svgimage = $row["SVG_img"];
+                    $image = $row["Image"];
+                    $imagePath = "../admin1/assets/img/famous_market/img/".$image;
+                    // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
+                    $decodedPath = htmlspecialchars_decode($imagePath);
+                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '      </a>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="d-flex justify-content-between mb-3">';
+                    $output .= '      <div class="ms-auto text-end">';
+                    $output .= '        <button data-id="'.$row['famous_market_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                    $output .= '</div>';        
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }   
         }
-    }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     } 
 
     function reviewlisting (){
@@ -1714,47 +1725,47 @@ class admin_functions {
             $result = $this->db->query($query);
             $output="";
         }        
-            $output .= '<div class="mb-3 form-check-reverse text-right ">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["logo_img"];
-                    $imagePath = "../admin1/assets/img/marketreview/".$image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);               
-                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '  <div class="card card-blog card-plain">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="d-flex justify-content-between mb-3">';
-                    $output .= '      <div class="ms-auto text-end">';
-                    $output .= '        <button data-id="'.$row['marketreview_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="review">Delete</button>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';
-                    
-                }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
+        $output .= '<div class="mb-3 form-check-reverse text-right ">';
+        $output .= '  <div class="container">';
+        $output .= '    <div class="btn-group">';
+        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+        $output .= '        <div class="form-check form-switch ps-0">';
+        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
+        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
+        $output .= '        </div>';
+        $output .= '      </div>';
+        $output .= '    </div>';
+        $output .= '  </div>';
+        $output .= '</div>';
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                $image = $row["logo_img"];
+                $imagePath = "../admin1/assets/img/marketreview/".$image;
+                $decodedPath = htmlspecialchars_decode($imagePath);               
+                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                $output .= '  <div class="card card-blog card-plain">';
+                $output .= '    <div class="position-relative">';
+                $output .= '      <a class="d-block border-radius-xl">';
+                $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                $output .= '      </a>';
+                $output .= '    </div>';
+                $output .= '    <div class="d-flex justify-content-between mb-3">';
+                $output .= '      <div class="ms-auto text-end">';
+                $output .= '        <button data-id="'.$row['marketreview_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="review">Delete</button>';
+                $output .= '      </div>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';
+                
             }
-                    $response = json_encode($response_data);
-                    return $response;
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
     function deleteRecord($table, $delete_id) {
@@ -1769,15 +1780,17 @@ class admin_functions {
         }
         return json_encode($response_data);   
     }
-
+    
     function productdelete() {
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
     }
+    
     function customerdelete(){
        $delete_id =isset($_POST['customer_id']) ? $_POST['customer_id'] :'2';
        return $this->deleteRecord('customer',$delete_id);
     }
+    
     function blogdelete() {
         $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
         return $this->deleteRecord('blogs', $delete_id);
@@ -1927,7 +1940,6 @@ class admin_functions {
        $response = json_encode($response_data);
        return $response;
     }
-    
     function getblog(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -1942,7 +1954,6 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-
     function check_toggle_status(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if(isset($_POST['table_name'])){
@@ -1957,7 +1968,6 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-
     function toggle_enabledisable(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if(isset($_POST['ischecked_value']) && isset($_POST['table_name'])){
@@ -1974,7 +1984,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    
+
     function data_sort_by(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
