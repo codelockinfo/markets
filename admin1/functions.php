@@ -1671,47 +1671,47 @@ class admin_functions {
             $query = "SELECT * FROM famous_markets WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output="";
+            $output .= '<div class="mb-3 form-check-reverse text-right">';
+            $output .= '  <div class="container">';
+            $output .= '    <div class="btn-group">';
+            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+            $output .= '        <div class="form-check form-switch ps-0">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
+            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
+            $output .= '        </div>';
+            $output .= '      </div>';
+            $output .= '    </div>';
+            $output .= '  </div>';
+            $output .= '</div>';
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {  
+                        // $svgimage = $row["SVG_img"];
+                        $image = $row["Image"];
+                        $imagePath = "../admin1/assets/img/famous_market/img/".$image;
+                        // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
+                        $decodedPath = htmlspecialchars_decode($imagePath);
+                        $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                        $output .= '  <div class="card card-blog card-plain">';
+                        $output .= '    <div class="position-relative">';
+                        $output .= '      <a class="d-block border-radius-xl">';
+                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                        $output .= '      </a>';
+                        $output .= '    </div>';
+                        $output .= '    <div class="d-flex justify-content-between mb-3">';
+                        $output .= '      <div class="ms-auto text-end">';
+                        $output .= '        <button data-id="'.$row['famous_market_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                        $output .= '      </div>';
+                        $output .= '    </div>';
+                        $output .= '  </div>';
+                        $output .= '</div>';        
+                    }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }   
+            }
         }        
-        $output .= '<div class="mb-3 form-check-reverse text-right">';
-        $output .= '  <div class="container">';
-        $output .= '    <div class="btn-group">';
-        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-        $output .= '        <div class="form-check form-switch ps-0">';
-        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
-        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
-        $output .= '        </div>';
-        $output .= '      </div>';
-        $output .= '    </div>';
-        $output .= '  </div>';
-        $output .= '</div>';
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {  
-                    // $svgimage = $row["SVG_img"];
-                    $image = $row["Image"];
-                    $imagePath = "../admin1/assets/img/famous_market/img/".$image;
-                    // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
-                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '  <div class="card card-blog card-plain">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="d-flex justify-content-between mb-3">';
-                    $output .= '      <div class="ms-auto text-end">';
-                    $output .= '        <button data-id="'.$row['famous_market_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';        
-                }
-                $response_data = array('data' => 'success', 'outcome' => $output);
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
-            }   
-        }
         $response = json_encode($response_data);
         return $response;
     } 
@@ -2086,6 +2086,26 @@ class admin_functions {
                     $response_data = array('data' => 'success', 'outcome' => $output);
                 } else {
                     $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
+    function get_categories(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $sql = "SELECT * FROM allcategories WHERE status='1'";
+            $result = $this->db->query($sql);
+
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $all_categories = "";
+                    while ($categoryrow = mysqli_fetch_object($result)) { 
+                        $all_categories .= $categoryrow->categoies_name.',';
+                    }
+                    $response_data = array('data' => 'success', 'outcome' => $all_categories);
                 }
             }
         }

@@ -79,15 +79,20 @@ class client_functions {
                                     <p class="text-capitalize m-0 text-white">products</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
+                        </div>';
+        }
+        
+        $productscategories_query = "SELECT * FROM allcategories WHERE status='1'";
+        $productscategories_result = $this->db->query($productscategories_query);
+        if($productscategories_result->num_rows > 0){
+            $bannercontent .= '<div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 count">519407</h3>
+                                    <h3 class="text-white  m-0 count">'.$productscategories_result->num_rows.'</h3>
                                     <p class="text-capitalize m-0 text-white">categories</p>
                                 </div>
                             </div>
-                        </div> ';
+                        </div>';
         }
         
         if ($result) {
@@ -104,7 +109,6 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
 
-        
     }
     
     function famousmarketshow(){
@@ -220,7 +224,7 @@ class client_functions {
 
     function FAQshow (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs WHERE status='1'"; 
+        $query = "SELECT * FROM faqs WHERE status='1' LIMIT 5"; 
         $result = $this->db->query($query);
         $output= $faqtitle = $faqcontent = $faqimage = "";
             if ($result) {

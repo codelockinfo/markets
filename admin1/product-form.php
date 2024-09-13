@@ -79,7 +79,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="col">
                 <select class="form-select required" aria-label="Default select example" name="select_catagory">
                   <option selected value="">Select Category</option>
-                  <option value="1">Armwear</option>
+                  <!-- <option value="1">Armwear</option>
                   <option value="2">Badges</option>
                   <option value="3">Belts</option>
                   <option value="4">Children's clothing</option>
@@ -109,7 +109,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <option value="28">Tops</option>
                   <option value="29">Trousers and shorts</option>
                   <option value="30">Undergarments</option>
-                  <option value="31">Wedding clothing</option>
+                  <option value="31">Wedding clothing</option> -->
                 </select>
                 <div class="errormsg select_catagory"></div>
               </div>             
@@ -183,6 +183,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
             </div>
+            <label for="text" class="font-weight-normal">Product tag</label>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product tag</label>
               <select class="js-select2  form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
@@ -277,6 +278,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </html>
 
 <script>
+    get_Categories();
     var id = "<?php echo $id; ?>";
     get_product(id);
 
