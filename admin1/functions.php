@@ -237,6 +237,7 @@ class admin_functions {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
             $folder = "assets/img/product_img/";
+           
             if (!is_dir($folder)) {
                 $mkdir = mkdir($folder, 0777, true);
                 if (!$mkdir) {
@@ -244,6 +245,7 @@ class admin_functions {
                     return json_encode($response_data);
                 }
             }
+
             $uploadedFiles = [];
             foreach ($_FILES["p_image"]["name"] as $key => $filename) {
                 $tmpfile = $_FILES["p_image"]["tmp_name"][$key];
@@ -251,20 +253,23 @@ class admin_functions {
                 $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                 $newFilename = time() . '_' . $key . '.' . $fileExtension;
                 $fullpath = $folder . $newFilename;
-    
-                if (!in_array($fileExtension, $allowedExtensions)) {
-                    $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-                }
-                if ($file['size'][$key] > $maxSize) {
-                    $error_array['p_image'][] = "File size for $filename must be 5MB or less.";
-                }
-    
-                if (empty($error_array)) {
-                    if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $uploadedFiles[] = $newFilename;
-                    } else {
-                        $error_array['p_image'][] = "Error moving uploaded file $filename.";
+                if($tmpfile != ""){
+                    if (!in_array($fileExtension, $allowedExtensions)) {
+                        $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
                     }
+                    if ($file['size'][$key] > $maxSize) {
+                        $error_array['p_image'][] = "File size for $filename must be 5MB or less.";
+                    }
+        
+                    if (empty($error_array)) {
+                        if (move_uploaded_file($tmpfile, $fullpath)) {
+                            $uploadedFiles[] = $newFilename;
+                        } else {
+                            $error_array['p_image'][] = "Error moving uploaded file $filename.";
+                        }
+                    }
+                }else{
+                    $error_array['p_image'][] = "Please upload another product image.";
                 }
             }
         }
@@ -321,6 +326,7 @@ class admin_functions {
                 $user_id = $_SESSION['current_user']['user_id'];    
                 $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
                     VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$uploadedFilenames', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+
                 $result = $this->db->query($query);
     
                 if ($result) {
@@ -349,11 +355,9 @@ class admin_functions {
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
-    
         $response = json_encode($response_data);
         return $response;
-    }
-    
+    } 
     function add_customer(){
         $error_array =array(); 
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';      
@@ -1165,7 +1169,7 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit = 9;
+            $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid = '';
@@ -1198,7 +1202,8 @@ class admin_functions {
                     $output .= '        <h5> ' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '        <div class="d-flex align-items-center text-sm"><div class="fw-normal d-inline fs-6">Rs:</div>' . $price . '</div>';
+                    $output  .= '         <div class="ms-1 d-inline fs-6"><span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>'.$row['maxprice'].'</span><span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>'. $row['minprice'].'</span></div>';
+                    //$output .= '        <div class="d-flex align-items-center text-sm"><div class="fw-normal d-inline fs-6">Rs:</div>' . $price . '</div>';
                     $output .= '        <div class="ms-auto text-end">';
                     $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
                     $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';

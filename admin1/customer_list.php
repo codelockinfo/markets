@@ -156,5 +156,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </html>
 <script type="text/javascript">
   console.log("customer list");
-  listcustomer();
+  // listcustomer();
+  loadData("customerlisting");
 </script>

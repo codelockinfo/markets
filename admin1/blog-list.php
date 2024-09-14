@@ -173,5 +173,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </html>
 <script type="text/javascript">
   console.log("blog LIST");
-  listblog();
+  // listblog();
+  loadData("bloglisting");
 </script>

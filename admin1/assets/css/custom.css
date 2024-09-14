@@ -752,8 +752,7 @@
 
 .pagination {
   justify-content: center !important;
-  }
-  
+}
   .pagination a{
     padding: 1px 9px !important;
     border: 1px solid black; 
@@ -819,4 +818,15 @@
   background: rgba(0, 0, 0, 0.75);
   font-size: 14px;
   text-align: center;
+}
+.pagination a{
+  padding: 1px 9px !important;
+  border: 1px solid black; 
+    margin: 10px; 
+    border-radius: 14px
+}
+
+.price-line-through{
+  text-decoration-color: red !important;
+  text-decoration-thickness: 2px !important;
 }
