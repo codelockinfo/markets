@@ -6,6 +6,9 @@ include($myRoot . '/markets/connection.php');
 <!DOCTYPE html>
 <html>
     <head>
+    <div id="preloader">
+          <div id="status">&nbsp;</div>
+        </div>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        

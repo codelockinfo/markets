@@ -165,9 +165,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
-              <div class="drop-zone form-control">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file"  name="p_image" id="removeImage" class="drop-zone__input">
+              <div class="pro-zone form-control">
+                <span class="pro-zone__prompt">Drop file here or click to upload</span>  
+                <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input">
+                <div id="imagePreview"></div>
               </div>
               <div class="col">
                 <div class="row mt-2">
@@ -179,9 +180,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
               <div class="errormsg myFile p_image"></div>
             </div>
+
             <label for="text" class="font-weight-normal">Image Alt</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
+              <span class="errormsg image_alt"></span>
             </div>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product tag</label>

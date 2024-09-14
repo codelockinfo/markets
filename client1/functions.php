@@ -51,7 +51,7 @@ class client_functions {
 
     function bannershow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM banners WHERE status='1' ORDER BY banner_id DESC LIMIT 1";
+        $query = "SELECT * FROM banners WHERE status='1' ORDER BY banner_id DESC LIMIT 2";
         $result = $this->db->query($query);
         $output = "";               
         if ($result) {
@@ -66,8 +66,6 @@ class client_functions {
         }
                $response = json_encode($response_data);
                return $response;
-
-        
     }
     
     function famousmarketshow(){

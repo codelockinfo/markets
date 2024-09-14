@@ -232,21 +232,11 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
 
-        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';   
-
-        if($_FILES["p_image"]["name"] != "" && $id != "" || isset($_FILES["p_image"]["name"]) && isset($_FILES["p_image"]["name"]) != '' &&  $id == ""){
+        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';  
+        if (isset($_FILES["p_image"]["name"]) && !empty($_FILES["p_image"]["name"][0])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-            $filename = isset($_FILES["p_image"]["name"]) ? $_FILES["p_image"]["name"] : '';
-            $tmpfile = isset($_FILES["p_image"]["tmp_name"]) ? $_FILES["p_image"]["tmp_name"] : '';
-            $file = $_FILES['p_image'];
-            $extension = pathinfo($filename, PATHINFO_EXTENSION);
-            $newFilename = time() . '.' . $extension;
-            $fileName = $_FILES['p_image']['name'];
-            $fileNameCmps = explode(".", $fileName);
-            $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/product_img/";
-            $fullpath= $folder . $newFilename;
             if (!is_dir($folder)) {
                 $mkdir = mkdir($folder, 0777, true);
                 if (!$mkdir) {
@@ -254,18 +244,31 @@ class admin_functions {
                     return json_encode($response_data);
                 }
             }
-            if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['p_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            $uploadedFiles = [];
+            foreach ($_FILES["p_image"]["name"] as $key => $filename) {
+                $tmpfile = $_FILES["p_image"]["tmp_name"][$key];
+                $file = $_FILES['p_image'];
+                $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                $newFilename = time() . '_' . $key . '.' . $fileExtension;
+                $fullpath = $folder . $newFilename;
+    
+                if (!in_array($fileExtension, $allowedExtensions)) {
+                    $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
+                if ($file['size'][$key] > $maxSize) {
+                    $error_array['p_image'][] = "File size for $filename must be 5MB or less.";
+                }
+    
+                if (empty($error_array)) {
+                    if (move_uploaded_file($tmpfile, $fullpath)) {
+                        $uploadedFiles[] = $newFilename;
+                    } else {
+                        $error_array['p_image'][] = "Error moving uploaded file $filename.";
+                    }
+                }
             }
-            if ($file['size'] > $maxSize) {
-                $error_array['p_image'] = "File size must be 5MB or less.";
-            }
-            if (empty($filename)) {
-                $error_array['p_image'] = "Please upload product images.";
-            }
-            
         }
-
+    
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
         }
@@ -281,13 +284,15 @@ class admin_functions {
         if (isset($_POST['max_price']) && $_POST['max_price'] == '') {
             $error_array['max_price'] = "Please enter a maximum price.";
         }  
-        if (isset($_POST['min_price']) && $_POST['max_price']) {
+        if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
+            $error_array['image_alt'] = "Please enter image alt.";
+        } 
+        if (isset($_POST['min_price']) && isset($_POST['max_price'])) {
             $min_price = filter_input(INPUT_POST, 'min_price', FILTER_VALIDATE_FLOAT);
             $max_price = filter_input(INPUT_POST, 'max_price', FILTER_VALIDATE_FLOAT);  
             
             if ($min_price >= $max_price) {
                 $error_array['max_price']= "Max price must be greater than min price.";
-            
             }
         }
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
@@ -296,6 +301,7 @@ class admin_functions {
         if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
             $error_array['p_tag'] = "Please select categories";
         }
+    
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $product_name = str_replace("'", "\'", $product_name);
@@ -308,47 +314,46 @@ class admin_functions {
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
             $p_description = str_replace("'", "\'", $p_description);
+    
             if($id == ''){
-                if (move_uploaded_file($tmpfile, $fullpath)) {
-        
-                    $user_id = $_SESSION['current_user']['user_id'];    
-                    $query = "INSERT INTO products (title, category,qty,sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                        VALUES ('$product_name', '$select_catagory','$qty','$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
-                    $result = $this->db->query($query);
-        
-                    if ($result) {
-                        $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
-                    } else {
-                        $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
-                    }  
-                    
-                } else {
-                    $error_array['p_image'] = "Error moving uploaded file.";
-                }
-            }else{
-                if (isset($newFilename) && $newFilename != '') {
-                    
-                    if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
-                        maxprice = '$max_price',p_image = '$newFilename',product_img_alt = '$product_image_alt',p_tag = '$p_tag',p_description = '$p_description'  WHERE product_id  = $id";
-                    }
-                }else{
-                    $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
-                    maxprice = '$max_price',product_img_alt = '$product_image_alt',p_tag = '$p_tag',p_description = '$p_description'  WHERE product_id  = $id";
-                }
+                $uploadedFilenames = implode(',', $uploadedFiles); 
+                 $uploadedFilenames;
+                $user_id = $_SESSION['current_user']['user_id'];    
+                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$uploadedFilenames', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                 $result = $this->db->query($query);
+    
                 if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Product data updated',"updated_product_id" => $id);
-                }else {
-                    $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
+                    $response_data = array('data' => 'success', 'msg' => 'Product inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                }
+            } else {
+                $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
+                    maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";
+    
+                if (!empty($uploadedFiles)) {
+                    $uploadedFilenames = implode(',', $uploadedFiles);
+                    $query .= ", p_image = '$uploadedFilenames'";
+                }
+    
+                $query .= " WHERE product_id  = $id";
+                $result = $this->db->query($query);
+    
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Product data updated', "updated_product_id" => $id);
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error updating database");
                 }
             }
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
-            $response = json_encode($response_data);
-            return $response;
-    } 
+    
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
     function add_customer(){
         $error_array =array(); 
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';      
@@ -494,7 +499,7 @@ class admin_functions {
     } 
 
     function invoice() {
-        
+        // print_r($_POST);die();
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
     
         $id = isset($_POST['id']) ? $_POST['id'] : ''; 
@@ -568,7 +573,8 @@ class admin_functions {
                 $result = $this->db->query($query);
                 if ($result) {
                     $last_id = $this->db->insert_id;
-                    $items = $_POST['item'];
+                
+                    $items = $_POST['item']; 
                     $quantities = $_POST['quantity'];
                     $rates = $_POST['rate'];
                     $values = [];
@@ -597,6 +603,7 @@ class admin_functions {
                             $user_id = $this->db->real_escape_string($user_id);
                             $last_id = $this->db->real_escape_string($last_id);
                             $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                            
                         } 
                     }
     
@@ -1624,7 +1631,6 @@ class admin_functions {
             $query = "SELECT * FROM banners WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
-    
             // HTML structure for the header part
             $output .= '<div class="mb-3 form-check-reverse text-right">';
             $output .= '  <div class="container">';

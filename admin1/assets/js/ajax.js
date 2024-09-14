@@ -306,12 +306,12 @@ function get_product(id) {
           ? response["outcome"]["p_image"]
           : "";
       if (p_image != "") {
-        $(".drop-zone__prompt").html("");
+        $(".pro-zone__prompt").html("");
         var imagePreview =
           '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/' +
           p_image +
-          '" class="picture__img"/><button class="close-button d-none">x</button></div>';
-        $(".drop-zone").append(imagePreview);
+          // '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+        $(".pro-zone").append(imagePreview);
       }
     },
   })
