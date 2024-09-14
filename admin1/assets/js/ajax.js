@@ -81,7 +81,6 @@ function check_toggle_status() {
 }
 
 function loadData(routineName) {
-  
   console.log(routineName + " on load");
   $.ajax({
     url: "../admin1/ajax_call.php", // Your PHP script URL
@@ -300,55 +299,58 @@ function get_product(id) {
           ? $("input[name='pname']").val(response["outcome"]["title"])
           : "";
 
-      if (p_image != "") {
-        $(".pro-zone__prompt").html("");
-        var imagePreview =
-          '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/' +
-          p_image +
-          // '" class="picture__img"/><button class="close-button d-none">x</button></div>';
-        $(".pro-zone").append(imagePreview);
-
-        response["outcome"]["category"] !== undefined
-          ? $("select[name='select_catagory']")
-              .val(response["outcome"]["category"])
-              .change()
-          : "";
-        response["outcome"]["qty"] !== undefined
-          ? $("input[name='qty']").val(response["outcome"]["qty"])
-          : "";
-        response["outcome"]["sku"] !== undefined
-          ? $("input[name='sku']").val(response["outcome"]["sku"])
-          : "";
-        response["outcome"]["minprice"] !== undefined
-          ? $("input[name='min_price']").val(response["outcome"]["minprice"])
-          : "";
-        response["outcome"]["maxprice"] !== undefined
-          ? $("input[name='max_price']").val(response["outcome"]["maxprice"])
-          : "";
-        response["outcome"]["product_img_alt"] !== undefined
-          ? $("input[name='image_alt']").val(
-              response["outcome"]["product_img_alt"]
-            )
-          : "";
-        response["outcome"]["p_tag"] !== undefined
-          ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change()
-          : "";
-        response["outcome"]["p_description"] !== undefined
-          ? $("textarea[name='p_description']").val(
-              response["outcome"]["p_description"]
-            )
-          : "";
-        var p_image =
-          response["outcome"]["p_image"] !== undefined
-            ? response["outcome"]["p_image"]
-            : "";
         if (p_image != "") {
-          $(".drop-zone__prompt").html("");
+          $(".pro-zone__prompt").html("");
           var imagePreview =
             '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/' +
             p_image +
-            '" class="picture__img"/><button class="close-button d-none">x</button></div>';
-          $(".drop-zone").append(imagePreview);
+            // '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+            $(".pro-zone").append(imagePreview);
+
+          response["outcome"]["category"] !== undefined
+            ? $("select[name='select_catagory']")
+                .val(response["outcome"]["category"])
+                .change()
+            : "";
+          response["outcome"]["qty"] !== undefined
+            ? $("input[name='qty']").val(response["outcome"]["qty"])
+            : "";
+          response["outcome"]["sku"] !== undefined
+            ? $("input[name='sku']").val(response["outcome"]["sku"])
+            : "";
+          response["outcome"]["minprice"] !== undefined
+            ? $("input[name='min_price']").val(response["outcome"]["minprice"])
+            : "";
+          response["outcome"]["maxprice"] !== undefined
+            ? $("input[name='max_price']").val(response["outcome"]["maxprice"])
+            : "";
+          response["outcome"]["product_img_alt"] !== undefined
+            ? $("input[name='image_alt']").val(
+                response["outcome"]["product_img_alt"]
+              )
+            : "";
+          response["outcome"]["p_tag"] !== undefined
+            ? $("select[name='p_tag']")
+                .val(response["outcome"]["p_tag"])
+                .change()
+            : "";
+          response["outcome"]["p_description"] !== undefined
+            ? $("textarea[name='p_description']").val(
+                response["outcome"]["p_description"]
+              )
+            : "";
+          var p_image =
+            response["outcome"]["p_image"] !== undefined
+              ? response["outcome"]["p_image"]
+              : "";
+          if (p_image != "") {
+            $(".drop-zone__prompt").html("");
+            var imagePreview =
+              '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/' +
+              p_image +
+              '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+            $(".drop-zone").append(imagePreview);
+          }
         }
       }
     },
