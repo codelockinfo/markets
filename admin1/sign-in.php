@@ -5,7 +5,6 @@ require_once 'googleconfig.php';
 if (isset($_SESSION['current_user']['user_id'])) {
     header("Location: index.php");
 }
-
 $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !== '') ? $_SESSION['errorMessage'] : '';
 ?>
 
@@ -44,12 +43,6 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                     <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up.php">
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                         Sign Up
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
-                                        <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                        Sign In
                                     </a>
                                 </li>
                             </ul>

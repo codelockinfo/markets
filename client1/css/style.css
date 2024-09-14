@@ -1343,3 +1343,7 @@ input[type=range]:focus::-ms-fill-upper {
 .errormsg {
     color: #f56b6b;
 }
+.price-line-through{
+    text-decoration-color: red !important;
+    text-decoration-thickness: 2px !important;
+}

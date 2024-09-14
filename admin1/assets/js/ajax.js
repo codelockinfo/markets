@@ -59,31 +59,30 @@ function redirect403() {
 function loadData(routineName) {
   console.log(routineName + " on load");
   $.ajax({
-      url: "../admin1/ajax_call.php", // Your PHP script URL
-      type: "post",
-      dataType: "json",
-      data: { routine_name: routineName },
-      success: function(response) {
-        var response = JSON.parse(response);
-          console.log(response);
-          console.log("Sending routine_name:", routineName);
-          if (response.outcome === "No data found") {
-              $("#getdata").html(
-                  '<tr><td colspan="5" style="color: red; text-align: center;">' +
-                  response.outcome +
-                  "</td></tr>"
-              );
-          } else {
-              console.log("Data found");
-              $("#getdata").html(response.outcome);
-              if (response.pagination != "") {
-                  $("#pagination").html(response.pagination);
-              }
-          }
+    url: "../admin1/ajax_call.php", // Your PHP script URL
+    type: "post",
+    dataType: "json",
+    data: { routine_name: routineName },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      console.log("Sending routine_name:", routineName);
+      if (response.outcome === "No data found") {
+        $("#getdata").html(
+          '<tr><td colspan="5" style="color: red; text-align: center;">' +
+            response.outcome +
+            "</td></tr>"
+        );
+      } else {
+        console.log("Data found");
+        $("#getdata").html(response.outcome);
+        if (response.pagination != "") {
+          $("#pagination").html(response.pagination);
+        }
       }
+    },
   });
 }
-
 
 function listgallary() {
   loadData("listgallary");
@@ -93,6 +92,7 @@ function listproduct() {
   console.log("product function called");
   loadData("productlisting");
 }
+
 function listcustomer() {
   console.log("customerlist function called");
   loadData("customerlisting");
@@ -123,7 +123,7 @@ function listparagraph() {
 }
 
 function listproductprofile() {
-  loadData('profileproductlisting');
+  loadData("profileproductlisting");
 }
 
 function listbanner() {
@@ -259,7 +259,6 @@ function demo() {
 }
 
 function get_product(id) {
-  console.log("product get ....")
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -268,43 +267,11 @@ function get_product(id) {
     success: function (response) {
       var response = JSON.parse(response);
       console.log(response);
-      response["outcome"]["title"] !== undefined
-        ? $("input[name='pname']").val(response["outcome"]["title"])
-        : "";
-      response["outcome"]["category"] !== undefined
-        ? $("select[name='select_catagory']")
-            .val(response["outcome"]["category"])
-            .change()
-        : "";
-      response["outcome"]["qty"] !== undefined
-        ? $("input[name='qty']").val(response["outcome"]["qty"])
-        : "";
-      response["outcome"]["sku"] !== undefined
-        ? $("input[name='sku']").val(response["outcome"]["sku"])
-        : "";
-      response["outcome"]["minprice"] !== undefined
-        ? $("input[name='min_price']").val(response["outcome"]["minprice"])
-        : "";
-      response["outcome"]["maxprice"] !== undefined
-        ? $("input[name='max_price']").val(response["outcome"]["maxprice"])
-        : "";
-      response["outcome"]["product_img_alt"] !== undefined
-        ? $("input[name='image_alt']").val(
-            response["outcome"]["product_img_alt"]
-          )
-        : "";
-      response["outcome"]["p_tag"] !== undefined
-        ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change()
-        : "";
-      response["outcome"]["p_description"] !== undefined
-        ? $("textarea[name='p_description']").val(
-            response["outcome"]["p_description"]
-          )
-        : "";
-      var p_image =
-        response["outcome"]["p_image"] !== undefined
-          ? response["outcome"]["p_image"]
+      if (response.outcome !== "" && response.outcome !== undefined) {
+        response["outcome"]["title"] !== undefined
+          ? $("input[name='pname']").val(response["outcome"]["title"])
           : "";
+
       if (p_image != "") {
         $(".pro-zone__prompt").html("");
         var imagePreview =
@@ -312,46 +279,91 @@ function get_product(id) {
           p_image +
           // '" class="picture__img"/><button class="close-button d-none">x</button></div>';
         $(".pro-zone").append(imagePreview);
+
+        response["outcome"]["category"] !== undefined
+          ? $("select[name='select_catagory']")
+              .val(response["outcome"]["category"])
+              .change()
+          : "";
+        response["outcome"]["qty"] !== undefined
+          ? $("input[name='qty']").val(response["outcome"]["qty"])
+          : "";
+        response["outcome"]["sku"] !== undefined
+          ? $("input[name='sku']").val(response["outcome"]["sku"])
+          : "";
+        response["outcome"]["minprice"] !== undefined
+          ? $("input[name='min_price']").val(response["outcome"]["minprice"])
+          : "";
+        response["outcome"]["maxprice"] !== undefined
+          ? $("input[name='max_price']").val(response["outcome"]["maxprice"])
+          : "";
+        response["outcome"]["product_img_alt"] !== undefined
+          ? $("input[name='image_alt']").val(
+              response["outcome"]["product_img_alt"]
+            )
+          : "";
+        response["outcome"]["p_tag"] !== undefined
+          ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change()
+          : "";
+        response["outcome"]["p_description"] !== undefined
+          ? $("textarea[name='p_description']").val(
+              response["outcome"]["p_description"]
+            )
+          : "";
+        var p_image =
+          response["outcome"]["p_image"] !== undefined
+            ? response["outcome"]["p_image"]
+            : "";
+        if (p_image != "") {
+          $(".drop-zone__prompt").html("");
+          var imagePreview =
+            '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/' +
+            p_image +
+            '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+          $(".drop-zone").append(imagePreview);
+        }
       }
     },
-  })
-;}
-function get_customer(id) { 
+  });
+}
+
+function get_customer(id) {
   var routine_name = "getcustomer";
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
-    dataType: "json", 
+    dataType: "json",
     data: { routine_name: routine_name, id: id },
-    success: function(response) {
-      console.log("Response received:"); 
-      console.log(response); 
-      var response= JSON.parse(response);
+    success: function (response) {
+      console.log("Response received:");
+      console.log(response);
+      var response = JSON.parse(response);
       response["outcome"]["name"] !== undefined
-      ? $("input[name='name']").val(response["outcome"]["name"])
-      : "";
-    response["outcome"]["email"] !== undefined
-      ? $("input[name='email']").val(response["outcome"]["email"])
-      : "";
-    response["outcome"]["contact"] !== undefined
-      ? $("input[name='contact']").val(response["outcome"]["contact"])
-      : "";
+        ? $("input[name='name']").val(response["outcome"]["name"])
+        : "";
+      response["outcome"]["email"] !== undefined
+        ? $("input[name='email']").val(response["outcome"]["email"])
+        : "";
+      response["outcome"]["contact"] !== undefined
+        ? $("input[name='contact']").val(response["outcome"]["contact"])
+        : "";
       console.log($("input[name='address']"));
       response["outcome"]["address"] !== undefined
-      ? $("input[name='address']").val(response["outcome"]["address"])
-      : "";
-    var c_image = response['outcome']['c_image'] !== undefined
-      ? response["outcome"]["c_image"]
-      : "";
-    if (c_image != "") {
-      $(".drop-zone__prompts").html("");
-      var imagePreview =
-        '<div class="drop-zone__thumb"><img src="../admin1/assets/img/customer/' +
-        c_image +
-        '" class="picture__img"/><button class="close-button d-none">x</button></div>';
-      $(".drop-zone").append(imagePreview);
-    }
-    }
+        ? $("input[name='address']").val(response["outcome"]["address"])
+        : "";
+      var c_image =
+        response["outcome"]["c_image"] !== undefined
+          ? response["outcome"]["c_image"]
+          : "";
+      if (c_image != "") {
+        $(".drop-zone__prompts").html("");
+        var imagePreview =
+          '<div class="drop-zone__thumb"><img src="../admin1/assets/img/customer/' +
+          c_image +
+          '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+        $(".drop-zone").append(imagePreview);
+      }
+    },
   });
 }
 
@@ -414,7 +426,6 @@ function activeSidebarMenu() {
     }
   });
   $(".dropdown-container .nav-link").each(function () {
-    console.log("DROPDOWN");
     var href = $(this).attr("href");
     if (typeof href !== "undefined") {
       var pagehref = href.split("/").pop();
@@ -425,9 +436,43 @@ function activeSidebarMenu() {
     }
   });
 }
+
+function get_Categories() {
+  console.log("CAtegories");
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "get_categories" },
+    beforeSend: function () {},
+    success: function (response) {
+      var response = JSON.parse(response);
+      if (response["data"] == "success") {
+        if (response["outcome"] !== undefined) {
+          var categories = response["outcome"].split(",");
+          $.each(categories, function (index, category) {
+            category = category.trim(); // Remove any extra spaces
+            if (category !== "") {
+              var CategoriesHtml =
+                "<option value='" + (index + 1) + "'>" + category + "</option>";
+              console.log(CategoriesHtml);
+              $("select[name=categories],select[name=select_catagory]").append(
+                CategoriesHtml
+              );
+            }
+          });
+        }
+      } else {
+        console.log("Something went wrong");
+      }
+    },
+  });
+}
+
 $(document).ready(function () {
-  activeSidebarMenu();
   console.log("DOCUMENT READY ...");
+  activeSidebarMenu();
+  check_toggle_status();
 
   function showMessage(msg, type) {
     var alertTitle =
@@ -751,37 +796,37 @@ $(document).ready(function () {
     });
   });
   // custemer
-  $(document).on("click",".customersave",function(event){
+  $(document).on("click", ".customersave", function (event) {
     event.preventDefault();
     console.log("customer click");
-    var form_data =$("#custemer_frm")[0];
+    var form_data = $("#custemer_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "add_customer");
     $.ajax({
-      url : "../admin1/ajax_call.php",
-      method :"POST",
-      dataType:"JSON",
-      contentType :false,
-      processData:false,
-      data : form_data,
-      success :function(data){
+      url: "../admin1/ajax_call.php",
+      method: "POST",
+      dataType: "JSON",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      success: function (data) {
         console.log(data);
         var response = JSON.parse(data);
         response["msg"]["name"] !== undefined
-        ? $(".name").html(response["msg"]["name"])
-        : $(".name").html("");
+          ? $(".name").html(response["msg"]["name"])
+          : $(".name").html("");
         response["msg"]["email"] !== undefined
-        ? $(".email").html(response["msg"]["email"])
-        : $(".email").html("");
+          ? $(".email").html(response["msg"]["email"])
+          : $(".email").html("");
         response["msg"]["contact"] !== undefined
-        ? $(".contact").html(response["msg"]["contact"])
-        : $(".contact").html("");
+          ? $(".contact").html(response["msg"]["contact"])
+          : $(".contact").html("");
         response["msg"]["c_image"] !== undefined
-        ? $(".c_image").html(response["msg"]["c_image"])
-        : $(".c_image").html("");
+          ? $(".c_image").html(response["msg"]["c_image"])
+          : $(".c_image").html("");
         response["msg"]["address"] !== undefined
-        ? $(".address").html(response["msg"]["address"])
-        : $(".address").html("");
+          ? $(".address").html(response["msg"]["address"])
+          : $(".address").html("");
         if (response["data"] == "success") {
           console.log(response);
           console.log("Updated Customer ID:", response["updated_customer_id"]);
@@ -796,8 +841,8 @@ $(document).ready(function () {
         } else {
           showMessage(response.msg_error, "fail");
         }
-      }
-    })
+      },
+    });
   });
 
   // invoice
@@ -820,7 +865,7 @@ $(document).ready(function () {
       },
       success: function (response) {
         console.log(response);
-        var response = JSON.parse(response); 
+        var response = JSON.parse(response);
         response["msg"]["i_image"] !== undefined
           ? $(".i_image").html(response["msg"]["i_image"])
           : $(".i_image").html("");
@@ -853,19 +898,19 @@ $(document).ready(function () {
           ? $(".po_number").html(response["msg"]["po_number"])
           : $(".po_number").html("");
 
-          response["msg"]["item"] !== undefined
+        response["msg"]["item"] !== undefined
           ? $(".item").html(response["msg"]["item"])
           : $(".item").html("");
-  
-          response["msg"]["quantity"] !== undefined
+
+        response["msg"]["quantity"] !== undefined
           ? $(".quantity").html(response["msg"]["quantity"])
           : $(".quantity").html("");
-  
-          response["msg"]["rate"] !== undefined
+
+        response["msg"]["rate"] !== undefined
           ? $(".rate").html(response["msg"]["rate"])
           : $(".rate").html("");
-  
-          response["msg"]["amount"] !== undefined
+
+        response["msg"]["amount"] !== undefined
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
 
@@ -906,8 +951,8 @@ $(document).ready(function () {
           data.faq_id = employeeId;
         } else if (type === "review") {
           data.marketreview_id = employeeId;
-        } else if(type ==="customer"){
-          data.customer_id =employeeId;
+        } else if (type === "customer") {
+          data.customer_id = employeeId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1124,103 +1169,95 @@ $(document).ready(function () {
   });
   // search product
 
-  $('#search').on('keyup', function() {
-    
+  $("#search").on("keyup", function () {
     var search_text = $(this).val();
-        $.ajax({
-            url: "../admin1/ajax_call.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-                "search_text": search_text,
-                "routine_name": "productlisting"
-            },
-            success: function(data) {
-              var data = JSON.parse(data);
-                if (data.data == "success") {
-                    $("#getdata").html(data.outcome);
-                } else {
-                    $("#getdata").html("Data not found...");
-                }
-            },
-        });
-  
-})
-// product pagination
-  $(document).on('click', '#pagination-product a', function(event) {
-    event.preventDefault();
-    var page = $(this).data('page');
     $.ajax({
-        url: "../admin1/ajax_call.php",
-        type: "post",
-        dataType: "json",
-        data: {
-            "page": page,
-            "search_text": $("#search_text").val(),
-            "routine_name": "productlisting"
-        },
-        success: function(data) {
-          var data = JSON.parse(data);
-            if (data.data === 'success') {
-                $("#getdata").html(data.outcome);
-                $("#pagination").html(data.pagination);
-            } else {
-                $("#getdata").html("Data not found");
-                $("#pagination").html("Pagination not found");
-            }
-        },
+      url: "../admin1/ajax_call.php",
+      type: "POST",
+      dataType: "json",
+      data: {
+        search_text: search_text,
+        routine_name: "productlisting",
+      },
+      success: function (data) {
+        var data = JSON.parse(data);
+        if (data.data == "success") {
+          $("#getdata").html(data.outcome);
+        } else {
+          $("#getdata").html("Data not found...");
+        }
+      },
+    });
+  });
+  // product pagination
+  $(document).on("click", "#pagination-product a", function (event) {
+    event.preventDefault();
+    var page = $(this).data("page");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {
+        page: page,
+        search_text: $("#search_text").val(),
+        routine_name: "productlisting",
+      },
+      success: function (data) {
+        var data = JSON.parse(data);
+        if (data.data === "success") {
+          $("#getdata").html(data.outcome);
+          $("#pagination").html(data.pagination);
+        } else {
+          $("#getdata").html("Data not found");
+          $("#pagination").html("Pagination not found");
+        }
+      },
     });
   });
   // blog pagination
-  $(document).on('click', '#pagination-blog a', function(event) {
+  $(document).on("click", "#pagination-blog a", function (event) {
     event.preventDefault();
-    var page = $(this).data('page');
+    var page = $(this).data("page");
     $.ajax({
-        url: "../admin1/ajax_call.php",
-        type: "post",
-        dataType: "json",
-        data: {
-            "page": page,
-            "search_text": $("#search_text").val(),
-            "routine_name": "bloglisting"
-        },
-        success: function(data) {
-          var data = JSON.parse(data);
-            if (data.data == 'success') {
-                $("#getdata").html(data.outcome);
-                $("#pagination").html(data.pagination);
-            } else {
-                $("#getdata").html("Data not found");
-                $("#pagination").html("Pagination not found");
-            }
-        },
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {
+        page: page,
+        search_text: $("#search_text").val(),
+        routine_name: "bloglisting",
+      },
+      success: function (data) {
+        var data = JSON.parse(data);
+        if (data.data == "success") {
+          $("#getdata").html(data.outcome);
+          $("#pagination").html(data.pagination);
+        } else {
+          $("#getdata").html("Data not found");
+          $("#pagination").html("Pagination not found");
+        }
+      },
     });
-});
-// blogsearching
-$("#blog_search").on("keyup",function(){
-  // alert("ok")
-  var search_text =$(this).val();
-  $.ajax({
-    url:"../admin1/ajax_call.php",
-    type :"post",
-    dataType:"json",
-    data:{"search_text":search_text,"routine_name":"bloglisting"},
-    success: function(data){
-      var data = JSON.parse(data);
-      console.log(data.data);
-      if(data.data=='success')
-      {
-        $("#getdata").html(data.outcome );
-      }else{
-        $("#getdata").html("data is not found");
-      }
-    }
-
-  })
-})
-
-  $(document).ready(function () {
-    check_toggle_status();
+  });
+  // blogsearching
+  $("#blog_search").on("keyup", function () {
+    // alert("ok")
+    var search_text = $(this).val();
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: { search_text: search_text, routine_name: "bloglisting" },
+      success: function (data) {
+        var data = JSON.parse(data);
+        console.log(data.data);
+        if (data.data == "success") {
+          $("#getdata").html(data.outcome);
+        } else {
+          $("#getdata").html("data is not found");
+        }
+      },
+    });
   });
 
   function check_toggle_status() {
@@ -1262,9 +1299,6 @@ $("#blog_search").on("keyup",function(){
         routine_name: "toggle_enabledisable",
         ischecked_value: ischecked_value,
         table_name: table_name,
-      },
-      beforeSend: function () {
-        loading_show(".save_loader_show");
       },
       success: function (response) {
         console.log("Ajax response received: ", response);
@@ -1620,174 +1654,179 @@ $("#blog_search").on("keyup",function(){
       }
     });
   }
+});
 
-  var ctx = document.getElementById("chart-bars").getContext("2d");
+document.addEventListener("DOMContentLoaded", function () {
+  var ctxhtml = document.getElementById("chart-bars");
+  if (ctxhtml) {
+    var ctx = ctxhtml.getContext("2d");
 
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      datasets: [
-        {
-          label: "Sales",
-          tension: 0.4,
-          borderWidth: 0,
-          borderRadius: 4,
-          borderSkipped: false,
-          backgroundColor: "#fff",
-          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-          maxBarThickness: 6,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      interaction: {
-        intersect: false,
-        mode: "index",
-      },
-      scales: {
-        y: {
-          grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [
+          {
+            label: "Sales",
+            tension: 0.4,
+            borderWidth: 0,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "#fff",
+            data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+            maxBarThickness: 6,
           },
-          ticks: {
-            suggestedMin: 0,
-            suggestedMax: 500,
-            beginAtZero: true,
-            padding: 15,
-            font: {
-              size: 14,
-              family: "Open Sans",
-              style: "normal",
-              lineHeight: 2,
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+        interaction: {
+          intersect: false,
+          mode: "index",
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
             },
-            color: "#fff",
-          },
-        },
-        x: {
-          grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
-          },
-          ticks: {
-            display: false,
-          },
-        },
-      },
-    },
-  });
-
-  var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-  var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-  gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
-  gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
-  gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
-
-  var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-  gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
-  gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
-  gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
-
-  new Chart(ctx2, {
-    type: "line",
-    data: {
-      labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      datasets: [
-        {
-          label: "Mobile apps",
-          tension: 0.4,
-          borderWidth: 0,
-          pointRadius: 0,
-          borderColor: "#77C0FC",
-          borderWidth: 3,
-          backgroundColor: gradientStroke1,
-          fill: true,
-          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-          maxBarThickness: 6,
-        },
-        {
-          label: "Websites",
-          tension: 0.4,
-          borderWidth: 0,
-          pointRadius: 0,
-          borderColor: "#3A416F",
-          borderWidth: 3,
-          backgroundColor: gradientStroke2,
-          fill: true,
-          data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-          maxBarThickness: 6,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      interaction: {
-        intersect: false,
-        mode: "index",
-      },
-      scales: {
-        y: {
-          grid: {
-            drawBorder: false,
-            display: true,
-            drawOnChartArea: true,
-            drawTicks: false,
-            borderDash: [5, 5],
-          },
-          ticks: {
-            display: true,
-            padding: 10,
-            color: "#b2b9bf",
-            font: {
-              size: 11,
-              family: "Open Sans",
-              style: "normal",
-              lineHeight: 2,
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 15,
+              font: {
+                size: 14,
+                family: "Open Sans",
+                style: "normal",
+                lineHeight: 2,
+              },
+              color: "#fff",
             },
           },
-        },
-        x: {
-          grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
-            borderDash: [5, 5],
-          },
-          ticks: {
-            display: true,
-            color: "#b2b9bf",
-            padding: 20,
-            font: {
-              size: 11,
-              family: "Open Sans",
-              style: "normal",
-              lineHeight: 2,
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+            },
+            ticks: {
+              display: false,
             },
           },
         },
       },
-    },
-  });
+    });
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+    gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+    gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
+
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+    gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+    gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [
+          {
+            label: "Mobile apps",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#77C0FC",
+            borderWidth: 3,
+            backgroundColor: gradientStroke1,
+            fill: true,
+            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            maxBarThickness: 6,
+          },
+          {
+            label: "Websites",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#3A416F",
+            borderWidth: 3,
+            backgroundColor: gradientStroke2,
+            fill: true,
+            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+            maxBarThickness: 6,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+        interaction: {
+          intersect: false,
+          mode: "index",
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: "#b2b9bf",
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: "normal",
+                lineHeight: 2,
+              },
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5],
+            },
+            ticks: {
+              display: true,
+              color: "#b2b9bf",
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: "normal",
+                lineHeight: 2,
+              },
+            },
+          },
+        },
+      },
+    });
+  }
 });

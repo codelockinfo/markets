@@ -45,7 +45,7 @@ if ($_SESSION['current_user']['role'] == 1) {
               <label for="text" class="font-weight-normal">Categories</label>             
                 <select class="form-select required" aria-label="Default select example" id="mySelect" name="categories">
                   <option selected value="">Select Category</option>
-                  <option value="1">Armwear</option>
+                  <!-- <option value="1">Armwear</option>
                   <option value="2">Badges</option>
                   <option value="3">Belts</option>
                   <option value="4">Children's clothing</option>
@@ -75,7 +75,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                   <option value="28">Tops</option>
                   <option value="29">Trousers and shorts</option>
                   <option value="30">Undergarments</option>
-                  <option value="31">Wedding clothing</option>
+                  <option value="31">Wedding clothing</option> -->
                 </select>                                    
               <span class="errormsg categories"></span>
             </div>
@@ -166,4 +166,5 @@ if ($_SESSION['current_user']['role'] == 1) {
 <script type="text/javascript"> 
 console.log("brouse textile LIST");
 listbrousetextile();
+get_Categories();
 </script>
