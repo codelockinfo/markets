@@ -56,7 +56,32 @@ function redirect403() {
   window.location = "https://www.shopify.com/admin/apps";
 }
 
+function check_toggle_status() {
+  var table_name = $("#toggleStatus").val();
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "check_toggle_status", table_name: table_name },
+    beforeSend: function () {},
+    success: function (response) {
+      var response = JSON.parse(response);
+      if (response["outcome"] !== undefined) {
+        var check_status = response["outcome"]["status"];
+        if (check_status == 1) {
+          $("#flexSwitchCheckDefault").prop("checked", true);
+        } else {
+          $("#flexSwitchCheckDefault").prop("checked", false);
+        }
+      } else {
+        console.log("Something went wrong");
+      }
+    },
+  });
+}
+
 function loadData(routineName) {
+  
   console.log(routineName + " on load");
   $.ajax({
     url: "../admin1/ajax_call.php", // Your PHP script URL
@@ -79,6 +104,7 @@ function loadData(routineName) {
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
         }
+        check_toggle_status();
       }
     },
   });
@@ -123,6 +149,7 @@ function listparagraph() {
 }
 
 function listproductprofile() {
+  // not in use
   loadData("profileproductlisting");
 }
 
@@ -131,6 +158,7 @@ function listbanner() {
 }
 
 function listfamousmarket() {
+  // not in use
   loadData("famousmarketlisting");
 }
 
@@ -463,7 +491,6 @@ function get_Categories() {
 $(document).ready(function () {
   console.log("DOCUMENT READY ...");
   activeSidebarMenu();
-  check_toggle_status();
 
   function showMessage(msg, type) {
     var alertTitle =
@@ -1250,30 +1277,6 @@ $(document).ready(function () {
       },
     });
   });
-
-  function check_toggle_status() {
-    var table_name = $("#toggleStatus").val();
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: { routine_name: "check_toggle_status", table_name: table_name },
-      beforeSend: function () {},
-      success: function (response) {
-        var response = JSON.parse(response);
-        if (response["outcome"] !== undefined) {
-          var check_status = response["outcome"]["status"];
-          if (check_status == 1) {
-            $("#flexSwitchCheckDefault").prop("checked", true);
-          } else {
-            $("#flexSwitchCheckDefault").prop("checked", false);
-          }
-        } else {
-          console.log("Something went wrong");
-        }
-      },
-    });
-  }
 
   $(document).on("click", "#flexSwitchCheckDefault", function () {
     toggle_enabledisable(this);

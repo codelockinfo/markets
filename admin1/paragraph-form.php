@@ -143,5 +143,6 @@ if ($_SESSION['current_user']['role'] == 1) {
 </html>
 <script type="text/javascript"> 
 console.log("video LIST");
-listparagraph();
+// listparagraph();
+loadData("paragraphlisting");
 </script>

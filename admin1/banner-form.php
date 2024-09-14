@@ -166,5 +166,6 @@ if ($_SESSION['current_user']['role'] == 1) {
 </html>
 <script type="text/javascript"> 
 console.log("banner LIST");
-listbanner();
+// listbanner();
+loadData("bannerlisting");
 </script>

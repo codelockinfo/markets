@@ -156,5 +156,6 @@ if ($_SESSION['current_user']['role'] == 1) {
 </html>
 <script type="text/javascript"> 
 console.log("listbrousetextile LIST");
-listreview()
+// listreview()
+loadData("reviewlisting");
 </script>
