@@ -1,4 +1,3 @@
-
 // drag & drop js
 
 // function showMessage(msg, type) {
@@ -95,7 +94,7 @@ function updateThumbnail(dropZoneElement, file) {
       img.src = readerTarget.result;
       img.classList.add("picture__img");
       const closeButton = document.createElement("button");
-      closeButton.classList.add("close-button","d-none");
+      closeButton.classList.add("close-button", "d-none");
       closeButton.innerText = "x";
       closeButton.addEventListener("click", () => {
         thumbnailElement.innerHTML = "";
@@ -157,74 +156,82 @@ $(document).ready(function () {
   }
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   function addRow() {
-      const row = $(".attr").first().clone(true, true);
-      row.find("input").val("");
-      row.find(".remove").show();
-      $("#attributes-body").append(row);
-      updateRemoveButtonVisibility();
-      updateSubtotal();
+    const row = $(".attr").first().clone(true, true);
+    row.find("input").val("");
+    row.find(".remove").show();
+    $("#attributes-body").append(row);
+    updateRemoveButtonVisibility();
+    updateSubtotal();
   }
 
   function removeRow(button) {
-      button.closest("tr.attr").remove();
-      updateRemoveButtonVisibility();
-      updateSubtotal();
+    button.closest("tr.attr").remove();
+    updateRemoveButtonVisibility();
+    updateSubtotal();
   }
 
   function updateRemoveButtonVisibility() {
-      const rows = $("#attributes-body .attr");
-      rows.each(function(index) {
-          $(this).find(".remove").toggle(rows.length > 1);
-      });
+    const rows = $("#attributes-body .attr");
+    rows.each(function (index) {
+      $(this)
+        .find(".remove")
+        .toggle(rows.length > 1);
+    });
   }
 
   function calculateAmount(row) {
-      const quantity = parseFloat(row.find('input[name="quantity[]"]').val()) || 0;
-      const rate = parseFloat(row.find('input[name="rate[]"]').val()) || 0;
-      const amount = quantity * rate;
-      row.find('input[name="amount[]"]').val(amount.toFixed(2));
-      updateSubtotal();
+    const quantity =
+      parseFloat(row.find('input[name="quantity[]"]').val()) || 0;
+    const rate = parseFloat(row.find('input[name="rate[]"]').val()) || 0;
+    const amount = quantity * rate;
+    row.find('input[name="amount[]"]').val(amount.toFixed(2));
+    updateSubtotal();
   }
 
   function updateSubtotal() {
-      let subtotal = 0;
-      $('#attributes-body .attr').each(function() {
-          const amountText = $(this).find('input[name="amount[]"]').val();
-          const amount = parseFloat(amountText) || 0;
-          subtotal += amount;
-      });
+    let subtotal = 0;
+    $("#attributes-body .attr").each(function () {
+      const amountText = $(this).find('input[name="amount[]"]').val();
+      const amount = parseFloat(amountText) || 0;
+      subtotal += amount;
+    });
 
-      const amountPaid = parseFloat($('input[name="amount_paid"]').val()) || 0;
-      const balanceDue = subtotal - amountPaid;
+    const amountPaid = parseFloat($('input[name="amount_paid"]').val()) || 0;
+    const balanceDue = subtotal - amountPaid;
 
-      $('input[name="subtotal"]').val(subtotal.toFixed(2));
-      $('input[name="total"]').val(subtotal.toFixed(2));
-      $('input[name="balance_due"]').val(balanceDue.toFixed(2));
+    $('input[name="subtotal"]').val(subtotal.toFixed(2));
+    $('input[name="total"]').val(subtotal.toFixed(2));
+    $('input[name="balance_due"]').val(balanceDue.toFixed(2));
   }
 
-  $(".add").off("click").on("click", function() {
+  $(".add")
+    .off("click")
+    .on("click", function () {
       addRow();
+    });
+
+  $("#attributes-body").on("click", ".remove", function () {
+    removeRow($(this));
   });
 
-  $("#attributes-body").on("click", ".remove", function() {
-      removeRow($(this));
-  });
-
-  $("#attributes-body").on("input", 'input[name="quantity[]"], input[name="rate[]"]', function() {
-      const row = $(this).closest('tr');
+  $("#attributes-body").on(
+    "input",
+    'input[name="quantity[]"], input[name="rate[]"]',
+    function () {
+      const row = $(this).closest("tr");
       calculateAmount(row);
-  });
+    }
+  );
 
-  $('input[name="amount_paid"]').on('input', function() {
-      updateSubtotal();
+  $('input[name="amount_paid"]').on("input", function () {
+    updateSubtotal();
   });
 
   updateRemoveButtonVisibility();
   updateSubtotal();
 });
-
 
 // duantity js
 $(".increment-btn").click(function (e) {
@@ -233,9 +240,9 @@ $(".increment-btn").click(function (e) {
   var value = parseInt(inc_value, 10);
   value = isNaN(value) ? 0 : value;
   if (value < 10) {
-      value++;
-      $(this).closest(".product_data").find(".qty-input").val(value);
-      console.log("After increment: ", value);
+    value++;
+    $(this).closest(".product_data").find(".qty-input").val(value);
+    console.log("After increment: ", value);
   }
 });
 
@@ -246,27 +253,30 @@ $(".decrement-btn").click(function (e) {
   value = isNaN(value) ? 0 : value;
   console.log("Before decrement: ", value);
   if (value > 1) {
-      value--;
-      $(this).closest(".product_data").find(".qty-input").val(value);
-      console.log("After decrement: ", value);
+    value--;
+    $(this).closest(".product_data").find(".qty-input").val(value);
+    console.log("After decrement: ", value);
   }
 });
-// loder 
-$(window).on("load",function() {
-$("#preloader").fadeOut();
-$("#status").fadeOut(1000);
-})
+// loder
+$(window).on("load", function () {
+  $("#preloader").fadeOut();
+  $("#status").fadeOut(1000);
+});
 // multiple image uplode
-document.getElementById('imageUpload').addEventListener('change', function() {
-  const previewContainer = document.getElementById('imagePreview');
-  previewContainer.innerHTML = ''; 
-  Array.from(this.files).forEach(file => {
-      const img = document.createElement('img');
-      img.classList.add('img-preview');
+var imageupload = document.getElementById("imageUpload");
+if (imageupload) {
+  imageupload.addEventListener("change", function () {
+    const previewContainer = document.getElementById("imagePreview");
+    previewContainer.innerHTML = "";
+    Array.from(this.files).forEach((file) => {
+      const img = document.createElement("img");
+      img.classList.add("img-preview");
       img.src = URL.createObjectURL(file);
       previewContainer.appendChild(img);
+    });
   });
-});
+}
 // product page multiple image select
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");

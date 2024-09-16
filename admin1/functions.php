@@ -1047,13 +1047,22 @@ class admin_functions {
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO paragraph (paragraph,user_id) VALUES ('$myeditor','$user_id')";
+                $query = "SELECT * FROM paragraph";
                 $result = $this->db->query($query);
-            }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => 'paragraph inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
+                if($result){
+                    if (mysqli_num_rows($result) > 0) {
+                            $row = $result->fetch_assoc();
+                            $id = $row['id'];
+                            $query = "UPDATE paragraph SET paragraph = '$myeditor' WHERE id = '$id'";  
+                            $result = $this->db->query($query);
+                    }else{
+                        $query = "INSERT INTO paragraph (paragraph,user_id) VALUES ('$myeditor','$user_id')";
+                        $result = $this->db->query($query);
+                    }
+                    $response_data = array('data' => 'success', 'msg' => 'paragraph inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
             }
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
