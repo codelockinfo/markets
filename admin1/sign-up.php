@@ -108,6 +108,19 @@ include 'header.php';
                       <input type="address" class="form-control validsignf" placeholder="Address" name="address">
                       <span class="errormsg address"></span>
                     </div>
+                    <div class="mb-2">
+                      <label>shop logo image</label>
+                      <input type="file" class="form-control signImage" name="shop_logo">
+                      <div class="col">
+                        <div class="row mt-2">
+                          <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                        </div>
+                        <div class="row mt-lg-n1">
+                          <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                        </div>
+                      </div>
+                      <div class="errormsg shop_logo imageError"></div>
+                    </div>
                     <div class="mb-3">
                       <input type="password" class="form-control password validsignf" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
                       <span class="errormsg password"></span>

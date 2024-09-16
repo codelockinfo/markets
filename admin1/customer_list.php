@@ -52,7 +52,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         </g>
                       </g>
                     </svg>
-                    <span class="ms-1">add custmer</span>
+                    <span class="ms-1">add customer</span>
                   </a>
                 </li>
               </ul>

@@ -721,6 +721,10 @@ $(document).ready(function () {
         response["msg"]["address"] !== undefined
           ? $(".address").html(response["msg"]["address"])
           : $(".address").html("");
+          response["msg"]["shop_logo"] !== undefined
+          ? $(".shop_logo").html(response["msg"]["shop_logo"])
+          : $(".shop_logo").html("");
+
         response["msg"]["phone_number"] !== undefined
           ? $(".phone_number").html(response["msg"]["phone_number"])
           : $(".phone_number").html("");

@@ -58,7 +58,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    
+
     function profile_updatedata(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if($_SESSION['current_user']['user_id']){
@@ -105,30 +105,43 @@ class admin_functions {
     function insert_signup(){
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        $filename = isset($_FILES["image"]["name"]) ? $_FILES["image"]["name"] : '';
-        $tmpfile = isset($_FILES["image"]["tmp_name"]) ? $_FILES["image"]["tmp_name"] : '';
-        $fileName = $_FILES['image']['name'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time(). '.' . $extension;
-        $folder = "assets/img/sigup_img/";
-        $fullpath= $folder . $newFilename;
-        $file = $_FILES['image'];
-        $maxSize = 5 * 1024 * 1024;  
-        
-        if (!is_dir($folder)) {
-            $mkdir = mkdir($folder, 0777, true);
-            if (!$mkdir) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
+        if (isset($_FILES['image'])) {
+            $filename = $_FILES['image']['name'];
+            $tmpfile = $_FILES['image']['tmp_name'];
+            $fileNameCmps = explode(".", $filename);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $newFilename = time() . '.' . $fileExtension;
+            $folder = "assets/img/sigup_img/";
+            $fullpath = $folder . $newFilename;
+            $maxSize = 5 * 1024 * 1024;
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }  
+            if ($_FILES['image']['size'] > $maxSize) {
+                $error_array['image'] = "File size must be 5MB or less.";
+            }
+    
+            if (empty($filename)) {
+                $error_array['image'] = "Please select an image.";
             }
         }
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }  
-        if ($file['size'] > $maxSize) {
-            $error_array['image'] = "File size must be 5MB or less.";          
+        if (isset($_FILES['shop_logo'])) {
+            $filename = $_FILES['shop_logo']['name'];
+            $tmpfile = $_FILES['shop_logo']['tmp_name'];
+            $fileNameCmps = explode(".", $filename);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $shoplogo = time() . '.' . $fileExtension;
+            $shopLogoPath = $folder . $shoplogo;
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $error_array['shop_logo'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }  
+            if ($_FILES['shop_logo']['size'] > $maxSize) {
+                $error_array['shop_logo'] = "File size must be 5MB or less.";
+            }
+    
+            if (empty($filename)) {
+                $error_array['shop_logo'] = "Please select a shop logo.";
+            }
         }
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
@@ -142,91 +155,73 @@ class admin_functions {
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
             $error_array['business_type'] = "Please select business type";
         }
-        if (empty($filename)) {
-            $error_array['image'] = "Please select image";
-       }
-       $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-       $password = isset($_POST['password']) ? $_POST['password'] : '';
-       $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
-       $email = isset($_POST['email']) ? $_POST['email'] : '';
-       $error = '';
-       $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
-       $mobilepattern = "/^[789]\d{9}$/";
-       
-       if(empty($phone_number)){
+    
+        // Phone number validation
+        $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
+        $mobilepattern = "/^[789]\d{9}$/";
+        if (empty($phone_number)) {
             $error_array['phone_number'] = "Please enter phone number";
-       }elseif (!preg_match($mobilepattern, $phone_number)) {
+        } elseif (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
-       }
-       if (empty($password)) {
-           $error = 'Please enter a password.';
-       } elseif (!preg_match($strongPasswordPattern, $password)) {
-           $error = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
-       }
-       if (empty($confirmPassword)) {
-           $error_array['Confirm_Password'] ="Please enter a confirm password";
-       } elseif ($password !== $confirmPassword) {
-           $error_array['Confirm_Password'] ="Password Mismatch";
-       }
-       if ($error) {
-           $error_array['password'] = $error;
-       }
-       if (empty($email)) {
-           $error_array['email'] = "Please enter an email address";
-       } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-           $error_array['email'] = "Please enter a valid email address";
-       }
-       if (empty($error_array)) {            
-            $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
-            $name = str_replace("'", "\'", $name);
-            $shop = (isset($_POST['shop']) && $_POST['shop'] !== '') ? $_POST['shop'] : '';
-            $shop = str_replace("'", "\'", $shop);
-            $address = (isset($_POST['address']) && $_POST['address'] !== '') ? $_POST['address'] : '';
-            $address = str_replace("'", "\'", $address);
-            $phone_number = (isset($_POST['phone_number']) && $_POST['phone_number'] !== '') ? $_POST['phone_number'] : '';
-            $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';
-            $password = (isset($_POST['password']) && $_POST['password'] !== '') ? $_POST['password'] : '';
-            $email = (isset($_POST['email']) && $_POST['email'] !== '') ? $_POST['email'] : '';
+        }
+    
+        // Password validation
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
+        $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
+        if (empty($password)) {
+            $error_array['password'] = "Please enter a password.";
+        } elseif (!preg_match($strongPasswordPattern, $password)) {
+            $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character.";
+        }
+        if (empty($confirmPassword)) {
+            $error_array['Confirm_Password'] = "Please enter a confirm password.";
+        } elseif ($password !== $confirmPassword) {
+            $error_array['Confirm_Password'] = "Passwords do not match.";
+        }
+    
+        // Email validation
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        if (empty($email)) {
+            $error_array['email'] = "Please enter an email address";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_array['email'] = "Please enter a valid email address";
+        }
+    
+        // If no errors, proceed with inserting data
+        if (empty($error_array)) {
+            $name = isset($_POST['name']) ? mysqli_real_escape_string($this->db, $_POST['name']) : '';
+            $shop = isset($_POST['shop']) ? mysqli_real_escape_string($this->db, $_POST['shop']) : '';
+            $address = isset($_POST['address']) ? mysqli_real_escape_string($this->db, $_POST['address']) : '';
+            $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
+            $business_type = isset($_POST['business_type']) ? $_POST['business_type'] : '';
+    
+            // Check for existing email
             $email_check_query = "SELECT * FROM users WHERE email = '$email'";
             $email_check_result = mysqli_query($this->db, $email_check_query);
             if ($email_check_result->num_rows > 0) {
-                $error_arrayemail['email'] = "Email already reagister";
-                $response_data = array('data' => 'fail', 'msg' => $error_arrayemail);
-            }else{
-                if (move_uploaded_file($tmpfile,$fullpath)) {
-                    $query = "INSERT INTO users (name,shop,address,phone_number,business_type,shop_img,password,email) VALUES ('$name', '$shop','$address','$phone_number','$business_type','$newFilename','$password','$email')";
-                    $result = $this->db->query($query);
+                $error_array['email'] = "Email already registered";
+                return json_encode(array('data' => 'fail', 'msg' => $error_array));
+            } else {
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
+                    $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
+                              VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$password', '$email')";
+                    $result = mysqli_query($this->db, $query);
+                    
                     if ($result) {
-                        $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-                        
-                        $message = file_get_contents('thankemail_template.php');
-                        $to = $email;	
-                        $subject = "Market Search"; 
-                        $headers ="From:codelockinfo@gmail.com"." \r\n";     
-                        $headers = "MIME-Version: 1.0\r\n";
-                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                        $responceEmail = mail ($to, $subject, $message, $headers);	
-                        
-                        $last_id = mysqli_insert_id($this->db);
-                        $user_query = "SELECT * FROM users WHERE user_id = $last_id";
-                        $user_result = mysqli_query($this->db, $user_query);                
-                        if ($user_result) {
-                            $userinfo = mysqli_fetch_assoc($user_result);
-                            $_SESSION['current_user'] = $userinfo;
-                        } else {
-                            $response_data = array('data' => 'fail', 'msg' => "Error fetching user info");
-                        }
+                        return json_encode(array('data' => 'success', 'msg' => 'Data inserted successfully!'));
                     } else {
-                        $response_data = array('data' => 'fail', 'msg' => "Error");
+                        return json_encode(array('data' => 'fail', 'msg' => 'Error inserting data.'));
                     }
+                } else {
+                    return json_encode(array('data' => 'fail', 'msg' => 'Error uploading files.'));
                 }
-            }            
-            }else{
-                $response_data = array('data' => 'fail', 'msg' => $error_array,'msg_error' => "Oops! Something went wrong ");
             }
-            $response = json_encode($response_data);
-            return $response;
+        } else {
+            return json_encode(array('data' => 'fail', 'msg' => $error_array));
+        }
     }
+    
 
     function insert_products() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
