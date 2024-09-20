@@ -104,6 +104,8 @@ function loadData(routineName) {
           $("#pagination").html(response.pagination);
         }
         check_toggle_status();
+        check_toggle_btn();
+
       }
     },
   });
@@ -126,6 +128,9 @@ function listcustomer() {
 function listblog() {
   loadData("bloglisting");
 }
+function listinvoice(){
+  loadData("invoicelisting");
+}
 
 function offerlist() {
   loadData("offerlisting");
@@ -133,6 +138,9 @@ function offerlist() {
 
 function listvideo() {
   loadData("videolisting");
+}
+function allvideo(){
+  loadData("allvideolisting")
 }
 
 function listbrousetextile() {
@@ -356,6 +364,72 @@ function get_product(id) {
     },
   });
 }
+  function get_invoice(id) {
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: { routine_name: "getinvoice", id: id },
+      success: function (response) {
+        var response = JSON.parse(response);
+        // console.log(response);
+        // console.log("i_name:", response.outcome.i_name);
+        // console.log("ship_to:", response.outcome.ship_to);
+        // console.log("bill_no:", response.outcome.bill_no);
+        // console.log("total:", response.outcome.total);
+        // console.log(response.outcome.date);
+        // console.log(response.outcome.balance_due);
+
+
+
+        response["outcome"]["i_name"] !== undefined
+        ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
+        : "";
+          response["outcome"]["bill_no"] !== undefined
+          ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
+          : "";
+          
+          response["outcome"]["ship_to"] !== undefined
+          ? $("textarea[name='ship_to']").val(response["outcome"]["ship_to"])
+          : "";
+          response["outcome"]["terms"] !== undefined
+          ? $("input[name='terms']").val(response["outcome"]["terms"])
+          : "";
+          response["outcome"]["due_date"] !== undefined
+          ? $("input[name='due_date']").val(response["outcome"]["due_date"])
+          : "";
+          
+          response["outcome"]["po_number"] !== undefined
+          ? $("input[name='po_number']").val(response["outcome"]["po_number"])
+          : "";
+          response["outcome"]["total"] !== undefined
+          ? $("input[name='total']").val(response["outcome"]["total"])
+          : "";
+          response["outcome"]["amount_paid"] !== undefined
+          ? $("input[name='amount_paid']").val(response["outcome"]["amount_paid"])
+          : "";
+          response["outcome"]["balance_due"] !== undefined
+          ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
+          : "";
+        var i_image =
+          response["outcome"]["i_image"] !== undefined
+            ? response["outcome"]["i_image"]
+            : "";
+        if (i_image != "") {
+          $(".drop-zone__prompt").html("");
+          var imagePreview =
+            '<div class="drop-zone__thumb"><img src="../admin1/assets/img/invoice_img/' +
+            i_image +
+            '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+          $(".drop-zone").append(imagePreview);
+        }
+        response["outcome"]["body"] !== undefined
+          ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
+          : "";
+      },
+    });
+  }
+
 
 function get_customer(id) {
   var routine_name = "getcustomer";
@@ -496,6 +570,39 @@ function get_Categories() {
         console.log("Something went wrong");
       }
     },
+  });
+}
+
+function select_shop() {
+  console.log("select shop");
+  $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: { routine_name: "select_shop" },
+      beforeSend: function () {},
+      success: function (response) {
+        var response = JSON.parse(response);
+          console.log(response.data); 
+          if (response.data === "success") {
+              if (Array.isArray(response.outcome)) {
+                  $("#mySelect").empty().append('<option selected value="">Select Shop</option>');
+                  $.each(response.outcome, function (index, shopName) {
+                      shopName = shopName.trim();
+                      if (shopName) {
+                          var optionHtml = "<option value='" +  shopName  + "'>" + shopName + "</option>";
+                          console.log(optionHtml);
+                          $("#mySelect").append(optionHtml); 
+                      }
+                  });
+              }
+          } else {
+              console.log("Something went wrong");
+          }
+      },
+      error: function (xhr, status, error) {
+          console.log("AJAX Error: " + status + ": " + error);
+      }
   });
 }
 
@@ -947,10 +1054,20 @@ $(document).ready(function () {
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
 
-        if (response["data"] === "success") {
-          console.log(response);
-          $("#invoice_frm")[0].reset();
-        }
+          if (response["data"] == "success") {
+            console.log(response);
+            console.log("Updated invoice ID:", response["update_invoice_id"]);
+            if (!response["update_invoice_id"]) {
+              $("#invoice_frm")[0].reset();
+              resetThumbnail();
+              $(".myFile").html("");
+            } else {
+              window.location.href = "invoice-list.php";
+            }
+            showMessage(response.msg, "success");
+          } else {
+            showMessage(response.msg_error, "fail");
+          }
       },
     });
   });
@@ -986,6 +1103,8 @@ $(document).ready(function () {
           data.marketreview_id = employeeId;
         } else if (type === "customer") {
           data.customer_id = employeeId;
+        }else if(type ==="invoice"){
+          data.invoice_id = employeeId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1024,6 +1143,7 @@ $(document).ready(function () {
     var deleteType = $(this).attr("data-delete-type");
     var deleteMapping = {
       product: { routine: "productdelete", callback: listproduct },
+      invoice: { routine: "invoicedelete", callback: listinvoice },
       customer: { routine: "customerdelete", callback: listcustomer },
       blog: { routine: "blogdelete", callback: listblog },
       video: { routine: "videodelete", callback: listvideo },
@@ -1314,6 +1434,7 @@ $(document).ready(function () {
       },
     });
   }
+  
 
   $(document).on("click", ".marketSave", function (event) {
     event.preventDefault();
@@ -1664,6 +1785,52 @@ $(document).ready(function () {
     });
   }
 });
+
+// video anable disable
+
+$(document).on("click", ".toggle-button", function () {
+  toggle_checkuncheck(this);
+});
+
+function check_toggle_btn(videoId) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: {
+      routine_name: "check_toggle_btn",
+      video_id: videoId 
+    },
+   
+    success: function (response) {
+      if (response["outcome"] !== undefined) {
+        var check_status = response["outcome"]["toggle"];
+        $("#checkbox_" + videoId).prop("checked", check_status == 1);
+      } else {
+        console.log("Something went wrong");
+      }
+    },
+  });
+}
+function toggle_checkuncheck(thisObj) {
+  var videoId = $(thisObj).data("video-id");
+  var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
+
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      routine_name: "toggle_checkuncheck",
+      ischecked_value: ischecked_value,
+      video_id: videoId 
+    },
+    success: function (response) {
+      console.log("Ajax response received: ", response);
+    },
+  });
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var ctxhtml = document.getElementById("chart-bars");

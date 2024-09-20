@@ -525,10 +525,15 @@ include 'header.php';
                     </div>
                 </div>
                 <div class="content_2 col-12 col-lg-4 col-md-6 faqImage">
-                    
+                
                 </div>
             </div>
         </div>
+    </div>
+    <div class="allfaq">
+        <a href="all-faq.php" class="d-flex justify-content-center wow bounceInUp" style="visibility: visible; animation-name: bounceInUp;">
+            <button class="btn btn-primary text-capitalize px-5 mt-4 text-center">All FAQ</button>
+        </a>
     </div>
     <!-- FAQ End -->
 

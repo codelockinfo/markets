@@ -39,32 +39,19 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
           <div class="card z-index-0 p-5 product-main">
             <form role="form" id="reviewinsert" enctype="multipart/form-data" method="POST">
-              <label for="p-image" class="font-weight-normal required">Shop Logo</label>
-              <div class="mb-3">
-                <div class="drop-zone form-control">
-                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                  <input type="file" name="shop_image" id="removeImage" class="drop-zone__input">
-                </div>
-                <div class="col">
-                  <div class="row mt-2">
-                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
-                  </div>
-                  <div class="row mt-lg-n1">
-                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
-                  </div>
-                </div>
-                <div class="errormsg myFile shop_image"></div>
-              </div>
               <label for="p-description" class="font-weight-normal required">Shop Description</label>
               <div class="mb-3">
-                <textarea id="shop-description" class="w-100 form-control validtext" name="shop_description"></textarea>
+                <textarea id="shop-description" class="w-100 form-control validtext" name="description"></textarea>
                 <span class="errormsg shop_description"></span>
               </div>
               <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext product w-100" placeholder="Shop Name" name="shop_name">
+                <select class="form-select required" aria-label="Select Shop" id="mySelect" name="shopname">
+                  <option selected value="">Select Shop</option>
+                </select>
                 <span class="errormsg shop_name"></span>
               </div>
+
               <label for="review" class="font-weight-normal required">Shop Reviews</label>
               <div class="mb-3">
                 <input type="number" class="form-control product w-100" placeholder="Shop Reviews" name="review">
@@ -74,13 +61,14 @@ if ($_SESSION['current_user']['role'] == 1) {
                 <button type="button" class="btn bg-gradient-info btn-sm reviewSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm pform_reset formCancel">Cancel</button>
               </div>
-              <!-- <div class="alert" role="alert" id="success_message" name="success_alert"></div> -->
+            
             </form>
+            
           </div>
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-5">
-            <div class="row"  id="getdata">              
+            <div class="" id="getdata">
             </div>
           </div>
         </div>
@@ -154,8 +142,9 @@ if ($_SESSION['current_user']['role'] == 1) {
 </body>
 
 </html>
-<script type="text/javascript"> 
-console.log("listbrousetextile LIST");
-// listreview()
-loadData("reviewlisting");
+<script type="text/javascript">
+  console.log("listbrousetextile LIST");
+  // listreview()
+  loadData("reviewlisting");
+  select_shop();
 </script>

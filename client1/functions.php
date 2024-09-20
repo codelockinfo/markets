@@ -198,7 +198,7 @@ class client_functions {
 
     function videoshow (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM videos WHERE status='1'"; 
+        $query = "SELECT * FROM videos WHERE status='1' and toggle='1'"; 
         $result = $this->db->query($query);
         $output = $videotitle = $videobutton = "";
         if ($result) {
@@ -221,6 +221,34 @@ class client_functions {
     function FAQshow (){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT * FROM faqs WHERE status='1' LIMIT 5"; 
+        $result = $this->db->query($query);
+        $output= $faqtitle = $faqcontent = $faqimage = "";
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {                 
+                    $output .= '<div class="accordion-item border">';
+                    $output .= '    <h2 class="accordion-header" id="heading' . $row["faq_id"] . '">';
+                    $output .= '        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
+                    $output .= '            <h6 class="m-0">' . $row["question"] . '</h6>';
+                    $output .= '        </button>';
+                    $output .= '    </h2>';
+                    $output .= '    <div id="collapse' . $row["faq_id"] . '" class="accordion-collapse collapse" aria-labelledby="heading' . $row["faq_id"] . '" data-bs-parent="#accordionExample">';
+                    $output .= '        <div class="accordion-body">';
+                    $output .= '            ' . $row["answer"] . '';
+                    $output .= '        </div>';
+                    $output .= '    </div>';
+                    $output .= '</div>';                    
+                }
+                $faqtitle .= '<h1 class="fs-1 ">Frequently ask questions</h1>';
+                $faqcontent .= "<p class='fs-6 mb-6'>When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>";
+                $faqimage .= '<img class="img-fluid  fit-cover rounded" src="'.CLS_SITE_URL.'img/faq.jpg" alt="faq">';
+                $response_data = array('data' => 'success', 'outcome' => $output , 'faqcontent' => $faqcontent, 'faqtitle' => $faqtitle ,'faqimage' => $faqimage);
+            }
+            $response = json_encode($response_data);
+            return $response;
+    }
+    function allFAQshow (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM faqs WHERE status='1'"; 
         $result = $this->db->query($query);
         $output= $faqtitle = $faqcontent = $faqimage = "";
             if ($result) {

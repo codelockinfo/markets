@@ -217,6 +217,9 @@ function paragraphs() {
 function videos() {
   loadData("videoshow", "getvideo");
 }
+function allfaq(){
+  loadData("allFAQshow","allfaq");
+}
 function FAQshow() {
   loadData("FAQshow", "accordionExample");
 }
