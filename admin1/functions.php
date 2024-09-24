@@ -1153,8 +1153,7 @@ class admin_functions {
         return $response;
     }
 
-    function productlisting()
-    {
+    function productlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1222,8 +1221,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function invoicelisting()
-    {
+
+    function invoicelisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
