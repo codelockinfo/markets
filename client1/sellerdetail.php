@@ -1,5 +1,7 @@
 <?php
 include 'header.php';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+   
 ?>
 
 <body>
@@ -53,8 +55,8 @@ include 'header.php';
     <!-- Contact Start -->
     <div class="container-fluid contact pt-5 pt-md-6    wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="p-2 p-sm-5 bg-light rounded contact-form">
-                <div class="row g-4">
+            <div class="p-2 p-sm-5 bg-light rounded contact-form" id="customer">
+                <!-- <div class="row g-4">
                     <div class="col-xl-2">
                         <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="vectormen" class="seller-image border-radius-lg shadow-sm">
                     </div>
@@ -84,8 +86,7 @@ include 'header.php';
                                 <div class="">
                                     <h4>Mail Us</h4>
                                     <a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a>
-                                    <!-- <h4>Mail Us</h4>
-                                    <p><a href="mailto:codelockinfo@gmail.com" class="text-body">codelockinfo@gmail.com</a></p> -->
+                                    
                                 </div>
                             </div>
                             <div class="d-inline-flex w-100 border border-primary p-4 rounded ">
@@ -102,7 +103,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -157,8 +158,8 @@ include 'header.php';
                     </ul>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4 mt-4 ">
+            <div class="row justify-content-center" id="getcollection">
+                <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box">
                         <div class="market-head border-bottom">
                             <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
@@ -607,7 +608,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -621,3 +622,9 @@ include 'header.php';
 </body>
 
 </html>
+<script>
+
+   var id = "<?php echo $id; ?>";
+   getcollection(id);
+   getcustomer(id);
+</script>

@@ -371,17 +371,9 @@ function get_product(id) {
       dataType: "json",
       data: { routine_name: "getinvoice", id: id },
       success: function (response) {
-        var response = JSON.parse(response);
-        // console.log(response);
-        // console.log("i_name:", response.outcome.i_name);
-        // console.log("ship_to:", response.outcome.ship_to);
-        // console.log("bill_no:", response.outcome.bill_no);
-        // console.log("total:", response.outcome.total);
-        // console.log(response.outcome.date);
-        // console.log(response.outcome.balance_due);
-
-
-
+        console.log("Response received:");
+      console.log(response);
+      var response = JSON.parse(response);
         response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
@@ -453,7 +445,7 @@ function get_customer(id) {
         : "";
       console.log($("input[name='address']"));
       response["outcome"]["address"] !== undefined
-        ? $("input[name='address']").val(response["outcome"]["address"])
+        ? $("textarea[name='address']").val(response["outcome"]["address"])
         : "";
       var c_image =
         response["outcome"]["c_image"] !== undefined
@@ -1004,8 +996,8 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
         var response = JSON.parse(response);
+        console.log(response);
         response["msg"]["i_image"] !== undefined
           ? $(".i_image").html(response["msg"]["i_image"])
           : $(".i_image").html("");
@@ -1053,11 +1045,10 @@ $(document).ready(function () {
         response["msg"]["amount"] !== undefined
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
-
           if (response["data"] == "success") {
             console.log(response);
-            console.log("Updated invoice ID:", response["update_invoice_id"]);
-            if (!response["update_invoice_id"]) {
+            console.log("Updated invoice ID:", response["updated_invoice_id"]);
+            if (!response["updated_invoice_id"]) {
               $("#invoice_frm")[0].reset();
               resetThumbnail();
               $(".myFile").html("");

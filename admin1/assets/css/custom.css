@@ -465,10 +465,10 @@
 /* preview & close button css */
 .close-button {
   position: absolute;
-  left: 80%;
-  top: 8px;
-  height: 20px;
-  width: 20px;
+  left: 92%;
+  top: -14px;
+  /* height: 20px;
+  width: 20px; */
   z-index: 1;
   text-align: center;
   border: none;

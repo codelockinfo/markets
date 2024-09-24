@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
 ?>
 
 
@@ -25,7 +26,7 @@ include 'header.php';
                 <div class="d-flex order-1 order-sm-2 justify-content-end">
                     <div class="dropdown ms-2">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filter
+                            Filter  
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item text-capitalize nav-link" href="#" id="latestMarkets">latest markets</a></li>
@@ -68,7 +69,7 @@ include 'header.php';
                             <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Trousersandshorts">Trousers and shorts</a></li>
                             <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Undergarments">Undergarments</a></li>
                             <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Wedding">Wedding clothing</a></li>
-                        </ul>
+                        </ul>               
                     </div>
                 </div>
                 <div class="w-auto  me-sm-5 order-1 ">
@@ -85,8 +86,58 @@ include 'header.php';
     <!-- Collection2 Start -->
     <section class="collection pt-4 container-fluid">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4 mt-4 ">
+            <div class="row justify-content-center" id="getcollection">
+                <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 ">
+                    <div class="market_list_mian_box">
+                        <div class="market-head border-bottom">
+                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
+                        </div>
+                        <div class="market-content p-3">
+                            <div class="d-flex justify-content-between pb-2 ">
+                                <div class="col-3">
+                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
+                                </div>
+                                <div class="col-6">
+                                    <div class=" ms-4">
+                                        <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
+                                        <p class=" ms-1 d-inline fs-6">100/Pcs</p>
+                                        <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
+                                    </div>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
+                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
+                                    </div>
+                                    <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
+                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
+                                    </div>
+                                    <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
+                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="market-footer  border-top">
+                                <div class="market-name">
+                                    <div class="d-flex align-items-center">
+                                        <div class="m-icon">
+                                            <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
+                                        </div>
+                                        <div class="m-name mt-2 ms-2">
+                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+                                            <p class="fs-6 p-0 m-0">surat,gujrat</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="market-button d-flex mt-3">
+                                <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
+                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
+                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box">
                         <div class="market-head border-bottom">
                             <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
@@ -485,57 +536,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mt-4 ">
-                    <div class="market_list_mian_box">
-                        <div class="market-head border-bottom">
-                            <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
-                        </div>
-                        <div class="market-content p-3">
-                            <div class="d-flex justify-content-between pb-2 ">
-                                <div class="col-3">
-                                    <img src="img/gown/IMG_6358.jpg" class="img-fluid rounded w-100" alt="IMG_6358">
-                                </div>
-                                <div class="col-6">
-                                    <div class=" ms-4">
-                                        <h6 class="fw-normal d-inline text-primary fs-6 ">Rs:</h6>
-                                        <p class=" ms-1 d-inline fs-6">100/Pcs</p>
-                                        <p class="fs-7 justify mt-2">Lorem ipsum dolor sit amet consectetur. Lorem, ipsum dolor.</p>
-                                    </div>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <div class="m-img-box p-1 border rounded  w-50 d-inline-block ">
-                                        <img src="img/kurti/1.jpg" class="img-fluid " alt="kurti1">
-                                    </div>
-                                    <div class="m-img-box p-1 border rounded  w-50 mt-1 d-inline-block ">
-                                        <img src="img/kurti/2.jpg" class="img-fluid " alt="kurti2">
-                                    </div>
-                                    <div class="m-img-box p-1 border rounded w-50 mt-1  d-inline-block ">
-                                        <img src="img/kurti/3.jpg" class="img-fluid " alt="kurti3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="market-footer  border-top">
-                                <div class="market-name">
-                                    <div class="d-flex align-items-center">
-                                        <div class="m-icon">
-                                            <i class="fa-solid fa-shield-halved fs-4  text-primary "></i>
-                                        </div>
-                                        <div class="m-name mt-2 ms-2">
-                                            <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
-                                            <p class="fs-6 p-0 m-0">surat,gujrat</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="market-button d-flex mt-3">
-                                <a href="<?php echo CLS_SITE_URL ?>sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                <a href="<?php echo CLS_SITE_URL ?>contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquriy</a>
-                                <a href="<?php echo CLS_SITE_URL ?>collection.php" class="btn btn-primary ms-2 fs-6">Catelog</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
+                <span id="error"></span>
             </div>
         </div>
     </section>
@@ -550,3 +552,8 @@ include 'header.php';
 </body>
 
 </html>
+<script>
+
+   var id = "<?php echo $id; ?>";
+   getcollection(id);
+</script>

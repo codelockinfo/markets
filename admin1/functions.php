@@ -105,9 +105,9 @@ class admin_functions {
     function insert_signup(){
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        if (isset($_FILES['image'])) {
-            $filename = $_FILES['image']['name'];
-            $tmpfile = $_FILES['image']['tmp_name'];
+        if (isset($_FILES['shop_img'])) {
+            $filename = $_FILES['shop_img']['name'];
+            $tmpfile = $_FILES['shop_img']['tmp_name'];
             $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
             $newFilename = time() . '.' . $fileExtension;
@@ -115,14 +115,14 @@ class admin_functions {
             $fullpath = $folder . $newFilename;
             $maxSize = 5 * 1024 * 1024;
             if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                $error_array['shop_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
-            if ($_FILES['image']['size'] > $maxSize) {
-                $error_array['image'] = "File size must be 5MB or less.";
+            if ($_FILES['shop_img']['size'] > $maxSize) {
+                $error_array['shop_img'] = "File size must be 5MB or less.";
             }
 
             if (empty($filename)) {
-                $error_array['image'] = "Please select an image.";
+                $error_array['shop_img'] = "Please select an image.";
             }
         }
         if (isset($_FILES['shop_logo'])) {
@@ -203,7 +203,7 @@ class admin_functions {
                 $error_array['email'] = "Email already registered";
                 return json_encode(array('data' => 'fail', 'msg' => $error_array));
             } else {
-                if (move_uploaded_file($_FILES['image']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
+                if (move_uploaded_file($_FILES['shop_img']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
                     $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$password', '$email')";
                     $result = mysqli_query($this->db, $query);
@@ -1058,6 +1058,7 @@ class admin_functions {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "SELECT * FROM paragraph";
                 $result = $this->db->query($query);
+               
                 if ($result) {
                     if (mysqli_num_rows($result) > 0) {
                         $row = $result->fetch_assoc();
@@ -1486,7 +1487,8 @@ class admin_functions {
                     $link = $row["short_link"];
                     $title =  $row['title'];
                     $video_id = $row['video_id']; 
-                    // echo $video_id;
+                    $toggle_is_checked = ($row['toggle'] == '1') ? "checked" : '';
+                    
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '<div class="card card-blog card-plain">';
                     $output .= '<div class="position-relative">';
@@ -1498,8 +1500,7 @@ class admin_functions {
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                    // Add video_id as data attribute
-                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" checked>';
+                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '"  '.$toggle_is_checked.'>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1695,12 +1696,14 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM paragraph WHERE user_id = '$user_id'";
+             $query = "SELECT * FROM paragraph WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
+            
             $output = "";
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
+                        
                         $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';
                     }
                     $response_data = array('data' => 'success', 'outcome' => $output);

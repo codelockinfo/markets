@@ -406,3 +406,8 @@ var swiper = new Swiper(".videoSwiper", {
   },
 });
 // testimonial slider end
+
+function setProductId(productId) {
+  document.cookie = "product_id=" + productId + "; path=/"; // Cookie set kar rahe hain
+  window.location.href = 'collection.php'; // Redirect kar rahe hain
+}

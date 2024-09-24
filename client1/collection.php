@@ -1,5 +1,7 @@
 <?php 
         include 'header.php';
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
+
     ?>
 
 
@@ -20,9 +22,9 @@
     </div>
     <!-- Hero End -->
     <!-- Collection Start -->
-    <div class=" text-center py-5 collectionp">
-        <div class="container ">
-            <div class="row">
+    <div class=" text-center py-5 collectionp" >
+        <div class="container" id="catlog">
+            <!-- <div class="row">
                 <div class="col-12 col-md-4">
                     <img class="img-fluid" style="border-radius: 5px; object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/8.jpg" alt="saree8">
                 </div>
@@ -39,67 +41,15 @@
                                     <h2>saree 1</h2>
                                 </div>
                             </div>
-
-                            <div class="swiper-slide">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img class="rounded-top w-100"
-                                        style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/1.jpg"
-                                        alt="saree1">
-                                    <h2>saree 2</h2>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img class="rounded-top w-100"
-                                        style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/3.jpg"
-                                        alt="saree3">
-                                    <h2>saree 3</h2>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img class="rounded-top w-100"
-                                        style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/5.jpg"
-                                        alt="saree5">
-                                    <h2>saree 4</h2>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img class="rounded-top w-100"
-                                        style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/4.jpg"
-                                        alt="saree4">
-                                    <h2>saree 5</h2>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img class="rounded-top w-100"
-                                        style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/7.jpg"
-                                        alt="saree7">
-                                    <h2>saree 6</h2>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img class="rounded-top w-100"
-                                        style="object-fit: cover;" src="<?php echo CLS_SITE_URL; ?>img/saree/2.jpg"
-                                        alt="saree2">
-                                    <h2>saree 7</h2>
-                                </div>
-                            </div>
+                            
+                            
 
                         </div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -113,3 +63,8 @@
 </body>
 
 </html>
+<script>
+
+  var id = "<?php echo $id; ?>";
+   getcatelog(id);
+</script>

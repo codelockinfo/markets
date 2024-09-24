@@ -100,7 +100,7 @@ function updateThumbnail(dropZoneElement, file) {
         thumbnailElement.innerHTML = "";
         thumbnailElement.classList.remove("drop-zone__thumb");
         thumbnailElement.innerHTML =
-          '<span class="drop-zone__prompt">Drop file here or click to upload</span>';
+          '<span class="drop-zone__prompt"></span>';
       });
       thumbnailElement.innerHTML = "";
       thumbnailElement.appendChild(img);
@@ -343,34 +343,41 @@ function updateThumbnail(dropZoneElement, file) {
   if (dropZoneElement.querySelector(".pro-zone__prompt")) {
     dropZoneElement.querySelector(".pro-zone__prompt").remove();
   }
-  // First time - there is no thumbnail element, so lets create it
+
+  // Create thumbnail element if it doesn't exist
   if (!thumbnailElement) {
     thumbnailElement = document.createElement("div");
     thumbnailElement.classList.add("pro-zone__thumb");
     dropZoneElement.appendChild(thumbnailElement);
   }
-  // thumbnailElement.dataset.label = file.name;
+
   // Show thumbnail for image files
   if (file.type.startsWith("image/")) {
     const reader = new FileReader();
 
     reader.addEventListener("load", function (e) {
       const readerTarget = e.target;
-      // const img = document.createElement("img");
-      // img.src = readerTarget.result;
-      // img.classList.add("picture__img");
-      // const closeButton = document.createElement("button");
-      // closeButton.classList.add("close-button","d-none");
-      // closeButton.innerText = "xy";
+
+      const img = document.createElement("img");
+      img.src = readerTarget.result;
+      img.classList.add("picture__img");
+
+      const closeButton = document.createElement("button");
+      closeButton.classList.add("close-button");
+      closeButton.innerText = "x"; // Change button text as needed
+
       closeButton.addEventListener("click", () => {
         thumbnailElement.innerHTML = "";
         thumbnailElement.classList.remove("pro-zone__thumb");
         thumbnailElement.innerHTML =
-          '<span class="drop-zone__prompt">Drop file here or click to upload</span>';
+          '<span class="drop-zone__prompt"></span>';
       });
-      thumbnailElement.innerHTML = "";
-      thumbnailElement.appendChild(img);
-      thumbnailElement.appendChild(closeButton);
+
+      thumbnailElement.innerHTML = ""; // Clear existing content
+      thumbnailElement.appendChild(img); // Add the image
+      thumbnailElement.appendChild(closeButton); // Add the close button
+
+      // Clear file input display
       $(".myFile").text("");
       console.log(thumbnailElement);
       console.log(thumbnailElement.closest(".mb-3"));
@@ -382,3 +389,4 @@ function updateThumbnail(dropZoneElement, file) {
     thumbnailElement.style.backgroundImage = null;
   }
 }
+

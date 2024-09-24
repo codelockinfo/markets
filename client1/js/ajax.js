@@ -81,6 +81,11 @@ $(document).ready(function () {
   });
 });
 
+
+
+
+
+
 function loadData(routineName, elementId) {
   console.log(routineName + " on load");
   $.ajax({
@@ -201,6 +206,65 @@ function loadData(routineName, elementId) {
   });
 }
 
+
+function getcollection(id){
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "market_collection", id: id }, 
+    success: function(response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      if (response.data === 'success') {
+        $('#getcollection').html(response.outcome);
+      }
+    },
+  }); 
+}
+
+function getcustomer(id){
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "customer", id: id }, 
+    success: function(response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      if (response.data === 'success') {
+        $('#customer').html(response.outcome);
+      }
+    },
+  }); 
+}
+function getcatelog(id) {
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "catlog", id: id },
+    success: function(response) {
+      console.log("slider............ ");
+      var response = JSON.parse(response);
+      if (response.data === 'success') {
+        $('#catlog').html(response.outcome);
+        var swiper = new Swiper('.mySwiper', {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          loop: true,
+        });
+      }
+    }
+  });
+}
+
+
+
 function latestbanner() {
   loadData("bannershow", "getdata");
 }
@@ -220,6 +284,12 @@ function videos() {
 function allfaq(){
   loadData("allFAQshow","allfaq");
 }
+function allfem_market(){
+  loadData("allfamousmarketshow","allfems")
+}
+function allmarkets(){
+  loadData("allmarket","allmarketdata")
+}
 function FAQshow() {
   loadData("FAQshow", "accordionExample");
 }
@@ -235,6 +305,9 @@ function marketlistshowclientside() {
 }
 function marketlist2showclientside() {
   loadData("marketlist2showclientside", "get_market");
+}
+function collection(){
+  loadData("market_collection","getcollection")
 }
 function marketlist3showclientside() {
   loadData("marketlist3showclientside", "get_market_next");

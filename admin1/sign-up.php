@@ -93,7 +93,7 @@ include 'header.php';
                       <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-2">
-                      <input type="file" class="form-control signImage" name="image">
+                      <input type="file" class="form-control signImage" name="shop_img">
                       <div class="col">
                         <div class="row mt-2">
                           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
