@@ -36,46 +36,46 @@ include 'header.php';
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                             Category
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Armwear">Armwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Badges">Badges</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Belts">Belts</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Children">Children's clothing</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Clothingbrands">Clothing brands by type </a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Coats">Coats</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Dresses">Dresses</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Footwear">Footwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Gowns">Gowns</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Handwear">Handwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Hosiery">Hosiery</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Jackets">Jackets</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Jeans">Jeans by type</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Kneeclothing">Knee clothing</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Masks">Masks</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Neckwear">Neckwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="One-piece">One-piece suits</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Outerwear">Outerwear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Ponchos">Ponchos</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Robesandcloaks">Robes and cloaks</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Shawlsandwraps">Shawls and wraps</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Royalattire">Royal attire</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="saree">saree</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Sashes">Sashes</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Skirts">Skirts</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Sportswear">Sportswear</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Suits">Suits</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Tops">Tops</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Trousersandshorts">Trousers and shorts</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Undergarments">Undergarments</a></li>
-                            <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" id="Wedding">Wedding clothing</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" id="categoryDropdown">
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="1" id="Armwear">Armwear</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="2" id="Badges">Badges</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="3" id="Belts">Belts</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="4" id="Children">Children's clothing</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="5" id="Clothingbrands">Clothing brands by type</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="6" id="Coats">Coats</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="7" id="Dresses">Dresses</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="8" id="Footwear">Footwear</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="9" id="Gowns">Gowns</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="10" id="Handwear">Handwear</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="11" id="Hosiery">Hosiery</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="12" id="Jackets">Jackets</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="13" id="Jeans">Jeans by type</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="14" id="Kneeclothing">Knee clothing</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="15" id="Masks">Masks</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="16" id="Neckwear">Neckwear</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="17" id="One-piece">One-piece suits</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="18" id="Outerwear">Outerwear</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="19" id="Ponchos">Ponchos</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="20" id="Robesandcloaks">Robes and cloaks</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="21" id="Shawlsandwraps">Shawls and wraps</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="22" id="Royalattire">Royal attire</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="23" id="saree">Saree</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="24" id="Sashes">Sashes</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="25" id="Skirts">Skirts</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="26" id="Sportswear">Sportswear</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="27" id="Suits">Suits</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="28" id="Tops">Tops</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="29" id="Trousersandshorts">Trousers and shorts</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="30" id="Undergarments">Undergarments</a></li>
+                        <li><a class="dropdown-item nav-link category-item" data-bs-toggle="pill" href="#" data-value="31" id="Wedding">Wedding clothing</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="w-auto  me-sm-5 order-1 ">
                     <div class="range-slider">
                         <span class="rangeValues"></span>
-                        <input value="100" min="100" max="1000" step="200" type="range">
-                        <input value="1000" min="100" max="1000" step="200" type="range">
+                        <input value="100" min="100" max="1000" step="200" type="range" id="min_value">
+                        <input value="1000" min="100" max="1000" step="200" type="range" id="max_value">
                     </div>
                 </div>
             </div>
@@ -85,8 +85,8 @@ include 'header.php';
     <!-- Collection2 Start -->
     <section class="collection pt-4 container-fluid">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4 mt-4 ">
+            <div class="row justify-content-center" id="getdata">
+                <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box">
                         <div class="market-head border-bottom">
                             <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
@@ -535,7 +535,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -550,3 +550,8 @@ include 'header.php';
 </body>
 
 </html>
+<!-- <script type="text/javascript">
+  console.log("productshowclientsideee LIST");
+  getproduct();
+//   listproduct()
+</script> -->

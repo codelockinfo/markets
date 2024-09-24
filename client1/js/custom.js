@@ -305,6 +305,7 @@ function getVals() {
   }
   let displayElement = parent.getElementsByClassName("rangeValues")[0];
   displayElement.innerHTML = "Rs" + slide1 + " - Rs" + slide2;
+  handleSliderValues(slide1, slide2);
 }
 
 window.onload = function () {
