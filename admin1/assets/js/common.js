@@ -239,11 +239,9 @@ $(".increment-btn").click(function (e) {
   var inc_value = $(this).closest(".product_data").find(".qty-input").val();
   var value = parseInt(inc_value, 10);
   value = isNaN(value) ? 0 : value;
-  if (value < 10) {
-    value++;
-    $(this).closest(".product_data").find(".qty-input").val(value);
-    console.log("After increment: ", value);
-  }
+  value++;
+  $(this).closest(".product_data").find(".qty-input").val(value);
+  console.log("After increment: ", value);
 });
 
 $(".decrement-btn").click(function (e) {
@@ -382,3 +380,11 @@ function updateThumbnail(dropZoneElement, file) {
     thumbnailElement.style.backgroundImage = null;
   }
 }
+$(document).on("change", ".addcategory", function () {
+  console.log("checkbox check");
+  if ($(this).is(":checked")) {
+    $(".categoryinput").removeClass("hidecategory");
+  } else {
+    $(".categoryinput").addClass("hidecategory");
+  }
+});

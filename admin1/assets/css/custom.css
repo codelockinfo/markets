@@ -828,3 +828,13 @@
   text-decoration-color: red !important;
   text-decoration-thickness: 2px !important;
 }
+
+.hidecategory{
+  display: none;
+}
+.invoice-rowclose{
+  text-align: center;
+}
+.invoice-rowclose .fa-times{
+  font-size: 24px;
+}

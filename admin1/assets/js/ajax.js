@@ -689,6 +689,8 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
+        } else {
+          showMessage(response.msg_error, "fail");
         }
       },
     });
@@ -783,6 +785,9 @@ $(document).ready(function () {
         response["msg"]["select_catagory"] !== undefined
           ? $(".select_catagory").html(response["msg"]["select_catagory"])
           : $(".select_catagory").html("");
+        response["msg"]["addcategory"] !== undefined
+          ? $(".addcategory").html(response["msg"]["addcategory"])
+          : $(".addcategory").html("");
         response["msg"]["min_price"] !== undefined
           ? $(".min_price").html(response["msg"]["min_price"])
           : $(".min_price").html("");

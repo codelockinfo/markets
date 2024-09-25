@@ -273,12 +273,22 @@ class admin_functions {
                 }
             }
         }
-    
+        
+        if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
+            if (isset($_POST['addcategory']) && $_POST['addcategory'] == '') {
+                $error_array['addcategory'] = "Please enter product category.";
+                if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
+                    $error_array['select_catagory'] = "Please select product category.";
+                }
+            }
+        }else{
+            if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
+                $error_array['select_catagory'] = "Please select product category.";
+            }
+        }
+        
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
-        }
-        if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
-            $error_array['select_catagory'] = "Please select product category.";
         }
         if (isset($_POST['sku']) && $_POST['sku'] == '') {
             $error_array['sku'] = "Please enter a SKU.";
@@ -303,14 +313,16 @@ class admin_functions {
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter description.";
         }
-        if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
-            $error_array['p_tag'] = "Please select categories";
-        }
+        // if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
+        //     $error_array['p_tag'] = "Please select categories";
+        // }
     
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $product_name = str_replace("'", "\'", $product_name);
             $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
+            $addcategory = (isset($_POST['addcategory']) && $_POST['addcategory'] !== '') ? $_POST['addcategory'] : '';
+            $addcheckboxcategory = (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] !== '') ? $_POST['addcheckboxcategory'] : '';
             $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
             $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
@@ -319,14 +331,23 @@ class admin_functions {
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
             $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
             $p_description = str_replace("'", "\'", $p_description);
-    
+            
+            
+            $user_id = $_SESSION['current_user']['user_id'];   
+            if($addcategory != '' && $addcheckboxcategory  != ''){
+                $add_category_query = "INSERT INTO allcategories (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+                $category_result = $this->db->query($add_category_query);   
+                if($category_result){
+                    $select_catagory = $this->db->insert_id; 
+                }else{
+                    $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                }
+            }
             if($id == ''){
                 $uploadedFilenames = implode(',', $uploadedFiles); 
-                 $uploadedFilenames;
-                $user_id = $_SESSION['current_user']['user_id'];    
+                $uploadedFilenames;
                 $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$uploadedFilenames', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
-
+                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$uploadedFilenames', '$product_image_alt', '$p_tag', '$p_description', '$user_id')"; 
                 $result = $this->db->query($query);
     
                 if ($result) {
@@ -1075,7 +1096,6 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     }
-    
     function insert_faq(){ 
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
@@ -1106,7 +1126,6 @@ class admin_functions {
             $response = json_encode($response_data);
             return $response;
     }
-    
     function insert_review(){
         $error_array = array();
         $file = $_FILES['shop_image'];
@@ -2115,7 +2134,8 @@ class admin_functions {
     function get_categories(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
-            $sql = "SELECT * FROM allcategories WHERE status='1'";
+            $user_id = $_SESSION['current_user']['user_id'];
+            $sql = "SELECT * FROM allcategories WHERE status='1' AND user_id ='$user_id'";
             $result = $this->db->query($sql);
 
             if ($result) {
