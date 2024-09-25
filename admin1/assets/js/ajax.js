@@ -657,6 +657,13 @@ $(document).ready(function () {
     });
   });
 
+  $(document).on("keydown", "#savesignin input", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent default action
+      $(".signInsave").click(); // Trigger the button click
+    }
+  });
+
   $(document).on("click", ".profileDataUpdate", function (e) {
     var form_data = $("#profileUpdate")[0];
     var form_data = new FormData(form_data);
@@ -698,6 +705,7 @@ $(document).ready(function () {
       },
     });
   });
+
   $(document).on("click", ".signUpsave", function (e) {
     e.preventDefault();
     console.log("signUpsavebutton click");
@@ -753,6 +761,15 @@ $(document).ready(function () {
         }
       },
     });
+  });
+
+  $(document).on("keydown", "#savesignin input", function (event) {
+    console.log("KEYDOWN");
+    console.log(event.key);
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent default action
+      $(".signUpsave").click(); // Trigger the button click
+    }
   });
 
   $(document).on("click", ".productSave", function (event) {
