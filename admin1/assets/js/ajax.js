@@ -747,7 +747,7 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           $("#savesignup")[0].reset();
-          window.location.href = "index.php";
+          window.location.href = "analytics.php";
         } else {
           // showMessage(response.msg_error, "fail");
         }
