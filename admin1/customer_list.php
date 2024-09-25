@@ -29,7 +29,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="col-auto mx-auto ms-sm-3 mt-2">
             <div class="h-100">
               <h5 class="mb-1">
-                customer list
+                Customer List
               </h5>
             </div>
           </div>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         </g>
                       </g>
                     </svg>
-                    <span class="ms-1">add customer</span>
+                    <span class="ms-1">Add Customer</span>
                   </a>
                 </li>
               </ul>
@@ -63,18 +63,18 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-          <h4 class="text-center mb-3">customer list</h4>
+          <h4 class="text-center mb-3">Customer List</h4>
         <table class="table table-hover rounded" border="1" style="width: 100px;">
           <thead>
             <tr>
-              <th>id</th>
-              <th>name</th>
-              <th>email</th>
-              <th>contact</th>
-              <th>image</th>
-              <th>address</th>
-              <th>delete</th>
-              <th>edit</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Image</th>
+              <th>Address</th>
+              <th>Delete</th>
+              <th>Edit</th>
 
             </tr>
           </thead>

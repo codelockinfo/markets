@@ -109,7 +109,7 @@ class client_functions {
     
     function famousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT Heading, Sub_Heading,Image FROM famous_markets WHERE status='1'";
+        $query = "SELECT Heading, Sub_Heading,Image FROM famous_markets WHERE status='1' limit 6";
         $result = $this->db->query($query);
         $output = $famousmarkettitle = $famousmarketbutton = "";       
         // print_r($query);
@@ -154,6 +154,58 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    function allfamousmarketshow(){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+             $query = "SELECT shop_logo, user_id FROM famous_markets WHERE status='1'";
+        $result = $this->db->query($query);
+        $output = $famousmarkettitle = $famousmarketbutton = "";
+    
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                // $image = $row["Image"];
+                $user_id = isset($row["user_id"]) ? $row["user_id"] : null;
+                // $imagePath = "../admin1/assets/img/famous_market/img/" . $image;
+                // $decodedPath = htmlspecialchars_decode($imagePath);
+    
+                $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
+                $output .= '    <div class="bg-light rounded famous-item">';
+                $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
+                $output .= '            <div class="famous-content-icon text-center">';
+                $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"> </a>';
+                $output .= '                <p class="mb-4">'.$row["shop_logo"].'</p>';
+                $output .= '                <div class="famous-img rounded-circle">';
+                $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="" alt="shop1"></a>';
+                $output .= '                </div>';
+                $output .= '                <div class="d-flex justify-content-center mt-2">';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
+                $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
+                $output .= '                </div>';
+                $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products ">View Products</a>';
+                $output .= '            </div>';
+                $output .= '        </div>';
+                $output .= '    </div>';
+                $output .= '</div>';
+            }
+    
+            $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                                      <h1 class="display-5 mb-5">Famous markets in Surat</h1>
+                                  </div>';
+    
+            $famousmarketbutton = '<a href="' . CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp">
+                                       <button class="btn btn-primary text-capitalize px-5 mt-4 text-center">View All Markets</button>
+                                   </a>';
+    
+            $response_data = array('data' => 'success', 'outcome' => $output, 'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
+        }
+    
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
 
     function offershow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -547,8 +599,7 @@ class client_functions {
         return $response;
     }
 
-    function productlisting()
-    {
+    function productlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         // if (isset($_SESSION['current_user']['user_id'])) {
             $category_value = isset($_POST['category_value']) ? $_POST['category_value'] : '';  // Get category value from dropdown
@@ -656,4 +707,276 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
     }
+
+    function allmarket(){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT user_id, shop, shop_logo FROM users WHERE status='1'";
+        $result = $this->db->query($query);
+        $output = $famousmarkettitle = $famousmarketbutton = "";
+
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $image = $row["shop_logo"];
+                $user_id = $row["user_id"];
+                $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                $noimagePath = "../admin1/assets/img/sigup_img/noimage.png";
+                $decodedPath = htmlspecialchars_decode(
+                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                );
+
+                $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
+                $output .= '    <div class="bg-light rounded famous-item">';
+                $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
+                $output .= '            <div class="famous-content-icon text-center">';
+                $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second">' . htmlspecialchars($row["shop"]) . '</a>';
+                $output .= '                <div class="famous-img rounded-circle">';
+                $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="' . $decodedPath . '" alt="shop1"></a>';
+                $output .= '                </div>';
+                $output .= '                <div class="d-flex justify-content-center mt-2">';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
+                $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
+                $output .= '                </div>';
+                $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products ">View Products</a>';
+                $output .= '            </div>';
+                $output .= '        </div>';
+                $output .= '    </div>';
+                $output .= '</div>';
+            }
+
+            $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                                        <h1 class="display-5 mb-5">Famous markets in surat</h1>
+                                  </div>';
+
+            $famousmarketbutton = '<a href="' . CLS_SITE_URL . 'famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">View all markets</button></a>';
+
+            $response_data = array('data' => 'success', 'outcome' => $output, 'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
+        }
+
+        $response = json_encode($response_data);
+        return $response;
+    }
+    function market_collection(){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+
+        if (isset($_POST['id'])) {
+            $userId = intval($_POST['id']);
+            $query = "SELECT * FROM products WHERE status='1' and user_id = $userId";
+            $result = $this->db->query($query);
+            $output = "";
+
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $user_id = $row["user_id"];
+                    $product_id = $row["product_id"];
+                    $productName = htmlspecialchars($row["title"]);
+                    $productPrice = htmlspecialchars($row["maxprice"]);
+                    $productDescription = htmlspecialchars($row["p_description"]);
+                    $images = explode(',', $row["p_image"]);
+                    $imagePathBase = "../admin1/assets/img/product_img/";
+                    $noimagePath = "../admin1/assets/img/product_img/noimage.png";
+                    $output .= '<div class="col-12 col-md-6 col-lg-4 mt-4">';
+                    $output .= '    <div class="market_list_mian_box">';
+                    $output .= '        <div class="market-head border-bottom">';
+                    $output .= '            <h6 class="text-primary fw-bold ms-3 mt-3">' . $productName . '</h6>';
+                    $output .= '        </div>';
+                    $output .= '        <div class="market-content p-3">';
+                    $output .= '            <div class="d-flex justify-content-between pb-2">';
+                    $output .= '                <div class="col-3">';
+                    $mainImage = (!empty($images[0]) && file_exists($imagePathBase . $images[0]))
+                        ? $imagePathBase . $images[0]
+                        : $noimagePath;
+
+                    $output .= '                    <img src="' . htmlspecialchars_decode($mainImage) . '" class="img-fluid rounded w-100" alt="' . $productName . '">';
+                    $output .= '                </div>';
+                    $output .= '                <div class="col-6">';
+                    $output .= '                    <div class="ms-4">';
+                    $output .= '                        <h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>';
+                    $output .= '                        <p class="ms-1 d-inline fs-6">' . $productPrice . '/Pcs</p>';
+                    $output .= '                        <p class="fs-7 justify mt-2">' . $productDescription . '</p>';
+                    $output .= '                    </div>';
+                    $output .= '                </div>';
+                    $output .= '                <div class="col-3 text-end">';
+                    $count = 0;
+                    foreach ($images as $key => $image) {
+                        if ($count >= 3) break;
+                        if (!empty($image) && file_exists($imagePathBase . $image)) {
+                            $decodedPath = htmlspecialchars_decode($imagePathBase . $image);
+                        } else {
+                            $decodedPath = $noimagePath;
+                        }
+                        $output .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
+                        $output .= '                        <img src="' . $decodedPath . '" class="img-fluid" alt="Product Image ' . ($key + 1) . '">';
+                        $output .= '                    </div>';
+                        $count++;
+                    }
+
+                    $output .= ' </div>';
+                    $output .= '            </div>';
+                    $output .= '            <div class="market-footer border-top">';
+                    $output .= '                <div class="market-name">';
+                    $output .= '                    <div class="d-flex align-items-center">';
+                    $output .= '                        <div class="m-icon">';
+                    $output .= '                            <i class="fa-solid fa-shield-halved fs-4 text-primary"></i>';
+                    $output .= '                        </div>';
+                    $output .= '                        <div class="m-name mt-2 ms-2">';
+                    $output .= '                        </div>';
+                    $output .= '                    </div>';
+                    $output .= '                </div>';
+                    $output .= '            </div>';
+                    $output .= '            <div class="market-button d-flex mt-3">';
+                    $output .= '                <a href="' . CLS_SITE_URL . 'sellerdetail.php?id=' . $user_id . '" class="btn btn-primary me-1 fs-6">Contact Seller</a>';
+                    $output .= '                <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>';
+                    $output .= '                <a href="' . CLS_SITE_URL . 'collection.php?id=' . $product_id . '" class="btn btn-primary ms-2 fs-6">Catalog</a>';
+                    $output .= '            </div>';
+                    $output .= '        </div>';
+                    $output .= '    </div>';
+                    $output .= '</div>';
+                }
+
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+        }
+
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function customer(){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_POST['id'])) {
+            $userId = intval($_POST['id']);
+            $query = "SELECT * FROM users WHERE status='1' and user_id = $userId";
+            $result = $this->db->query($query);
+            $output = "";
+
+            if ($result) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $image = $row['shop_logo'];
+                    $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                    $noimagePath = "../admin1/assets/img/sigup_img/noimage.png";
+                    $decodedPath = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                    );
+
+                    $shopimage = $row['shop_img'];
+                    $imagePathnew = "../admin1/assets/img/sigup_img/" . $shopimage;
+                    $noimagePath = "../admin1/assets/img/sigup_img/noimage.png";
+                    $decodedPathnew = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePathnew)) ? $imagePathnew : $noimagePath
+                    );
+                    $whatsappLogoPath = main_url('/client1/img/whatsapplogo.png');
+
+                    $output .= '<div class="row g-4">';
+                    $output .= '    <div class="col-xl-2">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="vectormen" class="seller-image border-radius-lg shadow-sm">';
+                    $output .= '    </div>';
+                    $output .= '    <div class="col-xl-8">';
+                    $output .= '        <span class="text-capitalize text-dark"><strong>name :</strong></span>';
+                    $output .= '        <span class="text-capitalize">' . $row['name'] . '</span>';
+                    $output .= '        <div class="mt-1">';
+                    $output .= '            <span class="text-capitalize text-dark"><strong>shop name :</strong></span>';
+                    $output .= '            <span class="text-capitalize">' . $row['shop'] . '</span>';
+                    $output .= '        </div>';
+                    $output .= '    </div>';
+                    $output .= '    <div class="col-md-6 col-lg-7">';
+                    $output .= '        <img src="' . $decodedPathnew . '" alt="shop-photo" class="w-100 border-radius-lg shadow-sm mb-4">';
+                    $output .= '    </div>';
+                    $output .= '    <div class="col-md-6 col-lg-5">';
+                    $output .= '        <div>';
+                    $output .= '            <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">';
+                    $output .= '                <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>';
+                    $output .= '                <div>';
+                    $output .= '                    <h4>Address</h4>';
+                    $output .= '                    <p>' . $row['address'] . '</p>';
+                    $output .= '                </div>';
+                    $output .= '            </div>';
+                    $output .= '            <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">';
+                    $output .= '                <i class="fas fa-envelope fa-2x text-primary me-4"></i>';
+                    $output .= '                <div>';
+                    $output .= '                    <h4>Mail Us</h4>';
+                    $output .= '                    <a href="mailto:codelockinfo@gmail.com" class="text-body">' . $row['email'] . '</a>';
+                    $output .= '                </div>';
+                    $output .= '            </div>';
+                    $output .= '            <div class="d-inline-flex w-100 border border-primary p-4 rounded">';
+                    $output .= '                <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>';
+                    $output .= '                <div>';
+                    $output .= '                    <h4>Telephone</h4>';
+                    $output .= '                    <p><a href="tel:7600464414" class="text-body">+91 ' . $row['phone_number'] . '</a></p>';
+                    $output .= '                </div>';
+                    $output .= '            </div>';
+                    $output .= '            <div class="d-inline-flex w-100 rounded">';
+                    $output .= '                <a href="https://api.whatsapp.com/send?phone=6325487985&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." target="_blank">';
+                    $output .= '                    <img src="' . $whatsappLogoPath . '" alt="whatsapplogo" class="w-50">';
+                    $output .= '                </a>';
+                    $output .= '            </div>';
+                    $output .= '        </div>';
+                    $output .= '    </div>';
+                    $output .= '</div>';
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+        }
+
+        $response = json_encode($response_data);
+        return $response;
+    }
+    function catlog() {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_POST['id'])) {
+            $product_id = intval($_POST['id']);
+            $sql = "SELECT * FROM products WHERE status='1' AND product_id= $product_id";
+            $result = $this->db->query($sql);
+            $output = "";
+    
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $images = explode(',', $row["p_image"]);
+                    $imagePathBase = "../admin1/assets/img/product_img/";
+                    $noimagePath = "../admin1/assets/img/product_img/noimage.png";
+    
+                    $output .= '<div class="row">';
+                    $output .= '<div class="col-12 col-md-4">';
+                    
+                    // Main Image
+                    $mainImage = (!empty($images[0]) && file_exists($imagePathBase . $images[0]))
+                        ? $imagePathBase . $images[0]
+                        : $noimagePath;
+                    $output .= '<img class="img-fluid" style="border-radius: 5px; object-fit: cover;" src="' . htmlspecialchars_decode($mainImage) . '" alt="Main Image">';
+    
+                    $output .= '</div>';
+                    $output .= '<div class="col-12 col-md-8 mt-4 mt-md-0">';
+                    $output .= '<div class="swiper mySwiper">';
+                    $output .= '<div class="swiper-wrapper">';
+    
+                    // Swiper Slides
+                    foreach ($images as $key => $image) {
+                        $decodedPath = (!empty($image) && file_exists($imagePathBase . $image))
+                            ? htmlspecialchars_decode($imagePathBase . $image)
+                            : $noimagePath;
+    
+                        $output .= '<div class="swiper-slide">';
+                        $output .= '<div class="d-flex flex-column align-items-center">';
+                        $output .= '<img class="rounded-top w-100" style="object-fit: cover;" src="' . $decodedPath . '" alt="Product Image ' . ($key + 1) . '">';
+                        $output .= '</div>'; // Closing d-flex
+                        $output .= '</div>'; // Closing swiper-slide
+                    }
+    
+                    $output .= '</div>'; // Closing swiper-wrapper
+                    $output .= '<div class="swiper-button-prev"></div>';
+                    $output .= '<div class="swiper-button-next"></div>';
+                    $output .= '</div>'; // Closing swiper
+                    $output .= '</div>'; // Closing col-md-8
+                    $output .= '</div>'; // Closing row
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            }
+        }
+        return json_encode($response_data);
+    }
+	
+	
 }

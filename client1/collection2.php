@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
 ?>
 
 
@@ -85,8 +86,8 @@ include 'header.php';
     <!-- Collection2 Start -->
     <section class="collection pt-4 container-fluid">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4 mt-4 ">
+            <div class="row justify-content-center" id="getcollection">
+                <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="market_list_mian_box">
                         <div class="market-head border-bottom">
                             <h6 class="text-primary fw-bold ms-3 mt-3">Net 3 peace salwar suit</h6>
@@ -535,7 +536,7 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -550,3 +551,9 @@ include 'header.php';
 </body>
 
 </html>
+<script>
+    console.log("start");
+    var id = "<?php echo $id; ?>";
+    getcollection(id);
+    // getallfemusmarket(id);
+</script>

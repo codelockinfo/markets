@@ -32,14 +32,14 @@ class admin_functions {
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
         $error_array = array();
         if (empty($email)) {
-            $error_array['email'] = "Please enter an email address";
+            $error_array['email'] = "Please Enter An Email Address";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_array['email'] = "Please enter the valid email address";
         }
         if (empty($password)) {
-            $error_array['password'] = 'Please enter the password.';
+            $error_array['password'] = 'Please Enter The Password.';
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
+            $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character.';
         }
         if (empty($error_array)) {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
@@ -105,9 +105,9 @@ class admin_functions {
     function insert_signup(){
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        if (isset($_FILES['image'])) {
-            $filename = $_FILES['image']['name'];
-            $tmpfile = $_FILES['image']['tmp_name'];
+        if (isset($_FILES['shop_img'])) {
+            $filename = $_FILES['shop_img']['name'];
+            $tmpfile = $_FILES['shop_img']['tmp_name'];
             $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
             $newFilename = time() . '.' . $fileExtension;
@@ -115,14 +115,14 @@ class admin_functions {
             $fullpath = $folder . $newFilename;
             $maxSize = 5 * 1024 * 1024;
             if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                $error_array['shop_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
-            if ($_FILES['image']['size'] > $maxSize) {
-                $error_array['image'] = "File size must be 5MB or less.";
+            if ($_FILES['shop_img']['size'] > $maxSize) {
+                $error_array['shop_img'] = "File size must be 5MB or less.";
             }
 
             if (empty($filename)) {
-                $error_array['image'] = "Please select an image.";
+                $error_array['shop_img'] = "Please select shop image.";
             }
         }
         if (isset($_FILES['shop_logo'])) {
@@ -203,7 +203,7 @@ class admin_functions {
                 $error_array['email'] = "Email already registered";
                 return json_encode(array('data' => 'fail', 'msg' => $error_array));
             } else {
-                if (move_uploaded_file($_FILES['image']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
+                if (move_uploaded_file($_FILES['shop_img']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
                     $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$password', '$email')";
                     $result = mysqli_query($this->db, $query);
@@ -405,11 +405,12 @@ class admin_functions {
             $address = (isset($_POST['address']) && $_POST['address']) ? $_POST['address'] : '';
             if ($id == '') {
                 if (move_uploaded_file($tmpfile, $fullpath)) {
-                    $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
-                    VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
-                    $result = $this->db->query($query);
-
+                    if (isset($_SESSION['current_user']['user_id'])) {
+                        $user_id = $_SESSION['current_user']['user_id'];
+                        $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
+                        VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
+                        $result = $this->db->query($query);
+                    }   
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'customer inserted successfully!');
                     } else {
@@ -481,8 +482,7 @@ class admin_functions {
         return $response;
     }
 
-    function invoice()
-    {
+    function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -618,8 +618,6 @@ class admin_functions {
 
         return json_encode($response_data);
     }
-
-
     function isValidYouTubeURL($url)
     {
         $allowedPatterns = array(
@@ -866,85 +864,18 @@ class admin_functions {
     function insert_market()
     {
         $error_array = array();
-        $file = $_FILES['svg_img'];
-        $maxSize = 5 * 1024 * 1024;
-        $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-        $svg_img = isset($_FILES["svg_img"]["name"]) ? $_FILES["svg_img"]["name"] : '';
-        $svgtmpfile = isset($_FILES["svg_img"]["tmp_name"]) ? $_FILES["svg_img"]["tmp_name"] : '';
-        $extension = pathinfo($svg_img, PATHINFO_EXTENSION);
-        $svg_newFilename = time() . '.' . $extension;
-        $fileName = $_FILES['svg_img']['name'];
-        $fileNameCmps = explode(".", $svg_img);
-        $svgfileExtension = strtolower(end($fileNameCmps));
-        $svgfolder = "assets/img/famous_market/svg_img/";
-        $svgfullpath = $svgfolder . $svg_newFilename;
-        if (!is_dir($svgfolder)) {
-            $mkdir = mkdir($svgfolder, 0777, true);
-            if (!$mkdir) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
-            }
-        }
-        $file = $_FILES['img'];
-        $maxSize = 5 * 1024 * 1024;
-        $filename = isset($_FILES["img"]["name"]) ? $_FILES["img"]["name"] : '';
-        $tmpfile = isset($_FILES["img"]["tmp_name"]) ? $_FILES["img"]["tmp_name"] : '';
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        $newFilename = time() . '.' . $extension;
-        $fileName = $_FILES['img']['name'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
-        $folder = "assets/img/famous_market/img/";
-        $fullpath = $folder . $newFilename;
-        if (!is_dir($folder)) {
-            $mkdir = mkdir($folder, 0777, true);
-            if (!$mkdir) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
-            }
-        }
+       
         if (isset($_POST['shop_logo']) && $_POST['shop_logo'] == '') {
-            $error_array['shop_logo'] = "Please enter the shop logo";
+            $error_array['shop_logo'] = "Please select shop";
         }
-        if (!in_array($svgfileExtension, $allowedExtensions)) {
-            $error_array['svg_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        if ($file['size'] > $maxSize) {
-            $error_array['svg_img'] = "File size must be 5MB or less.";
-        }
-        if (empty($svg_img)) {
-            $error_array['svg_img'] = "Please upload your svg image";
-        }
-        if (isset($_POST['heading']) && $_POST['heading'] == '') {
-            $error_array['heading'] = "Please enter the heading";
-        }
-        if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
-            $error_array['sub_heading'] = "Please enter the sub heading";
-        }
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            $error_array['img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-        }
-        if ($file['size'] > $maxSize) {
-            $error_array['img'] = "File size must be 5MB or less.";
-        }
-        if (empty($filename)) {
-            $error_array['img'] = "Please upload your image";
-        }
+       
         if (empty($error_array)) {
-            $movefirst = move_uploaded_file($svgtmpfile, $svgfullpath);
-            $movesecond = move_uploaded_file($tmpfile, $fullpath);
-            if ($movefirst && $movesecond) {
                 $shop_logo = (isset($_POST['shop_logo']) && $_POST['shop_logo'] !== '') ? $_POST['shop_logo'] : '';
                 $shop_logo = str_replace("'", "\'", $shop_logo);
-                $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-                $svg_image_alt = (isset($_POST['svg_image_alt']) && $_POST['svg_image_alt'] !== '') ? $_POST['svg_image_alt'] : '';
-                $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
-                $heading = str_replace("'", "\'", $heading);
-                $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
-
+                
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO famous_markets (shop_logo,SVG_Image,svg_alt,Heading,Sub_Heading,Image,img_alt,user_id) VALUES ('$shop_logo','$svg_newFilename','$svg_image_alt','$heading','$sub_heading','$newFilename','$image_alt','$user_id')";
+                    $query = "INSERT INTO famous_markets (shop_logo,user_id) VALUES ('$shop_logo','$user_id')";
                     $result = $this->db->query($query);
                 }
                 if ($result) {
@@ -952,7 +883,7 @@ class admin_functions {
                 } else {
                     $response_data = array('data' => 'fail', 'msg' => "Error");
                 }
-            }
+            
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
         }
@@ -1275,7 +1206,6 @@ class admin_functions {
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = "";
             $user_id = $_SESSION['current_user']['user_id'];
-
             $stmt = $this->db->prepare("SELECT * FROM customer WHERE user_id = ?");
             $stmt->bind_param('i', $user_id);
             $stmt->execute();
@@ -1790,22 +1720,13 @@ class admin_functions {
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
-                        // $svgimage = $row["SVG_img"];
-                        $image = $row["Image"];
-                        $imagePath = "../admin1/assets/img/famous_market/img/" . $image;
-                        // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
-                        $decodedPath = htmlspecialchars_decode($imagePath);
-                        $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                        $output .= '  <div class="card card-blog card-plain">';
-                        $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block border-radius-xl">';
-                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
-                        $output .= '      </a>';
+                        $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
+                        $output .= '  <div class="d-flex justify-content-between align-items-center">';
+                        $output .= '    <div class="d-flex ">';
+                        $output .= '      <div class="shop-name text-secondary px-3">' . $row['shop_logo'] . '</div>'; // Output the shop name(s)
                         $output .= '    </div>';
-                        $output .= '    <div class="d-flex justify-content-between mb-3">';
-                        $output .= '      <div class="ms-auto text-end">';
+                        $output .= '    <div class="action-icons ms-auto">';
                         $output .= '        <button data-id="' . $row['famous_market_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
-                        $output .= '      </div>';
                         $output .= '    </div>';
                         $output .= '  </div>';
                         $output .= '</div>';
@@ -2293,8 +2214,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function select_shop()
-    {
+    function select_shop(){
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $sql = "SELECT shop FROM users WHERE status='1'";

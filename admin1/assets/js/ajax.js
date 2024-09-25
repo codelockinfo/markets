@@ -828,6 +828,9 @@ $(document).ready(function () {
         response["msg"]["address"] !== undefined
           ? $(".address").html(response["msg"]["address"])
           : $(".address").html("");
+          response["msg"]["shop_img"] !== undefined
+          ? $(".shop_img").html(response["msg"]["shop_img"])
+          : $(".shop_img").html("");
           response["msg"]["shop_logo"] !== undefined
           ? $(".shop_logo").html(response["msg"]["shop_logo"])
           : $(".shop_logo").html("");

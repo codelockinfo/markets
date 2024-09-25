@@ -200,6 +200,77 @@ function loadData(routineName, elementId) {
     },
   });
 }
+function getcollection(id){
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "market_collection", id: id }, 
+    success: function(response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      if (response.data === 'success') {
+        $('#getcollection').html(response.outcome);
+      }
+    },
+  }); 
+}
+
+function getcustomer(id){
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "customer", id: id }, 
+    success: function(response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      if (response.data === 'success') {
+        $('#customer').html(response.outcome);
+      }
+    },
+  }); 
+}
+function getallfemusmarket(id){
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "market_collection", id: id }, 
+    success: function(response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      if (response.data === 'success') {
+        $('#getcollection').html(response.outcome);
+      }
+    },
+  }); 
+}
+function getcatelog(id) {
+  $.ajax({
+    url: "../client1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "catlog", id: id },
+    success: function(response) {
+      console.log("slider............ ");
+      var response = JSON.parse(response);
+      if (response.data === 'success') {
+        $('#catlog').html(response.outcome);
+        var swiper = new Swiper('.mySwiper', {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          loop: true,
+        });
+      }
+    }
+  });
+}
+
 
 function latestbanner() {
   loadData("bannershow", "getdata");
@@ -230,6 +301,12 @@ function productshowclientside() {
   loadData("productshowclientside", "getproduct");
   // loadData("productshowclientside", "categoryProduct");
 }
+function allfem_market(){
+  loadData("allfamousmarketshow","allfems")
+}
+function allmarkets(){
+  loadData("allmarket","allmarketdata")
+}
 function marketlistshowclientside() {
   loadData("marketlistshowclientside", "get");
 }
@@ -240,50 +317,50 @@ function marketlist3showclientside() {
   loadData("marketlist3showclientside", "get_market_next");
 }
 
-function handleSliderValues(slide1, slide2) {
-  console.log("Received Slide 1 Value:", slide1);
-  console.log("Received Slide 2 Value:", slide2);
+// function handleSliderValues(slide1, slide2) {
+//   console.log("Received Slide 1 Value:", slide1);
+//   console.log("Received Slide 2 Value:", slide2);
 
-  // Use the values for further logic or an AJAX request
-  getData("productlisting", slide1, slide2);
-}
+//   // Use the values for further logic or an AJAX request
+//   getData("productlisting", slide1, slide2);
+// }
 // Function to handle AJAX data fetching
-function getData(routineName, minPrice, maxPrice, category_value) {
-  console.log(routineName + " on load");
-  console.log("Selected category: " + category_value); // Debug: Ensure category value is correct
-  console.log("minPrice: " + minPrice);
-  console.log("maxPrice: " + maxPrice);
+// function getData(routineName, minPrice, maxPrice, category_value) {
+//   console.log(routineName + " on load");
+//   console.log("Selected category: " + category_value); // Debug: Ensure category value is correct
+//   console.log("minPrice: " + minPrice);
+//   console.log("maxPrice: " + maxPrice);
 
-  // AJAX call to fetch products based on category
-  $.ajax({
-    url: "../client1/ajax_call.php", // Update to your actual path
-    type: 'post',
-    dataType: "json",
-    data: {
-      routine_name: routineName, // Pass the routine name
-      category_value: category_value,
-      min_price: minPrice,        // Pass the minimum price from slider
-      max_price: maxPrice 
-    },
-    success: function (response) {
-      var response = JSON.parse(response); // Parsing the JSON response
-      console.log(response);
+//   // AJAX call to fetch products based on category
+//   $.ajax({
+//     url: "../client1/ajax_call.php", // Update to your actual path
+//     type: 'post',
+//     dataType: "json",
+//     data: {
+//       routine_name: routineName, // Pass the routine name
+//       category_value: category_value,
+//       min_price: minPrice,        // Pass the minimum price from slider
+//       max_price: maxPrice 
+//     },
+//     success: function (response) {
+//       var response = JSON.parse(response); // Parsing the JSON response
+//       console.log(response);
 
-      if (response.outcome === "No data found") {
-        $("#getdata").html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
-      } else {
-        console.log("Data found");
-        $("#getdata").html(response.outcome); // Update the table with the data
-      }
-    },
-    error: function(xhr, status, error) {
-      console.error("Error occurred: ", error);
-      $("#getdata").html(
-        '<tr><td colspan="5" style="color: red; text-align: center;">An error occurred while fetching data.</td></tr>'
-      );
-    }
-  });
-}
+//       if (response.outcome === "No data found") {
+//         $("#getdata").html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
+//       } else {
+//         console.log("Data found");
+//         $("#getdata").html(response.outcome); // Update the table with the data
+//       }
+//     },
+//     error: function(xhr, status, error) {
+//       console.error("Error occurred: ", error);
+//       $("#getdata").html(
+//         '<tr><td colspan="5" style="color: red; text-align: center;">An error occurred while fetching data.</td></tr>'
+//       );
+//     }
+//   });
+// }
 
 // Set up the event listeners
 document.addEventListener('DOMContentLoaded', function() {

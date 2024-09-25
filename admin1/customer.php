@@ -28,7 +28,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="col-auto mx-auto ms-sm-3 mt-2">
             <div class="h-100">
               <h5 class="mb-1">
-                  customer Form
+                  Customer Form
               </h5>
             </div>
           </div>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         </g>
                       </g>
                     </svg>
-                    <span class="ms-1">customer List</span>
+                    <span class="ms-1">Customer List</span>
                   </a>
                 </li>
               </ul>
@@ -65,27 +65,27 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         <div class="card z-index-0 p-3 product-main">
           <form role="form" id="custemer_frm" enctype="multipart/form-data" method="POST">
           <input type="hidden" name="id" value="<?php echo $id;?>"/>
-            <label for="title" class="font-weight-normal required">customer name</label>
+            <label for="title" class="font-weight-normal required">Customer Name</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext product w-100" placeholder="customer name" name="name">
               <span class="errormsg name"></span>
             </div>
-            <label for="title" class="font-weight-normal w-100">email</label>
+            <label for="title" class="font-weight-normal w-100">Email</label>
             <div class="mb-3">
               <input type="email" class="form-control w-100 " placeholder="enter email" name="email">
               <div class="errormsg email"></div>
             </div>
-            <label for="title" class="font-weight-normal required w-100">contact</label>
+            <label for="title" class="font-weight-normal required w-100">Contact</label>
             <div class="mb-3 row">
               <div class="col">
                 <input type="text" class="form-control price w-100" placeholder="enter contact" name="contact">
                 <span class="errormsg contact"></span>
               </div>
             </div>
-            <label for="p-image" class="font-weight-normal required">customer Image</label>
+            <label for="p-image" class="font-weight-normal required">Customer Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
-                <span class="drop-zone__prompts">Drop file here or click to upload</span>
+                <span class="drop-zone__prompts">Drop File Here Or Click To Upload</span>
                 <input type="file"  name="c_image" id="removeImage" class="drop-zone__input">
               </div>
               <div class="col">
@@ -99,6 +99,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="errormsg myFile c_image"></div>
             </div>
             <div class="mb-3">
+            <label for="p-image" class="font-weight-normal required">Address</label>
               <textarea id="pro-description" class="w-100 form-control validtext" name="address" placeholder="enter your address"></textarea>
               <span class="errormsg address"></span>
             </div>

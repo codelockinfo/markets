@@ -5,6 +5,7 @@
 
 .errormsg {
   color: #f56b6b;
+  text-transform: capitalize;
 }
 
 

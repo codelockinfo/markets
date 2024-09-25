@@ -186,7 +186,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
               <span class="errormsg image_alt"></span>
             </div>
-            <label for="text" class="font-weight-normal">Product tag</label>
+            
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Product tag</label>
               <select class="js-select2  form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">

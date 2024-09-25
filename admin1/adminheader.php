@@ -47,11 +47,11 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <h6 class="text-sm font-weight-normal mb-1">
-                        <span class="font-weight-bold">New message</span> from Laur
+                        <span class="font-weight-bold">New Message</span> From Laur
                       </h6>
                       <p class="text-xs text-secondary mb-0">
                         <i class="fa fa-clock me-1"></i>
-                        13 minutes ago
+                        13 Minutes Ago
                       </p>
                     </div>
                   </div>
@@ -65,11 +65,11 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <h6 class="text-sm font-weight-normal mb-1">
-                        <span class="font-weight-bold">New album</span> by Travis Scott
+                        <span class="font-weight-bold">New Album</span> By Travis Scott
                       </h6>
                       <p class="text-xs text-secondary mb-0">
                         <i class="fa fa-clock me-1"></i>
-                        1 day
+                        1 Day
                       </p>
                     </div>
                   </div>
@@ -80,7 +80,7 @@
                   <div class="d-flex py-1">
                     <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
                       <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>credit-card</title>
+                        <title>Credit-Card</title>
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                           <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                             <g transform="translate(1716.000000, 291.000000)">
@@ -94,12 +94,12 @@
                       </svg>
                     </div>
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="text-sm font-weight-normal mb-1">
-                        Payment successfully completed
+          S            <h6 class="text-sm font-weight-normal mb-1">
+                        Payment Successfully Completed
                       </h6>
                       <p class="text-xs text-secondary mb-0">
                         <i class="fa fa-clock me-1"></i>
-                        2 days
+                        2 Days
                       </p>
                     </div>
                   </div>

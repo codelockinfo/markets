@@ -138,7 +138,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     <div class="d-flex mb-2">
                       <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>document</title>
+                          <title>Document</title>
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
                               <g transform="translate(1716.000000, 291.000000)">
@@ -244,7 +244,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <h6>Sales overview</h6>
               <p class="text-sm">
                 <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">4% more</span> in 2021
+                <span class="font-weight-bold">4% More</span> In 2021
               </p>
             </div>
             <div class="card-body p-3">
@@ -265,7 +265,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       <div class="card-header pb-0 pt-3 ">
         <div class="float-start">
           <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
-          <p>See our dashboard options.</p>
+          <p>See Our Dashboard Options.</p>
         </div>
         <div class="float-end mt-4">
           <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -290,13 +290,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </a>
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
+          <p class="text-sm">Choose Between 2 Different Sidenav Types.</p>
         </div>
         <div class="d-flex">
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
         </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+        <p class="text-sm d-xl-none d-block mt-2">You Can Change The Sidenav Type Just On Desktop View.</p>
         <div class="mt-3">
           <h6 class="mb-0">Navbar Fixed</h6>
         </div>

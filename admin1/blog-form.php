@@ -117,7 +117,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <label for="p-image" class="font-weight-normal required">Blog Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
-                <span class="drop-zone__prompt" id="dragfile">Drop file here or click to upload</span>
+                <span class="drop-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
                 <input type="file" name="blog_image" class="drop-zone__input">
               </div>  
               <div class="col">
@@ -125,7 +125,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
                 </div>
                 <div class="row mt-lg-n1">
-                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each File Should Not Exceed 5MB</label>
                 </div>
               </div>
               <div class="errormsg blog_image myFile"></div>
@@ -177,13 +177,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </a>
         <div class="mt-3">
           <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
+          <p class="text-sm">Choose Between 2 Different Sidenav Types.</p>
         </div>
         <div class="d-flex">
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
           <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
         </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+        <p class="text-sm d-xl-none d-block mt-2">You Can Change The Sidenav Type Just On Desktop View.</p>
         <div class="mt-3">
           <h6 class="mb-0">Navbar Fixed</h6>
         </div>
@@ -192,10 +192,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
         <hr class="horizontal dark my-sm-4">
         <a class="btn bg-gradient-dark w-100" href="#">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="#">View documentation</a>
+        <a class="btn btn-outline-dark w-100" href="#">View Documentation</a>
         <div class="w-100 text-center">
           <a class="github-button" href="#" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
-          <h6 class="mt-3">Thank you for sharing!</h6>
+          <h6 class="mt-3">Thank You For Sharing!</h6>
           <a href="#" class="btn btn-dark mb-0 me-2" target="_blank">
             <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
           </a>

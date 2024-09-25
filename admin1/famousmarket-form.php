@@ -41,61 +41,14 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-5">
             <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-              <label for="s-logo" class="font-weight-normal required">Shop Logo</label>
+            <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Shop Logo" name="shop_logo">
-                <span class="errormsg shop_logo"></span>
+                <select class="form-select required" aria-label="Select Shop" id="mySelect" name="shop_logo">
+                  <option selected value="">Select Shop</option>
+                </select>
+                <span class="errormsg shop_name"></span>
               </div>
-              <label for="b-image" class="font-weight-normal required">SVG Image</label>
-              <div class="mb-3">
-                <div class="drop-zone form-control">
-                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                  <input type="file" name="svg_img" class="drop-zone__input">
-                </div>
-                <div class="col">
-                  <div class="row mt-2">
-                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
-                  </div>
-                  <div class="row mt-lg-n1">
-                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
-                  </div>
-                </div>
-                <div class="errormsg svg_img myFile"></div>
-              </div>
-              <label for="text" class="font-weight-normal">SVG Image Alt</label>
-              <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="SVG Image Alt" name="svg_image_alt">
-              </div>
-              <label for="b-heading" class="font-weight-normal required">Heading</label>
-              <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
-                <span class="errormsg heading"></span>
-              </div>
-              <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
-              <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
-                <span class="errormsg sub_heading"></span>
-              </div>
-              <label for="market-img" class="font-weight-normal required">Image</label>
-              <div class="mb-3">
-                <div class="drop-zone form-control">
-                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                  <input type="file" class="drop-zone__input" name="img">
-                </div>
-                <div class="col">
-                  <div class="row mt-2">
-                    <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
-                  </div>
-                  <div class="row mt-lg-n1">
-                    <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
-                  </div>
-                </div>
-                <div class="errormsg img myFile"></div>
-              </div>
-              <label for="text" class="font-weight-normal"> Image Alt</label>
-              <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
-              </div>
+              
               <div class="mb-3">
                 <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
@@ -183,4 +136,5 @@ if ($_SESSION['current_user']['role'] == 1) {
 <script type="text/javascript"> 
 console.log("famousmarket LIST");
 listfamousmarket();
+select_shop();
 </script>

@@ -42,7 +42,7 @@ include 'header.php';
     <!-- Collection2 Start -->
     <div class="container-fluid famous pt-5 pt-md-6">
         <div class="container">
-            <div class="row2 " id="getmarket">
+            <div class="row2 " id="allmarketdata">
                 <!-- <div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">
                     <div class="bg-light rounded famous-item">
                         <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">
@@ -236,7 +236,7 @@ include 'header.php';
 </html>
 <script type="text/javascript"> 
 console.log("bannerlatest LIST");
-famousmarket();
+allmarkets();
 marketlistshowclientside();
 marketlist2showclientside();
 marketlist3showclientside();

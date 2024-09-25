@@ -93,7 +93,8 @@ include 'header.php';
                       <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-2">
-                      <input type="file" class="form-control signImage" name="image">
+                    <label>Shop Image</label>
+                      <input type="file" class="form-control signImage" name="shop_img">
                       <div class="col">
                         <div class="row mt-2">
                           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
@@ -102,14 +103,14 @@ include 'header.php';
                           <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                         </div>
                       </div>
-                      <div class="errormsg image imageError"></div>
+                      <div class="errormsg shop_img imageError"></div>
                     </div>
                     <div class="mb-3">
                       <input type="address" class="form-control validsignf" placeholder="Address" name="address">
                       <span class="errormsg address"></span>
                     </div>
                     <div class="mb-2">
-                      <label>shop logo image</label>
+                      <label>Shop Logo Image</label>
                       <input type="file" class="form-control signImage" name="shop_logo">
                       <div class="col">
                         <div class="row mt-2">
