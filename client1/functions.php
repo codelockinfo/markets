@@ -392,125 +392,130 @@ class client_functions {
             $index = 0;
             while ($categoryrow = mysqli_fetch_array($categoryresult)) { 
                 $index++;
+                $categoies_id = (isset($categoryrow['categories']) && $categoryrow['categories'] != '' ) ? $categoryrow['categories'] : '';
+                $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
+                $category_result = $this->db->query($category_query);
                 
-                $categories = [
-                    "1" => "Armwear",
-                    "2" => "Badges",
-                    "3" => "Belts",
-                    "4" => "Children's clothing",
-                    "5" => "Clothing brands by type",
-                    "6" => "Coats",
-                    "7" => "Dresses",
-                    "8" => "Footwear",
-                    "9" => "Gowns",
-                    "10" => "Handwear",
-                    "11" => "Hosiery",
-                    "12" => "Jackets",
-                    "13" => "Jeans by type",
-                    "14" => "Knee clothing",
-                    "15" => "Masks",
-                    "16" => "Neckwear",
-                    "17" => "One-piece suits",
-                    "18" => "Outerwear",
-                    "19" => "Ponchos",
-                    "20" => "Robes and cloaks",
-                    "21" => "Royal attire",
-                    "22" => "Saris",
-                    "23" => "Sashes",
-                    "24" => "Shawls and wraps",
-                    "25" => "Skirts",
-                    "26" => "Sportswear",
-                    "27" => "Suits",
-                    "28" => "Tops",
-                    "29" => "Trousers and shorts",
-                    "30" => "Undergarments",
-                    "31" => "Wedding clothing"
-                ];
+                if (mysqli_num_rows($category_result) > 0) {
+                    while ($category_row = mysqli_fetch_assoc($category_result)) {
+                   
+                        // $categories = [
+                        //     "1" => "Armwear",
+                        //     "2" => "Badges",
+                        //     "3" => "Belts",
+                        //     "4" => "Children's clothing",
+                        //     "5" => "Clothing brands by type",
+                        //     "6" => "Coats",
+                        //     "7" => "Dresses",
+                        //     "8" => "Footwear",
+                        //     "9" => "Gowns",
+                        //     "10" => "Handwear",
+                        //     "11" => "Hosiery",
+                        //     "12" => "Jackets",
+                        //     "13" => "Jeans by type",
+                        //     "14" => "Knee clothing",
+                        //     "15" => "Masks",
+                        //     "16" => "Neckwear",
+                        //     "17" => "One-piece suits",
+                        //     "18" => "Outerwear",
+                        //     "19" => "Ponchos",
+                        //     "20" => "Robes and cloaks",
+                        //     "21" => "Royal attire",
+                        //     "22" => "Saris",
+                        //     "23" => "Sashes",
+                        //     "24" => "Shawls and wraps",
+                        //     "25" => "Skirts",
+                        //     "26" => "Sportswear",
+                        //     "27" => "Suits",
+                        //     "28" => "Tops",
+                        //     "29" => "Trousers and shorts",
+                        //     "30" => "Undergarments",
+                        //     "31" => "Wedding clothing"
+                        // ];
                 
-                if (array_key_exists($categoryrow['categories'], $categories)) {
-                    $browsecategorytab .= $categories[$categoryrow['categories']].',';
-                    $browsecategorytabmobile .= $categories[$categoryrow['categories']].',';
-                    
-                    $productquery = "SELECT * FROM products WHERE category='".$categoryrow['categories']."' AND status='1'";
-                    $productresult = $this->db->query($productquery);   
-                    if ($productresult) {
-                        if (mysqli_num_rows($productresult) > 0) {
-                            $categoryHTML = '';
-                            $countCategoriesProduct = 0;
-                            while ($productrow = mysqli_fetch_array($productresult)) {
-                                if($countCategoriesProduct < 9){
-                                    $userquery = "SELECT * FROM users WHERE status='1' AND user_id='".$productrow['user_id']."'";
-                                    $userresult = $this->db->query($userquery); 
-                                    while ($userrow = mysqli_fetch_array($userresult)) {   
-                                        $shopname = $userrow['shop'] ? $userrow['shop'] : '' ;
-                                        $shopaddress = $userrow['address'] ? $userrow['address'] : '';
-                                    }  
-                                    $countCategoriesProduct++;
-                                    $charLimit  = 105;
-                                    $image = $productrow["p_image"];
-                                    $imagePath = "../admin1/assets/img/product_img/".$image;
-                                    $decodedPath = htmlspecialchars_decode($imagePath);
-                                    $title =  $productrow['title'];
-                                    // $p_description = $productrow['p_description'];
-                                    $p_description = $this->truncateTextByChar($productrow['p_description'], $charLimit);
+                        $browsecategorytab .= $category_row['categoies_name'].',';
+                        $browsecategorytabmobile .= $category_row['categoies_name'].',';
+                        
+                        $productquery = "SELECT * FROM products WHERE category='".$categoryrow['categories']."' AND status='1'";
+                        $productresult = $this->db->query($productquery);   
+                        if ($productresult) {
+                            if (mysqli_num_rows($productresult) > 0) {
+                                $categoryHTML = '';
+                                $countCategoriesProduct = 0;
+                                while ($productrow = mysqli_fetch_array($productresult)) {
+                                    if($countCategoriesProduct < 9){
+                                        $userquery = "SELECT * FROM users WHERE status='1' AND user_id='".$productrow['user_id']."'";
+                                        $userresult = $this->db->query($userquery); 
+                                        while ($userrow = mysqli_fetch_array($userresult)) {   
+                                            $shopname = $userrow['shop'] ? $userrow['shop'] : '' ;
+                                            $shopaddress = $userrow['address'] ? $userrow['address'] : '';
+                                        }  
+                                        $countCategoriesProduct++;
+                                        $charLimit  = 105;
+                                        $image = $productrow["p_image"];
+                                        $imagePath = "../admin1/assets/img/product_img/".$image;
+                                        $decodedPath = htmlspecialchars_decode($imagePath);
+                                        $title =  $productrow['title'];
+                                        // $p_description = $productrow['p_description'];
+                                        $p_description = $this->truncateTextByChar($productrow['p_description'], $charLimit);
 
-                                    $categoryHTML  .= '<div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">';
-                                    $categoryHTML  .= '    <div class="market_list_mian_box">';
-                                    $categoryHTML  .= '        <div class="market-head border-bottom">';
-                                    $categoryHTML  .= '            <h6 class="text-primary fw-bold ms-3 mt-3">'.$title.'</h6>';
-                                    $categoryHTML  .= '        </div>';
-                                    $categoryHTML  .= '        <div class="market-content p-3">';
-                                    $categoryHTML  .= '            <div class="d-flex justify-content-between pb-2 ">';
-                                    $categoryHTML  .= '                <div class="col-3">';
-                                    $categoryHTML  .= '                    <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
-                                    $categoryHTML  .= '                </div>';
-                                    $categoryHTML  .= '                <div class="col-6">';
-                                    $categoryHTML  .= '                    <div class="ms-4">';
-                                    $categoryHTML  .= '                        <div class="ms-1 d-inline fs-6"><span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>'.$productrow['maxprice'].'</span><span>&nbsp;<h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>'. $productrow['minprice'].'</span></div>';
-                                    $categoryHTML  .= '                        <p class="fs-7 justify mt-2 mb-0">'.$p_description.'</p>';
-                                    $categoryHTML  .= '                    </div>';
-                                    $categoryHTML  .= '                </div>';
-                                    $categoryHTML  .= '                <div class="col-3 text-end">';
-                                    $categoryHTML  .= '                    <div class="m-img-box p-1 border rounded w-50 d-inline-block">';
-                                    $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
-                                    $categoryHTML  .= '                    </div>';
-                                    $categoryHTML  .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
-                                    $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
-                                    $categoryHTML  .= '                    </div>';
-                                    $categoryHTML  .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
-                                    $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
-                                    $categoryHTML  .= '                    </div>';
-                                    $categoryHTML  .= '                </div>';
-                                    $categoryHTML  .= '            </div>';            
-                                    $categoryHTML  .= '            <div class="market-footer border-top">';
-                                    $categoryHTML  .= '                <div class="market-name">';
-                                    $categoryHTML  .= '                    <div class="d-flex align-items-center">';
-                                    $categoryHTML  .= '                        <div class="m-icon">';
-                                    $categoryHTML  .= '                            <i class="fa-solid fa-shield-halved fs-4 text-primary"></i>';
-                                    $categoryHTML  .= '                        </div>';
-                                    $categoryHTML  .= '                        <div class="m-name mt-2 ms-2">';
-                                    $categoryHTML  .= '                            <h4 class="fs-5 p-0 m-0 text-second">' . $shopname . '</h4>';
-                                    $categoryHTML  .= '                            <p class="fs-6 p-0 m-0">' . $shopaddress . '</p>';
-                                    $categoryHTML  .= '                        </div>';
-                                    $categoryHTML  .= '                    </div>';
-                                    $categoryHTML  .= '                </div>';
-                                    $categoryHTML  .= '            </div>';
-                                    $categoryHTML  .= '            <div class="market-button d-flex mt-3">';
-                                    $categoryHTML  .= '                <a href="' . CLS_SITE_URL . 'sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>';
-                                    $categoryHTML  .= '                <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>';
-                                    $categoryHTML  .= '                <a href="' . CLS_SITE_URL . 'collection.php" class="btn btn-primary ms-2 fs-6">Catalog</a>';
-                                    $categoryHTML  .= '            </div>';
-                                    $categoryHTML  .= '        </div>';
-                                    $categoryHTML  .= '    </div>';
-                                    $categoryHTML  .= '</div>';  
+                                        $categoryHTML  .= '<div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">';
+                                        $categoryHTML  .= '    <div class="market_list_mian_box">';
+                                        $categoryHTML  .= '        <div class="market-head border-bottom">';
+                                        $categoryHTML  .= '            <h6 class="text-primary fw-bold ms-3 mt-3">'.$title.'</h6>';
+                                        $categoryHTML  .= '        </div>';
+                                        $categoryHTML  .= '        <div class="market-content p-3">';
+                                        $categoryHTML  .= '            <div class="d-flex justify-content-between pb-2 ">';
+                                        $categoryHTML  .= '                <div class="col-3">';
+                                        $categoryHTML  .= '                    <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
+                                        $categoryHTML  .= '                </div>';
+                                        $categoryHTML  .= '                <div class="col-6">';
+                                        $categoryHTML  .= '                    <div class="ms-4">';
+                                        $categoryHTML  .= '                        <div class="ms-1 d-inline fs-6"><span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>'.$productrow['maxprice'].'</span><span>&nbsp;<h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>'. $productrow['minprice'].'</span></div>';
+                                        $categoryHTML  .= '                        <p class="fs-7 justify mt-2 mb-0">'.$p_description.'</p>';
+                                        $categoryHTML  .= '                    </div>';
+                                        $categoryHTML  .= '                </div>';
+                                        $categoryHTML  .= '                <div class="col-3 text-end">';
+                                        $categoryHTML  .= '                    <div class="m-img-box p-1 border rounded w-50 d-inline-block">';
+                                        $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
+                                        $categoryHTML  .= '                    </div>';
+                                        $categoryHTML  .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
+                                        $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
+                                        $categoryHTML  .= '                    </div>';
+                                        $categoryHTML  .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
+                                        $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
+                                        $categoryHTML  .= '                    </div>';
+                                        $categoryHTML  .= '                </div>';
+                                        $categoryHTML  .= '            </div>';            
+                                        $categoryHTML  .= '            <div class="market-footer border-top">';
+                                        $categoryHTML  .= '                <div class="market-name">';
+                                        $categoryHTML  .= '                    <div class="d-flex align-items-center">';
+                                        $categoryHTML  .= '                        <div class="m-icon">';
+                                        $categoryHTML  .= '                            <i class="fa-solid fa-shield-halved fs-4 text-primary"></i>';
+                                        $categoryHTML  .= '                        </div>';
+                                        $categoryHTML  .= '                        <div class="m-name mt-2 ms-2">';
+                                        $categoryHTML  .= '                            <h4 class="fs-5 p-0 m-0 text-second">' . $shopname . '</h4>';
+                                        $categoryHTML  .= '                            <p class="fs-6 p-0 m-0">' . $shopaddress . '</p>';
+                                        $categoryHTML  .= '                        </div>';
+                                        $categoryHTML  .= '                    </div>';
+                                        $categoryHTML  .= '                </div>';
+                                        $categoryHTML  .= '            </div>';
+                                        $categoryHTML  .= '            <div class="market-button d-flex mt-3">';
+                                        $categoryHTML  .= '                <a href="' . CLS_SITE_URL . 'sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>';
+                                        $categoryHTML  .= '                <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>';
+                                        $categoryHTML  .= '                <a href="' . CLS_SITE_URL . 'collection.php" class="btn btn-primary ms-2 fs-6">Catalog</a>';
+                                        $categoryHTML  .= '            </div>';
+                                        $categoryHTML  .= '        </div>';
+                                        $categoryHTML  .= '    </div>';
+                                        $categoryHTML  .= '</div>';  
+                                    }
                                 }
+                                $output[$category_row['categoies_name']] = $categoryHTML;
+                                $response_data = array('data' => 'success', 'outcome' => $output , 'browsecategorytitle' => $browsecategorytitle , 'browsecategorybutton' => $browsecategorybutton, 'browsecategorytab' => $browsecategorytab, 'browsecategorytabmobile' => $browsecategorytabmobile );
                             }
-                            $output[$categories[$categoryrow['categories']]] = $categoryHTML;
-                            $response_data = array('data' => 'success', 'outcome' => $output , 'browsecategorytitle' => $browsecategorytitle , 'browsecategorybutton' => $browsecategorybutton, 'browsecategorytab' => $browsecategorytab, 'browsecategorytabmobile' => $browsecategorytabmobile );
                         }
                     }
                 }
-                
             }
            
         }

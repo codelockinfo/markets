@@ -2149,14 +2149,19 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $sql = "SELECT * FROM allcategories WHERE status='1' AND user_id ='$user_id'";
+            $sql = "SELECT * FROM allcategories WHERE status='1'";
             $result = $this->db->query($sql);
 
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
-                    $all_categories = "";
-                    while ($categoryrow = mysqli_fetch_object($result)) { 
-                        $all_categories .="<option value='" .$categoryrow->categoies_id. "'>". $categoryrow->categoies_name . "</option>";
+                    $all_categories = ""; // Initialize the variable to store options
+                    $category_names = []; // Array to track unique category names
+                    
+                    while ($categoryrow = mysqli_fetch_assoc($result)) {
+                        if (!in_array($categoryrow['categoies_name'], $category_names)) {
+                            $category_names[] = $categoryrow['categoies_name'];
+                            $all_categories .= "<option value='" . $categoryrow['categoies_id'] . "'>" . $categoryrow['categoies_name'] . "</option>";
+                        }
                     }
                     $response_data = array('data' => 'success', 'outcome' => $all_categories);
                 }
