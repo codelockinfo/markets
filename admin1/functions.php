@@ -989,13 +989,20 @@ class admin_functions {
             if (isset($_SESSION['current_user']['user_id'])) {
                 $categories = (isset($_POST['categories']) && $_POST['categories'] != '') ?  $_POST['categories'] : '';
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
-                $result = $this->db->query($query);
-            }
-            if ($result) {                
-                $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
+                
+                $category_query = "SELECT * FROM b_textile_catagorys WHERE categories = $categories";
+                $category_result = $this->db->query($category_query);
+                if (mysqli_num_rows($category_result) <= 0) {
+                    $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
+                    $result = $this->db->query($query);
+                    if ($result) {                
+                        $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => "Error");
+                    }
+                }else{
+                    $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Already category added");
+                }
             }
         }else{
             $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Oops! Something went wrong ");
@@ -1513,39 +1520,39 @@ class admin_functions {
     function brousetextilelisting (){
         $response_data = array('data' => 'fail', 'msg' => "Error");        
         if (isset($_SESSION['current_user']['user_id'])) {
-            $categories = [
-                "1" => "Armwear",
-                "2" => "Badges",
-                "3" => "Belts",
-                "4" => "Children's clothing",
-                "5" => "Clothing brands by type",
-                "6" => "Coats",
-                "7" => "Dresses",
-                "8" => "Footwear",
-                "9" => "Gowns",
-                "10" => "Handwear",
-                "11" => "Hosiery",
-                "12" => "Jackets",
-                "13" => "Jeans by type",
-                "14" => "Knee clothing",
-                "15" => "Masks",
-                "16" => "Neckwear",
-                "17" => "One-piece suits",
-                "18" => "Outerwear",
-                "19" => "Ponchos",
-                "20" => "Robes and cloaks",
-                "21" => "Royal attire",
-                "22" => "Saris",
-                "23" => "Sashes",
-                "24" => "Shawls and wraps",
-                "25" => "Skirts",
-                "26" => "Sportswear",
-                "27" => "Suits",
-                "28" => "Tops",
-                "29" => "Trousers and shorts",
-                "30" => "Undergarments",
-                "31" => "Wedding clothing"
-            ];
+            // $categories = [
+            //     "1" => "Armwear",
+            //     "2" => "Badges",
+            //     "3" => "Belts",
+            //     "4" => "Children's clothing",
+            //     "5" => "Clothing brands by type",
+            //     "6" => "Coats",
+            //     "7" => "Dresses",
+            //     "8" => "Footwear",
+            //     "9" => "Gowns",
+            //     "10" => "Handwear",
+            //     "11" => "Hosiery",
+            //     "12" => "Jackets",
+            //     "13" => "Jeans by type",
+            //     "14" => "Knee clothing",
+            //     "15" => "Masks",
+            //     "16" => "Neckwear",
+            //     "17" => "One-piece suits",
+            //     "18" => "Outerwear",
+            //     "19" => "Ponchos",
+            //     "20" => "Robes and cloaks",
+            //     "21" => "Royal attire",
+            //     "22" => "Saris",
+            //     "23" => "Sashes",
+            //     "24" => "Shawls and wraps",
+            //     "25" => "Skirts",
+            //     "26" => "Sportswear",
+            //     "27" => "Suits",
+            //     "28" => "Tops",
+            //     "29" => "Trousers and shorts",
+            //     "30" => "Undergarments",
+            //     "31" => "Wedding clothing"
+            // ];
                 
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
@@ -1567,20 +1574,27 @@ class admin_functions {
                 if ($result) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
-                            if (array_key_exists($row['categories'], $categories)) {
-                                $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                                $output .= '  <div class="card card-blog card-plain">';
-                                $output .= '    <div class="d-flex justify-content-between mb-3">';
-                                $output .= '    <div class="position-relative">';
-                                $output .= '      <a class="d-block border-radius-xl">'. $categories[$row['categories']].'</a>';
-                                $output .= '    </div>';
-                                $output .= '      <div class="ms-auto text-end">';
-                                $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
-                                $output .= '      </div>';
-                                $output .= '    </div>';
-                                $output .= '  </div>';
-                                $output .= '</div>'; 
-                            }                   
+                            $categoies_id = (isset($row['categories']) && $row['categories'] != '' ) ? $row['categories'] : '';
+                            $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
+                            $category_result = $this->db->query($category_query);
+                            
+                            if (mysqli_num_rows($category_result) > 0) {
+                                while ($category_row = mysqli_fetch_assoc($category_result)) {
+                                    $categories = $category_row['categoies_name'];
+                                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                                    $output .= '  <div class="card card-blog card-plain">';
+                                    $output .= '    <div class="d-flex justify-content-between mb-3">';
+                                    $output .= '    <div class="position-relative">';
+                                    $output .= '      <a class="d-block border-radius-xl">'. $categories.'</a>';
+                                    $output .= '    </div>';
+                                    $output .= '      <div class="ms-auto text-end">';
+                                    $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                                    $output .= '      </div>';
+                                    $output .= '    </div>';
+                                    $output .= '  </div>';
+                                    $output .= '</div>'; 
+                                }
+                            }                  
                         }
                         $response_data = array('data' => 'success', 'outcome' => $output);
                     } else {
@@ -2142,7 +2156,7 @@ class admin_functions {
                 if (mysqli_num_rows($result) > 0) {
                     $all_categories = "";
                     while ($categoryrow = mysqli_fetch_object($result)) { 
-                        $all_categories .= $categoryrow->categoies_name.',';
+                        $all_categories .="<option value='" .$categoryrow->categoies_id. "'>". $categoryrow->categoies_name . "</option>";
                     }
                     $response_data = array('data' => 'success', 'outcome' => $all_categories);
                 }

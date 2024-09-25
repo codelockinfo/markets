@@ -479,18 +479,21 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          var categories = response["outcome"].split(",");
-          $.each(categories, function (index, category) {
-            category = category.trim(); // Remove any extra spaces
-            if (category !== "") {
-              var CategoriesHtml =
-                "<option value='" + (index + 1) + "'>" + category + "</option>";
-              console.log(CategoriesHtml);
-              $("select[name=categories],select[name=select_catagory]").append(
-                CategoriesHtml
-              );
-            }
-          });
+          $("select[name=categories],select[name=select_catagory]").append(
+            response["outcome"]
+          );
+          // var categories = response["outcome"].split(",");
+          // $.each(categories, function (index, category) {
+          //   category = category.trim(); // Remove any extra spaces
+          //   if (category !== "") {
+          //     var CategoriesHtml =
+          //       "<option value='" + (index + 1) + "'>" + category + "</option>";
+          //     console.log(CategoriesHtml);
+          //     $("select[name=categories],select[name=select_catagory]").append(
+          //       CategoriesHtml
+          //     );
+          //   }
+          // });
         }
       } else {
         console.log("Something went wrong");
