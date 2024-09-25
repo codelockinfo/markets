@@ -136,7 +136,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <tbody id="attributes-body">
                     <tr class="attr">
                       <td><input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]"> <span class="errormsg item"></span></td>
-                      <td><input type="number" class="form-control mt-1" placeholder="1" name="quantity[]"> <span class="errormsg quantity"></span></td>
+                      <td><input type="number" class="form-control mt-1" placeholder="1" name="quantity[]" min="1"> <span class="errormsg quantity"></span></td>
                       <td><input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]"> <span class="errormsg rate"></span></td>
                       <td><input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled> <span class="errormsg item"></span></td>
                       <td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>

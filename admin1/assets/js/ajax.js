@@ -1395,7 +1395,6 @@ $(document).ready(function () {
           $("#b_textileCtgryinsert")[0].reset();
           $(".multiple_tag").val(null).trigger("change");
           showMessage(response.msg, "success");
-          listbrousetextile();
         } else {
           showMessage(response.msg_error, "fail");
         }
