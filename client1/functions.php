@@ -205,7 +205,7 @@ class client_functions {
             while ($row = mysqli_fetch_array($result)) {  
                 $link = $row["short_link"];
                 $output .= '<div class="swiper-slide">';                        
-                $output .= '<iframe width="100%" height="500px" src="' . $link . '?autoplay=1&mute=0&loop=1&modestbranding=1&iv_load_policy=3&controls=0&rel=0&showinfo=0&disablekb=1" class="rounded border-radius-xl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                $output .= '<iframe width="100%" height="500px" src="' . $link . '?autoplay=1&mute=1&loop=1&modestbranding=1&iv_load_policy=3&controls=0&rel=0&showinfo=0&disablekb=1" class="rounded border-radius-xl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                 $output .= '</div>';                
             }
             $videotitle .= '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
