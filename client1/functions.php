@@ -860,7 +860,7 @@ class client_functions {
                     }
     
                     $output .= '                </div>'; // End of col-3
-                    $output .= '            </div>'; // End of d-flex
+                    $output .= '            </div>';
                     $output .= '            <div class="market-footer border-top">';
                     $output .= '                <div class="market-name">';
                     $output .= '                    <div class="d-flex align-items-center">';
@@ -876,9 +876,9 @@ class client_functions {
                     $output .= '                <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>';
                     $output .= '                <a href="' . CLS_SITE_URL . 'collection.php?id=' . $product_id . '" class="btn btn-primary ms-2 fs-6">Catalog</a>';
                     $output .= '            </div>';
-                    $output .= '        </div>'; // End of market-content
-                    $output .= '    </div>'; // End of market_list_mian_box
-                    $output .= '</div>'; // End of col-12 col-md-6 col-lg-4
+                    $output .= '        </div>'; 
+                    $output .= '    </div>'; 
+                    $output .= '</div>';
                 }
     
                 $response_data = array('data' => 'success', 'outcome' => $output);
@@ -898,7 +898,6 @@ class client_functions {
             $query = "SELECT * FROM users WHERE status='1' and user_id = $userId";
             $result = $this->db->query($query);
             $output = "";
-
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row['shop_logo'];
@@ -982,7 +981,7 @@ class client_functions {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $images = explode(',', $row["p_image"]);
                     $imagePathBase = "../admin1/assets/img/product_img/";
-                    $noimagePath = "../admin1/assets/img/noimage.png";
+                    $noimagePath = "../admin1/assets/img/product_img/noimage.png";
     
                     $output .= '<div class="row">';
                     $output .= '<div class="col-12 col-md-4">';
@@ -1023,6 +1022,27 @@ class client_functions {
         }
         return json_encode($response_data);
     }
-	
+    function get_categories() {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $sql = "SELECT * FROM allcategories WHERE status='1'";
+        $result = $this->db->query($sql);
+    
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                $all_categories = "";
+                $category_names = [];
+                while ($categoryrow = mysqli_fetch_assoc($result)) {
+                    if (!in_array($categoryrow['categoies_name'], $category_names)) {
+                        $category_names[] = $categoryrow['categoies_name'];
+                         $all_categories .= "<li><a class='dropdown-item nav-link category-item' data-bs-toggle='pill' href='#'data-id='" . $categoryrow['categoies_id'] . "' >". $categoryrow['categoies_name'] ."</a></li>";
+                    }
+                }
+                $response_data = array('data' => 'success', 'outcome' => $all_categories);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
 	
 }

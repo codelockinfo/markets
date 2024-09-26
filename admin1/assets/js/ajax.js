@@ -91,11 +91,12 @@ function loadData(routineName) {
       var response = JSON.parse(response);
       console.log(response);
       console.log("Sending routine_name:", routineName);
+      
       if (response.outcome === "No data found") {
         $("#getdata").html(
-          '<tr><td colspan="8" style="text-align:center;"><img style="height:100px; width:100px; " src="assets/img/noimg.gif">' +
-            response.outcome +
-            "</td></tr>"
+          '<div class="notdata">' +  
+            '<img style="height:100px; width:100px;" src="assets/img/noimg.gif">' +
+            '<br></div>'
         );
       } else {
         console.log("Data found");
@@ -105,11 +106,11 @@ function loadData(routineName) {
         }
         check_toggle_status();
         check_toggle_btn();
-
       }
     },
   });
 }
+
 
 function listgallary() {
   loadData("listgallary");
