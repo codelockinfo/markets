@@ -127,14 +127,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="card-body p-3">
               <div class="bg-gradient-info border-radius-lg py-3 pe-1 mb-3">
                 <div class="chart">
-                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                  <canvas id="chart-bars" class="chart-canvas" height="150"></canvas>
                 </div>
               </div>
               <h6 class="ms-2 mt-4 mb-0"> Active Users </h6>
               <p class="text-sm ms-2"> (<span class="font-weight-bolder">+23%</span>) than last week </p>
               <div class="container border-radius-lg">
                 <div class="row">
-                  <div class="col-3 py-3 ps-0">
+                  <div class=" col-6 py-3 ps-0">
                     <div class="d-flex mb-2">
                       <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -158,7 +158,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
-                  <div class="col-3 py-3 ps-0">
+                  <div class=" col-6 py-3 ps-0">
                     <div class="d-flex mb-2">
                       <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -184,7 +184,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <div class="progress-bar bg-gradient-info w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
-                  <div class="col-3 py-3 ps-0">
+                  <div class=" col-6 py-3 ps-0">
                     <div class="d-flex mb-2">
                       <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -208,7 +208,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <div class="progress-bar bg-gradient-info w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
-                  <div class="col-3 py-3 ps-0">
+                  <div class=" col-6 py-3 ps-0">
                     <div class="d-flex mb-2">
                       <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="10px" height="10px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -249,7 +249,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="card-body p-3">
               <div class="chart">
-                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+                <canvas id="chart-line" class="chart-canvas" height="380"></canvas>
               </div>
             </div>
           </div>
