@@ -20,7 +20,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="page-header min-height-300 border-radius-xl mt-4">
                 <span class="mask bg-gradient-info opacity-6"></span>
             </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+            <div class="card card-body blur shadow-blur mx-4 mt-n6 p-4 overflow-hidden">
                 <div class="row gx-4"  id="profile_data">
                     <!-- <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
