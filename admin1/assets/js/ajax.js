@@ -93,7 +93,7 @@ function loadData(routineName) {
       console.log("Sending routine_name:", routineName);
       if (response.outcome === "No data found") {
         $("#getdata").html(
-          '<tr><td colspan="5" style="color: red; text-align: center;">' +
+          '<tr><td colspan="8" style="text-align:center;"><img style="height:100px; width:100px; " src="assets/img/noimg.gif">' +
             response.outcome +
             "</td></tr>"
         );
@@ -453,7 +453,7 @@ function get_customer(id) {
         : "";
       console.log($("input[name='address']"));
       response["outcome"]["address"] !== undefined
-        ? $("input[name='address']").val(response["outcome"]["address"])
+        ? $("textarea[name='address']").val(response["outcome"]["address"])
         : "";
       var c_image =
         response["outcome"]["c_image"] !== undefined
@@ -553,18 +553,21 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          var categories = response["outcome"].split(",");
-          $.each(categories, function (index, category) {
-            category = category.trim(); // Remove any extra spaces
-            if (category !== "") {
-              var CategoriesHtml =
-                "<option value='" + (index + 1) + "'>" + category + "</option>";
-              console.log(CategoriesHtml);
-              $("select[name=categories],select[name=select_catagory]").append(
-                CategoriesHtml
-              );
-            }
-          });
+          $("select[name=categories],select[name=select_catagory]").append(
+            response["outcome"]
+          );
+          // var categories = response["outcome"].split(",");
+          // $.each(categories, function (index, category) {
+          //   category = category.trim(); // Remove any extra spaces
+          //   if (category !== "") {
+          //     var CategoriesHtml =
+          //       "<option value='" + (index + 1) + "'>" + category + "</option>";
+          //     console.log(CategoriesHtml);
+          //     $("select[name=categories],select[name=select_catagory]").append(
+          //       CategoriesHtml
+          //     );
+          //   }
+          // });
         }
       } else {
         console.log("Something went wrong");
@@ -767,6 +770,13 @@ $(document).ready(function () {
     });
   });
 
+  $(document).on("keydown", "#savesignin input", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent default action
+      $(".signInsave").click(); // Trigger the button click
+    }
+  });
+
   $(document).on("click", ".profileDataUpdate", function (e) {
     var form_data = $("#profileUpdate")[0];
     var form_data = new FormData(form_data);
@@ -802,10 +812,13 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
+        } else {
+          showMessage(response.msg_error, "fail");
         }
       },
     });
   });
+
   $(document).on("click", ".signUpsave", function (e) {
     e.preventDefault();
     console.log("signUpsavebutton click");
@@ -862,12 +875,21 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           $("#savesignup")[0].reset();
-          window.location.href = "index.php";
+          window.location.href = "analytics.php";
         } else {
           // showMessage(response.msg_error, "fail");
         }
       },
     });
+  });
+
+  $(document).on("keydown", "#savesignin input", function (event) {
+    console.log("KEYDOWN");
+    console.log(event.key);
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent default action
+      $(".signUpsave").click(); // Trigger the button click
+    }
   });
 
   $(document).on("click", ".productSave", function (event) {
@@ -903,6 +925,9 @@ $(document).ready(function () {
         response["msg"]["select_catagory"] !== undefined
           ? $(".select_catagory").html(response["msg"]["select_catagory"])
           : $(".select_catagory").html("");
+        response["msg"]["addcategory"] !== undefined
+          ? $(".addcategory").html(response["msg"]["addcategory"])
+          : $(".addcategory").html("");
         response["msg"]["min_price"] !== undefined
           ? $(".min_price").html(response["msg"]["min_price"])
           : $(".min_price").html("");

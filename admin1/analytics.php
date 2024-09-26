@@ -40,7 +40,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Earning</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $53,000
+                      Rs.53,000
                       <span class="text-success text-sm font-weight-bolder">+55%</span>
                     </h5>
                   </div>
@@ -106,7 +106,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Item Sales</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $103,430
+                    Rs.103,430
                       <span class="text-success text-sm font-weight-bolder">+5%</span>
                     </h5>
                   </div>
@@ -203,7 +203,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       </div>
                       <p class="text-xs mt-1 mb-0 font-weight-bold">Sales</p>
                     </div>
-                    <h4 class="font-weight-bolder">435$</h4>
+                    <h4 class="font-weight-bolder">Rs.435</h4>
                     <div class="progress w-75">
                       <div class="progress-bar bg-gradient-info w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>

@@ -37,9 +37,9 @@ class admin_functions {
             $error_array['email'] = "Please enter the valid email address";
         }
         if (empty($password)) {
-            $error_array['password'] = 'Please Enter The Password.';
+            $error_array['password'] = 'Please Enter The Password';
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character.';
+            $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character';
         }
         if (empty($error_array)) {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
@@ -118,11 +118,11 @@ class admin_functions {
                 $error_array['shop_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
             if ($_FILES['shop_img']['size'] > $maxSize) {
-                $error_array['shop_img'] = "File size must be 5MB or less.";
+                $error_array['shop_img'] = "File size must be 5MB or less";
             }
 
             if (empty($filename)) {
-                $error_array['shop_img'] = "Please select shop image.";
+                $error_array['shop_img'] = "Please select shop image";
             }
         }
         if (isset($_FILES['shop_logo'])) {
@@ -133,14 +133,14 @@ class admin_functions {
             $shoplogo = time() . '.' . $fileExtension;
             $shopLogoPath = $folder . $shoplogo;
             if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['shop_logo'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                $error_array['shop_logo'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed";
             }
             if ($_FILES['shop_logo']['size'] > $maxSize) {
-                $error_array['shop_logo'] = "File size must be 5MB or less.";
+                $error_array['shop_logo'] = "File size must be 5MB or less";
             }
 
             if (empty($filename)) {
-                $error_array['shop_logo'] = "Please select a shop logo.";
+                $error_array['shop_logo'] = "Please select a shop logo";
             }
         }
         if (isset($_POST['name']) && $_POST['name'] == '') {
@@ -172,12 +172,12 @@ class admin_functions {
         if (empty($password)) {
             $error_array['password'] = "Please enter a password.";
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character.";
+            $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character";
         }
         if (empty($confirmPassword)) {
-            $error_array['Confirm_Password'] = "Please enter a confirm password.";
+            $error_array['Confirm_Password'] = "Please enter a confirm password";
         } elseif ($password !== $confirmPassword) {
-            $error_array['Confirm_Password'] = "Passwords do not match.";
+            $error_array['Confirm_Password'] = "Passwords do not match";
         }
 
         // Email validation
@@ -250,10 +250,10 @@ class admin_functions {
                 $fullpath = $folder . $newFilename;
                 if($tmpfile != ""){
                     if (!in_array($fileExtension, $allowedExtensions)) {
-                        $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                        $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed";
                     }
                     if ($file['size'][$key] > $maxSize) {
-                        $error_array['p_image'][] = "File size for $filename must be 5MB or less.";
+                        $error_array['p_image'][] = "File size for $filename must be 5MB or less";
                     }
 
                     if (empty($error_array)) {
@@ -264,16 +264,27 @@ class admin_functions {
                         }
                     }
                 }else{
-                    $error_array['p_image'][] = "Please upload another product image.";
+                    $error_array['p_image'][] = "Please upload another product image";
                 }
             }
         }
 
+        
+        if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
+            if (isset($_POST['addcategory']) && $_POST['addcategory'] == '') {
+                $error_array['addcategory'] = "Please enter product category.";
+                if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
+                    $error_array['select_catagory'] = "Please select product category.";
+                }
+            }
+        }else{
+            if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
+                $error_array['select_catagory'] = "Please select product category.";
+            }
+        }
+        
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter product title.";
-        }
-        if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
-            $error_array['select_catagory'] = "Please select product category.";
         }
         if (isset($_POST['sku']) && $_POST['sku'] == '') {
             $error_array['sku'] = "Please enter a SKU.";
@@ -298,14 +309,18 @@ class admin_functions {
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter description.";
         }
-        if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
-            $error_array['p_tag'] = "Please select categories";
-        }
+
+        // if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
+        //     $error_array['p_tag'] = "Please select categories";
+        // }
+    
 
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $product_name = str_replace("'", "\'", $product_name);
             $select_catagory = (isset($_POST['select_catagory']) && $_POST['select_catagory'] !== '') ? $_POST['select_catagory'] : '';
+            $addcategory = (isset($_POST['addcategory']) && $_POST['addcategory'] !== '') ? $_POST['addcategory'] : '';
+            $addcheckboxcategory = (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] !== '') ? $_POST['addcheckboxcategory'] : '';
             $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
             $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
@@ -315,13 +330,24 @@ class admin_functions {
             $p_description = (isset($_POST['p_description']) && $_POST['p_description'] !== '') ? $_POST['p_description'] : '';
             $p_description = str_replace("'", "\'", $p_description);
 
+            
+            
+            $user_id = $_SESSION['current_user']['user_id'];   
+            if($addcategory != '' && $addcheckboxcategory  != ''){
+                $add_category_query = "INSERT INTO allcategories (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+                $category_result = $this->db->query($add_category_query);   
+                if($category_result){
+                    $select_catagory = $this->db->insert_id; 
+                }else{
+                    $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                }
+            }
             if($id == ''){
-                $uploadedFilenames = implode(',', $uploadedFiles);
+                $uploadedFilenames = implode(',', $uploadedFiles); 
                 $uploadedFilenames;
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$uploadedFilenames', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
 
+                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
+                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$uploadedFilenames', '$product_image_alt', '$p_tag', '$p_description', '$user_id')"; 
                 $result = $this->db->query($query);
 
                 if ($result) {
@@ -910,13 +936,22 @@ class admin_functions {
             if (isset($_SESSION['current_user']['user_id'])) {
                 $categories = (isset($_POST['categories']) && $_POST['categories'] != '') ?  $_POST['categories'] : '';
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
-                $result = $this->db->query($query);
-            }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
+
+                
+                $category_query = "SELECT * FROM b_textile_catagorys WHERE categories = $categories";
+                $category_result = $this->db->query($category_query);
+                if (mysqli_num_rows($category_result) <= 0) {
+                    $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
+                    $result = $this->db->query($query);
+                    if ($result) {                
+                        $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => "Error");
+                    }
+                }else{
+                    $response_data = array('data' => 'fail', 'msg' => $error_array ,'msg_error' => "Already category added");
+                }
+
             }
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
@@ -1019,9 +1054,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    function insert_faq(){ 
 
-    function insert_faq()
-    {
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
             $error_array['faq_question'] = "Please enter question";
@@ -1051,8 +1085,8 @@ class admin_functions {
         return $response;
     }
 
-    function insert_review()
-    {
+    function insert_review(){
+
         $error_array = array();
 
         if (isset($_POST['description']) && $_POST['description'] == '') {
@@ -1510,84 +1544,90 @@ class admin_functions {
         return $response;
     }
 
-    function brousetextilelisting()
-    {
-        $response_data = array('data' => 'fail', 'msg' => "Error");
+    function brousetextilelisting (){
+        $response_data = array('data' => 'fail', 'msg' => "Error");        
         if (isset($_SESSION['current_user']['user_id'])) {
-            $categories = [
-                "1" => "Armwear",
-                "2" => "Badges",
-                "3" => "Belts",
-                "4" => "Children's clothing",
-                "5" => "Clothing brands by type",
-                "6" => "Coats",
-                "7" => "Dresses",
-                "8" => "Footwear",
-                "9" => "Gowns",
-                "10" => "Handwear",
-                "11" => "Hosiery",
-                "12" => "Jackets",
-                "13" => "Jeans by type",
-                "14" => "Knee clothing",
-                "15" => "Masks",
-                "16" => "Neckwear",
-                "17" => "One-piece suits",
-                "18" => "Outerwear",
-                "19" => "Ponchos",
-                "20" => "Robes and cloaks",
-                "21" => "Royal attire",
-                "22" => "Saris",
-                "23" => "Sashes",
-                "24" => "Shawls and wraps",
-                "25" => "Skirts",
-                "26" => "Sportswear",
-                "27" => "Suits",
-                "28" => "Tops",
-                "29" => "Trousers and shorts",
-                "30" => "Undergarments",
-                "31" => "Wedding clothing"
-            ];
-
-            $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
-            $output = "";
-
-            $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        if (array_key_exists($row['categories'], $categories)) {
-                            $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                            $output .= '  <div class="card card-blog card-plain">';
-                            $output .= '    <div class="d-flex justify-content-between mb-3">';
-                            $output .= '    <div class="position-relative">';
-                            $output .= '      <a class="d-block border-radius-xl">' . $categories[$row['categories']] . '</a>';
-                            $output .= '    </div>';
-                            $output .= '      <div class="ms-auto text-end">';
-                            $output .= '        <button data-id="' . $row['b_textile_catagory_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
-                            $output .= '      </div>';
-                            $output .= '    </div>';
-                            $output .= '  </div>';
-                            $output .= '</div>';
+            // $categories = [
+            //     "1" => "Armwear",
+            //     "2" => "Badges",
+            //     "3" => "Belts",
+            //     "4" => "Children's clothing",
+            //     "5" => "Clothing brands by type",
+            //     "6" => "Coats",
+            //     "7" => "Dresses",
+            //     "8" => "Footwear",
+            //     "9" => "Gowns",
+            //     "10" => "Handwear",
+            //     "11" => "Hosiery",
+            //     "12" => "Jackets",
+            //     "13" => "Jeans by type",
+            //     "14" => "Knee clothing",
+            //     "15" => "Masks",
+            //     "16" => "Neckwear",
+            //     "17" => "One-piece suits",
+            //     "18" => "Outerwear",
+            //     "19" => "Ponchos",
+            //     "20" => "Robes and cloaks",
+            //     "21" => "Royal attire",
+            //     "22" => "Saris",
+            //     "23" => "Sashes",
+            //     "24" => "Shawls and wraps",
+            //     "25" => "Skirts",
+            //     "26" => "Sportswear",
+            //     "27" => "Suits",
+            //     "28" => "Tops",
+            //     "29" => "Trousers and shorts",
+            //     "30" => "Undergarments",
+            //     "31" => "Wedding clothing"
+            // ];
+                
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
+                $result = $this->db->query($query);
+                $output = "";
+                        
+                $output .= '<div class="mb-3 form-check-reverse text-right">';
+                $output .= '  <div class="container">';
+                $output .= '    <div class="btn-group">';
+                $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+                $output .= '        <div class="form-check form-switch ps-0">';
+                $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
+                $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
+                $output .= '        </div>';
+                $output .= '      </div>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';
+                if ($result) {
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_array($result)) {
+                            $categoies_id = (isset($row['categories']) && $row['categories'] != '' ) ? $row['categories'] : '';
+                            $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
+                            $category_result = $this->db->query($category_query);
+                            
+                            if (mysqli_num_rows($category_result) > 0) {
+                                while ($category_row = mysqli_fetch_assoc($category_result)) {
+                                    $categories = $category_row['categoies_name'];
+                                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                                    $output .= '  <div class="card card-blog card-plain">';
+                                    $output .= '    <div class="d-flex justify-content-between mb-3">';
+                                    $output .= '    <div class="position-relative">';
+                                    $output .= '      <a class="d-block border-radius-xl">'. $categories.'</a>';
+                                    $output .= '    </div>';
+                                    $output .= '      <div class="ms-auto text-end">';
+                                    $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                                    $output .= '      </div>';
+                                    $output .= '    </div>';
+                                    $output .= '  </div>';
+                                    $output .= '</div>'; 
+                                }
+                            }                  
                         }
+                        $response_data = array('data' => 'success', 'outcome' => $output);
+                    } else {
+                        $response_data = array('data' => 'fail', 'outcome' => "No data found");
                     }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
-                }
-            }
+                } 
         }
         $response = json_encode($response_data);
         return $response;
@@ -1761,13 +1801,15 @@ class admin_functions {
     }
     
 
-    function reviewlisting(){
+    function reviewlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
+    
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $sql= "select * from marketreviews where status='1'";
-            $res= $this->db->query($sql);
-            if (mysqli_num_rows($res) > 0) {
+            $sql = "SELECT * FROM marketreviews WHERE status='1'";
+            $res = $this->db->query($sql);
+    
+            if ($res && mysqli_num_rows($res) > 0) {
                 $output = "";
                 $output .= '<div class="mb-3 form-check-reverse text-right">';
                 $output .= '  <div class="container">';
@@ -1781,38 +1823,41 @@ class admin_functions {
                 $output .= '    </div>';
                 $output .= '  </div>';
                 $output .= '</div>';
+    
                 while ($row = mysqli_fetch_array($res)) {
+                    // $reviewId = $row['marketreviews_id']; // Ensure this key exists
                     $input = $row['shopname'];
-                    $query = "SELECT * FROM users WHERE   user_id = '$input'";
+                    $query = "SELECT * FROM users WHERE user_id = '$input'";
                     $result = $this->db->query($query);
-                    if ($result) {
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_array($result)) {
-                                $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
-                                $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                                $output .= '    <div class="d-flex ">';
-                                $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>'; 
-                                $output .= '    </div>';
-                                $output .= '    <div class="action-icons ms-auto">';
-                                $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
-                                $output .= '    </div>';
-                                $output .= '  </div>';
-                                $output .= '</div>';
-                            }
-                            $response_data = array('data' => 'success', 'outcome' => $output);
-                        } else {
-                            $response_data = array('data' => 'fail', 'outcome' => "No data found");
+    
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        while ($user_row = mysqli_fetch_array($result)) {
+                            $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
+                            $output .= '  <div class="d-flex justify-content-between align-items-center">';
+                            $output .= '    <div class="d-flex">';
+                            $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>'; 
+                            $output .= '    </div>';
+                            $output .= '    <div class="action-icons ms-auto">';
+                            $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
+                            $output .= '    </div>';
+                            $output .= '  </div>';
+                            $output .= '</div>';
                         }
+                        $response_data = array('data' => 'success', 'outcome' => $output);
+                    } else {
+                        $response_data = array('data' => 'fail', 'outcome' => "No user data found for review.");
                     }
                 }
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No reviews found.");
             }
-           
-           
         }
     
         $response = json_encode($response_data);
         return $response;
     }
+    
+    
 
     function deleteRecord($table, $delete_id)
     {
@@ -2222,14 +2267,21 @@ class admin_functions {
     {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
             $sql = "SELECT * FROM allcategories WHERE status='1'";
             $result = $this->db->query($sql);
 
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
-                    $all_categories = "";
-                    while ($categoryrow = mysqli_fetch_object($result)) {
-                        $all_categories .= $categoryrow->categoies_name . ',';
+
+                    $all_categories = ""; // Initialize the variable to store options
+                    $category_names = []; // Array to track unique category names
+                    
+                    while ($categoryrow = mysqli_fetch_assoc($result)) {
+                        if (!in_array($categoryrow['categoies_name'], $category_names)) {
+                            $category_names[] = $categoryrow['categoies_name'];
+                            $all_categories .= "<option value='" . $categoryrow['categoies_id'] . "'>" . $categoryrow['categoies_name'] . "</option>";
+                        }
                     }
                     $response_data = array('data' => 'success', 'outcome' => $all_categories);
                 }

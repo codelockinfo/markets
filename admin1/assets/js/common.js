@@ -99,8 +99,7 @@ function updateThumbnail(dropZoneElement, file) {
       closeButton.addEventListener("click", () => {
         thumbnailElement.innerHTML = "";
         thumbnailElement.classList.remove("drop-zone__thumb");
-        thumbnailElement.innerHTML =
-          '<span class="drop-zone__prompt">Drop file here or click to upload</span>';
+   
       });
       thumbnailElement.innerHTML = "";
       thumbnailElement.appendChild(img);
@@ -239,11 +238,9 @@ $(".increment-btn").click(function (e) {
   var inc_value = $(this).closest(".product_data").find(".qty-input").val();
   var value = parseInt(inc_value, 10);
   value = isNaN(value) ? 0 : value;
-  if (value < 10) {
-    value++;
-    $(this).closest(".product_data").find(".qty-input").val(value);
-    console.log("After increment: ", value);
-  }
+  value++;
+  $(this).closest(".product_data").find(".qty-input").val(value);
+  console.log("After increment: ", value);
 });
 
 $(".decrement-btn").click(function (e) {
@@ -268,29 +265,29 @@ var imageupload = document.getElementById("imageUpload");
 if (imageupload) {
   imageupload.addEventListener("change", function () {
     const previewContainer = document.getElementById("imagePreview");
-    previewContainer.innerHTML = "";
+    previewContainer.innerHTML = ""; // Clear previous previews
     Array.from(this.files).forEach((file) => {
-      const img = document.createElement("img");
-      img.classList.add("img-preview");
-      img.src = URL.createObjectURL(file);
-      previewContainer.appendChild(img);
+      if (file.type.startsWith("image/")) {
+        const img = document.createElement("img");
+        img.classList.add("img-preview");
+        img.src = URL.createObjectURL(file);
+        previewContainer.appendChild(img);
+      }
     });
   });
 }
-// product page multiple image select
+
+// Product page multiple image select
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");
-  // dropZoneElement.addEventListener("click", (e) => {
-  //   inputElement.click();
-  // });
-  // var alertTitle = (type) => (type === "success") ? "Success" : (type === "fail") ? "Failure" : "Error";
+
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
   inputElement.addEventListener("change", (e) => {
     if (inputElement.files.length) {
-      const file = inputElement.files[0];
+      const file = inputElement.files[0]; // Get the first selected file
       if (file.type.startsWith("image/")) {
-        console.log("changefile" + file);
+        console.log("changefile: " + file);
         updateThumbnail(dropZoneElement, file);
       } else {
         Swal.fire({
@@ -298,15 +295,15 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
           title: alertTitle("fail"),
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        // inputElement.value = "";  // Clear the input
+        inputElement.value = ""; // Clear the input
       }
-      // updateThumbnail(dropZoneElement, inputElement.files[0]);
     }
   });
+
   dropZoneElement.addEventListener("dragover", (e) => {
     e.preventDefault();
-    // dropZoneElement.classList.add("drop-zone--over");
   });
+
   ["dragleave", "dragend"].forEach((type) => {
     dropZoneElement.addEventListener(type, (e) => {
       dropZoneElement.classList.remove("drop-zone--over");
@@ -316,65 +313,57 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   dropZoneElement.addEventListener("drop", (e) => {
     e.preventDefault();
     if (e.dataTransfer.files.length) {
-      // const file = e.dataTransfer.files[0];
+      const file = e.dataTransfer.files[0]; // Get the first dropped file
       if (file.type.startsWith("image/")) {
-        // inputElement.files = e.dataTransfer.files;
-        // console.log("dropfile" + file );
-        // updateThumbnail(dropZoneElement, file);
-        // var form_data = $("form")[0];
-        // form_data.append('file', file);
+        updateThumbnail(dropZoneElement, file);
       } else {
         Swal.fire({
           icon: "error",
           title: alertTitle("fail"),
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        // inputElement.value = "";  // Clear the input
       }
-      // inputElement.files = e.dataTransfer.files;
-      // updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
     }
-    // dropZoneElement.classList.remove("drop-zone--over");
   });
 });
+
 function updateThumbnail(dropZoneElement, file) {
   let thumbnailElement = dropZoneElement.querySelector(".pro-zone__thumb");
+
   // First time - remove the prompt
   if (dropZoneElement.querySelector(".pro-zone__prompt")) {
     dropZoneElement.querySelector(".pro-zone__prompt").remove();
   }
-  // First time - there is no thumbnail element, so lets create it
+
+  // Create thumbnail element if it doesn't exist
   if (!thumbnailElement) {
     thumbnailElement = document.createElement("div");
     thumbnailElement.classList.add("pro-zone__thumb");
     dropZoneElement.appendChild(thumbnailElement);
   }
-  // thumbnailElement.dataset.label = file.name;
+
   // Show thumbnail for image files
   if (file.type.startsWith("image/")) {
     const reader = new FileReader();
 
     reader.addEventListener("load", function (e) {
-      const readerTarget = e.target;
-      // const img = document.createElement("img");
-      // img.src = readerTarget.result;
-      // img.classList.add("picture__img");
-      // const closeButton = document.createElement("button");
-      // closeButton.classList.add("close-button","d-none");
-      // closeButton.innerText = "xy";
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.classList.add("picture__img");
+
+      const closeButton = document.createElement("button");
+      closeButton.classList.add("close-button");
+      closeButton.innerText = "x";
       closeButton.addEventListener("click", () => {
         thumbnailElement.innerHTML = "";
         thumbnailElement.classList.remove("pro-zone__thumb");
         thumbnailElement.innerHTML =
           '<span class="drop-zone__prompt">Drop file here or click to upload</span>';
       });
-      thumbnailElement.innerHTML = "";
+
+      thumbnailElement.innerHTML = ""; // Clear previous thumbnail
       thumbnailElement.appendChild(img);
       thumbnailElement.appendChild(closeButton);
-      $(".myFile").text("");
-      console.log(thumbnailElement);
-      console.log(thumbnailElement.closest(".mb-3"));
-      thumbnailElement.closest(".mb-3").find(".myFile").html("");
     });
 
     reader.readAsDataURL(file);
@@ -382,3 +371,12 @@ function updateThumbnail(dropZoneElement, file) {
     thumbnailElement.style.backgroundImage = null;
   }
 }
+
+$(document).on("change", ".addcategory", function () {
+  if ($(this).is(":checked")) {
+    $(".categoryinput").removeClass("hidecategory");
+  } else {
+    $(".categoryinput").addClass("hidecategory");
+  }
+});
+

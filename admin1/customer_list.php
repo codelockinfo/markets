@@ -63,7 +63,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-          <h4 class="text-center mb-3">Customer List</h4>
+      
         <table class="table table-hover rounded" border="1" style="width: 100px;">
           <thead>
             <tr>

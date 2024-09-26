@@ -466,10 +466,10 @@
 /* preview & close button css */
 .close-button {
   position: absolute;
-  left: 80%;
-  top: 8px;
-  height: 20px;
-  width: 20px;
+  left: 90%;
+  top: -8px;
+  /* height: 20px;
+  width: 20px; */
   z-index: 1;
   text-align: center;
   border: none;
@@ -828,4 +828,14 @@
 .price-line-through{
   text-decoration-color: red !important;
   text-decoration-thickness: 2px !important;
+}
+
+.hidecategory{
+  display: none;
+}
+.invoice-rowclose{
+  text-align: center;
+}
+.invoice-rowclose .fa-times{
+  font-size: 24px;
 }

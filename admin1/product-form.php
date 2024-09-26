@@ -130,6 +130,15 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
               </div>
             </div>
+            <div class="mb-3">
+                <div>
+                  <label class="font-weight-normal w-100"><input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3" value="1"/>Add Categories</label>
+                  <div class="categoryinput hidecategory">
+                    <input type="text" name="addcategory" class="form-control w-100"/>
+                    <div class="errormsg addcategory"></div>
+                  </div>
+                </div>
+            </div>
             <div class="mb-3 quantity2">
               <div class="d-flex flex-row justify-content-between">
                 <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
@@ -186,9 +195,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
               <span class="errormsg image_alt"></span>
             </div>
-            
+            <label for="text" class="font-weight-normal">Product Tag</label>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Product tag</label>
               <select class="js-select2  form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="">Select products</option>
                 <option value="Saree">Saree</option>
@@ -213,7 +221,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+917600464414">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
