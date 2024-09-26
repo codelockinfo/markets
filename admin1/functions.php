@@ -861,35 +861,44 @@ class admin_functions {
         return $response;
     }
 
-    function insert_market()
-    {
+    function insert_market() {
         $error_array = array();
-       
-        if (isset($_POST['shop_logo']) && $_POST['shop_logo'] == '') {
-            $error_array['shop_logo'] = "Please select shop";
+    
+        // Validate shop name
+        if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
+            $error_array['shop_name'] = "Please select a shop";
         }
-       
+    
         if (empty($error_array)) {
-                $shop_logo = (isset($_POST['shop_logo']) && $_POST['shop_logo'] !== '') ? $_POST['shop_logo'] : '';
-                $shop_logo = str_replace("'", "\'", $shop_logo);
-                
-                if (isset($_SESSION['current_user']['user_id'])) {
-                    $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO famous_markets (shop_logo,user_id) VALUES ('$shop_logo','$user_id')";
-                    $result = $this->db->query($query);
-                }
+            // Get the shop name safely
+            $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
+            $shop_name = str_replace("'", "\'", $shop_name); // Escape single quotes
+    
+            // Check if user is logged in
+            if (isset($_SESSION['current_user']['user_id'])) {
+                $user_id = $_SESSION['current_user']['user_id'];
+    
+                // Prepare the SQL query
+                $query = "INSERT INTO famous_markets (shop_name, user_id) VALUES ('$shop_name', '$user_id')";
+                $result = $this->db->query($query);
+    
+                // Check if the query was successful
                 if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'market inserted successfully!');
+                    $response_data = array('data' => 'success', 'msg' => 'Market inserted successfully!');
                 } else {
-                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                    $response_data = array('data' => 'fail', 'msg' => "Error inserting market");
                 }
-            
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "User not logged in");
+            }
         } else {
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong");
         }
-        $response = json_encode($response_data);
-        return $response;
+    
+        // Return the response as JSON
+        return json_encode($response_data);
     }
+    
 
     function insert_brousetxt()
     {
@@ -1696,96 +1705,111 @@ class admin_functions {
         return $response;
     }
 
-    function famousmarketlisting()
-    {
+    function famousmarketlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
-            $query = "SELECT * FROM famous_markets WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
-            $output = "";
-            $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div class="container">';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
-            $output .= '</div>';
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
-                        $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                        $output .= '    <div class="d-flex ">';
-                        $output .= '      <div class="shop-name text-secondary px-3">' . $row['shop_logo'] . '</div>'; // Output the shop name(s)
-                        $output .= '    </div>';
-                        $output .= '    <div class="action-icons ms-auto">';
-                        $output .= '        <button data-id="' . $row['famous_market_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
-                        $output .= '    </div>';
-                        $output .= '  </div>';
-                        $output .= '</div>';
+            $sql= "select * from famous_markets where status='1'";
+            $res= $this->db->query($sql);
+            if (mysqli_num_rows($res) > 0) {
+                $output = "";
+    
+                // Prepare the output
+                $output .= '<div class="mb-3 form-check-reverse text-right">';
+                $output .= '  <div class="container">';
+                $output .= '    <div class="btn-group">';
+                $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+                $output .= '        <div class="form-check form-switch ps-0">';
+                $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
+                $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
+                $output .= '        </div>';
+                $output .= '      </div>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';
+                while ($row = mysqli_fetch_array($res)) {
+                    $input = $row['shop_name'];
+                    $query = "SELECT * FROM users WHERE   user_id = '$input'";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
+                                $output .= '  <div class="d-flex justify-content-between align-items-center">';
+                                $output .= '    <div class="d-flex ">';
+                                $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>'; 
+                                $output .= '    </div>';
+                                $output .= '    <div class="action-icons ms-auto">';
+                                $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                                $output .= '    </div>';
+                                $output .= '  </div>';
+                                $output .= '</div>';
+                            }
+                            $response_data = array('data' => 'success', 'outcome' => $output);
+                        } else {
+                            $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                        }
                     }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
                 }
             }
+           
+           
         }
+    
         $response = json_encode($response_data);
         return $response;
     }
+    
 
-    function reviewlisting()
-    {
+    function reviewlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
-            $query = "SELECT * FROM marketreviews WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
-            $output = "";
-        }
-        $output .= '<div class="mb-3 form-check-reverse text-right ">';
-        $output .= '  <div class="container">';
-        $output .= '    <div class="btn-group">';
-        $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-        $output .= '        <div class="form-check form-switch ps-0">';
-        $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
-        $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
-        $output .= '        </div>';
-        $output .= '      </div>';
-        $output .= '    </div>';
-        $output .= '  </div>';
-        $output .= '</div>';
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-
-                    // $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
-                    $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                    $output .= '    <div class="d-flex ">';
-                    $output .= '      <div class="description fw-bold text-dark px-3">' . $row['description'] . '</div>';
-                    $output .= '      <div class="shop-name text-secondary px-3">' . $row['shopname'] . '</div>'; // Output the shop name(s)
-                    $output .= '      <div class="review text-muted px-3">' . $row['review'] . '</div>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="action-icons ms-auto">';
-                    $output .= '      <i data-id="' . $row["marketreview_id"] . '" class="fa fa-trash cursor-pointer delete text-danger" data-delete-type="review" aria-hidden="true" title="Delete Review"></i>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';
+            $sql= "select * from marketreviews where status='1'";
+            $res= $this->db->query($sql);
+            if (mysqli_num_rows($res) > 0) {
+                $output = "";
+                $output .= '<div class="mb-3 form-check-reverse text-right">';
+                $output .= '  <div class="container">';
+                $output .= '    <div class="btn-group">';
+                $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+                $output .= '        <div class="form-check form-switch ps-0">';
+                $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
+                $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
+                $output .= '        </div>';
+                $output .= '      </div>';
+                $output .= '    </div>';
+                $output .= '  </div>';
+                $output .= '</div>';
+                while ($row = mysqli_fetch_array($res)) {
+                    $input = $row['shopname'];
+                    $query = "SELECT * FROM users WHERE   user_id = '$input'";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                $output .= '<div class="review-card bg-light border rounded p-3 mb-3 shadow-sm">';
+                                $output .= '  <div class="d-flex justify-content-between align-items-center">';
+                                $output .= '    <div class="d-flex ">';
+                                $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>'; 
+                                $output .= '    </div>';
+                                $output .= '    <div class="action-icons ms-auto">';
+                                $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
+                                $output .= '    </div>';
+                                $output .= '  </div>';
+                                $output .= '</div>';
+                            }
+                            $response_data = array('data' => 'success', 'outcome' => $output);
+                        } else {
+                            $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                        }
+                    }
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output);
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
+           
+           
         }
+    
         $response = json_encode($response_data);
         return $response;
     }
@@ -2214,22 +2238,29 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function select_shop(){
+    function select_shop() {
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
-            $sql = "SELECT shop FROM users WHERE status='1'";
+            
+            $sql = "SELECT user_id, shop FROM users WHERE status='1'";
             $result = $this->db->query($sql);
+    
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     $all_shop = array();
                     while ($shoprows = mysqli_fetch_assoc($result)) {
-                        $all_shop[] = $shoprows['shop'];
+                        $all_shop[] = array(
+                            'user_id' => $shoprows['user_id'],
+                            'shop' => $shoprows['shop']
+                        );
                     }
                     $response_data = array('data' => 'success', 'outcome' => $all_shop);
                 }
             }
         }
-
+    
         return json_encode($response_data);
     }
+    
+    
 }

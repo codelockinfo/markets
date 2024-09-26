@@ -109,101 +109,109 @@ class client_functions {
     
     function famousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT Heading, Sub_Heading,Image FROM famous_markets WHERE status='1' limit 6";
-        $result = $this->db->query($query);
-        $output = $famousmarkettitle = $famousmarketbutton = "";       
-        // print_r($query);
-        if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
-                $image = $row["Image"];
-                $imagePath = "../admin1/assets/img/famous_market/img/".$image;
-                // $svgimagePath = "../admin1/assets/img/famous_market/svg_img/".$svgimage;
-                $decodedPath = htmlspecialchars_decode($imagePath);
-                    $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
-                    $output .= '    <div class="bg-light rounded famous-item">';
-                    $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
-                    $output .= '            <div class="famous-content-icon text-center">';
-                    $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"> '.$row["Heading"].'</a>';
-                    $output .= '                <p class="mb-4">'.$row["Sub_Heading"].'</p>';
-                    $output .= '                <div class="famous-img rounded-circle">';
-                    $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="' .$decodedPath . '" alt="shop1"></a>';
-                    $output .= '                </div>';
-                    $output .= '                <div class="d-flex justify-content-center mt-2">';
-                    $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                    $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                    $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                    $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                    $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
-                    $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
-                    $output .= '                </div>';
-                    $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="btn btn-primary mt-3">View Products</a>';
-                    $output .= '            </div>';
-                    $output .= '        </div>';
-                    $output .= '    </div>';
-                    $output .= '</div>';
+        $sql= "SELECT * FROM famous_markets WHERE status='1' limit 6";
+        $res= $this->db->query($sql);
+        if (mysqli_num_rows($res) > 0) {
+            $output = $famousmarkettitle = $famousmarketbutton = "";     
+            while ($row = mysqli_fetch_array($res)) {
+                $input = $row['shop_name'];
+                $query = "SELECT * FROM users WHERE   user_id = '$input'";
+                $result = $this->db->query($query);
+                if ($result) {
+                    while ($row = mysqli_fetch_array($result)) {  
+                        
+                        $user_id = isset($row["user_id"]) ? $row["user_id"] : null;
+                        $image = $row["shop_logo"];
+                        $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                        $noimagePath = "../admin1/assets/img/sigup_img/noimage.png";
+                        $decodedPath = htmlspecialchars_decode(
+                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                );
+                            $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
+                            $output .= '    <div class="bg-light rounded famous-item">';
+                            $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
+                            $output .= '            <div class="famous-content-icon text-center">';
+                            $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"></a>';
+                            $output .= '                <p class="mb-4">'.$row["shop"].'</p>';
+                            $output .= '                <div class="famous-img rounded-circle">';
+                            $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="'.$decodedPath.'" alt="shop1"></a>';
+                            $output .= '                </div>';
+                            $output .= '                <div class="d-flex justify-content-center mt-2">';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
+                            $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
+                            $output .= '                </div>';
+                            $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products ">View Products</a>';                    $output .= '            </div>';
+                            $output .= '        </div>';
+                            $output .= '    </div>';
+                            $output .= '</div>';
+                            
+                    }
+                    $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                                                <h1 class="display-5 mb-5">Famous markets in surat</h1>
+                                          </div>';
+                     
+                    $famousmarketbutton = '<a href="'.CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>';
                     
+                    $response_data = array('data' => 'success', 'outcome' => $output,'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
+                }
+                $response = json_encode($response_data);
+                return $response;
             }
-            $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                                        <h1 class="display-5 mb-5">Famous markets in surat</h1>
-                                  </div>';
-             
-            $famousmarketbutton = '<a href="'.CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>';
-            
-            $response_data = array('data' => 'success', 'outcome' => $output,'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
         }
-        $response = json_encode($response_data);
-        return $response;
     }
     function allfamousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-             $query = "SELECT shop_logo, user_id FROM famous_markets WHERE status='1'";
-        $result = $this->db->query($query);
-        $output = $famousmarkettitle = $famousmarketbutton = "";
-    
-        if ($result) {
-            while ($row = mysqli_fetch_array($result)) {
-                // $image = $row["Image"];
-                $user_id = isset($row["user_id"]) ? $row["user_id"] : null;
-                // $imagePath = "../admin1/assets/img/famous_market/img/" . $image;
-                // $decodedPath = htmlspecialchars_decode($imagePath);
-    
-                $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
-                $output .= '    <div class="bg-light rounded famous-item">';
-                $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
-                $output .= '            <div class="famous-content-icon text-center">';
-                $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"> </a>';
-                $output .= '                <p class="mb-4">'.$row["shop_logo"].'</p>';
-                $output .= '                <div class="famous-img rounded-circle">';
-                $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="" alt="shop1"></a>';
-                $output .= '                </div>';
-                $output .= '                <div class="d-flex justify-content-center mt-2">';
-                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
-                $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
-                $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
-                $output .= '                </div>';
-                $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products ">View Products</a>';
-                $output .= '            </div>';
-                $output .= '        </div>';
-                $output .= '    </div>';
-                $output .= '</div>';
+        $sql= "SELECT * FROM famous_markets WHERE status='1'";
+        $res= $this->db->query($sql);
+        if (mysqli_num_rows($res) > 0) {
+            $output = $famousmarkettitle = $famousmarketbutton = "";     
+            while ($row = mysqli_fetch_array($res)) {
+                $input = $row['shop_name'];
+                $query = "SELECT * FROM users WHERE   user_id = '$input'";
+                $result = $this->db->query($query);
+                if ($result) {
+                    while ($row = mysqli_fetch_array($result)) {  
+                        
+                        $user_id = isset($row["user_id"]) ? $row["user_id"] : null;
+                            $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
+                            $output .= '    <div class="bg-light rounded famous-item">';
+                            $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
+                            $output .= '            <div class="famous-content-icon text-center">';
+                            $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"></a>';
+                            $output .= '                <p class="mb-4">'.$row["shop"].'</p>';
+                            $output .= '                <div class="famous-img rounded-circle">';
+                            $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="" alt="shop1"></a>';
+                            $output .= '                </div>';
+                            $output .= '                <div class="d-flex justify-content-center mt-2">';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
+                            $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
+                            $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
+                            $output .= '                </div>';
+                            $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products ">View Products</a>';                    $output .= '            </div>';
+                            $output .= '        </div>';
+                            $output .= '    </div>';
+                            $output .= '</div>';
+                            
+                    }
+                    $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                                                <h1 class="display-5 mb-5">Famous markets in surat</h1>
+                                          </div>';
+                     
+                    $famousmarketbutton = '<a href="'.CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all markets</button></a>';
+                    
+                    $response_data = array('data' => 'success', 'outcome' => $output,'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
+                }
+                $response = json_encode($response_data);
+                return $response;
             }
-    
-            $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                                      <h1 class="display-5 mb-5">Famous markets in Surat</h1>
-                                  </div>';
-    
-            $famousmarketbutton = '<a href="' . CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp">
-                                       <button class="btn btn-primary text-capitalize px-5 mt-4 text-center">View All Markets</button>
-                                   </a>';
-    
-            $response_data = array('data' => 'success', 'outcome' => $output, 'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
         }
-    
-        $response = json_encode($response_data);
-        return $response;
     }
     
 

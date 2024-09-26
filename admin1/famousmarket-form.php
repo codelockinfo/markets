@@ -43,7 +43,7 @@ if ($_SESSION['current_user']['role'] == 1) {
             <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
             <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">
-                <select class="form-select required" aria-label="Select Shop" id="mySelect" name="shop_logo">
+                <select class="form-select required" aria-label="Select Shop" id="mySelect" name="shop_name">
                   <option selected value="">Select Shop</option>
                 </select>
                 <span class="errormsg shop_name"></span>

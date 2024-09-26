@@ -580,18 +580,22 @@ function select_shop() {
       type: "post",
       dataType: "json",
       data: { routine_name: "select_shop" },
-      beforeSend: function () {},
+      beforeSend: function () {
+         
+      },
       success: function (response) {
         var response = JSON.parse(response);
-          console.log(response.data); 
+          console.log("Response:", response); 
           if (response.data === "success") {
               if (Array.isArray(response.outcome)) {
                   $("#mySelect").empty().append('<option selected value="">Select Shop</option>');
-                  $.each(response.outcome, function (index, shopName) {
-                      shopName = shopName.trim();
+                  $.each(response.outcome, function (index, shop) {
+                      var userId = shop.user_id; 
+                      var shopName = shop.shop.trim(); 
+
                       if (shopName) {
-                          var optionHtml = "<option value='" +  shopName  + "'>" + shopName + "</option>";
-                          console.log(optionHtml);
+                          var optionHtml = "<option value='" + userId + "'>" + shopName + "</option>";
+                          console.log(optionHtml); 
                           $("#mySelect").append(optionHtml); 
                       }
                   });
@@ -605,6 +609,8 @@ function select_shop() {
       }
   });
 }
+
+
 
 $(document).ready(function () {
   console.log("DOCUMENT READY ...");
