@@ -6,13 +6,16 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 // include_once '../append/Login.php';
 include_once '../connection.php';
 
-class client_functions {
+class client_functions
+{
     protected $db;
-    public function __construct() {
+    public function __construct()
+    {
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
     }
-    function conatct_form(){  
+    function conatct_form()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -20,118 +23,119 @@ class client_functions {
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_array['email'] = "Please enter a valid email address";
         }
-        
+
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
         }
-        
+
         if (isset($_POST['message']) && $_POST['message'] == '') {
             $error_array['message'] = "Please enter message";
         }
-        
-        if (empty($error_array)) {  
-            $message = "Name : "  .$_POST['name'];
-            $message .= "<br> Email : "  .$email;
-            $message .= "<br> Message : "  .$_POST['message'];
-            $to = "codelock2021@gmail.com";	
-            $subject = "Market Search"; 
-            $headers = $_POST['email']." \r\n";     
+
+        if (empty($error_array)) {
+            $message = "Name : "  . $_POST['name'];
+            $message .= "<br> Email : "  . $email;
+            $message .= "<br> Message : "  . $_POST['message'];
+            $to = "codelock2021@gmail.com";
+            $subject = "Market Search";
+            $headers = $_POST['email'] . " \r\n";
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-            $responceEmail = mail ($to, $subject, $message, $headers);	
+            $responceEmail = mail($to, $subject, $message, $headers);
             $response_data = array('data' => 'success', 'msg' => 'Send mail successfully!');
-        }else{
+        } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
-        
+
         $response = json_encode($response_data);
         return $response;
-        
     }
 
-    function bannershow(){
+    function bannershow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $output = $bannercontent = "";               
+        $output = $bannercontent = "";
         $query = "SELECT * FROM banners WHERE status='1' ORDER BY banner_id DESC LIMIT 1";
         $result = $this->db->query($query);
         $famousmarket_query = "SELECT * FROM famous_markets WHERE status='1'";
         $famousmarket_result = $this->db->query($famousmarket_query);
-        if($famousmarket_result->num_rows > 0){
+        if ($famousmarket_result->num_rows > 0) {
             $bannercontent .= '<div class="col-sm-4 mt-2 mt-sm-0">
                                 <div class="banner-main-box p-1 wow bounceInUp">
                                     <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                        <h3 class="text-white count m-0">'.$famousmarket_result->num_rows.'</h3>
+                                        <h3 class="text-white count m-0">' . $famousmarket_result->num_rows . '</h3>
                                         <p class="text-capitalize m-0 text-white">verified markets</p>
                                     </div>
                                 </div>
                             </div>';
         }
-        
+
         $products_query = "SELECT * FROM products WHERE status='1'";
         $products_result = $this->db->query($products_query);
-        if($products_result->num_rows > 0){
+        if ($products_result->num_rows > 0) {
             $bannercontent .= '<div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 count">'.$products_result->num_rows.'</h3>
+                                    <h3 class="text-white  m-0 count">' . $products_result->num_rows . '</h3>
                                     <p class="text-capitalize m-0 text-white">products</p>
                                 </div>
                             </div>
                         </div>';
         }
-        
+
         $productscategories_query = "SELECT * FROM allcategories WHERE status='1'";
         $productscategories_result = $this->db->query($productscategories_query);
-        if($productscategories_result->num_rows > 0){
+        if ($productscategories_result->num_rows > 0) {
             $bannercontent .= '<div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
                             <div class="banner-main-box p-1">
                                 <div class="banner-content-box py-3 w-100 text-center rounded bg-dark-opacity">
-                                    <h3 class="text-white  m-0 count">'.$productscategories_result->num_rows.'</h3>
+                                    <h3 class="text-white  m-0 count">' . $productscategories_result->num_rows . '</h3>
                                     <p class="text-capitalize m-0 text-white">categories</p>
                                 </div>
                             </div>
                         </div>';
         }
-        
+
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
+            while ($row = mysqli_fetch_array($result)) {
                 $image = $row["banner_img"];
                 $imagePath = "../admin1/assets/img/banner_img/" . $image;
                 $noimagePath = "../admin1/assets/img/Sunahri.jpg";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
-                $output .= '<img class="banner img-fluid" src="'.$decodedPath.'" alt="home-banner">';
+                $output .= '<img class="banner img-fluid" src="' . $decodedPath . '" alt="home-banner">';
             }
-                        
-            $response_data = array('data' => 'success', 'outcome' => $output ,'bannercontent' => $bannercontent );
+
+            $response_data = array('data' => 'success', 'outcome' => $output, 'bannercontent' => $bannercontent);
         }
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function famousmarketshow(){
+
+    function famousmarketshow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM famous_markets WHERE status='1'limit 4";
         $res = $this->db->query($sql);
-    
+
         if (mysqli_num_rows($res) > 0) {
-            $output = $famousmarkettitle = $famousmarketbutton = "";     
-            
+            $output = $famousmarkettitle = $famousmarketbutton = "";
+
             while ($row = mysqli_fetch_array($res)) {
                 $shop_name = $row['shop_name'];
                 $query = "SELECT * FROM users WHERE user_id = '$shop_name'";
                 $result = $this->db->query($query);
                 if ($result && mysqli_num_rows($result) > 0) {
-                    while ($user_row = mysqli_fetch_array($result)) {  
+                    while ($user_row = mysqli_fetch_array($result)) {
                         $user_id = isset($user_row["user_id"]) ? $user_row["user_id"] : null;
                         $image = $user_row["shop_logo"];
                         $imagePath = "../admin1/assets/img/sigup_img/" . $image;
                         $noimagePath = "../admin1/assets/img/noimage.png";
                         $decodedPath = htmlspecialchars_decode(
-                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                );;
-    
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                        );;
+
                         $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
                         $output .= '    <div class="bg-light rounded famous-item">';
                         $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
@@ -139,7 +143,7 @@ class client_functions {
                         $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"></a>';
                         $output .= '                <p class="mb-4">' . htmlspecialchars($user_row["shop"]) . '</p>';
                         $output .= '                <div class="famous-img rounded-circle">';
-                        $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="'.$decodedPath.'" alt="shop1"></a>';
+                        $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="' . $decodedPath . '" alt="shop1"></a>';
                         $output .= '                </div>';
                         $output .= '                <div class="d-flex justify-content-center mt-2">';
                         $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
@@ -149,7 +153,7 @@ class client_functions {
                         $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
                         $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
                         $output .= '                </div>';
-                        $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products">View Products</a>';                    
+                        $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products">View Products</a>';
                         $output .= '            </div>';
                         $output .= '        </div>';
                         $output .= '    </div>';
@@ -157,43 +161,44 @@ class client_functions {
                     }
                 }
             }
-    
+
             $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                                       <h1 class="display-5 mb-5">Famous Markets in Surat</h1>
                                   </div>';
-            
-            $famousmarketbutton = '<a href="'.CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp">
+
+            $famousmarketbutton = '<a href="' . CLS_SITE_URL . 'famousmarket.php" class="d-flex justify-content-center wow bounceInUp">
                                       <button class="btn btn-primary text-capitalize px-5 mt-4 text-center">View All Markets</button>
                                   </a>';
-            
+
             $response_data = array('data' => 'success', 'outcome' => $output, 'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
         }
-    
+
         $response = json_encode($response_data);
         return $response;
     }
-    function allfamousmarketshow() {
+    function allfamousmarketshow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM famous_markets WHERE status='1'";
         $res = $this->db->query($sql);
-    
+
         if (mysqli_num_rows($res) > 0) {
-            $output = $famousmarkettitle = $famousmarketbutton = "";     
-            
+            $output = $famousmarkettitle = $famousmarketbutton = "";
+
             while ($row = mysqli_fetch_array($res)) {
                 $shop_name = $row['shop_name'];
                 $query = "SELECT * FROM users WHERE user_id = '$shop_name'";
                 $result = $this->db->query($query);
                 if ($result && mysqli_num_rows($result) > 0) {
-                    while ($user_row = mysqli_fetch_array($result)) {  
+                    while ($user_row = mysqli_fetch_array($result)) {
                         $user_id = isset($user_row["user_id"]) ? $user_row["user_id"] : null;
                         $image = $user_row["shop_logo"];
                         $imagePath = "../admin1/assets/img/sigup_img/" . $image;
                         $noimagePath = "../admin1/assets/img/noimage.png";
                         $decodedPath = htmlspecialchars_decode(
-                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                );;
-    
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                        );;
+
                         $output .= '<div class="col-lg-3 col-md-6 col-6 wow bounceInUp p-1 p-md-2" data-wow-delay="0.1s">';
                         $output .= '    <div class="bg-light rounded famous-item">';
                         $output .= '        <div class="famous-content d-flex align-items-center justify-content-center px-2 py-3 py-md-5">';
@@ -201,7 +206,7 @@ class client_functions {
                         $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php" class="mb-3 text-capitalize h4 text-second"></a>';
                         $output .= '                <p class="mb-4">' . htmlspecialchars($user_row["shop"]) . '</p>';
                         $output .= '                <div class="famous-img rounded-circle">';
-                        $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="'.$decodedPath.'" alt="shop1"></a>';
+                        $output .= '                    <a href="' . CLS_SITE_URL . 'collection2.php"><img class="img-fluid2" src="' . $decodedPath . '" alt="shop1"></a>';
                         $output .= '                </div>';
                         $output .= '                <div class="d-flex justify-content-center mt-2">';
                         $output .= '                    <i class="fa-solid fa-star text-primary"></i>';
@@ -211,7 +216,7 @@ class client_functions {
                         $output .= '                    <i class="fa-solid fa-star-half-stroke text-primary"></i>';
                         $output .= '                    <h6 class="rate-icon ">(4.5)</h6>';
                         $output .= '                </div>';
-                        $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products">View Products</a>';                    
+                        $output .= '                <a href="' . CLS_SITE_URL . 'collection2.php?id=' . $user_id . '" class="btn btn-primary mt-3 view-products">View Products</a>';
                         $output .= '            </div>';
                         $output .= '        </div>';
                         $output .= '    </div>';
@@ -219,32 +224,33 @@ class client_functions {
                     }
                 }
             }
-    
+
             $famousmarkettitle = '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                                       <h1 class="display-5 mb-5">Famous Markets in Surat</h1>
                                   </div>';
-            
-            $famousmarketbutton = '<a href="'.CLS_SITE_URL .'famousmarket.php" class="d-flex justify-content-center wow bounceInUp">
+
+            $famousmarketbutton = '<a href="' . CLS_SITE_URL . 'famousmarket.php" class="d-flex justify-content-center wow bounceInUp">
                                       <button class="btn btn-primary text-capitalize px-5 mt-4 text-center">View All Markets</button>
                                   </a>';
-            
+
             $response_data = array('data' => 'success', 'outcome' => $output, 'famousmarkettitle' => $famousmarkettitle, 'famousmarketbutton' => $famousmarketbutton);
         }
-    
+
         $response = json_encode($response_data);
         return $response;
     }
-    
-    
 
-    function offershow(){
+
+
+    function offershow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT img FROM offers WHERE status='1'";
         $result = $this->db->query($query);
-        $output = $class = $offerstitle = "";     
+        $output = $class = $offerstitle = "";
         $counter = 0;
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) { 
+            while ($row = mysqli_fetch_array($result)) {
                 $counter = $counter + 1;
                 if ($counter > 2) {
                     $class = 'mt-4';
@@ -254,192 +260,199 @@ class client_functions {
                 $noimagePath = "";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                );      
-                $output .= '<div class="col-12 col-md-6 wow bounceInUp"><a href="#"><img src="' . $decodedPath . '" class="img-fluid '. $class .'" alt="img-fluid"></a></div>';
+                );
+                $output .= '<div class="col-12 col-md-6 wow bounceInUp"><a href="#"><img src="' . $decodedPath . '" class="img-fluid ' . $class . '" alt="img-fluid"></a></div>';
             }
-            $offerstitle .='<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            $offerstitle .= '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                                 <h1 class="display-5 mb-5">New offers</h1>
                             </div>';
             $response_data = array('data' => 'success', 'outcome' => $output, 'offerstitle' => $offerstitle);
         }
         $response = json_encode($response_data);
-        return $response;       
-    }
-    
-    function paragraphshow(){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM paragraph WHERE status='1'"; 
-        $result = $this->db->query($query);
-        $output = "";
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)) {  
-                    $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';                
-                }
-                $response_data = array('data' => 'success', 'outcome' => $output);
-            }
-                $response = json_encode($response_data);
-                return $response;
+        return $response;
     }
 
-    function videoshow (){
+    function paragraphshow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM videos WHERE status='1' and toggle='1'"; 
+        $query = "SELECT * FROM paragraph WHERE status='1'";
+        $result = $this->db->query($query);
+        $output = "";
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';
+            }
+            $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function videoshow()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT * FROM videos WHERE status='1' and toggle='1'";
         $result = $this->db->query($query);
         $output = $videotitle = $videobutton = "";
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {  
+            while ($row = mysqli_fetch_array($result)) {
                 $link = $row["short_link"];
-                $output .= '<div class="swiper-slide">';                        
+                $output .= '<div class="swiper-slide">';
                 $output .= '<iframe width="100%" height="500px" src="' . $link . '?autoplay=1&mute=1&loop=1&modestbranding=1&iv_load_policy=3&controls=0&rel=0&showinfo=0&disablekb=1" class="rounded border-radius-xl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                $output .= '</div>';                
+                $output .= '</div>';
             }
             $videotitle .= '<div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                                 <h1 class="display-5 mb-5">Our trending videos</h1>
                             </div>';
-            $videobutton .= ' <a href="'.CLS_SITE_URL.'video.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>';
-            $response_data = array('data' => 'success', 'outcome' => $output, 'videotitle' => $videotitle , 'videobutton' => $videobutton);
+            $videobutton .= ' <a href="' . CLS_SITE_URL . 'video.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>';
+            $response_data = array('data' => 'success', 'outcome' => $output, 'videotitle' => $videotitle, 'videobutton' => $videobutton);
         }
-            $response = json_encode($response_data);
-            return $response;
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function FAQshow (){
+    function FAQshow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs WHERE status='1' LIMIT 5"; 
+        $query = "SELECT * FROM faqs WHERE status='1' LIMIT 5";
         $result = $this->db->query($query);
-        $output= $faqtitle = $faqcontent = $faqimage = "";
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)) {                 
-                    $output .= '<div class="accordion-item border">';
-                    $output .= '    <h2 class="accordion-header" id="heading' . $row["faq_id"] . '">';
-                    $output .= '        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
-                    $output .= '            <h6 class="m-0">' . $row["question"] . '</h6>';
-                    $output .= '        </button>';
-                    $output .= '    </h2>';
-                    $output .= '    <div id="collapse' . $row["faq_id"] . '" class="accordion-collapse collapse" aria-labelledby="heading' . $row["faq_id"] . '" data-bs-parent="#accordionExample">';
-                    $output .= '        <div class="accordion-body">';
-                    $output .= '            ' . $row["answer"] . '';
-                    $output .= '        </div>';
-                    $output .= '    </div>';
-                    $output .= '</div>';                    
-                }
-                $faqtitle .= '<h1 class="fs-1 ">Frequently ask questions</h1>';
-                $faqcontent .= "<p class='fs-6 mb-6'>When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>";
-                $faqimage .= '<img class="img-fluid  fit-cover rounded" src="'.CLS_SITE_URL.'img/faq.jpg" alt="faq">';
-                $response_data = array('data' => 'success', 'outcome' => $output , 'faqcontent' => $faqcontent, 'faqtitle' => $faqtitle ,'faqimage' => $faqimage);
+        $output = $faqtitle = $faqcontent = $faqimage = "";
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $output .= '<div class="accordion-item border">';
+                $output .= '    <h2 class="accordion-header" id="heading' . $row["faq_id"] . '">';
+                $output .= '        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
+                $output .= '            <h6 class="m-0">' . $row["question"] . '</h6>';
+                $output .= '        </button>';
+                $output .= '    </h2>';
+                $output .= '    <div id="collapse' . $row["faq_id"] . '" class="accordion-collapse collapse" aria-labelledby="heading' . $row["faq_id"] . '" data-bs-parent="#accordionExample">';
+                $output .= '        <div class="accordion-body">';
+                $output .= '            ' . $row["answer"] . '';
+                $output .= '        </div>';
+                $output .= '    </div>';
+                $output .= '</div>';
             }
-            $response = json_encode($response_data);
-            return $response;
+            $faqtitle .= '<h1 class="fs-1 ">Frequently ask questions</h1>';
+            $faqcontent .= "<p class='fs-6 mb-6'>When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>";
+            $faqimage .= '<img class="img-fluid  fit-cover rounded" src="' . CLS_SITE_URL . 'img/faq.jpg" alt="faq">';
+            $response_data = array('data' => 'success', 'outcome' => $output, 'faqcontent' => $faqcontent, 'faqtitle' => $faqtitle, 'faqimage' => $faqimage);
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
-    function allFAQshow (){
+    function allFAQshow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs WHERE status='1'"; 
+        $query = "SELECT * FROM faqs WHERE status='1'";
         $result = $this->db->query($query);
-        $output= $faqtitle = $faqcontent = $faqimage = "";
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)) {                 
-                    $output .= '<div class="accordion-item border">';
-                    $output .= '    <h2 class="accordion-header" id="heading' . $row["faq_id"] . '">';
-                    $output .= '        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
-                    $output .= '            <h6 class="m-0">' . $row["question"] . '</h6>';
-                    $output .= '        </button>';
-                    $output .= '    </h2>';
-                    $output .= '    <div id="collapse' . $row["faq_id"] . '" class="accordion-collapse collapse" aria-labelledby="heading' . $row["faq_id"] . '" data-bs-parent="#accordionExample">';
-                    $output .= '        <div class="accordion-body">';
-                    $output .= '            ' . $row["answer"] . '';
-                    $output .= '        </div>';
-                    $output .= '    </div>';
-                    $output .= '</div>';                    
-                }
-                $faqtitle .= '<h1 class="fs-1 ">Frequently ask questions</h1>';
-                $faqcontent .= "<p class='fs-6 mb-6'>When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>";
-                $faqimage .= '<img class="img-fluid  fit-cover rounded" src="'.CLS_SITE_URL.'img/faq.jpg" alt="faq">';
-                $response_data = array('data' => 'success', 'outcome' => $output , 'faqcontent' => $faqcontent, 'faqtitle' => $faqtitle ,'faqimage' => $faqimage);
+        $output = $faqtitle = $faqcontent = $faqimage = "";
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $output .= '<div class="accordion-item border">';
+                $output .= '    <h2 class="accordion-header" id="heading' . $row["faq_id"] . '">';
+                $output .= '        <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row["faq_id"] . '" aria-expanded="false" aria-controls="collapse' . $row["faq_id"] . '">';
+                $output .= '            <h6 class="m-0">' . $row["question"] . '</h6>';
+                $output .= '        </button>';
+                $output .= '    </h2>';
+                $output .= '    <div id="collapse' . $row["faq_id"] . '" class="accordion-collapse collapse" aria-labelledby="heading' . $row["faq_id"] . '" data-bs-parent="#accordionExample">';
+                $output .= '        <div class="accordion-body">';
+                $output .= '            ' . $row["answer"] . '';
+                $output .= '        </div>';
+                $output .= '    </div>';
+                $output .= '</div>';
             }
-            $response = json_encode($response_data);
-            return $response;
+            $faqtitle .= '<h1 class="fs-1 ">Frequently ask questions</h1>';
+            $faqcontent .= "<p class='fs-6 mb-6'>When deciding Which Charity to donate to, it's important to do your search and find one that aligns with your values and interests.</p>";
+            $faqimage .= '<img class="img-fluid  fit-cover rounded" src="' . CLS_SITE_URL . 'img/faq.jpg" alt="faq">';
+            $response_data = array('data' => 'success', 'outcome' => $output, 'faqcontent' => $faqcontent, 'faqtitle' => $faqtitle, 'faqimage' => $faqimage);
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function reviewshow (){
+    function reviewshow()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT logo_img,shopname,review,description FROM marketreviews WHERE status='1'";
         $result = $this->db->query($query);
-        $output= $marketreviewtitle = "";        
-               if ($result) {
-                    while ($row = mysqli_fetch_array($result))  {
-                        $image = $row["logo_img"];
-                        $imagePath = "../admin1/assets/img/marketreview/".$image;
-                        $decodedPath = htmlspecialchars_decode($imagePath);
-                        $rating = $row['review']; 
-                        $fullStars = floor($rating);
-                        $halfStar = ($rating - $fullStars >= 0.5) ? 1 : 0;
-                        $emptyStars = 5 - $fullStars - $halfStar;                                                   
-                        $output .= '<div class="swiper-slide">';
-                        $output .= '    <div class="testimonial-main-box rounded border rounded-3 p-2 bg-light mt-2 py-5">';
-                        $output .= '        <div class="testi-img-box overflow-hidden">';
-                        $output .= '            <a href="#"><img src="' . $decodedPath . '" class="img-fluid mx-auto rounded-circle" alt="shop1"></a>';
-                        $output .= '        </div>';
-                        $output .= '        <p class="mt-3 mb-4">"'.$row['description'].'"</p>';
-                        $output .= '        <h4 class="mt-3">"'.$row['shopname'].'"</h4>';
-                        $output .= '        <div class="d-flex justify-content-center mt-2">';                 
-                        for ($i = 0; $i < $fullStars; $i++) {
-                            $output .= '<i class="fa-solid fa-star text-primary"></i>';
-                        }
-                        if ($halfStar) {
-                            $output .= '<i class="fa-solid fa-star-half-stroke text-primary"></i>';
-                        }
-                        for ($i = 0; $i < $emptyStars; $i++) {
-                            $output .= '<i class="fa-regular fa-star text-primary"></i>'; // Regular star for empty stars
-                        }
-                        $output .= '            <h6>(' . $rating . ')</h6>';
-                        $output .= '        </div>';
-                        $output .= '        <div class="coma-box rounded">';
-                        $output .= '            <i class="fa-solid fa-quote-right text-primary fs-2"></i>';
-                        $output .= '        </div>';
-                        $output .= '    </div>';
-                        $output .= '</div>';                   
-                        // print_r($row);               
-                    }
-                    $marketreviewtitle = '<div class="d-flex flex-column align-items-center mb-3">
+        $output = $marketreviewtitle = "";
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $image = $row["logo_img"];
+                $imagePath = "../admin1/assets/img/marketreview/" . $image;
+                $decodedPath = htmlspecialchars_decode($imagePath);
+                $rating = $row['review'];
+                $fullStars = floor($rating);
+                $halfStar = ($rating - $fullStars >= 0.5) ? 1 : 0;
+                $emptyStars = 5 - $fullStars - $halfStar;
+                $output .= '<div class="swiper-slide">';
+                $output .= '    <div class="testimonial-main-box rounded border rounded-3 p-2 bg-light mt-2 py-5">';
+                $output .= '        <div class="testi-img-box overflow-hidden">';
+                $output .= '            <a href="#"><img src="' . $decodedPath . '" class="img-fluid mx-auto rounded-circle" alt="shop1"></a>';
+                $output .= '        </div>';
+                $output .= '        <p class="mt-3 mb-4">"' . $row['description'] . '"</p>';
+                $output .= '        <h4 class="mt-3">"' . $row['shopname'] . '"</h4>';
+                $output .= '        <div class="d-flex justify-content-center mt-2">';
+                for ($i = 0; $i < $fullStars; $i++) {
+                    $output .= '<i class="fa-solid fa-star text-primary"></i>';
+                }
+                if ($halfStar) {
+                    $output .= '<i class="fa-solid fa-star-half-stroke text-primary"></i>';
+                }
+                for ($i = 0; $i < $emptyStars; $i++) {
+                    $output .= '<i class="fa-regular fa-star text-primary"></i>'; // Regular star for empty stars
+                }
+                $output .= '            <h6>(' . $rating . ')</h6>';
+                $output .= '        </div>';
+                $output .= '        <div class="coma-box rounded">';
+                $output .= '            <i class="fa-solid fa-quote-right text-primary fs-2"></i>';
+                $output .= '        </div>';
+                $output .= '    </div>';
+                $output .= '</div>';
+                // print_r($row);               
+            }
+            $marketreviewtitle = '<div class="d-flex flex-column align-items-center mb-3">
                                                 <h1>Markets by reviews</h1>
                                             </div>';
-                    $response_data = array('data' => 'success', 'outcome' => $output , 'marketreviewtitle' => $marketreviewtitle);
-                }
-                $response = json_encode($response_data);
-                return $response;
-    }
-
-    function marketlistshowclientside (){            
-            $response_data = array('data' => 'fail', 'msg' => "Error");       
-            $query = "SELECT name FROM markets LIMIT 30";
-            $result = $this->db->query($query);            
-            $output="";
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)) {     
-                    // $image = $row["p_image"];
-                    // $imagePath = "../admin1/assets/img/product_img/".$image;
-                    // $decodedPath = htmlspecialchars_decode($imagePath);
-                    $marketname =  $row['name'];        
-                    $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">'.$marketname.'</a></li>';
-                }
-                $response_data = array('data' => 'success', 'outcome' => $output);
-            }
+            $response_data = array('data' => 'success', 'outcome' => $output, 'marketreviewtitle' => $marketreviewtitle);
+        }
         $response = json_encode($response_data);
         return $response;
     }
 
-    function marketlist2showclientside (){            
-        $response_data = array('data' => 'fail', 'msg' => "Error");       
+    function marketlistshowclientside()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $query = "SELECT name FROM markets LIMIT 30";
+        $result = $this->db->query($query);
+        $output = "";
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                // $image = $row["p_image"];
+                // $imagePath = "../admin1/assets/img/product_img/".$image;
+                // $decodedPath = htmlspecialchars_decode($imagePath);
+                $marketname =  $row['name'];
+                $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">' . $marketname . '</a></li>';
+            }
+            $response_data = array('data' => 'success', 'outcome' => $output);
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function marketlist2showclientside()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT name FROM markets LIMIT 30 OFFSET 30";
-        $result = $this->db->query($query);            
-        $output="";
+        $result = $this->db->query($query);
+        $output = "";
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {     
+            while ($row = mysqli_fetch_array($result)) {
                 // $image = $row["p_image"];
                 // $imagePath = "../admin1/assets/img/product_img/".$image;
                 // $decodedPath = htmlspecialchars_decode($imagePath);
-                $marketname =  $row['name'];        
-                $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">'.$marketname.'</a></li>';
+                $marketname =  $row['name'];
+                $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">' . $marketname . '</a></li>';
             }
             $response_data = array('data' => 'success', 'outcome' => $output);
         }
@@ -447,71 +460,75 @@ class client_functions {
         return $response;
     }
 
-    function marketlist3showclientside (){            
-        $response_data = array('data' => 'fail', 'msg' => "Error");     
+    function marketlist3showclientside()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT name FROM markets";
-        $result = $this->db->query($query);     
+        $result = $this->db->query($query);
         // print_r( $result);       
-        $output="";
+        $output = "";
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {     
+            while ($row = mysqli_fetch_array($result)) {
                 // $image = $row["p_image"];
                 // $imagePath = "../admin1/assets/img/product_img/".$image;
                 // $decodedPath = htmlspecialchars_decode($imagePath);
-                $marketname =  $row['name'];        
-                $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">'.$marketname.'</a></li>';
+                $marketname =  $row['name'];
+                $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">' . $marketname . '</a></li>';
             }
             $response_data = array('data' => 'success', 'outcome' => $output);
         }
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function truncateText($text, $wordLimit) {
+
+    function truncateText($text, $wordLimit)
+    {
         // Split the text into words
         $words = explode(' ', $text);
-    
+
         // Check if the number of words exceeds the limit
         if (count($words) > $wordLimit) {
             // Truncate to the word limit and add ellipsis
             $words = array_slice($words, 0, $wordLimit);
             $text = implode(' ', $words) . '...';
         }
-    
+
         return $text;
     }
-    
-    function truncateTextByChar($text, $charLimit) {
+
+    function truncateTextByChar($text, $charLimit)
+    {
         // Check if the length of the text exceeds the limit
         if (strlen($text) > $charLimit) {
             // Truncate to the character limit and add ellipsis
             $text = substr($text, 0, $charLimit) . '...';
         }
-    
+
         return $text;
     }
-    
-    function productshowclientside (){            
-        $response_data = array('data' => 'fail', 'msg' => "Error"); 
+
+    function productshowclientside()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         $output = [];
-        $browsecategorytitle = $browsecategorybutton = $browsecategorytab = $browsecategorytabmobile = "";   
-        
-        $browsecategorytitle .='<div class="text-center wow bounceInUp" data-wow-delay="0.1s"><h1 class="display-5 mb-5">Browse by category</h1></div>';
-        $browsecategorybutton .='<a href="'.CLS_SITE_URL .'collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>';
-      
+        $browsecategorytitle = $browsecategorybutton = $browsecategorytab = $browsecategorytabmobile = "";
+
+        $browsecategorytitle .= '<div class="text-center wow bounceInUp" data-wow-delay="0.1s"><h1 class="display-5 mb-5">Browse by category</h1></div>';
+        $browsecategorybutton .= '<a href="' . CLS_SITE_URL . 'collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>';
+
         $categoryQuery = "SELECT * FROM b_textile_catagorys WHERE status='1' LIMIT 5";
-        $categoryresult = $this->db->query($categoryQuery); 
+        $categoryresult = $this->db->query($categoryQuery);
         if ($categoryresult) {
             $index = 0;
-            while ($categoryrow = mysqli_fetch_array($categoryresult)) { 
+            while ($categoryrow = mysqli_fetch_array($categoryresult)) {
                 $index++;
-                $categoies_id = (isset($categoryrow['categories']) && $categoryrow['categories'] != '' ) ? $categoryrow['categories'] : '';
+                $categoies_id = (isset($categoryrow['categories']) && $categoryrow['categories'] != '') ? $categoryrow['categories'] : '';
                 $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
                 $category_result = $this->db->query($category_query);
-                
+
                 if (mysqli_num_rows($category_result) > 0) {
                     while ($category_row = mysqli_fetch_assoc($category_result)) {
-                   
+
                         // $categories = [
                         //     "1" => "Armwear",
                         //     "2" => "Badges",
@@ -545,29 +562,32 @@ class client_functions {
                         //     "30" => "Undergarments",
                         //     "31" => "Wedding clothing"
                         // ];
-                
-                        $browsecategorytab .= $category_row['categoies_name'].',';
-                        $browsecategorytabmobile .= $category_row['categoies_name'].',';
-                        
-                        $productquery = "SELECT * FROM products WHERE category='".$categoryrow['categories']."' AND status='1'";
-                        $productresult = $this->db->query($productquery);   
+
+                        $browsecategorytab .= $category_row['categoies_name'] . ',';
+                        $browsecategorytabmobile .= $category_row['categoies_name'] . ',';
+
+                        $productquery = "SELECT * FROM products WHERE category='" . $categoryrow['categories'] . "' AND status='1'";
+                        $productresult = $this->db->query($productquery);
                         if ($productresult) {
                             if (mysqli_num_rows($productresult) > 0) {
                                 $categoryHTML = '';
                                 $countCategoriesProduct = 0;
                                 while ($productrow = mysqli_fetch_array($productresult)) {
-                                    if($countCategoriesProduct < 9){
-                                        $userquery = "SELECT * FROM users WHERE status='1' AND user_id='".$productrow['user_id']."'";
-                                        $userresult = $this->db->query($userquery); 
-                                        while ($userrow = mysqli_fetch_array($userresult)) {   
-                                            $shopname = $userrow['shop'] ? $userrow['shop'] : '' ;
+                                    if ($countCategoriesProduct < 9) {
+                                        $userquery = "SELECT * FROM users WHERE status='1' AND user_id='" . $productrow['user_id'] . "'";
+                                        $userresult = $this->db->query($userquery);
+                                        while ($userrow = mysqli_fetch_array($userresult)) {
+                                            $shopname = $userrow['shop'] ? $userrow['shop'] : '';
                                             $shopaddress = $userrow['address'] ? $userrow['address'] : '';
-                                        }  
+                                        }
                                         $countCategoriesProduct++;
                                         $charLimit  = 105;
                                         $image = $productrow["p_image"];
-                                        $imagePath = "../admin1/assets/img/product_img/".$image;
-                                        $decodedPath = htmlspecialchars_decode($imagePath);
+                                        $imagePath = "../admin1/assets/img/product_img/" . $image;
+                                        $noimagePath = "../admin1/assets/img/noimage.png";
+                                        $decodedPath = htmlspecialchars_decode(
+                                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                                        );
                                         $title =  $productrow['title'];
                                         // $p_description = $productrow['p_description'];
                                         $p_description = $this->truncateTextByChar($productrow['p_description'], $charLimit);
@@ -575,7 +595,7 @@ class client_functions {
                                         $categoryHTML  .= '<div class="col-12 col-md-6 col-lg-4 mt-4 wow bounceInUp" data-wow-delay="0.1s">';
                                         $categoryHTML  .= '    <div class="market_list_mian_box">';
                                         $categoryHTML  .= '        <div class="market-head border-bottom">';
-                                        $categoryHTML  .= '            <h6 class="text-primary fw-bold ms-3 mt-3">'.$title.'</h6>';
+                                        $categoryHTML  .= '            <h6 class="text-primary fw-bold ms-3 mt-3">' . $title . '</h6>';
                                         $categoryHTML  .= '        </div>';
                                         $categoryHTML  .= '        <div class="market-content p-3">';
                                         $categoryHTML  .= '            <div class="d-flex justify-content-between pb-2 ">';
@@ -584,8 +604,8 @@ class client_functions {
                                         $categoryHTML  .= '                </div>';
                                         $categoryHTML  .= '                <div class="col-6">';
                                         $categoryHTML  .= '                    <div class="ms-4">';
-                                        $categoryHTML  .= '                        <div class="ms-1 d-inline fs-6"><span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>'.$productrow['maxprice'].'</span><span>&nbsp;<h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>'. $productrow['minprice'].'</span></div>';
-                                        $categoryHTML  .= '                        <p class="fs-7 justify mt-2 mb-0">'.$p_description.'</p>';
+                                        $categoryHTML  .= '                        <div class="ms-1 d-inline fs-6"><span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>' . $productrow['maxprice'] . '</span><span>&nbsp;<h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>' . $productrow['minprice'] . '</span></div>';
+                                        $categoryHTML  .= '                        <p class="fs-7 justify mt-2 mb-0">' . $p_description . '</p>';
                                         $categoryHTML  .= '                    </div>';
                                         $categoryHTML  .= '                </div>';
                                         $categoryHTML  .= '                <div class="col-3 text-end">';
@@ -599,7 +619,7 @@ class client_functions {
                                         $categoryHTML  .= '                        <img class="img-fluid rounded w-100" src=' . $decodedPath . ' alt="kurti1">';
                                         $categoryHTML  .= '                    </div>';
                                         $categoryHTML  .= '                </div>';
-                                        $categoryHTML  .= '            </div>';            
+                                        $categoryHTML  .= '            </div>';
                                         $categoryHTML  .= '            <div class="market-footer border-top">';
                                         $categoryHTML  .= '                <div class="market-name">';
                                         $categoryHTML  .= '                    <div class="d-flex align-items-center">';
@@ -620,59 +640,59 @@ class client_functions {
                                         $categoryHTML  .= '            </div>';
                                         $categoryHTML  .= '        </div>';
                                         $categoryHTML  .= '    </div>';
-                                        $categoryHTML  .= '</div>';  
+                                        $categoryHTML  .= '</div>';
                                     }
                                 }
                                 $output[$category_row['categoies_name']] = $categoryHTML;
-                                $response_data = array('data' => 'success', 'outcome' => $output , 'browsecategorytitle' => $browsecategorytitle , 'browsecategorybutton' => $browsecategorybutton, 'browsecategorytab' => $browsecategorytab, 'browsecategorytabmobile' => $browsecategorytabmobile );
+                                $response_data = array('data' => 'success', 'outcome' => $output, 'browsecategorytitle' => $browsecategorytitle, 'browsecategorybutton' => $browsecategorybutton, 'browsecategorytab' => $browsecategorytab, 'browsecategorytabmobile' => $browsecategorytabmobile);
                             }
                         }
                     }
                 }
             }
-           
         }
-        
+
         $response = json_encode($response_data);
         return $response;
     }
 
-    function productlisting(){
+    function productlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         // if (isset($_SESSION['current_user']['user_id'])) {
-            $category_value = isset($_POST['category_value']) ? $_POST['category_value'] : '';  // Get category value from dropdown
-            $min_price = isset($_POST['min_price']) ? $_POST['min_price'] : '';  // Get category value from dropdown
-            $max_price = isset($_POST['max_price']) ? $_POST['max_price'] : '';
-            // if ($_SESSION['current_user']['role'] == 1) {
-            //     $user_id = $_SESSION['current_user']['user_id'];
-            //     $userid = "AND user_id =$user_id";
-            // }
-            $category_filter = !empty($category_value) ? "AND category = '$category_value'" : '';
-            // print_r($category_filter);
-            // $query = "SELECT * FROM products WHERE category = $category_value";
+        $category_value = isset($_POST['category_value']) ? $_POST['category_value'] : '';  // Get category value from dropdown
+        $min_price = isset($_POST['min_price']) ? $_POST['min_price'] : '';  // Get category value from dropdown
+        $max_price = isset($_POST['max_price']) ? $_POST['max_price'] : '';
+        // if ($_SESSION['current_user']['role'] == 1) {
+        //     $user_id = $_SESSION['current_user']['user_id'];
+        //     $userid = "AND user_id =$user_id";
+        // }
+        $category_filter = !empty($category_value) ? "AND category = '$category_value'" : '';
+        // print_r($category_filter);
+        // $query = "SELECT * FROM products WHERE category = $category_value";
 
-            // $query = "SELECT * FROM products WHERE category = '$category_value' OR (minprice BETWEEN $min_price AND $max_price)";
-            if(!empty($category_value)) {
-                // If category data is found, show both category and price range
-                $query = "SELECT * FROM products WHERE category = '$category_value' AND (minprice BETWEEN $min_price AND $max_price)";
-            } else {
-                // If no category is provided, show only the data within the price range
-                $query = "SELECT * FROM products WHERE minprice BETWEEN $min_price AND $max_price";
-            }
-            // print_r($query);
-            $result = $this->db->query($query);
-            $output = "";
-            // $pagination = "";
+        // $query = "SELECT * FROM products WHERE category = '$category_value' OR (minprice BETWEEN $min_price AND $max_price)";
+        if (!empty($category_value)) {
+            // If category data is found, show both category and price range
+            $query = "SELECT * FROM products WHERE category = '$category_value' AND (minprice BETWEEN $min_price AND $max_price)";
+        } else {
+            // If no category is provided, show only the data within the price range
+            $query = "SELECT * FROM products WHERE minprice BETWEEN $min_price AND $max_price";
+        }
+        // print_r($query);
+        $result = $this->db->query($query);
+        $output = "";
+        // $pagination = "";
         // }
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
                     $imagePath = "../admin1/assets/img/product_img/" . $image;
-                $noimagePath = "../admin1/assets/img/noimage.png";
-                $decodedPath = htmlspecialchars_decode(
-                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                );
+                    $noimagePath = "../admin1/assets/img/noimage.png";
+                    $decodedPath = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                    );
                     $title =  $row['title'];
                     $price = $row['maxprice'];
                     $output .= '
@@ -719,14 +739,13 @@ class client_functions {
                                     </div>
                                 </div>
                                 <div class="market-button d-flex mt-3">
-                                    <a href="'.CLS_SITE_URL.'sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                    <a href="'.CLS_SITE_URL.'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>
-                                    <a href="'.CLS_SITE_URL.'collection.php" class="btn btn-primary ms-2 fs-6">Catalog</a>
+                                    <a href="' . CLS_SITE_URL . 'sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
+                                    <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>
+                                    <a href="' . CLS_SITE_URL . 'collection.php" class="btn btn-primary ms-2 fs-6">Catalog</a>
                                 </div>
                             </div>
                         </div>
                     </div>';
-                    
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
             } else {
@@ -749,7 +768,8 @@ class client_functions {
         return $response;
     }
 
-    function allmarket(){
+    function allmarket()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT user_id, shop, shop_logo FROM users WHERE status='1'";
         $result = $this->db->query($query);
@@ -800,15 +820,16 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function market_collection() {
+    function market_collection()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-    
+
         if (isset($_POST['id'])) {
             $userId = intval($_POST['id']);
             $query = "SELECT * FROM products WHERE status='1' AND user_id = $userId";
             $result = $this->db->query($query);
             $output = "";
-    
+
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $user_id = $row["user_id"];
@@ -819,12 +840,12 @@ class client_functions {
                     $images = explode(',', $row["p_image"]);
                     $imagePathBase = "../admin1/assets/img/product_img/";
                     $noimagePath = "../admin1/assets/img/noimage.png";
-    
+
                     // Main image logic
-                    $mainImage = !empty($images[0]) && file_exists($imagePathBase . $images[0]) 
-                        ? htmlspecialchars_decode($imagePathBase . $images[0]) 
+                    $mainImage = !empty($images[0]) && file_exists($imagePathBase . $images[0])
+                        ? htmlspecialchars_decode($imagePathBase . $images[0])
                         : htmlspecialchars_decode($noimagePath);
-    
+
                     // Begin output for this product
                     $output .= '<div class="col-12 col-md-6 col-lg-4 mt-4">';
                     $output .= '    <div class="market_list_mian_box">';
@@ -844,21 +865,21 @@ class client_functions {
                     $output .= '                    </div>';
                     $output .= '                </div>';
                     $output .= '                <div class="col-3 text-end">';
-    
+
                     // Additional images logic
                     $count = 0;
                     foreach ($images as $key => $image) {
                         if ($count >= 3) break;
-                        $decodedPath = (!empty($image) && file_exists($imagePathBase . $image)) 
-                            ? htmlspecialchars_decode($imagePathBase . $image) 
+                        $decodedPath = (!empty($image) && file_exists($imagePathBase . $image))
+                            ? htmlspecialchars_decode($imagePathBase . $image)
                             : htmlspecialchars_decode($noimagePath);
-    
+
                         $output .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
                         $output .= '                        <img src="' . $decodedPath . '" class="img-fluid" alt="Product Image ' . ($key + 1) . '">';
                         $output .= '                    </div>';
                         $count++;
                     }
-    
+
                     $output .= '                </div>'; // End of col-3
                     $output .= '            </div>';
                     $output .= '            <div class="market-footer border-top">';
@@ -876,22 +897,23 @@ class client_functions {
                     $output .= '                <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>';
                     $output .= '                <a href="' . CLS_SITE_URL . 'collection.php?id=' . $product_id . '" class="btn btn-primary ms-2 fs-6">Catalog</a>';
                     $output .= '            </div>';
-                    $output .= '        </div>'; 
-                    $output .= '    </div>'; 
+                    $output .= '        </div>';
+                    $output .= '    </div>';
                     $output .= '</div>';
                 }
-    
+
                 $response_data = array('data' => 'success', 'outcome' => $output);
             }
         }
-    
+
         $response = json_encode($response_data);
         return $response;
     }
-    
-    
 
-    function customer(){
+
+
+    function customer()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $userId = intval($_POST['id']);
@@ -969,64 +991,62 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function catlog() {
+    function catlog()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $product_id = intval($_POST['id']);
             $sql = "SELECT * FROM products WHERE status='1' AND product_id= $product_id";
             $result = $this->db->query($sql);
             $output = "";
-    
+
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $images = explode(',', $row["p_image"]);
                     $imagePathBase = "../admin1/assets/img/product_img/";
                     $noimagePath = "../admin1/assets/img/product_img/noimage.png";
-    
+
                     $output .= '<div class="row">';
                     $output .= '<div class="col-12 col-md-4">';
-                    
-                    // Main Image
-                    $mainImage = (!empty($images[0]) && file_exists($imagePathBase . $images[0]))
-                        ? $imagePathBase . $images[0]
-                        : $noimagePath;
-                    $output .= '<img class="img-fluid" style="border-radius: 5px; object-fit: cover;" src="' . htmlspecialchars_decode($mainImage) . '" alt="Main Image">';
-    
+                    $output .= '<div class="main_catlogbox text-start">';
+                    $output .= '<p class="cate_descrition fs-1 text-dark">'.$row['title'].'</p>';
+                    $output .= '<p class="cate_descrition">Shop for ethically made linens</p>';
+                    $output .= '<p class="cate_descrition">At #fabdreamsorganic, we empower textile businesses with seamless connectivity and growth opportunities, bridging the gap between wholesalers and retailers in the textile industry. Shop for ethically made linens.Discover a wide range of Indian sarees from top manufacturers in Surat, the textile hub of India. Our platform connects you with the best saree producers known for their quality craftsmanship and exquisite designs. Whether your looking for traditional </p>';
                     $output .= '</div>';
+                    $output .= '</div>';
+
                     $output .= '<div class="col-12 col-md-8 mt-4 mt-md-0">';
                     $output .= '<div class="swiper mySwiper">';
                     $output .= '<div class="swiper-wrapper">';
-    
-                    // Swiper Slides
                     foreach ($images as $key => $image) {
                         $decodedPath = (!empty($image) && file_exists($imagePathBase . $image))
                             ? htmlspecialchars_decode($imagePathBase . $image)
                             : $noimagePath;
-    
                         $output .= '<div class="swiper-slide">';
                         $output .= '<div class="d-flex flex-column align-items-center">';
                         $output .= '<img class="rounded-top w-100" style="object-fit: cover;" src="' . $decodedPath . '" alt="Product Image ' . ($key + 1) . '">';
-                        $output .= '</div>'; // Closing d-flex
-                        $output .= '</div>'; // Closing swiper-slide
+                        $output .= '</div>';
+                        $output .= '</div>';
                     }
-    
-                    $output .= '</div>'; // Closing swiper-wrapper
+
+                    $output .= '</div>';
                     $output .= '<div class="swiper-button-prev"></div>';
                     $output .= '<div class="swiper-button-next"></div>';
-                    $output .= '</div>'; // Closing swiper
-                    $output .= '</div>'; // Closing col-md-8
-                    $output .= '</div>'; // Closing row
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             }
         }
         return json_encode($response_data);
     }
-    function get_categories() {
+    function get_categories()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM allcategories WHERE status='1'";
         $result = $this->db->query($sql);
-    
+
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 $all_categories = "";
@@ -1034,7 +1054,7 @@ class client_functions {
                 while ($categoryrow = mysqli_fetch_assoc($result)) {
                     if (!in_array($categoryrow['categoies_name'], $category_names)) {
                         $category_names[] = $categoryrow['categoies_name'];
-                         $all_categories .= "<li><a class='dropdown-item nav-link category-item' data-bs-toggle='pill' href='#'data-id='" . $categoryrow['categoies_id'] . "' >". $categoryrow['categoies_name'] ."</a></li>";
+                        $all_categories .= "<li><a class='dropdown-item nav-link category-item' data-bs-toggle='pill' href='#'data-id='" . $categoryrow['categoies_id'] . "' >" . $categoryrow['categoies_name'] . "</a></li>";
                     }
                 }
                 $response_data = array('data' => 'success', 'outcome' => $all_categories);
@@ -1043,6 +1063,4 @@ class client_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    
-	
 }
