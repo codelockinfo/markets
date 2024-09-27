@@ -1296,8 +1296,8 @@ class admin_functions {
                     </ul>';
 
                 $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center">                   
-                   <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
-                   <img src="' . $decodedPath . '"alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
+                   <a class="mb-0 ps-1 pe-2 py-0 mt-3" href="#">
+                   <img src="' . $decodedPath . '"alt="profile_image" class="border-radius-lg shadow-sm mb-4">
                    </a>
                    </li>
                    <div class="mx-auto text-center">
