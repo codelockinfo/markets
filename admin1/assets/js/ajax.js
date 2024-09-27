@@ -11,6 +11,7 @@ var CLS_CIRCLE_MINUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 80 80" focusable="false" aria-hidden="true"><path d="M39.769,0C17.8,0,0,17.8,0,39.768c0,21.956,17.8,39.768,39.769,39.768   c21.965,0,39.768-17.812,39.768-39.768C79.536,17.8,61.733,0,39.769,0z M13.261,45.07V34.466h53.014V45.07H13.261z" fill-rule="evenodd" fill="#DE3618"></path></svg>';
 var CLS_CIRCLE_PLUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 510 510" focusable="false" aria-hidden="true"><path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102    h-102v-51h102v-102h51v102h102V280.5z" fill-rule="evenodd" fill="#3f4eae"></path></svg>';
+var NO_IMAGE = '<div class="no-data"><img src="assets/img/noimg.gif"></div>';
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -93,11 +94,7 @@ function loadData(routineName) {
       console.log("Sending routine_name:", routineName);
       
       if (response.outcome === "No data found") {
-        $("#getdata").html(
-          '<div class="notdata">' +  
-            '<img style="height:100px; width:100px;" src="assets/img/noimg.gif">' +
-            '<br></div>'
-        );
+        $("#getdata").html(NO_IMAGE);
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
@@ -384,7 +381,7 @@ function get_product(id) {
 
 
         response["outcome"]["i_name"] !== undefined
-        ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
+        ? $("textarea [name='i_name']").val(response["outcome"]["i_name"])
         : "";
           response["outcome"]["bill_no"] !== undefined
           ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
@@ -591,6 +588,7 @@ function select_shop() {
         var response = JSON.parse(response);
           console.log("Response:", response); 
           if (response.data === "success") {
+            
               if (Array.isArray(response.outcome)) {
                   $("#mySelect").empty().append('<option selected value="">Select Shop</option>');
                   $.each(response.outcome, function (index, shop) {
@@ -935,9 +933,12 @@ $(document).ready(function () {
         response["msg"]["max_price"] !== undefined
           ? $(".max_price").html(response["msg"]["max_price"])
           : $(".max_price").html("");
-        response["msg"]["p_image"] !== undefined
-          ? $(".p_image").html(response["msg"]["p_image"])
-          : $(".p_image").html("");
+          if (response.msg && response.msg.p_image) {
+            $(".p_image").html(response.msg.p_image);
+        } else {
+            $(".p_image").html("");
+        }
+        
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
@@ -1491,23 +1492,11 @@ $(document).ready(function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
-        // response["msg"]["image_alt"] !== undefined ? $(".image_alt").html (response["msg"]["image_alt"]) : $(".image_alt").html("");
-        // response["msg"]["svg_image_alt"] !== undefined ? $(".svg_image_alt").html (response["msg"]["svg_image_alt"]) : $(".svg_image_alt").html("");
-        response["msg"]["shop_logo"] !== undefined
-          ? $(".shop_logo").html(response["msg"]["shop_logo"])
-          : $(".shop_logo").html("");
-        response["msg"]["svg_img"] !== undefined
-          ? $(".svg_img").html(response["msg"]["svg_img"])
-          : $(".svg_img").html("");
-        response["msg"]["heading"] !== undefined
-          ? $(".heading").html(response["msg"]["heading"])
-          : $(".heading").html("");
-        response["msg"]["sub_heading"] !== undefined
-          ? $(".sub_heading").html(response["msg"]["sub_heading"])
-          : $(".sub_heading").html("");
-        response["msg"]["img"] !== undefined
-          ? $(".img").html(response["msg"]["img"])
-          : $(".img").html("");
+       
+        response["msg"]["shop_name"] !== undefined
+          ? $(".shop_name").html(response["msg"]["shop_name"])
+          : $(".shop_name").html("");
+        
         if (response["data"] == "success") {
           $("#f_marketinsert")[0].reset();
           resetThumbnail();
@@ -1698,15 +1687,13 @@ $(document).ready(function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
-        response["msg"]["shop_image"] !== undefined
-          ? $(".shop_image").html(response["msg"]["shop_image"])
-          : $(".shop_image").html("");
-        response["msg"]["shop_description"] !== undefined
-          ? $(".shop_description").html(response["msg"]["shop_description"])
-          : $(".shop_description").html("");
-        response["msg"]["shop_name"] !== undefined
-          ? $(".shop_name").html(response["msg"]["shop_name"])
-          : $(".shop_name").html("");
+       
+        response["msg"]["description"] !== undefined
+          ? $(".description").html(response["msg"]["description"])
+          : $(".description").html("");
+        response["msg"]["shopname"] !== undefined
+          ? $(".shopname").html(response["msg"]["shopname"])
+          : $(".shopname").html("");
         response["msg"]["review"] !== undefined
           ? $(".review").html(response["msg"]["review"])
           : $(".review").html("");
