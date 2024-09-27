@@ -42,14 +42,14 @@ if ($_SESSION['current_user']['role'] == 1) {
               <label for="p-description" class="font-weight-normal required">Shop Description</label>
               <div class="mb-3">
                 <textarea id="shop-description" class="w-100 form-control validtext" name="description"></textarea>
-                <span class="errormsg shop_description"></span>
+                <span class="errormsg description"></span>
               </div>
               <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">
                 <select class="form-select required" aria-label="Select Shop" id="mySelect" name="shopname">
                   <option selected value="">Select Shop</option>
                 </select>
-                <span class="errormsg shop_name"></span>
+                <span class="errormsg shopname"></span>
               </div>
 
               <label for="review" class="font-weight-normal required">Shop Reviews</label>

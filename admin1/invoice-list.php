@@ -67,7 +67,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3">
           <div class="card-header pb-0 p-3">
-            <h6 class="mb-1 mt-1 text-lg">invoices</h6>
+            <h6 class="mb-1 mt-1 text-lg">Invoices</h6>
           </div>
         
         </div>
