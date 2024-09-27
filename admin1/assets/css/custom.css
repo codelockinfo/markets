@@ -24,7 +24,9 @@
   transform: skewX(8deg);
   height: 800px;
 }
-
+.notdata{
+  text-align: center;
+}
 /* sign-in & sign-up background img css end */
 
 

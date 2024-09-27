@@ -110,7 +110,7 @@ class admin_functions {
             $tmpfile = $_FILES['shop_img']['tmp_name'];
             $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
-            $newFilename = time() . '.' . $fileExtension;
+            $newFilename = uniqid() . '.' . $fileExtension;
             $folder = "assets/img/sigup_img/";
             $fullpath = $folder . $newFilename;
             $maxSize = 5 * 1024 * 1024;
@@ -164,8 +164,6 @@ class admin_functions {
         } elseif (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
-
-        // Password validation
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -179,24 +177,18 @@ class admin_functions {
         } elseif ($password !== $confirmPassword) {
             $error_array['Confirm_Password'] = "Passwords do not match";
         }
-
-        // Email validation
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
             $error_array['email'] = "Please enter an email address";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_array['email'] = "Please enter a valid email address";
         }
-
-        // If no errors, proceed with inserting data
         if (empty($error_array)) {
             $name = isset($_POST['name']) ? mysqli_real_escape_string($this->db, $_POST['name']) : '';
             $shop = isset($_POST['shop']) ? mysqli_real_escape_string($this->db, $_POST['shop']) : '';
             $address = isset($_POST['address']) ? mysqli_real_escape_string($this->db, $_POST['address']) : '';
             $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
             $business_type = isset($_POST['business_type']) ? $_POST['business_type'] : '';
-
-            // Check for existing email
             $email_check_query = "SELECT * FROM users WHERE email = '$email'";
             $email_check_result = mysqli_query($this->db, $email_check_query);
             if ($email_check_result->num_rows > 0) {
@@ -207,7 +199,6 @@ class admin_functions {
                     $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$password', '$email')";
                     $result = mysqli_query($this->db, $query);
-
                     if ($result) {
                         return json_encode(array('data' => 'success', 'msg' => 'Data inserted successfully!'));
                     } else {
@@ -2263,8 +2254,7 @@ class admin_functions {
         return $response;
     }
 
-    function get_categories()
-    {
+    function get_categories(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];

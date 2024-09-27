@@ -313,6 +313,10 @@ function marketlistshowclientside() {
 function marketlist2showclientside() {
   loadData("marketlist2showclientside", "get_market");
 }
+function get_categories(){
+  loadData("get_categories","getcategory");
+}
+
 function marketlist3showclientside() {
   loadData("marketlist3showclientside", "get_market_next");
 }
