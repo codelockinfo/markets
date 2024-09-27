@@ -97,7 +97,7 @@ class client_functions {
             while ($row = mysqli_fetch_array($result)) {  
                 $image = $row["banner_img"];
                 $imagePath = "../admin1/assets/img/banner_img/" . $image;
-                $noimagePath = "../admin1/assets/img/noimage.png";
+                $noimagePath = "../admin1/assets/img/Sunahri.jpg";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
@@ -251,7 +251,7 @@ class client_functions {
                 }
                 $image = $row["img"];
                 $imagePath = "../admin1/assets/img/offers/" . $image;
-                $noimagePath = "../admin1/assets/img/noimage.png";
+                $noimagePath = "";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );      

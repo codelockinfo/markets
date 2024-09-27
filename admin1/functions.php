@@ -32,14 +32,14 @@ class admin_functions {
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
         $error_array = array();
         if (empty($email)) {
-            $error_array['email'] = "Please Enter An Email Address";
+            $error_array['email'] = "Please enter an email address.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_array['email'] = "Please enter the valid email address";
         }
         if (empty($password)) {
-            $error_array['password'] = 'Please Enter The Password';
+            $error_array['password'] = 'Please enter ehe password.';
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character';
+            $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character.';
         }
         if (empty($error_array)) {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
@@ -63,23 +63,23 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if($_SESSION['current_user']['user_id']){
             if (isset($_POST['name']) && $_POST['name'] == '') {
-                $error_array['name'] = "Please enter name";
+                $error_array['name'] = "Please enter name.";
             }
             if (isset($_POST['shop']) && $_POST['shop'] == '') {
-                $error_array['shop'] = "Please enter shop name";
+                $error_array['shop'] = "Please enter shop name.";
             }
             $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
             $mobilepattern = "/^[789]\d{9}$/";
             if(empty($phone_number)){
-                $error_array['phone_number'] = "Please enter phone number";
+                $error_array['phone_number'] = "Please enter phone number.";
             }elseif (!preg_match($mobilepattern, $phone_number)) {
                 $error_array['phone_number'] = "The mobile number is invalid.";
             }
             if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
-                $error_array['business_type'] = "Please select business type";
+                $error_array['business_type'] = "Please select business type.";
             }
             if (isset($_POST['address']) && $_POST['address'] == '') {
-                $error_array['address'] = "Please enter address";
+                $error_array['address'] = "Please enter address.";
             }
             if (empty($error_array)) {
                 $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
@@ -118,11 +118,11 @@ class admin_functions {
                 $error_array['shop_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
             if ($_FILES['shop_img']['size'] > $maxSize) {
-                $error_array['shop_img'] = "File size must be 5MB or less";
+                $error_array['shop_img'] = "File size must be 5MB or less.";
             }
 
             if (empty($filename)) {
-                $error_array['shop_img'] = "Please select shop image";
+                $error_array['shop_img'] = "Please select shop image.";
             }
         }
         if (isset($_FILES['shop_logo'])) {
@@ -136,31 +136,31 @@ class admin_functions {
                 $error_array['shop_logo'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed";
             }
             if ($_FILES['shop_logo']['size'] > $maxSize) {
-                $error_array['shop_logo'] = "File size must be 5MB or less";
+                $error_array['shop_logo'] = "File size must be 5MB or less.";
             }
 
             if (empty($filename)) {
-                $error_array['shop_logo'] = "Please select a shop logo";
+                $error_array['shop_logo'] = "Please select a shop logo.";
             }
         }
         if (isset($_POST['name']) && $_POST['name'] == '') {
-            $error_array['name'] = "Please enter name";
+            $error_array['name'] = "Please enter name.";
         }
         if (isset($_POST['shop']) && $_POST['shop'] == '') {
-            $error_array['shop'] = "Please enter shop name";
+            $error_array['shop'] = "Please enter shop name.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "Please enter address";
+            $error_array['address'] = "Please enter address.";
         }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
-            $error_array['business_type'] = "Please select business type";
+            $error_array['business_type'] = "Please select business type.";
         }
 
         // Phone number validation
         $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
         $mobilepattern = "/^[789]\d{9}$/";
         if (empty($phone_number)) {
-            $error_array['phone_number'] = "Please enter phone number";
+            $error_array['phone_number'] = "Please enter phone number.";
         } elseif (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
@@ -170,18 +170,18 @@ class admin_functions {
         if (empty($password)) {
             $error_array['password'] = "Please enter a password.";
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character";
+            $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character.";
         }
         if (empty($confirmPassword)) {
-            $error_array['Confirm_Password'] = "Please enter a confirm password";
+            $error_array['Confirm_Password'] = "Please enter a confirm password.";
         } elseif ($password !== $confirmPassword) {
-            $error_array['Confirm_Password'] = "Passwords do not match";
+            $error_array['Confirm_Password'] = "Passwords do not match.";
         }
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
-            $error_array['email'] = "Please enter an email address";
+            $error_array['email'] = "Please enter an email address.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_array['email'] = "Please enter a valid email address";
+            $error_array['email'] = "Please enter a valid email address.";
         }
         if (empty($error_array)) {
             $name = isset($_POST['name']) ? mysqli_real_escape_string($this->db, $_POST['name']) : '';
@@ -241,10 +241,10 @@ class admin_functions {
                 $fullpath = $folder . $newFilename;
                 if($tmpfile != ""){
                     if (!in_array($fileExtension, $allowedExtensions)) {
-                        $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed";
+                        $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
                     }
                     if ($file['size'][$key] > $maxSize) {
-                        $error_array['p_image'][] = "File size for $filename must be 5MB or less";
+                        $error_array['p_image'][] = "File size for $filename must be 5MB or less.";
                     }
 
                     if (empty($error_array)) {
@@ -255,7 +255,7 @@ class admin_functions {
                         }
                     }
                 }else{
-                    $error_array['p_image'][] = "Please upload another product image";
+                    $error_array['p_image'][] = "Please upload another product image.";
                 }
             }
         }
@@ -400,20 +400,20 @@ class admin_functions {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['c_image'] = "Please upload product images.";
+                $error_array['c_image'] = "Please upload your images.";
             }
         }
         if(isset($_POST['name']) && $_POST['name'] == ''){
-            $error_array['name']="plase eneter your name";
+            $error_array['name']="Please enter your name.";
         }
         if(isset($_POST['email']) && $_POST['email'] == ''){
-            $error_array['email']="enter your email";
+            $error_array['email']="Please enter your email.";
         }
         if(isset($_POST['contact']) && $_POST['contact'] == ''){
-            $error_array['contact']="eneter contact number";
+            $error_array['contact']="Please enter your  contact number.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "enter address";
+            $error_array['address'] = "Please enter your address.";
         }
         if (empty($error_array)) {
             $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
@@ -655,20 +655,20 @@ class admin_functions {
         $error_array = array();
 
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
-            $error_array['video_title'] = "Please enter video title";
+            $error_array['video_title'] = "Please enter video title.";
         }
         if (isset($_POST['video_category']) && $_POST['video_category'] == '') {
-            $error_array['video_category'] = "Please select video catagory";
+            $error_array['video_category'] = "Please select video catagory.";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
-            $error_array['youtube_shorts'] = "Please enter YouTube shorts link";
+            $error_array['youtube_shorts'] = "Please enter youTube shorts link.";
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {
-            $error_array['youtube_shorts'] = "Please enter a valid YouTube shorts link";
+            $error_array['youtube_shorts'] = "Please enter a valid YouTube shorts link.";
         }
         if (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] == '') {
-            $error_array['youtube_vlogs'] = "Please enter YouTube vlogs link";
+            $error_array['youtube_vlogs'] = "Please enter youTube vlogs link.";
         } elseif (isset($_POST['youtube_vlogs']) && !$this->isValidYouTubeURL($_POST['youtube_vlogs'])) {
-            $error_array['youtube_vlogs'] = "Please enter a valid YouTube vlogs link";
+            $error_array['youtube_vlogs'] = "Please enter a valid YouTube vlogs link.";
         }
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
@@ -729,21 +729,21 @@ class admin_functions {
                 $error_array['blog_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['blog_image'] = "Please upload your blog image";
+                $error_array['blog_image'] = "Please upload your blog image.";
             }
         }
 
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
-            $error_array['blog_title'] = "Please enter blog title";
+            $error_array['blog_title'] = "Please enter blog title.";
         }
         if (isset($_POST['blog_category']) && $_POST['blog_category'] == '') {
-            $error_array['blog_category'] = "Please select blog catagory";
+            $error_array['blog_category'] = "Please select blog catagory.";
         }
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
-            $error_array['myeditor'] = "Please fill body textarea";
+            $error_array['myeditor'] = "Please fill body textarea.";
         }
         if (isset($_POST['author_name']) && $_POST['author_name'] == '') {
-            $error_array['author_name'] = "Please enter author name";
+            $error_array['author_name'] = "Please enter author name.";
         }
 
         if (empty($error_array)) {
@@ -836,21 +836,21 @@ class admin_functions {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
-            $error_array['myFile'] = "Please upload your banner image";
+            $error_array['myFile'] = "Please upload your banner image.";
         }
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
-            $error_array['heading'] = "Please enter the heading";
+            $error_array['heading'] = "Please enter the heading.";
         }
         if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
-            $error_array['sub_heading'] = "Please enter the sub heading";
+            $error_array['sub_heading'] = "Please enter the sub heading.";
         }
         if (isset($_POST['banner_text']) && $_POST['banner_text'] == '') {
-            $error_array['banner_text'] = "Please enter the banner text";
+            $error_array['banner_text'] = "Please enter the banner text.";
         }
         if (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] == '') {
-            $error_array['banner_btn_link'] = "Please enter the banner button link";
+            $error_array['banner_btn_link'] = "Please enter the banner button link.";
         } elseif (isset($_POST['banner_btn_link']) && !$this->isValidURL($_POST['banner_btn_link'])) {
-            $error_array['banner_btn_link'] = "Please enter a valid banner button link";
+            $error_array['banner_btn_link'] = "Please enter a valid banner button link.";
         }
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
@@ -883,7 +883,7 @@ class admin_functions {
     
         // Validate shop name
         if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
-            $error_array['shop_name'] = "Please select a shop";
+            $error_array['shop_name'] = "Please select a shop.";
         }
     
         if (empty($error_array)) {
@@ -921,7 +921,7 @@ class admin_functions {
     {
         $error_array = array();
         if (!isset($_POST['categories']) || $_POST['categories'] == '') {
-            $error_array['categories'] = "Please select categories";
+            $error_array['categories'] = "Please select categories.";
         }
         if (empty($error_array)) {
             if (isset($_SESSION['current_user']['user_id'])) {
@@ -980,12 +980,12 @@ class admin_functions {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
-            $error_array['myFile'] = "Please upload your image";
+            $error_array['myFile'] = "Please upload your image.";
         }
         if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
             $error_array['img_link'] = "Please enter image link";
         } elseif (isset($_POST['img_link']) && !$this->isValidURL($_POST['img_link'])) {
-            $error_array['img_link'] = "Please enter a valid image link";
+            $error_array['img_link'] = "Please enter a valid image link.";
         }
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
@@ -1014,7 +1014,7 @@ class admin_functions {
     {
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
-            $error_array['myeditor'] = "Please enter paragraph";
+            $error_array['myeditor'] = "Please enter paragraph.";
         }
         if (empty($error_array)) {
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
@@ -1049,10 +1049,10 @@ class admin_functions {
 
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
-            $error_array['faq_question'] = "Please enter question";
+            $error_array['faq_question'] = "Please enter question.";
         }
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
-            $error_array['myeditor'] = "Please enter answer";
+            $error_array['myeditor'] = "Please enter answer.";
         }
         if (empty($error_array)) {
             $faq_question = (isset($_POST['faq_question']) && $_POST['faq_question'] !== '') ? $_POST['faq_question'] : '';
@@ -1081,15 +1081,15 @@ class admin_functions {
         $error_array = array();
 
         if (isset($_POST['description']) && $_POST['description'] == '') {
-            $error_array['description'] = "Please enter the shop description";
+            $error_array['description'] = "Please enter the shop description.";
         }
 
         if (isset($_POST['shopname']) && $_POST['shopname'] == '') {
-            $error_array['shopname'] = "Please enter the shop name";
+            $error_array['shopname'] = "Please enter the shop name.";
         }
 
         if (isset($_POST['review']) && $_POST['review'] == '') {
-            $error_array['review'] = "Please give a review";
+            $error_array['review'] = "Please give a review.";
         }
         if (empty($error_array)) {
 
@@ -1462,7 +1462,7 @@ class admin_functions {
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
                     // Add video_id as data attribute
-                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" checked>';
+                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" checke>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1496,7 +1496,7 @@ class admin_functions {
                         <div class="btn-group">
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="offers" checked>
+                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="offers" >
                         <input type="hidden" id="toggleStatus" name="status" value="offers">    
                         </div>
                         </div>  
@@ -1934,9 +1934,9 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
-            $error_msg = "Please enter an email address";
+            $error_msg = "Please enter an email address.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_msg = "Please enter a valid email address";
+            $error_msg = "Please enter a valid email address.";
         }
         if (empty($error_msg)) {
             $query = "SELECT * FROM users WHERE email = '$email'";
