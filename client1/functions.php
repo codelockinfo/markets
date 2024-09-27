@@ -991,8 +991,7 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function catlog()
-    {
+    function catlog() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $product_id = intval($_POST['id']);
@@ -1041,8 +1040,7 @@ class client_functions
         }
         return json_encode($response_data);
     }
-    function get_categories()
-    {
+    function get_categories(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM allcategories WHERE status='1'";
         $result = $this->db->query($sql);
@@ -1062,5 +1060,16 @@ class client_functions
         }
         $response = json_encode($response_data);
         return $response;
+    }
+    function all_produt(){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $sql= "SELECT * FROM product where ststus='1'";
+        $result= $this->db->query($sql);
+        if($result){
+             while($row= mysqli_fetch_assoc($result)){
+              
+             }
+        }
+
     }
 }
