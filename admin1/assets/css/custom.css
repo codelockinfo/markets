@@ -32,7 +32,11 @@
   width:50%;
 }
 /* sign-in & sign-up background img css end */
-
+.profile-image{
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}
 
 /* sign-in form space css */
 .card-space {
