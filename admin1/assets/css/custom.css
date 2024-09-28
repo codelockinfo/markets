@@ -25,11 +25,11 @@
 }
 .no-data{
   text-align: center;
- 
+  margin: 0 auto;
+  width: 50%;
 }
-.notdata img
-{
-  width:400px;
+.no-data img{
+  width:50%;
 }
 /* sign-in & sign-up background img css end */
 

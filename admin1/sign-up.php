@@ -64,7 +64,7 @@ include 'header.php';
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-7">
                 <div class="card-header text-center py-0 mb-0">
-                  <h5>Register with</h5>
+                  <h3 class="font-weight-bolder text-info text-gradient">Register with</h3>
                 </div>
                 <div class="card-body">
                   <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
@@ -127,7 +127,7 @@ include 'header.php';
                       <span class="errormsg password"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm-Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
+                      <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
                     <!-- <div class="text-center">

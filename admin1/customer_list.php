@@ -61,29 +61,23 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
       </div>
     </div>
-    <div class="container-fluid py-4">
-      <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
-      
-        <table class="table table-hover rounded" border="1" style="width: 100px;">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Image</th>
-              <th>Address</th>
-              <th>Delete</th>
-              <th>Edit</th>
-
-            </tr>
-          </thead>
-          <tbody id="getdata">
-           
-          </tbody>
-
-        </table>
-
+    <div class="col-12 mt-4 p-4 overflow-x-hidden">
+      <div class="card mb-4">
+        <div class="d-flex justify-content-between p-3">
+          <div class="card-header pb-0 p-3">
+            <h6 class="mb-1 mt-1 text-lg">Customer List</h6>
+          </div>
+        
+        </div>
+        <div class="input-group search-btn search-icon1 w-80 mx-auto">
+          <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+          <input type="text" class="form-control search-btn_1" placeholder="Type here...">
+        </div>
+        <div class="card-body p-3">
+          <div class="row" id="getdata">
+          </div>
+     
+        </div>
       </div>
     </div>
   </div>

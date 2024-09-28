@@ -37,7 +37,7 @@ class admin_functions {
             $error_array['email'] = "Please enter the valid email address";
         }
         if (empty($password)) {
-            $error_array['password'] = 'Please enter ehe password.';
+            $error_array['password'] = 'Please enter the password.';
         } elseif (!preg_match($strongPasswordPattern, $password)) {
             $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character.';
         }
@@ -63,23 +63,23 @@ class admin_functions {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if($_SESSION['current_user']['user_id']){
             if (isset($_POST['name']) && $_POST['name'] == '') {
-                $error_array['name'] = "Please enter name.";
+                $error_array['name'] = "Please enter the name.";
             }
             if (isset($_POST['shop']) && $_POST['shop'] == '') {
-                $error_array['shop'] = "Please enter shop name.";
+                $error_array['shop'] = "Please enter the shop name.";
             }
             $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
             $mobilepattern = "/^[789]\d{9}$/";
             if(empty($phone_number)){
-                $error_array['phone_number'] = "Please enter phone number.";
+                $error_array['phone_number'] = "Please enter the phone number.";
             }elseif (!preg_match($mobilepattern, $phone_number)) {
                 $error_array['phone_number'] = "The mobile number is invalid.";
             }
             if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
-                $error_array['business_type'] = "Please select business type.";
+                $error_array['business_type'] = "Please select the business type.";
             }
             if (isset($_POST['address']) && $_POST['address'] == '') {
-                $error_array['address'] = "Please enter address.";
+                $error_array['address'] = "Please enter the address.";
             }
             if (empty($error_array)) {
                 $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
@@ -122,7 +122,7 @@ class admin_functions {
             }
 
             if (empty($filename)) {
-                $error_array['shop_img'] = "Please select shop image.";
+                $error_array['shop_img'] = "Please select the shop image.";
             }
         }
         if (isset($_FILES['shop_logo'])) {
@@ -140,27 +140,27 @@ class admin_functions {
             }
 
             if (empty($filename)) {
-                $error_array['shop_logo'] = "Please select a shop logo.";
+                $error_array['shop_logo'] = "Please select the shop logo.";
             }
         }
         if (isset($_POST['name']) && $_POST['name'] == '') {
-            $error_array['name'] = "Please enter name.";
+            $error_array['name'] = "Please enter the name.";
         }
         if (isset($_POST['shop']) && $_POST['shop'] == '') {
-            $error_array['shop'] = "Please enter shop name.";
+            $error_array['shop'] = "Please enter the shop name.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "Please enter address.";
+            $error_array['address'] = "Please enter the address.";
         }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
-            $error_array['business_type'] = "Please select business type.";
+            $error_array['business_type'] = "Please select the business type.";
         }
 
         // Phone number validation
         $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
         $mobilepattern = "/^[789]\d{9}$/";
         if (empty($phone_number)) {
-            $error_array['phone_number'] = "Please enter phone number.";
+            $error_array['phone_number'] = "Please enter the phone number.";
         } elseif (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
@@ -168,12 +168,12 @@ class admin_functions {
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
         if (empty($password)) {
-            $error_array['password'] = "Please enter a password.";
+            $error_array['password'] = "Please enter the password.";
         } elseif (!preg_match($strongPasswordPattern, $password)) {
             $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character.";
         }
         if (empty($confirmPassword)) {
-            $error_array['Confirm_Password'] = "Please enter a confirm password.";
+            $error_array['Confirm_Password'] = "Please enter the confirm password.";
         } elseif ($password !== $confirmPassword) {
             $error_array['Confirm_Password'] = "Passwords do not match.";
         }
@@ -181,7 +181,7 @@ class admin_functions {
         if (empty($email)) {
             $error_array['email'] = "Please enter an email address.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_array['email'] = "Please enter a valid email address.";
+            $error_array['email'] = "Please enter the valid email address.";
         }
         if (empty($error_array)) {
             $name = isset($_POST['name']) ? mysqli_real_escape_string($this->db, $_POST['name']) : '';
@@ -263,31 +263,31 @@ class admin_functions {
         
         if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
             if (isset($_POST['addcategory']) && $_POST['addcategory'] == '') {
-                $error_array['addcategory'] = "Please enter product category.";
+                $error_array['addcategory'] = "Please enter the product category.";
                 if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
-                    $error_array['select_catagory'] = "Please select product category.";
+                    $error_array['select_catagory'] = "Please select the product category.";
                 }
             }
         }else{
             if (isset($_POST['select_catagory']) && $_POST['select_catagory'] == '') {
-                $error_array['select_catagory'] = "Please select product category.";
+                $error_array['select_catagory'] = "Please select the product category.";
             }
         }
         
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
-            $error_array['pname'] = "Please enter product title.";
+            $error_array['pname'] = "Please enter the product title.";
         }
         if (isset($_POST['sku']) && $_POST['sku'] == '') {
-            $error_array['sku'] = "Please enter a SKU.";
+            $error_array['sku'] = "Please enter the SKU.";
         }
         if (isset($_POST['min_price']) && $_POST['min_price'] == '') {
-            $error_array['min_price'] = "Please enter a minimum price.";
+            $error_array['min_price'] = "Please enter the minimum price.";
         }
         if (isset($_POST['max_price']) && $_POST['max_price'] == '') {
-            $error_array['max_price'] = "Please enter a maximum price.";
+            $error_array['max_price'] = "Please enter the maximum price.";
         }
         if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
-            $error_array['image_alt'] = "Please enter image alt.";
+            $error_array['image_alt'] = "Please enter the image alt.";
         }
         if (isset($_POST['min_price']) && isset($_POST['max_price'])) {
             $min_price = filter_input(INPUT_POST, 'min_price', FILTER_VALIDATE_FLOAT);
@@ -298,7 +298,7 @@ class admin_functions {
             }
         }
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
-            $error_array['p_description'] = "Please enter description.";
+            $error_array['p_description'] = "Please enter the description.";
         }
 
         // if (!isset($_POST['p_tag']) || $_POST['p_tag'] == '') {
@@ -400,20 +400,20 @@ class admin_functions {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['c_image'] = "Please upload your images.";
+                $error_array['c_image'] = "Please upload the your images.";
             }
         }
         if(isset($_POST['name']) && $_POST['name'] == ''){
-            $error_array['name']="Please enter your name.";
+            $error_array['name']="Please enter the your name.";
         }
         if(isset($_POST['email']) && $_POST['email'] == ''){
-            $error_array['email']="Please enter your email.";
+            $error_array['email']="Please enter the your email.";
         }
         if(isset($_POST['contact']) && $_POST['contact'] == ''){
-            $error_array['contact']="Please enter your  contact number.";
+            $error_array['contact']="Please enter the contact number.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "Please enter your address.";
+            $error_array['address'] = "Please enter the address.";
         }
         if (empty($error_array)) {
             $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
@@ -531,18 +531,18 @@ class admin_functions {
             }
 
             if (empty($filename)) {
-                $error_array['i_image'] = "Please upload invoice images.";
+                $error_array['i_image'] = "Please upload the invoice images.";
             }
         }
 
         // Validate other fields
-        if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
-        if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
-        if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
-        if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
-        if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
-        if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
-        if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
+        if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter the invoice name.";
+        if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter the bill number.";
+        if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter the shipping address.";
+        if (empty($_POST['date'])) $error_array['date'] = "Please enter the date.";
+        if (empty($_POST['terms'])) $error_array['terms'] = "Please enter the payment terms.";
+        if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter the due date.";
+        if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter the PO number.";
 
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
@@ -588,13 +588,13 @@ class admin_functions {
                         $rate = !empty($rates[$index]) ? $rates[$index] : null;
                         $amount = $quantity * $rate;
                         if (empty($item)) {
-                            $error_array[$index]['item'] = "Please enter item.";
+                            $error_array[$index]['item'] = "Please enter the item.";
                         }
                         if (empty($quantity) || !is_numeric($quantity)) {
-                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                            $error_array[$index]['quantity'] = "Please enter the valid quantity.";
                         }
                         if (empty($rate) || !is_numeric($rate)) {
-                            $error_array[$index]['rate'] = "Please enter valid rate.";
+                            $error_array[$index]['rate'] = "Please enter the valid rate.";
                         }
                         if ($amount <= 0) {
                             $error_array[$index]['amount'] = "Amount is not valid.";
@@ -655,20 +655,20 @@ class admin_functions {
         $error_array = array();
 
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
-            $error_array['video_title'] = "Please enter video title.";
+            $error_array['video_title'] = "Please enter the video title.";
         }
         if (isset($_POST['video_category']) && $_POST['video_category'] == '') {
-            $error_array['video_category'] = "Please select video catagory.";
+            $error_array['video_category'] = "Please select the video catagory.";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
-            $error_array['youtube_shorts'] = "Please enter youTube shorts link.";
+            $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {
-            $error_array['youtube_shorts'] = "Please enter a valid YouTube shorts link.";
+            $error_array['youtube_shorts'] = "Please enter the valid YouTube shorts link.";
         }
         if (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] == '') {
-            $error_array['youtube_vlogs'] = "Please enter youTube vlogs link.";
+            $error_array['youtube_vlogs'] = "Please enter the youTube vlogs link.";
         } elseif (isset($_POST['youtube_vlogs']) && !$this->isValidYouTubeURL($_POST['youtube_vlogs'])) {
-            $error_array['youtube_vlogs'] = "Please enter a valid YouTube vlogs link.";
+            $error_array['youtube_vlogs'] = "Please enter the valid YouTube vlogs link.";
         }
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
@@ -729,21 +729,21 @@ class admin_functions {
                 $error_array['blog_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['blog_image'] = "Please upload your blog image.";
+                $error_array['blog_image'] = "Please upload the blog image.";
             }
         }
 
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
-            $error_array['blog_title'] = "Please enter blog title.";
+            $error_array['blog_title'] = "Please enter the blog title.";
         }
         if (isset($_POST['blog_category']) && $_POST['blog_category'] == '') {
-            $error_array['blog_category'] = "Please select blog catagory.";
+            $error_array['blog_category'] = "Please select the blog catagory.";
         }
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
-            $error_array['myeditor'] = "Please fill body textarea.";
+            $error_array['myeditor'] = "Please fill the body textarea.";
         }
         if (isset($_POST['author_name']) && $_POST['author_name'] == '') {
-            $error_array['author_name'] = "Please enter author name.";
+            $error_array['author_name'] = "Please enter the author name.";
         }
 
         if (empty($error_array)) {
@@ -836,7 +836,7 @@ class admin_functions {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
-            $error_array['myFile'] = "Please upload your banner image.";
+            $error_array['myFile'] = "Please upload the banner image.";
         }
         if (isset($_POST['heading']) && $_POST['heading'] == '') {
             $error_array['heading'] = "Please enter the heading.";
@@ -850,7 +850,7 @@ class admin_functions {
         if (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] == '') {
             $error_array['banner_btn_link'] = "Please enter the banner button link.";
         } elseif (isset($_POST['banner_btn_link']) && !$this->isValidURL($_POST['banner_btn_link'])) {
-            $error_array['banner_btn_link'] = "Please enter a valid banner button link.";
+            $error_array['banner_btn_link'] = "Please enter the valid banner button link.";
         }
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
@@ -883,7 +883,7 @@ class admin_functions {
     
         // Validate shop name
         if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
-            $error_array['shop_name'] = "Please select a shop.";
+            $error_array['shop_name'] = "Please select the shop.";
         }
     
         if (empty($error_array)) {
@@ -921,7 +921,7 @@ class admin_functions {
     {
         $error_array = array();
         if (!isset($_POST['categories']) || $_POST['categories'] == '') {
-            $error_array['categories'] = "Please select categories.";
+            $error_array['categories'] = "Please select the categories.";
         }
         if (empty($error_array)) {
             if (isset($_SESSION['current_user']['user_id'])) {
@@ -980,12 +980,12 @@ class admin_functions {
             $error_array['myFile'] = "File size must be 5MB or less.";
         }
         if (empty($filename)) {
-            $error_array['myFile'] = "Please upload your image.";
+            $error_array['myFile'] = "Please upload the image.";
         }
         if (isset($_POST['img_link']) && $_POST['img_link'] == '') {
-            $error_array['img_link'] = "Please enter image link";
+            $error_array['img_link'] = "Please enter the image link";
         } elseif (isset($_POST['img_link']) && !$this->isValidURL($_POST['img_link'])) {
-            $error_array['img_link'] = "Please enter a valid image link.";
+            $error_array['img_link'] = "Please enter the valid image link.";
         }
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
@@ -1014,7 +1014,7 @@ class admin_functions {
     {
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
-            $error_array['myeditor'] = "Please enter paragraph.";
+            $error_array['myeditor'] = "Please enter the paragraph.";
         }
         if (empty($error_array)) {
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
@@ -1049,10 +1049,10 @@ class admin_functions {
 
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
-            $error_array['faq_question'] = "Please enter question.";
+            $error_array['faq_question'] = "Please enter the question.";
         }
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
-            $error_array['myeditor'] = "Please enter answer.";
+            $error_array['myeditor'] = "Please enter the answer.";
         }
         if (empty($error_array)) {
             $faq_question = (isset($_POST['faq_question']) && $_POST['faq_question'] !== '') ? $_POST['faq_question'] : '';
@@ -1089,7 +1089,7 @@ class admin_functions {
         }
 
         if (isset($_POST['review']) && $_POST['review'] == '') {
-            $error_array['review'] = "Please give a review.";
+            $error_array['review'] = "Please give the review.";
         }
         if (empty($error_array)) {
 
@@ -1194,58 +1194,73 @@ class admin_functions {
             $user_id = $_SESSION['current_user']['user_id'];
             $query = "SELECT * FROM invoice WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-        }
-        $output = "";
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $image = $row["i_image"];
-                    $imagePath = "../admin1/assets/img/invoice_img/" . $image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
-                    $output .= '      <a href="#">';
-                    $output .= '      </a>';
-                    $output .= '      <div class=" justify-content-between mb-3">';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">invoice name:</h6>' . $row['i_name'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">total :</h6>' . $row['total'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
-                    $output .= '        <div class="ms-auto text-center">';
-                    $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
-                    $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
-                    $output .= '        </div>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';
+       
+            $output = "";
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $image = $row["i_image"];
+                        $imagePath = "../admin1/assets/img/invoice_img/" . $image;
+                        $decodedPath = htmlspecialchars_decode($imagePath);
+                        $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                        $output .= '  <div class="card card-blog card-plain">';
+                        $output .= '    <div class="position-relative">';
+                        $output .= '      <a class="d-block shadow-xl border-radius-xl">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                        $output .= '      </a>';
+                        $output .= '    </div>';
+                        $output .= '    <div class="card-body px-1 pb-0">';
+                        $output .= '      <a href="#">';
+                        $output .= '      </a>';
+                        $output .= '      <div class=" justify-content-between mb-3">';
+                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">invoice name:</h6>' . $row['i_name'] . '</div>';
+                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
+                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">total :</h6>' . $row['total'] . '</div>';
+                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
+                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
+                        $output .= '        <div class="ms-auto text-center">';
+                        $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
+                        $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
+                        $output .= '        </div>';
+                        $output .= '      </div>';
+                        $output .= '    </div>';
+                        $output .= '  </div>';
+                        $output .= '</div>';
+                    }
+                    $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
         $response = json_encode($response_data);
         return $response;
     }
-    function customerlisting()
-    {
+    
+    function customerlisting(){
         if (isset($_SESSION['current_user']['user_id'])) {
-            $output = "";
             $user_id = $_SESSION['current_user']['user_id'];
-            $stmt = $this->db->prepare("SELECT * FROM customer WHERE user_id = ?");
-            $stmt->bind_param('i', $user_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
+            
+            $query = "SELECT * FROM customer WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            
             if ($result && $result->num_rows > 0) {
+                $output =  '<table class="table table-hover rounded" border="1" style="width: 100px;">
+                                <thead>
+                                    <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Image</th>
+                                    <th>Address</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                </tbody>
+                            </table>';
                 while ($row = $result->fetch_assoc()) {
                     $profiledata[] = $row;
                     $image = $row["c_image"];
@@ -1269,8 +1284,7 @@ class admin_functions {
         }
     }
 
-    function listprofile()
-    {
+    function listprofile(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
@@ -1319,8 +1333,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function bloglisting()
-    {
+    
+    function bloglisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
 
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1387,8 +1401,8 @@ class admin_functions {
             return $response;
         }
     }
-    function videolisting()
-    {
+    
+    function videolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $userid = '';
@@ -1431,6 +1445,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    
     function allvideolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1480,9 +1495,7 @@ class admin_functions {
         return $response;
     }
     
-
-    function offerlisting()
-    {
+    function offerlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1624,8 +1637,7 @@ class admin_functions {
         return $response;
     }
 
-    function FAQlisting()
-    {
+    function FAQlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1659,8 +1671,7 @@ class admin_functions {
         return $response;
     }
 
-    function paragraphlisting()
-    {
+    function paragraphlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1681,8 +1692,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function bannerlisting()
-    {
+    
+    function bannerlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1791,7 +1802,6 @@ class admin_functions {
         return $response;
     }
     
-
     function reviewlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
     
@@ -1848,10 +1858,7 @@ class admin_functions {
         return $response;
     }
     
-    
-
-    function deleteRecord($table, $delete_id)
-    {
+    function deleteRecord($table, $delete_id){
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
         $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
@@ -1863,80 +1870,70 @@ class admin_functions {
         }
         return json_encode($response_data);
     }
-
-    function productdelete()
-    {
+    
+    function productdelete(){
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
     }
-    function invoicedelete()
-    {
+    
+    function invoicedelete(){
 
         $delete_id = isset($_POST["invoice_id"]) ? $_POST["invoice_id"] : '2';
         return $this->deleteRecord('invoice', $delete_id);
     }
-    function customerdelete()
-    {
+    
+    function customerdelete(){
         $delete_id = isset($_POST['customer_id']) ? $_POST['customer_id'] : '2';
         return $this->deleteRecord('customer', $delete_id);
     }
 
-    function blogdelete()
-    {
+    function blogdelete(){
         $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
         return $this->deleteRecord('blogs', $delete_id);
     }
 
-    function videodelete()
-    {
+    function videodelete(){
         $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
         return $this->deleteRecord('videos', $delete_id);
     }
 
-    function bannerdelete()
-    {
+    function bannerdelete(){
         $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
         return $this->deleteRecord('banners', $delete_id);
     }
 
-    function famousmarketdelete()
-    {
+    function famousmarketdelete(){
         $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
         return $this->deleteRecord('famous_markets', $delete_id);
     }
 
-    function b_textile_catagorysdelete()
-    {
+    function b_textile_catagorysdelete(){
         $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
         return $this->deleteRecord('b_textile_catagorys', $delete_id);
     }
 
-    function offerdelete()
-    {
+    function offerdelete(){
         $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
         return $this->deleteRecord('offers', $delete_id);
     }
 
-    function faqdelete()
-    {
+    function faqdelete(){
         $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
         return $this->deleteRecord('faqs', $delete_id);
     }
 
-    function reviewdelete()
-    {
+    function reviewdelete(){
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
     }
 
-    function forget_password()
-    {
+    function forget_password(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
             $error_msg = "Please enter an email address.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_msg = "Please enter a valid email address.";
+            $error_msg = "Please enter the valid email address.";
         }
         if (empty($error_msg)) {
             $query = "SELECT * FROM users WHERE email = '$email'";
@@ -1967,15 +1964,14 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-
-    function reset_passwordform()
-    {
+    
+    function reset_passwordform(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $token = isset($_POST['token']) ? $_POST['token'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
         if (empty($password)) {
-            $error = 'Please enter a password.';
+            $error = 'Please enter the password.';
         } elseif (!preg_match($strongPasswordPattern, $password)) {
             $error = 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.';
         }
@@ -2008,8 +2004,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function getproduct()
-    {
+    
+    function getproduct(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2023,8 +2019,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function getinvoice()
-    {
+    
+    function getinvoice(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
 
@@ -2039,8 +2035,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function getcustomer()
-    {
+    
+    function getcustomer(){
         $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2058,8 +2054,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function getblog()
-    {
+    
+    function getblog(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2073,8 +2069,8 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-    function check_toggle_status()
-    {
+    
+    function check_toggle_status(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_POST['table_name'])) {
             $table_name = $_POST['table_name'];
@@ -2088,6 +2084,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    
     function toggle_enabledisable(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_POST['ischecked_value']) && isset($_POST['table_name'])) {
@@ -2104,8 +2101,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
-
-    // videocheck
+    
     function toggle_checkuncheck() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         
@@ -2146,9 +2142,7 @@ class admin_functions {
         return $response;
     }
     
-
-    function data_sort_by()
-    {
+    function data_sort_by(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         if (!empty($sort)) {
@@ -2280,6 +2274,7 @@ class admin_functions {
         $response = json_encode($response_data);
         return $response;
     }
+    
     function select_shop() {
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -2303,6 +2298,4 @@ class admin_functions {
     
         return json_encode($response_data);
     }
-    
-    
 }
