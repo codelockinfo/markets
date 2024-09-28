@@ -505,35 +505,36 @@ class admin_functions {
         $error_array = [];
         $newFilename = ""; // Initialize newFilename
 
-        if (isset($_FILES["i_image"]["name"]) && !empty($_FILES["i_image"]["name"])) {
-            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-            $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-            $filename = $_FILES["i_image"]["name"];
-            $tmpfile = $_FILES["i_image"]["tmp_name"];
-            $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-            $newFilename = time() . '.' . $fileExtension;
-            $folder = "assets/img/invoice_img/";
-            $fullpath = $folder . $newFilename;
-
-            if (!is_dir($folder)) {
-                if (!mkdir($folder, 0777, true)) {
-                    $response_data['msg'] = 'Failed to create directory for image upload.';
-                    return json_encode($response_data);
+        if($_FILES["i_image"]["name"] != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != ''){
+            $allowedExtensions=['jpg','png','jpeg','gif','svg','webp'];
+            $maxSize = 5* 1024 *1024;
+                $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
+                $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
+                $file = $_FILES['i_image'];
+                $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                $newFilename = time() . '.' . $extension;
+                $fileName = $_FILES['i_image']['name'];
+                $fileNameCmps = explode(".", $fileName);
+                $fileExtension = strtolower(end($fileNameCmps));
+                $folder = "assets/img/invoice_img/";
+                $fullpath= $folder . $newFilename;
+                if (!is_dir($folder)) {
+                    $mkdir = mkdir($folder, 0777, true);
+                    if (!$mkdir) {
+                        $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                        return json_encode($response_data);
+                    }
+                }
+                if (!in_array($fileExtension, $allowedExtensions)) {
+                    $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
+                if ($file['size'] > $maxSize) {
+                    $error_array['i_image'] = "File size must be 5MB or less.";
+                }
+                if (empty($filename)) {
+                    $error_array['i_image'] = "Please upload your images.";
                 }
             }
-
-            if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }
-
-            if ($_FILES['i_image']['size'] > $maxSize) {
-                $error_array['i_image'] = "File size must be 5MB or less.";
-            }
-
-            if (empty($filename)) {
-                $error_array['i_image'] = "Please upload invoice images.";
-            }
-        }
 
         // Validate other fields
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
