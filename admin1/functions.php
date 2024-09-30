@@ -507,8 +507,8 @@ class admin_functions {
 
         if($_FILES["i_image"]["name"] != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != ''){
             $allowedExtensions=['jpg','png','jpeg','gif','svg','webp'];
-            $maxSize = 5 * 1024 * 1024;
-                $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
+            $maxSize = 5* 1024 *1024;
+                $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["i_image"]["name"] : '';
                 $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
                 $file = $_FILES['i_image'];
                 $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -532,7 +532,7 @@ class admin_functions {
                     $error_array['i_image'] = "File size must be 5MB or less.";
                 }
                 if (empty($filename)) {
-                    $error_array['i_image'] = "Please upload your images.";
+                    $error_array['i_image'] = "Please upload the your images.";
                 }
             }
 
@@ -1265,13 +1265,17 @@ class admin_functions {
                 while ($row = $result->fetch_assoc()) {
                     $profiledata[] = $row;
                     $image = $row["c_image"];
-                    $imagePath = "../admin1/assets/img/customer/" . htmlspecialchars($image);
+                    $imagePath = "../admin1/assets/img/customer/" . $image;
+                    $noimagePath = "../admin1/assets/img/image_not_found.png";
+                    $decodedPath = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                    );;
                     $output .= '<tr>';
                     $output .= '<td class="align-middle">' . $row['customer_id'] . '</td>';
                     $output .= '<td class="align-middle">' . $row['name'] . '</td>';
                     $output .= '<td class="align-middle">' . $row['email'] . '</td>';
                     $output .= '<td class="align-middle">' . $row['contact'] . '</td>';
-                    $output .= '<td><img src="' . $imagePath . '" alt="Customer Image" class="shadow" width="100px" height="100px" style="object-fit: cover;"></td>';
+                    $output .= '<td><img src="' . $decodedPath . '" alt="Customer Image" class="shadow" width="100px" height="100px" style="object-fit: cover;"></td>';
                     $output .= '<td class="align-middle">' . $row['address'] . '</td>';
                     $output .= '<td class="align-middle"><button data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="customer">Delete</button></td>';
                     $output .= '<td class="align-middle"><a href="customer.php?id=' . $row['customer_id'] . '" data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="customer">Edit</a></td>';

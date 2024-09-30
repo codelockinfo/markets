@@ -30,7 +30,7 @@ if ($_SESSION['current_user']['role'] == 1) {
             <form role="form" class="form main-editor" id="faqinsert" enctype="multipart/form-data" method="POST">
               <label for="faq-question" class="font-weight-normal required">Question</label>
               <div class="mb-3">
-                <textarea name="faq_question" id="faq-question" class="form-control validsignf"></textarea>
+                <textarea name="faq_question" id="faq-question" class="form-control validsignf" placeholder="Enter Question"></textarea>
                 <span class="errormsg faq_question"></span>
               </div>
               <label for="body" class="font-weight-normal required">Paragraph</label>

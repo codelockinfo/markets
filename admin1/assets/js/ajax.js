@@ -11,7 +11,7 @@ var CLS_CIRCLE_MINUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 80 80" focusable="false" aria-hidden="true"><path d="M39.769,0C17.8,0,0,17.8,0,39.768c0,21.956,17.8,39.768,39.769,39.768   c21.965,0,39.768-17.812,39.768-39.768C79.536,17.8,61.733,0,39.769,0z M13.261,45.07V34.466h53.014V45.07H13.261z" fill-rule="evenodd" fill="#DE3618"></path></svg>';
 var CLS_CIRCLE_PLUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 510 510" focusable="false" aria-hidden="true"><path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102    h-102v-51h102v-102h51v102h102V280.5z" fill-rule="evenodd" fill="#3f4eae"></path></svg>';
-var NO_IMAGE = '<div class="no-data"><img src="assets/img/noimg.gif"></div>';
+var NO_DATA = '<div class="no-data"><img src="assets/img/noimg.gif"></div>';
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -94,7 +94,7 @@ function loadData(routineName) {
       console.log("Sending routine_name:", routineName);
       
       if (response.outcome === "No data found") {
-        $("#getdata").html(NO_IMAGE);
+        $("#getdata").html(NO_DATA);
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
@@ -370,16 +370,7 @@ function get_product(id) {
       data: { routine_name: "getinvoice", id: id },
       success: function (response) {
         var response = JSON.parse(response);
-        // console.log(response);
-        // console.log("i_name:", response.outcome.i_name);
-        // console.log("ship_to:", response.outcome.ship_to);
-        // console.log("bill_no:", response.outcome.bill_no);
-        // console.log("total:", response.outcome.total);
-        // console.log(response.outcome.date);
-        // console.log(response.outcome.balance_due);
-
-
-
+  
         response["outcome"]["i_name"] !== undefined
         ? $("textarea [name='i_name']").val(response["outcome"]["i_name"])
         : "";
@@ -605,9 +596,6 @@ function select_shop() {
           } else {
               console.log("Something went wrong");
           }
-      },
-      error: function (xhr, status, error) {
-          console.log("AJAX Error: " + status + ": " + error);
       }
   });
 }
@@ -985,9 +973,13 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
       success: function (data) {
         console.log(data);
         var response = JSON.parse(data);
+        loading_hide(".save_loader_show", "Save");
         response["msg"]["name"] !== undefined
           ? $(".name").html(response["msg"]["name"])
           : $(".name").html("");
@@ -1040,8 +1032,9 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+        console.log(response); 
         var response = JSON.parse(response);
+        loading_hide(".save_loader_show", "Save");
         response["msg"]["i_image"] !== undefined
           ? $(".i_image").html(response["msg"]["i_image"])
           : $(".i_image").html("");

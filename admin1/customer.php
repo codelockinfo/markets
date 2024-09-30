@@ -30,18 +30,18 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <input type="hidden" name="id" value="<?php echo $id;?>"/>
             <label for="title" class="font-weight-normal required">Customer Name</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext product w-100" placeholder="customer name" name="name">
+              <input type="text" class="form-control validtext product w-100" placeholder="Enter Your Name" name="name">
               <span class="errormsg name"></span>
             </div>
             <label for="title" class="font-weight-normal w-100">Email</label>
             <div class="mb-3">
-              <input type="email" class="form-control w-100 " placeholder="enter email" name="email">
+              <input type="email" class="form-control w-100 " placeholder="Enter Your Email" name="email">
               <div class="errormsg email"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Contact</label>
             <div class="mb-3 row">
               <div class="col">
-                <input type="text" class="form-control price w-100" placeholder="enter contact" name="contact">
+                <input type="text" class="form-control price w-100" placeholder="Enter Your Contact" name="contact">
                 <span class="errormsg contact"></span>
               </div>
             </div>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="mb-3">
             <label for="p-image" class="font-weight-normal required">Address</label>
-              <textarea id="pro-description" class="w-100 form-control validtext" name="address" placeholder="enter your address"></textarea>
+              <textarea id="pro-description" class="w-100 form-control validtext" name="address" placeholder="Enter Your Address"></textarea>
               <span class="errormsg address"></span>
             </div>
             <div class="mb-3">

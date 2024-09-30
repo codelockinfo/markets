@@ -29,7 +29,7 @@ if ($_SESSION['current_user']['role'] == 1) {
             <form role="form" id="reviewinsert" enctype="multipart/form-data" method="POST">
               <label for="p-description" class="font-weight-normal required">Shop Description</label>
               <div class="mb-3">
-                <textarea id="shop-description" class="w-100 form-control validtext" name="description"></textarea>
+                <textarea id="shop-description" class="w-100 form-control validtext" name="description" placeholder=" Shop Description"></textarea>
                 <span class="errormsg description"></span>
               </div>
               <label for="name" class="font-weight-normal required">Shop Name</label>

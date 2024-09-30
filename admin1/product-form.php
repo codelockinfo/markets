@@ -166,7 +166,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-description" class="font-weight-normal required">Product Description</label>
             <div class="mb-3">
-              <textarea id="pro-description" class="w-100 form-control validtext" name="p_description"></textarea>
+              <textarea id="pro-description" class="w-100 form-control validtext" name="p_description" placeholder="Product Description"></textarea>
               <span class="errormsg p_description"></span>
             </div>
             <div class="mb-3">

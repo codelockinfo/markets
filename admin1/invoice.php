@@ -49,7 +49,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3">
                 <div class="row">
                   <div class="col w-50 mb-3">
-                    <textarea type="text" placeholder="invoice name" class="form-control max-width-500" name="i_name"></textarea>
+                    <textarea type="text" placeholder="Invoice Name" class="form-control max-width-500" name="i_name"></textarea>
                     <span class="errormsg i_name"></span>
 
                   </div>
@@ -57,13 +57,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="row mt-4">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
-                    <textarea type="text" placeholder="bill to" class="form-control " name="bill_no"></textarea>
+                    <textarea type="text" placeholder="Bill To" class="form-control " name="bill_no"></textarea>
                     <span class="errormsg bill_no"></span>
 
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
-                    <textarea type="text" placeholder="ship to " class="form-control" name="ship_to"></textarea>
+                    <textarea type="text" placeholder="Ship To " class="form-control" name="ship_to"></textarea>
                     <span class="errormsg ship_to"></span>
 
                   </div>
@@ -106,7 +106,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" placeholder=" product Number" name="po_number">
+                  <input type="text" class="form-control mt-1" placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
                 </div>
@@ -179,17 +179,17 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="col w-50">
                 <div class="row notes">
                   <span class="text-normal ps-4 fs-5"><strong>Notes :</strong></span>
-                  <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500 mt-2"></textarea>
+                  <textarea name="text" id="" placeholder="Who Is This Form?" class="form-control max-width-500 mt-2"></textarea>
                 </div>
                 <div class="row mt-2 terms">
                   <span class="text-normal ps-4 fs-5"><strong>Terms :</strong></span>
-                  <textarea name="text" id="" placeholder="Who is this form?" class="form-control max-width-500 mt-2"></textarea>
+                  <textarea name="text" id="" placeholder="Who Is This Form?" class="form-control max-width-500 mt-2"></textarea>
                 </div>
               </div>
             </div>
           </form>
           <div class="text-end mt-5">
-            <button class="btn bg-gradient-info invoice">Download</button>
+            <button class="btn bg-gradient-info invoice save_loader_show">Save</button>
           </div>
         </div>
       </div>
