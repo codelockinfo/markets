@@ -10,16 +10,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   <?php
   include 'sidebar.php';
   ?>
-  <?php
-  include 'adminheader.php';
-  ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
     $para_array = array("title" => "Product List", "link" => "product-form.php", "button_text" => "Add Product");
     $title = $para_array['title']; 
     $link = $para_array['link'];
     $button_text = $para_array['button_text'];
-    include 'adminheaderouter.php';
+    include 'adminheadertop.php';
     ?>
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">

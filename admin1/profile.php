@@ -12,9 +12,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <?php
     include 'sidebar.php';
     ?>
-    <?php
-    include 'adminheader.php';
-    ?>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid">
             <div class="page-header min-height-150  border-radius-xl mt-4">

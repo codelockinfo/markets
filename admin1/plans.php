@@ -10,26 +10,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   <?php
   include 'sidebar.php';
   ?>
-  <?php
-  include 'adminheader.php'; 
-  ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-    <div class="container-fluid">
-      <div class="page-header min-height-150  border-radius-xl mt-4">
-        <span class="mask bg-gradient-info opacity-6"></span>
-      </div>
-      <div class="card card-body blur shadow-blur mx-4 mt-n5 p-4 overflow-hidden">
-        <div class="row gx-4">
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-                Plans
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php
+        $para_array = array("title" => "Plans", "link" => "", "button_text" => "");
+        $title = $para_array['title']; 
+        $link = $para_array['link'];
+        $button_text = $para_array['button_text'];
+        include 'adminheadertop.php';
+    ?>
     <section class="pricing py-5">
       <div class="container">
         <div class="row">

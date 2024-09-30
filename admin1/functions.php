@@ -507,7 +507,7 @@ class admin_functions {
 
         if($_FILES["i_image"]["name"] != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != ''){
             $allowedExtensions=['jpg','png','jpeg','gif','svg','webp'];
-            $maxSize = 5* 1024 *1024;
+            $maxSize = 5 * 1024 * 1024;
                 $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
                 $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
                 $file = $_FILES['i_image'];
@@ -536,27 +536,14 @@ class admin_functions {
                 }
             }
 
-            if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }
-
-            if ($_FILES['i_image']['size'] > $maxSize) {
-                $error_array['i_image'] = "File size must be 5MB or less.";
-            }
-
-            if (empty($filename)) {
-                $error_array['i_image'] = "Please upload the invoice images.";
-            }
-        }
-
         // Validate other fields
-        if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter the invoice name.";
-        if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter the bill number.";
-        if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter the shipping address.";
-        if (empty($_POST['date'])) $error_array['date'] = "Please enter the date.";
-        if (empty($_POST['terms'])) $error_array['terms'] = "Please enter the payment terms.";
-        if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter the due date.";
-        if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter the PO number.";
+        if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
+        if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
+        if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
+        if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
+        if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
+        if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
+        if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
 
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
@@ -602,13 +589,13 @@ class admin_functions {
                         $rate = !empty($rates[$index]) ? $rates[$index] : null;
                         $amount = $quantity * $rate;
                         if (empty($item)) {
-                            $error_array[$index]['item'] = "Please enter the item.";
+                            $error_array[$index]['item'] = "Please enter item.";
                         }
                         if (empty($quantity) || !is_numeric($quantity)) {
-                            $error_array[$index]['quantity'] = "Please enter the valid quantity.";
+                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
                         }
                         if (empty($rate) || !is_numeric($rate)) {
-                            $error_array[$index]['rate'] = "Please enter the valid rate.";
+                            $error_array[$index]['rate'] = "Please enter valid rate.";
                         }
                         if ($amount <= 0) {
                             $error_array[$index]['amount'] = "Amount is not valid.";

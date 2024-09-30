@@ -13,38 +13,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   <?php
   include 'sidebar.php';
   ?>
-  <?php
-  include 'adminheader.php';
-  ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-    <div class="container-fluid">
-      <div class="page-header min-height-150  border-radius-xl mt-4">
-        <span class="mask bg-gradient-info opacity-6"></span>
-      </div>
-      <div class="card card-body blur shadow-blur mx-4 mt-n5 p-4 overflow-hidden">
-        <div class="row gx-4">
-          <div class="col-auto mx-auto ms-sm-3 mt-2">
-            <div class="h-100">
-              <h5 class="mb-1">
-                Profile Form
-              </h5>
-            </div>
-          </div>
-          <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto">
-            <div class="nav-wrapper position-relative end-0">
-              <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active" href="<?php echo SITE_ADMIN_URL ?>profile.php" role="tab" aria-selected="true">
-                    <i class="fa fa-eye p-2 mt-0" aria-hidden="true"></i>
-                    <span class="ms-1">Preview</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php
+        $para_array = array("title" => "Profile Form", "link" => "profile.php", "button_text" => "Preview");
+        $title = $para_array['title']; 
+        $link = $para_array['link'];
+        $button_text = $para_array['button_text'];
+        include 'adminheadertop.php';
+    ?>
     <div class="container-fluid py-4">
       <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
         <div class="card card-body z-index-0 p-3">
