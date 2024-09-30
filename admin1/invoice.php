@@ -26,35 +26,35 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <form action="" id="invoice_frm">
             <input type="hidden" name="id" value="<?php echo $id;?>"/>
             <div class="col w-100">
-              <div class="row mb-3">
+              <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control max-width-200 ms-auto text-end mb-3">
+                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3">
                 </div>
-                <div class="col mb-3">
-                  <div class="drop-zone form-control max-width-300">
+                <div class="col mb-3 orderchange">
+                  <div class="drop-zone form-control max-width-300 invoice_imgorder">
                     <span class="drop-zone__prompt">Drop file here or click to upload</span>
                     <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
                   </div>
                   <span class="errormsg i_image"></span>
 
                 </div>
-                <div class="col invoice-title1">
+                <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control max-width-200 ms-auto text-end">
+                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end">
                 </div>
               </div>
             </div>
-            <div class="col w-100">
-              <div class="row mb-3">
-                <div class="row">
+            <div class="col ">
+              <div class="mb-3 ">
+                <div class="row ">
                   <div class="col w-50 mb-3">
                     <textarea type="text" placeholder="Invoice Name" class="form-control max-width-500" name="i_name"></textarea>
                     <span class="errormsg i_name"></span>
 
                   </div>
                 </div>
-                <div class="row mt-4">
+                <div class="row mt-4 invoicename">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
                     <textarea type="text" placeholder="Bill To" class="form-control " name="bill_no"></textarea>
@@ -105,7 +105,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl mt-2">
                   <span class="text-normal">PO Number :</span>
                 </div>
-                <div class="col-xl">
+                <div class="col-xl w-100">
                   <input type="text" class="form-control mt-1" placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
@@ -126,7 +126,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   </thead>
                   <tbody id="attributes-body">
                     <tr class="attr">
-                      <td><input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]"> <span class="errormsg item"></span></td>
+                      <td><input type="text" class="form-control mt-1 " placeholder="Item Title" name="item[]"> <span class="errormsg item"></span></td>
                       <td><input type="number" class="form-control mt-1" placeholder="1" name="quantity[]" min="1"> <span class="errormsg quantity"></span></td>
                       <td><input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]"> <span class="errormsg rate"></span></td>
                       <td><input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled> <span class="errormsg item"></span></td>

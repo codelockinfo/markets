@@ -647,6 +647,56 @@
 
 
 /* invoice page css */
+.invoicename{
+  margin-right: none !important;
+}
+.product-main{
+  margin: auto  ;
+}
+
+.invoice_imgorder {
+  order: 1;
+}
+.invoice_order {
+  order: 2;
+}
+.invoice-inputbox{
+  max-width: 200px;
+  text-align: end !important ;
+}
+
+@media(max-width:700px){
+ 
+  .main_invoicechange{
+    flex-direction: column;
+  }
+  .orderchange{
+    order: 2;
+  }
+  .invoice-inputbox{
+    max-width: none !important;
+    width: 100% !important;
+    text-align: start !important;
+    margin-bottom: 30px;
+  }
+
+.invoice_order {
+    order: 1 !important; 
+}
+
+
+}
+.invoic_twocol {
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.invoic_twocol {
+  display: flex;
+  flex-wrap: wrap; /* Allows flex items to wrap */
+}
+
+
 .bill-to {
   margin: 10px;
 }
