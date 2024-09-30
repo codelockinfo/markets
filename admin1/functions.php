@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
 // include_once '../append/Login.php';
 include_once '../connection.php';
-
+$NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
 class admin_functions {
     public $cls_errors = array();
     public $msg = array();
@@ -463,6 +463,7 @@ class admin_functions {
 
     function listgallary()
     {
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $userid = '';
@@ -477,9 +478,12 @@ class admin_functions {
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
+                      $image = $row["p_image"];
+                        $imagePath = "../admin1/assets/img/product_img/" . $image;
+                        $noimagePath = $NO_IMAGE;
+                        $decodedPath = htmlspecialchars_decode(
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                        );;
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
@@ -1120,6 +1124,7 @@ class admin_functions {
     }
 
     function productlisting(){
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1140,8 +1145,12 @@ class admin_functions {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
+                $imagePath = "../admin1/assets/img/product_img/" . $image;
+               
+                $noimagePath = $NO_IMAGE;
+                $decodedPath = htmlspecialchars_decode(
+                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                );
                     $title =  $row['title'];
                     $price = $row['maxprice'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
@@ -1189,6 +1198,7 @@ class admin_functions {
     }
 
     function invoicelisting(){
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
@@ -1202,7 +1212,11 @@ class admin_functions {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $image = $row["i_image"];
                         $imagePath = "../admin1/assets/img/invoice_img/" . $image;
-                        $decodedPath = htmlspecialchars_decode($imagePath);
+                        // Use the global NO_IMAGE variable here
+                        $noimagePath = $NO_IMAGE;
+                        $decodedPath = htmlspecialchars_decode(
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                        );
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain">';
                         $output .= '    <div class="position-relative">';
@@ -1239,6 +1253,7 @@ class admin_functions {
     }
     
     function customerlisting(){
+        global $NO_IMAGE;
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             
@@ -1266,10 +1281,10 @@ class admin_functions {
                     $profiledata[] = $row;
                     $image = $row["c_image"];
                     $imagePath = "../admin1/assets/img/customer/" . $image;
-                    $noimagePath = "../admin1/assets/img/image_not_found.png";
+                    $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                    );;
+                    );
                     $output .= '<tr>';
                     $output .= '<td class="align-middle">' . $row['customer_id'] . '</td>';
                     $output .= '<td class="align-middle">' . $row['name'] . '</td>';
@@ -1290,6 +1305,7 @@ class admin_functions {
     }
 
     function listprofile(){
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
@@ -1299,9 +1315,12 @@ class admin_functions {
 
             if ($result) {
                 $row = $result->fetch_assoc();
-                $image = $row["shop_img"];
+                $image = $row["shop_logo"];
                 $imagePath = "../admin1/assets/img/sigup_img/" . $image;
-                $decodedPath = htmlspecialchars_decode($imagePath);
+                $noimagePath = $NO_IMAGE;
+                $decodedPath = htmlspecialchars_decode(
+                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                );;
                 $name =  $row['name'];
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];
@@ -1340,6 +1359,7 @@ class admin_functions {
     }
     
     function bloglisting(){
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
 
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1358,13 +1378,18 @@ class admin_functions {
             $output = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $image = htmlspecialchars_decode("../admin1/assets/img/blog_img/" . $row["image"]);
+                $image = $row["image"];
+                $imagePath = "../admin1/assets/img/blog_img/" . $image;
+                $noimagePath = $NO_IMAGE;
+                $decodedPath = htmlspecialchars_decode(
+                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                );
                     $title = htmlspecialchars($row['title']);
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                    $output .= '        <img src="' . $image . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= '        <img src="' .$decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
@@ -1388,7 +1413,6 @@ class admin_functions {
                 $response_data['outcome'] = "No data found";
             }
 
-            // Pagination count query
             $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
@@ -1481,7 +1505,7 @@ class admin_functions {
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                    // Add video_id as data attribute
+                  
                     $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" checke>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
@@ -1501,10 +1525,11 @@ class admin_functions {
     }
     
     function offerlisting(){
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            // print_r($user_id);
+            
             $query = "SELECT * FROM offers WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
@@ -1526,8 +1551,11 @@ class admin_functions {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["img"];
-                    $imagePath = "../admin1/assets/img/offers/" . $image;
-                    $decodedPath = htmlspecialchars_decode($imagePath);
+                $imagePath = "../admin1/assets/img/offers/" . $image;
+                $noimagePath = $NO_IMAGE;
+                $decodedPath = htmlspecialchars_decode(
+                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                );
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
                     $output .= '<div class="card card-blog card-plain">';
                     $output .= '<div class="position-relative">';
@@ -1699,6 +1727,7 @@ class admin_functions {
     }
     
     function bannerlisting(){
+        global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1724,7 +1753,11 @@ class admin_functions {
                     while ($row = mysqli_fetch_array($result)) {
                         $image = $row["banner_img"];
                         $imagePath = "../admin1/assets/img/banner_img/" . $image;
-                        $decodedPath = htmlspecialchars_decode($imagePath);
+                        
+                        $noimagePath = $NO_IMAGE;
+                        $decodedPath = htmlspecialchars_decode(
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                        );
                         $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
                         $output .= '<div class="card card-blog card-plain">';
                         $output .= '<div class="position-relative">';
@@ -1760,8 +1793,6 @@ class admin_functions {
             $res= $this->db->query($sql);
             if (mysqli_num_rows($res) > 0) {
                 $output = "";
-    
-                // Prepare the output
                 $output .= '<div class="mb-3 form-check-reverse text-right">';
                 $output .= '  <div class="container">';
                 $output .= '    <div class="btn-group">';
