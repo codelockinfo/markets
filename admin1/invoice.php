@@ -71,7 +71,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
             </div>
             <div class="col w-100">
-              <div class="row w-100">
+              <div class="row">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Date :</span>
                 </div>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
                 </div>
               </div>
-              <div class="row w-100 mt-2">
+              <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Payment Terms :</span>
                 </div>
@@ -91,7 +91,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
                 </div>
               </div>
-              <div class="row w-100 mt-2">
+              <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Due Date :</span>
                 </div>
@@ -101,11 +101,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
                 </div>
               </div>
-              <div class="row w-100 mt-2">
+              <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">PO Number :</span>
                 </div>
-                <div class="col-xl w-100">
+                <div class="col-xl ">
                   <input type="text" class="form-control mt-1" placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
@@ -142,7 +142,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           
 
             <div class="col">
-              <div class="row w-100">
+              <div class="row ">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Subtotal :</span>
                 </div>
@@ -150,7 +150,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="subtotal" disabled>
                 </div>
               </div>
-              <div class="row w-100 mt-2">
+              <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Total :</span>
                 </div>
@@ -158,7 +158,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text" class="form-control mt-1" name="total" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row w-100 mt-2">
+              <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Amount Paid :</span>
                 </div>
@@ -166,7 +166,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text" class="form-control mt-1" name="amount_paid" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row w-100 mt-2">
+              <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Balance Due :</span>
                 </div>
@@ -175,7 +175,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
               </div>
             </div>
-            <div class="row w-100 mt-4">
+            <div class="row mt-4">
               <div class="col w-50">
                 <div class="row notes">
                   <span class="text-normal ps-4 fs-5"><strong>Notes :</strong></span>
