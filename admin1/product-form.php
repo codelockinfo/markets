@@ -136,7 +136,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="pro-zone form-control">
                 <span class="pro-zone__prompt">Drop file here or click to upload</span>  
                 <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input">
-                <div id="imagePreview"></div>
+                <!-- <div id="imagePreview"></div>  -->
               </div>
               <div class="col">
                 <div class="row mt-2">

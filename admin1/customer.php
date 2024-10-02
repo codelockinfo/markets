@@ -6,28 +6,29 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
-  
+
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-      $para_array = array("title" => "Customer Form", "link" => "customer_list.php", "button_text" => "Customer List");
-      $title = $para_array['title']; 
-      $link = $para_array['link'];
-      $button_text = $para_array['button_text'];
-      include 'adminheadertop.php';
+    $para_array = array("title" => "Customer Form", "link" => "customer_list.php", "button_text" => "Customer List");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-3 product-main">
           <form role="form" id="custemer_frm" enctype="multipart/form-data" method="POST">
-          <input type="hidden" name="id" value="<?php echo $id;?>"/>
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
             <label for="title" class="font-weight-normal required">Customer Name</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext product w-100" placeholder="Enter Your Name" name="name">
@@ -48,9 +49,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <label for="p-image" class="font-weight-normal required">Customer Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
-                <span class="drop-zone__prompts">Drop File Here Or Click To Upload</span>
-                <input type="file"  name="c_image" id="removeImage" class="drop-zone__input">
+                <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                <input type="file" name="c_image" id="removeImage" class="drop-zone__input">
+                <!-- <div class="drop-zone__thumb"></div> -->
               </div>
+
               <div class="col">
                 <div class="row mt-2">
                   <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
@@ -62,7 +65,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="errormsg myFile c_image"></div>
             </div>
             <div class="mb-3">
-            <label for="p-image" class="font-weight-normal required">Address</label>
+              <label for="p-image" class="font-weight-normal required">Address</label>
               <textarea id="pro-description" class="w-100 form-control validtext" name="address" placeholder="Enter Your Address"></textarea>
               <span class="errormsg address"></span>
             </div>
@@ -139,11 +142,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script> -->
 </body>
 
 </html>
 <script>
-      var id ="<?php echo $id; ?>";
-      get_customer(id);
+  var id = "<?php echo $id; ?>";
+  get_customer(id);
 </script>

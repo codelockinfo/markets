@@ -31,7 +31,7 @@ if ($_SESSION['current_user']['role'] == 1) {
               <label for="b-image" class="font-weight-normal required">Banner Image</label>
               <div class="mb-3">
                 <div class="drop-zone form-control">
-                  <span class="drop-zone__prompt">Drop File Here Or Click To Upload</span>
+                  <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
                   <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
                 </div>
                 <div class="col">

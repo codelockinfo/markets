@@ -30,7 +30,7 @@ if ($_SESSION['current_user']['role'] == 1) {
               <label for="textile-img" class="font-weight-normal required">Image</label>
               <div class="mb-3">
                 <div class="drop-zone form-control">
-                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                  <span class="pro-zone__prompt">Drop file here or click to upload</span>
                   <input type="file" name="myFile" class="drop-zone__input">
                 </div>
                 <div class="col">

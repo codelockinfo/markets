@@ -80,7 +80,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <label for="p-image" class="font-weight-normal required">Blog Image</label>
             <div class="mb-3">
               <div class="drop-zone form-control">
-                <span class="drop-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
+                <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
                 <input type="file" name="blog_image" class="drop-zone__input">
               </div>  
               <div class="col">

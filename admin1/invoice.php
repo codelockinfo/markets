@@ -33,7 +33,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col mb-3 orderchange">
                   <div class="drop-zone form-control max-width-300 invoice_imgorder">
-                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                    <span class="pro-zone__prompt">Drop file here or click to upload</span>
                     <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
                   </div>
                   <span class="errormsg i_image"></span>
