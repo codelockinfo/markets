@@ -1132,41 +1132,52 @@ class admin_functions {
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid = '';
+            
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $userid = "AND user_id =$user_id";
+                $userid = "AND user_id = $user_id";
             }
-            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid LIMIT $offset,$limit";
+            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid LIMIT $offset, $limit";
             $result = $this->db->query($query);
             $output = "";
             $pagination = "";
-        }
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
+            if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["p_image"];
-                $imagePath = "../admin1/assets/img/product_img/" . $image;
-               
-                $noimagePath = $NO_IMAGE;
-                $decodedPath = htmlspecialchars_decode(
-                    (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                );
-                    $title =  $row['title'];
-                    $price = $row['maxprice'];
+                    $product_id = $row['product_id'];
+                    $imageData = $row['p_image'];
+                    $images = explode(',', $imageData); 
+                    $imageElements = "";
+                    if (!empty($images)) {
+                        foreach ($images as $image) {
+                            $imagePath = "../admin1/assets/img/product_img/" . trim($image);
+                            $decodedPath = htmlspecialchars_decode(
+                                (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
+                            );
+                            $imageElements .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl" style="margin: 5px; width: 100px;">';
+                        }
+                    } else {
+                        $imageElements .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl">';
+                    }
+    
+                    $title = $row['title'];
+                    $maxPrice = $row['maxprice'];
+                    $minPrice = $row['minprice'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= $imageElements;
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
-                    $output .= '        <h5> ' . $title . '</h5>';
+                    $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output  .= '         <div class="ms-1 d-inline fs-6"><span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $row['maxprice'] . '</span><span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $row['minprice'] . '</span></div>';
-                    //$output .= '        <div class="d-flex align-items-center text-sm"><div class="fw-normal d-inline fs-6">Rs:</div>' . $price . '</div>';
+                    $output .= '         <div class="ms-1 d-inline fs-6">';
+                    $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
+                    $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
+                    $output .= '         </div>';
                     $output .= '        <div class="ms-auto text-end">';
                     $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
                     $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
@@ -1176,27 +1187,30 @@ class admin_functions {
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
+    
+                $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
+    
+            // Pagination logic
+            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $total_pages = ceil($total_records / $limit);
+    
+            $pagination .= '<div class="pagination" id="pagination-product">';
+            for ($i = 1; $i <= $total_pages; $i++) {
+                $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
+            }
+            $pagination .= '</div>';
+            $response_data['pagination'] = $pagination;
         }
-        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid";
-        $res_count = $this->db->query($query);
-        $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-        $total_pages = Ceil($total_recodes / $limit);
-
-        $pagination .= '<div class="pagination" id="pagination-product">';
-        for ($i = 1; $i <= $total_pages; $i++) {
-            $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
-        }
-        $pagination .= '</div>';
-        $response_data['pagination'] = $pagination;
-
-        $response = json_encode($response_data);
-        return $response;
+    
+        return json_encode($response_data);
     }
-
+    
+    
     function invoicelisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
