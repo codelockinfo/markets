@@ -156,7 +156,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="text" class="font-weight-normal">Product Tag</label>
             <div class="mb-3">
-              <select class="js-select2  form-select mb-3 multiple_tag" aria-label="Default select example" multiple="multiple" name="p_tag">
+              <select class="js-select2  form-select mb-3 multiple_tag form-control  w-100" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="">Select products</option>
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>

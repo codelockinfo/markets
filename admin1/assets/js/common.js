@@ -232,7 +232,7 @@ $(document).ready(function () {
   $('input[name="amount_paid"]').on("input", function () {
     document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       const dropZoneElement = inputElement.closest(".drop-zone");
-      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); //dropjon
+      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); 
     
       dropZoneElement.addEventListener("click", () => {
         if (!inputElement.disabled) {
@@ -377,17 +377,17 @@ $(window).on("load", function () {
   $("#status").fadeOut(1000);
 });
 // multiple
-// For single image upload preview
+
 var imageupload = document.getElementById("imageUpload");
 if (imageupload) {
   imageupload.addEventListener("change", function () {
     
     const previewContainer = document.getElementById("imagePreview");
-    if (!previewContainer) return; // Ensure previewContainer exists
+    if (!previewContainer) return; 
 
     const promptText = previewContainer.previousElementSibling;
     
-    // Ensure promptText exists before trying to access its properties
+
     if (promptText) {
       if (this.files.length > 0) {
         promptText.style.display = "none"; 
@@ -409,19 +409,18 @@ if (imageupload) {
   });
 }
 
-// Product page multiple image select with close button functionality
+
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");
 
-  // Trigger input click on drop zone click
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
-  // Handle file selection via input
+
   inputElement.addEventListener("change", (e) => {
     const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
 
     if (inputElement.files.length > 0) {
-      promptText.style.display = "none"; // Hide the prompt text
+      promptText.style.display = "none";
     } else {
       promptText.style.display = "block";
     }
@@ -435,12 +434,12 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
           title: "Invalid File",
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        inputElement.value = ""; // Clear the input if invalid
+        inputElement.value = ""; 
       }
     });
   });
 
-  // Drag-and-drop handling
+
   dropZoneElement.addEventListener("dragover", (e) => {
     e.preventDefault();
   });
@@ -450,7 +449,7 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
     const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
 
     if (e.dataTransfer.files.length > 0) {
-      promptText.style.display = "none"; // Hide prompt text when files are dropped
+      promptText.style.display = "none";
     } else {
       promptText.style.display = "block";
     }
@@ -469,11 +468,11 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   });
 });
 
-// Function to update thumbnail for each image with a close button
+
 function updateThumbnail(dropZoneElement, file) {
   let thumbnailContainer = dropZoneElement.querySelector(".drop-zone__thumb");
 
-  // Create a container for thumbnails if it doesn't exist
+ 
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("drop-zone__thumb");
@@ -494,26 +493,24 @@ function updateThumbnail(dropZoneElement, file) {
     closeButton.classList.add("close-button");
     closeButton.innerText = "x";
 
-    // Close button functionality to remove the particular image
     closeButton.addEventListener("click", (event) => {
       event.stopPropagation();
-      thumbnailContainer.removeChild(imgWrapper); // Remove the specific image wrapper
+      thumbnailContainer.removeChild(imgWrapper); 
 
-      // If no images are left, show the prompt text again
       if (thumbnailContainer.childElementCount === 0) {
         const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
         if (promptText) {
-          promptText.style.display = "block"; // Show the prompt text
+          promptText.style.display = "block"; 
         }
       }
     });
 
     imgWrapper.appendChild(img);
     imgWrapper.appendChild(closeButton);
-    thumbnailContainer.appendChild(imgWrapper); // Append the image and close button
+    thumbnailContainer.appendChild(imgWrapper); 
   });
 
-  reader.readAsDataURL(file); // Read the file as a data URL
+  reader.readAsDataURL(file); 
 }
 
 // jQuery to handle additional functionality

@@ -219,7 +219,7 @@ class admin_functions {
         $error_array = array();
 
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
-        if (isset($_FILES["p_image"]["name"]) && !empty($_FILES["p_image"]["name"][0])) {
+        if (isset($_FILES["p_image"]["name"]) && !empty($_FILES["p_image"]["name"])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
             $folder = "assets/img/product_img/";
@@ -241,21 +241,21 @@ class admin_functions {
                 $fullpath = $folder . $newFilename;
                 if($tmpfile != ""){
                     if (!in_array($fileExtension, $allowedExtensions)) {
-                        $error_array['p_image'][] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                        $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
                     }
                     if ($file['size'][$key] > $maxSize) {
-                        $error_array['p_image'][] = "File size for $filename must be 5MB or less.";
+                        $error_array['p_image'] = "File size for $filename must be 5MB or less.";
                     }
 
                     if (empty($error_array)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $uploadedFiles[] = $newFilename;
                         } else {
-                            $error_array['p_image'][] = "Error moving uploaded file $filename.";
+                            $error_array['p_image']= "Error moving uploaded file $filename.";
                         }
                     }
                 }else{
-                    $error_array['p_image'][] = "Please upload another product image.";
+                    $error_array['p_image'] = "Please upload another product image.";
                 }
             }
         }
