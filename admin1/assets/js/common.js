@@ -13,7 +13,7 @@
 // }
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
-  const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); //drop-zone__p
+  const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); 
   dropZoneElement.addEventListener("click", () => {
     if (!inputElement.disabled) {
       inputElement.click(); 
@@ -83,7 +83,7 @@ function clearThumbnail(dropZoneElement) {
 
 function updateThumbnail(dropZoneElement, file, inputElement) {
   let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-  const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); // dropjon prpprt
+  const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); 
   if (!thumbnailElement) {
     thumbnailElement = document.createElement("div");
     thumbnailElement.classList.add("drop-zone__thumb");
@@ -104,11 +104,9 @@ function updateThumbnail(dropZoneElement, file, inputElement) {
 
       closeButton.addEventListener("click", (event) => {
         event.stopPropagation(); 
-        thumbnailElement.innerHTML = ""; // Remove image
-        inputElement.value = ""; // Reset  input
-        inputElement.disabled = false; // Re-enable the input element
-
-       
+        thumbnailElement.innerHTML = ""; 
+        inputElement.value = ""; 
+        inputElement.disabled = false; 
         promptElement.style.display = "block"; 
       });
 
@@ -328,8 +326,6 @@ $(document).ready(function () {
             thumbnailElement.innerHTML = ""; 
             inputElement.value = ""; 
             inputElement.disabled = false; 
-    
-            
             if (!dropZoneElement.querySelector(".pro-zone__prompt")) { 
               promptElement.style.display = "block"; 
             }
@@ -377,17 +373,14 @@ $(window).on("load", function () {
   $("#status").fadeOut(1000);
 });
 // multiple
-// For single image upload preview
 var imageupload = document.getElementById("imageUpload");
 if (imageupload) {
   imageupload.addEventListener("change", function () {
     
     const previewContainer = document.getElementById("imagePreview");
-    if (!previewContainer) return; // Ensure previewContainer exists
+    if (!previewContainer) return;
 
     const promptText = previewContainer.previousElementSibling;
-    
-    // Ensure promptText exists before trying to access its properties
     if (promptText) {
       if (this.files.length > 0) {
         promptText.style.display = "none"; 
@@ -395,9 +388,7 @@ if (imageupload) {
         promptText.style.display = "block";
       }
     }
-
     previewContainer.innerHTML = "";
-
     Array.from(this.files).forEach((file) => {
       if (file.type.startsWith("image/")) {
         const img = document.createElement("img");
@@ -408,20 +399,15 @@ if (imageupload) {
     });
   });
 }
-
-// Product page multiple image select with close button functionality
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");
 
-  // Trigger input click on drop zone click
   dropZoneElement.addEventListener("click", () => inputElement.click());
-
-  // Handle file selection via input
   inputElement.addEventListener("change", (e) => {
     const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
 
     if (inputElement.files.length > 0) {
-      promptText.style.display = "none"; // Hide the prompt text
+      promptText.style.display = "none"; 
     } else {
       promptText.style.display = "block";
     }
@@ -435,12 +421,11 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
           title: "Invalid File",
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        inputElement.value = ""; // Clear the input if invalid
+        inputElement.value = ""; 
       }
     });
   });
 
-  // Drag-and-drop handling
   dropZoneElement.addEventListener("dragover", (e) => {
     e.preventDefault();
   });
@@ -450,7 +435,7 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
     const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
 
     if (e.dataTransfer.files.length > 0) {
-      promptText.style.display = "none"; // Hide prompt text when files are dropped
+      promptText.style.display = "none"; 
     } else {
       promptText.style.display = "block";
     }
@@ -468,55 +453,51 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
     });
   });
 });
-
-// Function to update thumbnail for each image with a close button
 function updateThumbnail(dropZoneElement, file) {
   let thumbnailContainer = dropZoneElement.querySelector(".drop-zone__thumb");
-
-  // Create a container for thumbnails if it doesn't exist
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("drop-zone__thumb");
     dropZoneElement.appendChild(thumbnailContainer);
   }
-
   const reader = new FileReader();
-
   reader.addEventListener("load", function (e) {
     const imgWrapper = document.createElement("div");
     imgWrapper.classList.add("img-wrapper");
-
     const img = document.createElement("img");
     img.src = e.target.result;
     img.classList.add("picture__img");
-
     const closeButton = document.createElement("button");
     closeButton.classList.add("close-button");
     closeButton.innerText = "x";
-
-    // Close button functionality to remove the particular image
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
     closeButton.addEventListener("click", (event) => {
       event.stopPropagation();
-      thumbnailContainer.removeChild(imgWrapper); // Remove the specific image wrapper
+      thumbnailContainer.removeChild(imgWrapper); 
+      const inputElement = dropZoneElement.querySelector(".pro-zone__input");
+      const dataTransfer = new DataTransfer(); 
 
-      // If no images are left, show the prompt text again
+      
+      Array.from(inputElement.files).forEach((f) => {
+        if (f !== file) {
+          dataTransfer.items.add(f);
+        }
+      });
+
+      inputElement.files = dataTransfer.files;
       if (thumbnailContainer.childElementCount === 0) {
         const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
         if (promptText) {
-          promptText.style.display = "block"; // Show the prompt text
+          promptText.style.display = "block"; 
         }
       }
     });
-
     imgWrapper.appendChild(img);
     imgWrapper.appendChild(closeButton);
-    thumbnailContainer.appendChild(imgWrapper); // Append the image and close button
+    thumbnailContainer.appendChild(imgWrapper); 
   });
-
-  reader.readAsDataURL(file); // Read the file as a data URL
+  reader.readAsDataURL(file); 
 }
-
-// jQuery to handle additional functionality
 $(document).on("change", ".addcategory", function () {
   if ($(this).is(":checked")) {
     $(".categoryinput").removeClass("hidecategory");
