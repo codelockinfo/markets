@@ -741,8 +741,8 @@ class admin_functions {
         if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
             $error_array['blog_title'] = "Please enter the blog title.";
         }
-        if (isset($_POST['blog_category']) && $_POST['blog_category'] == '') {
-            $error_array['blog_category'] = "Please select the blog catagory.";
+        if (isset($_POST['catagory']) && $_POST['catagory'] == '') {
+            $error_array['catagory'] = "Please select the blog catagory.";
         }
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
             $error_array['myeditor'] = "Please fill the body textarea.";
@@ -753,7 +753,7 @@ class admin_functions {
 
         if (empty($error_array)) {
             $blog_title = (isset($_POST['blog_title']) && $_POST['blog_title'] !== '') ? $_POST['blog_title'] : '';
-            $blog_category = (isset($_POST['blog_category']) && $_POST['blog_category'] !== '') ? $_POST['blog_category'] : '';
+            $catagory = (isset($_POST['catagory']) && $_POST['catagory'] !== '') ? $_POST['catagory'] : '';
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
             $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
             $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
@@ -763,7 +763,7 @@ class admin_functions {
                     if (isset($_SESSION['current_user']['user_id'])) {
                         $user_id = $_SESSION['current_user']['user_id'];
                         $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
-                            ('$blog_title', '$blog_category','$myeditor',
+                            ('$blog_title', '$catagory','$myeditor',
                             '$author_name','$newFilename','$blog_image_alt','$user_id')";
                         $result = $this->db->query($query);
                     }
@@ -777,11 +777,11 @@ class admin_functions {
                 if (isset($newFilename) && $newFilename != '') {
 
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE blogs SET title = '$blog_title', category = '$blog_category', body = '$myeditor', 
+                        $query = "UPDATE blogs SET title = '$blog_title', category = '$catagory', body = '$myeditor', 
                         author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                     }
                 } else {
-                    $query = "UPDATE blogs SET title = '$blog_title', category = '$blog_category', body = '$myeditor', 
+                    $query = "UPDATE blogs SET title = '$blog_title', category = '$catagory', body = '$myeditor', 
                         author_name = '$author_name',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
                 $result = $this->db->query($query);
@@ -1164,7 +1164,7 @@ class admin_functions {
                     $minPrice = $row['minprice'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
-                    $output .= '    <div class="position-relative">';
+                    $output .= '    <div class="position-relative" style=" height: 300px; overflow: scroll">';
                     $output .= '      <a class="d-block shadow-xl border-radius-xl">';
                     $output .= $imageElements;
                     $output .= '      </a>';
@@ -1179,8 +1179,8 @@ class admin_functions {
                     $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
                     $output .= '         </div>';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
-                    $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
+                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="product" aria-hidden="true"></i></a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1248,8 +1248,10 @@ class admin_functions {
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
                         $output .= '        <div class="ms-auto text-center">';
-                        $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
-                        $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
+                        // $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
+                        // $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
+                        $output .= '    <i data-id= "' . $row["invoice_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i>';
+                        $output .= '    <a href="invoice.php?id=' . $row['invoice_id'] . '"><i data-id= "' . $row["invoice_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i></a>';
                         $output .= '        </div>';
                         $output .= '      </div>';
                         $output .= '    </div>';
@@ -1306,8 +1308,10 @@ class admin_functions {
                     $output .= '<td class="align-middle">' . $row['contact'] . '</td>';
                     $output .= '<td><img src="' . $decodedPath . '" alt="Customer Image" class="shadow" width="100px" height="100px" style="object-fit: cover;"></td>';
                     $output .= '<td class="align-middle">' . $row['address'] . '</td>';
-                    $output .= '<td class="align-middle"><button data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="customer">Delete</button></td>';
-                    $output .= '<td class="align-middle"><a href="customer.php?id=' . $row['customer_id'] . '" data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="customer">Edit</a></td>';
+                    // $output .= '<td class="align-middle"><button data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="customer">Delete</button></td>';
+                    $output .= '    <i data-id= "' . $row["customer_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="customer" aria-hidden="true"></i>';
+                    // $output .= '<td class="align-middle"><a href="customer.php?id=' . $row['customer_id'] . '" data-id="' . $row['customer_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="customer">Edit</a></td>';
+                    $output .= '  <td class="align-middle"> <a href="customer.php?id=' . $row['customer_id'] . '"><i data-id= "' . $row["customer_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="customer" aria-hidden="true"></i></a>';
                     $output .= '</tr>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $profiledata);
@@ -1412,8 +1416,10 @@ class admin_functions {
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
-                    $output .= '          <a href="blog-form.php?id=' . $row['blog_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
+                    // $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
+                    // $output .= '          <a href="blog-form.php?id=' . $row['blog_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
+                    $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
+                    $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1473,7 +1479,8 @@ class admin_functions {
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '<button data-id="' . $row['video_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="video">Delete</button>';
+                    // $output .= '<button data-id="' . $row['video_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="video">Delete</button>';
+                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-danger  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1579,7 +1586,8 @@ class admin_functions {
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '<button data-id="' . $row['offer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="offer" >Delete</button>';
+                    // $output .= '<button data-id="' . $row['offer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="offer" >Delete</button>';
+                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="offer" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1666,7 +1674,8 @@ class admin_functions {
                                     $output .= '      <a class="d-block border-radius-xl">'. $categories.'</a>';
                                     $output .= '    </div>';
                                     $output .= '      <div class="ms-auto text-end">';
-                                    $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                                    // $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                                    $output .= '    <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="b_textile_catagory" aria-hidden="true"></i>';
                                     $output .= '      </div>';
                                     $output .= '    </div>';
                                     $output .= '  </div>';
@@ -1781,7 +1790,8 @@ class admin_functions {
                         $output .= '</div>';
                         $output .= '<div class="d-flex justify-content-between mb-3">';
                         $output .= '<div class="ms-auto text-end">';
-                        $output .= '<button type="button" data-id="' . $row['banner_id'] . '" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="banner">Delete</button>';
+                        // $output .= '<button type="button" data-id="' . $row['banner_id'] . '" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="banner">Delete</button>';
+                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="banner" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '</div>';
@@ -1832,7 +1842,8 @@ class admin_functions {
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>'; 
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto">';
-                                $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                                // $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                                $output .= '    <i data-id= "" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="famous_market" aria-hidden="true"></i>';
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
@@ -1889,7 +1900,8 @@ class admin_functions {
                             $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>'; 
                             $output .= '    </div>';
                             $output .= '    <div class="action-icons ms-auto">';
-                            $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
+                            // $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
+                            $output .= '    <i data-id= "" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faq" aria-hidden="true"></i>';
                             $output .= '    </div>';
                             $output .= '  </div>';
                             $output .= '</div>';

@@ -542,7 +542,7 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          $("select[name=categories],select[name=select_catagory]").append(
+          $("select[name=categories],select[name=select_catagory],select[name=catagory]").append(
             response["outcome"]
           );
           // var categories = response["outcome"].split(",");
