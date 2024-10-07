@@ -953,6 +953,7 @@ $(document).ready(function () {
             window.location.href = "product-list.php";
           }
           showMessage(response.msg, "success");
+          window.location.href = "product-list.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1006,6 +1007,7 @@ $(document).ready(function () {
             window.location.href = "customer_list.php";
           }
           showMessage(response.msg, "success");
+          window.location.href = "customer_list.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1094,6 +1096,7 @@ $(document).ready(function () {
               window.location.href = "invoice-list.php";
             }
             showMessage(response.msg, "success");
+            window.location.href = "invoice-list.php";
           } else {
             showMessage(response.msg_error, "fail");
           }
@@ -1292,6 +1295,7 @@ $(document).ready(function () {
             window.location.href = "blog-list.php";
           }
           showMessage(response.msg, "success");
+             window.location.href = "blog-list.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
