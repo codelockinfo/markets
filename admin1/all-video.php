@@ -14,7 +14,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-      $para_array = array("title" => "Video List", "link" => "video-form.php", "button_text" => "Add Video");
+      $para_array = array("title" => "Video List", "link" => "", "button_text" => "");
       $title = $para_array['title']; 
       $link = $para_array['link'];
       $button_text = $para_array['button_text'];

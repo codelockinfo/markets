@@ -263,6 +263,7 @@
 .drop-zone__thumb {
   position: relative;
   display: flex !important;
+  flex-wrap: wrap !important;
 }
 
 .drop-zone__thumb::after {
@@ -471,14 +472,11 @@
 }
 
 /* FAQ's accordion css end */
-
-
-
 /* preview & close button css */
 .close-button {
   position: absolute;
   /* left: 90%; */
-  top: -13px;
+  /* top: -13px; */
   /* height: 20px;
   width: 20px; */
   z-index: 1;
@@ -497,8 +495,8 @@
 }
 .picture__img {
   width: 100%;
-  max-height: 160px;
- padding-left: 20px !important;
+  max-height: 173px;
+ padding: 20px !important;
 }
 
 /* preview & close button css end */
@@ -900,4 +898,11 @@
 }
 .invoice-rowclose .fa-times{
   font-size: 24px;
+}
+.card_body_form{
+  height: 500px;
+  overflow-y: scroll;
+}
+.checkboxcategory{
+  cursor: pointer !important;
 }
