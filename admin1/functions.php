@@ -258,7 +258,9 @@ class admin_functions
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $uploadedFiles[] = $newFilename;
                         } else {
+
                             $error_array['p_image'] = "Error moving uploaded file $filename.";
+
                         }
                     }
                 } else {
