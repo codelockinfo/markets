@@ -820,6 +820,7 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
+
     function market_collection()
     {
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -841,12 +842,12 @@ class client_functions
                     $imagePathBase = "../admin1/assets/img/product_img/";
                     $noimagePath = "../admin1/assets/img/noimage.png";
 
-                    // Main image logic
+                 
                     $mainImage = !empty($images[0]) && file_exists($imagePathBase . $images[0])
                         ? htmlspecialchars_decode($imagePathBase . $images[0])
                         : htmlspecialchars_decode($noimagePath);
 
-                    // Begin output for this product
+                
                     $output .= '<div class="col-12 col-md-6 col-lg-4 mt-4">';
                     $output .= '    <div class="market_list_mian_box">';
                     $output .= '        <div class="market-head border-bottom">';
@@ -909,8 +910,6 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-
-
 
     function customer()
     {
@@ -991,6 +990,7 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
+
     function catlog() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
@@ -1040,6 +1040,7 @@ class client_functions
         }
         return json_encode($response_data);
     }
+
     function get_categories(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM allcategories WHERE status='1'";
@@ -1061,6 +1062,7 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
+    
     function all_produt(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql= "SELECT * FROM product where ststus='1'";

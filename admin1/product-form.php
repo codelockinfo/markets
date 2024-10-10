@@ -38,37 +38,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="col">
                 <select class="form-select required" aria-label="Default select example" name="select_catagory">
                   <option selected value="">Select Category</option>
-                  <!-- <option value="1">Armwear</option>
-                  <option value="2">Badges</option>
-                  <option value="3">Belts</option>
-                  <option value="4">Children's clothing</option>
-                  <option value="5">Clothing brands by type</option>
-                  <option value="6">Coats</option>
-                  <option value="7">Dresses</option>
-                  <option value="8">Footwear</option>
-                  <option value="9">Gowns</option>
-                  <option value="10">Handwear</option>
-                  <option value="11">Hosiery</option>
-                  <option value="12">Jackets</option>
-                  <option value="13">Jeans by type</option>
-                  <option value="14">Knee clothing</option>
-                  <option value="15">Masks</option>
-                  <option value="16">Neckwear</option>
-                  <option value="17">One-piece suits</option>
-                  <option value="18">Outerwear</option>
-                  <option value="19">Ponchos</option>
-                  <option value="20">Robes and cloaks</option>
-                  <option value="21">Royal attire</option>
-                  <option value="22">Saris</option>
-                  <option value="23">Sashes</option>
-                  <option value="24">Shawls and wraps</option>
-                  <option value="25">Skirts</option>
-                  <option value="26">Sportswear</option>
-                  <option value="27">Suits</option>
-                  <option value="28">Tops</option>
-                  <option value="29">Trousers and shorts</option>
-                  <option value="30">Undergarments</option>
-                  <option value="31">Wedding clothing</option> -->
                 </select>
                 <div class="errormsg select_catagory"></div>
               </div>             

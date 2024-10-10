@@ -84,15 +84,14 @@ function check_toggle_status() {
 function loadData(routineName) {
   console.log(routineName + " on load");
   $.ajax({
-    url: "../admin1/ajax_call.php", // Your PHP script URL
+    url: "../admin1/ajax_call.php", 
     type: "post",
-    dataType: "json",
+    dataType: "json",  
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
-      console.log("Sending routine_name:", routineName);
-      
+      console.log(response);  
+      console.log("Sending routine_name:", routineName);   
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
       } else {
@@ -105,9 +104,11 @@ function loadData(routineName) {
         check_toggle_btn();
       }
     },
+    error: function(xhr, status, error) {
+      console.error("Error occurred: ", status, error);
+    }
   });
 }
-
 
 function listgallary() {
   loadData("listgallary");
@@ -126,6 +127,7 @@ function listcustomer() {
 function listblog() {
   loadData("bloglisting");
 }
+
 function listinvoice(){
   loadData("invoicelisting");
 }
@@ -137,6 +139,7 @@ function offerlist() {
 function listvideo() {
   loadData("videolisting");
 }
+
 function allvideo(){
   loadData("allvideolisting")
 }
@@ -154,7 +157,6 @@ function listparagraph() {
 }
 
 function listproductprofile() {
-  // not in use
   loadData("profileproductlisting");
 }
 
@@ -163,7 +165,6 @@ function listbanner() {
 }
 
 function listfamousmarket() {
-  // not in use
   loadData("famousmarketlisting");
 }
 
@@ -310,7 +311,7 @@ function get_product(id) {
           var imagePreview =
             '<div class="drop-zone__thumb"><img src="../admin1/assets/img/product_img/' +
             p_image +
-            // '" class="picture__img"/><button class="close-button d-none">x</button></div>';
+         
             $(".pro-zone").append(imagePreview);
 
           response["outcome"]["category"] !== undefined
@@ -362,6 +363,7 @@ function get_product(id) {
     },
   });
 }
+
   function get_invoice(id) {
     $.ajax({
       url: "../admin1/ajax_call.php",
@@ -759,7 +761,7 @@ $(document).ready(function () {
 
   $(document).on("keydown", "#savesignin input", function (event) {
     if (event.key === "Enter") {
-      event.preventDefault(); // Prevent default action
+      event.preventDefault();
       $(".signInsave").click(); // Trigger the button click
     }
   });
@@ -863,9 +865,7 @@ $(document).ready(function () {
         if (response["data"] == "success") {
           $("#savesignup")[0].reset();
           window.location.href = "analytics.php";
-        } else {
-          // showMessage(response.msg_error, "fail");
-        }
+        } 
       },
     });
   });
@@ -874,8 +874,8 @@ $(document).ready(function () {
     console.log("KEYDOWN");
     console.log(event.key);
     if (event.key === "Enter") {
-      event.preventDefault(); // Prevent default action
-      $(".signUpsave").click(); // Trigger the button click
+      event.preventDefault(); 
+      $(".signUpsave").click();
     }
   });
 
@@ -1103,7 +1103,7 @@ $(document).ready(function () {
       },
     });
   });
-  function confirmAndDelete(employeeId, routineName, type, onSuccess) {
+  function confirmAndDelete(deleteId, routineName, type, onSuccess) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -1116,27 +1116,29 @@ $(document).ready(function () {
       if (result.isConfirmed) {
         var data = { routine_name: routineName };
         if (type === "product") {
-          data.product_id = employeeId;
+          data.product_id = deleteId;
         } else if (type === "blog") {
-          data.blog_id = employeeId;
+          data.blog_id = deleteId;
         } else if (type === "video") {
-          data.video_id = employeeId;
+          data.video_id = deleteId;
         } else if (type === "banner") {
-          data.banner_id = employeeId;
+          data.banner_id = deleteId;
         } else if (type === "famous_market") {
-          data.famous_market_id = employeeId;
+          data.famous_market_id = deleteId;
         } else if (type === "b_textile_catagory") {
-          data.b_textile_catagory_id = employeeId;
+          data.b_textile_catagory_id = deleteId;
         } else if (type === "offer") {
-          data.offer_id = employeeId;
+          data.offer_id = deleteId;
         } else if (type === "faq") {
-          data.faq_id = employeeId;
+          data.faq_id = deleteId;
         } else if (type === "review") {
-          data.marketreview_id = employeeId;
+          data.marketreview_id = deleteId;
         } else if (type === "customer") {
-          data.customer_id = employeeId;
+          data.customer_id = deleteId;
         }else if(type ==="invoice"){
-          data.invoice_id = employeeId;
+          data.invoice_id = deleteId;
+        }else if(type ==="product_images"){
+          data.	product_image_id = deleteId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1169,37 +1171,44 @@ $(document).ready(function () {
       }
     });
   }
-
-  $(document).delegate(".delete", "click", function () {
-    var employeeId = $(this).attr("data-id");
+  
+  function delete_product_image_response(deleteId) {
+    console.log("Function called with deleteId:", deleteId);
+    $("[data-id='" + deleteId + "']").closest(".position-relative").remove(); 
+}
+$(document).delegate(".delete", "click", function () {
+    var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
+    
     var deleteMapping = {
-      product: { routine: "productdelete", callback: listproduct },
-      invoice: { routine: "invoicedelete", callback: listinvoice },
-      customer: { routine: "customerdelete", callback: listcustomer },
-      blog: { routine: "blogdelete", callback: listblog },
-      video: { routine: "videodelete", callback: listvideo },
-      banner: { routine: "bannerdelete", callback: listbanner },
-      famous_market: {
-        routine: "famousmarketdelete",
-        callback: listfamousmarket,
+        product: { routine: "productdelete", callback: listproduct },
+        invoice: { routine: "invoicedelete", callback: listinvoice },
+        product_images: {
+          routine: "multipimgdelete", 
+          callback: function() {
+              delete_product_image_response(deleteId);
+          }
       },
-      b_textile_catagory: {
-        routine: "b_textile_catagorysdelete",
-        callback: listbrousetextile,
-      },
-      offer: { routine: "offerdelete", callback: offerlist },
-      faq: { routine: "faqdelete", callback: listFAQ },
-      review: { routine: "reviewdelete", callback: listreview },
+        customer: { routine: "customerdelete", callback: listcustomer },
+        blog: { routine: "blogdelete", callback: listblog },
+        video: { routine: "videodelete", callback: listvideo },
+        banner: { routine: "bannerdelete", callback: listbanner },
+        famous_market: { routine: "famousmarketdelete", callback: listfamousmarket },
+        b_textile_catagory: { routine: "b_textile_catagorysdelete", callback: listbrousetextile },
+        offer: { routine: "offerdelete", callback: offerlist },
+        faq: { routine: "faqdelete", callback: listFAQ },
+        review: { routine: "reviewdelete", callback: listreview }
     };
+
     if (deleteMapping[deleteType]) {
-      var routine = deleteMapping[deleteType].routine;
-      var callback = deleteMapping[deleteType].callback;
-      confirmAndDelete(employeeId, routine, deleteType, callback);
+        var routine = deleteMapping[deleteType].routine;
+        var callback = deleteMapping[deleteType].callback;
+
+        confirmAndDelete(deleteId, routine, deleteType, callback);
     } else {
-      console.error("Delete type not found:", deleteType);
+        console.error("Delete type not found:", deleteType);
     }
-  });
+});
 
   $(document).on("click", ".videoSave", function (event) {
     event.preventDefault();
@@ -1354,7 +1363,6 @@ $(document).ready(function () {
     });
   });
   // search product
-
   $("#search").on("keyup", function () {
     var search_text = $(this).val();
     $.ajax({
@@ -1427,7 +1435,6 @@ $(document).ready(function () {
   });
   // blogsearching
   $("#blog_search").on("keyup", function () {
-    // alert("ok")
     var search_text = $(this).val();
     $.ajax({
       url: "../admin1/ajax_call.php",
@@ -1806,7 +1813,6 @@ $(document).ready(function () {
 });
 
 // video anable disable
-
 $(document).on("click", ".toggle-button", function () {
   toggle_checkuncheck(this);
 });

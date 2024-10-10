@@ -829,16 +829,16 @@
   margin: -30px 0 0 -30px;
 }
 #status {
-  position: fixed;
+  display: flex;
   z-index: 999999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
+ justify-content: center;
+ align-items: center;
+
   background: #fff;
   background-image: url(../img/loder/preloder3.gif);
   background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
   background-position: center;
 }
 .pro-zone {
