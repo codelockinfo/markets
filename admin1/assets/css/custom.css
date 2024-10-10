@@ -909,3 +909,8 @@
 .checkboxcategory{
   cursor: pointer !important;
 }
+
+#getdata .card{
+  padding:10px;
+  box-shadow: 5px 5px 20px 9px rgba(0, 0, 0, .05);
+}
