@@ -25,13 +25,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <h6 class="mb-1 mt-1 text-lg">Products</h6>
           </div>
           <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
-            <div class="input-group search-btn search-icon">
+            <div class="input-group search-btn search-icon searchhide">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search">
             </div>
           </div>
           <div class="dropdown mt-3 filterDropdown">
-            <button class="btn bg-gradient-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Sort By
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="products">

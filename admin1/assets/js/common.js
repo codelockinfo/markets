@@ -32,8 +32,6 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       if (file.type.startsWith("image/")) {
         clearThumbnail(dropZoneElement);
         updateThumbnail(dropZoneElement, file, inputElement);
-
-       
         promptElement.style.display = "none";
       } else {
         Swal.fire({
