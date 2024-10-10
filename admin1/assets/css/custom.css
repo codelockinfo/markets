@@ -47,6 +47,9 @@
   .card-space {
     margin-top: -42px;
   }
+  .no-data,.no-data img {
+    width: 100%;
+  }
 }
 
 @media (min-width:600px) and (max-width:768px) {
