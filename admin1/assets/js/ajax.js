@@ -94,11 +94,20 @@ function loadData(routineName) {
       console.log("Sending routine_name:", routineName);   
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
+        $('.dropdownhide').hide();
+        $('.searchhide').hide();
+        
+
+
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
+          $('.dropdownhide').show();
+          $('.searchhide').show();
+        
+          
         }
         check_toggle_status();
         check_toggle_btn();
@@ -226,58 +235,58 @@ function listprofile() {
   profileLoadData("listprofile");
 }
 
-var loadShopifyAJAX = null;
-var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
-  if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
-    loadShopifyAJAX.abort();
-  }
-  var searchKEY = $("#" + listingID + "SearchKeyword").val();
-  var searchKEYLEN = searchKEY != undefined ? searchKEY.length : 0;
-  if (searchKEYLEN == 0 || searchKEYLEN >= 3) {
-    var shopifyApi = $("#" + listingID).attr("data-apiName");
-    var limit = $("#" + listingID + "limit").val();
-    var from = $("#" + listingID).data("from");
-    var routineNAME = "take_" + from + "_shopify_data";
-    var fields = $("#" + listingID).attr("data-fields");
-    fields = fields != undefined ? fields : "*";
-    var searchFields = $("#" + listingID).attr("data-search");
-    pageno = pageno != undefined ? pageno : 1;
-    loadShopifyAJAX = $.ajax({
-      url: "ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: {
-        routine_name: routineNAME,
-        shopify_api: shopifyApi,
-        fields: fields,
-        store: store,
-        limit: limit,
-        pageno: pageno,
-        search_key: searchKEY,
-        listing_id: listingID,
-        search_fields: searchFields,
-        pagination_method: js_loadShopifyDATA.name,
-      },
-      beforeSend: function () {
-        var listingTH = $("#" + listingID + " thead tr th").length;
-        table_loader("table#" + listingID + " tbody", listingTH);
-      },
-      success: function (comeback) {
-        if (comeback["code"] != undefined && comeback["code"] == "403") {
-          redirect403();
-        } else if (comeback["outcome"] == "true") {
-          var tablehtml =
-            comeback["html"] !== undefined && comeback["html"] != ""
-              ? comeback["html"]
-              : '<td  colspan="10" class="nodata"> NO DATA FOUND </td>';
-          $("table#" + listingID + " tbody").html(tablehtml);
-          $("#" + listingID + "Pagination").html(comeback["pagination_html"]);
-        } else {
-        }
-      },
-    });
-  }
-};
+// var loadShopifyAJAX = null;
+// var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
+//   if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
+//     loadShopifyAJAX.abort();
+//   }
+//   var searchKEY = $("#" + listingID + "SearchKeyword").val();
+//   var searchKEYLEN = searchKEY != undefined ? searchKEY.length : 0;
+//   if (searchKEYLEN == 0 || searchKEYLEN >= 3) {
+//     var shopifyApi = $("#" + listingID).attr("data-apiName");
+//     var limit = $("#" + listingID + "limit").val();
+//     var from = $("#" + listingID).data("from");
+//     var routineNAME = "take_" + from + "_shopify_data";
+//     var fields = $("#" + listingID).attr("data-fields");
+//     fields = fields != undefined ? fields : "*";
+//     var searchFields = $("#" + listingID).attr("data-search");
+//     pageno = pageno != undefined ? pageno : 1;
+//     loadShopifyAJAX = $.ajax({
+//       url: "ajax_call.php",
+//       type: "post",
+//       dataType: "json",
+//       data: {
+//         routine_name: routineNAME,
+//         shopify_api: shopifyApi,
+//         fields: fields,
+//         store: store,
+//         limit: limit,
+//         pageno: pageno,
+//         search_key: searchKEY,
+//         listing_id: listingID,
+//         search_fields: searchFields,
+//         pagination_method: js_loadShopifyDATA.name,
+//       },
+//       beforeSend: function () {
+//         var listingTH = $("#" + listingID + " thead tr th").length;
+//         table_loader("table#" + listingID + " tbody", listingTH);
+//       },
+//       success: function (comeback) {
+//         if (comeback["code"] != undefined && comeback["code"] == "403") {
+//           redirect403();
+//         } else if (comeback["outcome"] == "true") {
+//           var tablehtml =
+//             comeback["html"] !== undefined && comeback["html"] != ""
+//               ? comeback["html"]
+//               : '<td  colspan="10" class="nodata"> NO DATA FOUND </td>';
+//           $("table#" + listingID + " tbody").html(tablehtml);
+//           $("#" + listingID + "Pagination").html(comeback["pagination_html"]);
+//         } else {
+//         }
+//       },
+//     });
+//   }
+// };
 
 function demo() {
   $.ajax({
@@ -305,7 +314,6 @@ function get_product(id) {
         response["outcome"]["title"] !== undefined
           ? $("input[name='pname']").val(response["outcome"]["title"])
           : "";
-
         if (p_image != "") {
           $(".pro-zone__prompt").html("");
           var imagePreview =
@@ -532,6 +540,7 @@ function activeSidebarMenu() {
   });
 }
 
+
 function get_Categories() {
   console.log("CAtegories");
   $.ajax({
@@ -544,7 +553,7 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          $("select[name=categories],select[name=select_catagory],select[name=catagory]").append(
+          $("select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]").append(
             response["outcome"]
           );
           // var categories = response["outcome"].split(",");
@@ -601,8 +610,6 @@ function select_shop() {
       }
   });
 }
-
-
 
 $(document).ready(function () {
   console.log("DOCUMENT READY ...");
@@ -1233,9 +1240,9 @@ $(document).delegate(".delete", "click", function () {
         response["msg"]["video_title"] !== undefined
           ? $(".video_title").html(response["msg"]["video_title"])
           : $(".video_title").html("");
-        response["msg"]["video_category"] !== undefined
-          ? $(".video_category").html(response["msg"]["video_category"])
-          : $(".video_category").html("");
+        response["msg"]["category"] !== undefined
+          ? $(".category").html(response["msg"]["category"])
+          : $(".category").html("");
         response["msg"]["youtube_shorts"] !== undefined
           ? $(".youtube_shorts").html(response["msg"]["youtube_shorts"])
           : $(".youtube_shorts").html("");
@@ -1245,6 +1252,8 @@ $(document).delegate(".delete", "click", function () {
         if (response["data"] == "success") {
           $("#videoinsert")[0].reset();
           showMessage(response.msg, "success");
+          window.location.href = "video-list.php";
+          
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1362,7 +1371,7 @@ $(document).delegate(".delete", "click", function () {
       },
     });
   });
-  // search product
+    
   $("#search").on("keyup", function () {
     var search_text = $(this).val();
     $.ajax({
@@ -1378,7 +1387,7 @@ $(document).delegate(".delete", "click", function () {
         if (data.data == "success") {
           $("#getdata").html(data.outcome);
         } else {
-          $("#getdata").html("Data not found...");
+          $("#getdata").html(NO_DATA);
         }
       },
     });
@@ -1401,6 +1410,7 @@ $(document).delegate(".delete", "click", function () {
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
+          
         } else {
           $("#getdata").html("Data not found");
           $("#pagination").html("Pagination not found");
@@ -1447,7 +1457,7 @@ $(document).delegate(".delete", "click", function () {
         if (data.data == "success") {
           $("#getdata").html(data.outcome);
         } else {
-          $("#getdata").html("data is not found");
+          $("#getdata").html(NO_DATA);
         }
       },
     });
@@ -1837,6 +1847,7 @@ function check_toggle_btn(videoId) {
     },
   });
 }
+
 function toggle_checkuncheck(thisObj) {
   var videoId = $(thisObj).data("video-id");
   var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
@@ -1855,7 +1866,6 @@ function toggle_checkuncheck(thisObj) {
     },
   });
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var ctxhtml = document.getElementById("chart-bars");

@@ -657,8 +657,8 @@ class admin_functions{
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
             $error_array['video_title'] = "Please enter the video title.";
         }
-        if (isset($_POST['video_category']) && $_POST['video_category'] == '') {
-            $error_array['video_category'] = "Please select the video catagory.";
+        if (isset($_POST['category']) && $_POST['category'] == '') {
+            $error_array['category'] = "Please select the video catagory.";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
             $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
@@ -674,13 +674,13 @@ class admin_functions{
         if (empty($error_array)) {
             $video_title = (isset($_POST['video_title']) && $_POST['video_title'] !== '') ? $_POST['video_title'] : '';
             $video_title = str_replace("'", "\'", $video_title);
-            $video_category = (isset($_POST['video_category']) && $_POST['video_category'] !== '') ? $_POST['video_category'] : '';
+            $category = (isset($_POST['category']) && $_POST['category'] !== '') ? $_POST['category'] : '';
             $youtube_shorts = (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] !== '') ? $_POST['youtube_shorts'] : '';
             $youtube_vlogs = (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] !== '') ? $_POST['youtube_vlogs'] : '';
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO videos (title,category,short_link,vlog_link,user_id) VALUES ('$video_title', '$video_category','$youtube_shorts','$youtube_vlogs','$user_id')";
+               $query = "INSERT INTO videos (title,category,short_link,vlog_link,user_id) VALUES ('$video_title', '$category','$youtube_shorts','$youtube_vlogs','$user_id')";
                 $result = $this->db->query($query);
             }
             if ($result) {
@@ -1130,7 +1130,7 @@ class admin_functions{
                     $title = $row['title'];
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" style="    margin: 39px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" >';
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" style=" margin: 39px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" >';
                     $output .= '  <div class="card card-blog card-plain image-container">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl" style=" margin: 0 auto;text-align: center; margin-top: 28PX;">';
@@ -1400,10 +1400,10 @@ class admin_functions{
                     );
                     $title = htmlspecialchars($row['title']);
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '  <div class="card card-blog card-plain"  style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin:10px">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                    $output .= '      <a class="d-block  border-radius-xl" style=" text-align: center; margin: auto;">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3"  style="height:200px; width:200px" object-fir:cover">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
@@ -1412,8 +1412,6 @@ class admin_functions{
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '        <div class="ms-auto text-end">';
-                    // $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
-                    // $output .= '          <a href="blog-form.php?id=' . $row['blog_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
                     $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
                     $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
                     $output .= '        </div>';
@@ -1573,15 +1571,14 @@ class admin_functions{
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="card card-blog card-plain"  style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin:10px">';
                     $output .= '<div class="position-relative">';
-                    $output .= '<a class="d-block border-radius-xl">';
-                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                    $output .= '<a class="d-block border-radius-xl" style=" text-align: center; margin: auto;">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3"  style="height:200px; width:200px" object-fir:cover">';
                     $output .= '</a>';
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
-                    $output .= '<div class="ms-auto text-end">';
-                    // $output .= '<button data-id="' . $row['offer_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="offer" >Delete</button>';
+                    $output .= '<div class="ms-auto " style=" text-align: center; margin: auto;">';
                     $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="offer" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1777,15 +1774,14 @@ class admin_functions{
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
                         $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                        $output .= '<div class="card card-blog card-plain">';
+                        $output .= '<div class="card card-blog card-plain" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin:10px">';
                         $output .= '<div class="position-relative">';
-                        $output .= '<a class="d-block border-radius-xl">';
-                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3">';
+                        $output .= '<a class="d-block border-radius-xl" style="margin: auto; text-align: center;">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3" style="height:200px; width:200px" object-fir:cover">';
                         $output .= '</a>';
                         $output .= '</div>';
                         $output .= '<div class="d-flex justify-content-between mb-3">';
-                        $output .= '<div class="ms-auto text-end">';
-                        // $output .= '<button type="button" data-id="' . $row['banner_id'] . '" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="banner">Delete</button>';
+                        $output .= '<div class="ms-auto"style=" text-align: center; margin: auto;">';
                         $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="banner" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';

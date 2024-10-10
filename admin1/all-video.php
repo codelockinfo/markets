@@ -33,7 +33,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
           </div> -->
           <div class="dropdown mt-3">
-            <button class="btn bg-gradient-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filters
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
