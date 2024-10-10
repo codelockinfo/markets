@@ -1185,9 +1185,7 @@ class admin_functions{
                             $output .='</div">';
                     }
                     $output .= '</div>';
-                    $output .= ' <div class="modal-footer">';
-                    $output .= ' <button type="button" class="btn btn-primary">Understood</button>';
-                    $output .= '</div>';
+                    
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
