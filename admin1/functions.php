@@ -1132,7 +1132,7 @@ class admin_functions{
                     $minPrice = $row['minprice'];
                     $output .= '<div class="col-xl-4 col-md-6 mb-4" style="" >';
                     $output .= '  <div class="card card-blog image-container">';
-                    $output .= '    <div class="position-relative">';
+                    $output .= '    <div class="position-relative text-center">';
                     $output .= '      <a class="d-block border-radius-xl" style=" margin: 0 auto;text-align: center; margin-top: 28PX;">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl" style="width: 300px;height: 300px; object-fit: cover;">';
                     $output .= '      </a>';
