@@ -1151,10 +1151,12 @@ class admin_functions
                     $title = $row['title'];
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
+
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" style=" margin: 39px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" >';
                     $output .= '  <div class="card card-blog card-plain image-container">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl" style=" margin: 0 auto;text-align: center; margin-top: 28PX;" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl" style="width: 300px;height: 300px; object-fit: cover;">';
                     $output .= '      </a>';
 
@@ -1359,7 +1361,7 @@ class admin_functions
                 $noimagePath = $NO_IMAGE;
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                );;
+                );
                 $name =  $row['name'];
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];

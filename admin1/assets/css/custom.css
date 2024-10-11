@@ -47,6 +47,9 @@
   .card-space {
     margin-top: -42px;
   }
+  .no-data,.no-data img {
+    width: 100%;
+  }
 }
 
 @media (min-width:600px) and (max-width:768px) {
@@ -905,4 +908,12 @@
 }
 .checkboxcategory{
   cursor: pointer !important;
+}
+
+#getdata .card{
+  padding:10px;
+  box-shadow: 5px 5px 20px 9px rgba(0, 0, 0, .05);
+}
+.custom-position{
+  left:33%
 }
