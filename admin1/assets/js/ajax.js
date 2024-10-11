@@ -95,17 +95,19 @@ function loadData(routineName) {
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
         $('.dropdownhide').hide();
-        $('.searchhide').hide();
+        $('.addproduct').hide();
+
+       
         
-
-
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $('.dropdownhide').show();
-          $('.searchhide').show();
+        $('.addproduct').show();
+
+          
         
           
         }
