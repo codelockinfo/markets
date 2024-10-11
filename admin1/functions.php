@@ -1127,7 +1127,7 @@ class admin_functions
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit = 12;
+            $limit = 2;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = '';
@@ -1242,8 +1242,7 @@ class admin_functions
         return json_encode($response_data);
     }
 
-    function invoicelisting()
-    {
+    function invoicelisting() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1299,8 +1298,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function customerlisting()
-    {
+    function customerlisting() {
         global $NO_IMAGE;
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1343,8 +1341,7 @@ class admin_functions
         }
     }
 
-    function listprofile()
-    {
+    function listprofile() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1398,25 +1395,23 @@ class admin_functions
         return $response;
     }
 
-    function bloglisting()
-    {
+    function bloglisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
-
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 9;
+            $limit = 1;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $userid = '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $userid = "AND user_id =$user_id";
+                $userid_clause = "AND user_id = $user_id";
             }
-            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid LIMIT $offset, $limit";
+            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit";
             $result = $this->db->query($query);
 
             $output = "";
+            $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $image = $row["image"];
@@ -1454,37 +1449,40 @@ class admin_functions
                 $response_data['outcome'] = "No data found";
             }
 
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid";
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $total_pages = ceil($total_records / $limit);
 
-            $pagination = '<div class="pagination" id="pagination-blog">';
+            $pagination .= '<div class="pagination" id="pagination-blog">';
             for ($i = 1; $i <= $total_pages; $i++) {
-                $pagination .= "<a href='#' data-page='{$i}' data-routine='{bloglisting}'>{$i}</a>";
+                $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
             }
             $pagination .= '</div>';
-
             $response_data['pagination'] = $pagination;
-            $response = json_encode($response_data);
-
-            return $response;
         }
+        return json_encode($response_data);
     }
 
-    function videolisting()
-    {
+    function videolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
+            $limit = 1;
+             $limit;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+                
+            $offset = ($page - 1) * $limit;
+            $offset;
             $userid = '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid = "WHERE user_id =$user_id";
             }
-            // print_r($user_id);
-            $query = "SELECT * FROM videos $userid";
+            
+        $query = "SELECT * FROM videos $userid LIMIT $offset, $limit";
             $result = $this->db->query($query);
             $output = "";
+            $pagination="";
         }
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
@@ -1501,7 +1499,6 @@ class admin_functions
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    // $output .= '<button data-id="' . $row['video_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="video">Delete</button>';
                     $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-danger  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1514,6 +1511,19 @@ class admin_functions
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
+        $query = "SELECT COUNT(*) AS total FROM videos  $userid";
+        $res_count = $this->db->query($query);
+        $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+        $total_pages = ceil($total_records / $limit);
+
+        $pagination = '<div class="pagination" id="pagination-video">';
+        for ($i = 1; $i <= $total_pages; $i++) {
+            $pagination .= "<a href='#' data-page='{$i}' class='pagination-link'>{$i}</a>";
+        }
+        
+        $pagination .= '</div>';
+
+        $response_data['pagination'] = $pagination;
         $response = json_encode($response_data);
         return $response;
     }
