@@ -920,3 +920,65 @@
 .custom-position{
   left:33%
 }
+.product_imagebox{
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+}
+.product_main_image{
+  width: 300px; 
+  height: 300px;
+   object-fit: cover;
+}
+.modal_img{
+  width: 130px;
+   height: 150px;
+    margin: 5px; 
+    object-fit:cover;
+}
+.no_proimg{
+  width: 300px; 
+  height: 300px;
+  object-fit: cover;
+}
+.modalgif{
+  margin: auto; 
+  width: 100px;
+}
+.modalgif_img{
+  height: 100px;
+   width: 100px;
+    text-align:center;
+}
+.customer_box{
+  width: 300px;
+   height: 300px;
+    border: 1px solid #ddd;
+     padding: 15px;
+}
+.customer_img{
+  border: 1px solid #030303;
+   padding: 8px; 
+   height: 114px;
+   width: 114px; 
+   border-radius: 50%;
+    object-fit: cover;
+}
+.blog_imagebox{
+  text-align: center; 
+  margin: auto;
+}
+.blog_image{
+  height:200px;
+   width:200px;
+    object-fit:cover;
+}
+.offer_imgbox{
+  text-align: center; margin: auto;
+}
+.productallbtn{
+  text-align: center !important;
+  margin: auto !important;
+  display: flex !important;
+  margin-top: 10px !important;
+}

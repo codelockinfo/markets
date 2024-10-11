@@ -1152,14 +1152,14 @@ class admin_functions
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
 
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" style=" margin: 39px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" >';
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
                     $output .= '  <div class="card card-blog card-plain image-container">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl" style="cursor: pointer; margin: 0 auto;text-align: center; margin-top: 28PX;" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
-                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl" style="width: 300px;height: 300px; object-fit: cover;">';
+                    $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
 
-                    $output .= '<button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
+                    $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -1176,7 +1176,7 @@ class admin_functions
                     $output .= ' <div class="modal-content">';
                     $output .= '<div class="modal-header">';
                     $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-                    $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
+                    $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
                     $output .= '</div>';
                     $output .= '<div class="modal-body">';
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
@@ -1193,18 +1193,18 @@ class admin_functions
                                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                     );
                                     $output .= '<div class="position-relative">';
-                                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl" style="width: 130px; height: 150px; margin: 5px; object-fit:cover;">';
+                                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
                                     $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" style="background-color: rgba(0, 0, 0, 0.6); color: white; padding: 10px; border: none;"></button>';
                                     $output .= '</div>';
                                 }
                             } else {
-                                $output .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl" style=" width: 300px; height: 300px;object-fit: cover;">';
+                                $output .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl no_proimg">';
                             }
                         }
                         $output .= ' </div>';
                     } else {
-                        $output .= '<div class="image" style=" margin: auto; width: 100px;">';
-                        $output .= '<img src=" ../admin1/assets/img/noimg.gif"  style="height: 100px; width: 100px; text-align:center;">';
+                        $output .= '<div class="image modalgif ">';
+                        $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
                         $output .= '</div">';
                     }
                     $output .= '</div>';
@@ -1314,9 +1314,9 @@ class admin_functions
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="d-flex flex-column align-items-center justify-content-between bg-light rounded shadow-sm m-3" style="width: 300px; height: 300px; border: 1px solid #ddd; padding: 15px;">';
+                    $output .= '<div class="d-flex flex-column align-items-center justify-content-between bg-light rounded shadow-sm m-3 customer_box">';
                     $output .= '<div class="text-center">
-                                    <img src="' . $decodedPath . '" alt="Customer Image" class="img-fluid shadow-sm mb-2"  style="    border: 1px solid #030303; padding: 8px; height: 114px;width: 114px; border-radius: 50%; object-fit: cover;">
+                                    <img src="' . $decodedPath . '" alt="Customer Image" class="img-fluid shadow-sm mb-2 customer_img" >
                                 </div>';
                     $output .= '<div class="text-center">
                                     <h5 class="mb-1">' . $row['name'] . '</h5>
@@ -1399,7 +1399,7 @@ class admin_functions
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 1;
+            $limit = 9;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1422,10 +1422,10 @@ class admin_functions
                     );
                     $title = htmlspecialchars($row['title']);
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain"  style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin:10px">';
+                    $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block  border-radius-xl" style=" text-align: center; margin: auto;">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3"  style="height:200px; width:200px" object-fir:cover">';
+                    $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3 blog_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
@@ -1611,14 +1611,14 @@ class admin_functions
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '<div class="card card-blog card-plain"  style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin:10px">';
+                    $output .= '<div class="card card-blog card-plain">';
                     $output .= '<div class="position-relative">';
-                    $output .= '<a class="d-block border-radius-xl" style=" text-align: center; margin: auto;">';
-                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3"  style="height:200px; width:200px" object-fir:cover">';
+                    $output .= '<a class="d-block border-radius-xl offer_imgbox">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3" >';
                     $output .= '</a>';
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
-                    $output .= '<div class="ms-auto " style=" text-align: center; margin: auto;">';
+                    $output .= '<div class="ms-auto offer_imgbox">';
                     $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="offer" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1817,14 +1817,14 @@ class admin_functions
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
                         $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                        $output .= '<div class="card card-blog card-plain" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin:10px">';
+                        $output .= '<div class="card card-blog card-plain">';
                         $output .= '<div class="position-relative">';
-                        $output .= '<a class="d-block border-radius-xl" style="margin: auto; text-align: center;">';
-                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3" style="height:200px; width:200px" object-fir:cover">';
+                        $output .= '<a class="d-block border-radius-xl offer_imgbox">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 ">';
                         $output .= '</a>';
                         $output .= '</div>';
                         $output .= '<div class="d-flex justify-content-between mb-3">';
-                        $output .= '<div class="ms-auto"style=" text-align: center; margin: auto;">';
+                        $output .= '<div class="ms-auto offer_imgbox">';
                         $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="banner" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
