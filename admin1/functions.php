@@ -494,8 +494,8 @@ class admin_functions
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6">';
+                    $output .= '      <a class="d-block border-radius-xl product_imagebox">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '  </div>';
@@ -1194,7 +1194,7 @@ class admin_functions
                                     );
                                     $output .= '<div class="position-relative">';
                                     $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
-                                    $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" style="background-color: rgba(0, 0, 0, 0.6); color: white; padding: 10px; border: none;"></button>';
+                                    $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" "></button>';
                                     $output .= '</div>';
                                 }
                             } else {
