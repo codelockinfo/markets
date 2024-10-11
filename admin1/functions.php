@@ -43,7 +43,7 @@ class admin_functions
         if (empty($password)) {
             $error_array['password'] = 'Please enter the password.';
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = 'Password Must Be At Least 8 Characters Long And Include At Least 0ne Uppercase Letter, One Lowercase Letter, One Digit, And One Special Character.';
+            $error_array['password'] = 'Password not valid';
         }
         if (empty($error_array)) {
             $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
@@ -1399,15 +1399,16 @@ class admin_functions
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 9;
+            $limit = 1;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $userid = '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $userid_clause = "AND user_id = $user_id";
+                $userid = "WHERE user_id =$user_id";
             }
-            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit";
+            $query = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid LIMIT $offset, $limit";
             $result = $this->db->query($query);
 
             $output = "";
@@ -1449,7 +1450,7 @@ class admin_functions
                 $response_data['outcome'] = "No data found";
             }
 
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $total_pages = ceil($total_records / $limit);
