@@ -2071,3 +2071,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// start preview-image 
+document.addEventListener('DOMContentLoaded', function() {
+  const fileInput = document.getElementById('shop_logo_Input');
+  const preview = document.getElementById('newpreview');
+
+  fileInput.addEventListener('change', function() {
+      const file = fileInput.files[0];
+      if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              preview.src = e.target.result;
+              preview.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+      } else {
+          preview.style.display = 'none';
+      }
+  });
+});
+// end preview-image 

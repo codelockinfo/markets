@@ -982,3 +982,14 @@
   display: flex !important;
   margin-top: 10px !important;
 }
+#newpreview {
+  width: 100%; 
+  max-height: 250px;
+  display: none; 
+  margin-bottom: 15px;
+  border-radius: .5rem; 
+  border: 1px solid #d2d6da;
+  padding: 5px; 
+  background-color: #f9f9f9; 
+  object-fit: cover; 
+}

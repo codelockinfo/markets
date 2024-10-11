@@ -94,7 +94,9 @@ include 'header.php';
                     </div>
                     <div class="mb-2">
                     <label>Shop Image</label>
-                      <input type="file" class="form-control signImage" name="shop_img">
+                    <img id="newpreview" src="" alt="Image Preview">
+                    <input id="shop_logo_Input" type="file" class="form-control signImage" name="shop_img"> 
+              
                       <div class="col">
                         <div class="row mt-2">
                           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
