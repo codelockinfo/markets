@@ -95,8 +95,8 @@ function loadData(routineName) {
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
         $('.dropdownhide').hide();
-        $('.addproduct').hide();
-
+        $('.addproduct').show(); 
+        $('.viewproduct').hide();
        
         
       } else {
@@ -106,6 +106,8 @@ function loadData(routineName) {
           $("#pagination").html(response.pagination);
           $('.dropdownhide').show();
         $('.addproduct').show();
+        $('.addproduct').hide(); 
+        $('.viewproduct').show();
 
           
         
@@ -1420,6 +1422,32 @@ $(document).delegate(".delete", "click", function () {
       },
     });
   });
+
+  $(document).on("click","#pagination-video a",function(event){
+    event.preventDefault();
+    var page = $(this).data("page");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {
+        page: page,
+        search_text: $("#search_text").val(),
+        routine_name: "videolisting",
+      },
+      success: function (data) {
+        var data = JSON.parse(data);
+        if (data.data == "success") {
+          $("#getdata").html(data.outcome);
+          $("#pagination").html(data.pagination);
+        } else {
+          $("#getdata").html("Data not found");
+          $("#pagination").html("Pagination not found");
+        }
+      },
+    });
+
+  })
   // blog pagination
   $(document).on("click", "#pagination-blog a", function (event) {
     event.preventDefault();
