@@ -32,10 +32,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <label for="p-tags" class="font-weight-normal required">Blog Category</label>
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Categories</label>             
-                <select class="form-select required" aria-label="Default select example" id="mySelect" name="catagory">
+                <select class="form-select required" aria-label="Default select example" id="mySelect" name="category">
                   <option selected value="">Select Category</option>
                 </select>                                    
-              <span class="errormsg categories"></span>
+              <span class="errormsg category"></span>
             </div>
             <label for="body" class="font-weight-normal required">Body</label>
             <div class="mb-3">

@@ -272,21 +272,22 @@ class client_functions
         return $response;
     }
 
-    function paragraphshow()
-    {
+    function paragraphshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT * FROM paragraph WHERE status='1'";
         $result = $this->db->query($query);
+        
         $output = "";
         if ($result) {
-            while ($row = mysqli_fetch_array($result)) {
-                $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';
+            while ($rows = mysqli_fetch_array($result)) {
+                $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $rows["paragraph"] . ' </div>';
             }
             $response_data = array('data' => 'success', 'outcome' => $output);
         }
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function videoshow()
     {
@@ -656,117 +657,116 @@ class client_functions
         return $response;
     }
 
-    function productlisting()
-    {
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        // if (isset($_SESSION['current_user']['user_id'])) {
-        $category_value = isset($_POST['category_value']) ? $_POST['category_value'] : '';  // Get category value from dropdown
-        $min_price = isset($_POST['min_price']) ? $_POST['min_price'] : '';  // Get category value from dropdown
-        $max_price = isset($_POST['max_price']) ? $_POST['max_price'] : '';
-        // if ($_SESSION['current_user']['role'] == 1) {
-        //     $user_id = $_SESSION['current_user']['user_id'];
-        //     $userid = "AND user_id =$user_id";
-        // }
-        $category_filter = !empty($category_value) ? "AND category = '$category_value'" : '';
-        // print_r($category_filter);
-        // $query = "SELECT * FROM products WHERE category = $category_value";
+    // function productlisting(){
+    //     $response_data = array('data' => 'fail', 'msg' => "Error");
+    //     // if (isset($_SESSION['current_user']['user_id'])) {
+    //     $category_value = isset($_POST['category_value']) ? $_POST['category_value'] : '';  // Get category value from dropdown
+    //     $min_price = isset($_POST['min_price']) ? $_POST['min_price'] : '';  // Get category value from dropdown
+    //     $max_price = isset($_POST['max_price']) ? $_POST['max_price'] : '';
+    //     // if ($_SESSION['current_user']['role'] == 1) {
+    //     //     $user_id = $_SESSION['current_user']['user_id'];
+    //     //     $userid = "AND user_id =$user_id";
+    //     // }
+    //     $category_filter = !empty($category_value) ? "AND category = '$category_value'" : '';
+    //     // print_r($category_filter);
+    //     // $query = "SELECT * FROM products WHERE category = $category_value";
 
-        // $query = "SELECT * FROM products WHERE category = '$category_value' OR (minprice BETWEEN $min_price AND $max_price)";
-        if (!empty($category_value)) {
-            // If category data is found, show both category and price range
-            $query = "SELECT * FROM products WHERE category = '$category_value' AND (minprice BETWEEN $min_price AND $max_price)";
-        } else {
-            // If no category is provided, show only the data within the price range
-            $query = "SELECT * FROM products WHERE minprice BETWEEN $min_price AND $max_price";
-        }
-        // print_r($query);
-        $result = $this->db->query($query);
-        $output = "";
-        // $pagination = "";
-        // }
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
-                    $noimagePath = "../admin1/assets/img/noimage.png";
-                    $decodedPath = htmlspecialchars_decode(
-                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                    );
-                    $title =  $row['title'];
-                    $price = $row['maxprice'];
-                    $output .= '
-                    <div class="col-12 col-md-6 col-lg-4 mt-4">
-                        <div class="market_list_mian_box">
-                            <div class="market-head border-bottom">
-                                <h6 class="text-primary fw-bold ms-3 mt-3">' . $title . '</h6>
-                            </div>
-                            <div class="market-content p-3">
-                                <div class="d-flex justify-content-between pb-2">
-                                    <div class="col-3">
-                                        <img src="' . $decodedPath . '" class="img-fluid rounded w-100" alt="IMG_6358">
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="ms-4">
-                                            <h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>
-                                            <p class="ms-1 d-inline fs-6">' . $row['minprice'] . '</p>
-                                            <p class="fs-7 justify mt-2">' . $row['p_description'] . '</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <div class="m-img-box p-1 border rounded w-50 d-inline-block">
-                                            <img src="' . $decodedPath . '" class="img-fluid" alt="kurti1">
-                                        </div>
-                                        <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">
-                                            <img src="' . $decodedPath . '" class="img-fluid" alt="kurti2">
-                                        </div>
-                                        <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">
-                                            <img src="' . $decodedPath . '" class="img-fluid" alt="kurti3">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="market-footer border-top">
-                                    <div class="market-name">
-                                        <div class="d-flex align-items-center">
-                                            <div class="m-icon">
-                                                <i class="fa-solid fa-shield-halved fs-4 text-primary"></i>
-                                            </div>
-                                            <div class="m-name mt-2 ms-2">
-                                                <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
-                                                <p class="fs-6 p-0 m-0">Surat, Gujarat</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="market-button d-flex mt-3">
-                                    <a href="' . CLS_SITE_URL . 'sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
-                                    <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>
-                                    <a href="' . CLS_SITE_URL . 'collection.php" class="btn btn-primary ms-2 fs-6">Catalog</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
-                }
-                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
-            }
-        }
-        // $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid";
-        // $res_count = $this->db->query($query);
-        // $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-        // $total_pages = Ceil($total_recodes / $limit);
+    //     // $query = "SELECT * FROM products WHERE category = '$category_value' OR (minprice BETWEEN $min_price AND $max_price)";
+    //     if (!empty($category_value)) {
+    //         // If category data is found, show both category and price range
+    //         $query = "SELECT * FROM products WHERE category = '$category_value' AND (minprice BETWEEN $min_price AND $max_price)";
+    //     } else {
+    //         // If no category is provided, show only the data within the price range
+    //         $query = "SELECT * FROM products WHERE minprice BETWEEN $min_price AND $max_price";
+    //     }
+    //     // print_r($query);
+    //     $result = $this->db->query($query);
+    //     $output = "";
+    //     // $pagination = "";
+    //     // }
+    //     if ($result) {
+    //         if (mysqli_num_rows($result) > 0) {
+    //             while ($row = mysqli_fetch_array($result)) {
+    //                 $image = $row["p_image"];
+    //                 $imagePath = "../admin1/assets/img/product_img/" . $image;
+    //                 $noimagePath = "../admin1/assets/img/noimage.png";
+    //                 $decodedPath = htmlspecialchars_decode(
+    //                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+    //                 );
+    //                 $title =  $row['title'];
+    //                 $price = $row['maxprice'];
+    //                 $output .= '
+    //                 <div class="col-12 col-md-6 col-lg-4 mt-4">
+    //                     <div class="market_list_mian_box">
+    //                         <div class="market-head border-bottom">
+    //                             <h6 class="text-primary fw-bold ms-3 mt-3">' . $title . '</h6>
+    //                         </div>
+    //                         <div class="market-content p-3">
+    //                             <div class="d-flex justify-content-between pb-2">
+    //                                 <div class="col-3">
+    //                                     <img src="' . $decodedPath . '" class="img-fluid rounded w-100" alt="IMG_6358">
+    //                                 </div>
+    //                                 <div class="col-6">
+    //                                     <div class="ms-4">
+    //                                         <h6 class="fw-normal d-inline text-primary fs-6">Rs:</h6>
+    //                                         <p class="ms-1 d-inline fs-6">' . $row['minprice'] . '</p>
+    //                                         <p class="fs-7 justify mt-2">' . $row['p_description'] . '</p>
+    //                                     </div>
+    //                                 </div>
+    //                                 <div class="col-3 text-end">
+    //                                     <div class="m-img-box p-1 border rounded w-50 d-inline-block">
+    //                                         <img src="' . $decodedPath . '" class="img-fluid" alt="kurti1">
+    //                                     </div>
+    //                                     <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">
+    //                                         <img src="' . $decodedPath . '" class="img-fluid" alt="kurti2">
+    //                                     </div>
+    //                                     <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">
+    //                                         <img src="' . $decodedPath . '" class="img-fluid" alt="kurti3">
+    //                                     </div>
+    //                                 </div>
+    //                             </div>
+    //                             <div class="market-footer border-top">
+    //                                 <div class="market-name">
+    //                                     <div class="d-flex align-items-center">
+    //                                         <div class="m-icon">
+    //                                             <i class="fa-solid fa-shield-halved fs-4 text-primary"></i>
+    //                                         </div>
+    //                                         <div class="m-name mt-2 ms-2">
+    //                                             <h4 class="fs-5 p-0 m-0 text-second">L T fabrics</h4>
+    //                                             <p class="fs-6 p-0 m-0">Surat, Gujarat</p>
+    //                                         </div>
+    //                                     </div>
+    //                                 </div>
+    //                             </div>
+    //                             <div class="market-button d-flex mt-3">
+    //                                 <a href="' . CLS_SITE_URL . 'sellerdetail.php" class="btn btn-primary me-1 fs-6">Contact Seller</a>
+    //                                 <a href="' . CLS_SITE_URL . 'contact.php" class="btn btn-dark ms-1 fs-6 send-btn">Send Inquiry</a>
+    //                                 <a href="' . CLS_SITE_URL . 'collection.php" class="btn btn-primary ms-2 fs-6">Catalog</a>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>';
+    //             }
+    //             $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
+    //         } else {
+    //             $response_data = array('data' => 'fail', 'outcome' => "No data found");
+    //         }
+    //     }
+    //     // $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid";
+    //     // $res_count = $this->db->query($query);
+    //     // $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+    //     // $total_pages = Ceil($total_recodes / $limit);
 
-        // $pagination .= '<div class="pagination" id="pagination-product">';
-        // for ($i = 1; $i <= $total_pages; $i++) {
-        //     $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
-        // }
-        // $pagination .= '</div>';
-        // $response_data['pagination'] = $pagination;
+    //     // $pagination .= '<div class="pagination" id="pagination-product">';
+    //     // for ($i = 1; $i <= $total_pages; $i++) {
+    //     //     $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
+    //     // }
+    //     // $pagination .= '</div>';
+    //     // $response_data['pagination'] = $pagination;
 
-        $response = json_encode($response_data);
-        return $response;
-    }
+    //     $response = json_encode($response_data);
+    //     return $response;
+    // }
 
     function allmarket()
     {

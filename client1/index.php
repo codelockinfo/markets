@@ -760,11 +760,11 @@ famousmarket();
 latestbanner();
 offersshow();
 paragraphs();
-videos();
-FAQshow();
-reviewshow();
-productshowclientside();
-marketlistshowclientside();
-marketlist2showclientside();
-marketlist3showclientside();
+// videos();
+// FAQshow();
+// reviewshow();
+// productshowclientside();
+// marketlistshowclientside();
+// marketlist2showclientside();
+// marketlist3showclientside();
 </script>

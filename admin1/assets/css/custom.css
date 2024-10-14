@@ -968,7 +968,7 @@
   text-align: center; 
   margin: auto;
 }
-.blog_image{
+.blog_image_mainbox{
   height:200px;
    width:200px;
     object-fit:cover;

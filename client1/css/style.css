@@ -1347,3 +1347,8 @@ input[type=range]:focus::-ms-fill-upper {
     text-decoration-color: red !important;
     text-decoration-thickness: 2px !important;
 }
+
+.custome_anounce {
+    box-sizing: border-box;
+    max-width: 1880px;
+}

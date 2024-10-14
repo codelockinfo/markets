@@ -661,8 +661,7 @@ class admin_functions
         return false;
     }
 
-    function insert_videos()
-    {
+    function insert_videos() {
         $error_array = array();
 
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
@@ -706,13 +705,12 @@ class admin_functions
         return $response;
     }
 
-    function insert_blog()
-    {
+    function insert_blog() {
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
-
-        if ($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' &&  $id == "") {
-
+    
+        if ($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' && $id == "") {
+    
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
             $tmpfile = isset($_FILES["blog_image"]["tmp_name"]) ? $_FILES["blog_image"]["tmp_name"] : '';
@@ -725,7 +723,7 @@ class admin_functions
             $fullpath = $folder . $newFilename;
             $file = $_FILES['blog_image'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
-
+    
             if (!is_dir($folder)) {
                 $mkdir = mkdir($folder, 0777, true);
                 if (!$mkdir) {
@@ -743,33 +741,42 @@ class admin_functions
                 $error_array['blog_image'] = "Please upload the blog image.";
             }
         }
-
-        if (isset($_POST['blog_title']) && $_POST['blog_title'] == '') {
+    
+        if (empty($_POST['blog_title'])) {
             $error_array['blog_title'] = "Please enter the blog title.";
         }
-        if (isset($_POST['catagory']) && $_POST['catagory'] == '') {
-            $error_array['catagory'] = "Please select the blog catagory.";
+        if (empty($_POST['category'])) {
+            $error_array['category'] = "Please select the blog category.";
         }
-        if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
+        if (empty($_POST['myeditor'])) {
             $error_array['myeditor'] = "Please fill the body textarea.";
         }
-        if (isset($_POST['author_name']) && $_POST['author_name'] == '') {
+        if (empty($_POST['author_name'])) {
             $error_array['author_name'] = "Please enter the author name.";
         }
-
+    
         if (empty($error_array)) {
             $blog_title = (isset($_POST['blog_title']) && $_POST['blog_title'] !== '') ? $_POST['blog_title'] : '';
-            $catagory = (isset($_POST['catagory']) && $_POST['catagory'] !== '') ? $_POST['catagory'] : '';
+            $category = (isset($_POST['category']) && $_POST['category'] !== '') ? $_POST['category'] : '';
             $myeditor = (isset($_POST['myeditor']) && $_POST['myeditor'] !== '') ? $_POST['myeditor'] : '';
             $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
             $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
+    
+            // Fetch existing image when updating
+            if ($id != '') {
+                $existing_image_query = "SELECT image FROM blogs WHERE blog_id = $id";
+                $existing_image_result = $this->db->query($existing_image_query);
+                $existing_image_row = $existing_image_result->fetch_assoc();
+                $existing_image = $existing_image_row['image'];
+            }
+    
             if ($id == '') {
+                // Insert new blog
                 if (move_uploaded_file($tmpfile, $fullpath)) {
-
                     if (isset($_SESSION['current_user']['user_id'])) {
                         $user_id = $_SESSION['current_user']['user_id'];
                         $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
-                            ('$blog_title', '$catagory','$myeditor',
+                            ('$blog_title', '$category','$myeditor',
                             '$author_name','$newFilename','$blog_image_alt','$user_id')";
                         $result = $this->db->query($query);
                     }
@@ -780,15 +787,17 @@ class admin_functions
                     }
                 }
             } else {
-                if (isset($newFilename) && $newFilename != '') {
-
+                // Update blog
+                if (!empty($filename)) {
+                    // If a new image is uploaded, use the new image
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE blogs SET title = '$blog_title', category = '$catagory', body = '$myeditor', 
+                        $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                     }
                 } else {
-                    $query = "UPDATE blogs SET title = '$blog_title', category = '$catagory', body = '$myeditor', 
-                        author_name = '$author_name',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
+                    // If no new image is uploaded, retain the old image
+                    $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
+                        author_name = '$author_name',image = '$existing_image',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
                 $result = $this->db->query($query);
                 if ($result) {
@@ -803,9 +812,10 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
+    
 
-    function isValidURL($url)
-    {
+
+    function isValidURL($url){
         $allowedPatterns = array(
             "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i"
         );
@@ -817,8 +827,7 @@ class admin_functions
         return false;
     }
 
-    function insert_banner()
-    {
+    function insert_banner(){
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
@@ -889,8 +898,7 @@ class admin_functions
         return $response;
     }
 
-    function insert_market()
-    {
+    function insert_market(){
         $error_array = array();
         if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
             $error_array['shop_name'] = "Please select the shop.";
@@ -919,8 +927,7 @@ class admin_functions
         return json_encode($response_data);
     }
 
-    function insert_brousetxt()
-    {
+    function insert_brousetxt() {
         $error_array = array();
         if (!isset($_POST['categories']) || $_POST['categories'] == '') {
             $error_array['categories'] = "Please select the categories.";
@@ -952,8 +959,7 @@ class admin_functions
         return $response;
     }
 
-    function insert_offers()
-    {
+    function insert_offers(){
         $error_array = array();
         $file = $_FILES['myFile'];
         $maxSize = 5 * 1024 * 1024;
@@ -1011,8 +1017,7 @@ class admin_functions
         return $response;
     }
 
-    function insert_paragraph()
-    {
+    function insert_paragraph(){
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
             $error_array['myeditor'] = "Please enter the paragraph.";
@@ -1047,8 +1052,7 @@ class admin_functions
         return $response;
     }
 
-    function insert_faq()
-    {
+    function insert_faq() {
 
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
@@ -1079,8 +1083,7 @@ class admin_functions
         return $response;
     }
 
-    function insert_review()
-    {
+    function insert_review(){
 
         $error_array = array();
 
@@ -1121,8 +1124,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function productlisting()
-    {
+    function productlisting() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
@@ -1426,7 +1428,7 @@ class admin_functions
                     $output .= '  <div class="card card-blog card-plain">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3 blog_image">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3 blog_image_mainbox">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
@@ -1468,7 +1470,7 @@ class admin_functions
     function videolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 1;
+            $limit = 8;
              $limit;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
                 
@@ -1529,8 +1531,7 @@ class admin_functions
         return $response;
     }
 
-    function allvideolisting()
-    {
+    function allvideolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $userid = '';
@@ -1578,8 +1579,7 @@ class admin_functions
         return $response;
     }
 
-    function offerlisting()
-    {
+    function offerlisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1636,8 +1636,7 @@ class admin_functions
         return $response;
     }
 
-    function brousetextilelisting()
-    {
+    function brousetextilelisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             // $categories = [
@@ -1727,8 +1726,7 @@ class admin_functions
         return $response;
     }
 
-    function FAQlisting()
-    {
+    function FAQlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1762,8 +1760,7 @@ class admin_functions
         return $response;
     }
 
-    function paragraphlisting()
-    {
+    function paragraphlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1784,8 +1781,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function bannerlisting()
-    {
+    function bannerlisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1844,8 +1840,7 @@ class admin_functions
         return $response;
     }
 
-    function famousmarketlisting()
-    {
+    function famousmarketlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1897,8 +1892,7 @@ class admin_functions
         return $response;
     }
 
-    function reviewlisting()
-    {
+    function reviewlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
 
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1955,8 +1949,7 @@ class admin_functions
         return $response;
     }
 
-    function deleteRecord($table, $delete_id)
-    {
+    function deleteRecord($table, $delete_id) {
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
         $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
@@ -1969,81 +1962,68 @@ class admin_functions
         return json_encode($response_data);
     }
 
-    function productdelete()
-    {
+    function productdelete() {
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
     }
 
-    function invoicedelete()
-    {
+    function invoicedelete(){
 
         $delete_id = isset($_POST["invoice_id"]) ? $_POST["invoice_id"] : '2';
         return $this->deleteRecord('invoice', $delete_id);
     }
-    function multipimgdelete()
-    {
+    function multipimgdelete(){
         $delete_id = isset($_POST['product_image_id']) ? $_POST['product_image_id'] : '2';
         return $this->deleteRecord('product_images', $delete_id);
     }
 
 
-    function customerdelete()
-    {
+    function customerdelete(){
         $delete_id = isset($_POST['customer_id']) ? $_POST['customer_id'] : '2';
         return $this->deleteRecord('customer', $delete_id);
     }
 
-    function blogdelete()
-    {
+    function blogdelete() {
         $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
         return $this->deleteRecord('blogs', $delete_id);
     }
 
-    function videodelete()
-    {
+    function videodelete(){
         $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
         return $this->deleteRecord('videos', $delete_id);
     }
 
-    function bannerdelete()
-    {
+    function bannerdelete(){
         $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
         return $this->deleteRecord('banners', $delete_id);
     }
 
-    function famousmarketdelete()
-    {
+    function famousmarketdelete(){
         $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
         return $this->deleteRecord('famous_markets', $delete_id);
     }
 
-    function b_textile_catagorysdelete()
-    {
+    function b_textile_catagorysdelete(){
         $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
         return $this->deleteRecord('b_textile_catagorys', $delete_id);
     }
 
-    function offerdelete()
-    {
+    function offerdelete() {
         $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
         return $this->deleteRecord('offers', $delete_id);
     }
 
-    function faqdelete()
-    {
+    function faqdelete() {
         $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
         return $this->deleteRecord('faqs', $delete_id);
     }
 
-    function reviewdelete()
-    {
+    function reviewdelete() {
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
     }
 
-    function forget_password()
-    {
+    function forget_password(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -2081,8 +2061,7 @@ class admin_functions
         return $response;
     }
 
-    function reset_passwordform()
-    {
+    function reset_passwordform(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $token = isset($_POST['token']) ? $_POST['token'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -2122,8 +2101,7 @@ class admin_functions
         return $response;
     }
 
-    function getproduct()
-    {
+    function getproduct() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2138,8 +2116,7 @@ class admin_functions
         return $response;
     }
 
-    function getinvoice()
-    {
+    function getinvoice(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
 
@@ -2155,8 +2132,7 @@ class admin_functions
         return $response;
     }
 
-    function getcustomer()
-    {
+    function getcustomer() {
         $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2175,8 +2151,7 @@ class admin_functions
         return $response;
     }
 
-    function getblog()
-    {
+    function getblog() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2191,8 +2166,7 @@ class admin_functions
         return $response;
     }
 
-    function check_toggle_status()
-    {
+    function check_toggle_status(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['table_name'])) {
@@ -2208,8 +2182,7 @@ class admin_functions
         return $response;
     }
 
-    function toggle_enabledisable()
-    {
+    function toggle_enabledisable(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_POST['ischecked_value']) && isset($_POST['table_name'])) {
             $table_name = $_POST['table_name'];
@@ -2226,8 +2199,7 @@ class admin_functions
         return $response;
     }
 
-    function toggle_checkuncheck()
-    {
+    function toggle_checkuncheck(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['ischecked_value']) && isset($_POST['video_id'])) {
@@ -2248,8 +2220,7 @@ class admin_functions
         return $response;
     }
 
-    function check_toggle_btn()
-    {
+    function check_toggle_btn(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['video_id'])) {
@@ -2268,8 +2239,7 @@ class admin_functions
         return $response;
     }
 
-    function data_sort_by()
-    {
+    function data_sort_by() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         if (!empty($sort)) {
@@ -2375,8 +2345,7 @@ class admin_functions
         return $response;
     }
 
-    function get_categories()
-    {
+    function get_categories(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -2403,8 +2372,7 @@ class admin_functions
         return $response;
     }
 
-    function select_shop()
-    {
+    function select_shop(){
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
 

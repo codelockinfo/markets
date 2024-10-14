@@ -1292,9 +1292,9 @@ $(document).delegate(".delete", "click", function () {
         response["msg"]["blog_title"] !== undefined
           ? $(".blog_title").html(response["msg"]["blog_title"])
           : $(".blog_title").html("");
-        response["msg"]["blog_category"] !== undefined
-          ? $(".blog_category").html(response["msg"]["blog_category"])
-          : $(".blog_category").html("");
+        response["msg"]["category"] !== undefined
+          ? $(".category").html(response["msg"]["category"])
+          : $(".category").html("");
         response["msg"]["myeditor"] !== undefined
           ? $(".myeditor").html(response["msg"]["myeditor"])
           : $(".myeditor").html("");
