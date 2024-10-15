@@ -95,7 +95,7 @@ include 'header.php';
                     <div class="mb-2">
                     <label>Shop Image</label>
                     <img id="newpreview" src="" alt="Image Preview">
-                    <input id="shop_logo_Input" type="file" class="form-control signImage" name="shop_img"> 
+                    <input id="shop_image_Input" type="file" class="form-control signImage" name="shop_img"> 
               
                       <div class="col">
                         <div class="row mt-2">
@@ -113,7 +113,8 @@ include 'header.php';
                     </div>
                     <div class="mb-2">
                       <label>Shop Logo Image</label>
-                      <input type="file" class="form-control signImage" name="shop_logo">
+                      <img id="shop_logo_preview" src="" alt="Shop logo Image Preview">
+                      <input id="shop_logo_image" type="file" class="form-control signImage" name="shop_logo">
                       <div class="col">
                         <div class="row mt-2">
                           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
