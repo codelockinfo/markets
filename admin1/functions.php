@@ -217,10 +217,11 @@ class admin_functions
         }
     }
 
-    function insert_products()
-    {
+    function insert_products(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
+        
+        $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
         if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
             if (isset($_POST['addcategory']) && $_POST['addcategory'] == '') {
                 $error_array['addcategory'] = "Please enter the product category.";
@@ -261,7 +262,7 @@ class admin_functions
             $error_array['p_description'] = "Please enter the description.";
         }
 
-
+        $is_image_update  = false;
         if (isset($_FILES["p_image"]["name"][0]) && !empty($_FILES["p_image"]["name"][0])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
@@ -274,8 +275,8 @@ class admin_functions
                     return json_encode($response_data);
                 }
             }
-
             $uploadedFiles = [];
+           
             foreach ($_FILES["p_image"]["name"] as $key => $filename) {
                 $tmpfile = $_FILES["p_image"]["tmp_name"][$key];
                 $file = $_FILES['p_image'];
@@ -295,6 +296,7 @@ class admin_functions
                     if (empty($error_array)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $uploadedFiles[] = $newFilename;
+                            $is_image_update  = true;
                         } else {
 
                             $error_array['p_image'] = "Error moving uploaded file $filename.";
@@ -305,7 +307,9 @@ class admin_functions
                 }
             }
         } else {
-            $error_array['p_image'] = "Please select image";
+            if(empty($product_id)){
+                $error_array['p_image'] = "Please select image";
+            }
         }
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
@@ -332,8 +336,8 @@ class admin_functions
                     $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
                 }
             }
-            $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
             if ($product_id == '') {
+                
                 $uploadedFilenames = implode(',', $uploadedFiles);
                 $uploadedFilenames;
 
@@ -352,8 +356,13 @@ class admin_functions
                     $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
                 }
             } else {
-                $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
-                    maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";
+                if($is_image_update){
+                    $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', p_image='$newFilename', sku = '$sku', minprice = '$min_price',
+                    maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";    
+                }else{
+                    $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
+                    maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";    
+                }
 
                 if (!empty($uploadedFiles)) {
                     $uploadedFilenames = implode(',', $uploadedFiles);
@@ -376,97 +385,93 @@ class admin_functions
         return $response;
     }
 
-    function add_customer()
-    {
+    function add_customer(){
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
-        if ($_FILES["c_image"]["name"] != "" || isset($_FILES["c_image"]["name"]) && isset($_FILES["c_image"]["name"]) != '') {
+        $is_image = false; 
+    
+        if (isset($_FILES["c_image"]) && $_FILES["c_image"]["name"] != "") {
             $allowedExtensions = ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'];
             $maxSize = 5 * 1024 * 1024;
-            $filename = isset($_FILES["c_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
-            $tmpfile = isset($_FILES["c_image"]["tmp_name"]) ? $_FILES["c_image"]["tmp_name"] : '';
+            $filename = $_FILES["c_image"]["name"];
+            $tmpfile = $_FILES["c_image"]["tmp_name"];
             $file = $_FILES['c_image'];
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
-            $fileName = $_FILES['c_image']['name'];
-            $fileNameCmps = explode(".", $fileName);
-            $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/customer/";
             $fullpath = $folder . $newFilename;
-            if (!is_dir($folder)) {
-                $mkdir = mkdir($folder, 0777, true);
-                if (!$mkdir) {
-                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                    return json_encode($response_data);
-                }
+            if (!is_dir($folder) && !mkdir($folder, 0777, true) && !is_dir($folder)) {
+                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                return json_encode($response_data);
             }
-            if (!in_array($fileExtension, $allowedExtensions)) {
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
                 $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
             if ($file['size'] > $maxSize) {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['c_image'] = "Please upload the your images.";
+                $error_array['c_image'] = "Please upload your image.";
             }
+            $is_image = true;
         }
-        if (isset($_POST['name']) && $_POST['name'] == '') {
-            $error_array['name'] = "Please enter the your name.";
+        if (empty($_POST['name'])) {
+            $error_array['name'] = "Please enter your name.";
         }
-        if (isset($_POST['email']) && $_POST['email'] == '') {
-            $error_array['email'] = "Please enter the your email.";
+        if (empty($_POST['email'])) {
+            $error_array['email'] = "Please enter your email.";
         }
-        if (isset($_POST['contact']) && $_POST['contact'] == '') {
+        if (empty($_POST['contact'])) {
             $error_array['contact'] = "Please enter the contact number.";
         }
-        if (isset($_POST['address']) && $_POST['address'] == '') {
+        if (empty($_POST['address'])) {
             $error_array['address'] = "Please enter the address.";
         }
         if (empty($error_array)) {
-            $name = (isset($_POST['name']) && $_POST['name'] !== '') ? $_POST['name'] : '';
-            $email = (isset($_POST['email']) && $_POST['email'] !== '') ? $_POST['email'] : '';
-            $contact = (isset($_POST['contact']) && $_POST['contact']) ? $_POST['contact'] : '';
-            $address = (isset($_POST['address']) && $_POST['address']) ? $_POST['address'] : '';
-            if ($id == '') {
-                if (move_uploaded_file($tmpfile, $fullpath)) {
-                    if (isset($_SESSION['current_user']['user_id'])) {
-                        $user_id = $_SESSION['current_user']['user_id'];
-                        $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
-                        VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
-                        $result = $this->db->query($query);
-                    }
-                    if ($result) {
-                        $response_data = array('data' => 'success', 'msg' => 'customer inserted successfully!');
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $contact = $_POST['contact'];
+            $address = $_POST['address'];
+    
+            if ($id == '') { 
+                if ($is_image) { 
+                    if (move_uploaded_file($tmpfile, $fullpath)) {
+                        if (isset($_SESSION['current_user']['user_id'])) {
+                            $user_id = $_SESSION['current_user']['user_id'];
+                            $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
+                            VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
+                            $result = $this->db->query($query);
+                        }
                     } else {
-                        $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
+                        $error_array['c_image'] = "Error moving uploaded file.";
                     }
-                } else {
-                    $error_array['c_image'] = "Error moving uploaded file.";
                 }
-            } else {
-                if (isset($newFilename) && $newFilename != '') {
-
+            } else { 
+                $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', address = '$address' WHERE customer_id = $id";
+    
+                if ($is_image) {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
-                   c_image = '$newFilename', address = '$address'  WHERE customer_id  = $id";
+                        c_image = '$newFilename', address = '$address' WHERE customer_id = $id";
+                    } else {
+                        $error_array['c_image'] = "Error moving uploaded file.";
                     }
-                } else {
-                    $query = "UPDATE coustomer SET name = '$name', email = '$email', contact = '$contact', 
-                   c_image = '$newFilename',address = '$address'  WHERE customer_id  = $id";
                 }
+    
                 $result = $this->db->query($query);
-                if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Product data updated', "updated_customer_id" => $id);
-                } else {
-                    $response_data = array('data' => 'fail', 'msg' => "Error Updating into database");
-                }
+            }
+            if ($result) {
+                $response_data = array('data' => 'success', 'msg' => $id == '' ? 'Customer inserted successfully!' : 'Customer data updated', "updated_customer_id" => $id);
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "Error inserting/updating in the database");
             }
         } else {
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "oops! somthing went wrong");
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong");
         }
-        $response = json_encode($response_data);
-        return $response;
+    
+        return json_encode($response_data);
     }
+    
 
     function listgallary()
     {
@@ -510,18 +515,17 @@ class admin_functions
         return $response;
     }
 
-    function invoice()
-    {
+    function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
         $newFilename = "";
-
-        if ($_FILES["i_image"]["name"] != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != '') {
+        $is_image = false;
+        if (isset($_FILES["i_image"]) && $_FILES["i_image"]["name"] != "") {
             $allowedExtensions = ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'];
             $maxSize = 5 * 1024 * 1024;
-            $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["i_image"]["name"] : '';
-            $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
+            $filename = $_FILES["i_image"]["name"];
+            $tmpfile = $_FILES["i_image"]["tmp_name"];
             $file = $_FILES['i_image'];
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
@@ -530,12 +534,10 @@ class admin_functions
             $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/invoice_img/";
             $fullpath = $folder . $newFilename;
-            if (!is_dir($folder)) {
-                $mkdir = mkdir($folder, 0777, true);
-                if (!$mkdir) {
-                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                    return json_encode($response_data);
-                }
+    
+        
+            if (!is_dir($folder) && !mkdir($folder, 0777, true) && !is_dir($folder)) {
+                return json_encode(['data' => 'fail', 'msg' => 'Failed to create directory for image upload.']);
             }
             if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
@@ -544,11 +546,10 @@ class admin_functions
                 $error_array['i_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['i_image'] = "Please upload the your images.";
+                $error_array['i_image'] = "Please upload your image.";
             }
+            $is_image = true;
         }
-
-
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
         if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
@@ -556,6 +557,7 @@ class admin_functions
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
+    
 
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
@@ -569,24 +571,20 @@ class admin_functions
             $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
             $user_id = $_SESSION['current_user']['user_id'];
-
-            if (!empty($newFilename)) {
-                if (!move_uploaded_file($tmpfile, $fullpath)) {
-                    $error_array['i_image'] = "Error moving uploaded file.";
-                }
+            if ($is_image && !move_uploaded_file($tmpfile, $fullpath)) {
+                $error_array['i_image'] = "Error moving uploaded file.";
             }
-
             if (empty($error_array)) {
-                if (empty($id)) {
-                    $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                if (empty($id)) { 
+                    $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due)
                               VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
-                } else {
+                } else { 
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
                               po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due'" .
-                        (!empty($newFilename) ? ", i_image = '$newFilename'" : "") . "
-                              WHERE invoice_id = $id";
+                        ($is_image ? ", i_image = '$newFilename'" : "") . 
+                        " WHERE invoice_id = $id";
                 }
-
+    
                 $result = $this->db->query($query);
                 if ($result) {
                     $last_id = empty($id) ? $this->db->insert_id : $id;
@@ -610,7 +608,7 @@ class admin_functions
                         if ($amount <= 0) {
                             $error_array[$index]['amount'] = "Amount is not valid.";
                         }
-
+    
                         if (empty($error_array[$index])) {
                             $item = $this->db->real_escape_string($item);
                             $quantity = $this->db->real_escape_string($quantity);
@@ -624,14 +622,14 @@ class admin_functions
                     if (!empty($values)) {
                         $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
                         $res1 = $this->db->query($sql1);
-
+    
                         if ($res1) {
                             $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
                         } else {
                             $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                         }
                     }
-
+    
                     $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                 } else {
                     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
@@ -642,10 +640,10 @@ class admin_functions
         } else {
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
-
+    
         return json_encode($response_data);
     }
-
+    
     function isValidYouTubeURL($url)
     {
         $allowedPatterns = array(
@@ -762,7 +760,6 @@ class admin_functions
             $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
             $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
     
-            // Fetch existing image when updating
             if ($id != '') {
                 $existing_image_query = "SELECT image FROM blogs WHERE blog_id = $id";
                 $existing_image_result = $this->db->query($existing_image_query);
@@ -771,7 +768,7 @@ class admin_functions
             }
     
             if ($id == '') {
-                // Insert new blog
+                
                 if (move_uploaded_file($tmpfile, $fullpath)) {
                     if (isset($_SESSION['current_user']['user_id'])) {
                         $user_id = $_SESSION['current_user']['user_id'];
@@ -787,15 +784,15 @@ class admin_functions
                     }
                 }
             } else {
-                // Update blog
+             
                 if (!empty($filename)) {
-                    // If a new image is uploaded, use the new image
+                    
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                     }
                 } else {
-                    // If no new image is uploaded, retain the old image
+                  
                     $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$existing_image',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
@@ -1178,7 +1175,7 @@ class admin_functions
                     $output .= ' <div class="modal-content">';
                     $output .= '<div class="modal-header">';
                     $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-                    $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
+                    $output .= '<button type="button" class="btn-close text-secondary fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
                     $output .= '</div>';
                     $output .= '<div class="modal-body">';
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
@@ -1215,8 +1212,8 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
-                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
+                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1267,8 +1264,8 @@ class admin_functions
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain">';
                         $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block shadow-xl border-radius-xl">';
-                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">';
+                        $output .= '      <a class="d-block product_imagebox border-radius-xl">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
                         $output .= '    <div class="card-body px-1 pb-0">';
@@ -1281,10 +1278,10 @@ class admin_functions
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
                         $output .= '        <div class="ms-auto text-center">';
-                        // $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
+                        // $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
                         // $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
-                        $output .= '    <i data-id= "' . $row["invoice_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '    <a href="invoice.php?id=' . $row['invoice_id'] . '"><i data-id= "' . $row["invoice_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i></a>';
+                        $output .= '    <i data-id= "' . $row["invoice_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i>';
+                        $output .= '    <a href="invoice.php?id=' . $row['invoice_id'] . '"><i data-id= "' . $row["invoice_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i></a>';
                         $output .= '        </div>';
                         $output .= '      </div>';
                         $output .= '    </div>';
@@ -1327,9 +1324,9 @@ class admin_functions
                                     <p class="mb-0">Address: ' . $row['address'] . '</p>
                                 </div>';
                     $output .= '<div class="d-flex justify-content-center w-100 mt-2 ">
-                                    <i data-id="' . $row['customer_id'] . '" class="fa fa-trash text-danger  cursor-pointer delete" data-delete-type="customer" aria-hidden="true"></i>
+                                    <i data-id="' . $row['customer_id'] . '" class="fa fa-trash text-secondary  cursor-pointer delete" data-delete-type="customer" aria-hidden="true"></i>
                                     <a href="customer.php?id=' . $row['customer_id'] . '">
-                                        <i data-id="' . $row['customer_id'] . '" class="fa fa-pen text-primary cursor-pointer edit" aria-hidden="true"></i>
+                                        <i data-id="' . $row['customer_id'] . '" class="fa fa-pen text-secondary cursor-pointer edit" aria-hidden="true"></i>
                                     </a>
                                 </div>';
                     $output .= '</div>';
@@ -1401,7 +1398,7 @@ class admin_functions
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 1;
+            $limit = 9;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1437,8 +1434,8 @@ class admin_functions
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-danger cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
-                    $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-primary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
+                    $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
+                    $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1502,7 +1499,7 @@ class admin_functions
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-danger  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1707,7 +1704,7 @@ class admin_functions
                                 $output .= '      <a class="d-block border-radius-xl">' . $categories . '</a>';
                                 $output .= '    </div>';
                                 $output .= '      <div class="ms-auto text-end">';
-                                // $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
+                                // $output .= '        <button data-id="'.$row['b_textile_catagory_id'].'" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="b_textile_catagory">Delete</button>';
                                 $output .= '    <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="b_textile_catagory" aria-hidden="true"></i>';
                                 $output .= '      </div>';
                                 $output .= '    </div>';
@@ -1873,7 +1870,7 @@ class admin_functions
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto">';
-                                // $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
+                                // $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="famous_market">Delete</button>';
                                 $output .= '    <i data-id= "" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="famous_market" aria-hidden="true"></i>';
                                 $output .= '    </div>';
                                 $output .= '  </div>';
@@ -1929,7 +1926,7 @@ class admin_functions
                             $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>';
                             $output .= '    </div>';
                             $output .= '    <div class="action-icons ms-auto">';
-                            // $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
+                            // $output .= '        <button data-id="" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="marketreviews">Delete</button>';
                             $output .= '    <i data-id= "" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faq" aria-hidden="true"></i>';
                             $output .= '    </div>';
                             $output .= '  </div>';
@@ -2301,7 +2298,7 @@ class admin_functions
                             $output .= '      <div class="d-flex justify-content-between mb-3">';
                             $output .= '        <div class="d-flex align-items-center text-sm">' . $price . '</div>';
                             $output .= '        <div class="ms-auto text-end">';
-                            $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
+                            $output .= '          <button data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="product">Delete</button>';
                             $output .= '          <a href="product-form.php?id=' . $row['product_id'] . '" data-id="' . $row['product_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="product">Edit</a>';
                             $output .= '        </div>';
                             $output .= '      </div>';
@@ -2326,7 +2323,7 @@ class admin_functions
                             $output .= '      </a>';
                             $output .= '      <div class="d-flex justify-content-between mb-3">';
                             $output .= '        <div class="ms-auto text-end">';
-                            $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
+                            $output .= '          <button data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="blog">Delete</button>';
                             $output .= '          <a href="blog-form.php?id=' . $row['blog_id'] . '" data-id="' . $row['blog_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</a>';
                             $output .= '        </div>';
                             $output .= '      </div>';

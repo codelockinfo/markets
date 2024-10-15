@@ -104,6 +104,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3">
               <div class="pro-zone form-control">
                 <span class="pro-zone__prompt">Drop file here or click to upload</span>  
+
                 <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input">
                 <!-- <div id="imagePreview"></div>  -->
               </div>
@@ -219,8 +220,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 <script>
     get_Categories();
     var id = "<?php echo $id; ?>";
+    if (id !== "") {
     get_product(id);
-
+    }
     $(".js-select2").select2({
   closeOnSelect : false,
   placeholder : "select product",

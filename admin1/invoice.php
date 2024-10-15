@@ -261,6 +261,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 </html>
 <script>
-      var id ="<?php echo $id; ?>";
-      get_invoice(id);
+  
+  var id = "<?php echo $id; ?>";
+  if (id !== "") {
+    get_invoice(id);
+  }
 </script>

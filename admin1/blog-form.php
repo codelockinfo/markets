@@ -145,6 +145,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 <script>
     var id = "<?php echo $id; ?>";
-    get_blog(id);
+
     get_Categories();
+    if (id !== "") {
+    get_blog(id);
+ 
+    }
 </script>
