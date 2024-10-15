@@ -128,14 +128,17 @@ function loadData(routineName) {
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
         $(".dropdownhide").hide();
-        $(".searchhide").hide();
+        $(".addproduct").show();
+        $(".viewproduct").hide();
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
-          $(".searchhide").show();
+          $(".addproduct").show();
+          $(".addproduct").hide();
+          $(".viewproduct").show();
         }
         check_toggle_status();
         check_toggle_btn();
@@ -1473,6 +1476,31 @@ $(document).ready(function () {
       success: function (data) {
         var data = JSON.parse(data);
         if (data.data === "success") {
+          $("#getdata").html(data.outcome);
+          $("#pagination").html(data.pagination);
+        } else {
+          $("#getdata").html("Data not found");
+          $("#pagination").html("Pagination not found");
+        }
+      },
+    });
+  });
+
+  $(document).on("click", "#pagination-video a", function (event) {
+    event.preventDefault();
+    var page = $(this).data("page");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: {
+        page: page,
+        search_text: $("#search_text").val(),
+        routine_name: "videolisting",
+      },
+      success: function (data) {
+        var data = JSON.parse(data);
+        if (data.data == "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
         } else {

@@ -198,8 +198,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                 <div class="col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
                                     <div class="nav-wrapper position-relative end-0">
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
-                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0">View All Product</button>
+                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 viewproduct" style="display:none;">View All Product</button>
                                         </a>
+                                        <a href="<?php echo SITE_ADMIN_URL ?>product-form.php">
+                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 addproduct" style="display:none;">Add Product</button>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>

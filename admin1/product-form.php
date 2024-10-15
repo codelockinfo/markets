@@ -90,12 +90,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
             <div class="mb-3 row">
-              <div class="col">
+              <div class="col-5">
                 <input type="number" class="form-control price w-100" placeholder="Min Price" name="min_price">
                 <span class="errormsg min_price"></span>
               </div>
-              <span class="col text-center price1">To</span>
-              <div class="col">
+              <span class="col-2 text-center price1">To</span>
+              <div class="col-5">
                 <input type="number" class="form-control price  w-100" placeholder="Max Price" name="max_price">
                 <span class="errormsg max_price"></span>
               </div>
