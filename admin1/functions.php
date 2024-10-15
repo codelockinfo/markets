@@ -629,7 +629,7 @@ class admin_functions
             }
             if (empty($error_array)) {
                 if (empty($id)) { 
-                    $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due)
+                 $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
                               VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                 } else { 
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
@@ -1179,7 +1179,7 @@ class admin_functions
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit = 2;
+            $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = '';
@@ -1205,7 +1205,7 @@ class admin_functions
                     $minPrice = $row['minprice'];
 
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
-                    $output .= '  <div class="card card-blog card-plain image-container">';
+                    $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
@@ -1315,7 +1315,7 @@ class admin_functions
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                        $output .= '  <div class="card card-blog card-plain">';
+                        $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
                         $output .= '      <a class="d-block product_imagebox border-radius-xl">';
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
@@ -1334,7 +1334,7 @@ class admin_functions
                         // $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
                         // $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
                         $output .= '    <i data-id= "' . $row["invoice_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '    <a href="invoice.php?id=' . $row['invoice_id'] . '"><i data-id= "' . $row["invoice_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i></a>';
+                        $output .= '    <a href="invoice.php?id=' . $row['invoice_id'] . '"><i data-id= "' . $row["invoice_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 " data-delete-type="invoice" aria-hidden="true"></i></a>';
                         $output .= '        </div>';
                         $output .= '      </div>';
                         $output .= '    </div>';
@@ -1478,7 +1478,7 @@ class admin_functions
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 9;
+            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1502,10 +1502,10 @@ class admin_functions
                     );
                     $title = htmlspecialchars($row['title']);
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain">';
+                    $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3 blog_image_mainbox">';
+                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3  product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
@@ -1547,7 +1547,7 @@ class admin_functions
     function videolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 8;
+            $limit = 12;
              $limit;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
                 
@@ -1628,7 +1628,7 @@ class admin_functions
                     $video_id = $row['video_id'];
                     // echo $video_id;
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
                     $output .= '<a class="border-radius-xl">';
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
@@ -1689,10 +1689,10 @@ class admin_functions
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
                     $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
                     $output .= '<a class="d-block border-radius-xl offer_imgbox">';
-                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3" >';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image" >';
                     $output .= '</a>';
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
@@ -1891,10 +1891,10 @@ class admin_functions
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
                         $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
-                        $output .= '<div class="card card-blog card-plain">';
+                        $output .= '<div class="card card-blog card-plain mb-4">';
                         $output .= '<div class="position-relative">';
                         $output .= '<a class="d-block border-radius-xl offer_imgbox">';
-                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 ">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '</a>';
                         $output .= '</div>';
                         $output .= '<div class="d-flex justify-content-between mb-3">';

@@ -974,7 +974,8 @@
     object-fit:cover;
 }
 .offer_imgbox{
-  text-align: center; margin: auto;
+  text-align: center;
+   margin: auto;
 }
 .productallbtn{
   text-align: center !important;

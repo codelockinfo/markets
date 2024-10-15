@@ -494,11 +494,7 @@ function get_invoice(id) {
       success: function (response) {
         console.log("Response received:");
         console.log(response);
-  
-        // Parse the response to JSON
         var response = JSON.parse(response);
-  
-        // Populate the customer details
         response["outcome"]["name"] !== undefined
           ? $("input[name='name']").val(response["outcome"]["name"])
           : "";
@@ -511,15 +507,12 @@ function get_invoice(id) {
         response["outcome"]["address"] !== undefined
           ? $("textarea[name='address']").val(response["outcome"]["address"])
           : "";
-  
-        // Handle customer image
         var c_image =
           response["outcome"]["c_image"] !== undefined
             ? response["outcome"]["c_image"]
             : "";
   
         if (c_image != "") {
-    
           $(".pro-zone__prompt").hide();
           var imagePreview =
             '<div class="drop-zone__thumb">' +
