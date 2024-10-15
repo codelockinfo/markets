@@ -106,9 +106,62 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
+    
+    function profile_imagesave(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if ($_SESSION['current_user']['user_id']) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            $query = "SELECT * FROM users WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
 
-    function insert_signup()
-    {
+            if ($result) {
+                $row = $result->fetch_assoc();
+                $image = $row["shop_logo"];  
+            }
+         
+            if(isset($_FILES['shop_logo'])) {
+                $maxSize = 5 * 1024 * 1024;
+                $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+                $folder = "assets/img/sigup_img/";
+                if(isset($_FILES['shop_logo']['name']) && $_FILES['shop_logo']['name'] != ""){
+                    $filename = $_FILES['shop_logo']['name'];
+                    $tmpfile = $_FILES['shop_logo']['tmp_name'];
+                    $fileNameCmps = explode(".", $filename);
+                    $fileExtension = strtolower(end($fileNameCmps));
+                    $shoplogo = time() . '.' . $fileExtension;
+                    $shopLogoPath = $folder . $shoplogo;
+                    if (!in_array($fileExtension, $allowedExtensions)) {
+                        $error_array['shop_logo'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed";
+                    }
+                    if ($_FILES['shop_logo']['size'] > $maxSize) {
+                        $error_array['shop_logo'] = "File size must be 5MB or less.";
+                    }
+        
+                    if (empty($filename)) {
+                        $error_array['shop_logo'] = "Please select the shop logo.";
+                    }
+                    if (empty($error_array)) {
+                            if (move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
+            
+                                $query = "UPDATE users SET shop_logo = '$shoplogo'  WHERE user_id  = $user_id";
+                                $result = $this->db->query($query);
+                                if ($result) {
+                                    $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
+                                }
+                            }
+                    } else {
+                        $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
+                    }
+                }else{
+                    $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
+                }
+            }
+            
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    function insert_signup() {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
@@ -1357,6 +1410,8 @@ class admin_functions
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
+                $previewImage = (!empty($image) && file_exists($imagePath)) ?  '<div class="drop-zone form-control"><span class="pro-zone__prompt" id="dragfile" style="display: none;">Drop File Here Or Click To Upload</span><input type="file" name="shop_logo" class="drop-zone__input"><div class="drop-zone__thumb"><div class="img-wrapper"><img src="' . $decodedPath . '" class="picture__img"><button class="close-button">x</button></div></div></div>' :
+                                                                                         '<div class="drop-zone form-control"><span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span><input type="file" name="shop_logo" class="drop-zone__input"></div>';
                 $name =  $row['name'];
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];
@@ -1371,8 +1426,33 @@ class admin_functions
 
                 $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center mt-4">                   
                    <a class="mb-0 ps-1 pe-2 py-0 mt-3" href="#">
-                   <img src="' . $decodedPath . '"alt="profile_image" class="profile-image border-radius-lg shadow-sm mb-4">
+                        <div class="position-relative">
+                            <img src="' . $decodedPath . '" alt="profile_image" class="profile-image border-radius-lg shadow-sm mb-4">
+                            <div class="position-absolute  top-0  custom-position" data-bs-toggle="modal" data-bs-target="#profileImageUpdate"><i class="fa fa-pen text-primary cursor-pointer mt-3"></i></div>
+                        </div>
                    </a>
+                   <div class="modal fade" id="profileImageUpdate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="profileImageUpdate" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="profileUpdate">Product Images</h1>
+                                    <button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" id="profileImageSave" enctype="multipart/form-data" method="POST">
+                                        <div class="mb-3">
+                                            <label for="p-image" class="font-weight-normal">Upload Profile Image</label>
+                                           '.$previewImage.'
+                                            <div class="errormsg shop_logo imageError"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn bg-gradient-info btn-sm profileImageSave save_loader_show">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                    </li>
                    <div class="mx-auto text-center">
                     <a href="' . SITE_ADMIN_URL . 'profile-form.php">
@@ -2392,4 +2472,111 @@ class admin_functions
 
         return json_encode($response_data);
     }
+    
+    function totalearning(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = "";
+            if(isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1){
+                $user_id = $_SESSION['current_user']['user_id']; 
+                $userquery = "WHERE user_id =$user_id";
+            }
+            $sql = "SELECT * FROM invoice  $userquery";
+            $result = $this->db->query($sql);
+            
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $total_amount = 0;  
+                    while ($invoicedata = mysqli_fetch_assoc($result)) {
+                        $total_amount += $invoicedata['total'];  // Add each 'amount' to the total
+                    }
+                    $response_data = array('data' => 'success', 'totalearning' => $total_amount);                    
+                }
+            }    
+        }
+        $response = json_encode($response_data);
+        return $response;    
+    }
+    
+    function totalproduct(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = "";
+            if(isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1){
+                $user_id = $_SESSION['current_user']['user_id']; 
+                $userquery = "and user_id =$user_id";
+            }
+            $sql = "SELECT * FROM products WHERE  status='1' $userquery";
+            $result = $this->db->query($sql);
+
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $countproduct = $result->num_rows;
+                    $response_data = array('data' => 'success', 'totalproduct' => $countproduct);
+                }
+            }    
+            
+        }
+        $response = json_encode($response_data);
+        return $response;    
+    }
+    function totalclient(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = "";
+            if(isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1){
+                $user_id = $_SESSION['current_user']['user_id']; 
+                $userquery = "and user_id =$user_id";
+                
+            }
+            $sql = "SELECT * FROM customer WHERE status='1' $userquery";
+            $result = $this->db->query($sql);
+
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $countclient = $result->num_rows;
+                    $response_data = array('data' => 'success', 'outcome' => $countclient);
+                }
+            }       
+        }
+        $response = json_encode($response_data);
+        return $response;    
+    }
+    function totalitemsale(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = "";
+            if(isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1){
+                $user_id = $_SESSION['current_user']['user_id']; 
+                $userquery = "WHERE user_id = $user_id";
+                
+            }
+            $sql = "SELECT * FROM invoice  $userquery";
+            $result = $this->db->query($sql);
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($invoicedata = mysqli_fetch_assoc($result)) {
+                     $invoice_id = $invoicedata['invoice_id'];
+                     $invoice_item_sql = "SELECT * FROM invoice_item WHERE invoice_id = $invoice_id";
+                     $invoice_item_result = $this->db->query($invoice_item_sql);
+                     
+                     if ($invoice_item_result) {
+                         if (mysqli_num_rows($invoice_item_result) > 0) {
+                            $totalitemsale = 0;
+                            while ($invoiceitemdata = mysqli_fetch_assoc($invoice_item_result)) {
+                                 $totalitemsale += $invoiceitemdata['quantity']; ;
+                            }
+                         }
+                     }
+                    }
+                    $response_data = array('data' => 'success', 'totalitemsale' => $totalitemsale);
+
+                }
+            }    
+            
+        }
+        $response = json_encode($response_data);
+        return $response;    
+    }
+    
 }

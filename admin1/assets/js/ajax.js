@@ -81,42 +81,79 @@ function check_toggle_status() {
   });
 }
 
-function loadData(routineName) {
+function CountData(routineName) {
   console.log(routineName + " on load");
   $.ajax({
-    url: "../admin1/ajax_call.php", 
+    url: "../admin1/ajax_call.php",
     type: "post",
-    dataType: "json",  
+    dataType: "json",
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);  
-      console.log("Sending routine_name:", routineName);   
+      console.log(response);
+      console.log("Sending routine_name:", routineName);
+      if (response.data === "success") {
+        response.totalearning !== undefined
+          ? $(".totalEarning").text("Rs. " + response.totalearning)
+          : $(".countClient").text("Rs. " + 0);
+        response.totalproduct !== undefined
+          ? $(".totalProduct").text(response.totalproduct)
+          : $(".totalProduct").text(0);
+        response.totalclient !== undefined
+          ? $(".totalClient").text(response.totalclient)
+          : $(".totalClient").text(0);
+        response.totalitemsale !== undefined
+          ? $(".totalItemSale").text(response.totalitemsale)
+          : $(".totalItemSale").text(0);
+      } else {
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error occurred: ", status, error);
+    },
+  });
+}
+
+function loadData(routineName) {
+  console.log(routineName + " on load");
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: routineName },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      console.log("Sending routine_name:", routineName);
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
+
         $('.dropdownhide').hide();
         $('#pagination').show();
 
         $('.addproduct').show(); 
         $('.viewproduct').hide();  
+
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
+
           $('.dropdownhide').show();
         $('.addproduct').show();
         $('.addproduct').hide(); 
         $('.viewproduct').show(); 
         $('#pagination').show();
+
         }
         check_toggle_status();
         check_toggle_btn();
       }
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.error("Error occurred: ", status, error);
-    }
+    },
   });
 }
 
@@ -138,7 +175,7 @@ function listblog() {
   loadData("bloglisting");
 }
 
-function listinvoice(){
+function listinvoice() {
   loadData("invoicelisting");
 }
 
@@ -150,8 +187,8 @@ function listvideo() {
   loadData("videolisting");
 }
 
-function allvideo(){
-  loadData("allvideolisting")
+function allvideo() {
+  loadData("allvideolisting");
 }
 
 function listbrousetextile() {
@@ -349,6 +386,7 @@ function get_product(id) {
         if (p_image != "") {
           $(".pro-zone__prompt").hide();
           var imagePreview =
+
             '<div class="drop-zone__thumb">' +
             '<img src="../admin1/assets/img/product_img/' + p_image + '" class="picture__img"/>' +
             '<button class="close-button close">x</button>' +
@@ -363,12 +401,12 @@ function get_product(id) {
           });
         } else {
           $(".pro-zone__prompt").show();
+
         }
       }
     }
   });
 }
-
 
 function get_invoice(id) {
     $.ajax({
@@ -607,7 +645,6 @@ function get_Categories() {
           $("select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]").append(
             response["outcome"]
           );
-        
         }
       } else {
         console.log("Something went wrong");
@@ -619,35 +656,35 @@ function get_Categories() {
 function select_shop() {
   console.log("select shop");
   $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: { routine_name: "select_shop" },
-      beforeSend: function () {
-         
-      },
-      success: function (response) {
-        var response = JSON.parse(response);
-          console.log("Response:", response); 
-          if (response.data === "success") {
-            
-              if (Array.isArray(response.outcome)) {
-                  $("#mySelect").empty().append('<option selected value="">Select Shop</option>');
-                  $.each(response.outcome, function (index, shop) {
-                      var userId = shop.user_id; 
-                      var shopName = shop.shop.trim(); 
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "select_shop" },
+    beforeSend: function () {},
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log("Response:", response);
+      if (response.data === "success") {
+        if (Array.isArray(response.outcome)) {
+          $("#mySelect")
+            .empty()
+            .append('<option selected value="">Select Shop</option>');
+          $.each(response.outcome, function (index, shop) {
+            var userId = shop.user_id;
+            var shopName = shop.shop.trim();
 
-                      if (shopName) {
-                          var optionHtml = "<option value='" + userId + "'>" + shopName + "</option>";
-                          console.log(optionHtml); 
-                          $("#mySelect").append(optionHtml); 
-                      }
-                  });
-              }
-          } else {
-              console.log("Something went wrong");
-          }
+            if (shopName) {
+              var optionHtml =
+                "<option value='" + userId + "'>" + shopName + "</option>";
+              console.log(optionHtml);
+              $("#mySelect").append(optionHtml);
+            }
+          });
+        }
+      } else {
+        console.log("Something went wrong");
       }
+    },
   });
 }
 
@@ -740,7 +777,7 @@ $(document).ready(function () {
     $(this).siblings(".errormsg").text("");
   });
 
-  $(".formCancel").click(function () {
+  $(document).on("click", ".formCancel", function () {
     console.log("CCCCC");
     $(".errormsg").html("");
     $(".multiple_tag").val(null).trigger("change");
@@ -854,6 +891,38 @@ $(document).ready(function () {
       },
     });
   });
+  $(document).on("click", ".profileImageSave", function (e) {
+    console.log("profileImageSave ");
+    var form_data = $("#profileImageSave")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "profile_imagesave");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        response["msg"]["shop_logo"] !== undefined
+          ? $(".shop_logo").html(response["msg"]["shop_logo"])
+          : $(".shop_logo").html("");
+        loading_hide(".save_loader_show", "SIGN UP");
+        showMessage(response.msg, "success");
+        if (response["data"] == "success") {
+          $("#profileImageUpdate .btn-close").trigger("click");
+          listprofile();
+        } else {
+          showMessage(response.msg_error, "fail");
+        }
+      },
+    });
+  });
 
   $(document).on("click", ".signUpsave", function (e) {
     e.preventDefault();
@@ -883,10 +952,10 @@ $(document).ready(function () {
         response["msg"]["address"] !== undefined
           ? $(".address").html(response["msg"]["address"])
           : $(".address").html("");
-          response["msg"]["shop_img"] !== undefined
+        response["msg"]["shop_img"] !== undefined
           ? $(".shop_img").html(response["msg"]["shop_img"])
           : $(".shop_img").html("");
-          response["msg"]["shop_logo"] !== undefined
+        response["msg"]["shop_logo"] !== undefined
           ? $(".shop_logo").html(response["msg"]["shop_logo"])
           : $(".shop_logo").html("");
 
@@ -912,7 +981,7 @@ $(document).ready(function () {
         if (response["data"] == "success") {
           $("#savesignup")[0].reset();
           window.location.href = "analytics.php";
-        } 
+        }
       },
     });
   });
@@ -921,7 +990,7 @@ $(document).ready(function () {
     console.log("KEYDOWN");
     console.log(event.key);
     if (event.key === "Enter") {
-      event.preventDefault(); 
+      event.preventDefault();
       $(".signUpsave").click();
     }
   });
@@ -970,12 +1039,12 @@ $(document).ready(function () {
         response["msg"]["max_price"] !== undefined
           ? $(".max_price").html(response["msg"]["max_price"])
           : $(".max_price").html("");
-          if (response.msg && response.msg.p_image) {
-            $(".p_image").html(response.msg.p_image);
+        if (response.msg && response.msg.p_image) {
+          $(".p_image").html(response.msg.p_image);
         } else {
-            $(".p_image").html("");
+          $(".p_image").html("");
         }
-        
+
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
@@ -1083,7 +1152,7 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response); 
+        console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["i_image"] !== undefined
@@ -1134,21 +1203,21 @@ $(document).ready(function () {
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
 
-          if (response["data"] == "success") {
-            console.log(response);
-            console.log("Updated invoice ID:", response["update_invoice_id"]);
-            if (!response["update_invoice_id"]) {
-              $("#invoice_frm")[0].reset();
-              resetThumbnail();
-              $(".myFile").html("");
-            } else {
-              window.location.href = "invoice-list.php";
-            }
-            showMessage(response.msg, "success");
-            window.location.href = "invoice-list.php";
+        if (response["data"] == "success") {
+          console.log(response);
+          console.log("Updated invoice ID:", response["update_invoice_id"]);
+          if (!response["update_invoice_id"]) {
+            $("#invoice_frm")[0].reset();
+            resetThumbnail();
+            $(".myFile").html("");
           } else {
-            showMessage(response.msg_error, "fail");
+            window.location.href = "invoice-list.php";
           }
+          showMessage(response.msg, "success");
+          window.location.href = "invoice-list.php";
+        } else {
+          showMessage(response.msg_error, "fail");
+        }
       },
     });
   });
@@ -1184,10 +1253,10 @@ $(document).ready(function () {
           data.marketreview_id = deleteId;
         } else if (type === "customer") {
           data.customer_id = deleteId;
-        }else if(type ==="invoice"){
+        } else if (type === "invoice") {
           data.invoice_id = deleteId;
-        }else if(type ==="product_images"){
-          data.	product_image_id = deleteId;
+        } else if (type === "product_images") {
+          data.product_image_id = deleteId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1220,44 +1289,53 @@ $(document).ready(function () {
       }
     });
   }
-  
+
   function delete_product_image_response(deleteId) {
     console.log("Function called with deleteId:", deleteId);
-    $("[data-id='" + deleteId + "']").closest(".position-relative").remove(); 
-}
-$(document).delegate(".delete", "click", function () {
+    $("[data-id='" + deleteId + "']")
+      .closest(".position-relative")
+      .remove();
+  }
+
+  $(document).delegate(".delete", "click", function () {
     var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
-    
+
     var deleteMapping = {
-        product: { routine: "productdelete", callback: listproduct },
-        invoice: { routine: "invoicedelete", callback: listinvoice },
-        product_images: {
-          routine: "multipimgdelete", 
-          callback: function() {
-              delete_product_image_response(deleteId);
-          }
+      product: { routine: "productdelete", callback: listproduct },
+      invoice: { routine: "invoicedelete", callback: listinvoice },
+      product_images: {
+        routine: "multipimgdelete",
+        callback: function () {
+          delete_product_image_response(deleteId);
+        },
       },
-        customer: { routine: "customerdelete", callback: listcustomer },
-        blog: { routine: "blogdelete", callback: listblog },
-        video: { routine: "videodelete", callback: listvideo },
-        banner: { routine: "bannerdelete", callback: listbanner },
-        famous_market: { routine: "famousmarketdelete", callback: listfamousmarket },
-        b_textile_catagory: { routine: "b_textile_catagorysdelete", callback: listbrousetextile },
-        offer: { routine: "offerdelete", callback: offerlist },
-        faq: { routine: "faqdelete", callback: listFAQ },
-        review: { routine: "reviewdelete", callback: listreview }
+      customer: { routine: "customerdelete", callback: listcustomer },
+      blog: { routine: "blogdelete", callback: listblog },
+      video: { routine: "videodelete", callback: listvideo },
+      banner: { routine: "bannerdelete", callback: listbanner },
+      famous_market: {
+        routine: "famousmarketdelete",
+        callback: listfamousmarket,
+      },
+      b_textile_catagory: {
+        routine: "b_textile_catagorysdelete",
+        callback: listbrousetextile,
+      },
+      offer: { routine: "offerdelete", callback: offerlist },
+      faq: { routine: "faqdelete", callback: listFAQ },
+      review: { routine: "reviewdelete", callback: listreview },
     };
 
     if (deleteMapping[deleteType]) {
-        var routine = deleteMapping[deleteType].routine;
-        var callback = deleteMapping[deleteType].callback;
+      var routine = deleteMapping[deleteType].routine;
+      var callback = deleteMapping[deleteType].callback;
 
-        confirmAndDelete(deleteId, routine, deleteType, callback);
+      confirmAndDelete(deleteId, routine, deleteType, callback);
     } else {
-        console.error("Delete type not found:", deleteType);
+      console.error("Delete type not found:", deleteType);
     }
-});
+  });
 
   $(document).on("click", ".videoSave", function (event) {
     event.preventDefault();
@@ -1295,7 +1373,6 @@ $(document).delegate(".delete", "click", function () {
           $("#videoinsert")[0].reset();
           showMessage(response.msg, "success");
           window.location.href = "video-list.php";
-          
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1355,7 +1432,7 @@ $(document).delegate(".delete", "click", function () {
             window.location.href = "blog-list.php";
           }
           showMessage(response.msg, "success");
-             window.location.href = "blog-list.php";
+          window.location.href = "blog-list.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1413,7 +1490,7 @@ $(document).delegate(".delete", "click", function () {
       },
     });
   });
-    
+
   $("#search").on("keyup", function () {
     var search_text = $(this).val();
     $.ajax({
@@ -1452,7 +1529,6 @@ $(document).delegate(".delete", "click", function () {
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
-          
         } else {
           $("#getdata").html("Data not found");
           $("#pagination").html("Pagination not found");
@@ -1461,7 +1537,7 @@ $(document).delegate(".delete", "click", function () {
     });
   });
 
-  $(document).on("click","#pagination-video a",function(event){
+  $(document).on("click", "#pagination-video a", function (event) {
     event.preventDefault();
     var page = $(this).data("page");
     $.ajax({
@@ -1484,8 +1560,7 @@ $(document).delegate(".delete", "click", function () {
         }
       },
     });
-
-  })
+  });
   // blog pagination
   $(document).on("click", "#pagination-blog a", function (event) {
     event.preventDefault();
@@ -1552,7 +1627,6 @@ $(document).delegate(".delete", "click", function () {
       },
     });
   }
-  
 
   $(document).on("click", ".marketSave", function (event) {
     event.preventDefault();
@@ -1574,11 +1648,11 @@ $(document).delegate(".delete", "click", function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
-       
+
         response["msg"]["shop_name"] !== undefined
           ? $(".shop_name").html(response["msg"]["shop_name"])
           : $(".shop_name").html("");
-        
+
         if (response["data"] == "success") {
           $("#f_marketinsert")[0].reset();
           resetThumbnail();
@@ -1769,7 +1843,7 @@ $(document).delegate(".delete", "click", function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
-       
+
         response["msg"]["description"] !== undefined
           ? $(".description").html(response["msg"]["description"])
           : $(".description").html("");
@@ -1902,9 +1976,9 @@ function check_toggle_btn(videoId) {
     dataType: "json",
     data: {
       routine_name: "check_toggle_btn",
-      video_id: videoId 
+      video_id: videoId,
     },
-   
+
     success: function (response) {
       if (response["outcome"] !== undefined) {
         var check_status = response["outcome"]["toggle"];
@@ -1927,7 +2001,7 @@ function toggle_checkuncheck(thisObj) {
     data: {
       routine_name: "toggle_checkuncheck",
       ischecked_value: ischecked_value,
-      video_id: videoId 
+      video_id: videoId,
     },
     success: function (response) {
       console.log("Ajax response received: ", response);
