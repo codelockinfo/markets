@@ -64,7 +64,7 @@ include 'header.php';
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-7">
                 <div class="card-header text-center py-0 mb-0">
-                  <h3 class="font-weight-bolder text-info text-gradient">Register with</h3>
+                  <h3 class="font-weight-bolder text-info text-gradient">Register</h3>
                 </div>
                 <div class="card-body card_body_form">
                   <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
