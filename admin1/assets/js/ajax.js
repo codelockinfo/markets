@@ -105,11 +105,11 @@ function CountData(routineName) {
         response.totalitemsale !== undefined
           ? $(".totalItemSale").text(response.totalitemsale)
           : $(".totalItemSale").text(0);
+        response.totalamountsale !== undefined
+          ? $(".totalAmountSale").text("Rs. " + response.totalamountsale)
+          : $(".totalAmountSale").text("Rs. " + 0);
       } else {
       }
-    },
-    error: function (xhr, status, error) {
-      console.error("Error occurred: ", status, error);
     },
   });
 }
@@ -128,24 +128,21 @@ function loadData(routineName) {
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
 
-        $('.dropdownhide').hide();
-        $('#pagination').show();
+        $(".dropdownhide").hide();
+        $("#pagination").show();
 
-        $('.addproduct').show(); 
-        $('.viewproduct').hide();  
-
+        $(".addproduct").show();
+        $(".viewproduct").hide();
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
-
-          $('.dropdownhide').show();
-        $('.addproduct').show();
-        $('.addproduct').hide(); 
-        $('.viewproduct').show(); 
-        $('#pagination').show();
-
+          $(".dropdownhide").show();
+          $(".addproduct").show();
+          $(".addproduct").hide();
+          $(".viewproduct").show();
+          $("#pagination").show();
         }
         check_toggle_status();
         check_toggle_btn();
@@ -259,7 +256,7 @@ function profileLoadData(routineName) {
           ? $("#img").html(response["outcome"]["deatils"])
           : $("#img").html("");
         response["outcome"]["logo"] !== undefined
-          ? $("#profile_data").append(response["outcome"]["logo"])
+          ? $("#profile_data").html(response["outcome"]["logo"])
           : $("#profile_data").html("");
       }
     },
@@ -370,173 +367,180 @@ function get_product(id) {
           ? $("input[name='max_price']").val(response["outcome"]["maxprice"])
           : "";
         response["outcome"]["product_img_alt"] !== undefined
-          ? $("input[name='image_alt']").val(response["outcome"]["product_img_alt"])
+          ? $("input[name='image_alt']").val(
+              response["outcome"]["product_img_alt"]
+            )
           : "";
         response["outcome"]["p_tag"] !== undefined
-          ? $("select[name='p_tag']")
-              .val(response["outcome"]["p_tag"])
-              .change()
+          ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change()
           : "";
         response["outcome"]["p_description"] !== undefined
-          ? $("textarea[name='p_description']").val(response["outcome"]["p_description"])
+          ? $("textarea[name='p_description']").val(
+              response["outcome"]["p_description"]
+            )
           : "";
-        
-        var p_image = response["outcome"]["p_image"] !== undefined ? response["outcome"]["p_image"] : "";
+
+        var p_image =
+          response["outcome"]["p_image"] !== undefined
+            ? response["outcome"]["p_image"]
+            : "";
         console.log("p_image:", p_image);
         if (p_image != "") {
           $(".pro-zone__prompt").hide();
           var imagePreview =
-
             '<div class="drop-zone__thumb">' +
-            '<img src="../admin1/assets/img/product_img/' + p_image + '" class="picture__img"/>' +
+            '<img src="../admin1/assets/img/product_img/' +
+            p_image +
+            '" class="picture__img"/>' +
             '<button class="close-button close">x</button>' +
-            '</div>';
-         
+            "</div>";
+
           $(".pro-zone").append(imagePreview);
           $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone__thumb").remove(); 
+            $(this).closest(".drop-zone__thumb").remove();
             $(".pro-zone__prompt").show();
             let inputElement = $("input[name='p_image']");
-            inputElement.val(""); 
+            inputElement.val("");
           });
         } else {
           $(".pro-zone__prompt").show();
-
         }
       }
-    }
+    },
   });
 }
 
 function get_invoice(id) {
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: { routine_name: "getinvoice", id: id },
-      success: function (response) {
-        var response = JSON.parse(response);
-        
-        response["outcome"]["i_name"] !== undefined
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "getinvoice", id: id },
+    success: function (response) {
+      var response = JSON.parse(response);
+
+      response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
-          response["outcome"]["bill_no"] !== undefined
-          ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
-          : "";
-          
-          response["outcome"]["ship_to"] !== undefined
-          ? $("textarea[name='ship_to']").val(response["outcome"]["ship_to"])
-          : "";
-          response["outcome"]["terms"] !== undefined
-          ? $("input[name='terms']").val(response["outcome"]["terms"])
-          : "";
-          response["outcome"]["due_date"] !== undefined
-          ? $("input[name='due_date']").val(response["outcome"]["due_date"])
-          : "";
-          response["outcome"]["date"] !== undefined
-          ? $("input[name='date']").val(response["outcome"]["date"])
-          : "";
-          
-          response["outcome"]["po_number"] !== undefined
-          ? $("input[name='po_number']").val(response["outcome"]["po_number"])
-          : "";
-          response["outcome"]["total"] !== undefined
-          ? $("input[name='total']").val(response["outcome"]["total"])
-          : "";
-          response["outcome"]["amount_paid"] !== undefined
-          ? $("input[name='amount_paid']").val(response["outcome"]["amount_paid"])
-          : "";
-          response["outcome"]["balance_due"] !== undefined
-          ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
-          : "";
-          var i_image =
-          response["outcome"]["i_image"] !== undefined
-            ? response["outcome"]["i_image"]
-            : "";
-  
-        if (i_image != "") {
-    
-          $(".pro-zone__prompt").hide();
-          var imagePreview =
-            '<div class="drop-zone__thumb">' +
-            '<img src="../admin1/assets/img/invoice_img/' +
-            i_image +
-            '" class="picture__img"/>' +
-            '<button class="close-button close">x</button>' +
-            '</div>';
-          $(".drop-zone").append(imagePreview);
-          $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone__thumb").remove(); 
-            $(".pro-zone__prompt").show();
-            let inputElement = $("input[file='i_image']");
-            inputElement.val("");  
-            inputElement.trigger("click");
-          });
-        } else {
-      
-          $(".pro-zone__prompt").show();
-        }
+      response["outcome"]["bill_no"] !== undefined
+        ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
+        : "";
 
-        response["outcome"]["body"] !== undefined
-          ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
-          : "";
-      },
-    });
-  }
+      response["outcome"]["ship_to"] !== undefined
+        ? $("textarea[name='ship_to']").val(response["outcome"]["ship_to"])
+        : "";
+      response["outcome"]["terms"] !== undefined
+        ? $("input[name='terms']").val(response["outcome"]["terms"])
+        : "";
+      response["outcome"]["due_date"] !== undefined
+        ? $("input[name='due_date']").val(response["outcome"]["due_date"])
+        : "";
+      response["outcome"]["date"] !== undefined
+        ? $("input[name='date']").val(response["outcome"]["date"])
+        : "";
 
-  function get_customer(id) {
-    var routine_name = "getcustomer";
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: { routine_name: routine_name, id: id },
-      success: function (response) {
-        console.log("Response received:");
-        console.log(response);
-        var response = JSON.parse(response);
-        response["outcome"]["name"] !== undefined
-          ? $("input[name='name']").val(response["outcome"]["name"])
+      response["outcome"]["po_number"] !== undefined
+        ? $("input[name='po_number']").val(response["outcome"]["po_number"])
+        : "";
+      response["outcome"]["total"] !== undefined
+        ? $("input[name='total']").val(response["outcome"]["total"])
+        : "";
+      response["outcome"]["amount_paid"] !== undefined
+        ? $("input[name='amount_paid']").val(response["outcome"]["amount_paid"])
+        : "";
+      response["outcome"]["balance_due"] !== undefined
+        ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
+        : "";
+      var i_image =
+        response["outcome"]["i_image"] !== undefined
+          ? response["outcome"]["i_image"]
           : "";
-        response["outcome"]["email"] !== undefined
-          ? $("input[name='email']").val(response["outcome"]["email"])
-          : "";
-        response["outcome"]["contact"] !== undefined
-          ? $("input[name='contact']").val(response["outcome"]["contact"])
-          : "";
-        response["outcome"]["address"] !== undefined
-          ? $("textarea[name='address']").val(response["outcome"]["address"])
-          : "";
-        var c_image =
-          response["outcome"]["c_image"] !== undefined
-            ? response["outcome"]["c_image"]
-            : "";
-  
-        if (c_image != "") {
-          $(".pro-zone__prompt").hide();
-          var imagePreview =
-            '<div class="drop-zone__thumb">' +
-            '<img src="../admin1/assets/img/customer/' +
-            c_image +
-            '" class="picture__img"/>' +
-            '<button class="close-button close">x</button>' +
-            '</div>';
-          $(".drop-zone").append(imagePreview);
-          $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone__thumb").remove(); 
-            $(".pro-zone__prompt").show();
-            let inputElement = $("input[file='c_image']");
-            inputElement.val("");  
-            inputElement.trigger("click");
-          });
-        } else {
-      
+
+      if (i_image != "") {
+        $(".pro-zone__prompt").hide();
+        var imagePreview =
+          '<div class="drop-zone__thumb">' +
+          '<img src="../admin1/assets/img/invoice_img/' +
+          i_image +
+          '" class="picture__img"/>' +
+          '<button class="close-button close">x</button>' +
+          "</div>";
+        $(".drop-zone").append(imagePreview);
+        $(".close-button").on("click", function () {
+          $(this).closest(".drop-zone__thumb").remove();
           $(".pro-zone__prompt").show();
-        }
-      },
-    });
-  }
-  
+          let inputElement = $("input[file='i_image']");
+          inputElement.val("");
+          inputElement.trigger("click");
+        });
+      } else {
+        $(".pro-zone__prompt").show();
+      }
+
+      response["outcome"]["body"] !== undefined
+        ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
+        : "";
+    },
+  });
+}
+
+function get_customer(id) {
+  var routine_name = "getcustomer";
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: routine_name, id: id },
+    success: function (response) {
+      console.log("Response received:");
+      console.log(response);
+
+      // Parse the response to JSON
+      var response = JSON.parse(response);
+
+      // Populate the customer details
+      response["outcome"]["name"] !== undefined
+        ? $("input[name='name']").val(response["outcome"]["name"])
+        : "";
+      response["outcome"]["email"] !== undefined
+        ? $("input[name='email']").val(response["outcome"]["email"])
+        : "";
+      response["outcome"]["contact"] !== undefined
+        ? $("input[name='contact']").val(response["outcome"]["contact"])
+        : "";
+      response["outcome"]["address"] !== undefined
+        ? $("textarea[name='address']").val(response["outcome"]["address"])
+        : "";
+
+      // Handle customer image
+      var c_image =
+        response["outcome"]["c_image"] !== undefined
+          ? response["outcome"]["c_image"]
+          : "";
+
+      if (c_image != "") {
+        $(".pro-zone__prompt").hide();
+        var imagePreview =
+          '<div class="drop-zone__thumb">' +
+          '<img src="../admin1/assets/img/customer/' +
+          c_image +
+          '" class="picture__img"/>' +
+          '<button class="close-button close">x</button>' +
+          "</div>";
+        $(".drop-zone").append(imagePreview);
+        $(".close-button").on("click", function () {
+          $(this).closest(".drop-zone__thumb").remove();
+          $(".pro-zone__prompt").show();
+          let inputElement = $("input[file='c_image']");
+          inputElement.val("");
+          inputElement.trigger("click");
+        });
+      } else {
+        $(".pro-zone__prompt").show();
+      }
+    },
+  });
+}
 
 function get_blog(id) {
   $.ajax({
@@ -569,28 +573,26 @@ function get_blog(id) {
         response["outcome"]["image"] !== undefined
           ? response["outcome"]["image"]
           : "";
-          if (image != "") {
-    
-            $(".pro-zone__prompt").hide();
-            var imagePreview =
-              '<div class="drop-zone__thumb">' +
-              '<img src="../admin1/assets/img/blog_img/' +
-              image +
-              '" class="picture__img"/>' +
-              '<button class="close-button close">x</button>' +
-              '</div>';
-            $(".drop-zone").append(imagePreview);
-            $(".close-button").on("click", function () {
-              $(this).closest(".drop-zone__thumb").remove(); 
-              $(".pro-zone__prompt").show();
-              let inputElement = $("input[file='image']");
-              inputElement.val("");  
-              inputElement.trigger("click");
-            });
-          } else {
-        
-            $(".pro-zone__prompt").show();
-          }
+      if (image != "") {
+        $(".pro-zone__prompt").hide();
+        var imagePreview =
+          '<div class="drop-zone__thumb">' +
+          '<img src="../admin1/assets/img/blog_img/' +
+          image +
+          '" class="picture__img"/>' +
+          '<button class="close-button close">x</button>' +
+          "</div>";
+        $(".drop-zone").append(imagePreview);
+        $(".close-button").on("click", function () {
+          $(this).closest(".drop-zone__thumb").remove();
+          $(".pro-zone__prompt").show();
+          let inputElement = $("input[file='image']");
+          inputElement.val("");
+          inputElement.trigger("click");
+        });
+      } else {
+        $(".pro-zone__prompt").show();
+      }
       response["outcome"]["body"] !== undefined
         ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
         : "";
@@ -635,9 +637,9 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          $("select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]").append(
-            response["outcome"]
-          );
+          $(
+            "select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]"
+          ).append(response["outcome"]);
         }
       } else {
         console.log("Something went wrong");
@@ -1061,7 +1063,7 @@ $(document).ready(function () {
             $(".multiple_tag").val(null).trigger("change");
             $(".myFile").html("");
           } else {
-            window.location.href = "product-list.php"; 
+            window.location.href = "product-list.php";
           }
           showMessage(response.msg, "success");
           window.location.href = "product-list.php";
@@ -2177,23 +2179,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// start preview-image 
-document.addEventListener('DOMContentLoaded', function() {
-  const fileInput = document.getElementById('shop_logo_Input');
-  const preview = document.getElementById('newpreview');
+// Function to handle image preview for both inputs shop image and shop logo
+document.addEventListener("DOMContentLoaded", function () {
+  function handleImagePreview(inputId, previewId) {
+    const fileInput = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
 
-  fileInput.addEventListener('change', function() {
+    fileInput.addEventListener("change", function () {
       const file = fileInput.files[0];
       if (file) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-              preview.src = e.target.result;
-              preview.style.display = 'block';
-          };
-          reader.readAsDataURL(file);
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
       } else {
-          preview.style.display = 'none';
+        preview.style.display = "none";
       }
-  });
+    });
+  }
+
+  // Call the function for both inputs
+  handleImagePreview("shop_image_Input", "newpreview"); // For shop image
+  handleImagePreview("shop_logo_image", "shop_logo_preview"); // For shop logo image
 });
-// end preview-image 
