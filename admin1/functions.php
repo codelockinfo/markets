@@ -1186,27 +1186,176 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
+    // function productlisting()
+    //   {
+    //     global $NO_IMAGE;
+    //     $response_data = array('data' => 'fail', 'msg' => "Error");
+    //     if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
+    //         $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+
+    //         $limit = 10;
+
+    //         $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    //         $offset = ($page - 1) * $limit;
+    //         $userid_clause = '';
+    //         if ($_SESSION['current_user']['role'] == 1) {
+    //             $user_id = $_SESSION['current_user']['user_id'];
+    //             $userid_clause = "AND user_id = $user_id";
+    //         }
+    //         // $query = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit";
+    //         $query = "SELECT * FROM products WHERE title LIKE '% $search_value%' OR title LIKE '$search_value%' $userid_clause LIMIT $offset, $limit";
+    //         $result = $this->db->query($query);
+    //         $output = "";
+    //         $pagination = "";
+    //         if ($result && mysqli_num_rows($result) > 0) {
+    //             while ($row = mysqli_fetch_array($result)) {
+    //                 $product_id = $row['product_id'];
+    //                 $image = $row["p_image"];
+    //                 $imagePath = "../admin1/assets/img/product_img/" . $image;
+    //                 $noimagePath = $NO_IMAGE;
+    //                 $decodedPath = htmlspecialchars_decode(
+    //                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+    //                 );
+    //                 $title = $row['title'];
+    //                 $maxPrice = $row['maxprice'];
+    //                 $minPrice = $row['minprice'];
+
+    //                 $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
+    //                 $output .= '  <div class="card card-blog card-plain image-container mb-4">';
+    //                 $output .= '    <div class="position-relative">';
+    //                 $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+    //                 $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
+    //                 $output .= '      </a>';
+
+    //                 $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
+    //                 $output .= '    </div>';
+    //                 $output .= '    <div class="card-body px-1 pb-0">';
+    //                 $output .= '      <a href="#">';
+    //                 $output .= '        <h5>' . $title . '</h5>';
+    //                 $output .= '      </a>';
+    //                 $output .= '      <div class="d-flex justify-content-between mb-3">';
+    //                 $output .= '         <div class="ms-1 d-inline fs-6">';
+    //                 $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
+    //                 $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
+    //                 $output .= '         </div>';
+    //                 $output .= '        <div class="ms-auto text-end">';
+    //                 $output .= '<div class="modal fade" id="staticBackdrop-' . $product_id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-' . $product_id . '" aria-hidden="true">';
+    //                 $output .= ' <div class="modal-dialog">';
+    //                 $output .= ' <div class="modal-content">';
+    //                 $output .= '<div class="modal-header">';
+    //                 $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
+    //                 $output .= '<button type="button" class="btn-close text-secondary fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
+    //                 $output .= '</div>';
+    //                 $output .= '<div class="modal-body">';
+    //                 $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
+    //                 $results = $this->db->query($sql);
+    //                 if ($results && mysqli_num_rows($results) > 0) {
+    //                     $output .= '<div class="d-flex flex-wrap" >';
+    //                     while ($row_image = mysqli_fetch_array($results)) {
+    //                         $imageData = $row_image['p_image'];
+    //                         $images = explode(',', $imageData);
+    //                         if (!empty($images)) {
+    //                             foreach ($images as $image) {
+    //                                 $imagePath = "../admin1/assets/img/product_img/" . trim($image);
+    //                                 $decodedPath = htmlspecialchars_decode(
+    //                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
+    //                                 );
+    //                                 $output .= '<div class="position-relative">';
+    //                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
+    //                                 $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" "></button>';
+    //                                 $output .= '</div>';
+    //                             }
+    //                         } else {
+    //                             $output .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl no_proimg">';
+    //                         }
+    //                     }
+    //                     $output .= ' </div>';
+    //                 } else {
+    //                     $output .= '<div class="image modalgif ">';
+    //                     $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
+    //                     $output .= '</div">';
+    //                 }
+    //                 $output .= '</div>';
+
+    //                 $output .= '</div>';
+    //                 $output .= '</div>';
+    //                 $output .= '</div>';
+    //                 $output .= '</div>';
+    //                 $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
+    //                 $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
+    //                 $output .= '        </div>';
+    //                 $output .= '      </div>';
+    //                 $output .= '    </div>';
+    //                 $output .= '  </div>';
+    //                 $output .= '</div>';
+    //             }
+    //             $response_data = array('data' => 'success', 'outcome' => $output);
+    //         } else {
+    //             $response_data = array('data' => 'fail', 'outcome' => "No data found");
+    //         }
+    //         $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+    //         $res_count = $this->db->query($query);
+    //         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+    //         $total_pages = ceil($total_records / $limit);
+
+    //         $pagination .= '<div class="pagination" id="pagination-product">';
+    //         for ($i = 1; $i <= $total_pages; $i++) {
+    //             $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
+    //         }
+    //         $pagination .= '</div>';
+    //         $response_data['pagination'] = $pagination;
+    //     } else {
+    //         $response_data['msg'] = 'User not logged in';
+    //     }
+    //     return json_encode($response_data);
+    // }
     function productlisting()
-    {
+     {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
+    
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-
+    
             $limit = 20;
-
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = '';
+    
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-            // $query = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit";
-            $query = "SELECT * FROM products WHERE title LIKE '% $search_value%' OR title LIKE '$search_value%' $userid_clause LIMIT $offset, $limit";
+    
+            // Query to get the total number of products
+            $count_query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+            $res_count = $this->db->query($count_query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+    
+            // Now, show the "View All Product" button if products are more than 10
+            if ($total_records > 10) {
+                // Start with an empty string
+                $viewAllButton = ''; 
+                
+                // Add the button HTML
+                $viewAllButton .= '<div class="mx-auto text-center nav-wrapper position-relative end-0">';
+                $viewAllButton .= '<a href="' . SITE_ADMIN_URL . 'product-list.php">';
+                $viewAllButton .= '<button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 viewproduct">';
+                $viewAllButton .= 'View All Product';
+                $viewAllButton .= '</button>';
+                $viewAllButton .= '</a>';
+                $viewAllButton .= '</div>';          
+            } else {
+                // Set to an empty string when the condition is false
+                $viewAllButton = '';
+            }
+    
+            // Fetch paginated products
+            $query = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit";
             $result = $this->db->query($query);
             $output = "";
             $pagination = "";
+    
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $product_id = $row['product_id'];
@@ -1219,15 +1368,16 @@ class admin_functions
                     $title = $row['title'];
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
-
+    
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
                     $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
-
+                    $output .= '<a href="' . SITE_ADMIN_URL . 'product-list.php">';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
+                    $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -1239,65 +1389,23 @@ class admin_functions
                     $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
                     $output .= '         </div>';
                     $output .= '        <div class="ms-auto text-end">';
-                    $output .= '<div class="modal fade" id="staticBackdrop-' . $product_id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-' . $product_id . '" aria-hidden="true">';
-                    $output .= ' <div class="modal-dialog">';
-                    $output .= ' <div class="modal-content">';
-                    $output .= '<div class="modal-header">';
-                    $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-                    $output .= '<button type="button" class="btn-close text-secondary fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
-                    $output .= '</div>';
-                    $output .= '<div class="modal-body">';
-                    $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
-                    $results = $this->db->query($sql);
-                    if ($results && mysqli_num_rows($results) > 0) {
-                        $output .= '<div class="d-flex flex-wrap" >';
-                        while ($row_image = mysqli_fetch_array($results)) {
-                            $imageData = $row_image['p_image'];
-                            $images = explode(',', $imageData);
-                            if (!empty($images)) {
-                                foreach ($images as $image) {
-                                    $imagePath = "../admin1/assets/img/product_img/" . trim($image);
-                                    $decodedPath = htmlspecialchars_decode(
-                                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
-                                    );
-                                    $output .= '<div class="position-relative">';
-                                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
-                                    $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" "></button>';
-                                    $output .= '</div>';
-                                }
-                            } else {
-                                $output .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl no_proimg">';
-                            }
-                        }
-                        $output .= ' </div>';
-                    } else {
-                        $output .= '<div class="image modalgif ">';
-                        $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
-                        $output .= '</div">';
-                    }
-                    $output .= '</div>';
-
-                    $output .= '</div>';
-                    $output .= '</div>';
-                    $output .= '</div>';
-                    $output .= '</div>';
                     $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
                     $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
+
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output);
+    
+                $response_data = array('data' => 'success', 'outcome' => $output . $viewAllButton);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
-            $res_count = $this->db->query($query);
-            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+    
+            // Pagination logic
             $total_pages = ceil($total_records / $limit);
-
             $pagination .= '<div class="pagination" id="pagination-product">';
             for ($i = 1; $i <= $total_pages; $i++) {
                 $pagination .= "<a href='#' data-page='{$i}'>{$i}</a>";
@@ -1307,8 +1415,11 @@ class admin_functions
         } else {
             $response_data['msg'] = 'User not logged in';
         }
+    
         return json_encode($response_data);
     }
+    
+
 
     function invoicelisting()
     {
@@ -2437,7 +2548,7 @@ class admin_functions
                         $minPrice = $row['minprice'];
     
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
-                        $output .= '  <div class="card card-blog card-plain image-container">';
+                        $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                         $output .= '    <div class="position-relative">';
                         $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
