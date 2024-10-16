@@ -2619,7 +2619,7 @@ class admin_functions
             $user_id = "";
             if(isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1){
                 $user_id = $_SESSION['current_user']['user_id']; 
-                $userquery = "and user_id =$user_id";
+                $userquery = "and user_id = $user_id";
                 
             }
             $sql = "SELECT * FROM customer WHERE status='1' $userquery";
@@ -2655,14 +2655,15 @@ class admin_functions
                      
                      if ($invoice_item_result) {
                          if (mysqli_num_rows($invoice_item_result) > 0) {
-                            $totalitemsale = 0;
+                            $totalitemsale = $totalamountsale = 0;
                             while ($invoiceitemdata = mysqli_fetch_assoc($invoice_item_result)) {
-                                 $totalitemsale += $invoiceitemdata['quantity']; ;
+                                 $totalitemsale += $invoiceitemdata['quantity'];
+                                 $totalamountsale += $invoiceitemdata['amount'];
                             }
                          }
                      }
                     }
-                    $response_data = array('data' => 'success', 'totalitemsale' => $totalitemsale);
+                    $response_data = array('data' => 'success', 'totalitemsale' => $totalitemsale , 'totalamountsale' => $totalamountsale );
 
                 }
             }    
