@@ -2179,23 +2179,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// start preview-image
+// Function to handle image preview for both inputs shop image and shop logo
 document.addEventListener("DOMContentLoaded", function () {
-  const fileInput = document.getElementById("shop_logo_Input");
-  const preview = document.getElementById("newpreview");
+  function handleImagePreview(inputId, previewId) {
+    const fileInput = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
 
-  fileInput.addEventListener("change", function () {
-    const file = fileInput.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        preview.src = e.target.result;
-        preview.style.display = "block";
-      };
-      reader.readAsDataURL(file);
-    } else {
-      preview.style.display = "none";
-    }
-  });
+    fileInput.addEventListener("change", function () {
+      const file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.style.display = "none";
+      }
+    });
+  }
+
+  // Call the function for both inputs
+  handleImagePreview("shop_image_Input", "newpreview"); // For shop image
+  handleImagePreview("shop_logo_image", "shop_logo_preview"); // For shop logo image
 });
-// end preview-image
