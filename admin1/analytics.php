@@ -28,7 +28,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Earning</p>
                     <h5 class="font-weight-bolder mb-0">
-                      <span class="totalEarning"></span>
+                      <span class="totalEarning">Rs.0</span>
                       <span class="text-success text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Products</p>
                     <h5 class="font-weight-bolder mb-0">
-                      <span class="totalProduct"></span>
+                      <span class="totalProduct">0</span>
                       <span class="text-success text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Clients</p>
                     <h5 class="font-weight-bolder mb-0">
-                      <span class="countClient"></span>
+                      <span class="countClient">Rs.0</span>
                       <span class="text-danger text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Item Sales</p>
                     <h5 class="font-weight-bolder mb-0">
-                    <span class="totalItemSale"></span>
+                    <span class="totalItemSale">0</span>
                       <span class="text-success text-sm font-weight-bolder"></span>
                     </h5>
                   </div>

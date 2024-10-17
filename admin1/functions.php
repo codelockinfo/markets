@@ -1173,7 +1173,7 @@ class admin_functions
     
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit =1;
+            $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
     
@@ -1497,7 +1497,7 @@ class admin_functions
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 5;
+            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -2629,7 +2629,6 @@ class admin_functions
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
-
             if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userquery = "and user_id = $user_id";
