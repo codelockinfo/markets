@@ -2629,6 +2629,7 @@ class admin_functions
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
+            $response_data = array('data' => 'success');
             if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userquery = "WHERE user_id =$user_id";
@@ -2655,6 +2656,7 @@ class admin_functions
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
+            $response_data = array('data' => 'success');
             if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userquery = "and user_id =$user_id";
@@ -2677,7 +2679,7 @@ class admin_functions
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
-
+            $response_data = array('data' => 'success');
             if(isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1){
                 $user_id = $_SESSION['current_user']['user_id']; 
                 $userquery = "and user_id = $user_id";
@@ -2701,6 +2703,7 @@ class admin_functions
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = "";
+                $response_data = array('data' => 'success');
                 if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
                     $user_id = $_SESSION['current_user']['user_id'];
                     $userquery = "WHERE user_id = $user_id";
