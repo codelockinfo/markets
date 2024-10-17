@@ -346,6 +346,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
+                                <div id="pagination"></div>
                             </div>
                         </div>
                     </div>
