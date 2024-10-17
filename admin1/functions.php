@@ -206,7 +206,7 @@ class admin_functions
             $error_array['shop'] = "Please enter the shop name.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "Please enter the address.";
+            $error_array['address'] = "Please enter the shop address.";
         }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
             $error_array['business_type'] = "Please select the business type.";
