@@ -1421,15 +1421,14 @@ class admin_functions
         }
     }
 
-    function listprofile(){
+    function listprofile() {
         global $NO_IMAGE;
-        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $response_data = array('data' => 'fail', 'msg' => "Error"); 
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
             $user_id = $_SESSION['current_user']['user_id'];
             $query = "SELECT * FROM users WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
-
             if ($result) {
                 $row = $result->fetch_assoc();
                 $image = $row["shop_logo"];
@@ -1440,46 +1439,60 @@ class admin_functions
                 );
                 $previewImage = (!empty($image) && file_exists($imagePath)) ?  
                 '<div class="drop-zone form-control">
-                <span class="pro-zone__prompt" id="dragfile" style="display: none;">Drop File Here Or Click To Upload</span>
-                <input type="file" name="shop_logo" class="drop-zone__input">
-                <div class="drop-zone__thumb"><div class="img-wrapper">
-                <img src="' . $decodedPath . '" class="picture__img">
-                <button class="close-button">x</button></div></div></div>' :
-                    '<div class="drop-zone form-control">
+                    <span class="pro-zone__prompt" id="dragfile" style="display: none;">Drop File Here Or Click To Upload</span>
+                    <input type="file" name="shop_logo" class="drop-zone__input">
+                    <div class="drop-zone__thumb">
+                        <div class="img-wrapper">
+                            <img src="' . $decodedPath .'" class="picture__img">
+                        </div>
+                    </div>
+                </div>' :
+                '<div class="drop-zone form-control">
                     <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
                     <input type="file" name="shop_logo" class="drop-zone__input">
-                    </div>';
-                $name =  $row['name'];
+                </div>';
+                $name = $row['name'];
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];
                 $address = $row['address'];
+    
                 $output['profile_deatils'] = '<ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp;  ' . $name . '</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop Name:</strong> &nbsp; ' . $shop . '</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; ' . $address . '</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile Number:</strong> &nbsp; ' . $phone_number . '</li>
-                    </div>
-                    </ul>';
-
-                $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center mt-4">                   
-                   <a class="mb-0 ps-1 pe-2 py-0 mt-3" href="javascript:void(0);">
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm">
+                        <strong class="text-dark">Name:</strong> &nbsp;' . $name . '
+                    </li>
+                    <li class="list-group-item border-0 ps-0 text-sm">
+                        <strong class="text-dark">Shop Name:</strong> &nbsp;' . $shop . '
+                    </li>
+                    <li class="list-group-item border-0 ps-0 text-sm">
+                        <strong class="text-dark">Address:</strong> &nbsp;' . $address . '
+                    </li>
+                    <li class="list-group-item border-0 ps-0 text-sm">
+                        <strong class="text-dark">Mobile Number:</strong> &nbsp;' . $phone_number . '
+                    </li>
+                </ul>';
+                $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center mt-4">
+                    <a class="mb-0 ps-1 pe-2 py-0 mt-3" href="javascript:void(0);">
                         <div class="position-relative">
                             <img src="' . $decodedPath . '" alt="profile_image" class="profile-image border-radius-lg shadow-sm mb-4">
-                            <div class="position-absolute  top-0  custom-position" data-bs-toggle="modal" data-bs-target="#profileImageUpdate"><i class="fa fa-pen text-primary cursor-pointer mt-3"></i></div>
+                            <div class="position-absolute top-0 custom-position" data-bs-toggle="modal" data-bs-target="#profileImageUpdate">
+                                <i class="fa fa-pen text-primary cursor-pointer mt-3"></i>
+                            </div>
                         </div>
-                   </a>
-                   <div class="modal fade" id="profileImageUpdate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="profileImageUpdate" aria-hidden="true">
+                    </a>
+                    <div class="modal fade" id="profileImageUpdate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="profileImageUpdate" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="profileUpdate">Product Images</h1>
-                                    <button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                    <button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <form role="form" id="profileImageSave" enctype="multipart/form-data" method="POST">
                                         <div class="mb-3">
                                             <label for="p-image" class="font-weight-normal">Upload Profile Image</label>
-                                           ' . $previewImage . '
+                                            ' . $previewImage . '
                                             <div class="errormsg shop_logo imageError"></div>
                                         </div>
                                         <div class="mb-3">
@@ -1490,26 +1503,28 @@ class admin_functions
                             </div>
                         </div>
                     </div>
-                   </li>
-                   <div class="mx-auto text-center">
+                </li>
+                <div class="mx-auto text-center">
                     <a href="' . SITE_ADMIN_URL . 'profile-form.php">
-                    <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
+                        <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                     </a>
-                    </div>              
-                    </ul>';
-
+                </div>';
+    
+                // Logo display
                 $output['logo'] = '<div class="col-auto my-auto">
-                   <div class="h-100">
-                   <h5 class="mb-1">' . $shop . '</h5>
-                     </div>
-                   </div>';
-
+                    <div class="h-100">
+                        <h5 class="mb-1">' . $shop . '</h5>
+                    </div>
+                </div>';
+    
                 $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
             }
         }
+        
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function bloglisting()
     {
