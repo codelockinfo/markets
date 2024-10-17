@@ -196,7 +196,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         Your Products
                                     </h6>
                                 </div>
-                                <!-- <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
+                                <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
                                     <div class="nav-wrapper position-relative end-0">
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
                                             <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 viewproduct" style="display:none;">View All Product</button>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </a>
 
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
             <div class="input-group search-btn search-icon dropdownhide">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
@@ -379,6 +379,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
                                     </div>
                                 </div> -->
+                                <div id="pagination"></div>
                             </div>
                         </div>
                     </div>
