@@ -49,7 +49,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <a class="decrement-btn" id="decrement-btn">
                         <i class="fa fa-minus"></i>
                       </a>
-                      <input type="text" readonly="readonly" name="qty" id="qty_display" class="qty-input text-center form-control" value="1"/>
+                      <input type="text" name="qty" id="qty_display" class="qty-input text-center form-control" value="1"/>
                       <a class="increment-btn ">
                         <i class="fa fa-plus" id="increment-btn"></i>
                       </a>

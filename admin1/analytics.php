@@ -191,7 +191,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       </div>
                       <p class="text-xs mt-1 mb-0 font-weight-bold">Sales</p>
                     </div>
-                    <h4 class="font-weight-bolder totalAmountSale"></h4>
+                    <h4 class="font-weight-bolder totalAmountSale">Rs. 0</h4>
                     <div class="progress w-75">
                       <div class="progress-bar bg-gradient-info w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
@@ -216,7 +216,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       </div>
                       <p class="text-xs mt-1 mb-0 font-weight-bold">Items</p>
                     </div>
-                    <h4 class="font-weight-bolder totalProduct"></h4>
+                    <h4 class="font-weight-bolder totalProduct">0</h4>
                     <div class="progress w-75">
                       <div class="progress-bar bg-gradient-info w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
@@ -312,8 +312,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 </html>
 <script>
-  CountData('totalearning');
-  CountData('totalproduct');
-  CountData('totalclient');
-  CountData('totalitemsale');
+  $(document).ready(function () {
+      CountData('totalearning');
+      CountData('totalproduct');
+      CountData('totalclient');
+      CountData('totalitemsale');
+  });
 </script>

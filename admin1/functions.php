@@ -206,7 +206,7 @@ class admin_functions
             $error_array['shop'] = "Please enter the shop name.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "Please enter the address.";
+            $error_array['address'] = "Please enter the shop address.";
         }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
             $error_array['business_type'] = "Please select the business type.";
@@ -2943,6 +2943,7 @@ class admin_functions
             $sql = "SELECT * FROM invoice  $userquery";
             $result = $this->db->query($sql);
             if ($result) {
+                $totalitemsale = $totalamountsale = 0;
                 if (mysqli_num_rows($result) > 0) {
                     while ($invoicedata = mysqli_fetch_assoc($result)) {
 
@@ -2952,10 +2953,12 @@ class admin_functions
 
                         if ($invoice_item_result) {
                             if (mysqli_num_rows($invoice_item_result) > 0) {
-                                $totalitemsale = $totalamountsale = 0;
                                 while ($invoiceitemdata = mysqli_fetch_assoc($invoice_item_result)) {
-                                    $totalitemsale += $invoiceitemdata['quantity'];
-                                    $totalamountsale += $invoiceitemdata['amount'];
+                                    $quantity = (float)$invoiceitemdata['quantity'];
+                                    $amount = (float)$invoiceitemdata['amount'];
+                            
+                                    $totalitemsale += $quantity;
+                                    $totalamountsale += $amount;
                                 }
                             }
                         }
