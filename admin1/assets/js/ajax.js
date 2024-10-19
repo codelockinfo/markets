@@ -116,7 +116,7 @@ function CountData(routineName) {
 
 function loadData(routineName) {
   console.log(routineName + " on load");
-  console.log('fffff');
+  console.log("fffff");
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -1526,7 +1526,7 @@ $(document).ready(function () {
     event.preventDefault();
     var page = $(this).data("page");
     var sortValue = $(".dropdown .dropdown-item.active").data("value"); // Get the currently selected sort value
-    console.log(sortValue+ " ****sortValue ");
+    console.log(sortValue + " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1939,13 +1939,13 @@ $(document).ready(function () {
 
   $(".dropdown .dropdown-item").click(function () {
     var sortValue = $(this).data("value");
-    $(".dropdown-item").each(function(){
+    $(".dropdown-item").each(function () {
       $(this).removeClass("active");
-    })
+    });
     $(this).addClass("active");
     var tablename = $(this).closest(".dropdown-menu").data("table");
     var page = $("#pagination-product").find("a.active").text();
-    console.log(page);   
+    console.log(page);
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
@@ -2208,20 +2208,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleImagePreview(inputId, previewId) {
     const fileInput = document.getElementById(inputId);
     const preview = document.getElementById(previewId);
-
-    fileInput.addEventListener("change", function () {
-      const file = fileInput.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          preview.src = e.target.result;
-          preview.style.display = "block";
-        };
-        reader.readAsDataURL(file);
-      } else {
-        preview.style.display = "none";
-      }
-    });
+    if (fileInput) {
+      fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        } else {
+          preview.style.display = "none";
+        }
+      });
+    }
   }
 
   // Call the function for both inputs
