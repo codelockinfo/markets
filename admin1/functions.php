@@ -2685,4 +2685,32 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
+    
+    function chartdrawer(){
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            $userquery = "and user_id = $user_id";
+            $yearly_totals = [];
+
+            
+            $sql = "SELECT * FROM invoice WHERE status='1' $userquery";
+            $result = $this->db->query($sql);
+
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $year = date('Y', $row['created_at']);
+                        $yearly_totals[] = [
+                            'year' => $year,
+                            'total_sales' => $row['total']
+                        ];
+                    }
+                    $response_data = array('data' => 'success','outcome' => $yearly_totals);
+                }
+            }
+        } 
+        $response = json_encode($response_data);
+        return $response;
+    }
 }
