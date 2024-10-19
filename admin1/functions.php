@@ -1177,9 +1177,7 @@ class admin_functions
             $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
-    
             $userid_clause = '';
-    
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
@@ -1218,7 +1216,20 @@ class admin_functions
                         // Default behavior if no sorting option is selected
                         break;
                 }
-                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+                $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+                $res_count = $this->db->query($query);
+                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+               if ($total_records > $limit) { 
+                  $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+                // print_r($sql);
+                // echo 'limit';
+                } 
+               else { 
+                  $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+                //   print_r($sql);
+                //   echo 'nolimit';
+                }
+
                 $result = $this->db->query($sql);
                 $output = "";
                 $pagination = "";
