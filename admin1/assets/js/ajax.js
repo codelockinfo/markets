@@ -116,6 +116,7 @@ function CountData(routineName) {
 
 function loadData(routineName) {
   console.log(routineName + " on load");
+  console.log('fffff');
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -1524,12 +1525,15 @@ $(document).ready(function () {
   $(document).on("click", "#pagination-product a", function (event) {
     event.preventDefault();
     var page = $(this).data("page");
+    var sortValue = $(".dropdown .dropdown-item.active").data("value"); // Get the currently selected sort value
+    console.log(sortValue+ " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
       dataType: "json",
       data: {
         page: page,
+        sortValue: sortValue,
         search_text: $("#search_text").val(),
         routine_name: "productlisting",
       },
@@ -1934,17 +1938,23 @@ $(document).ready(function () {
   });
 
   $(".dropdown .dropdown-item").click(function () {
-    console.log($(this).html());
     var sortValue = $(this).data("value");
+    $(".dropdown-item").each(function(){
+      $(this).removeClass("active");
+    })
+    $(this).addClass("active");
     var tablename = $(this).closest(".dropdown-menu").data("table");
+    var page = $("#pagination-product").find("a.active").text();
+    console.log(page);   
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
       dataType: "json",
       data: {
-        routine_name: "data_sort_by",
+        routine_name: "productlisting",
         sortValue: sortValue,
         tablename: tablename,
+        page: page,
       },
       success: function (response) {
         var response = JSON.parse(response);
