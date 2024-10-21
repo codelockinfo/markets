@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search">
             </div>
           </div>
-          <div class="dropdown mt-3 filterDropdown">
+          <div class="dropdown mt-3 filterDropdown" data-filter="productlist">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Sort By
             </button>

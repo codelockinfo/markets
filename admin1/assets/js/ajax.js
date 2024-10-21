@@ -1522,11 +1522,13 @@ $(document).ready(function () {
     });
   });
   // product pagination
-  $(document).on("click", "#pagination-product a", function (event) {
+  $(document).on("click", "#dataPagination a", function (event) {
     event.preventDefault();
+    var routine_name = $("#dataPagination").data("routine");
+    console.log("Routine name:", routine_name);
     var page = $(this).data("page");
     var sortValue = $(".dropdown .dropdown-item.active").data("value"); // Get the currently selected sort value
-    console.log(sortValue + " ****sortValue ");
+    console.log(sortValue+ " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1535,7 +1537,7 @@ $(document).ready(function () {
         page: page,
         sortValue: sortValue,
         search_text: $("#search_text").val(),
-        routine_name: "productlisting",
+        routine_name: routine_name,
       },
       success: function (data) {
         var data = JSON.parse(data);
@@ -1938,20 +1940,24 @@ $(document).ready(function () {
   });
 
   $(".dropdown .dropdown-item").click(function () {
+    var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
-    $(".dropdown-item").each(function () {
-      $(this).removeClass("active");
-    });
-    $(this).addClass("active");
+    var routin_name = (page_name == "bloglist") ? "bloglisting" : (page_name == "productlist") ?  "productlisting" : "videolisting";
     var tablename = $(this).closest(".dropdown-menu").data("table");
-    var page = $("#pagination-product").find("a.active").text();
-    console.log(page);
+    
+    $(".dropdown-item").each(function() {
+      $(this).removeClass("active");  
+    });
+    $(this).addClass("active");  
+    
+    var page = $("#dataPagination").find(".page-link.active").data("page");  
+    
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
       dataType: "json",
       data: {
-        routine_name: "productlisting",
+        routine_name: routin_name,
         sortValue: sortValue,
         tablename: tablename,
         page: page,
