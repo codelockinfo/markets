@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search">
             </div>
           </div>
-          <div class="dropdown mt-3 filterDropdown">
+          <div class="dropdown mt-3 filterDropdown" data-filter="productlist">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Sort By
             </button>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:7600464414">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">

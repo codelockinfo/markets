@@ -30,7 +30,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control search-btn_1" placeholder="Type here...">
             </div>
           </div> -->
-          <div class="dropdown mt-3">
+          <!--start filter -->
+          <!-- <div class="dropdown mt-3 filterDropdown" data-filter="videolist">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filters
             </button>
@@ -44,7 +45,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
               <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
             </ul>
-          </div>
+          </div> -->
+                    <!--end filter -->
         </div>
         <div class="input-group search-btn search-icon1 w-80 mx-auto">
           <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
@@ -62,7 +64,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:7600464414">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">

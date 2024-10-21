@@ -31,17 +31,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="blog_search">
             </div>
           </div>
-          <div class="dropdown mt-3 filterDropdown">
+          <div class="dropdown mt-3 filterDropdown"  data-filter="bloglist">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filters
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="blogs">
               <li class="dropdown-item" data-value="featured">Featured</li>
-              <li class="dropdown-item" data-value="best_selling">Best Selling</li>
               <li class="dropdown-item" data-value="alphabetically_az">Alphabetically, A-Z</li>
               <li class="dropdown-item" data-value="alphabetically_za">Alphabetically, Z-A</li>
-              <li class="dropdown-item" data-value="price_low_high">Price, low to high</li>
-              <li class="dropdown-item" data-value="price_high_low">Price, high to low</li>
               <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
               <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
             </ul>
@@ -63,7 +60,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   </div>
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:7600464414">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">
