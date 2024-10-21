@@ -509,10 +509,17 @@ function get_customer(id) {
       response["outcome"]["contact"] !== undefined
         ? $("input[name='contact']").val(response["outcome"]["contact"])
         : "";
+        response["outcome"]["city"] !== undefined
+        ? $("input[name='city']").val(response["outcome"]["city"])
+        : "";
+        response["outcome"]["state"] !== undefined
+        ? $("input[name='state']").val(response["outcome"]["state"])
+        : "";
+
       response["outcome"]["address"] !== undefined
         ? $("textarea[name='address']").val(response["outcome"]["address"])
         : "";
-
+       
       // Handle customer image
       var c_image =
         response["outcome"]["c_image"] !== undefined
@@ -1121,6 +1128,14 @@ $(document).ready(function () {
         response["msg"]["c_image"] !== undefined
           ? $(".c_image").html(response["msg"]["c_image"])
           : $(".c_image").html("");
+
+          response["msg"]["city"] !== undefined
+          ? $(".city").html(response["msg"]["city"])
+          : $(".city").html("");
+          response["msg"]["state"] !== undefined
+          ? $(".state").html(response["msg"]["state"])
+          : $(".state").html("");
+
         response["msg"]["address"] !== undefined
           ? $(".address").html(response["msg"]["address"])
           : $(".address").html("");

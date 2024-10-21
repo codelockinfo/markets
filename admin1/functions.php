@@ -105,7 +105,8 @@ class admin_functions
         return $response;
     }
 
-    function profile_imagesave(){
+    function profile_imagesave()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -158,7 +159,8 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function insert_signup() {
+    function insert_signup()
+    {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
@@ -267,7 +269,8 @@ class admin_functions
         }
     }
 
-    function insert_products(){
+    function insert_products()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
 
@@ -477,19 +480,28 @@ class admin_functions
         if (empty($_POST['address'])) {
             $error_array['address'] = "Please enter customer address.";
         }
+        if (empty($_POST['city'])) {
+            $error_array['city'] = "Please enter customer city.";
+        }
+        if (empty($_POST['state'])) {
+            $error_array['state'] = "Please enter customer state.";
+        }
         if (empty($error_array)) {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $contact = $_POST['contact'];
             $address = $_POST['address'];
+            $city = $_POST['city'];
+            $state = $_POST['state'];
+
 
             if ($id == '') {
                 if ($is_image) {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         if (isset($_SESSION['current_user']['user_id'])) {
                             $user_id = $_SESSION['current_user']['user_id'];
-                            $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
-                            VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
+                            $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`city`,`state`,`address`,`user_id`) 
+                            VALUES ('$name', '$email','$contact', '$newFilename','$city', '$state','$address','$user_id')";
                             $result = $this->db->query($query);
                         }
                     } else {
@@ -497,12 +509,12 @@ class admin_functions
                     }
                 }
             } else {
-                $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', address = '$address' WHERE customer_id = $id";
+                $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
 
                 if ($is_image) {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
-                        c_image = '$newFilename', address = '$address' WHERE customer_id = $id";
+                        c_image = '$newFilename',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
                     } else {
                         $error_array['c_image'] = "Error moving uploaded file.";
                     }
@@ -1247,15 +1259,13 @@ class admin_functions
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
     
-                                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
-                    $output .= '<a href="' . SITE_ADMIN_URL . 'product-list.php">';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
-                    $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -1448,7 +1458,8 @@ class admin_functions
         }
     }
 
-    function listprofile() {
+    function listprofile()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error"); 
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1548,6 +1559,7 @@ class admin_functions
         
         $response = json_encode($response_data);
         return $response;
+
     } 
     function bloglisting(){
         global $NO_IMAGE;
@@ -1757,6 +1769,7 @@ class admin_functions
         return $response;
     }
 
+
     function allvideolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1936,6 +1949,7 @@ class admin_functions
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
+                                
                             }
                         }
                     }
@@ -2155,6 +2169,7 @@ class admin_functions
                             $output .= '    </div>';
                             $output .= '  </div>';
                             $output .= '</div>';
+                            
                         }
                         $response_data = array('data' => 'success', 'outcome' => $output);
                     } else {
@@ -2458,443 +2473,6 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-
-    // function data_sort_by(){
-    //     global $NO_IMAGE;
-    //     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-    //     $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
-    //     if (!empty($sort)) {
-    //         $filterQuery = '';
-    //         $tablename = isset($_POST['tablename']) ? $_POST['tablename'] : '';
-    //         $user_id = $_SESSION['current_user']['user_id'];
-    //         $limit = 20;
-    //         $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-    //         $offset = ($page - 1) * $limit;
-    //         switch ($sort) {
-    //             case 'best_selling':
-    //                 $filterQuery = 'ORDER BY best_selling DESC';
-    //                 break;
-    //             case 'alphabetically_az':
-    //                 $filterQuery = 'ORDER BY title ASC';
-    //                 break;
-    //             case 'alphabetically_za':
-    //                 $filterQuery = 'ORDER BY title DESC';
-    //                 break;
-    //             case 'price_low_high':
-    //                 if ($tablename == 'products') {
-    //                     $filterQuery = 'ORDER BY minprice ASC';
-    //                 }
-    //                 break;
-    //             case 'price_high_low':
-    //                 if ($tablename == 'products') {
-    //                     $filterQuery = 'ORDER BY minprice DESC';
-    //                 }
-    //                 break;
-    //             case 'date_new_old':
-    //                 $filterQuery = 'ORDER BY created_date DESC';
-    //                 break;
-    //             case 'date_old_new':
-    //                 $filterQuery = 'ORDER BY created_date ASC';
-    //                 break;
-    //             case 'featured':
-    //                 // Add featured sorting logic if needed
-    //                 break;
-    //             default:
-    //                 // Handle the default case if needed
-    //                 break;
-    //         }
-
-    //         $sql = "SELECT * FROM $tablename where user_id ='$user_id' $filterQuery LIMIT $offset, $limit";
-    //         $result = $this->db->query($sql);
-
-    //         if ($result) {
-    //             if (mysqli_num_rows($result) > 0) {
-    //                 $output = "";
-    //                 if ($tablename === 'products') {
-    //                     while ($row = mysqli_fetch_array($result)) {
-    //                         $product_id = $row['product_id'];
-    //                         $image = $row["p_image"];
-    //                         $imagePath = "../admin1/assets/img/product_img/" . $image;
-    //                         $noimagePath = $NO_IMAGE;
-    //                         $decodedPath = htmlspecialchars_decode(
-    //                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-    //                         );
-    //                         $title = $row['title'];
-    //                         $maxPrice = $row['maxprice'];
-    //                         $minPrice = $row['minprice'];
-
-    //                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
-    //                         $output .= '  <div class="card card-blog card-plain image-container">';
-    //                         $output .= '    <div class="position-relative">';
-    //                         $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
-    //                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-    //                         $output .= '      </a>';
-
-    //                         $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
-    //                         $output .= '    </div>';
-    //                         $output .= '    <div class="card-body px-1 pb-0">';
-    //                         $output .= '      <a href="#">';
-    //                         $output .= '        <h5>' . $title . '</h5>';
-    //                         $output .= '      </a>';
-    //                         $output .= '      <div class="d-flex justify-content-between mb-3">';
-    //                         $output .= '         <div class="ms-1 d-inline fs-6">';
-    //                         $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
-    //                         $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
-    //                         $output .= '         </div>';
-    //                         $output .= '        <div class="ms-auto text-end">';
-    //                         $output .= '<div class="modal fade" id="staticBackdrop-' . $product_id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-' . $product_id . '" aria-hidden="true">';
-    //                         $output .= ' <div class="modal-dialog">';
-    //                         $output .= ' <div class="modal-content">';
-    //                         $output .= '<div class="modal-header">';
-    //                         $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-    //                         $output .= '<button type="button" class="btn-close text-secondary fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
-    //                         $output .= '</div>';
-    //                         $output .= '<div class="modal-body">';
-    //                         $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
-    //                         $results = $this->db->query($sql);
-    //                         if ($results && mysqli_num_rows($results) > 0) {
-    //                             $output .= '<div class="d-flex flex-wrap" >';
-    //                             while ($row_image = mysqli_fetch_array($results)) {
-    //                                 $imageData = $row_image['p_image'];
-    //                                 $images = explode(',', $imageData);
-    //                                 if (!empty($images)) {
-    //                                     foreach ($images as $image) {
-    //                                         $imagePath = "../admin1/assets/img/product_img/" . trim($image);
-    //                                         $decodedPath = htmlspecialchars_decode(
-    //                                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
-    //                                         );
-    //                                         $output .= '<div class="position-relative">';
-    //                                         $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
-    //                                         $output .= '<button data-id="' . $row_image["product_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" "></button>';
-    //                                         $output .= '</div>';
-    //                                     }
-    //                                 } else {
-    //                                     $output .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl no_proimg">';
-    //                                 }
-    //                             }
-    //                             $output .= ' </div>';
-    //                         } else {
-    //                             $output .= '<div class="image modalgif ">';
-    //                             $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
-    //                             $output .= '</div">';
-    //                         }
-    //                         $output .= '</div>';
-
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
-    //                         $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
-    //                         $output .= '        </div>';
-    //                         $output .= '      </div>';
-    //                         $output .= '    </div>';
-    //                         $output .= '  </div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                 } elseif ($tablename === 'blogs') {
-    //                     while ($row = mysqli_fetch_assoc($result)) {
-    //                         $image = $row["image"];
-    //                         $imagePath = "../admin1/assets/img/blog_img/" . $image;
-    //                         $noimagePath = $NO_IMAGE;
-    //                         $decodedPath = htmlspecialchars_decode(
-    //                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-    //                         );
-    //                         $title = htmlspecialchars($row['title']);
-    //                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //                         $output .= '  <div class="card card-blog card-plain">';
-    //                         $output .= '    <div class="position-relative">';
-    //                         $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';
-    //                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3 blog_image_mainbox">';
-    //                         $output .= '      </a>';
-    //                         $output .= '    </div>';
-    //                         $output .= '    <div class="card-body px-1 pb-0">';
-    //                         $output .= '      <a href="#">';
-    //                         $output .= '        <h5>' . $title . '</h5>';
-    //                         $output .= '      </a>';
-    //                         $output .= '      <div class="d-flex justify-content-between mb-3">';
-    //                         $output .= '        <div class="ms-auto text-end">';
-    //                         $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
-    //                         $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
-    //                         $output .= '        </div>';
-    //                         $output .= '      </div>';
-    //                         $output .= '    </div>';
-    //                         $output .= '  </div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                 } elseif ($tablename === 'videos') {
-    //                     while ($row = mysqli_fetch_array($result)) {
-    //                         $link = $row["short_link"];
-    //                         $title =  $row['title'];
-    //                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //                         $output .= '<div class="card card-blog card-plain">';
-    //                         $output .= '<div class="position-relative">';
-    //                         $output .= '<a class="border-radius-xl">';
-    //                         $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-    //                         $output .= '</a>';
-    //                         $output .= '</div>';
-    //                         $output .= '<div class="card-body px-1 pb-0">';
-    //                         $output .= '<div class="d-flex justify-content-between mb-3">';
-    //                         $output .= '<div class="ms-auto text-end">';
-    //                         $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                 }
-    //                 $response_data = array('data' => 'success', 'outcome' => $output);
-    //             } else {
-    //                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
-    //             }
-    //         }
-    //     }
-    //     $response = json_encode($response_data);
-    //     return $response;
-    // }  
-    
-    // function data_sort_by(){
-    //     global $NO_IMAGE;
-    //     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-    //     $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
-    //     if (!empty($sort)) {
-    //         $filterQuery = '';
-    //         $tablename = isset($_POST['tablename']) ? $_POST['tablename'] : '';
-    //         $user_id = $_SESSION['current_user']['user_id'];
-    //         $limit = 10; // Number of items per page
-    //         $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-    //         $offset = ($page - 1) * $limit;
-    
-    //         // Sorting logic
-    //         switch ($sort) {
-    //             case 'best_selling':
-    //                 $filterQuery = 'ORDER BY best_selling DESC';
-    //                 break;
-    //             case 'alphabetically_az':
-    //                 $filterQuery = 'ORDER BY title ASC';
-    //                 break;
-    //             case 'alphabetically_za':
-    //                 $filterQuery = 'ORDER BY title DESC';
-    //                 break;
-    //             case 'price_low_high':
-    //                 if ($tablename == 'products') {
-    //                     $filterQuery = 'ORDER BY minprice ASC';
-    //                 }
-    //                 break;
-    //             case 'price_high_low':
-    //                 if ($tablename == 'products') {
-    //                     $filterQuery = 'ORDER BY minprice DESC';
-    //                 }
-    //                 break;
-    //             case 'date_new_old':
-    //                 $filterQuery = 'ORDER BY created_date DESC';
-    //                 break;
-    //             case 'date_old_new':
-    //                 $filterQuery = 'ORDER BY created_date ASC';
-    //                 break;
-    //             case 'featured':
-    //                 // Add featured sorting logic if needed
-    //                 break;
-    //             default:
-    //                 // Handle the default case if needed
-    //                 break;
-    //         }
-    
-    //         // Query to get total rows for pagination
-    //         $totalSql = "SELECT COUNT(*) as totalRows FROM $tablename WHERE user_id = '$user_id'";
-    //         $totalResult = $this->db->query($totalSql);
-    //         $totalRows = mysqli_fetch_assoc($totalResult)['totalRows'];
-    
-    //         // Main query with sorting and pagination
-    //         $sql = "SELECT * FROM $tablename WHERE user_id ='$user_id' $filterQuery LIMIT $offset, $limit";
-    //         $result = $this->db->query($sql);
-    // // print_r($sql);
-    //         if ($result) {
-    //             if (mysqli_num_rows($result) > 0) {
-    //                 $output = "";
-    
-    //                 // Output generation logic (products, blogs, videos)
-    //                 // -- This part of the code remains unchanged --
-    //                 if ($tablename === 'products') {
-    //                     while ($row = mysqli_fetch_array($result)) {
-    //                         $product_id = $row['product_id'];
-    //                         $image = $row["p_image"];
-    //                         $imagePath = "../admin1/assets/img/product_img/" . $image;
-    //                         $noimagePath = $NO_IMAGE;
-    //                         $decodedPath = htmlspecialchars_decode(
-    //                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-    //                         );
-    //                         $title = $row['title'];
-    //                         $maxPrice = $row['maxprice'];
-    //                         $minPrice = $row['minprice'];
-
-    //                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4" >';
-    //                         $output .= '  <div class="card card-blog card-plain image-container">';
-    //                         $output .= '    <div class="position-relative">';
-    //                         $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
-    //                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-    //                         $output .= '      </a>';
-
-    //                         $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
-    //                         $output .= '    </div>';
-    //                         $output .= '    <div class="card-body px-1 pb-0">';
-    //                         $output .= '      <a href="#">';
-    //                         $output .= '        <h5>' . $title . '</h5>';
-    //                         $output .= '      </a>';
-    //                         $output .= '      <div class="d-flex justify-content-between mb-3">';
-    //                         $output .= '         <div class="ms-1 d-inline fs-6">';
-    //                         $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
-    //                         $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
-    //                         $output .= '         </div>';
-    //                         $output .= '        <div class="ms-auto text-end">';
-    //                         $output .= '<div class="modal fade" id="staticBackdrop-' . $product_id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-' . $product_id . '" aria-hidden="true">';
-    //                         $output .= ' <div class="modal-dialog">';
-    //                         $output .= ' <div class="modal-content">';
-    //                         $output .= '<div class="modal-header">';
-    //                         $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-    //                         $output .= '<button type="button" class="btn-close text-secondary fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
-    //                         $output .= '</div>';
-    //                         $output .= '<div class="modal-body">';
-    //                         $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
-    //                         $results = $this->db->query($sql);
-    //                         if ($results && mysqli_num_rows($results) > 0) {
-    //                             $output .= '<div class="d-flex flex-wrap" >';
-    //                             while ($row_image = mysqli_fetch_array($results)) {
-    //                                 $imageData = $row_image['p_image'];
-    //                                 $images = explode(',', $imageData);
-    //                                 if (!empty($images)) {
-    //                                     foreach ($images as $image) {
-    //                                         $imagePath = "../admin1/assets/img/product_img/" . trim($image);
-    //                                         $decodedPath = htmlspecialchars_decode(
-    //                                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
-    //                                         );
-    //                                         $output .= '<div class="position-relative">';
-    //                                         $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
-    //                                         $output .= '<button data-id="' . $row_image["product_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" "></button>';
-    //                                         $output .= '</div>';
-    //                                     }
-    //                                 } else {
-    //                                     $output .= '<img src="' . $NO_IMAGE . '" alt="No Image" class="img-fluid shadow border-radius-xl no_proimg">';
-    //                                 }
-    //                             }
-    //                             $output .= ' </div>';
-    //                         } else {
-    //                             $output .= '<div class="image modalgif ">';
-    //                             $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
-    //                             $output .= '</div">';
-    //                         }
-    //                         $output .= '</div>';
-
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
-    //                         $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
-    //                         $output .= '        </div>';
-    //                         $output .= '      </div>';
-    //                         $output .= '    </div>';
-    //                         $output .= '  </div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                 } elseif ($tablename === 'blogs') {
-    //                     while ($row = mysqli_fetch_assoc($result)) {
-    //                         $image = $row["image"];
-    //                         $imagePath = "../admin1/assets/img/blog_img/" . $image;
-    //                         $noimagePath = $NO_IMAGE;
-    //                         $decodedPath = htmlspecialchars_decode(
-    //                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-    //                         );
-    //                         $title = htmlspecialchars($row['title']);
-    //                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //                         $output .= '  <div class="card card-blog card-plain">';
-    //                         $output .= '    <div class="position-relative">';
-    //                         $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';
-    //                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3 blog_image_mainbox">';
-    //                         $output .= '      </a>';
-    //                         $output .= '    </div>';
-    //                         $output .= '    <div class="card-body px-1 pb-0">';
-    //                         $output .= '      <a href="#">';
-    //                         $output .= '        <h5>' . $title . '</h5>';
-    //                         $output .= '      </a>';
-    //                         $output .= '      <div class="d-flex justify-content-between mb-3">';
-    //                         $output .= '        <div class="ms-auto text-end">';
-    //                         $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
-    //                         $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
-    //                         $output .= '        </div>';
-    //                         $output .= '      </div>';
-    //                         $output .= '    </div>';
-    //                         $output .= '  </div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                 } elseif ($tablename === 'videos') {
-    //                     while ($row = mysqli_fetch_array($result)) {
-    //                         $link = $row["short_link"];
-    //                         $title =  $row['title'];
-    //                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-    //                         $output .= '<div class="card card-blog card-plain">';
-    //                         $output .= '<div class="position-relative">';
-    //                         $output .= '<a class="border-radius-xl">';
-    //                         $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-    //                         $output .= '</a>';
-    //                         $output .= '</div>';
-    //                         $output .= '<div class="card-body px-1 pb-0">';
-    //                         $output .= '<div class="d-flex justify-content-between mb-3">';
-    //                         $output .= '<div class="ms-auto text-end">';
-    //                         $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                 }
-
-
-    //                 // Pagination calculation
-    //                 $totalPages = ceil($totalRows / $limit);
-    
-    //                 // Generating pagination HTML
-    //                 $pagination = '<nav aria-label="Page navigation">';
-    //                 $pagination .= '<ul class="pagination justify-content-center">';
-    
-    //                 // Previous button
-    //                 if ($page > 1) {
-    //                     $pagination .= '<li class="page-item"><a class="page-link" href="#" data-page="' . ($page - 1) . '">Previous</a></li>';
-    //                 }
-    
-    //                 // Page number links
-    //                 for ($i = 1; $i <= $totalPages; $i++) {
-    //                     if ($i == $page) {
-    //                         $pagination .= '<li class="page-item active"><a class="page-link" href="#" data-page="' . $i . '">' . $i . '</a></li>';
-    //                     } else {
-    //                         $pagination .= '<li class="page-item"><a class="page-link" href="#" data-page="' . $i . '">' . $i . '</a></li>';
-    //                     }
-    //                 }
-    
-    //                 // Next button
-    //                 if ($page < $totalPages) {
-    //                     $pagination .= '<li class="page-item"><a class="page-link" href="#" data-page="' . ($page + 1) . '">Next</a></li>';
-    //                 }
-    
-    //                 $pagination .= '</ul>';
-    //                 $pagination .= '</nav>';
-    
-    //                 // Set response data for successful fetch
-    //                 $response_data = array('data' => 'success', 'outcome' => $output.$pagination);
-    //             } else {
-    //                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
-    //             }
-    //         }
-    //     }
-        
-    //     $response = json_encode($response_data);
-    //     echo "<pre>";
-    //     print_r($response);    
-    //     return $response;
-    // }
-    
 
     function get_categories() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
