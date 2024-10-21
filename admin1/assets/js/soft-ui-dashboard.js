@@ -380,7 +380,7 @@ function sidebarType(a) {
 
 
 // Toggle Sidenav
-window.onload = function() {
+window.addEventListener('load', function () {
 
 const iconNavbarSidenav = document.getElementById('iconNavbarSidenav');
 console.log("---------------------");
@@ -412,7 +412,7 @@ function toggleSidenav() {
     iconSidenav.classList.remove('d-none');
   }
 }
-}
+});
 
 // Resize navbar color depends on configurator active type of sidenav
 

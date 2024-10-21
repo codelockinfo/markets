@@ -190,6 +190,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     </li> -->
                                 <!-- </ul> -->
                             </div>
+                            
+                            
+                            <div class="card-header text-end">
+                                <a href="#">
+                                    <button type="button" class="btn bg-gradient-info btn-sm">View your profile</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 mt-4">
