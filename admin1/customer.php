@@ -65,7 +65,17 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="errormsg myFile c_image"></div>
             </div>
             <div class="mb-3">
-              <label for="p-image" class="font-weight-normal required">Address</label>
+              <label for="city" class="font-weight-normal required">city</label>
+              <input  type="text" class="w-100 form-control validtext" name="city" placeholder="Enter city">
+              <span class="errormsg city"></span>
+            </div>
+            <div class="mb-3">
+              <label for="state" class="font-weight-normal required">state</label>
+              <input id="pro-description" class="w-100 form-control validtext" name="state" placeholder="Enter state">
+              <span class="errormsg state"></span>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="font-weight-normal required">Address</label>
               <textarea id="pro-description" class="w-100 form-control validtext" name="address" placeholder="Enter Your Address"></textarea>
               <span class="errormsg address"></span>
             </div>

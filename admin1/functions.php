@@ -480,19 +480,28 @@ class admin_functions
         if (empty($_POST['address'])) {
             $error_array['address'] = "Please enter customer address.";
         }
+        if (empty($_POST['city'])) {
+            $error_array['city'] = "Please enter customer city.";
+        }
+        if (empty($_POST['state'])) {
+            $error_array['state'] = "Please enter customer state.";
+        }
         if (empty($error_array)) {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $contact = $_POST['contact'];
             $address = $_POST['address'];
+            $city = $_POST['city'];
+            $state = $_POST['state'];
+
 
             if ($id == '') {
                 if ($is_image) {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         if (isset($_SESSION['current_user']['user_id'])) {
                             $user_id = $_SESSION['current_user']['user_id'];
-                            $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`address`,`user_id`) 
-                            VALUES ('$name', '$email','$contact', '$newFilename', '$address','$user_id')";
+                            $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`city`,`state`,`address`,`user_id`) 
+                            VALUES ('$name', '$email','$contact', '$newFilename','$city', '$state','$address','$user_id')";
                             $result = $this->db->query($query);
                         }
                     } else {
@@ -500,12 +509,12 @@ class admin_functions
                     }
                 }
             } else {
-                $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', address = '$address' WHERE customer_id = $id";
+                $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
 
                 if ($is_image) {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
-                        c_image = '$newFilename', address = '$address' WHERE customer_id = $id";
+                        c_image = '$newFilename',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
                     } else {
                         $error_array['c_image'] = "Error moving uploaded file.";
                     }

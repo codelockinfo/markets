@@ -492,7 +492,20 @@
   cursor: pointer;
   border-radius: 50%;
 }
-
+.close-buttons_profile{
+  position: absolute;
+   left: 90%; 
+  top: 0px;
+  z-index: 1;
+  text-align: center;
+  border: none;
+  background-color: #c00b44;
+  color: #fff;
+  font-size: 18px;
+  line-height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+}
 .close-button:hover {
   background-color: #7e0129;
 }
