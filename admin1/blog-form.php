@@ -5,6 +5,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
 }
+$shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['shop'] :  '';
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -44,7 +45,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="text" class="font-weight-normal required">Author</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Author Name" name="author_name">
+              <input type="text" class="form-control validtext" placeholder="Author Name" name="author_name" value="<?php echo $shop; ?>">
               <span class="errormsg author_name"></span>
             </div>
             <label for="p-image" class="font-weight-normal required">Blog Image</label>

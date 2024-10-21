@@ -121,7 +121,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Customer</span>
+            <span class="nav-link-text ms-1">Customers</span>
           </a>
         </li>
         <li class="nav-item">

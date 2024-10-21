@@ -756,14 +756,14 @@ include 'header.php';
 </html>
 <script type="text/javascript"> 
 console.log("bannerlatest LIST");
-famousmarket();
 latestbanner();
+famousmarket();
+productshowclientside();
 offersshow();
 paragraphs();
-// videos();
-// FAQshow();
+videos();
+FAQshow();
 // reviewshow();
-// productshowclientside();
 // marketlistshowclientside();
 // marketlist2showclientside();
 // marketlist3showclientside();
