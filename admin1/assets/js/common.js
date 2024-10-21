@@ -89,7 +89,6 @@ window.onload = function () {
       dropZoneElement.classList.remove("drop-zone--over");
     });
   });
-};
 
 function clearThumbnail(dropZoneElement) {
   const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
@@ -115,33 +114,32 @@ function updateThumbnail(dropZoneElement, file, inputElement) {
     reader.addEventListener("load", (e) => {
       console.log("Load");
       const img = document.createElement("img");
-      img.src = e.target.result;
+      img.src = e.target.result; 
       img.classList.add("picture__img");
       const closeButton = document.createElement("button");
-      closeButton.classList.add("close-button");
+      closeButton.classList.add("close-buttons_profile");
       closeButton.innerText = "x";
 
       closeButton.addEventListener("click", (event) => {
         event.stopPropagation();
 
         thumbnailElement.innerHTML = "";
-        inputElement.value = "";
+        inputElement.value = ""; 
         inputElement.disabled = false;
-        promptElement.style.display = "block";
+        promptElement.style.display = "block"; 
+        setTimeout(() => {
+          inputElement.value = null; 
+        }, 0);
       });
-
-      // Append image and close button to thumbnail element
       thumbnailElement.appendChild(img);
       thumbnailElement.appendChild(closeButton);
-
-      // Hide the prompt
       promptElement.style.display = "none";
     });
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file); 
   }
 }
-
+};
 // multi select js in product form page
 
 $(document).ready(function () {
