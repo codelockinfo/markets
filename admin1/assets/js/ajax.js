@@ -116,6 +116,7 @@ function CountData(routineName) {
 
 function loadData(routineName) {
   console.log(routineName + " on load");
+  console.log("fffff");
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -888,49 +889,50 @@ $(document).ready(function () {
   });
   function profileUpdateImage() {
     console.log("profile update ...using modal");
-    $('#profileImageUpdate').modal('hide'); // Use the modal ID to hide it
-}
+    $("#profileImageUpdate").modal("hide"); // Use the modal ID to hide it
+  }
   $(document).on("click", ".profileImageSave", function (e) {
     console.log("profileImageSave ");
     var form_data = $("#profileImageSave")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "profile_imagesave");
     $.ajax({
-        url: "../admin1/ajax_call.php",
-        type: "post",
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        data: form_data,
-        beforeSend: function () {
-            loading_show(".save_loader_show");
-        },
-        success: function (response) {
-            console.log(response);
-            var response = JSON.parse(response);
-            if (response["msg"]["shop_logo"] !== undefined) {
-                $(".shop_logo").html(response["msg"]["shop_logo"]);
-            } else {
-                $(".shop_logo").html("");
-            }
-            loading_hide(".save_loader_show", "SIGN UP");
-            showMessage(response.msg, "success");
-            if (response["data"] == "success") {
-                $(".drop-zone__thumb .img-wrapper").append('<button class="close-button">x</button>');
-                $(".close-button").on("click", function () {
-                    $(this).closest('.drop-zone').find('img').remove();
-                    $(this).remove();
-                });
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
+      success: function (response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        if (response["msg"]["shop_logo"] !== undefined) {
+          $(".shop_logo").html(response["msg"]["shop_logo"]);
+        } else {
+          $(".shop_logo").html("");
+        }
+        loading_hide(".save_loader_show", "SIGN UP");
+        showMessage(response.msg, "success");
+        if (response["data"] == "success") {
+          $(".drop-zone__thumb .img-wrapper").append(
+            '<button class="close-button">x</button>'
+          );
+          $(".close-button").on("click", function () {
+            $(this).closest(".drop-zone").find("img").remove();
+            $(this).remove();
+          });
 
-                listprofile();
-                profileUpdateImage();
-            } else {
-                showMessage(response.msg_error, "fail");
-            }
-        },
+          listprofile();
+          profileUpdateImage();
+        } else {
+          showMessage(response.msg_error, "fail");
+        }
+      },
     });
-});
-
+  });
 
   $(document).on("click", ".signUpsave", function (e) {
     e.preventDefault();
@@ -1300,9 +1302,11 @@ $(document).ready(function () {
 
   function delete_product_image_response(deleteId) {
     console.log("Function called with deleteId:", deleteId);
-    $("[data-id='" + deleteId + "']").closest(".position-relative").remove();
+    $("[data-id='" + deleteId + "']")
+      .closest(".position-relative")
+      .remove();
   }
- 
+
   $(document).delegate(".delete", "click", function () {
     var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
@@ -1521,12 +1525,15 @@ $(document).ready(function () {
   $(document).on("click", "#pagination-product a", function (event) {
     event.preventDefault();
     var page = $(this).data("page");
+    var sortValue = $(".dropdown .dropdown-item.active").data("value"); // Get the currently selected sort value
+    console.log(sortValue + " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
       dataType: "json",
       data: {
         page: page,
+        sortValue: sortValue,
         search_text: $("#search_text").val(),
         routine_name: "productlisting",
       },
@@ -1931,17 +1938,23 @@ $(document).ready(function () {
   });
 
   $(".dropdown .dropdown-item").click(function () {
-    console.log($(this).html());
     var sortValue = $(this).data("value");
+    $(".dropdown-item").each(function () {
+      $(this).removeClass("active");
+    });
+    $(this).addClass("active");
     var tablename = $(this).closest(".dropdown-menu").data("table");
+    var page = $("#pagination-product").find("a.active").text();
+    console.log(page);
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
       dataType: "json",
       data: {
-        routine_name: "data_sort_by",
+        routine_name: "productlisting",
         sortValue: sortValue,
         tablename: tablename,
+        page: page,
       },
       success: function (response) {
         var response = JSON.parse(response);
@@ -2195,20 +2208,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleImagePreview(inputId, previewId) {
     const fileInput = document.getElementById(inputId);
     const preview = document.getElementById(previewId);
-
-    fileInput.addEventListener("change", function () {
-      const file = fileInput.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          preview.src = e.target.result;
-          preview.style.display = "block";
-        };
-        reader.readAsDataURL(file);
-      } else {
-        preview.style.display = "none";
-      }
-    });
+    if (fileInput) {
+      fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        } else {
+          preview.style.display = "none";
+        }
+      });
+    }
   }
 
   // Call the function for both inputs

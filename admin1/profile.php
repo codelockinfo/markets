@@ -24,6 +24,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                 <i class="fas fa-arrow-left text-sm ms-1 text-white" aria-hidden="true"></i>
                             </a>
                         </div>
+                        <div class="input-group d-xl-none d-block ms-2">
+                            <a href="<?php echo SITE_ADMIN_URL ?>index.php">
+                                    <i class="fa fa-home text-sm ms-1 text-white" aria-hidden="true"></i>
+                            </a>
+                        </div>
                         </div>
                         <ul class="navbar-nav justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -189,7 +194,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     </div>
                     <div class="col-12 mt-4">
                         <div class="card mb-4">
-                            <div class="card-body d-flex p-3 row">
+                            <!-- <div class="card-body d-flex p-3 row"> -->
+                            <div class="d-flex justify-content-between p-3">
                                 <div class="col-auto mx-auto ms-sm-3 mt-2">
                                     <h6 class="mb-1">
                                         Your Products
@@ -206,6 +212,27 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
                                     </div>
                                 </div>
+                                <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
+            <div class="input-group search-btn search-icon dropdownhide">
+              <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search">
+            </div>
+          </div>
+          <div class="dropdown mt-3 filterDropdown">
+            <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="products">
+              <li class="dropdown-item" data-value="featured">Featured</li>
+              <li class="dropdown-item" data-value="best_selling">Best Selling</li>
+              <li class="dropdown-item" data-value="alphabetically_az">Alphabetically, A-Z</li>
+              <li class="dropdown-item" data-value="alphabetically_za">Alphabetically, Z-A</li>
+              <li class="dropdown-item" data-value="price_low_high">Price, low to high</li>
+              <li class="dropdown-item" data-value="price_high_low">Price, high to low</li>
+              <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
+              <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
+            </ul>
+          </div>
                             </div>
                             <div class="card-body p-3" >
                                 <div class="row" id="getdata">
@@ -346,6 +373,17 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
+                                    <div class="mx-auto text-center nav-wrapper position-relative end-0">
+                                        <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
+                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 viewproduct" style="display:none;">View All Product</button>
+                                        </a>
+                                        <a href="<?php echo SITE_ADMIN_URL ?>product-form.php">
+                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 addproduct" style="display:none;">Add Product</button>
+                                        </a>
+
+                                    </div>
+                                </div> -->
                                 <div id="pagination"></div>
                             </div>
                         </div>

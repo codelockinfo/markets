@@ -49,7 +49,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <a class="decrement-btn" id="decrement-btn">
                         <i class="fa fa-minus"></i>
                       </a>
-                      <input type="text" readonly="readonly" name="qty" id="qty_display" class="qty-input text-center form-control" value="1"/>
+                      <input type="text" name="qty" id="qty_display" class="qty-input text-center form-control" value="1"/>
                       <a class="increment-btn ">
                         <i class="fa fa-plus" id="increment-btn"></i>
                       </a>
@@ -60,7 +60,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="mb-3">
                 <div>
-                  <label class="font-weight-normal w-100 checkboxcategory"><input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3 d-none " value="1"/>Add Categories</label>
+                  <label class="font-weight-normal w-100 checkboxcategory">
+                    <input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3 d-none " value="1"/>
+                    <i class="fa fa-plus me-1" id="increment-btn" aria-hidden="true"></i>Add a new categorie
+                  </label>
                   <div class="categoryinput hidecategory">
                     <input type="text" name="addcategory" class="form-control w-100"/>
                     <div class="errormsg addcategory"></div>

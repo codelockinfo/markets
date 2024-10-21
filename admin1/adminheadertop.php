@@ -10,6 +10,11 @@
                         <i class="fas fa-arrow-left text-sm ms-1 text-white" aria-hidden="true"></i>
                   </a>
                 </div>
+                <div class="input-group d-xl-none d-block ms-2">
+                  <a href="<?php echo SITE_ADMIN_URL ?>index.php">
+                        <i class="fa fa-home text-sm ms-1 text-white" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
               <ul class="navbar-nav justify-content-end">
                 <li class="nav-item d-flex align-items-center">
