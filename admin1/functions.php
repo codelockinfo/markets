@@ -107,8 +107,7 @@ class admin_functions
         return $response;
     }
 
-    function profile_imagesave()
-    {
+    function profile_imagesave(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -161,8 +160,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function insert_signup()
-    {
+    function insert_signup() {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
@@ -271,11 +269,9 @@ class admin_functions
         }
     }
 
-    function insert_products()
-    {
+    function insert_products() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-
         $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
         if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
             if (isset($_POST['addcategory']) && $_POST['addcategory'] == '') {
@@ -1217,48 +1213,49 @@ class admin_functions
             }
 
             // Sorting logic
-            // Sorting logic using switch case
-            $sort_query = '';  // Default no sorting
-            switch ($sort) {
-                case 'best_selling':
-                    $sort_query = 'ORDER BY best_selling DESC';
-                    break;
-                case 'alphabetically_az':
-                    $sort_query = 'ORDER BY title ASC';
-                    break;
-                case 'alphabetically_za':
-                    $sort_query = 'ORDER BY title DESC';
-                    break;
-                case 'price_low_high':
-                    $sort_query = 'ORDER BY minprice ASC';
-                    break;
-                case 'price_high_low':
-                    $sort_query = 'ORDER BY minprice DESC';
-                    break;
-                case 'date_new_old':
-                    $sort_query = 'ORDER BY created_date DESC';
-                    break;
-                case 'date_old_new':
-                    $sort_query = 'ORDER BY created_date ASC';
-                    break;
-                case 'featured':
-                    $sort_query = 'ORDER BY featured DESC';
-                    break;
-                default:
-                    break;
-            }
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
-            $res_count = $this->db->query($query);
-            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            if ($total_records > $limit) {
-                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
-            } else {
-                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
-            }
 
-            $result = $this->db->query($sql);
-            $output = "";
-            $pagination = "";
+                // Sorting logic using switch case
+                $sort_query = '';  // Default no sorting
+                switch ($sort) {
+                    case 'best_selling':
+                        $sort_query = 'ORDER BY best_selling DESC';
+                        break;
+                    case 'alphabetically_az':
+                        $sort_query = 'ORDER BY title ASC';
+                        break;
+                    case 'alphabetically_za':
+                        $sort_query = 'ORDER BY title DESC';
+                        break;
+                    case 'price_low_high':
+                        $sort_query = 'ORDER BY minprice ASC';
+                        break;
+                    case 'price_high_low':
+                        $sort_query = 'ORDER BY minprice DESC';
+                        break;
+                    case 'date_new_old':
+                        $sort_query = 'ORDER BY created_date DESC';
+                        break;
+                    case 'date_old_new':
+                        $sort_query = 'ORDER BY created_date ASC';
+                        break;
+                    case 'featured':
+                        $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                        break;
+                    default:
+                        break;
+                }
+                $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+                $res_count = $this->db->query($query);
+                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+               if ($total_records > $limit) { 
+                  $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+                } 
+               else { 
+                  $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+                }
+                $result = $this->db->query($sql);
+                $output = "";
+                $pagination = "";
 
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
@@ -1278,7 +1275,9 @@ class admin_functions
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
+                    $output .= '<a href="' . SITE_ADMIN_URL . 'product-list.php">';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
+                    $output .= '      </a>';
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -1357,34 +1356,42 @@ class admin_functions
 
                     $output .= '  </div>';
                 }
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
+                    'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
+                );
 
-                $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+            $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
-                $total_pages = ceil($total_records / $limit);
-                $pagination .= '<div class="pagination" id="dataPagination" data-routine="productlisting">';
-                for ($i = 1; $i <= $total_pages; $i++) {
-                    $active_class = ($i == $page) ? 'active' : '';
-                    $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                $total_pages = ceil($total_records / $limit);               
+                if ($total_pages > 1) {
+                    $pagination .= '<div class="pagination" id="dataPagination" data-routine="productlisting">';
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $active_class = ($i == $page) ? 'active' : '';  // Determine active class
+                        $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                    }
+                    $pagination .= '</div>';
+
                 }
-                $pagination .= '</div>';
+                $response_data['pagination'] = $pagination;
             }
-
-            $response_data['pagination'] = $pagination;
-        } else {
-            $response_data['msg'] = 'User not logged in';
-        }
-
-        return json_encode($response_data);
+    } else {
+        $response_data['msg'] = 'User not logged in';
     }
 
-    function invoicelisting()
-    {
+    $response = json_encode($response_data);
+    return $response;
+}
+
+    function invoicelisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1497,8 +1504,7 @@ class admin_functions
         }
     }
 
-    function listprofile()
-    {
+    function listprofile() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1614,42 +1620,42 @@ class admin_functions
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-            $sort_query = '';  // Default no sorting
-            switch ($sort) {
-                case 'best_selling':
-                    $sort_query = 'ORDER BY best_selling DESC';
-                    break;
-                case 'alphabetically_az':
-                    $sort_query = 'ORDER BY title ASC';
-                    break;
-                case 'alphabetically_za':
-                    $sort_query = 'ORDER BY title DESC';
-                    break;
-                case 'date_new_old':
-                    $sort_query = 'ORDER BY created_date DESC';
-                    break;
-                case 'date_old_new':
-                    $sort_query = 'ORDER BY created_date ASC';
-                    break;
-                case 'featured':
-                    // Add featured sorting logic if necessary
-                    $sort_query = 'ORDER BY featured DESC';
-                    break;
-                default:
-                    // Default behavior if no sorting option is selected
-                    break;
-            }
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
-            $res_count = $this->db->query($query);
-            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            if ($total_records > $limit) {
-                $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
-            } else {
-                $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
-            }
-            $result = $this->db->query($sql);
-            $output = "";
-            $pagination = "";
+
+                $sort_query = '';  // Default no sorting
+                switch ($sort) {
+                    case 'best_selling':
+                        $sort_query = 'ORDER BY best_selling DESC';
+                        break;
+                    case 'alphabetically_az':
+                        $sort_query = 'ORDER BY title ASC';
+                        break;
+                    case 'alphabetically_za':
+                        $sort_query = 'ORDER BY title DESC';
+                        break;
+                    case 'date_new_old':
+                        $sort_query = 'ORDER BY created_date DESC';
+                        break;
+                    case 'date_old_new':
+                        $sort_query = 'ORDER BY created_date ASC';
+                        break;
+                    case 'featured':
+                        $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                        break;
+                    default:
+                        break;
+                }
+                $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
+                $res_count = $this->db->query($query);
+                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+               if ($total_records > $limit) { 
+                  $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+                } 
+               else { 
+                  $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+                }
+                 $result = $this->db->query($sql);
+                 $output = "";
+                 $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $image = $row["image"];
@@ -1685,37 +1691,44 @@ class admin_functions
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output);
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
+                    'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
+                );
+                
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
-
-            $res_count = $this->db->query($query);
-            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            if ($total_records > $limit) {
-                $total_pages = ceil($total_records / $limit);
-
-                $pagination .= '<div class="pagination" id="dataPagination" data-routine="bloglisting">';
-                for ($i = 1; $i <= $total_pages; $i++) {
-                    $active_class = ($i == $page) ? 'active' : ''; // Check if the current page is active
-                    $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+                $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
+                $res_count = $this->db->query($query);
+                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+                if ($total_records > $limit) {
+                    $total_pages = ceil($total_records / $limit);               
+                    if ($total_pages > 1) {
+                        $pagination .= '<div class="pagination" id="dataPagination" data-routine="bloglisting">';
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                            $active_class = ($i == $page) ? 'active' : '';  // Determine active class
+                            $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                        }
+                        $pagination .= '</div>';
+                    }
+                    $response_data['pagination'] = $pagination;
                 }
-                $pagination .= '</div>';
-            }
-            $response_data['pagination'] = $pagination;
         } else {
             $response_data['msg'] = 'User not logged in';
         }
-        return json_encode($response_data);
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function videolisting()
-    {
+    function videolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-
+   
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
-        if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
+           if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
@@ -1726,55 +1739,56 @@ class admin_functions
                 $userid_clause = "AND user_id = $user_id";
             }
 
-
+    
             // Sorting logic
-            // Sorting logic using switch case
-            $sort_query = '';  // Default no sorting
-            switch ($sort) {
-                case 'best_selling':
-                    $sort_query = 'ORDER BY best_selling DESC';
-                    break;
-                case 'alphabetically_az':
-                    $sort_query = 'ORDER BY title ASC';
-                    break;
-                case 'alphabetically_za':
-                    $sort_query = 'ORDER BY title DESC';
-                    break;
-                case 'price_low_high':
-                    $sort_query = 'ORDER BY minprice ASC';
-                    break;
-                case 'price_high_low':
-                    $sort_query = 'ORDER BY minprice DESC';
-                    break;
-                case 'date_new_old':
-                    $sort_query = 'ORDER BY created_date DESC';
-                    break;
-                case 'date_old_new':
-                    $sort_query = 'ORDER BY created_date ASC';
-                    break;
-                case 'featured':
-                    // Add featured sorting logic if necessary
-                    $sort_query = 'ORDER BY featured DESC';
-                    break;
-                default:
-                    // Default behavior if no sorting option is selected
-                    break;
-            }
-            $query = "SELECT COUNT(*) AS total FROM videos WHERE title LIKE '%$search_value%' $userid_clause";
-            $res_count = $this->db->query($query);
-            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            if ($total_records > $limit) {
-                $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
-            } else {
-                $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
-            }
+                // Sorting logic using switch case
+                $sort_query = '';  // Default no sorting
+                switch ($sort) {
+                    case 'best_selling':
+                        $sort_query = 'ORDER BY best_selling DESC';
+                        break;
+                    case 'alphabetically_az':
+                        $sort_query = 'ORDER BY title ASC';
+                        break;
+                    case 'alphabetically_za':
+                        $sort_query = 'ORDER BY title DESC';
+                        break;
+                    case 'price_low_high':
+                        $sort_query = 'ORDER BY minprice ASC';
+                        break;
+                    case 'price_high_low':
+                        $sort_query = 'ORDER BY minprice DESC';
+                        break;
+                    case 'date_new_old':
+                        $sort_query = 'ORDER BY created_date DESC';
+                        break;
+                    case 'date_old_new':
+                        $sort_query = 'ORDER BY created_date ASC';
+                        break;
+                    case 'featured':
+                        // Add featured sorting logic if necessary
+                        $sort_query = 'ORDER BY featured DESC';
+                        break;
+                    default:
+                        // Default behavior if no sorting option is selected
+                        break;
+                }
+                $query = "SELECT COUNT(*) AS total FROM videos WHERE title LIKE '%$search_value%' $userid_clause";
+                $res_count = $this->db->query($query);
+                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+               if ($total_records > $limit) { 
+                  $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+                } 
+               else { 
+                  $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+                }
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
-        }
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
+            }
+                if ($result) {
+                    if (mysqli_num_rows($result) > 0) {
+                     while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
                     $title =  $row['title'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
@@ -1816,6 +1830,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
+
 
 
     function allvideolisting()

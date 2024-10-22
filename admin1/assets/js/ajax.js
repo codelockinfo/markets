@@ -1962,14 +1962,11 @@ $(document).ready(function () {
     var sortValue = $(this).data("value");
     var routin_name = (page_name == "bloglist") ? "bloglisting" : (page_name == "productlist") ?  "productlisting" : "videolisting";
     var tablename = $(this).closest(".dropdown-menu").data("table");
-    
     $(".dropdown-item").each(function() {
       $(this).removeClass("active");  
     });
     $(this).addClass("active");  
-    
     var page = $("#dataPagination").find(".page-link.active").data("page");  
-    
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
@@ -1981,13 +1978,24 @@ $(document).ready(function () {
         page: page,
       },
       success: function (response) {
-        var response = JSON.parse(response);
-        console.log(response.outcome);
-        if (response.outcome != "") {
-          $("#getdata").html(response.outcome);
-        } else {
+        if (typeof response === "string") {
+            response = JSON.parse(response);
         }
-      },
+        var pagination = response.pagination;
+        var pagination_needed = response.pagination_needed;
+        console.log('pagination_needed:', pagination_needed);
+        if (response.outcome != "") {
+            console.log('Updating content...');
+            $("#getdata").html(response.outcome);
+        }
+        if (pagination_needed) {
+            console.log('Showing pagination...');
+            $("#pagination").html(pagination).show();
+        } else {
+            console.log('Hiding pagination...');
+            $("#pagination").hide();  
+        }
+    },
     });
   });
 
