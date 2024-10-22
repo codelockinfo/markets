@@ -1430,7 +1430,7 @@ class admin_functions
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '    <div class=" mt-3" role="">';
                         $output .= '        <i data-id="' . $row["invoice_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                        $output .= '        <a href="invoice.php?id='.$row['invoice_id'].'" class="btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
                         $output .= '    </div>';
