@@ -24,7 +24,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       <div class="col-xl-12 mx-auto">
         <div class="card z-index-0 p-4 product-main">
           <form action="" id="invoice_frm">
-            <input type="hidden" name="id" value="<?php echo $id; ?>" />
+            <input type="hidden" name="id" value="<?php echo $id; ?>" >
             <div class="col w-100">
               <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
