@@ -232,13 +232,18 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                             <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
                                         </ul>
                                     </div>
-                                    <div class="d-flex nav-wrapper position-relative end-0 m-2">
+                                    <div class="d-flex nav-wrapper position-relative end-0 mt-3 ms-2">
+                        
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
-                                            <button type="button" class="btn bg-gradient-info  btn-sm pt-2 m-2  mb-0 viewproduct">View All Product</button>
-                                        </a>
-                                        <a href="<?php echo SITE_ADMIN_URL ?>product-form.php">
-                                            <button type="button" class="btn bg-gradient-info btn-sm pt-2 m-2  mb-0 addproduct">Add Product</button>
-                                        </a>
+                                        <button class="btn bg-gradient-info  viewproduct" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                                            view all product
+                                        </button>
+                                            </a>
+                                            <a href="<?php echo SITE_ADMIN_URL ?>product-form.php">
+                                        <button class="btn bg-gradient-info  addproduct" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                                            add product
+                                        </button>
+                                            </a>
 
                                     </div>
                                 </div>

@@ -14,17 +14,17 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "list Invoice");
-        $title = $para_array['title']; 
-        $link = $para_array['link'];
-        $button_text = $para_array['button_text'];
-        include 'adminheadertop.php';
+    $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "list Invoice");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
       <div class="col-xl-12 mx-auto">
         <div class="card z-index-0 p-4 product-main">
           <form action="" id="invoice_frm">
-            <input type="hidden" name="id" value="<?php echo $id;?>"/>
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
             <div class="col w-100">
               <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
@@ -124,12 +124,26 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                       <th class="w-10 bg-gradient-info text-light text-center text-bold">Action</th>
                     </tr>
                   </thead>
-                  <tbody id="attributes-body">
+                  <tbody id="attributes-body" class="get_invoiceitem">
+                    
                     <tr class="attr">
-                      <td><input type="text" class="form-control mt-1 " placeholder="Item Title" name="item[]"> <span class="errormsg item"></span></td>
-                      <td><input type="number" class="form-control mt-1" placeholder="1" name="quantity[]" min="1"> <span class="errormsg quantity"></span></td>
-                      <td><input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]"> <span class="errormsg rate"></span></td>
-                      <td><input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled> <span class="errormsg item"></span></td>
+                      <td>
+                        <input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]">
+                        <span class="errormsg item"></span>
+                      </td>
+                      <td>
+                        <input type="number" class="form-control mt-1" placeholder="1" name="quantity[]" min="1">
+                        <span class="errormsg quantity"></span>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]">
+                        <span class="errormsg rate"></span>
+                      </td>
+                      <td>
+                      <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled>
+                        <span class="errormsg item"></span>
+                      </td>
+
                       <td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
                     </tr>
                   </tbody>
@@ -139,7 +153,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
               <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
             </div>
-          
+
 
             <div class="col">
               <div class="row ">

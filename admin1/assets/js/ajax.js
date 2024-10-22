@@ -421,7 +421,9 @@ function get_invoice(id) {
     data: { routine_name: "getinvoice", id: id },
     success: function (response) {
       var response = JSON.parse(response);
-
+        console.log(response);
+        console.log(response.outcome.i_name);
+        
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
@@ -479,13 +481,16 @@ function get_invoice(id) {
       } else {
         $(".pro-zone__prompt").show();
       }
+      // invoice_item get
+      console.log(response.item_data)
+      if (response.item_data) {
+        $(".get_invoiceitem").html(response.item_data); 
+      }
 
-      response["outcome"]["body"] !== undefined
-        ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
-        : "";
     },
   });
 }
+
 
 function get_customer(id) {
   var routine_name = "getcustomer";
@@ -493,15 +498,11 @@ function get_customer(id) {
     url: "../admin1/ajax_call.php",
     type: "post",
     dataType: "json",
-    data: { routine_name: routine_name, id: id },
+    data: { routine_name:routine_name, id: id },
     success: function (response) {
-      console.log("Response received:");
+      
       console.log(response);
-
-      // Parse the response to JSON
       var response = JSON.parse(response);
-
-      // Populate the customer details
       response["outcome"]["name"] !== undefined
         ? $("input[name='name']").val(response["outcome"]["name"])
         : "";

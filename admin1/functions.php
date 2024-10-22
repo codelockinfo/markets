@@ -579,8 +579,7 @@ class admin_functions
         return $response;
     }
 
-    function invoice()
-    {
+    function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -685,15 +684,20 @@ class admin_functions
                         }
                     }
                     if (!empty($values)) {
-                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                        $res1 = $this->db->query($sql1);
-
+                        if(empty($id)){
+                             $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                       
+                            }else{
+                             $sql1 = "UPDATE invoice_item  SET item='$item',quantity='$quantity',rate='$rate',amount='$amount'where  invoice_id =  $id";
+                        }
+                    }
+                    $res1 = $this->db->query($sql1);
                         if ($res1) {
                             $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
                         } else {
                             $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                         }
-                    }
+                    
 
                     $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                 } else {
@@ -1300,16 +1304,21 @@ class admin_functions
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';  
-                    $output .= '<div class="p-2">'; 
+                    $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';
+                    $output .= '<div class="position-relative">';
                     $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
+                    $output .= '<div class="position-absolute top-50 start-50 translate-middle">'; 
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
                     $output .= '</div>';
+                    
                     $output .= '</div>';
+                    $output .= '</div>'; 
+                    
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
                     $results = $this->db->query($sql);
                     if ($results && mysqli_num_rows($results) > 0) {
-                     
-                        $output .= '<div class="row justify-content-center">'; 
+
+                        $output .= '<div class="row justify-content-center">';
                         while ($row_image = mysqli_fetch_array($results)) {
                             $imageData = $row_image['p_image'];
                             $images = explode(',', $imageData);
@@ -1318,13 +1327,13 @@ class admin_functions
                                 $decodedPath = htmlspecialchars_decode(
                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                 );
-                                $output .= '<div class="col-6 col-md-4 p-2 position-relative">';  
+                                $output .= '<div class="col-6 col-md-4 p-2 position-relative">';
                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
-                                
+
                                 $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" aria-label="Delete">';
                                 $output .= '<i class="fa fa-trash"></i>';
                                 $output .= '</button>';
-                                $output .= '</div>'; 
+                                $output .= '</div>';
                             }
                         }
                         $output .= '</div>';
@@ -1333,7 +1342,7 @@ class admin_functions
                         $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
                         $output .= '</div>';
                     }
-                    $output .= '</div>'; 
+                    $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2411,8 +2420,7 @@ class admin_functions
         return $response;
     }
 
-    function getinvoice()
-    {
+    function getinvoice(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
 
@@ -2421,7 +2429,37 @@ class admin_functions
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $response_data = array('data' => 'success', 'outcome' => $row);
+                $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
+                $item_result = $this->db->query($item_query);
+                $item_data = "";
+                while ($invoice_items = $item_result->fetch_assoc()) {
+                    $inv_item = $invoice_items['item'];
+                    $inv_quantity= $invoice_items['quantity'];
+                    $inv_rate = $invoice_items['rate'];
+                    $inv_amount= $invoice_items['amount'];
+                    $item_data .=  '<tr id="attr">';
+                    $item_data .=  '<td>';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_item.'" name="item[]" ">';
+                    $item_data .=  '<span class="errormsg item"></span>';
+                    $item_data .=  '</td>';
+                    $item_data .=  '<td>';
+                    $item_data .=  '<input type="number" class="form-control mt-1" value="'.$inv_quantity.'" name="quantity[]" min="1" >';
+                    $item_data .=  ' <span class="errormsg quantity"></span>';
+                    $item_data .=  '</td>';
+                    $item_data .=  '<td>';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_rate.'" name="rate[]" >';
+                    $item_data .=  '<span class="errormsg rate"></span>';
+                    $item_data .=  ' </td>';
+                    $item_data .=  '<td>';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_amount.'" name="amount[]" disabled="" >';
+                    $item_data .=  '<span class="errormsg item"></span>';
+                    $item_data .=  ' </td>';
+
+                    $item_data .=  '<td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style="display: none;"></i></td>';
+                    $item_data .=  '</tr>';
+                }
+
+                $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
             }
         }
         $response = json_encode($response_data);
