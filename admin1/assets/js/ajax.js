@@ -129,21 +129,23 @@ function loadData(routineName) {
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
 
-        $(".dropdownhide").hide();
-        $("#pagination").show();
+        $(".dropdownhide").hide(); 
+        $("#pagination").hide(); 
 
         $(".addproduct").show();
-        $(".viewproduct").hide();
+        $(".viewproduct").hide(); 
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
-          $(".dropdownhide").show();
-          $(".addproduct").show();
+          $(".dropdownhide").show(); 
+          $(".addproduct").hide(); 
+          $(".viewproduct").show(); 
+          $("#pagination").show(); 
+        } else {
           $(".addproduct").hide();
-          $(".viewproduct").show();
-          $("#pagination").show();
+          $(".viewproduct").show(); 
         }
         check_toggle_status();
         check_toggle_btn();

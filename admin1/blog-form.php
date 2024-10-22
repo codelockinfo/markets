@@ -79,7 +79,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
     </div>  
   </div>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:+1234567891">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:7600464414">
       <i class="fa fa-phone"></i>
     </a>
     <div class="card shadow-lg ">

@@ -1234,6 +1234,7 @@ class admin_functions
                 $result = $this->db->query($sql);
                 $output = "";
                 $pagination = "";
+
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $product_id = $row['product_id'];
@@ -1246,8 +1247,7 @@ class admin_functions
                     $title = $row['title'];
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
-    
-                                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
@@ -1272,7 +1272,7 @@ class admin_functions
                     $output .= ' <div class="modal-content">';
                     $output .= '<div class="modal-header">';
                     $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-                    $output .= '<button type="button" class="btn-close text-secondary fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
+                    $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
                     $output .= '</div>';
                     $output .= '<div class="modal-body">';
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
@@ -1288,8 +1288,10 @@ class admin_functions
                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                 );
                                 $output .= '<div class="position-relative">';
-                                $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img" >';
-                                $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="fa fa-trash  delete-btn position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" "></button>';
+                                $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
+                                $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" aria-label="Delete">';
+                                $output .= '<i class="fa fa-trash"></i>';
+                                $output .= '</button>';
                                 $output .= '</div>';
                             }
                         }
@@ -1304,21 +1306,23 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete m-3" data-delete-type="product" aria-hidden="true"></i>';
-                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3" data-delete-type="product" aria-hidden="true"></i></a>';
+                    $output .= '<div>';
+                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen" data-delete-type="product" aria-hidden="true"></i></a>';
+                    $output .='</div>';
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
-    
+
                     $output .= '  </div>';
                 }
-    
                 $response_data = array(
                     'data' => 'success',
                     'outcome' => $output,
                     'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
                     'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
                 );
+
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
@@ -1335,6 +1339,7 @@ class admin_functions
                         $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                     }
                     $pagination .= '</div>';
+
                 }
                 $response_data['pagination'] = $pagination;
             }
@@ -1344,7 +1349,7 @@ class admin_functions
     $response = json_encode($response_data);
     return $response;
 }
-   
+
     function invoicelisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1381,12 +1386,14 @@ class admin_functions
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">total :</h6>' . $row['total'] . '</div>';
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
-                        $output .= '        <div class="ms-auto text-center">';
-                        // $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
-                        // $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
-                        $output .= '    <i data-id= "' . $row["invoice_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '    <a href="invoice.php?id=' . $row['invoice_id'] . '"><i data-id= "' . $row["invoice_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 " data-delete-type="invoice" aria-hidden="true"></i></a>';
-                        $output .= '        </div>';
+                        $output .= '<div class="ms-auto text-end">';
+                        $output .= '    <div class=" mt-3" role="">';
+                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
+                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                        $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                        $output .= '        </a>';
+                        $output .= '    </div>';
+                        $output .= '</div>';
                         $output .= '      </div>';
                         $output .= '    </div>';
                         $output .= '  </div>';
@@ -1433,12 +1440,14 @@ class admin_functions
                     $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
                     $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
 
-                    $output .= '        <div class="ms-auto text-center">';
-                    // $output .= '          <button data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-danger text-secondary px-3 btn-sm pt-2 mb-0 delete" data-delete-type="invoice">Delete</button>';
-                    // $output .= '          <a href="invoice.php?id=' . $row['invoice_id'] . '" data-id="' . $row['invoice_id'] . '" type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0 edit" data-edit-type="invoice">Edit</a>';
-                    $output .= '    <i data-id= "' . $row["customer_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="customer" aria-hidden="true"></i>';
-                    $output .= '    <a href="customer.php?id=' . $row['customer_id'] . '"><i data-id= "' . $row["customer_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 " data-delete-type="invoice" aria-hidden="true"></i></a>';
-                    $output .= '        </div>';
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '    <div class="mt-3" >';
+                    $output .= '        <i data-id="' . $row["customer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
+                    $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '            <i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                    $output .= '        </a>';
+                    $output .= '    </div>';
+                    $output .= '</div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
@@ -1455,7 +1464,7 @@ class admin_functions
 
     function listprofile() {
         global $NO_IMAGE;
-        $response_data = array('data' => 'fail', 'msg' => "Error"); 
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
             $user_id = $_SESSION['current_user']['user_id'];
@@ -1469,17 +1478,17 @@ class admin_functions
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
-                $previewImage = (!empty($image) && file_exists($imagePath)) ?  
-                '<div class="drop-zone form-control">
+                $previewImage = (!empty($image) && file_exists($imagePath)) ?
+                    '<div class="drop-zone form-control">
                     <span class="pro-zone__prompt" id="dragfile" style="display: none;">Drop File Here Or Click To Upload</span>
                     <input type="file" name="shop_logo" class="drop-zone__input">
                     <div class="drop-zone__thumb">
                         <div class="img-wrapper">
-                            <img src="' . $decodedPath .'" class="picture__img">
+                            <img src="' . $decodedPath . '" class="picture__img">
                         </div>
                     </div>
                 </div>' :
-                '<div class="drop-zone form-control">
+                    '<div class="drop-zone form-control">
                     <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
                     <input type="file" name="shop_logo" class="drop-zone__input">
                 </div>';
@@ -1487,7 +1496,7 @@ class admin_functions
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];
                 $address = $row['address'];
-    
+
                 $output['profile_deatils'] = '<ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm">
                         <strong class="text-dark">Name:</strong> &nbsp;' . $name . '
@@ -1546,15 +1555,14 @@ class admin_functions
                         <h5 class="mb-1">' . $shop . '</h5>
                     </div>
                 </div>';
-    
+
                 $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
             }
         }
-        
+
         $response = json_encode($response_data);
         return $response;
-
-    } 
+    }
     function bloglisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1625,10 +1633,15 @@ class admin_functions
                     $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '        <div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["blog_id"] . '" class="fa fa-trash text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i>';
-                    $output .= '    <a href="blog-form.php?id=' . $row['blog_id'] . '"><i data-id= "' . $row["blog_id"] . '" class="fa fa-pen text-secondary cursor-pointer mt-3 delete" data-delete-type="blog" aria-hidden="true"></i></a>';
-                    $output .= '        </div>';
+                    
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '    <div class=" mt-3" role="">';
+                    $output .= '        <i data-id="' . $row["blog_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="blog" aria-hidden="true"></i>';
+                    $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                    $output .= '        </a>';
+                    $output .= '    </div>';
+                    $output .= '</div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
                     $output .= '  </div>';
@@ -1669,6 +1682,7 @@ class admin_functions
 
     function videolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
+   
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
            if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1680,6 +1694,7 @@ class admin_functions
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
+
     
             // Sorting logic
                 // Sorting logic using switch case
@@ -1742,15 +1757,15 @@ class admin_functions
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  cursor-pointer mt-3 delete" data-delete-type="video" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="video" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                    }
-                        $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
+                }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
@@ -1759,6 +1774,7 @@ class admin_functions
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         if ($total_records > $limit) {
             $total_pages = ceil($total_records / $limit);
+
             $pagination .= '<div class="pagination" id="dataPagination" data-routine="videolisting">';
             for ($i = 1; $i <= $total_pages; $i++) {
                 $active_class = ($i == $page) ? 'active' : ''; // Check if the current page is active
@@ -1861,7 +1877,7 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="offer" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="offer" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1944,7 +1960,7 @@ class admin_functions
                                 $output .= '<div class="card card-blog card-plain mb-3">';
                                 $output .= '  <div class="d-flex justify-content-between align-items-center">';
                                 $output .= '    <div class="d-flex ">';
-                                $output .= '      <div class="shop-name text-secondary px-3">' .$categories  . '</div>';
+                                $output .= '      <div class="shop-name text-secondary px-3">' . $categories  . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; // Added d-flex and align-items-center
                                 $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagory" aria-hidden="true"></i>'; // Removed margin-top for centering
@@ -2058,7 +2074,7 @@ class admin_functions
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '</a>';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="banner" aria-hidden="true"></i>';
+                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="banner" aria-hidden="true"></i>';
                         $output .= '</div>';
 
                         $output .= '</div>';
@@ -2114,7 +2130,6 @@ class admin_functions
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
-                                
                             }
                             $response_data = array('data' => 'success', 'outcome' => $output);
                         } else {
@@ -2228,37 +2243,44 @@ class admin_functions
         return $this->deleteRecord('videos', $delete_id);
     }
 
-    function bannerdelete(){
+    function bannerdelete()
+    {
         $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
         return $this->deleteRecord('banners', $delete_id);
     }
 
-    function famousmarketdelete(){
+    function famousmarketdelete()
+    {
         $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
         return $this->deleteRecord('famous_markets', $delete_id);
     }
 
-    function b_textile_catagorysdelete(){
+    function b_textile_catagorysdelete()
+    {
         $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
         return $this->deleteRecord('b_textile_catagorys', $delete_id);
     }
 
-    function offerdelete(){
+    function offerdelete()
+    {
         $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
         return $this->deleteRecord('offers', $delete_id);
     }
 
-    function faqdelete(){
+    function faqdelete()
+    {
         $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
         return $this->deleteRecord('faqs', $delete_id);
     }
 
-    function reviewdelete() {
+    function reviewdelete()
+    {
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
     }
 
-    function forget_password(){
+    function forget_password()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -2296,7 +2318,8 @@ class admin_functions
         return $response;
     }
 
-    function reset_passwordform(){
+    function reset_passwordform()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $token = isset($_POST['token']) ? $_POST['token'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -2336,7 +2359,8 @@ class admin_functions
         return $response;
     }
 
-    function getproduct() {
+    function getproduct()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2351,7 +2375,7 @@ class admin_functions
         return $response;
     }
 
-    function getinvoice() {
+    function getinvoice(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
 
@@ -2366,8 +2390,9 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-
-    function getcustomer() {
+  
+    function getcustomer()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2386,7 +2411,8 @@ class admin_functions
         return $response;
     }
 
-    function getblog(){
+    function getblog()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2401,7 +2427,8 @@ class admin_functions
         return $response;
     }
 
-    function check_toggle_status(){
+    function check_toggle_status()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['table_name'])) {
@@ -2417,7 +2444,8 @@ class admin_functions
         return $response;
     }
 
-    function toggle_enabledisable(){
+    function toggle_enabledisable()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_POST['ischecked_value']) && isset($_POST['table_name'])) {
             $table_name = $_POST['table_name'];
@@ -2434,7 +2462,8 @@ class admin_functions
         return $response;
     }
 
-    function toggle_checkuncheck(){
+    function toggle_checkuncheck()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['ischecked_value']) && isset($_POST['video_id'])) {
@@ -2455,7 +2484,8 @@ class admin_functions
         return $response;
     }
 
-    function check_toggle_btn(){
+    function check_toggle_btn()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['video_id'])) {
@@ -2474,7 +2504,8 @@ class admin_functions
         return $response;
     }
 
-    function get_categories() {
+    function get_categories()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -2501,7 +2532,8 @@ class admin_functions
         return $response;
     }
 
-    function select_shop() {
+    function select_shop()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
 
@@ -2525,7 +2557,8 @@ class admin_functions
         return json_encode($response_data);
     }
 
-    function totalearning(){
+    function totalearning()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2550,7 +2583,8 @@ class admin_functions
         return $response;
     }
 
-    function totalproduct() {
+    function totalproduct()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2571,7 +2605,8 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function totalclient(){
+    function totalclient()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2592,7 +2627,8 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function totalitemsale(){
+    function totalitemsale()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2616,7 +2652,7 @@ class admin_functions
                                 while ($invoiceitemdata = mysqli_fetch_assoc($invoice_item_result)) {
                                     $quantity = (float)$invoiceitemdata['quantity'];
                                     $amount = (float)$invoiceitemdata['amount'];
-                            
+
                                     $totalitemsale += $quantity;
                                     $totalamountsale += $amount;
                                 }
@@ -2631,15 +2667,16 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function chartdrawer(){
+
+    function chartdrawer()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
             $userquery = "and user_id = $user_id";
             $yearly_totals = [];
 
-            
+
             $sql = "SELECT * FROM invoice WHERE status='1' $userquery";
             $result = $this->db->query($sql);
 
@@ -2652,10 +2689,10 @@ class admin_functions
                             'total_sales' => $row['total']
                         ];
                     }
-                    $response_data = array('data' => 'success','outcome' => $yearly_totals);
+                    $response_data = array('data' => 'success', 'outcome' => $yearly_totals);
                 }
             }
-        } 
+        }
         $response = json_encode($response_data);
         return $response;
     }
