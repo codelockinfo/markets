@@ -1322,7 +1322,6 @@ class admin_functions
                     'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
                     'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
                 );
-
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
@@ -1339,10 +1338,10 @@ class admin_functions
                         $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                     }
                     $pagination .= '</div>';
-
                 }
                 $response_data['pagination'] = $pagination;
             }
+
     } else {
         $response_data['msg'] = 'User not logged in';
     }
