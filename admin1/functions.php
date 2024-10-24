@@ -452,9 +452,8 @@ class admin_functions
             $newFilename = time() . '.' . $extension;
             $folder = "assets/img/customer/";
             $fullpath = $folder . $newFilename;
-            if (!is_dir($folder) && !mkdir($folder, 0777, true) && !is_dir($folder)) {
-                $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
-                return json_encode($response_data);
+            if (empty($filename)) {
+                $error_array['c_image'] = "Please upload your image.";
             }
             if (!in_array(strtolower($extension), $allowedExtensions)) {
                 $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
@@ -462,11 +461,12 @@ class admin_functions
             if ($file['size'] > $maxSize) {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
-            if (empty($filename)) {
-                $error_array['c_image'] = "Please upload your image.";
-            }
+            
             $is_image = true;
+        } else {
+            $error_array['c_image'] = "Please upload your image.";
         }
+        
         if (empty($_POST['name'])) {
             $error_array['name'] = "Please enter customer name";
         }
@@ -608,6 +608,8 @@ class admin_functions
                 $error_array['i_image'] = "Please upload your image.";
             }
             $is_image = true;
+        }else{
+            $error_array['i_image'] = "Please upload your image.";
         }
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
@@ -2159,6 +2161,8 @@ class admin_functions
                         }
                     }
                 }
+            }else{
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
 
@@ -2214,7 +2218,7 @@ class admin_functions
                     }
                 }
             } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No reviews found.");
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
 

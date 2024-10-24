@@ -1068,6 +1068,7 @@ $(document).ready(function () {
         response["msg"]["contact"] !== undefined
           ? $(".contact").html(response["msg"]["contact"])
           : $(".contact").html("");
+          
         response["msg"]["c_image"] !== undefined
           ? $(".c_image").html(response["msg"]["c_image"])
           : $(".c_image").html("");
