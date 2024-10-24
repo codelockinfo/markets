@@ -1199,8 +1199,7 @@ class admin_functions
     }
 
 
-    function productlisting()
-    {
+    function productlisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
