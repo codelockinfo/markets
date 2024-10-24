@@ -214,24 +214,24 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
                                         <div class="input-group search-btn search-icon dropdownhide">
                                             <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                            <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search">
+                                            <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search" data-routine="productlisting">
                                         </div>
                                     </div>
-                                    <div class="dropdown mt-3 filterDropdown">
-                                        <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Sort By
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="products">
-                                            <li class="dropdown-item" data-value="featured">Featured</li>
-                                            <li class="dropdown-item" data-value="best_selling">Best Selling</li>
-                                            <li class="dropdown-item" data-value="alphabetically_az">Alphabetically, A-Z</li>
-                                            <li class="dropdown-item" data-value="alphabetically_za">Alphabetically, Z-A</li>
-                                            <li class="dropdown-item" data-value="price_low_high">Price, low to high</li>
-                                            <li class="dropdown-item" data-value="price_high_low">Price, high to low</li>
-                                            <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
-                                            <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
-                                        </ul>
-                                    </div>
+                                    <div class="dropdown mt-3 filterDropdown" data-filter="productlist">
+                                    <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort By
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="products">
+                                    <li class="dropdown-item" data-value="featured">Featured</li>
+                                    <li class="dropdown-item" data-value="most_view">Most view</li>
+                                    <li class="dropdown-item" data-value="alphabetically_az">Alphabetically, A-Z</li>
+                                    <li class="dropdown-item" data-value="alphabetically_za">Alphabetically, Z-A</li>
+                                    <li class="dropdown-item" data-value="price_low_high">Price, low to high</li>
+                                    <li class="dropdown-item" data-value="price_high_low">Price, high to low</li>
+                                    <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
+                                    <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
+                                    </ul>
+                                </div>
                                     <div class="d-flex nav-wrapper position-relative end-0 mt-3 ms-2">
                         
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
