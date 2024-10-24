@@ -574,7 +574,7 @@ class admin_functions
         return $response;
     }
 
-    function invoice(){
+    function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -593,8 +593,6 @@ class admin_functions
             $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/invoice_img/";
             $fullpath = $folder . $newFilename;
-
-
             if (!is_dir($folder) && !mkdir($folder, 0777, true) && !is_dir($folder)) {
                 return json_encode(['data' => 'fail', 'msg' => 'Failed to create directory for image upload.']);
             }
@@ -606,6 +604,7 @@ class admin_functions
             }
             if (empty($filename)) {
                 $error_array['i_image'] = "Please upload your image.";
+           
             }
             $is_image = true;
         }else{
@@ -618,8 +617,7 @@ class admin_functions
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-
-
+    
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
@@ -645,13 +643,15 @@ class admin_functions
                         ($is_image ? ", i_image = '$newFilename'" : "") .
                         " WHERE invoice_id = $id";
                 }
-
+    
                 $result = $this->db->query($query);
                 if ($result) {
                     $last_id = empty($id) ? $this->db->insert_id : $id;
                     $items = $_POST['item'];
                     $quantities = $_POST['quantity'];
                     $rates = $_POST['rate'];
+                    $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
+    
                     $values = [];
                     foreach ($items as $index => $item) {
                         $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
@@ -669,7 +669,7 @@ class admin_functions
                         if ($amount <= 0) {
                             $error_array[$index]['amount'] = "Amount is not valid.";
                         }
-
+    
                         if (empty($error_array[$index])) {
                             $item = $this->db->real_escape_string($item);
                             $quantity = $this->db->real_escape_string($quantity);
@@ -677,24 +677,34 @@ class admin_functions
                             $amount = $this->db->real_escape_string($amount);
                             $user_id = $this->db->real_escape_string($user_id);
                             $last_id = $this->db->real_escape_string($last_id);
-                            $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                            if (!empty($invoice_item_ids[$index])) {
+                                if (!empty($id)) {
+
+                                $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
+                                $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
+                                         WHERE id='$invoice_item_id' ";
+                                          $res1 = $this->db->query($sql1);
+                                }
+                            } else {
+                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                            }
                         }
                     }
+    
                     if (!empty($values)) {
                         if (empty($id)) {
+
                             $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                        } else {
-                            $sql1 = "UPDATE invoice_item  SET item='$item',quantity='$quantity',rate='$rate',amount='$amount'where  invoice_id =  $id";
+                            $res1 = $this->db->query($sql1);
                         }
                     }
-                    $res1 = $this->db->query($sql1);
+    
                     if ($res1) {
                         $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
                     } else {
                         $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                     }
-
-
+    
                     $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                 } else {
                     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
@@ -705,9 +715,10 @@ class admin_functions
         } else {
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
-
+    
         return json_encode($response_data);
     }
+    
 
     function isValidYouTubeURL($url){
         $allowedPatterns = array(
@@ -2419,7 +2430,7 @@ class admin_functions
                     $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
                     $inv_amount = $invoice_items['amount'];
-                    $item_data .=  '<tr id="attr">';
+                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="'.$invoice_items['id'].'"><tr id="attr">';
                     $item_data .=  '<td>';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
