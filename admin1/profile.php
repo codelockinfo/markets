@@ -222,14 +222,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     Sort By
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="products">
-                                    <li class="dropdown-item" data-value="featured">Featured</li>
-                                    <li class="dropdown-item" data-value="most_view">Most view</li>
-                                    <li class="dropdown-item" data-value="alphabetically_az">Alphabetically, A-Z</li>
-                                    <li class="dropdown-item" data-value="alphabetically_za">Alphabetically, Z-A</li>
-                                    <li class="dropdown-item" data-value="price_low_high">Price, low to high</li>
-                                    <li class="dropdown-item" data-value="price_high_low">Price, high to low</li>
-                                    <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
-                                    <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
+                                    <li class="dropdown-item" data-value="featured" data-sortby="Featured">Featured</li>
+                                    <li class="dropdown-item" data-value="most_view"  data-sortby="Most view">Most view</li>
+                                    <li class="dropdown-item" data-value="alphabetically_az" data-sortby="Alphabetically, A-Z">Alphabetically, A-Z</li>
+                                    <li class="dropdown-item" data-value="alphabetically_za" data-sortby="Alphabetically, Z-A">Alphabetically, Z-A</li>
+                                    <li class="dropdown-item" data-value="price_low_high" data-sortby="Price, low to high">Price, low to high</li>
+                                    <li class="dropdown-item" data-value="price_high_low" data-sortby="Price, high to low">Price, high to low</li>
+                                    <li class="dropdown-item" data-value="date_old_new" data-sortby="Date, old to new">Date, old to new</li>
+                                    <li class="dropdown-item" data-value="date_new_old" data-sortby="Date, new to old">Date, new to old</li>
                                     </ul>
                                 </div>
                                     <div class="d-flex nav-wrapper position-relative end-0 mt-3 ms-2">

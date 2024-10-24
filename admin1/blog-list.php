@@ -33,14 +33,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           </div>
           <div class="dropdown mt-3 filterDropdown"  data-filter="bloglist">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Filters
+            Sort By
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="blogs">
-              <li class="dropdown-item" data-value="featured">Featured</li>
-              <li class="dropdown-item" data-value="alphabetically_az">Alphabetically, A-Z</li>
-              <li class="dropdown-item" data-value="alphabetically_za">Alphabetically, Z-A</li>
-              <li class="dropdown-item" data-value="date_old_new">Date, old to new</li>
-              <li class="dropdown-item" data-value="date_new_old">Date, new to old</li>
+            <li class="dropdown-item" data-value="featured" data-sortby="Featured">Featured</li>
+              <li class="dropdown-item" data-value="alphabetically_az" data-sortby="Alphabetically, A-Z">Alphabetically, A-Z</li>
+              <li class="dropdown-item" data-value="alphabetically_za" data-sortby="Alphabetically, Z-A">Alphabetically, Z-A</li>
+              <li class="dropdown-item" data-value="date_old_new" data-sortby="Date, old to new">Date, old to new</li>
+              <li class="dropdown-item" data-value="date_new_old" data-sortby="Date, new to old">Date, new to old</li>
             </ul>
           </div>
         </div>
