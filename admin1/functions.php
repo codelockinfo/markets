@@ -1346,7 +1346,7 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                    $output .= '<div>';
+                    $output .= '<div class="d-flex">';
                     $output .= '    <i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" data-delete-type="product" aria-hidden="true"></i>';
                     $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
