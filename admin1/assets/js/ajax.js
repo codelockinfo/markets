@@ -269,63 +269,6 @@ function profileLoadData(routineName) {
   });
 }
 
-function listprofile() {
-  profileLoadData("listprofile");
-}
-
-// var loadShopifyAJAX = null;
-// var js_loadShopifyDATA = function js_loadShopifyDATA(listingID, pageno) {
-//   if (loadShopifyAJAX && loadShopifyAJAX.readyState != 4) {
-//     loadShopifyAJAX.abort();
-//   }
-//   var searchKEY = $("#" + listingID + "SearchKeyword").val();
-//   var searchKEYLEN = searchKEY != undefined ? searchKEY.length : 0;
-//   if (searchKEYLEN == 0 || searchKEYLEN >= 3) {
-//     var shopifyApi = $("#" + listingID).attr("data-apiName");
-//     var limit = $("#" + listingID + "limit").val();
-//     var from = $("#" + listingID).data("from");
-//     var routineNAME = "take_" + from + "_shopify_data";
-//     var fields = $("#" + listingID).attr("data-fields");
-//     fields = fields != undefined ? fields : "*";
-//     var searchFields = $("#" + listingID).attr("data-search");
-//     pageno = pageno != undefined ? pageno : 1;
-//     loadShopifyAJAX = $.ajax({
-//       url: "ajax_call.php",
-//       type: "post",
-//       dataType: "json",
-//       data: {
-//         routine_name: routineNAME,
-//         shopify_api: shopifyApi,
-//         fields: fields,
-//         store: store,
-//         limit: limit,
-//         pageno: pageno,
-//         search_key: searchKEY,
-//         listing_id: listingID,
-//         search_fields: searchFields,
-//         pagination_method: js_loadShopifyDATA.name,
-//       },
-//       beforeSend: function () {
-//         var listingTH = $("#" + listingID + " thead tr th").length;
-//         table_loader("table#" + listingID + " tbody", listingTH);
-//       },
-//       success: function (comeback) {
-//         if (comeback["code"] != undefined && comeback["code"] == "403") {
-//           redirect403();
-//         } else if (comeback["outcome"] == "true") {
-//           var tablehtml =
-//             comeback["html"] !== undefined && comeback["html"] != ""
-//               ? comeback["html"]
-//               : '<td  colspan="10" class="nodata"> NO DATA FOUND </td>';
-//           $("table#" + listingID + " tbody").html(tablehtml);
-//           $("#" + listingID + "Pagination").html(comeback["pagination_html"]);
-//         } else {
-//         }
-//       },
-//     });
-//   }
-// };
-
 function demo() {
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -482,15 +425,13 @@ function get_invoice(id) {
         $(".pro-zone__prompt").show();
       }
       // invoice_item get
-      console.log(response.item_data)
+      console.log(response.item_data);
       if (response.item_data) {
         $(".get_invoiceitem").html(response.item_data);
       }
-
     },
   });
 }
-
 
 function get_customer(id) {
   var routine_name = "getcustomer";
@@ -498,9 +439,8 @@ function get_customer(id) {
     url: "../admin1/ajax_call.php",
     type: "post",
     dataType: "json",
-    data: { routine_name:routine_name, id: id },
+    data: { routine_name: routine_name, id: id },
     success: function (response) {
-      
       console.log(response);
       var response = JSON.parse(response);
       response["outcome"]["name"] !== undefined
@@ -935,7 +875,7 @@ $(document).ready(function () {
             $(this).remove();
           });
 
-          listprofile();
+          profileLoadData("listprofile");
           profileUpdateImage();
         } else {
           showMessage(response.msg_error, "fail");
@@ -1249,6 +1189,7 @@ $(document).ready(function () {
       },
     });
   });
+
   function confirmAndDelete(deleteId, routineName, type, onSuccess) {
     Swal.fire({
       title: "Are you sure?",
@@ -1546,7 +1487,7 @@ $(document).ready(function () {
     console.log("Routine name:", routine_name);
     var page = $(this).data("page");
     var sortValue = $(".dropdown .dropdown-item.active").data("value"); // Get the currently selected sort value
-    console.log(sortValue+ " ****sortValue ");
+    console.log(sortValue + " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1960,9 +1901,14 @@ $(document).ready(function () {
   $(".dropdown .dropdown-item").click(function () {
     var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
-    var routin_name = (page_name == "bloglist") ? "bloglisting" : (page_name == "productlist") ?  "productlisting" : "videolisting";
+    var routin_name =
+      page_name == "bloglist"
+        ? "bloglisting"
+        : page_name == "productlist"
+        ? "productlisting"
+        : "videolisting";
     var tablename = $(this).closest(".dropdown-menu").data("table");
-    $(".dropdown-item").each(function() {
+    $(".dropdown-item").each(function () {
       $(this).removeClass("active");
     });
     $(this).addClass("active");
@@ -1983,16 +1929,16 @@ $(document).ready(function () {
         }
         var pagination = response.pagination;
         var pagination_needed = response.pagination_needed;
-        console.log('pagination_needed:', pagination_needed);
+        console.log("pagination_needed:", pagination_needed);
         if (response.outcome != "") {
-            console.log('Updating content...');
+          console.log("Updating content...");
           $("#getdata").html(response.outcome);
         }
         if (pagination_needed) {
-            console.log('Showing pagination...');
+          console.log("Showing pagination...");
           $("#pagination").html(pagination).show();
         } else {
-            console.log('Hiding pagination...');
+          console.log("Hiding pagination...");
           $("#pagination").hide();
         }
       },
