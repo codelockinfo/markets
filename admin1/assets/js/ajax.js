@@ -157,68 +157,6 @@ function loadData(routineName) {
   });
 }
 
-function listgallary() {
-  loadData("listgallary");
-}
-
-function listproduct() {
-  console.log("product function called");
-  loadData("productlisting");
-}
-
-function listcustomer() {
-  console.log("customerlist function called");
-  loadData("customerlisting");
-}
-
-function listblog() {
-  loadData("bloglisting");
-}
-
-function listinvoice() {
-  loadData("invoicelisting");
-}
-
-function offerlist() {
-  loadData("offerlisting");
-}
-
-function listvideo() {
-  loadData("videolisting");
-}
-
-function allvideo() {
-  loadData("allvideolisting");
-}
-
-function listbrousetextile() {
-  loadData("brousetextilelisting");
-}
-
-function listFAQ() {
-  loadData("FAQlisting");
-}
-
-function listparagraph() {
-  loadData("paragraphlisting");
-}
-
-function listproductprofile() {
-  loadData("profileproductlisting");
-}
-
-function listbanner() {
-  loadData("bannerlisting");
-}
-
-function listfamousmarket() {
-  loadData("famousmarketlisting");
-}
-
-function listreview() {
-  loadData("reviewlisting");
-}
-
 function profileLoadData(routineName) {
   console.log(routineName + " on load");
   $.ajax({
