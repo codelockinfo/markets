@@ -571,6 +571,7 @@ class admin_functions
         return $response;
     }
 
+
     function invoice(){
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -676,15 +677,20 @@ class admin_functions
                         }
                     }
                     if (!empty($values)) {
-                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                        $res1 = $this->db->query($sql1);
-
+                        if(empty($id)){
+                             $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                       
+                            }else{
+                             $sql1 = "UPDATE invoice_item  SET item='$item',quantity='$quantity',rate='$rate',amount='$amount'where  invoice_id =  $id";
+                        }
+                    }
+                    $res1 = $this->db->query($sql1);
                         if ($res1) {
                             $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
                         } else {
                             $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                         }
-                    }
+                    
 
                     $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                 } else {
@@ -1190,9 +1196,7 @@ class admin_functions
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-    
-            // Sorting logic
-                // Sorting logic using switch case
+            // Sorting logic using switch case
                 $sort_query = '';  // Default no sorting
                 switch ($sort) {
                     case 'most_view':
@@ -1253,9 +1257,9 @@ class admin_functions
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
-                    $output .= '<a href="' . SITE_ADMIN_URL . 'product-list.php">';
+                    
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
-                    $output .= '      </a>';
+                    
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -1275,10 +1279,27 @@ class admin_functions
                     $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
                     $output .= '</div>';
                     $output .= '<div class="modal-body">';
+                    $image = $row["p_image"];
+                    $imagePath = "../admin1/assets/img/product_img/" . $image;
+                    $noimagePath = $NO_IMAGE;
+                    $decodedPath = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                    );
+                    $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
+                    $output .= '<div class="position-absolute top-50 start-50 translate-middle">'; 
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '</div>';
+                    
+                    $output .= '</div>';
+                    $output .= '</div>'; 
+                    
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
                     $results = $this->db->query($sql);
                     if ($results && mysqli_num_rows($results) > 0) {
-                        $output .= '<div class="d-flex flex-wrap">';
+
+                        $output .= '<div class="row justify-content-center">';
                         while ($row_image = mysqli_fetch_array($results)) {
                             $imageData = $row_image['p_image'];
                             $images = explode(',', $imageData);
@@ -1287,8 +1308,10 @@ class admin_functions
                                 $decodedPath = htmlspecialchars_decode(
                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                 );
-                                $output .= '<div class="position-relative">';
+
+                                $output .= '<div class="col-6 col-md-4 p-2 position-relative">';
                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
+
                                 $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" aria-label="Delete">';
                                 $output .= '<i class="fa fa-trash"></i>';
                                 $output .= '</button>';
@@ -1306,10 +1329,12 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                    $output .= '<div>';
-                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
-                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen" data-delete-type="product" aria-hidden="true"></i></a>';
-                    $output .='</div>';
+
+                    $output .= '<div class="d-flex">';
+                    $output .= '    <i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" aria-hidden="true"></i></a>';
+                    $output .= '</div>';
+                    
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1319,7 +1344,7 @@ class admin_functions
                 $response_data = array(
                     'data' => 'success',
                     'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
+                    'pagination' => isset($pagination) ? $pagination : '', 
                     'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
                 );
             } else {
@@ -1345,6 +1370,7 @@ class admin_functions
     } else {
         $response_data['msg'] = 'User not logged in';
     }
+
     $response = json_encode($response_data);
     return $response;
 }
@@ -1388,9 +1414,9 @@ class admin_functions
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '    <div class=" mt-3" role="">';
                         $output .= '        <i data-id="' . $row["invoice_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
-                        $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
-                        $output .= '        </a>';
+                        $output .= '        <a href="invoice.php?id='.$row['invoice_id'].'" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                    $output .= '        </a>';
                         $output .= '    </div>';
                         $output .= '</div>';
                         $output .= '      </div>';
@@ -1660,6 +1686,7 @@ class admin_functions
                 $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
                 $res_count = $this->db->query($query);
                 $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+                // print_r($total_records);
                 if ($total_records > $limit) {
                     $total_pages = ceil($total_records / $limit);               
                     if ($total_pages > 1) {
@@ -1786,26 +1813,26 @@ class admin_functions
         return $response;
     }
 
-
     function allvideolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $userid = '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $userid = "WHERE user_id =$user_id";
+                $userid = "WHERE user_id = $user_id";
             }
             $query = "SELECT * FROM videos $userid";
             $result = $this->db->query($query);
             $output = "";
         }
+    
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
-                    $title =  $row['title'];
+                    $title = $row['title'];
                     $video_id = $row['video_id'];
-                    // echo $video_id;
+                    $toggleactive = ($row['toggle'] == "1") ? "checked" : ""; 
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
@@ -1817,7 +1844,7 @@ class admin_functions
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '">';
+                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>'; 
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1831,9 +1858,11 @@ class admin_functions
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
+    
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function offerlisting(){
         global $NO_IMAGE;
@@ -2383,7 +2412,37 @@ class admin_functions
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $response_data = array('data' => 'success', 'outcome' => $row);
+                $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
+                $item_result = $this->db->query($item_query);
+                $item_data = "";
+                while ($invoice_items = $item_result->fetch_assoc()) {
+                    $inv_item = $invoice_items['item'];
+                    $inv_quantity= $invoice_items['quantity'];
+                    $inv_rate = $invoice_items['rate'];
+                    $inv_amount= $invoice_items['amount'];
+                    $item_data .=  '<tr id="attr">';
+                    $item_data .=  '<td>';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_item.'" name="item[]" ">';
+                    $item_data .=  '<span class="errormsg item"></span>';
+                    $item_data .=  '</td>';
+                    $item_data .=  '<td>';
+                    $item_data .=  '<input type="number" class="form-control mt-1" value="'.$inv_quantity.'" name="quantity[]" min="1" >';
+                    $item_data .=  ' <span class="errormsg quantity"></span>';
+                    $item_data .=  '</td>';
+                    $item_data .=  '<td>';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_rate.'" name="rate[]" >';
+                    $item_data .=  '<span class="errormsg rate"></span>';
+                    $item_data .=  ' </td>';
+                    $item_data .=  '<td>';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_amount.'" name="amount[]" disabled="" >';
+                    $item_data .=  '<span class="errormsg item"></span>';
+                    $item_data .=  ' </td>';
+
+                    $item_data .=  '<td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style="display: none;"></i></td>';
+                    $item_data .=  '</tr>';
+                }
+
+                $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
             }
         }
         $response = json_encode($response_data);
