@@ -1347,9 +1347,10 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '<div>';
-                    $output .= '    <i data-id= "' . $row["product_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
-                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0"><i data-id= "' . $row["product_id"] . '" class="fa fa-pen" data-delete-type="product" aria-hidden="true"></i></a>';
+                    $output .= '    <i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
+                    
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -1359,7 +1360,7 @@ class admin_functions
                 $response_data = array(
                     'data' => 'success',
                     'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
+                    'pagination' => isset($pagination) ? $pagination : '', 
                     'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
                 );
 
@@ -1832,27 +1833,26 @@ class admin_functions
     }
 
 
-
-    function allvideolisting()
-    {
+    function allvideolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $userid = '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $userid = "WHERE user_id =$user_id";
+                $userid = "WHERE user_id = $user_id";
             }
             $query = "SELECT * FROM videos $userid";
             $result = $this->db->query($query);
             $output = "";
         }
+    
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
-                    $title =  $row['title'];
+                    $title = $row['title'];
                     $video_id = $row['video_id'];
-                    // echo $video_id;
+                    $toggleactive = ($row['toggle'] == "1") ? "checked" : ""; 
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
@@ -1864,7 +1864,7 @@ class admin_functions
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '">';
+                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>'; 
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1878,9 +1878,11 @@ class admin_functions
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
+    
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function offerlisting()
     {
