@@ -1520,41 +1520,63 @@ $(document).ready(function () {
 
   $("#search").on("keyup", function () {
     var search_text = $(this).val();
+    var page = $(this).data("page");   
+    var routine_name = $("#search").data("routine");
+    console.log('dddrer',routine_name);
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
       dataType: "json",
       data: {
         search_text: search_text,
-        routine_name: "productlisting",
+        routine_name: routine_name,
+        page:page,
       },
-      success: function (data) {
-        var data = JSON.parse(data);
-        if (data.data == "success") {
-          $("#getdata").html(data.outcome);
-        } else {
-          $("#getdata").html(NO_DATA);
+      success: function (response) {
+        if (typeof response === "string") {
+            response = JSON.parse(response);
         }
-      },
+        var pagination = response.pagination;
+        var pagination_needed = response.pagination_needed;
+        console.log('pagination_needed:', pagination_needed);
+        if (response.outcome != "") {
+            console.log('Updating content...');
+            console.log('ddddddddddd:',response.outcome);
+            if(response.outcome == "No data found"){
+              $("#getdata").html(NO_DATA);
+            }else{
+              $("#getdata").html(response.outcome);
+            }
+        }
+        if (pagination_needed) {
+            console.log('Showing pagination...');
+            $("#pagination").html(pagination).show();
+        } else {
+            console.log('Hiding pagination...');
+            $("#pagination").hide();  
+        }
+    },
     });
   });
   // product pagination
   $(document).on("click", "#dataPagination a", function (event) {
     event.preventDefault();
-    var routine_name = $("#dataPagination").data("routine");
-    console.log("Routine name:", routine_name);
-    var page = $(this).data("page");
-    var sortValue = $(".dropdown .dropdown-item.active").data("value"); // Get the currently selected sort value
-    console.log(sortValue+ " ****sortValue ");
+      var routine_name = $("#dataPagination").data("routine");
+      console.log("Routine name:", routine_name);
+      var page = $(this).data("page");
+      var search_text = $('.search-btn_1').val();  
+      console.log("Search text:", search_text);  
+      var sortValue = $(".dropdown .dropdown-item.active").data("value");
+      console.log(sortValue + " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
       dataType: "json",
       data: {
-        page: page,
         sortValue: sortValue,
-        search_text: $("#search_text").val(),
+        search_text: search_text,
         routine_name: routine_name,
+        page: page,
       },
       success: function (data) {
         var data = JSON.parse(data);
@@ -1562,7 +1584,7 @@ $(document).ready(function () {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
         } else {
-          $("#getdata").html("Data not found");
+           $("#getdata").html(NO_DATA);
           $("#pagination").html("Pagination not found");
         }
       },
@@ -1618,25 +1640,7 @@ $(document).ready(function () {
       },
     });
   });
-  // blogsearching
-  $("#blog_search").on("keyup", function () {
-    var search_text = $(this).val();
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: { search_text: search_text, routine_name: "bloglisting" },
-      success: function (data) {
-        var data = JSON.parse(data);
-        console.log(data.data);
-        if (data.data == "success") {
-          $("#getdata").html(data.outcome);
-        } else {
-          $("#getdata").html(NO_DATA);
-        }
-      },
-    });
-  });
+
 
   $(document).on("click", "#flexSwitchCheckDefault", function () {
     toggle_enabledisable(this);
@@ -1985,7 +1989,12 @@ $(document).ready(function () {
         console.log('pagination_needed:', pagination_needed);
         if (response.outcome != "") {
             console.log('Updating content...');
-            $("#getdata").html(response.outcome);
+            console.log('ddddddddddd:',response.outcome);
+            if(response.outcome == "No data found"){
+              $("#getdata").html(NO_DATA);
+            }else{
+              $("#getdata").html(response.outcome);
+            }
         }
         if (pagination_needed) {
             console.log('Showing pagination...');

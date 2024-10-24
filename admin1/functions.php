@@ -1195,8 +1195,8 @@ class admin_functions
                 // Sorting logic using switch case
                 $sort_query = '';  // Default no sorting
                 switch ($sort) {
-                    case 'best_selling':
-                        $sort_query = 'ORDER BY best_selling DESC';
+                    case 'most_view':
+                        $sort_query = "AND most_view = '1' ORDER BY featured DESC";
                         break;
                     case 'alphabetically_az':
                         $sort_query = 'ORDER BY title ASC';

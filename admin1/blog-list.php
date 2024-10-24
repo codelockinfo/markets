@@ -28,7 +28,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
             <div class="input-group search-btn search-icon dropdownhide">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="blog_search">
+              <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search" data-routine="bloglisting" >
             </div>
           </div>
           <div class="dropdown mt-3 filterDropdown"  data-filter="bloglist">
