@@ -1331,11 +1331,7 @@ class admin_functions
                             }
                         }
                         $output .= ' </div>';
-                    } else {
-                        $output .= '<div class="image modalgif ">';
-                        $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
-                        $output .= '</div>';
-                    }
+                    } 
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
