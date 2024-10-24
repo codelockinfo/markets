@@ -1524,11 +1524,15 @@ $(document).ready(function () {
     var page = $(this).data("page");   
     var routine_name = $("#search").data("routine");
     console.log('dddrer',routine_name);
+    var page = $("#search").find(".page-link.active").data("page");
+    var sortValue = $(".dropdown .dropdown-item.active").data("value");
+      console.log(sortValue + " ****sortValue ");
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
       dataType: "json",
       data: {
+        sortValue: sortValue,
         search_text: search_text,
         routine_name: routine_name,
         page:page,
@@ -1962,6 +1966,8 @@ $(document).ready(function () {
   });
 
   $(".dropdown .dropdown-item").click(function () {
+    var search_text = $('.search-btn_1').val();  
+    console.log("Search text:", search_text);  
     var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
     var routin_name = (page_name == "bloglist") ? "bloglisting" : (page_name == "productlist") ?  "productlisting" : "videolisting";
@@ -1970,7 +1976,7 @@ $(document).ready(function () {
       $(this).removeClass("active");  
     });
     $(this).addClass("active");  
-    var page = $("#dataPagination").find(".page-link.active").data("page");  
+    var page = $("#dataPagination").find(".page-link.active").data("page");   
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
@@ -1978,6 +1984,7 @@ $(document).ready(function () {
       data: {
         routine_name: routin_name,
         sortValue: sortValue,
+        search_text: search_text,
         tablename: tablename,
         page: page,
       },
