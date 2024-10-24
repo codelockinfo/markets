@@ -55,7 +55,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         <div class="card-body p-3">
           <div class="row" id="getdata">
 
-            <nav aria-label="Page navigation example">
+            <!-- <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
                   <a class="page-link" href="#" aria-label="Previous">
@@ -73,7 +73,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
           </div>
         </div>
       </div>
