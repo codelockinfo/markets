@@ -1911,6 +1911,8 @@ $(document).ready(function () {
     console.log("Search text:", search_text);  
     var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
+    var sortby = $(this).data("sortby");
+    $('#dropdownMenuButton1').text(sortby);
     var routin_name =
       page_name == "bloglist"
         ? "bloglisting"
