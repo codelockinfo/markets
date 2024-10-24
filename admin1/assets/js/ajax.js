@@ -335,10 +335,12 @@ function get_product(id) {
           $(".pro-zone__prompt").hide();
           var imagePreview =
             '<div class="drop-zone__thumb">' +
+            '<div class="img-wrapper">' +
             '<img src="../admin1/assets/img/product_img/' +
             p_image +
             '" class="picture__img"/>' +
-            '<button class="close-button close">x</button>' +
+            '<button class="close-button">x</button>' +
+            "</div>" +
             "</div>";
 
           $(".pro-zone").append(imagePreview);
