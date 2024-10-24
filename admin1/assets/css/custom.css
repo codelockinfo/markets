@@ -1023,7 +1023,13 @@
 }
 .delete_shadow{
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-  background-color: white;
+
    color: #6c757d;
    font-size: 15px;
+}
+.delete_btn{
+  padding: .375rem .75rem;
+}
+.edit_btn{
+  padding: .33rem .75rem;
 }
