@@ -1107,7 +1107,6 @@ $(document).ready(function () {
     });
   });
 
-  // invoice
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
     console.log("invoice  button click");
@@ -1270,6 +1269,8 @@ $(document).ready(function () {
     $("[data-id='" + deleteId + "']")
       .closest(".position-relative")
       .remove();
+ 
+
   }
 
   $(document).delegate(".delete", "click", function () {
