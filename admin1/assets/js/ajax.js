@@ -129,23 +129,23 @@ function loadData(routineName) {
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
 
-        $(".dropdownhide").hide(); 
-        $("#pagination").hide(); 
+        $(".dropdownhide").hide();
+        $("#pagination").hide();
 
         $(".addproduct").show();
-        $(".viewproduct").hide(); 
+        $(".viewproduct").hide();
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
-          $(".dropdownhide").show(); 
-          $(".addproduct").hide(); 
-          $(".viewproduct").show(); 
-          $("#pagination").show(); 
+          $(".dropdownhide").show();
+          $(".addproduct").hide();
+          $(".viewproduct").show();
+          $("#pagination").show();
         } else {
           $(".addproduct").hide();
-          $(".viewproduct").show(); 
+          $(".viewproduct").show();
         }
         check_toggle_status();
         check_toggle_btn();
@@ -421,9 +421,9 @@ function get_invoice(id) {
     data: { routine_name: "getinvoice", id: id },
     success: function (response) {
       var response = JSON.parse(response);
-        console.log(response);
-        console.log(response.outcome.i_name);
-        
+      console.log(response);
+      console.log(response.outcome.i_name);
+
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
@@ -484,7 +484,7 @@ function get_invoice(id) {
       // invoice_item get
       console.log(response.item_data)
       if (response.item_data) {
-        $(".get_invoiceitem").html(response.item_data); 
+        $(".get_invoiceitem").html(response.item_data);
       }
 
     },
@@ -512,17 +512,17 @@ function get_customer(id) {
       response["outcome"]["contact"] !== undefined
         ? $("input[name='contact']").val(response["outcome"]["contact"])
         : "";
-        response["outcome"]["city"] !== undefined
+      response["outcome"]["city"] !== undefined
         ? $("input[name='city']").val(response["outcome"]["city"])
         : "";
-        response["outcome"]["state"] !== undefined
+      response["outcome"]["state"] !== undefined
         ? $("input[name='state']").val(response["outcome"]["state"])
         : "";
 
       response["outcome"]["address"] !== undefined
         ? $("textarea[name='address']").val(response["outcome"]["address"])
         : "";
-       
+
       // Handle customer image
       var c_image =
         response["outcome"]["c_image"] !== undefined
@@ -1132,10 +1132,10 @@ $(document).ready(function () {
           ? $(".c_image").html(response["msg"]["c_image"])
           : $(".c_image").html("");
 
-          response["msg"]["city"] !== undefined
+        response["msg"]["city"] !== undefined
           ? $(".city").html(response["msg"]["city"])
           : $(".city").html("");
-          response["msg"]["state"] !== undefined
+        response["msg"]["state"] !== undefined
           ? $(".state").html(response["msg"]["state"])
           : $(".state").html("");
 
@@ -1963,10 +1963,10 @@ $(document).ready(function () {
     var routin_name = (page_name == "bloglist") ? "bloglisting" : (page_name == "productlist") ?  "productlisting" : "videolisting";
     var tablename = $(this).closest(".dropdown-menu").data("table");
     $(".dropdown-item").each(function() {
-      $(this).removeClass("active");  
+      $(this).removeClass("active");
     });
-    $(this).addClass("active");  
-    var page = $("#dataPagination").find(".page-link.active").data("page");  
+    $(this).addClass("active");
+    var page = $("#dataPagination").find(".page-link.active").data("page");
     $.ajax({
       url: "ajax_call.php",
       type: "POST",
@@ -1979,23 +1979,23 @@ $(document).ready(function () {
       },
       success: function (response) {
         if (typeof response === "string") {
-            response = JSON.parse(response);
+          response = JSON.parse(response);
         }
         var pagination = response.pagination;
         var pagination_needed = response.pagination_needed;
         console.log('pagination_needed:', pagination_needed);
         if (response.outcome != "") {
             console.log('Updating content...');
-            $("#getdata").html(response.outcome);
+          $("#getdata").html(response.outcome);
         }
         if (pagination_needed) {
             console.log('Showing pagination...');
-            $("#pagination").html(pagination).show();
+          $("#pagination").html(pagination).show();
         } else {
             console.log('Hiding pagination...');
-            $("#pagination").hide();  
+          $("#pagination").hide();
         }
-    },
+      },
     });
   });
 
@@ -2017,7 +2017,22 @@ $(document).ready(function () {
 
 // video anable disable
 $(document).on("click", ".toggle-button", function () {
-  toggle_checkuncheck(this);
+  var videoId = $(this).data("video-id");
+  var ischecked_value = $(this).is(":checked") ? 1 : 0;
+
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      routine_name: "toggle_checkuncheck",
+      ischecked_value: ischecked_value,
+      video_id: videoId,
+    },
+    success: function (response) {
+      console.log("Ajax response received: ", response);
+    },
+  });
 });
 
 function check_toggle_btn(videoId) {
@@ -2037,25 +2052,6 @@ function check_toggle_btn(videoId) {
       } else {
         console.log("Something went wrong");
       }
-    },
-  });
-}
-
-function toggle_checkuncheck(thisObj) {
-  var videoId = $(thisObj).data("video-id");
-  var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
-
-  $.ajax({
-    url: "../admin1/ajax_call.php",
-    type: "POST",
-    dataType: "json",
-    data: {
-      routine_name: "toggle_checkuncheck",
-      ischecked_value: ischecked_value,
-      video_id: videoId,
-    },
-    success: function (response) {
-      console.log("Ajax response received: ", response);
     },
   });
 }
