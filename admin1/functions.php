@@ -105,7 +105,8 @@ class admin_functions
         return $response;
     }
 
-    function profile_imagesave(){
+    function profile_imagesave()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -158,7 +159,8 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function insert_signup() {
+    function insert_signup()
+    {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
@@ -267,7 +269,8 @@ class admin_functions
         }
     }
 
-    function insert_products() {
+    function insert_products()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
         $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
@@ -571,7 +574,6 @@ class admin_functions
         return $response;
     }
 
-
     function invoice(){
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -677,20 +679,19 @@ class admin_functions
                         }
                     }
                     if (!empty($values)) {
-                        if(empty($id)){
-                             $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                       
-                            }else{
-                             $sql1 = "UPDATE invoice_item  SET item='$item',quantity='$quantity',rate='$rate',amount='$amount'where  invoice_id =  $id";
+                        if (empty($id)) {
+                            $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                        } else {
+                            $sql1 = "UPDATE invoice_item  SET item='$item',quantity='$quantity',rate='$rate',amount='$amount'where  invoice_id =  $id";
                         }
                     }
                     $res1 = $this->db->query($sql1);
-                        if ($res1) {
-                            $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
-                        } else {
-                            $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
-                        }
-                    
+                    if ($res1) {
+                        $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
+                    } else {
+                        $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
+                    }
+
 
                     $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                 } else {
@@ -1181,8 +1182,7 @@ class admin_functions
         return $response;
     }
 
-
-    function productlisting() {
+    function productlisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
@@ -1238,7 +1238,6 @@ class admin_functions
                 $result = $this->db->query($sql);
                 $output = "";
                 $pagination = "";
-
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $product_id = $row['product_id'];
@@ -1257,9 +1256,9 @@ class admin_functions
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
-                    
+
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
-                    
+
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -1288,13 +1287,13 @@ class admin_functions
                     $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';
                     $output .= '<div class="position-relative">';
                     $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
-                    $output .= '<div class="position-absolute top-50 start-50 translate-middle">'; 
+                    $output .= '<div class="position-absolute top-50 start-50 translate-middle">';
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
                     $output .= '</div>';
-                    
+
                     $output .= '</div>';
-                    $output .= '</div>'; 
-                    
+                    $output .= '</div>';
+
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
                     $results = $this->db->query($sql);
                     if ($results && mysqli_num_rows($results) > 0) {
@@ -1329,22 +1328,19 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-
-                    $output .= '<div class="d-flex">';
-                    $output .= '    <i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" data-delete-type="product" aria-hidden="true"></i>';
-                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0 icon-size" aria-hidden="true"></i></a>';
+                    $output .= '<div>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
-                    
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
-
                     $output .= '  </div>';
                 }
                 $response_data = array(
                     'data' => 'success',
                     'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '', 
+                    'pagination' => isset($pagination) ? $pagination : '',
                     'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
                 );
             } else {
@@ -1355,7 +1351,7 @@ class admin_functions
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
-                $total_pages = ceil($total_records / $limit);               
+                $total_pages = ceil($total_records / $limit);
                 if ($total_pages > 1) {
                     $pagination .= '<div class="pagination" id="dataPagination" data-routine="productlisting">';
                     for ($i = 1; $i <= $total_pages; $i++) {
@@ -1366,16 +1362,15 @@ class admin_functions
                 }
                 $response_data['pagination'] = $pagination;
             }
-
     } else {
         $response_data['msg'] = 'User not logged in';
     }
+        $response = json_encode($response_data);
+        return $response;
+    }
 
-    $response = json_encode($response_data);
-    return $response;
-}
-
-    function invoicelisting(){
+    function invoicelisting()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1412,11 +1407,11 @@ class admin_functions
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
                         $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
-                        $output .= '    <div class=" mt-3" role="">';
-                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '        <a href="invoice.php?id='.$row['invoice_id'].'" class="btn delete_shadow btn-light shadow-sm rounded-0">';
-                    $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
-                    $output .= '        </a>';
+                        $output .= '    <div class="" role="">';
+                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
+                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                        $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                        $output .= '        </a>';
                         $output .= '    </div>';
                         $output .= '</div>';
                         $output .= '      </div>';
@@ -1466,9 +1461,9 @@ class admin_functions
                     $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
 
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <div class="mt-3" >';
-                    $output .= '        <i data-id="' . $row["customer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
-                    $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '    <div class="" >';
+                    $output .= '        <i data-id="' . $row["customer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
+                    $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
                     $output .= '    </div>';
@@ -1487,7 +1482,8 @@ class admin_functions
         }
     }
 
-    function listprofile() {
+    function listprofile()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1660,9 +1656,9 @@ class admin_functions
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <div class=" mt-3" role="">';
-                    $output .= '        <i data-id="' . $row["blog_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="blog" aria-hidden="true"></i>';
-                    $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '    <div class="" role="">';
+                    $output .= '        <i data-id="' . $row["blog_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delet_btn btn-light shadow-sm rounded-0" data-delete-type="blog" aria-hidden="true"></i>';
+                    $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
                     $output .= '    </div>';
@@ -1678,7 +1674,6 @@ class admin_functions
                     'pagination' => isset($pagination) ? $pagination : '',  // Ensure 'pagination' is always set
                     'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
                 );
-                
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
@@ -1686,7 +1681,6 @@ class admin_functions
                 $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
                 $res_count = $this->db->query($query);
                 $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-                // print_r($total_records);
                 if ($total_records > $limit) {
                     $total_pages = ceil($total_records / $limit);               
                     if ($total_pages > 1) {
@@ -1696,9 +1690,9 @@ class admin_functions
                             $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                         }
                         $pagination .= '</div>';
-                    }
-                    $response_data['pagination'] = $pagination;
                 }
+                $response_data['pagination'] = $pagination;
+            }
         } else {
             $response_data['msg'] = 'User not logged in';
         }
@@ -1706,11 +1700,12 @@ class admin_functions
         return $response;
     }
 
-    function videolisting(){
+    function videolisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-   
+
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
-           if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
+        if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
@@ -1721,56 +1716,55 @@ class admin_functions
                 $userid_clause = "AND user_id = $user_id";
             }
 
-    
+
             // Sorting logic
-                // Sorting logic using switch case
-                $sort_query = '';  // Default no sorting
-                switch ($sort) {
-                    case 'best_selling':
-                        $sort_query = 'ORDER BY best_selling DESC';
-                        break;
-                    case 'alphabetically_az':
-                        $sort_query = 'ORDER BY title ASC';
-                        break;
-                    case 'alphabetically_za':
-                        $sort_query = 'ORDER BY title DESC';
-                        break;
-                    case 'price_low_high':
-                        $sort_query = 'ORDER BY minprice ASC';
-                        break;
-                    case 'price_high_low':
-                        $sort_query = 'ORDER BY minprice DESC';
-                        break;
-                    case 'date_new_old':
-                        $sort_query = 'ORDER BY created_date DESC';
-                        break;
-                    case 'date_old_new':
-                        $sort_query = 'ORDER BY created_date ASC';
-                        break;
-                    case 'featured':
-                        // Add featured sorting logic if necessary
-                        $sort_query = 'ORDER BY featured DESC';
-                        break;
-                    default:
-                        // Default behavior if no sorting option is selected
-                        break;
-                }
-                $query = "SELECT COUNT(*) AS total FROM videos WHERE title LIKE '%$search_value%' $userid_clause";
-                $res_count = $this->db->query($query);
-                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-               if ($total_records > $limit) { 
-                  $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
-                } 
-               else { 
-                  $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
-                }
+            // Sorting logic using switch case
+            $sort_query = '';  // Default no sorting
+            switch ($sort) {
+                case 'best_selling':
+                    $sort_query = 'ORDER BY best_selling DESC';
+                    break;
+                case 'alphabetically_az':
+                    $sort_query = 'ORDER BY title ASC';
+                    break;
+                case 'alphabetically_za':
+                    $sort_query = 'ORDER BY title DESC';
+                    break;
+                case 'price_low_high':
+                    $sort_query = 'ORDER BY minprice ASC';
+                    break;
+                case 'price_high_low':
+                    $sort_query = 'ORDER BY minprice DESC';
+                    break;
+                case 'date_new_old':
+                    $sort_query = 'ORDER BY created_date DESC';
+                    break;
+                case 'date_old_new':
+                    $sort_query = 'ORDER BY created_date ASC';
+                    break;
+                case 'featured':
+                    // Add featured sorting logic if necessary
+                    $sort_query = 'ORDER BY featured DESC';
+                    break;
+                default:
+                    // Default behavior if no sorting option is selected
+                    break;
+            }
+            $query = "SELECT COUNT(*) AS total FROM videos WHERE title LIKE '%$search_value%' $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+            } else {
+                $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+            }
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
-            }
-                if ($result) {
-                    if (mysqli_num_rows($result) > 0) {
-                     while ($row = mysqli_fetch_array($result)) {
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
                     $title =  $row['title'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
@@ -1783,7 +1777,7 @@ class admin_functions
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="video" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="video" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1825,14 +1819,14 @@ class admin_functions
             $result = $this->db->query($query);
             $output = "";
         }
-    
+
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
                     $title = $row['title'];
                     $video_id = $row['video_id'];
-                    $toggleactive = ($row['toggle'] == "1") ? "checked" : ""; 
+                    $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                     $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
@@ -1844,7 +1838,7 @@ class admin_functions
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>'; 
+                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1858,11 +1852,11 @@ class admin_functions
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-    
+
         $response = json_encode($response_data);
         return $response;
     }
-    
+
 
     function offerlisting(){
         global $NO_IMAGE;
@@ -1905,7 +1899,7 @@ class admin_functions
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="offer" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offer" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2102,7 +2096,7 @@ class admin_functions
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '</a>';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="banner" aria-hidden="true"></i>';
+                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0" data-delete-type="banner" aria-hidden="true"></i>';
                         $output .= '</div>';
 
                         $output .= '</div>';
@@ -2403,7 +2397,8 @@ class admin_functions
         return $response;
     }
 
-    function getinvoice(){
+    function getinvoice()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
 
@@ -2417,24 +2412,24 @@ class admin_functions
                 $item_data = "";
                 while ($invoice_items = $item_result->fetch_assoc()) {
                     $inv_item = $invoice_items['item'];
-                    $inv_quantity= $invoice_items['quantity'];
+                    $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
-                    $inv_amount= $invoice_items['amount'];
+                    $inv_amount = $invoice_items['amount'];
                     $item_data .=  '<tr id="attr">';
                     $item_data .=  '<td>';
-                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_item.'" name="item[]" ">';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  '</td>';
                     $item_data .=  '<td>';
-                    $item_data .=  '<input type="number" class="form-control mt-1" value="'.$inv_quantity.'" name="quantity[]" min="1" >';
+                    $item_data .=  '<input type="number" class="form-control mt-1" value="' . $inv_quantity . '" name="quantity[]" min="1" >';
                     $item_data .=  ' <span class="errormsg quantity"></span>';
                     $item_data .=  '</td>';
                     $item_data .=  '<td>';
-                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_rate.'" name="rate[]" >';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_rate . '" name="rate[]" >';
                     $item_data .=  '<span class="errormsg rate"></span>';
                     $item_data .=  ' </td>';
                     $item_data .=  '<td>';
-                    $item_data .=  ' <input type="text" class="form-control mt-1" value="'.$inv_amount.'" name="amount[]" disabled="" >';
+                    $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_amount . '" name="amount[]" disabled="" >';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
 
