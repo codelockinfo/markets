@@ -1295,7 +1295,7 @@ class admin_functions{
                     $output .= '<div class="position-relative">';
                     $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
                     $output .= '<div class="position-absolute top-50 start-50 translate-middle">';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product_main_image" aria-hidden="true"></i>';
                     $output .= '</div>';
 
                     $output .= '</div>';
@@ -2250,6 +2250,24 @@ class admin_functions{
     function multipimgdelete(){
         $delete_id = isset($_POST['product_image_id']) ? $_POST['product_image_id'] : '2';
         return $this->deleteRecord('product_images', $delete_id);
+    }
+    function product_main_image(){
+        // $delete_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
+        // if(!empty($delete_id)){
+        //     return $this->deleteRecord('products', $delete_id);
+        // }
+        
+        $product_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
+        if (!empty($product_id)) {
+            $query = "UPDATE products SET p_image = ' ' WHERE product_id = '$product_id'";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'message' => "Delete successfully");
+            }else {
+                $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
+            }
+            return json_encode($response_data);
+        }
     }
 
     function customerdelete(){
