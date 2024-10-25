@@ -1294,6 +1294,8 @@ $(document).ready(function () {
     var deleteMapping = {
       product: { routine: "productdelete", callback: listproduct },
       invoice: { routine: "invoicedelete", callback: listinvoice },
+      review: { routine: "reviewdelete", callback: listreview },
+      famous_market: { routine: "famousmarketdelete", callback: listfamousmarket },
       product_images: {
         routine: "multipimgdelete",
         callback: function () {
