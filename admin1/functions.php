@@ -2139,6 +2139,7 @@ class admin_functions{
                     $input = $row['shop_name'];
                     $query = "SELECT * FROM users WHERE   user_id = '$input'";
                     $result = $this->db->query($query);
+                    $id=$row["famous_market_id"];
                     if ($result) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
@@ -2148,7 +2149,7 @@ class admin_functions{
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; // Added d-flex and align-items-center
-                                $output .= '      <i data-id="" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_market" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_market" aria-hidden="true"></i>'; // Removed margin-top for centering
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
@@ -2205,7 +2206,7 @@ class admin_functions{
                             $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>';
                             $output .= '    </div>';
                             $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
-                            $output .= '      <i data-id="" class="fa fa-trash cursor-pointer delete" data-delete-type="marketreviews" aria-hidden="true"></i>'; // Removed margin-top for centering
+                            $output .= '      <i data-id="' . $row["marketreview_id"] . '" class="fa fa-trash cursor-pointer delete"  data-delete-type="review" aria-hidden="true"></i>'; // Removed margin-top for centering
                             $output .= '    </div>';
                             $output .= '  </div>';
                             $output .= '</div>';
