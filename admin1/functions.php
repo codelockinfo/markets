@@ -1301,7 +1301,7 @@ class admin_functions{
                     );
                     $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';
                     $output .= '<div class="position-relative">';
-                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
+                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="main-product-img img-fluid shadow border-radius-xl modal_img">';
                     $output .= '<div class="position-absolute top-50 start-50 translate-middle">';
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product_main_image" aria-hidden="true"></i>';
                     $output .= '</div>';

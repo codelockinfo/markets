@@ -1033,3 +1033,7 @@
 .edit_btn{
   padding: .33rem .75rem;
 }
+.main-product-img{
+  width: 280px;
+  height: 280px;
+}
