@@ -6,16 +6,19 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 // include_once '../append/Login.php';
 include_once '../connection.php';
 $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
-class admin_functions{
+class admin_functions
+{
     public $cls_errors = array();
     public $msg = array();
     protected $db;
-    public function __construct(){
+    public function __construct()
+    {
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
     }
 
-    public function demo_function() {
+    public function demo_function()
+    {
         $sql = "SELECT * FROM users";
         $result = $this->db->query($sql);
 
@@ -25,8 +28,9 @@ class admin_functions{
             print_r($result);
         }
     }
-    
-    function insert_signin(){
+
+    function insert_signin()
+    {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -59,7 +63,8 @@ class admin_functions{
         return $response;
     }
 
-    function profile_updatedata() {
+    function profile_updatedata()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             if (isset($_POST['name']) && $_POST['name'] == '') {
@@ -102,7 +107,8 @@ class admin_functions{
         return $response;
     }
 
-    function profile_imagesave(){
+    function profile_imagesave()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -155,7 +161,8 @@ class admin_functions{
         $response = json_encode($response_data);
         return $response;
     }
-    function insert_signup() {
+    function insert_signup()
+    {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
@@ -264,7 +271,8 @@ class admin_functions{
         }
     }
 
-    function insert_products(){
+    function insert_products()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
         $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
@@ -431,7 +439,8 @@ class admin_functions{
         return $response;
     }
 
-    function add_customer(){
+    function add_customer()
+    {
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
         $is_image = false;
@@ -455,12 +464,12 @@ class admin_functions{
             if ($file['size'] > $maxSize) {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
-            
+
             $is_image = true;
         } else {
             $error_array['c_image'] = "Please upload your image.";
         }
-        
+
         if (empty($_POST['name'])) {
             $error_array['name'] = "Please enter customer name";
         }
@@ -531,66 +540,98 @@ class admin_functions{
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $userid = '';
-            if ($_SESSION['current_user']['role'] == 1) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $userid = "WHERE user_id =$user_id";
-            }
-            $query = "SELECT * FROM products  $userid";
-            $result = $this->db->query($query);
+            $limit = 12;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+            $offset = ($page - 1) * $limit;
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
+
+            $query = "SELECT COUNT(*) AS total FROM products WHERE $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $sql = "SELECT * FROM products WHERE $userid_clause LIMIT $offset, $limit";
+            $result = $this->db->query($sql);
+
             $output = "";
-        }
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
-                    $noimagePath = $NO_IMAGE;
-                    $decodedPath = htmlspecialchars_decode(
-                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                    );;
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain mb-4">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl product_imagebox">';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 product_main_image">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
-                    $output .= '</div>';
+            $pagination = "";
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        $image = $row["p_image"];
+                        $imagePath = "../admin1/assets/img/product_img/" . $image;
+                        $noimagePath = $NO_IMAGE;
+                        $decodedPath = htmlspecialchars_decode(
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                        );
+    
+                        $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                        $output .= '  <div class="card card-blog card-plain mb-4">';
+                        $output .= '    <div class="position-relative">';
+                        $output .= '      <a class="d-block border-radius-xl product_imagebox">';
+                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 product_main_image">';
+                        $output .= '      </a>';
+                        $output .= '    </div>';
+                        $output .= '  </div>';
+                        $output .= '</div>';
+                    }
+    
+                    $response_data = array(
+                        'data' => 'success',
+                        'outcome' => $output,
+                        'pagination' => '',
+                        'pagination_needed' => ($total_records > $limit)
+                    );
+    
+                    if ($total_records > $limit) {
+                        $total_pages = ceil($total_records / $limit);
+                        if ($total_pages > 1) {
+                            $pagination .= '<div class="pagination" id="dataPagination" data-routine="listgallary">';
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                $active_class = ($i == $page) ? 'active' : '';
+                                $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                            }
+                            $pagination .= '</div>';
+                        }
+                        $response_data['pagination'] = $pagination;
+                    }
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
                 }
-                $response_data = array('data' => 'success', 'outcome' => $output);
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
+        
         $response = json_encode($response_data);
         return $response;
     }
-
-    function invoice(){
+    
+    function invoice()
+    {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
         $newFilename = "";
         $is_image = false;
-        if (isset($_FILES["i_image"]) && $_FILES["i_image"]["name"] != "") {
-            $allowedExtensions = ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'];
-            $maxSize = 5 * 1024 * 1024;
-            $filename = $_FILES["i_image"]["name"];
-            $tmpfile = $_FILES["i_image"]["tmp_name"];
-            $file = $_FILES['i_image'];
+        $maxSize = 5 * 1024 * 1024;
+
+        if ($_FILES["i_image"]["name"] != "" && $id != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != '' && $id == "") {
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+            $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["i_image"]["name"] : '';
+            $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
-            $fileName = $_FILES['i_image']['name'];
-            $fileNameCmps = explode(".", $fileName);
+            $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/invoice_img/";
             $fullpath = $folder . $newFilename;
+            $file = $_FILES['i_image'];
 
-            if (!is_dir($folder) && !mkdir($folder, 0777, true) && !is_dir($folder)) {
-                return json_encode(['data' => 'fail', 'msg' => 'Failed to create directory for image upload.']);
+            if (!is_dir($folder)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
+                    $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
+                    return json_encode($response_data);
+                }
             }
+
             if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
@@ -598,12 +639,10 @@ class admin_functions{
                 $error_array['i_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['i_image'] = "Please upload your image.";
+                $error_array['i_image'] = "Please upload the invoice image.";
             }
-            $is_image = true;
-        }else{
-            $error_array['i_image'] = "Please upload your image.";
         }
+
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
         if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
@@ -611,7 +650,6 @@ class admin_functions{
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-
 
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
@@ -624,61 +662,74 @@ class admin_functions{
             $total = isset($_POST['total']) ? $_POST['total'] : 0;
             $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
-            $user_id = $_SESSION['current_user']['user_id'];
-            if ($is_image && !move_uploaded_file($tmpfile, $fullpath)) {
-                $error_array['i_image'] = "Error moving uploaded file.";
-            }
-            if (empty($error_array)) {
-                if (empty($id)) {
-                    $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                              VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+
+            if ($id == '') {
+                if (move_uploaded_file($tmpfile, $fullpath)) {
+                    if (isset($_SESSION['current_user']['user_id'])) {
+                        $user_id = $_SESSION['current_user']['user_id'];
+                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                                  VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                    }
+                }
+            } else {
+                if (!empty($filename)) {
+                    if (move_uploaded_file($tmpfile, $fullpath)) {
+                        $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
+                                  po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', i_image = '$newFilename' WHERE invoice_id = $id";
+                    }
                 } else {
+                    $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
+                    $existing_image_result = $this->db->query($existing_image_query);
+                    $existing_image_row = $existing_image_result->fetch_assoc();
+                    $existing_image = $existing_image_row['i_image'];
+
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
-                              po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due'" .
-                        ($is_image ? ", i_image = '$newFilename'" : "") .
-                        " WHERE invoice_id = $id";
+                              po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', i_image = '$existing_image' WHERE invoice_id = $id";
+                }
+            }
+
+            $result = $this->db->query($query);
+            if ($result) {
+                $last_id = empty($id) ? $this->db->insert_id : $id;
+                $items = $_POST['item'];
+                $quantities = $_POST['quantity'];
+                $rates = $_POST['rate'];
+                $values = [];
+
+                foreach ($items as $index => $item) {
+                    $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                    $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                    $amount = $quantity * $rate;
+
+                    if (empty($item)) {
+                        $error_array[$index]['item'] = "Please enter item.";
+                    }
+                    if (empty($quantity) || !is_numeric($quantity)) {
+                        $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                    }
+                    if (empty($rate) || !is_numeric($rate)) {
+                        $error_array[$index]['rate'] = "Please enter valid rate.";
+                    }
+                    if ($amount <= 0) {
+                        $error_array[$index]['amount'] = "Amount is not valid.";
+                    }
+
+                    if (empty($error_array[$index])) {
+                        $item = $this->db->real_escape_string($item);
+                        $quantity = $quantity !== null ? $this->db->real_escape_string($quantity) : 0;
+                        $rate = $rate !== null ? $this->db->real_escape_string($rate) : 0;
+                        $amount = $amount !== null ? $this->db->real_escape_string($amount) : 0;
+                        $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : null;
+                        $last_id = $this->db->real_escape_string($last_id);
+                        $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                    }
                 }
 
-                $result = $this->db->query($query);
-                if ($result) {
-                    $last_id = empty($id) ? $this->db->insert_id : $id;
-                    $items = $_POST['item'];
-                    $quantities = $_POST['quantity'];
-                    $rates = $_POST['rate'];
-                    $values = [];
-                    foreach ($items as $index => $item) {
-                        $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                        $rate = !empty($rates[$index]) ? $rates[$index] : null;
-                        $amount = $quantity * $rate;
-                        if (empty($item)) {
-                            $error_array[$index]['item'] = "Please enter item.";
-                        }
-                        if (empty($quantity) || !is_numeric($quantity)) {
-                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
-                        }
-                        if (empty($rate) || !is_numeric($rate)) {
-                            $error_array[$index]['rate'] = "Please enter valid rate.";
-                        }
-                        if ($amount <= 0) {
-                            $error_array[$index]['amount'] = "Amount is not valid.";
-                        }
-
-                        if (empty($error_array[$index])) {
-                            $item = $this->db->real_escape_string($item);
-                            $quantity = $this->db->real_escape_string($quantity);
-                            $rate = $this->db->real_escape_string($rate);
-                            $amount = $this->db->real_escape_string($amount);
-                            $user_id = $this->db->real_escape_string($user_id);
-                            $last_id = $this->db->real_escape_string($last_id);
-                            $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
-                        }
-                    }
-                    if (!empty($values)) {
-                        if (empty($id)) {
-                            $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                        } else {
-                            $sql1 = "UPDATE invoice_item  SET item='$item',quantity='$quantity',rate='$rate',amount='$amount'where  invoice_id =  $id";
-                        }
+                if (!empty($values)) {
+                    if (empty($id)) {
+                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                    } else {
+                        $sql1 = "UPDATE invoice_item SET item='$item',quantity='$quantity',rate='$rate',amount='$amount' WHERE invoice_id = $id";
                     }
                     $res1 = $this->db->query($sql1);
                     if ($res1) {
@@ -686,14 +737,11 @@ class admin_functions{
                     } else {
                         $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                     }
-
-
-                    $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
-                } else {
-                    $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                 }
+
+                $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
             } else {
-                $response_data = ['data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong."];
+                $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
             }
         } else {
             $response_data = ['data' => 'fail', 'msg' => $error_array];
@@ -702,7 +750,8 @@ class admin_functions{
         return json_encode($response_data);
     }
 
-    function isValidYouTubeURL($url){
+    function isValidYouTubeURL($url)
+    {
         $allowedPatterns = array(
             '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/',
             '/^https?:\/\/youtu\.be\/[a-zA-Z0-9_-]+$/',
@@ -716,7 +765,8 @@ class admin_functions{
         return false;
     }
 
-    function insert_videos(){
+    function insert_videos()
+    {
         $error_array = array();
 
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
@@ -760,7 +810,8 @@ class admin_functions{
         return $response;
     }
 
-    function insert_blog(){
+    function insert_blog()
+    {
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
 
@@ -867,7 +918,8 @@ class admin_functions{
         return $response;
     }
 
-    function isValidURL($url){
+    function isValidURL($url)
+    {
         $allowedPatterns = array(
             "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i"
         );
@@ -879,7 +931,8 @@ class admin_functions{
         return false;
     }
 
-    function insert_banner(){
+    function insert_banner()
+    {
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
@@ -950,7 +1003,8 @@ class admin_functions{
         return $response;
     }
 
-    function insert_market(){
+    function insert_market()
+    {
         $error_array = array();
         if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
             $error_array['shop_name'] = "Please select the shop.";
@@ -979,7 +1033,8 @@ class admin_functions{
         return json_encode($response_data);
     }
 
-    function insert_brousetxt() {
+    function insert_brousetxt()
+    {
         $error_array = array();
         if (!isset($_POST['categories']) || $_POST['categories'] == '') {
             $error_array['categories'] = "Please select the categories.";
@@ -1011,7 +1066,8 @@ class admin_functions{
         return $response;
     }
 
-    function insert_offers(){
+    function insert_offers()
+    {
         $error_array = array();
         $file = $_FILES['myFile'];
         $maxSize = 5 * 1024 * 1024;
@@ -1069,7 +1125,8 @@ class admin_functions{
         return $response;
     }
 
-    function insert_paragraph(){
+    function insert_paragraph()
+    {
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
             $error_array['myeditor'] = "Please enter the paragraph.";
@@ -1104,7 +1161,8 @@ class admin_functions{
         return $response;
     }
 
-    function insert_faq(){
+    function insert_faq()
+    {
 
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
@@ -1135,7 +1193,8 @@ class admin_functions{
         return $response;
     }
 
-    function insert_review(){
+    function insert_review()
+    {
 
         $error_array = array();
 
@@ -1177,7 +1236,8 @@ class admin_functions{
         return $response;
     }
 
-    function productlisting(){
+    function productlisting()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
@@ -1191,48 +1251,46 @@ class admin_functions{
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-            // Sorting logic using switch case
-                $sort_query = '';  // Default no sorting
-                switch ($sort) {
-                    case 'most_view':
-                        $sort_query = "AND most_view = '1' ORDER BY featured DESC";
-                        break;
-                    case 'alphabetically_az':
-                        $sort_query = 'ORDER BY title ASC';
-                        break;
-                    case 'alphabetically_za':
-                        $sort_query = 'ORDER BY title DESC';
-                        break;
-                    case 'price_low_high':
-                        $sort_query = 'ORDER BY minprice ASC';
-                        break;
-                    case 'price_high_low':
-                        $sort_query = 'ORDER BY minprice DESC';
-                        break;
-                    case 'date_new_old':
-                        $sort_query = 'ORDER BY created_date DESC';
-                        break;
-                    case 'date_old_new':
-                        $sort_query = 'ORDER BY created_date ASC';
-                        break;
-                    case 'featured':
-                        $sort_query = "AND featured = '1' ORDER BY featured DESC";
-                        break;
-                    default:
-                        break;
-                }
-                $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
-                $res_count = $this->db->query($query);
-                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-               if ($total_records > $limit) { 
-                  $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
-                } 
-               else { 
-                  $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
-                }
-                $result = $this->db->query($sql);
-                $output = "";
-                $pagination = "";
+            $sort_query = '';
+            switch ($sort) {
+                case 'most_view':
+                    $sort_query = "AND most_view = '1' ORDER BY featured DESC";
+                    break;
+                case 'alphabetically_az':
+                    $sort_query = 'ORDER BY title ASC';
+                    break;
+                case 'alphabetically_za':
+                    $sort_query = 'ORDER BY title DESC';
+                    break;
+                case 'price_low_high':
+                    $sort_query = 'ORDER BY minprice ASC';
+                    break;
+                case 'price_high_low':
+                    $sort_query = 'ORDER BY minprice DESC';
+                    break;
+                case 'date_new_old':
+                    $sort_query = 'ORDER BY created_date DESC';
+                    break;
+                case 'date_old_new':
+                    $sort_query = 'ORDER BY created_date ASC';
+                    break;
+                case 'featured':
+                    $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                    break;
+                default:
+                    break;
+            }
+            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+            } else {
+                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+            }
+            $result = $this->db->query($sql);
+            $output = "";
+            $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $product_id = $row['product_id'];
@@ -1324,7 +1382,7 @@ class admin_functions{
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '<div>';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
                     $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
                     $output .= '        </div>';
@@ -1336,7 +1394,7 @@ class admin_functions{
                     'data' => 'success',
                     'outcome' => $output,
                     'pagination' => isset($pagination) ? $pagination : '',
-                    'pagination_needed' => ($total_records > $limit) ? true : false // Determine if pagination is needed
+                    'pagination_needed' => ($total_records > $limit) ? true : false
                 );
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
@@ -1350,61 +1408,72 @@ class admin_functions{
                 if ($total_pages > 1) {
                     $pagination .= '<div class="pagination" id="dataPagination" data-routine="productlisting">';
                     for ($i = 1; $i <= $total_pages; $i++) {
-                        $active_class = ($i == $page) ? 'active' : '';  // Determine active class
+                        $active_class = ($i == $page) ? 'active' : '';
                         $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                     }
                     $pagination .= '</div>';
                 }
                 $response_data['pagination'] = $pagination;
             }
-            } else {
-                $response_data['msg'] = 'User not logged in';
-            }
-                $response = json_encode($response_data);
-                return $response;
+        } else {
+            $response_data['msg'] = 'User not logged in';
+        }
+        $response = json_encode($response_data);
+        return $response;
     }
 
-    function invoicelisting() {
+    function invoicelisting()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
+
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
-            $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM invoice WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
+            $limit = 12;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+            $offset = ($page - 1) * $limit;
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
+
+            $query = "SELECT COUNT(*) AS total FROM invoice WHERE $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $sql = "SELECT * FROM invoice WHERE $userid_clause LIMIT $offset, $limit";
+            $result = $this->db->query($sql);
 
             $output = "";
+            $pagination = "";
+
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $image = $row["i_image"];
                         $imagePath = "../admin1/assets/img/invoice_img/" . $image;
-
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
+
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
                         $output .= '      <a class="d-block product_imagebox border-radius-xl">';
-                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
+                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
                         $output .= '    <div class="card-body px-1 pb-0">';
                         $output .= '      <a href="#">';
                         $output .= '      </a>';
                         $output .= '      <div class=" justify-content-between mb-3">';
-                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">invoice name:</h6>' . $row['i_name'] . '</div>';
-                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
-                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">total :</h6>' . $row['total'] . '</div>';
-                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">amount paid :</h6>' . $row['amount_paid'] . '</div>';
-                        $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-normal d-inline fs-6">balance :</h6>' . $row['balance_due'] . '</div>';
+                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Invoice Name:</h6>' . $row['i_name'] . '</div>';
+                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
+                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
+                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
+                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
-                        $output .= '    <div class="" role="">';
-                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
-                        $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                        $output .= '    <div>';
+                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
+                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                        $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
                         $output .= '        </a>';
                         $output .= '    </div>';
                         $output .= '</div>';
@@ -1413,21 +1482,52 @@ class admin_functions{
                         $output .= '  </div>';
                         $output .= '</div>';
                     }
-                    $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $row);
+                    $response_data = array(
+                        'data' => 'success',
+                        'outcome' => $output,
+                        'pagination' => '',
+                        'pagination_needed' => ($total_records > $limit)
+                    );
+
+                    if ($total_records > $limit) {
+                        $total_pages = ceil($total_records / $limit);
+                        if ($total_pages > 1) {
+                            $pagination .= '<div class="pagination" id="dataPagination" data-routine="invoicelisting">';
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                $active_class = ($i == $page) ? 'active' : '';
+                                $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                            }
+                            $pagination .= '</div>';
+                        }
+                        $response_data['pagination'] = $pagination;
+                    }
                 } else {
                     $response_data = array('data' => 'fail', 'outcome' => "No data found");
                 }
             }
         }
-        $response = json_encode($response_data);
-        return $response;
+        return json_encode($response_data);
     }
-    function customerlisting(){
+
+    function customerlisting()
+    {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
         global $NO_IMAGE;
         if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM customer WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
+
+             $limit = 12;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+            $offset = ($page - 1) * $limit;
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
+
+            $query = "SELECT COUNT(*) AS total FROM customer WHERE $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $sql = "SELECT * FROM customer WHERE $userid_clause LIMIT $offset, $limit";
+            $result = $this->db->query($sql);
+
+            $output = "";
+            $pagination = "";
             if ($result && $result->num_rows > 0) {
                 $output = '<div class="container-fluid p-3 d-flex flex-wrap justify-content-start">';
                 while ($row = $result->fetch_assoc()) {
@@ -1456,7 +1556,7 @@ class admin_functions{
 
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="" >';
-                    $output .= '        <i data-id="' . $row["customer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
+                    $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
                     $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
@@ -1468,7 +1568,24 @@ class admin_functions{
                     $output .= '</div>';
                 }
                 $output .= '</div>';
-                $response_data = array('data' => 'success', 'outcome' => $output, 'profiledata' => $profiledata);
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',  
+                    'pagination_needed' => ($total_records > $limit) ? true : false 
+                );
+                if ($total_records > $limit) {
+                    $total_pages = ceil($total_records / $limit);
+                    if ($total_pages > 1) {
+                        $pagination .= '<div class="pagination" id="dataPagination" data-routine="customerlisting">';
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                            $active_class = ($i == $page) ? 'active' : '';
+                            $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                        }
+                        $pagination .= '</div>';
+                    }
+                    $response_data['pagination'] = $pagination;
+                }
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
@@ -1476,7 +1593,8 @@ class admin_functions{
         }
     }
 
-    function listprofile(){
+    function listprofile()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1577,7 +1695,8 @@ class admin_functions{
         $response = json_encode($response_data);
         return $response;
     }
-    function bloglisting(){
+    function bloglisting()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
@@ -1591,41 +1710,40 @@ class admin_functions{
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-                $sort_query = '';  // Default no sorting
-                switch ($sort) {
-                    case 'best_selling':
-                        $sort_query = 'ORDER BY best_selling DESC';
-                        break;
-                    case 'alphabetically_az':
-                        $sort_query = 'ORDER BY title ASC';
-                        break;
-                    case 'alphabetically_za':
-                        $sort_query = 'ORDER BY title DESC';
-                        break;
-                    case 'date_new_old':
-                        $sort_query = 'ORDER BY created_date DESC';
-                        break;
-                    case 'date_old_new':
-                        $sort_query = 'ORDER BY created_date ASC';
-                        break;
-                    case 'featured':
-                        $sort_query = "AND featured = '1' ORDER BY featured DESC";
-                        break;
-                    default:
-                        break;
-                }
-                $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
-                $res_count = $this->db->query($query);
-                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-               if ($total_records > $limit) { 
-                  $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
-                } 
-               else { 
-                  $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
-                }
-                 $result = $this->db->query($sql);
-                 $output = "";
-                 $pagination = "";
+            $sort_query = '';  // Default no sorting
+            switch ($sort) {
+                case 'best_selling':
+                    $sort_query = 'ORDER BY best_selling DESC';
+                    break;
+                case 'alphabetically_az':
+                    $sort_query = 'ORDER BY title ASC';
+                    break;
+                case 'alphabetically_za':
+                    $sort_query = 'ORDER BY title DESC';
+                    break;
+                case 'date_new_old':
+                    $sort_query = 'ORDER BY created_date DESC';
+                    break;
+                case 'date_old_new':
+                    $sort_query = 'ORDER BY created_date ASC';
+                    break;
+                case 'featured':
+                    $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                    break;
+                default:
+                    break;
+            }
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query LIMIT $offset, $limit";
+            } else {
+                $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query";
+            }
+            $result = $this->db->query($sql);
+            $output = "";
+            $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $image = $row["image"];
@@ -1647,10 +1765,10 @@ class admin_functions{
                     $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    
+
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="" role="">';
-                    $output .= '        <i data-id="' . $row["blog_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delet_btn btn-light shadow-sm rounded-0" data-delete-type="blog" aria-hidden="true"></i>';
+                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs" aria-hidden="true"></i>';
                     $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
@@ -1670,19 +1788,19 @@ class admin_functions{
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-                $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-                $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
-                $res_count = $this->db->query($query);
-                $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-                if ($total_records > $limit) {
-                    $total_pages = ceil($total_records / $limit);               
-                    if ($total_pages > 1) {
-                        $pagination .= '<div class="pagination" id="dataPagination" data-routine="bloglisting">';
-                        for ($i = 1; $i <= $total_pages; $i++) {
-                            $active_class = ($i == $page) ? 'active' : '';  // Determine active class
-                            $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
-                        }
-                        $pagination .= '</div>';
+            $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $total_pages = ceil($total_records / $limit);
+                if ($total_pages > 1) {
+                    $pagination .= '<div class="pagination" id="dataPagination" data-routine="bloglisting">';
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $active_class = ($i == $page) ? 'active' : '';  // Determine active class
+                        $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                    }
+                    $pagination .= '</div>';
                 }
                 $response_data['pagination'] = $pagination;
             }
@@ -1693,7 +1811,8 @@ class admin_functions{
         return $response;
     }
 
-    function videolisting() {
+    function videolisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
 
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
@@ -1769,7 +1888,7 @@ class admin_functions{
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["video_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="video" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="video" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1799,7 +1918,8 @@ class admin_functions{
         return $response;
     }
 
-    function allvideolisting(){
+    function allvideolisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $userid = '';
@@ -1849,7 +1969,8 @@ class admin_functions{
         return $response;
     }
 
-    function offerlisting(){
+    function offerlisting()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -1906,7 +2027,8 @@ class admin_functions{
         return $response;
     }
 
-    function brousetextilelisting(){
+    function brousetextilelisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             // $categories = [
@@ -1993,7 +2115,8 @@ class admin_functions{
         return $response;
     }
 
-    function FAQlisting(){
+    function FAQlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -2027,7 +2150,8 @@ class admin_functions{
         return $response;
     }
 
-    function paragraphlisting(){
+    function paragraphlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -2048,7 +2172,8 @@ class admin_functions{
         $response = json_encode($response_data);
         return $response;
     }
-    function bannerlisting(){
+    function bannerlisting()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -2106,7 +2231,8 @@ class admin_functions{
         return $response;
     }
 
-    function famousmarketlisting(){
+    function famousmarketlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -2150,7 +2276,7 @@ class admin_functions{
                         }
                     }
                 }
-            }else{
+            } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
@@ -2159,7 +2285,8 @@ class admin_functions{
         return $response;
     }
 
-    function reviewlisting(){
+    function reviewlisting()
+    {
         $response_data = array('data' => 'fail', 'msg' => "Error");
 
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -2215,7 +2342,8 @@ class admin_functions{
         return $response;
     }
 
-    function deleteRecord($table, $delete_id){
+    function deleteRecord($table, $delete_id)
+    {
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
         $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
@@ -2228,67 +2356,80 @@ class admin_functions{
         return json_encode($response_data);
     }
 
-    function productdelete() {
+    function productdelete()
+    {
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
     }
 
-    function invoicedelete(){
+    function invoicedelete()
+    {
 
         $delete_id = isset($_POST["invoice_id"]) ? $_POST["invoice_id"] : '2';
         return $this->deleteRecord('invoice', $delete_id);
     }
-    function multipimgdelete(){
+    function multipimgdelete()
+    {
         $delete_id = isset($_POST['product_image_id']) ? $_POST['product_image_id'] : '2';
         return $this->deleteRecord('product_images', $delete_id);
     }
 
-    function customerdelete(){
+    function customerdelete()
+    {
         $delete_id = isset($_POST['customer_id']) ? $_POST['customer_id'] : '2';
         return $this->deleteRecord('customer', $delete_id);
     }
 
-    function blogdelete(){
+    function blogdelete()
+    {
         $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
         return $this->deleteRecord('blogs', $delete_id);
     }
 
-    function videodelete(){
+    function videodelete()
+    {
         $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
         return $this->deleteRecord('videos', $delete_id);
     }
 
-    function bannerdelete(){
+    function bannerdelete()
+    {
         $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
         return $this->deleteRecord('banners', $delete_id);
     }
 
-    function famousmarketdelete(){
+    function famousmarketdelete()
+    {
         $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
         return $this->deleteRecord('famous_markets', $delete_id);
     }
 
-    function b_textile_catagorysdelete(){
+    function b_textile_catagorysdelete()
+    {
         $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
         return $this->deleteRecord('b_textile_catagorys', $delete_id);
     }
 
-    function offerdelete() {
+    function offerdelete()
+    {
         $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
         return $this->deleteRecord('offers', $delete_id);
     }
 
-    function faqdelete(){
+    function faqdelete()
+    {
         $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
         return $this->deleteRecord('faqs', $delete_id);
     }
 
-    function reviewdelete(){
+    function reviewdelete()
+    {
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
     }
 
-    function forget_password(){
+    function forget_password()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -2326,7 +2467,8 @@ class admin_functions{
         return $response;
     }
 
-    function reset_passwordform(){
+    function reset_passwordform()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $token = isset($_POST['token']) ? $_POST['token'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -2366,7 +2508,8 @@ class admin_functions{
         return $response;
     }
 
-    function getproduct(){
+    function getproduct()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2381,7 +2524,8 @@ class admin_functions{
         return $response;
     }
 
-    function getinvoice(){
+    function getinvoice()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
 
@@ -2398,7 +2542,7 @@ class admin_functions{
                     $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
                     $inv_amount = $invoice_items['amount'];
-                    $item_data .=  '<tr id="attr">';
+                    $item_data .=  '<tr class="attr">';
                     $item_data .=  '<td>';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
@@ -2426,8 +2570,9 @@ class admin_functions{
         $response = json_encode($response_data);
         return $response;
     }
-  
-    function getcustomer(){
+
+    function getcustomer()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2446,7 +2591,8 @@ class admin_functions{
         return $response;
     }
 
-    function getblog(){
+    function getblog()
+    {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2461,7 +2607,8 @@ class admin_functions{
         return $response;
     }
 
-    function check_toggle_status(){
+    function check_toggle_status()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['table_name'])) {
@@ -2477,7 +2624,8 @@ class admin_functions{
         return $response;
     }
 
-    function toggle_enabledisable() {
+    function toggle_enabledisable()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_POST['ischecked_value']) && isset($_POST['table_name'])) {
             $table_name = $_POST['table_name'];
@@ -2494,7 +2642,8 @@ class admin_functions{
         return $response;
     }
 
-    function toggle_checkuncheck(){
+    function toggle_checkuncheck()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['ischecked_value']) && isset($_POST['video_id'])) {
@@ -2515,7 +2664,8 @@ class admin_functions{
         return $response;
     }
 
-    function check_toggle_btn(){
+    function check_toggle_btn()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
         if (isset($_POST['video_id'])) {
@@ -2534,7 +2684,8 @@ class admin_functions{
         return $response;
     }
 
-    function get_categories(){
+    function get_categories()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -2561,7 +2712,8 @@ class admin_functions{
         return $response;
     }
 
-    function select_shop(){
+    function select_shop()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
 
@@ -2585,7 +2737,8 @@ class admin_functions{
         return json_encode($response_data);
     }
 
-    function totalearning(){
+    function totalearning()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2610,7 +2763,8 @@ class admin_functions{
         return $response;
     }
 
-    function totalproduct(){
+    function totalproduct()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2631,7 +2785,8 @@ class admin_functions{
         $response = json_encode($response_data);
         return $response;
     }
-    function totalclient(){
+    function totalclient()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2652,7 +2807,8 @@ class admin_functions{
         $response = json_encode($response_data);
         return $response;
     }
-    function totalitemsale() {
+    function totalitemsale()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
@@ -2692,7 +2848,8 @@ class admin_functions{
         return $response;
     }
 
-    function chartdrawer(){
+    function chartdrawer()
+    {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];

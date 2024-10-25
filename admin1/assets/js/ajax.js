@@ -137,6 +137,7 @@ function loadData(routineName) {
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
+        console.log(response.pagination,"pagggggg")
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
@@ -1510,16 +1511,15 @@ $(document).ready(function () {
       },
     });
   });
-  // product pagination
+
   $(document).on("click", "#dataPagination a", function (event) {
     event.preventDefault();
     var routine_name = $("#dataPagination").data("routine");
     console.log("Routine name:", routine_name);
     var page = $(this).data("page");
     var search_text = $(".search-btn_1").val();
-    console.log("Search text:", search_text);
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
-    console.log(sortValue + " ****sortValue ");
+   
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1532,9 +1532,11 @@ $(document).ready(function () {
       },
       success: function (data) {
         var data = JSON.parse(data);
+        console.log("assss",data)
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
+          console.log(data.pagination,"...............");
         } else {
           $("#getdata").html(NO_DATA);
           $("#pagination").html("Pagination not found");
@@ -1543,55 +1545,56 @@ $(document).ready(function () {
     });
   });
 
-  $(document).on("click", "#pagination-video a", function (event) {
-    event.preventDefault();
-    var page = $(this).data("page");
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: {
-        page: page,
-        search_text: $("#search_text").val(),
-        routine_name: "videolisting",
-      },
-      success: function (data) {
-        var data = JSON.parse(data);
-        if (data.data == "success") {
-          $("#getdata").html(data.outcome);
-          $("#pagination").html(data.pagination);
-        } else {
-          $("#getdata").html("Data not found");
-          $("#pagination").html("Pagination not found");
-        }
-      },
-    });
-  });
+  // $(document).on("click", "#pagination-video a", function (event) {
+  //   event.preventDefault();
+  //   var page = $(this).data("page");
+  //   $.ajax({
+  //     url: "../admin1/ajax_call.php",
+  //     type: "post",
+  //     dataType: "json",
+  //     data: {
+  //       page: page,
+  //       search_text: $("#search_text").val(),
+  //       routine_name: "videolisting",
+  //     },
+  //     success: function (data) {
+  //       var data = JSON.parse(data);
+  //       if (data.data == "success") {
+  //         $("#getdata").html(data.outcome);
+  //         $("#pagination").html(data.pagination);
+  //       } else {
+  //         $("#getdata").html("Data not found");
+  //         $("#pagination").html("Pagination not found");
+  //       }
+  //     },
+  //   });
+  // });
+
   // blog pagination
-  $(document).on("click", "#pagination-blog a", function (event) {
-    event.preventDefault();
-    var page = $(this).data("page");
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      data: {
-        page: page,
-        search_text: $("#search_text").val(),
-        routine_name: "bloglisting",
-      },
-      success: function (data) {
-        var data = JSON.parse(data);
-        if (data.data == "success") {
-          $("#getdata").html(data.outcome);
-          $("#pagination").html(data.pagination);
-        } else {
-          $("#getdata").html("Data not found");
-          $("#pagination").html("Pagination not found");
-        }
-      },
-    });
-  });
+  // $(document).on("click", "#pagination-blog a", function (event) {
+  //   event.preventDefault();
+  //   var page = $(this).data("page");
+  //   $.ajax({
+  //     url: "../admin1/ajax_call.php",
+  //     type: "post",
+  //     dataType: "json",
+  //     data: {
+  //       page: page,
+  //       search_text: $("#search_text").val(),
+  //       routine_name: "bloglisting",
+  //     },
+  //     success: function (data) {
+  //       var data = JSON.parse(data);
+  //       if (data.data == "success") {
+  //         $("#getdata").html(data.outcome);
+  //         $("#pagination").html(data.pagination);
+  //       } else {
+  //         $("#getdata").html("Data not found");
+  //         $("#pagination").html("Pagination not found");
+  //       }
+  //     },
+  //   });
+  // });
 
   $(document).on("click", "#flexSwitchCheckDefault", function () {
     toggle_enabledisable(this);
