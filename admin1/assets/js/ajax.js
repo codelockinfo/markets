@@ -95,7 +95,7 @@ function CountData(routineName) {
       if (response.data === "success") {
         response.totalearning !== undefined
           ? $(".totalEarning").text("Rs. " + response.totalearning)
-          : $(".countClient").text("Rs. " + 0);
+          : $(".countClient").text(0);
         response.totalproduct !== undefined
           ? $(".totalProduct").text(response.totalproduct)
           : $(".totalProduct").text(0);

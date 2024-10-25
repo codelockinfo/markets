@@ -415,15 +415,23 @@ class admin_functions
                     $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
                     maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";
                 }
-
-                if (!empty($uploadedFiles)) {
-                    $uploadedFilenames = implode(',', $uploadedFiles);
-                    $query .= ", p_image = '$uploadedFilenames'";
-                }
-
                 $query .= " WHERE product_id  = $product_id";
                 $result = $this->db->query($query);
 
+                if (!empty($uploadedFiles)) {
+                    $query = "DELETE FROM product_images WHERE product_id	 = $product_id";
+                    $result = $this->db->query($query);
+                    
+                    $uploadedFilenames = implode(',', $uploadedFiles);
+                    // $query .= ", p_image = '$uploadedFilenames'";
+                    // $uploadedFilenames = implode(',', $uploadedFiles);
+    
+                    foreach (array_slice($uploadedFiles, 1) as $sub_img) {
+                        $query = "INSERT INTO product_images(user_id,product_id,p_image)values('$user_id','$product_id','$sub_img')";
+                        $result = $this->db->query($query);
+                    }
+                }
+                
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Product data updated', "updated_product_id" => $product_id);
                 } else {
