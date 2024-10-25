@@ -420,7 +420,7 @@ class admin_functions{
                     // $query .= ", p_image = '$uploadedFilenames'";
                     // $uploadedFilenames = implode(',', $uploadedFiles);
     
-                    foreach (array_slice($uploadedFiles, 1) as $sub_img) {
+                    foreach (array_slice($uploadedFiles, 0) as $sub_img) {
                         $query = "INSERT INTO product_images(user_id,product_id,p_image)values('$user_id','$product_id','$sub_img')";
                         $result = $this->db->query($query);
                     }
@@ -2410,7 +2410,15 @@ class admin_functions{
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $response_data = array('data' => 'success', 'outcome' => $row);
+                $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
+                $product_img_result = $this->db->query($product_img_query);
+                if($product_img_result->num_rows > 0){
+                    $product_img_results = [];
+                    while ($product_img_row = $product_img_result->fetch_assoc()) {
+                        $product_img_results[] = $product_img_row; // Append each row to response array
+                    }
+                }
+                $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results);
             }
         }
         $response = json_encode($response_data);

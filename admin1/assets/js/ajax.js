@@ -356,6 +356,26 @@ function get_product(id) {
         } else {
           $(".pro-zone__prompt").show();
         }
+        if (response["product_img_result"] !== undefined) {
+          var imagePreviews = ""; // Declare once before the loop
+          $.each(response["product_img_result"], function (index, image) {
+            console.log(image, " ..... image");
+            var imageUrl = image.p_image;
+            console.log(imageUrl, "  ... imageUrl");
+
+            // Concatenate each preview into the single imagePreviews string
+            imagePreviews +=
+              '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">' +
+              '<img src="../admin1/assets/img/product_img/' +
+              imageUrl +
+              '" class="picture__img"/>' +
+              '<button class="close-button">x</button>' +
+              "</div>" +
+              "</div>";
+          });
+          $(".pro-zone").append(imagePreviews); // Append the concatenated HTML after the loop
+        }
       }
     },
   });
@@ -1295,7 +1315,10 @@ $(document).ready(function () {
       product: { routine: "productdelete", callback: listproduct },
       invoice: { routine: "invoicedelete", callback: listinvoice },
       review: { routine: "reviewdelete", callback: listreview },
-      famous_market: { routine: "famousmarketdelete", callback: listfamousmarket },
+      famous_market: {
+        routine: "famousmarketdelete",
+        callback: listfamousmarket,
+      },
       product_images: {
         routine: "multipimgdelete",
         callback: function () {
