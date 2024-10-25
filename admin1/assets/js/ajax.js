@@ -327,11 +327,14 @@ function get_product(id) {
           : "";
 
         var p_image =
-          response["outcome"]["p_image"] !== undefined
+          response["outcome"]["p_image"] !== undefined &&
+          response["outcome"]["p_image"].trim() !== ""
             ? response["outcome"]["p_image"]
             : "";
+
         console.log("p_image:", p_image);
-        if (p_image != "") {
+
+        if (p_image !== "") {
           $(".pro-zone__prompt").hide();
           var imagePreview =
             '<div class="drop-zone__thumb">' +
@@ -1073,7 +1076,7 @@ $(document).ready(function () {
         response["msg"]["contact"] !== undefined
           ? $(".contact").html(response["msg"]["contact"])
           : $(".contact").html("");
-          
+
         response["msg"]["c_image"] !== undefined
           ? $(".c_image").html(response["msg"]["c_image"])
           : $(".c_image").html("");
@@ -1231,6 +1234,8 @@ $(document).ready(function () {
           data.invoice_id = deleteId;
         } else if (type === "product_images") {
           data.product_image_id = deleteId;
+        } else if (type === "product_main_image") {
+          data.product_id = deleteId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1269,8 +1274,17 @@ $(document).ready(function () {
     $("[data-id='" + deleteId + "']")
       .closest(".position-relative")
       .remove();
- 
+  }
+  function delete_product_main_image_response(deleteId) {
+    console.log("Function called with deleteId:", deleteId);
 
+    $("[data-id='" + deleteId + "']")
+      .closest(".modal")
+      .find(".btn-close")
+      .trigger("click");
+    $(".modal-backdrop").removeClass("show");
+
+    loadData("productlisting");
   }
 
   $(document).delegate(".delete", "click", function () {
@@ -1284,6 +1298,12 @@ $(document).ready(function () {
         routine: "multipimgdelete",
         callback: function () {
           delete_product_image_response(deleteId);
+        },
+      },
+      product_main_image: {
+        routine: "product_main_image",
+        callback: function () {
+          delete_product_main_image_response(deleteId);
         },
       },
       customer: { routine: "customerdelete", callback: listcustomer },
@@ -1918,7 +1938,7 @@ $(document).ready(function () {
     var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
     var sortby = $(this).data("sortby");
-    $('#dropdownMenuButton1').text(sortby);
+    $("#dropdownMenuButton1").text(sortby);
     var routin_name =
       page_name == "bloglist"
         ? "bloglisting"
