@@ -179,7 +179,9 @@ $(document).ready(function () {
   }
 });
 
+// invoice add row
 $(document).ready(function () {
+  console.log("addrow");
   function addRow() {
     const row = $(".attr").first().clone(true, true);
     row.find("input").val("");
@@ -214,8 +216,10 @@ $(document).ready(function () {
   }
 
   function updateSubtotal() {
+    console.log("new sabtotle");
     let subtotal = 0;
     $("#attributes-body .attr").each(function () {
+      console.log("amountText");
       const amountText = $(this).find('input[name="amount[]"]').val();
       const amount = parseFloat(amountText) || 0;
       subtotal += amount;
@@ -249,120 +253,120 @@ $(document).ready(function () {
   );
 
   $('input[name="amount_paid"]').on("input", function () {
-    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-      const dropZoneElement = inputElement.closest(".drop-zone");
-      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt"); //dropjon
+    // document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    //   const dropZoneElement = inputElement.closest(".drop-zone");
+    //   const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
 
-      dropZoneElement.addEventListener("click", () => {
-        console.log("dropZoneElement click");
-        if (!inputElement.disabled) {
-          inputElement.click();
-        }
-      });
-      inputElement.addEventListener("change", (e) => {
-        console.log("change");
-        if (inputElement.files.length) {
-          const file = inputElement.files[0];
-          if (file.type.startsWith("image/")) {
-            clearThumbnail(dropZoneElement);
-            updateThumbnail(dropZoneElement, file, inputElement);
+    //   dropZoneElement.addEventListener("click", () => {
+    //     console.log("dropZoneElement click");
+    //     if (!inputElement.disabled) {
+    //       inputElement.click();
+    //     }
+    //   });
+    //   inputElement.addEventListener("change", (e) => {
+    //     console.log("change");
+    //     if (inputElement.files.length) {
+    //       const file = inputElement.files[0];
+    //       if (file.type.startsWith("image/")) {
+    //         clearThumbnail(dropZoneElement);
+    //         updateThumbnail(dropZoneElement, file, inputElement);
 
-            promptElement.style.display = "none";
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Failure",
-              text: "Only PNG, JPG, JPEG, GIF files are allowed!",
-            });
-            inputElement.value = "";
-          }
-        }
-      });
-      dropZoneElement.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        dropZoneElement.classList.add("drop-zone--over");
-      });
+    //         promptElement.style.display = "none";
+    //       } else {
+    //         Swal.fire({
+    //           icon: "error",
+    //           title: "Failure",
+    //           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
+    //         });
+    //         inputElement.value = "";
+    //       }
+    //     }
+    //   });
+    //   dropZoneElement.addEventListener("dragover", (e) => {
+    //     e.preventDefault();
+    //     dropZoneElement.classList.add("drop-zone--over");
+    //   });
 
-      ["dragleave", "dragend"].forEach((type) => {
-        dropZoneElement.addEventListener(type, () => {
-          dropZoneElement.classList.remove("drop-zone--over");
-        });
-      });
+    //   ["dragleave", "dragend"].forEach((type) => {
+    //     dropZoneElement.addEventListener(type, () => {
+    //       dropZoneElement.classList.remove("drop-zone--over");
+    //     });
+    //   });
 
-      dropZoneElement.addEventListener("drop", (e) => {
-        e.preventDefault();
-        console.log("dropZoneElement drop");
-        const file = e.dataTransfer.files[0];
-        if (file && file.type.startsWith("image/")) {
-          inputElement.files = e.dataTransfer.files;
-          clearThumbnail(dropZoneElement);
-          updateThumbnail(dropZoneElement, file, inputElement);
+    //   dropZoneElement.addEventListener("drop", (e) => {
+    //     e.preventDefault();
+    //     console.log("dropZoneElement drop");
+    //     const file = e.dataTransfer.files[0];
+    //     if (file && file.type.startsWith("image/")) {
+    //       inputElement.files = e.dataTransfer.files;
+    //       clearThumbnail(dropZoneElement);
+    //       updateThumbnail(dropZoneElement, file, inputElement);
 
-          promptElement.style.display = "none";
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Failure",
-            text: "Only PNG, JPG, JPEG, GIF files are allowed!",
-          });
-          inputElement.value = "";
-        }
-        dropZoneElement.classList.remove("drop-zone--over");
-      });
-    });
-    function clearThumbnail(dropZoneElement) {
-      const thumbnailElement =
-        dropZoneElement.querySelector(".drop-zone__thumb");
+    //       promptElement.style.display = "none";
+    //     } else {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: "Failure",
+    //         text: "Only PNG, JPG, JPEG, GIF files are allowed!",
+    //       });
+    //       inputElement.value = "";
+    //     }
+    //     dropZoneElement.classList.remove("drop-zone--over");
+    //   });
+    // });
+    // function clearThumbnail(dropZoneElement) {
+    //   const thumbnailElement =
+    //     dropZoneElement.querySelector(".drop-zone__thumb");
 
-      if (thumbnailElement) {
-        thumbnailElement.innerHTML = "";
-      }
-    }
+    //   if (thumbnailElement) {
+    //     thumbnailElement.innerHTML = "";
+    //   }
+    // }
 
-    function updateThumbnail(dropZoneElement, file, inputElement) {
-      console.log("updateThumbnail   jjj");
-      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
+    // function updateThumbnail(dropZoneElement, file, inputElement) {
+    //   console.log("updateThumbnail   jjj");
+    //   let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    //   const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
 
-      if (promptElement) {
-        promptElement.style.display = "none";
-      }
-      if (!thumbnailElement) {
-        thumbnailElement = document.createElement("div");
-        thumbnailElement.classList.add("drop-zone__thumb");
-        dropZoneElement.appendChild(thumbnailElement);
-      }
+    //   if (promptElement) {
+    //     promptElement.style.display = "none";
+    //   }
+    //   if (!thumbnailElement) {
+    //     thumbnailElement = document.createElement("div");
+    //     thumbnailElement.classList.add("drop-zone__thumb");
+    //     dropZoneElement.appendChild(thumbnailElement);
+    //   }
 
-      thumbnailElement.innerHTML = "";
+    //   thumbnailElement.innerHTML = "";
 
-      if (file.type.startsWith("image/")) {
-        const reader = new FileReader();
-        reader.addEventListener("load", (e) => {
-          console.log("load dosc");
-          const img = document.createElement("img");
-          img.src = e.target.result;
-          img.classList.add("picture__imgs");
+    //   if (file.type.startsWith("image/")) {
+    //     const reader = new FileReader();
+    //     reader.addEventListener("load", (e) => {
+    //       console.log("load dosc");
+    //       const img = document.createElement("img");
+    //       img.src = e.target.result;
+    //       img.classList.add("picture__imgs");
 
-          const closeButton = document.createElement("button");
-          closeButton.classList.add("close-button");
-          closeButton.innerText = "x";
+    //       const closeButton = document.createElement("button");
+    //       closeButton.classList.add("close-button");
+    //       closeButton.innerText = "x";
 
-          closeButton.addEventListener("click", () => {
-            thumbnailElement.innerHTML = "";
-            inputElement.value = "";
-            inputElement.disabled = false;
-            if (!dropZoneElement.querySelector(".pro-zone__prompt")) {
-              promptElement.style.display = "block";
-            }
-          });
+    //       closeButton.addEventListener("click", () => {
+    //         thumbnailElement.innerHTML = "";
+    //         inputElement.value = "";
+    //         inputElement.disabled = false;
+    //         if (!dropZoneElement.querySelector(".pro-zone__prompt")) {
+    //           promptElement.style.display = "block";
+    //         }
+    //       });
 
-          thumbnailElement.appendChild(img);
-          thumbnailElement.appendChild(closeButton);
-        });
+    //       thumbnailElement.appendChild(img);
+    //       thumbnailElement.appendChild(closeButton);
+    //     });
 
-        reader.readAsDataURL(file);
-      }
-    }
+    //     reader.readAsDataURL(file);
+    //   }
+    // }
     updateSubtotal();
   });
 

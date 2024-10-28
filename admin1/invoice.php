@@ -125,7 +125,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     </tr>
                   </thead>
                   <tbody id="attributes-body" class="get_invoiceitem">
-                    
                     <tr class="attr">
                       <td>
                         <input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]">
@@ -140,7 +139,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         <span class="errormsg rate"></span>
                       </td>
                       <td>
-                      <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled>
+                        <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled>
                         <span class="errormsg item"></span>
                       </td>
 
@@ -275,7 +274,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 </html>
 <script>
-  
   var id = "<?php echo $id; ?>";
   if (id !== "") {
     get_invoice(id);

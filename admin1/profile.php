@@ -387,6 +387,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <!-- <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
                                     <div class="mx-auto text-center nav-wrapper position-relative end-0">
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">

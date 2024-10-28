@@ -33,7 +33,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         <div class="card-body p-3">
           <div class="row" id="getdata">
           </div>
-     
+          <div id="pagination"></div>
         </div>
       </div>
     </div>
