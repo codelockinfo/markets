@@ -347,12 +347,6 @@ function get_product(id) {
             "</div>";
 
           $(".pro-zone").append(imagePreview);
-          $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone__thumb").remove();
-            $(".pro-zone__prompt").show();
-            let inputElement = $("input[name='p_image']");
-            inputElement.val("");
-          });
         } else {
           $(".pro-zone__prompt").show();
         }
@@ -439,13 +433,6 @@ function get_invoice(id) {
           '<button class="close-button close">x</button>' +
           "</div>";
         $(".drop-zone").append(imagePreview);
-        $(".close-button").on("click", function () {
-          $(this).closest(".drop-zone__thumb").remove();
-          $(".pro-zone__prompt").show();
-          let inputElement = $("input[file='i_image']");
-          inputElement.val("");
-          inputElement.trigger("click");
-        });
       } else {
         $(".pro-zone__prompt").show();
       }
@@ -504,13 +491,6 @@ function get_customer(id) {
           '<button class="close-button close">x</button>' +
           "</div>";
         $(".drop-zone").append(imagePreview);
-        $(".close-button").on("click", function () {
-          $(this).closest(".drop-zone__thumb").remove();
-          $(".pro-zone__prompt").show();
-          let inputElement = $("input[file='c_image']");
-          inputElement.val("");
-          inputElement.trigger("click");
-        });
       } else {
         $(".pro-zone__prompt").show();
       }
@@ -559,13 +539,6 @@ function get_blog(id) {
           '<button class="close-button close">x</button>' +
           "</div>";
         $(".drop-zone").append(imagePreview);
-        $(".close-button").on("click", function () {
-          $(this).closest(".drop-zone__thumb").remove();
-          $(".pro-zone__prompt").show();
-          let inputElement = $("input[file='image']");
-          inputElement.val("");
-          inputElement.trigger("click");
-        });
       } else {
         $(".pro-zone__prompt").show();
       }
@@ -575,6 +548,10 @@ function get_blog(id) {
     },
   });
 }
+$(document).on(".close-button", "click", function (e) {
+  console.log("close buttopn click");
+  e.preventDefault();
+});
 
 function activeSidebarMenu() {
   var path = window.location.pathname;
@@ -898,11 +875,6 @@ $(document).ready(function () {
           $(".drop-zone__thumb .img-wrapper").append(
             '<button class="close-button">x</button>'
           );
-          $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone").find("img").remove();
-            $(this).remove();
-          });
-
           profileLoadData("listprofile");
           profileUpdateImage();
         } else {
