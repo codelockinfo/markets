@@ -417,15 +417,23 @@ class admin_functions
                     $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
                     maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";
                 }
-
-                if (!empty($uploadedFiles)) {
-                    $uploadedFilenames = implode(',', $uploadedFiles);
-                    $query .= ", p_image = '$uploadedFilenames'";
-                }
-
                 $query .= " WHERE product_id  = $product_id";
                 $result = $this->db->query($query);
 
+                if (!empty($uploadedFiles)) {
+                    $query = "DELETE FROM product_images WHERE product_id	 = $product_id";
+                    $result = $this->db->query($query);
+                    
+                    $uploadedFilenames = implode(',', $uploadedFiles);
+                    // $query .= ", p_image = '$uploadedFilenames'";
+                    // $uploadedFilenames = implode(',', $uploadedFiles);
+    
+                    foreach (array_slice($uploadedFiles, 0) as $sub_img) {
+                        $query = "INSERT INTO product_images(user_id,product_id,p_image)values('$user_id','$product_id','$sub_img')";
+                        $result = $this->db->query($query);
+                    }
+                }
+                
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Product data updated', "updated_product_id" => $product_id);
                 } else {
@@ -602,9 +610,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    
-    function invoice()
-    {
+    function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -630,6 +636,7 @@ class admin_functions
                     $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
                     return json_encode($response_data);
                 }
+
             }
 
             if (!in_array($fileExtension, $allowedExtensions)) {
@@ -639,7 +646,9 @@ class admin_functions
                 $error_array['i_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['i_image'] = "Please upload the invoice image.";
+
+                $error_array['i_image'] = "Please upload your image.";
+           
             }
         }
 
@@ -715,28 +724,82 @@ class admin_functions
                     }
 
                     if (empty($error_array[$index])) {
-                        $item = $this->db->real_escape_string($item);
-                        $quantity = $quantity !== null ? $this->db->real_escape_string($quantity) : 0;
-                        $rate = $rate !== null ? $this->db->real_escape_string($rate) : 0;
-                        $amount = $amount !== null ? $this->db->real_escape_string($amount) : 0;
-                        $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : null;
-                        $last_id = $this->db->real_escape_string($last_id);
+                        $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
+                        $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
+                        $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
+                        $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
+                        $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
+                        
                         $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
                     }
                 }
 
-                if (!empty($values)) {
-                    if (empty($id)) {
-                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                    } else {
-                        $sql1 = "UPDATE invoice_item SET item='$item',quantity='$quantity',rate='$rate',amount='$amount' WHERE invoice_id = $id";
+    
+                $result = $this->db->query($query);
+                if ($result) {
+                    $last_id = empty($id) ? $this->db->insert_id : $id;
+                    $items = $_POST['item'];
+                    $quantities = $_POST['quantity'];
+                    $rates = $_POST['rate'];
+                    $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
+    
+                    $values = [];
+                    foreach ($items as $index => $item) {
+                        $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                        $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                        $amount = $quantity * $rate;
+                        if (empty($item)) {
+                            $error_array[$index]['item'] = "Please enter item.";
+                        }
+                        if (empty($quantity) || !is_numeric($quantity)) {
+                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                        }
+                        if (empty($rate) || !is_numeric($rate)) {
+                            $error_array[$index]['rate'] = "Please enter valid rate.";
+                        }
+                        if ($amount <= 0) {
+                            $error_array[$index]['amount'] = "Amount is not valid.";
+                        }
+    
+                        if (empty($error_array[$index])) {
+                            $item = $this->db->real_escape_string($item);
+                            $quantity = $this->db->real_escape_string($quantity);
+                            $rate = $this->db->real_escape_string($rate);
+                            $amount = $this->db->real_escape_string($amount);
+                            $user_id = $this->db->real_escape_string($user_id);
+                            $last_id = $this->db->real_escape_string($last_id);
+                            if (!empty($invoice_item_ids[$index])) {
+                                if (!empty($id)) {
+
+                                $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
+                                $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
+                                         WHERE id='$invoice_item_id' ";
+                                          $res1 = $this->db->query($sql1);
+                                }
+                            } else {
+                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                            }
+                        }
                     }
-                    $res1 = $this->db->query($sql1);
+    
+                    if (!empty($values)) {
+                        if (empty($id)) {
+
+                            $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                            $res1 = $this->db->query($sql1);
+                        }
+                    }
+    
                     if ($res1) {
                         $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
                     } else {
                         $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                     }
+
+    
+                    $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
+                } else {
+                    $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                 }
 
                 $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
@@ -746,9 +809,10 @@ class admin_functions
         } else {
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
-
+    
         return json_encode($response_data);
     }
+    
 
     function isValidYouTubeURL($url)
     {
@@ -1339,9 +1403,9 @@ class admin_functions
                     );
                     $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';
                     $output .= '<div class="position-relative">';
-                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
+                    $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="main-product-img img-fluid shadow border-radius-xl modal_img">';
                     $output .= '<div class="position-absolute top-50 start-50 translate-middle">';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product_main_image" aria-hidden="true"></i>';
                     $output .= '</div>';
 
                     $output .= '</div>';
@@ -1371,11 +1435,7 @@ class admin_functions
                             }
                         }
                         $output .= ' </div>';
-                    } else {
-                        $output .= '<div class="image modalgif ">';
-                        $output .= '<img src=" ../admin1/assets/img/noimg.gif" class="modalgif_img">';
-                        $output .= '</div>';
-                    }
+                    } 
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1421,6 +1481,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
+        
 
     function invoicelisting()
     {
@@ -2256,6 +2317,7 @@ class admin_functions
                     $input = $row['shop_name'];
                     $query = "SELECT * FROM users WHERE   user_id = '$input'";
                     $result = $this->db->query($query);
+                    $id=$row["famous_market_id"];
                     if ($result) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
@@ -2265,7 +2327,7 @@ class admin_functions
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; // Added d-flex and align-items-center
-                                $output .= '      <i data-id="" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_market" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_market" aria-hidden="true"></i>'; // Removed margin-top for centering
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
@@ -2323,7 +2385,7 @@ class admin_functions
                             $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>';
                             $output .= '    </div>';
                             $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
-                            $output .= '      <i data-id="" class="fa fa-trash cursor-pointer delete" data-delete-type="marketreviews" aria-hidden="true"></i>'; // Removed margin-top for centering
+                            $output .= '      <i data-id="' . $row["marketreview_id"] . '" class="fa fa-trash cursor-pointer delete"  data-delete-type="review" aria-hidden="true"></i>'; // Removed margin-top for centering
                             $output .= '    </div>';
                             $output .= '  </div>';
                             $output .= '</div>';
@@ -2372,6 +2434,24 @@ class admin_functions
     {
         $delete_id = isset($_POST['product_image_id']) ? $_POST['product_image_id'] : '2';
         return $this->deleteRecord('product_images', $delete_id);
+    }
+    function product_main_image(){
+        // $delete_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
+        // if(!empty($delete_id)){
+        //     return $this->deleteRecord('products', $delete_id);
+        // }
+        
+        $product_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
+        if (!empty($product_id)) {
+            $query = "UPDATE products SET p_image = ' ' WHERE product_id = '$product_id'";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'message' => "Delete successfully");
+            }else {
+                $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
+            }
+            return json_encode($response_data);
+        }
     }
 
     function customerdelete()
@@ -2517,7 +2597,15 @@ class admin_functions
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $response_data = array('data' => 'success', 'outcome' => $row);
+                $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
+                $product_img_result = $this->db->query($product_img_query);
+                if($product_img_result->num_rows > 0){
+                    $product_img_results = [];
+                    while ($product_img_row = $product_img_result->fetch_assoc()) {
+                        $product_img_results[] = $product_img_row; // Append each row to response array
+                    }
+                }
+                $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results);
             }
         }
         $response = json_encode($response_data);
@@ -2542,7 +2630,10 @@ class admin_functions
                     $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
                     $inv_amount = $invoice_items['amount'];
+
                     $item_data .=  '<tr class="attr">';
+
+                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="'.$invoice_items['id'].'">';
                     $item_data .=  '<td>';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
