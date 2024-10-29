@@ -771,7 +771,7 @@ class admin_functions
 
                                 $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
                                 $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
-                                         WHERE id='$invoice_item_id' ";
+                                         WHERE invoice_item_id='$invoice_item_id' ";
                                           $res1 = $this->db->query($sql1);
                                 }
                             } else {
@@ -779,13 +779,9 @@ class admin_functions
                             }
                         }
                     }
-    
                     if (!empty($values)) {
-                        if (empty($id)) {
-
                             $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
                             $res1 = $this->db->query($sql1);
-                        }
                     }
     
                     if ($res1) {
@@ -2505,6 +2501,11 @@ class admin_functions
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
     }
+    function invoice_line_item()
+    {
+        $delete_id = isset($_POST["invoice_item_id"]) ? $_POST["invoice_item_id"] : '';
+        return $this->deleteRecord('invoice_item', $delete_id);
+    }
 
     function forget_password()
     {
@@ -2631,7 +2632,7 @@ class admin_functions
 
                     $item_data .=  '<tr class="attr">';
 
-                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="'.$invoice_items['id'].'">';
+                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="'.$invoice_items['invoice_item_id'].'">';
                     $item_data .=  '<td>';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
@@ -2649,7 +2650,7 @@ class admin_functions
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
 
-                    $item_data .=  '<td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style="display: none;"></i></td>';
+                    $item_data .=  '<td  data-delete-type="invoice_line_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
                 }
 

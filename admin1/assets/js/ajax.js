@@ -1189,7 +1189,7 @@ $(document).ready(function () {
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
 
-                if (response["data"] == "success") {
+        if (response["data"] == "success") {
           console.log(response);
           console.log("Updated invoice ID:", response["update_invoice_id"]);
           if (!response["update_invoice_id"]) {
@@ -1244,6 +1244,8 @@ $(document).ready(function () {
           data.product_image_id = deleteId;
         } else if (type === "product_main_image") {
           data.product_id = deleteId;
+        } else if (type === "invoice_line_item") {
+          data.invoice_item_id = deleteId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1318,6 +1320,9 @@ $(document).ready(function () {
         callback: function () {
           delete_product_main_image_response(deleteId);
         },
+      },
+      invoice_line_item: {
+        routine: "invoice_line_item",
       },
       customer: { routine: "customerdelete", callback: listcustomer },
       blog: { routine: "blogdelete", callback: listblog },
