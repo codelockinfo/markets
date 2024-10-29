@@ -191,12 +191,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="row mt-4">
               <div class="col w-50">
                 <div class="row notes">
-                  <span class="text-normal ps-4 fs-5"><strong>Notes :</strong></span>
-                  <textarea name="text" id="" placeholder="Who Is This Form?" class="form-control max-width-500 mt-2"></textarea>
+                  <span class="text-normal ps-0 fs-5"><strong>Notes :</strong></span>
+                  <textarea name="notes" id="" placeholder="Notes - any relevant information not already covered" class="form-control max-width-500 mt-2"></textarea>
                 </div>
                 <div class="row mt-2 terms">
-                  <span class="text-normal ps-4 fs-5"><strong>Terms :</strong></span>
-                  <textarea name="text" id="" placeholder="Who Is This Form?" class="form-control max-width-500 mt-2"></textarea>
+                  <span class="text-normal ps-0 fs-5"><strong>Terms :</strong></span>
+                  <textarea name="terms_condition" id="" placeholder="Terms and conditions - late fees, payment methods, delivery schedule" class="form-control max-width-500 mt-2"></textarea>
                 </div>
               </div>
             </div>

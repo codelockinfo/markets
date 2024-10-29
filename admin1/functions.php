@@ -656,7 +656,6 @@ class admin_functions
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
@@ -668,20 +667,22 @@ class admin_functions
             $total = isset($_POST['total']) ? $_POST['total'] : 0;
             $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
+            $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
+            $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
 
             if ($id == '') {
                 if (move_uploaded_file($tmpfile, $fullpath)) {
                     if (isset($_SESSION['current_user']['user_id'])) {
                         $user_id = $_SESSION['current_user']['user_id'];
-                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                                  VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                                  VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                     }
                 }
             } else {
                 if (!empty($filename)) {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
-                                  po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', i_image = '$newFilename' WHERE invoice_id = $id";
+                                  po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due',notes = '$notes',terms_condition = '$termscondition', i_image = '$newFilename' WHERE invoice_id = $id";
                     }
                 } else {
                     $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
@@ -690,7 +691,7 @@ class admin_functions
                     $existing_image = $existing_image_row['i_image'];
 
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
-                              po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', i_image = '$existing_image' WHERE invoice_id = $id";
+                              po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$existing_image' WHERE invoice_id = $id";
                 }
             }
 
@@ -732,7 +733,7 @@ class admin_functions
                 }
 
     
-                $result = $this->db->query($query);
+                // $result = $this->db->query($query);
                 if ($result) {
                     $last_id = empty($id) ? $this->db->insert_id : $id;
                     $items = $_POST['item'];

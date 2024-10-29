@@ -318,9 +318,18 @@ function get_product(id) {
               response["outcome"]["product_img_alt"]
             )
           : "";
-        response["outcome"]["p_tag"] !== undefined
-          ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change()
-          : "";
+
+        if (response["outcome"]["p_tag"] !== undefined) {
+          var arrangedValue = response["outcome"]["p_tag"];
+          if (arrangedValue != "") {
+            var rearrangedValue = arrangedValue.split(",").reverse();
+            console.log(rearrangedValue, "  rearrangedValue");
+            response["outcome"]["p_tag"] !== undefined
+              ? $("select[name='p_tag']").val(rearrangedValue).trigger("change")
+              : "";
+          }
+        }
+
         response["outcome"]["p_description"] !== undefined
           ? $("textarea[name='p_description']").val(
               response["outcome"]["p_description"]
@@ -418,6 +427,14 @@ function get_invoice(id) {
         : "";
       response["outcome"]["balance_due"] !== undefined
         ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
+        : "";
+      response["outcome"]["terms_condition"] !== undefined
+        ? $("textarea[name='terms_condition']").val(
+            response["outcome"]["terms_condition"]
+          )
+        : "";
+      response["outcome"]["notes"] !== undefined
+        ? $("textarea[name='notes']").val(response["outcome"]["notes"])
         : "";
       var i_image =
         response["outcome"]["i_image"] !== undefined
@@ -1172,15 +1189,13 @@ $(document).ready(function () {
           ? $(".amount").html(response["msg"]["amount"])
           : $(".amount").html("");
 
-        if (response["data"] == "success") {
+                if (response["data"] == "success") {
           console.log(response);
           console.log("Updated invoice ID:", response["update_invoice_id"]);
           if (!response["update_invoice_id"]) {
             $("#invoice_frm")[0].reset();
             resetThumbnail();
             $(".myFile").html("");
-          } else {
-            window.location.href = "invoice-list.php";
           }
           showMessage(response.msg, "success");
           window.location.href = "invoice-list.php";
@@ -1537,7 +1552,7 @@ $(document).ready(function () {
     var page = $(this).data("page");
     var search_text = $(".search-btn_1").val();
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
-   
+
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
