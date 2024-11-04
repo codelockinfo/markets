@@ -491,6 +491,7 @@
   line-height: 20px;
   cursor: pointer;
   border-radius: 50%;
+  padding-inline: 6px;
 }
 .close-buttons_profile{
   position: absolute;

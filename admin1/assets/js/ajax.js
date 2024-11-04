@@ -566,10 +566,6 @@ function get_blog(id) {
     },
   });
 }
-$(document).on(".close-button", "click", function (e) {
-  console.log("close buttopn click");
-  e.preventDefault();
-});
 
 function activeSidebarMenu() {
   var path = window.location.pathname;
@@ -2025,6 +2021,12 @@ $(document).ready(function () {
   }
 });
 
+// $(document).on("click", ".close-buttons_profile", function () {
+//   console.log("close-button");
+//   var closemainclass = $(this).closest(".drop-zone");
+//   closemainclass.find(".drop-zone__thumb").remove();
+//   closemainclass.find(".pro-zone__prompt").css("display", "block");
+// });
 // video anable disable
 $(document).on("click", ".toggle-button", function () {
   var videoId = $(this).data("video-id");

@@ -1672,6 +1672,7 @@ class admin_functions
                     <div class="drop-zone__thumb">
                         <div class="img-wrapper">
                             <img src="' . $decodedPath . '" class="picture__img">
+                            <button class="close-buttons_profile">x</button>
                         </div>
                     </div>
                 </div>' :
@@ -1711,7 +1712,7 @@ class admin_functions
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="profileUpdate">Product Images</h1>
+                                    <h1 class="modal-title fs-5" id="profileUpdate">Choose profile image</h1>
                                     <button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
