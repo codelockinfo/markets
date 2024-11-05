@@ -876,7 +876,7 @@ class admin_functions
     {
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
-
+    
         if ($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' && $id == "") {
 
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
@@ -908,6 +908,8 @@ class admin_functions
             if (empty($filename)) {
                 $error_array['blog_image'] = "Please upload the blog image.";
             }
+        }else{
+            $error_array['blog_image'] = "Please upload the blog image.";
         }
 
         if (empty($_POST['blog_title'])) {
