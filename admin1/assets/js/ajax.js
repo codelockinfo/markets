@@ -506,7 +506,7 @@ function get_customer(id) {
           '<img src="../admin1/assets/img/customer/' +
           c_image +
           '" class="picture__img"/>' +
-          '<button class="close-button close">x</button>' +
+          '<button class="close-buttons_profile">x</button>' +
           "</div>";
         $(".drop-zone").append(imagePreview);
       } else {
@@ -554,7 +554,7 @@ function get_blog(id) {
           '<img src="../admin1/assets/img/blog_img/' +
           image +
           '" class="picture__img"/>' +
-          '<button class="close-button close">x</button>' +
+          '<button class="close-buttons_profile">x</button>' +
           "</div>";
         $(".drop-zone").append(imagePreview);
       } else {
