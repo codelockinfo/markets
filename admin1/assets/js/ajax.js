@@ -742,9 +742,11 @@ $(document).ready(function () {
   $(document).on("click", ".formCancel", function () {
     console.log("CCCCC");
     $(".errormsg").html("");
-    if ($(".form-control[name=p_tag]").val().length > 0) {
-      $(this).closest("form").find(".multiple_tag").val(null).trigger("change");
-      $(this).closest("form").find(".select2-selection__clear").remove();
+    if($(".form-control[name=p_tag]").length > 0 ){
+      if ($(".form-control[name=p_tag]").val().length > 0) {
+        $(this).closest("form").find(".multiple_tag").val(null).trigger("change");
+        $(this).closest("form").find(".select2-selection__clear").remove();
+      }
     }
     $(this).closest("form")[0].reset();
     if (CKEDITOR.instances["myeditor"]) {
