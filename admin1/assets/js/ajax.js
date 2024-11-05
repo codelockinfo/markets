@@ -884,13 +884,24 @@ $(document).ready(function () {
           $(".shop_logo").html("");
         }
         loading_hide(".save_loader_show", "SIGN UP");
-        showMessage(response.msg, "success");
         if (response["data"] == "success") {
-          $(".drop-zone__thumb .img-wrapper").append(
-            '<button class="close-button">x</button>'
-          );
-          profileLoadData("listprofile");
+          showMessage(response.msg, "success");
+
           profileUpdateImage();
+          var profile_image = $(".picture__img").attr("src");
+          console.log(profile_image);
+          if (profile_image == undefined) {
+            $(".profile-image").attr(
+              "src",
+              "../admin1/assets/img/image_not_found.png"
+            );
+          } else {
+            $(".profile-image").attr("src", profile_image);
+          }
+          // profileLoadData("listprofile");
+          // $(".drop-zone__thumb .img-wrapper").append(
+          //   '<button class="close-button">x</button>'
+          // );
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -2021,12 +2032,13 @@ $(document).ready(function () {
   }
 });
 
-// $(document).on("click", ".close-buttons_profile", function () {
-//   console.log("close-button");
-//   var closemainclass = $(this).closest(".drop-zone");
-//   closemainclass.find(".drop-zone__thumb").remove();
-//   closemainclass.find(".pro-zone__prompt").css("display", "block");
-// });
+$(document).on("click", ".close-buttons_profile", function (event) {
+  event.stopPropagation();
+  console.log("close-button");
+  var closemainclass = $(this).closest(".drop-zone");
+  closemainclass.find(".drop-zone__thumb").remove();
+  closemainclass.find(".pro-zone__prompt").css("display", "block");
+});
 // video anable disable
 $(document).on("click", ".toggle-button", function () {
   var videoId = $(this).data("video-id");

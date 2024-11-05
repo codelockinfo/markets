@@ -147,14 +147,18 @@ class admin_functions
                             $query = "UPDATE users SET shop_logo = '$shoplogo'  WHERE user_id  = $user_id";
                             $result = $this->db->query($query);
                             if ($result) {
-                                $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
+                                $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
                             }
                         }
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
                     }
                 } else {
-                    $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
+                    $query = "UPDATE users SET shop_logo = ''  WHERE user_id  = $user_id";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
+                    }
                 }
             }
         }
@@ -1684,7 +1688,16 @@ class admin_functions
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];
                 $address = $row['address'];
-
+                $profileimage = ' <form role="form" id="profileImageSave" enctype="multipart/form-data" method="POST">
+                                        <div class="mb-3">
+                                            <label for="p-image" class="font-weight-normal">Upload Profile Image</label>
+                                            ' . $previewImage . '
+                                            <div class="errormsg shop_logo imageError"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn bg-gradient-info btn-sm profileImageSave save_loader_show">Save</button>
+                                        </div>
+                                    </form>';
                 $output['profile_deatils'] = '<ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm">
                         <strong class="text-dark">Name:</strong> &nbsp;' . $name . '
@@ -1934,8 +1947,8 @@ class admin_functions
                 while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
                     $title =  $row['title'];
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
                     $output .= '<a class="border-radius-xl">';
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';

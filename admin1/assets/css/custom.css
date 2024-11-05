@@ -1038,3 +1038,6 @@
   width: 280px;
   height: 280px;
 }
+.img-wrapper{
+  position: relative;
+}
