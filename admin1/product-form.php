@@ -105,11 +105,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
-              <div class="pro-zone form-control">
-                <span class="pro-zone__prompt">Drop file here or click to upload</span>  
+              <div class="imageAppend form-control d-flex flex-wrap gap-4 justify-content-center">
+                <div class="pro-zone">
+                  <span class="pro-zone__prompt">Drop file here or click to upload</span>  
 
-                <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input">
-                <!-- <div id="imagePreview"></div>  -->
+                  <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input">
+                  <!-- <div id="imagePreview"></div>  -->
+                </div>
               </div>
               <div class="col">
                 <div class="row mt-2">

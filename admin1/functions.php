@@ -2616,8 +2616,8 @@ class admin_functions
                 $row = $result->fetch_assoc();
                 $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
                 $product_img_result = $this->db->query($product_img_query);
+                $product_img_results = [];
                 if($product_img_result->num_rows > 0){
-                    $product_img_results = [];
                     while ($product_img_row = $product_img_result->fetch_assoc()) {
                         $product_img_results[] = $product_img_row; // Append each row to response array
                     }

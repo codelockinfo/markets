@@ -409,6 +409,7 @@ $(window).on("load", function () {
 // multiple
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");
+  const imageAppend  = inputElement.closest(".imageAppend");
 
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
@@ -425,7 +426,7 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
     const fileArray = Array.from(inputElement.files);
     fileArray.forEach((file, index) => {
       if (file.type.startsWith("image/")) {
-        updateThumbnail(dropZoneElement, file, index, inputElement);
+        updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend );
       } else {
         Swal.fire({
           icon: "error",
@@ -455,7 +456,7 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
     const fileArray = Array.from(e.dataTransfer.files);
     fileArray.forEach((file, index) => {
       if (file.type.startsWith("image/")) {
-        updateThumbnail(dropZoneElement, file, index, inputElement);
+        updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend );
       } else {
         Swal.fire({
           icon: "error",
@@ -467,14 +468,14 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   });
 });
 
-function updateThumbnail(dropZoneElement, file, index, inputElement) {
+function updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend ) {
   console.log("updatethumbnail");
   let thumbnailContainer = dropZoneElement.querySelector(".drop-zone__thumb");
 
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("drop-zone__thumb");
-    dropZoneElement.appendChild(thumbnailContainer);
+    imageAppend.appendChild(thumbnailContainer);
   }
 
   if (file.type.startsWith("image/")) {
@@ -490,7 +491,7 @@ function updateThumbnail(dropZoneElement, file, index, inputElement) {
       img.classList.add("picture__img");
 
       const closeButton = document.createElement("button");
-      closeButton.classList.add("close-button");
+      closeButton.classList.add("close-button_product");
       closeButton.innerText = "x";
 
       closeButton.addEventListener("click", (event) => {

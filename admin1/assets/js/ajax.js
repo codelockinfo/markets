@@ -342,30 +342,36 @@ function get_product(id) {
             ? response["outcome"]["p_image"]
             : "";
 
-        console.log("p_image:", p_image);
-
         if (p_image !== "") {
-          $(".pro-zone__prompt").hide();
-          var imagePreview =
-            '<div class="drop-zone__thumb">' +
-            '<div class="img-wrapper">' +
-            '<img src="../admin1/assets/img/product_img/' +
-            p_image +
-            '" class="picture__img"/>' +
-            '<button class="close-button">x</button>' +
-            "</div>" +
-            "</div>";
-
-          $(".pro-zone").append(imagePreview);
+          var filePath = "../admin1/assets/img/product_img/" + p_image;
+          $.ajax({
+            url: filePath,
+            type: "HEAD", // Only requests the headers, which is faster
+            success: function () {
+              var imagePreview =
+                '<div class="drop-zone__thumb">' +
+                '<div class="img-wrapper">' +
+                '<img src="' +
+                filePath +
+                '" class="picture__img"/>' +
+                '<button class="close-button_product">x</button>' +
+                "</div>" +
+                "</div>";
+              $(".imageAppend").append(imagePreview);
+              $(".pro-zone").hide();
+            },
+            error: function () {
+              $(".pro-zone").hide();
+              console.log("currpt image not found");
+            },
+          });
         } else {
-          $(".pro-zone__prompt").show();
+          $(".pro-zone").show();
         }
         if (response["product_img_result"] !== undefined) {
           var imagePreviews = ""; // Declare once before the loop
           $.each(response["product_img_result"], function (index, image) {
-            console.log(image, " ..... image");
             var imageUrl = image.p_image;
-            console.log(imageUrl, "  ... imageUrl");
 
             // Concatenate each preview into the single imagePreviews string
             imagePreviews +=
@@ -374,11 +380,11 @@ function get_product(id) {
               '<img src="../admin1/assets/img/product_img/' +
               imageUrl +
               '" class="picture__img"/>' +
-              '<button class="close-button">x</button>' +
+              '<button class="close-button_product delete" data-productimageid="'+ image["product_image_id"] +'" data-id="' +image["product_image_id"]+'" data-delete-type="product_form_image">x</button>' +
               "</div>" +
               "</div>";
           });
-          $(".pro-zone").append(imagePreviews); // Append the concatenated HTML after the loop
+          $(".imageAppend").append(imagePreviews); // Append the concatenated HTML after the loop
         }
       }
     },
@@ -1279,6 +1285,8 @@ $(document).ready(function () {
           data.invoice_id = deleteId;
         } else if (type === "product_images") {
           data.product_image_id = deleteId;
+        } else if (type === "product_form_image") {
+          data.product_image_id = deleteId;
         } else if (type === "product_main_image") {
           data.product_id = deleteId;
         } else if (type === "invoice_line_item") {
@@ -1322,6 +1330,17 @@ $(document).ready(function () {
       .closest(".position-relative")
       .remove();
   }
+  
+  function delete_product_form_image_response(deleteId) {
+    console.log("Function called with deleteId:", deleteId);
+    $("[data-id='" + deleteId + "']")
+      .closest(".drop-zone__thumb")
+      .remove();
+      if ($(".drop-zone__thumb").length === 0) {
+        $(".pro-zone").show();
+      }
+  }
+  
   function delete_product_main_image_response(deleteId) {
     console.log("Function called with deleteId:", deleteId);
 
@@ -1350,6 +1369,12 @@ $(document).ready(function () {
         routine: "multipimgdelete",
         callback: function () {
           delete_product_image_response(deleteId);
+        },
+      },
+      product_form_image: {
+        routine: "multipimgdelete",
+        callback: function () {
+          delete_product_form_image_response(deleteId);
         },
       },
       product_main_image: {
@@ -2062,9 +2087,26 @@ $(document).ready(function () {
   }
 });
 
+$(document).on("click", ".picture__img", function () {
+  console.log("input click...........");
+  $(this).closest(".imageAppend").find(".pro-zone .pro-zone__input").trigger("click");
+});
+
+$(document).on("click", ".close-button_product", function (event) {
+  event.stopPropagation();
+  console.log("close-button_product");
+  // $(this).closest(".drop-zone__thumb").remove(); // Remove imgWrapper
+// console.log($(".drop-zone__thumb"));
+//   if ($(".drop-zone__thumb").children().length === 0) {
+//     console.log("OOOOOOOOOO");
+//     $(".pro-zone").show();
+//   }
+  return false;
+});
+
 $(document).on("click", ".close-buttons_profile", function (event) {
   event.stopPropagation();
-  console.log("close-button");
+  console.log("close-buttons_profile");
   var closemainclass = $(this).closest(".form-control");
   closemainclass.find(".drop-zone__thumb").remove();
   closemainclass.find(".drop-zone").css("display", "flex");
