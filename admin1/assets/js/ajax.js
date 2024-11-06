@@ -507,20 +507,22 @@ function get_customer(id) {
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">'+
               '<img src="' +
               filePath +
               '" class="picture__img"/>' +
               '<button class="close-buttons_profile">x</button>' +
-              "</div>";
-            $(".drop-zone").append(imagePreview);
-            $(".pro-zone__prompt").hide();
+              '</div>'+
+              '</div>';
+            $(".imageAppend").append(imagePreview);
+            $(".drop-zone").hide();
           },
           error: function () {
-            $(".pro-zone__prompt").show();
+            $(".drop-zone").show();
           },
         });
       } else {
-        $(".pro-zone__prompt").show();
+        $(".drop-zone").show();
       }
     },
   });
@@ -565,20 +567,22 @@ function get_blog(id) {
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">'+
               '<img src="' +
               filePath +
               '" class="picture__img"/>' +
               '<button class="close-buttons_profile">x</button>' +
-              "</div>";
-            $(".drop-zone").append(imagePreview);
-            $(".pro-zone__prompt").hide();
+              '</div>'+
+              '</div>';
+            $(".imageAppend").append(imagePreview);
+            $(".drop-zone").hide();
           },
           error: function () {
-            $(".pro-zone__prompt").show();
+            $(".drop-zone").show();
           },
         });
       } else {
-        $(".pro-zone__prompt").show();
+        $(".drop-zone").show();
       }
       response["outcome"]["body"] !== undefined
         ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
@@ -2061,9 +2065,9 @@ $(document).ready(function () {
 $(document).on("click", ".close-buttons_profile", function (event) {
   event.stopPropagation();
   console.log("close-button");
-  var closemainclass = $(this).closest(".drop-zone");
+  var closemainclass = $(this).closest(".form-control");
   closemainclass.find(".drop-zone__thumb").remove();
-  closemainclass.find(".pro-zone__prompt").css("display", "block");
+  closemainclass.find(".drop-zone").css("display", "flex");
 });
 // video anable disable
 $(document).on("click", ".toggle-button", function () {

@@ -1672,9 +1672,11 @@ class admin_functions
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
                 $previewImage = (!empty($image) && file_exists($imagePath)) ?
-                    '<div class="drop-zone form-control">
-                    <span class="pro-zone__prompt" id="dragfile" style="display: none;">Drop File Here Or Click To Upload</span>
-                    <input type="file" name="shop_logo" class="drop-zone__input">
+                    '<div class="form-control">
+                    <div class="drop-zone" style="display: none;">
+                        <span class="pro-zone__prompt" id="dragfile" >Drop File Here Or Click To Upload</span>
+                        <input type="file" name="shop_logo" class="drop-zone__input">
+                    </div>
                     <div class="drop-zone__thumb">
                         <div class="img-wrapper">
                             <img src="' . $decodedPath . '" class="picture__img">

@@ -267,6 +267,7 @@
   position: relative;
   display: flex !important;
   flex-wrap: wrap !important;
+  justify-content: center;
 }
 
 .drop-zone__thumb::after {
@@ -495,7 +496,7 @@
 }
 .close-buttons_profile{
   position: absolute;
-   left: 90%; 
+  left: 100%; 
   top: 0px;
   z-index: 1;
   text-align: center;

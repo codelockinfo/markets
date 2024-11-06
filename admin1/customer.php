@@ -48,9 +48,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-image" class="font-weight-normal required">Customer Image</label>
             <div class="mb-3">
-              <div class="drop-zone form-control">
-                <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
-                <input type="file" name="c_image" id="removeImage" class="drop-zone__input">
+              <div class="imageAppend form-control">
+                <div class="drop-zone">
+                  <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                  <input type="file" name="c_image" id="removeImage" class="drop-zone__input">
+                </div>
                 <!-- <div class="drop-zone__thumb"></div> -->
               </div>
 

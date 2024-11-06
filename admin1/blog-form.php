@@ -50,9 +50,11 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
             </div>
             <label for="p-image" class="font-weight-normal required">Blog Image</label>
             <div class="mb-3">
-              <div class="drop-zone form-control">
-                <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
-                <input type="file" name="blog_image" class="drop-zone__input">
+              <div class="imageAppend form-control">
+                <div class="drop-zone">
+                  <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
+                  <input type="file" name="blog_image" class="drop-zone__input">
+                </div>  
               </div>  
               <div class="col">
                 <div class="row mt-2">
