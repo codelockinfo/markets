@@ -137,7 +137,7 @@ function loadData(routineName) {
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
-        console.log(response.pagination,"pagggggg")
+        console.log(response.pagination, "pagggggg");
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
@@ -500,15 +500,25 @@ function get_customer(id) {
           : "";
 
       if (c_image != "") {
-        $(".pro-zone__prompt").hide();
-        var imagePreview =
-          '<div class="drop-zone__thumb">' +
-          '<img src="../admin1/assets/img/customer/' +
-          c_image +
-          '" class="picture__img"/>' +
-          '<button class="close-buttons_profile">x</button>' +
-          "</div>";
-        $(".drop-zone").append(imagePreview);
+        var filePath = "../admin1/assets/img/customer/" + c_image;
+        $.ajax({
+          url: filePath,
+          type: "HEAD", // Only requests the headers, which is faster
+          success: function () {
+            var imagePreview =
+              '<div class="drop-zone__thumb">' +
+              '<img src="' +
+              filePath +
+              '" class="picture__img"/>' +
+              '<button class="close-buttons_profile">x</button>' +
+              "</div>";
+            $(".drop-zone").append(imagePreview);
+            $(".pro-zone__prompt").hide();
+          },
+          error: function () {
+            $(".pro-zone__prompt").show();
+          },
+        });
       } else {
         $(".pro-zone__prompt").show();
       }
@@ -548,15 +558,25 @@ function get_blog(id) {
           ? response["outcome"]["image"]
           : "";
       if (image != "") {
-        $(".pro-zone__prompt").hide();
-        var imagePreview =
-          '<div class="drop-zone__thumb">' +
-          '<img src="../admin1/assets/img/blog_img/' +
-          image +
-          '" class="picture__img"/>' +
-          '<button class="close-buttons_profile">x</button>' +
-          "</div>";
-        $(".drop-zone").append(imagePreview);
+        var filePath = "../admin1/assets/img/blog_img/" + c_image;
+        $.ajax({
+          url: filePath,
+          type: "HEAD", // Only requests the headers, which is faster
+          success: function () {
+            var imagePreview =
+              '<div class="drop-zone__thumb">' +
+              '<img src="' +
+              filePath +
+              '" class="picture__img"/>' +
+              '<button class="close-buttons_profile">x</button>' +
+              "</div>";
+            $(".drop-zone").append(imagePreview);
+            $(".pro-zone__prompt").hide();
+          },
+          error: function () {
+            $(".pro-zone__prompt").show();
+          },
+        });
       } else {
         $(".pro-zone__prompt").show();
       }
@@ -742,9 +762,13 @@ $(document).ready(function () {
   $(document).on("click", ".formCancel", function () {
     console.log("CCCCC");
     $(".errormsg").html("");
-    if($(".form-control[name=p_tag]").length > 0 ){
+    if ($(".form-control[name=p_tag]").length > 0) {
       if ($(".form-control[name=p_tag]").val().length > 0) {
-        $(this).closest("form").find(".multiple_tag").val(null).trigger("change");
+        $(this)
+          .closest("form")
+          .find(".multiple_tag")
+          .val(null)
+          .trigger("change");
         $(this).closest("form").find(".select2-selection__clear").remove();
       }
     }
@@ -1579,11 +1603,11 @@ $(document).ready(function () {
       },
       success: function (data) {
         var data = JSON.parse(data);
-        console.log("assss",data)
+        console.log("assss", data);
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
-          console.log(data.pagination,"...............");
+          console.log(data.pagination, "...............");
         } else {
           $("#getdata").html(NO_DATA);
           $("#pagination").html("Pagination not found");
