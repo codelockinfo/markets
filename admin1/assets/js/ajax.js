@@ -558,7 +558,7 @@ function get_blog(id) {
           ? response["outcome"]["image"]
           : "";
       if (image != "") {
-        var filePath = "../admin1/assets/img/blog_img/" + c_image;
+        var filePath = "../admin1/assets/img/blog_img/" + image;
         $.ajax({
           url: filePath,
           type: "HEAD", // Only requests the headers, which is faster
