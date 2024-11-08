@@ -36,6 +36,22 @@ function getCookie(cname) {
   return "";
 }
 
+function formatNumber(num) {
+  if (num >= 10000000) {
+    // For Crores
+    return (num / 10000000).toFixed(1) + "Cr";
+  } else if (num >= 100000) {
+    // For Lakhs
+    return (num / 100000).toFixed(1) + "L";
+  } else if (num >= 1000) {
+    // For Thousands
+    return (num / 1000).toFixed(1) + "K";
+  } else {
+    return num;
+  }
+  return num.toString(); // For numbers less than 1000
+}
+
 function loading_show($selector) {
   $($selector)
     .addClass("loading")
@@ -94,22 +110,23 @@ function CountData(routineName) {
       console.log("Sending routine_name:", routineName);
       if (response.data === "success") {
         response.totalearning !== undefined
-          ? $(".totalEarning").text("Rs. " + response.totalearning)
-          : $(".countClient").text(0);
+          ? $(".totalEarning").text(
+              "Rs. " + formatNumber(response.totalearning)
+            )
+          : "";
         response.totalproduct !== undefined
           ? $(".totalProduct").text(response.totalproduct)
-          : $(".totalProduct").text(0);
+          : '';
         response.totalclient !== undefined
           ? $(".totalClient").text(response.totalclient)
-          : $(".totalClient").text(0);
+          : '';
         response.totalitemsale !== undefined
           ? $(".totalItemSale").text(response.totalitemsale)
-          : $(".totalItemSale").text(0);
+          : '';
         response.totalamountsale !== undefined
-          ? $(".totalAmountSale").text("Rs. " + response.totalamountsale)
-          : $(".totalAmountSale").text("Rs. " + 0);
-      } else {
-      }
+          ? $(".totalAmountSale").text("Rs. " + formatNumber(response.totalamountsale))
+          : '';
+      } 
     },
   });
 }
@@ -380,7 +397,11 @@ function get_product(id) {
               '<img src="../admin1/assets/img/product_img/' +
               imageUrl +
               '" class="picture__img"/>' +
-              '<button class="close-button_product delete" data-productimageid="'+ image["product_image_id"] +'" data-id="' +image["product_image_id"]+'" data-delete-type="product_form_image">x</button>' +
+              '<button class="close-button_product delete" data-productimageid="' +
+              image["product_image_id"] +
+              '" data-id="' +
+              image["product_image_id"] +
+              '" data-delete-type="product_form_image">x</button>' +
               "</div>" +
               "</div>";
           });
@@ -513,13 +534,13 @@ function get_customer(id) {
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
-              '<div class="img-wrapper">'+
+              '<div class="img-wrapper">' +
               '<img src="' +
               filePath +
               '" class="picture__img"/>' +
               '<button class="close-buttons_profile">x</button>' +
-              '</div>'+
-              '</div>';
+              "</div>" +
+              "</div>";
             $(".imageAppend").append(imagePreview);
             $(".drop-zone").hide();
           },
@@ -573,13 +594,13 @@ function get_blog(id) {
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
-              '<div class="img-wrapper">'+
+              '<div class="img-wrapper">' +
               '<img src="' +
               filePath +
               '" class="picture__img"/>' +
               '<button class="close-buttons_profile">x</button>' +
-              '</div>'+
-              '</div>';
+              "</div>" +
+              "</div>";
             $(".imageAppend").append(imagePreview);
             $(".drop-zone").hide();
           },
@@ -1332,17 +1353,17 @@ $(document).ready(function () {
       .closest(".position-relative")
       .remove();
   }
-  
+
   function delete_product_form_image_response(deleteId) {
     console.log("Function called with deleteId:", deleteId);
     $("[data-id='" + deleteId + "']")
       .closest(".drop-zone__thumb")
       .remove();
-      if ($(".drop-zone__thumb").length === 0) {
-        $(".pro-zone").show();
-      }
+    if ($(".drop-zone__thumb").length === 0) {
+      $(".pro-zone").show();
+    }
   }
-  
+
   function delete_product_main_image_response(deleteId) {
     console.log("Function called with deleteId:", deleteId);
 
@@ -2091,18 +2112,21 @@ $(document).ready(function () {
 
 $(document).on("click", ".picture__img", function () {
   console.log("input click...........");
-  $(this).closest(".imageAppend").find(".pro-zone .pro-zone__input").trigger("click");
+  $(this)
+    .closest(".imageAppend")
+    .find(".pro-zone .pro-zone__input")
+    .trigger("click");
 });
 
 $(document).on("click", ".close-button_product", function (event) {
   event.stopPropagation();
   console.log("close-button_product");
   // $(this).closest(".drop-zone__thumb").remove(); // Remove imgWrapper
-// console.log($(".drop-zone__thumb"));
-//   if ($(".drop-zone__thumb").children().length === 0) {
-//     console.log("OOOOOOOOOO");
-//     $(".pro-zone").show();
-//   }
+  // console.log($(".drop-zone__thumb"));
+  //   if ($(".drop-zone__thumb").children().length === 0) {
+  //     console.log("OOOOOOOOOO");
+  //     $(".pro-zone").show();
+  //   }
   return false;
 });
 
