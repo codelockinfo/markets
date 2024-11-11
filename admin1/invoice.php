@@ -29,7 +29,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3">
+                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3 invoiceid" value="" readonly>
                 </div>
                 <div class="col mb-3 orderchange">
                   <div class="drop-zone form-control max-width-300 invoice_imgorder">
@@ -41,7 +41,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end">
+                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end invoiceid" value="" readonly>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 
             <div class="col">
-              <div class="row ">
+              <div class="row hidden">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Subtotal :</span>
                 </div>
@@ -194,7 +194,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal ps-0 fs-5"><strong>Notes :</strong></span>
                   <textarea name="notes" id="" placeholder="Notes - any relevant information not already covered" class="form-control max-width-500 mt-2"></textarea>
                 </div>
-                <div class="row mt-2 terms">
+                <div class="row mt-2 terms-condition">
                   <span class="text-normal ps-0 fs-5"><strong>Terms :</strong></span>
                   <textarea name="terms_condition" id="" placeholder="Terms and conditions - late fees, payment methods, delivery schedule" class="form-control max-width-500 mt-2"></textarea>
                 </div>
@@ -277,5 +277,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   var id = "<?php echo $id; ?>";
   if (id !== "") {
     get_invoice(id);
+  }else{
+    lastInsertedId("invoice","invoice_id");
   }
 </script>

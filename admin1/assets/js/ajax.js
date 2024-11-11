@@ -126,7 +126,7 @@ function CountData(routineName) {
         response.totalamountsale !== undefined
           ? $(".totalAmountSale").text("Rs. " + formatNumber(response.totalamountsale))
           : '';
-      } 
+      }
     },
   });
 }
@@ -412,6 +412,20 @@ function get_product(id) {
   });
 }
 
+function lastInsertedId(table_name, id) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
+    success: function (response) {
+      var response = JSON.parse(response);
+      if (response["data"] == "success") {
+        $(".invoiceid").val(response.outcome);
+      }
+    },
+  });
+}
 function get_invoice(id) {
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -425,6 +439,9 @@ function get_invoice(id) {
 
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
+        : "";
+      response["outcome"]["invoice_id"] !== undefined
+        ? $(".invoiceid").val(response["outcome"]["invoice_id"])
         : "";
       response["outcome"]["bill_no"] !== undefined
         ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
