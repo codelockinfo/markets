@@ -486,17 +486,29 @@ function get_invoice(id) {
           : "";
 
       if (i_image != "") {
-        $(".pro-zone__prompt").hide();
-        var imagePreview =
-          '<div class="drop-zone__thumb">' +
-          '<img src="../admin1/assets/img/invoice_img/' +
-          i_image +
-          '" class="picture__img"/>' +
-          '<button class="close-button close">x</button>' +
-          "</div>";
-        $(".drop-zone").append(imagePreview);
+        var filePath = "../admin1/assets/img/invoice_img/" + i_image;
+        $.ajax({
+          url: filePath,
+          type: "HEAD", // Only requests the headers, which is faster
+          success: function () {
+            var imagePreview =
+              '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">' +
+              '<img src="' +
+              filePath +
+              '" class="picture__img"/>' +
+              '<button class="close-buttons_profile">x</button>' +
+              "</div>" +
+              "</div>";
+            $(".imageAppend").append(imagePreview);
+            $(".drop-zone").hide();
+          },
+          error: function () {
+            $(".drop-zone").show();
+          },
+        });
       } else {
-        $(".pro-zone__prompt").show();
+        $(".drop-zone").show();
       }
       // invoice_item get
       console.log(response.item_data);

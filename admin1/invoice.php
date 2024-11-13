@@ -32,9 +32,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3 invoiceid" value="" readonly>
                 </div>
                 <div class="col mb-3 orderchange">
-                  <div class="drop-zone form-control max-width-300 invoice_imgorder">
-                    <span class="pro-zone__prompt">Drop file here or click to upload</span>
-                    <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
+                  <div class="imageAppend form-control max-width-300">
+                    <div class="drop-zone  invoice_imgorder">
+                      <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                      <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
+                    </div>
                   </div>
                   <span class="errormsg i_image"></span>
 
