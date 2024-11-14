@@ -13,7 +13,7 @@
 // }
 
 window.onload = function () {
-  document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+  document.querySelectorAll(".drop-zone").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
     const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
 
