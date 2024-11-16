@@ -34,7 +34,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control validtext product w-100" placeholder="Enter Your Name" name="name">
               <span class="errormsg name"></span>
             </div>
-            <label for="title" class="font-weight-normal w-100">Email</label>
+            <label for="title" class="font-weight-normal required w-100">Email</label>
             <div class="mb-3">
               <input type="email" class="form-control w-100 " placeholder="Enter Your Email" name="email">
               <div class="errormsg email"></div>
@@ -67,12 +67,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="errormsg myFile c_image"></div>
             </div>
             <div class="mb-3">
-              <label for="city" class="font-weight-normal required">city</label>
+              <label for="city" class="font-weight-normal required">City</label>
               <input  type="text" class="w-100 form-control validtext" name="city" placeholder="Enter city">
               <span class="errormsg city"></span>
             </div>
             <div class="mb-3">
-              <label for="state" class="font-weight-normal required">state</label>
+              <label for="state" class="font-weight-normal required">State</label>
               <input id="pro-description" class="w-100 form-control validtext" name="state" placeholder="Enter state">
               <span class="errormsg state"></span>
             </div>
