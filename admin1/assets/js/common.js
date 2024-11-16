@@ -409,31 +409,24 @@ $(window).on("load", function () {
 // multiple
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");
-  const imageAppend  = inputElement.closest(".imageAppend");
+  const imageAppend = inputElement.closest(".imageAppend");
 
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
-  inputElement.addEventListener("change", (e) => {
-    console.log("ooooooooooooooo");
-    const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-
-    if (inputElement.files.length > 0) {
-      promptText.style.display = "none";
-    } else {
-      promptText.style.display = "block";
-    }
-
+  inputElement.addEventListener("change", () => {
+    updatePromptText(dropZoneElement, inputElement.files);
     const fileArray = Array.from(inputElement.files);
-    fileArray.forEach((file, index) => {
+
+    fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
-        updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend );
+        updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
           icon: "error",
           title: alertTitle("fail"),
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        inputElement.value = "";
+        inputElement.value = ""; 
       }
     });
   });
@@ -443,20 +436,13 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   });
 
   dropZoneElement.addEventListener("drop", (e) => {
-    console.log("--------------------------");
     e.preventDefault();
-    const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-
-    if (e.dataTransfer.files.length > 0) {
-      promptText.style.display = "none";
-    } else {
-      promptText.style.display = "block";
-    }
-
     const fileArray = Array.from(e.dataTransfer.files);
-    fileArray.forEach((file, index) => {
+    updatePromptText(dropZoneElement, fileArray);
+
+    fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
-        updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend );
+        updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
           icon: "error",
@@ -468,10 +454,15 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   });
 });
 
-function updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend ) {
-  console.log("updatethumbnail");
+function updatePromptText(dropZoneElement, files) {
+  const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
+  promptText.style.display = files.length > 0 ? "none" : "block";
+}
+
+function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
   let thumbnailContainer = dropZoneElement.querySelector(".drop-zone__thumb");
 
+  
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("drop-zone__thumb");
@@ -482,7 +473,6 @@ function updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend
     const reader = new FileReader();
 
     reader.addEventListener("load", function (e) {
-      console.log("hjdsdsjdsjdhsjdhjsd");
       const imgWrapper = document.createElement("div");
       imgWrapper.classList.add("img-wrapper");
 
@@ -497,15 +487,16 @@ function updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend
       closeButton.addEventListener("click", (event) => {
         event.stopPropagation();
         thumbnailContainer.removeChild(imgWrapper);
-        if (thumbnailContainer.childElementCount === 0) {
-          const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-          promptText.style.display = "block";
-        }
+
+        
         const fileListArray = Array.from(inputElement.files);
-        fileListArray.splice(index, 1);
+        fileListArray.splice(fileListArray.indexOf(file), 1);
         const dataTransfer = new DataTransfer();
         fileListArray.forEach((file) => dataTransfer.items.add(file));
         inputElement.files = dataTransfer.files;
+
+   
+        updatePromptText(dropZoneElement, inputElement.files);
       });
 
       imgWrapper.appendChild(img);
@@ -516,6 +507,7 @@ function updateThumbnail(dropZoneElement, file, index, inputElement, imageAppend
     reader.readAsDataURL(file);
   }
 }
+
 
 $(document).on("change", ".addcategory", function () {
   if ($(this).is(":checked")) {
