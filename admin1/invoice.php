@@ -78,7 +78,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control  mt-1" name="date">
+                  <input type="date" class="form-control price mt-1" name="date">
                   <span class="errormsg date"></span>
 
                 </div>
@@ -98,7 +98,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1 " name="due_date">
+                  <input type="date" class="form-control mt-1 price " name="due_date">
                   <span class="errormsg due_date"></span>
 
                 </div>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl ">
-                  <input type="text" class="form-control mt-1 validtext" placeholder=" Product Number" name="po_number">
+                  <input type="text" class="form-control mt-1 price " placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
                 </div>
@@ -129,20 +129,20 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <tbody id="attributes-body" class="get_invoiceitem">
                     <tr class="attr">
                       <td>
-                        <input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]">
-                        <span class="errormsg item"></span>
+                      <input type="text" class="form-control mt-1 validtext" placeholder="Item Title" name="item[]">
+                      <span class="errormsg item_0"></span>
                       </td>
                       <td>
-                        <input type="number" class="form-control mt-1" placeholder="1" name="quantity[]" min="1">
-                        <span class="errormsg quantity"></span>
+                      <input type="number" class="form-control mt-1 price" placeholder="1" name="quantity[]" min="1">
+                      <span class="errormsg item_quantity quantity_0"></span>
                       </td>
                       <td>
-                        <input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]">
-                        <span class="errormsg rate"></span>
+                      <input type="text" class="form-control mt-1 price" placeholder="₹ 0" name="rate[]">
+                      <span class="errormsg item_rate rate_0"></span>
                       </td>
                       <td>
-                        <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled>
-                        <span class="errormsg item"></span>
+                      <input type="text" class="form-control mt-1 price" placeholder="₹ 0.00" name="amount[]" disabled>
+                      <span class="errormsg amount"></span>
                       </td>
 
                       <td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
@@ -178,7 +178,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Amount Paid :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="amount_paid" placeholder="₹ 0.00">
+                <input type="text" class="form-control mt-1 price" name="amount_paid" placeholder="₹ 0.00">
+                <span class="errormsg amount_paid"></span>
                 </div>
               </div>
               <div class="row  mt-2">

@@ -367,11 +367,11 @@ class admin_functions
                     $error_array['p_image'] = "Please upload another product image.";
                 }
             }
-        } else {
-            if (empty($product_id)) {
-                $error_array['p_image'] = "Please select image";
-            }
         }
+        if (empty($product_id))
+         {
+                $error_array['p_image'] = "Please select image";
+         }
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $product_name = str_replace("'", "\'", $product_name);
@@ -452,48 +452,37 @@ class admin_functions
         return $response;
     }
 
-    function add_customer()
-    {
+    function add_customer() {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
+    
+        $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
         $newFilename = "";
         $maxSize = 5 * 1024 * 1024;
-
-        if ($_FILES["c_image"]["name"] != "" && $id != "" || isset($_FILES["c_image"]["name"]) && isset($_FILES["c_image"]["name"]) != '' && $id == "") {
+        $folder = "assets/img/customer/";
+        if (!empty($_FILES["c_image"]["name"])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-            $filename = isset($_FILES["c_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
-            $tmpfile = isset($_FILES["c_image"]["tmp_name"]) ? $_FILES["c_image"]["tmp_name"] : '';
+            $filename = $_FILES["c_image"]["name"];
+            $tmpfile = $_FILES["c_image"]["tmp_name"];
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
-            $fileNameCmps = explode(".", $filename);
-            $fileExtension = strtolower(end($fileNameCmps));
-            $folder = "assets/img/customer/";
+            $fileExtension = strtolower($extension);
             $fullpath = $folder . $newFilename;
-            $file = $_FILES['c_image'];
-
             if (!is_dir($folder)) {
-                $mkdir = mkdir($folder, 0777, true);
-                if (!$mkdir) {
+                if (!mkdir($folder, 0777, true)) {
                     $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
                     return json_encode($response_data);
                 }
             }
-
             if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
-            if ($file['size'] > $maxSize) {
+            if ($_FILES['c_image']['size'] > $maxSize) {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
-            if (empty($filename)) {
-
-                $error_array['c_image'] = "Please upload your image.";
-            }
         }
-
-
         if (empty($_POST['name'])) {
-            $error_array['name'] = "Please enter customer name";
+            $error_array['name'] = "Please enter customer name.";
         }
         if (empty($_POST['email'])) {
             $error_array['email'] = "Please enter customer email.";
@@ -510,54 +499,59 @@ class admin_functions
         if (empty($_POST['state'])) {
             $error_array['state'] = "Please enter customer state.";
         }
-        if (empty($error_array)) {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $contact = $_POST['contact'];
-            $address = $_POST['address'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-
-
-            if ($id == '') {
-
-                if (move_uploaded_file($tmpfile, $fullpath)) {
-                    if (isset($_SESSION['current_user']['user_id'])) {
-                        $user_id = $_SESSION['current_user']['user_id'];
-                        $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`city`,`state`,`address`,`user_id`) 
-                            VALUES ('$name', '$email','$contact', '$newFilename','$city', '$state','$address','$user_id')";
-                        $result = $this->db->query($query);
-                    }
+        if (!empty($error_array)) {
+            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            return json_encode($response_data);
+        }
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $contact = $_POST['contact'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        if ($id == '') { 
+            if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
+                          VALUES ('$name', '$email', '$contact', '$newFilename', '$city', '$state', '$address', '$user_id')";
+                $result = $this->db->query($query);
+    
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Customer inserted successfully!');
                 } else {
-                    $error_array['c_image'] = "Error moving uploaded file.";
+                    $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
                 }
             } else {
-                if (!empty($filename)) {
-                    if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
-                            c_image = '$newFilename',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
-                    }
-                } else {
-                    $existing_image_query = "SELECT c_image FROM customer WHERE customer_id = $id";
-                    $existing_image_result = $this->db->query($existing_image_query);
-                    $existing_image_row = $existing_image_result->fetch_assoc();
-                    $existing_image = $existing_image_row['c_image'];
-                    $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
-                            c_image = '$existing_image',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
-                }
-                $result = $this->db->query($query);
-                if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => $id == '' ? 'Customer inserted successfully!' : 'Customer data updated', "updated_customer_id" => $id);
-                } else {
-                    $response_data = array('data' => 'fail', 'msg' => "Error inserting/updating in the database");
-                }
+                $response_data = array('data' => 'fail', 'msg' => "Error moving uploaded file.");
             }
-        } else {
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong");
+        } else { 
+            if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
+                $query = "UPDATE customer SET 
+                          name = '$name', email = '$email', contact = '$contact', 
+                          c_image = '$newFilename', city = '$city', state = '$state', address = '$address' 
+                          WHERE customer_id = $id";
+            } else {
+                $existing_image_query = "SELECT c_image FROM customer WHERE customer_id = $id";
+                $existing_image_result = $this->db->query($existing_image_query);
+                $existing_image_row = $existing_image_result->fetch_assoc();
+                $existing_image = $existing_image_row['c_image'];
+    
+                $query = "UPDATE customer SET 
+                          name = '$name', email = '$email', contact = '$contact', 
+                          c_image = '$existing_image', city = '$city', state = '$state', address = '$address' 
+                          WHERE customer_id = $id";
+            }
+            $result = $this->db->query($query);
+    
+            if ($result) {
+                $response_data = array('data' => 'success', 'msg' => 'Customer updated successfully!', 'updated_customer_id' => $id);
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
+            }
         }
-
         return json_encode($response_data);
     }
+    
 
     function listgallary()
     {
@@ -674,6 +668,23 @@ class admin_functions
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
+        if (empty($_POST['amount_paid'])) $error_array['amount_paid'] = "Please enter amount_paid number.";
+        if (empty($_POST['item']) || !is_array($_POST['item'])) {
+            $error_array['item_title'] = "Please enter at least one item.";
+        } else {
+            foreach ($_POST['item'] as $index => $item) {
+                if (empty($item)) {
+                    $error_array["item_$index"] = "Item title is required.";
+                }
+                if (empty($_POST['quantity'][$index]) || !is_numeric($_POST['quantity'][$index])) {
+                    $error_array["quantity_$index"] = "Quantity must be a valid number.";
+                }
+                if (empty($_POST['rate'][$index]) || !is_numeric($_POST['rate'][$index])) {
+                    $error_array["rate_$index"] = "Rate must be a valid number.";
+                }
+            }
+        }
+        
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];

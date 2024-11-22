@@ -788,7 +788,16 @@ $(document).ready(function () {
   $(".signImage").on("input change", function () {
     $(this).siblings(".imageError").text("");
   });
-
+  $("#removeimage").on("change", function () {
+    $(this).closest(".mb-3").find(".errormsg").html("");
+  });
+  $("#imageUpload").on("change", function () {
+    $(this).closest(".mb-3").find(".errormsg").html("");
+  });
+  $("#removeImage").on("change", function () {
+    $(this).closest(".mb-3").find(".errormsg").html("");
+  });
+  
   $(".validtext").on("keypress", function () {
     $(this).next(".errormsg").text("");
   });
@@ -1229,12 +1238,110 @@ $(document).ready(function () {
     });
   });
 
+  // $(document).on("click", ".invoice ", function (event) {
+  //   event.preventDefault();
+  //   console.log("invoice  button click");
+  //   var form_data = $("#invoice_frm")[0];
+  //   var form_data = new FormData(form_data);
+  //   form_data.append("routine_name", "invoice");
+
+  //   $.ajax({
+  //     url: "../admin1/ajax_call.php",
+  //     method: "POST",
+  //     dataType: "json",
+  //     contentType: false,
+  //     processData: false,
+  //     data: form_data,
+  //     beforeSend: function () {
+  //       loading_show(".save_loader_show");
+  //     },
+  //     success: function (response) {
+  //       console.log(response);
+  //       var response = JSON.parse(response);
+  //       loading_hide(".save_loader_show", "Save");
+  //       response["msg"]["i_image"] !== undefined
+  //         ? $(".i_image").html(response["msg"]["i_image"])
+  //         : $(".i_image").html("");
+
+  //       response["msg"]["i_name"] !== undefined
+  //         ? $(".i_name").html(response["msg"]["i_name"])
+  //         : $(".i_name").html("");
+
+  //       response["msg"]["bill_no"] !== undefined
+  //         ? $(".bill_no").html(response["msg"]["bill_no"])
+  //         : $(".bill_no").html("");
+
+  //       response["msg"]["ship_to"] !== undefined
+  //         ? $(".ship_to").html(response["msg"]["ship_to"])
+  //         : $(".ship_to").html("");
+
+  //       response["msg"]["date"] !== undefined
+  //         ? $(".date").html(response["msg"]["date"])
+  //         : $(".date").html("");
+
+  //       response["msg"]["terms"] !== undefined
+  //         ? $(".terms").html(response["msg"]["terms"])
+  //         : $(".terms").html("");
+
+  //       response["msg"]["due_date"] !== undefined
+  //         ? $(".due_date").html(response["msg"]["due_date"])
+  //         : $(".due_date").html("");
+
+  //       response["msg"]["po_number"] !== undefined
+  //         ? $(".po_number").html(response["msg"]["po_number"])
+  //         : $(".po_number").html("");
+
+  //       response["msg"]["item"] !== undefined
+  //         ? $(".item").html(response["msg"]["item"])
+  //         : $(".item").html("");
+
+  //       response["msg"]["quantity"] !== undefined
+  //         ? $(".quantity").html(response["msg"]["quantity"])
+  //         : $(".quantity").html("");
+
+  //       response["msg"]["rate"] !== undefined
+  //         ? $(".rate").html(response["msg"]["rate"])
+  //         : $(".rate").html("");
+
+  //       response["msg"]["amount"] !== undefined
+  //         ? $(".amount").html(response["msg"]["amount"])
+  //         : $(".amount").html("");
+
+  //       if (response["data"] == "success") {
+  //         console.log(response);
+  //         console.log("Updated invoice ID:", response["update_invoice_id"]);
+  //         if (!response["update_invoice_id"]) {
+  //           $("#invoice_frm")[0].reset();
+  //           resetThumbnail();
+  //           $(".myFile").html("");
+  //         }
+  //         showMessage(response.msg, "success");
+  //         window.location.href = "invoice-list.php";
+  //       } else {
+  //         showMessage(response.msg_error, "fail");
+  //       }
+  //     },
+  //   });
+  // });
+
+
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
     console.log("invoice  button click");
     var form_data = $("#invoice_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
+    const formData = {
+      item: [],
+      quantity: [],
+      rate: [],
+    };
+
+    $(".attr").each(function () {
+      formData.item.push($(this).find(".item_title input").val());
+      formData.quantity.push($(this).find(".item_quantity input").val());
+      formData.rate.push($(this).find(".item_rate input").val());
+    });
 
     $.ajax({
       url: "../admin1/ajax_call.php",
@@ -1250,54 +1357,15 @@ $(document).ready(function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
-        response["msg"]["i_image"] !== undefined
-          ? $(".i_image").html(response["msg"]["i_image"])
-          : $(".i_image").html("");
 
-        response["msg"]["i_name"] !== undefined
-          ? $(".i_name").html(response["msg"]["i_name"])
-          : $(".i_name").html("");
-
-        response["msg"]["bill_no"] !== undefined
-          ? $(".bill_no").html(response["msg"]["bill_no"])
-          : $(".bill_no").html("");
-
-        response["msg"]["ship_to"] !== undefined
-          ? $(".ship_to").html(response["msg"]["ship_to"])
-          : $(".ship_to").html("");
-
-        response["msg"]["date"] !== undefined
-          ? $(".date").html(response["msg"]["date"])
-          : $(".date").html("");
-
-        response["msg"]["terms"] !== undefined
-          ? $(".terms").html(response["msg"]["terms"])
-          : $(".terms").html("");
-
-        response["msg"]["due_date"] !== undefined
-          ? $(".due_date").html(response["msg"]["due_date"])
-          : $(".due_date").html("");
-
-        response["msg"]["po_number"] !== undefined
-          ? $(".po_number").html(response["msg"]["po_number"])
-          : $(".po_number").html("");
-
-        response["msg"]["item"] !== undefined
-          ? $(".item").html(response["msg"]["item"])
-          : $(".item").html("");
-
-        response["msg"]["quantity"] !== undefined
-          ? $(".quantity").html(response["msg"]["quantity"])
-          : $(".quantity").html("");
-
-        response["msg"]["rate"] !== undefined
-          ? $(".rate").html(response["msg"]["rate"])
-          : $(".rate").html("");
-
-        response["msg"]["amount"] !== undefined
-          ? $(".amount").html(response["msg"]["amount"])
-          : $(".amount").html("");
-
+   if (response.msg) {
+          $(".errormsg").html("");
+          for (const [field, message] of Object.entries(response.msg)) {
+            $(`.${field}`).html(message); // Add error message to the appropriate span
+          }
+        } else {
+          alert("Data submitted successfully!");
+        }
         if (response["data"] == "success") {
           console.log(response);
           console.log("Updated invoice ID:", response["update_invoice_id"]);
@@ -1313,7 +1381,7 @@ $(document).ready(function () {
         }
       },
     });
-  });
+  }); 
 
   function confirmAndDelete(deleteId, routineName, type, onSuccess) {
     Swal.fire({

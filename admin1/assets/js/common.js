@@ -191,8 +191,41 @@ $(document).ready(function () {
     row.find("input").val("");
     row.find(".remove").show();
     $("#attributes-body").append(row);
+    updateRowClasses();
     updateRemoveButtonVisibility();
     updateSubtotal();
+  }
+  function updateRowClasses() {
+    $(".attr").each(function (index) {
+      $(this)
+        .find(".item_0, .quantity_0, .rate_0")
+        .each(function () {
+          let baseClass = "";
+          if ($(this).hasClass("item_")) {
+            baseClass = "item";
+          } else if ($(this).hasClass("quantity_")) {
+            baseClass = "quantity";
+          } else if ($(this).hasClass("rate_")) {
+            baseClass = "rate";
+          }
+          if (baseClass) {
+            $(this)
+              .removeClass(function (_, className) {
+                return (className.match(/(^|\s)(item|quantity|rate)_\d+/g) || []).join(" ");
+              })
+              .addClass(`${baseClass}_${index}`);
+          }
+          $(this)
+            .find("input, span")
+            .each(function () {
+              const originalName = $(this).attr("name");
+              if (originalName) {
+                const updatedName = originalName.replace(/\[\d+\]/, `[${index}]`);
+                $(this).attr("name", updatedName);
+              }
+            });
+        });
+    });
   }
 
   function removeRow(button) {
