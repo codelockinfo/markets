@@ -336,16 +336,26 @@ function get_product(id) {
             )
           : "";
 
-        if (response["outcome"]["p_tag"] !== undefined) {
-          var arrangedValue = response["outcome"]["p_tag"];
-          if (arrangedValue != "") {
-            var rearrangedValue = arrangedValue.split(",").reverse();
-            console.log(rearrangedValue, "  rearrangedValue");
-            response["outcome"]["p_tag"] !== undefined
-              ? $("select[name='p_tag']").val(rearrangedValue).trigger("change")
-              : "";
+          if (response.outcome.p_tag) {
+            const arrangedValue = response.outcome.p_tag;
+            console.log("Original p_tag value:", arrangedValue);
+  
+            if (arrangedValue.trim() !== "") {
+              const rearrangedValue = arrangedValue.split(",").reverse();
+              console.log("Reversed p_tag value:", rearrangedValue);
+              rearrangedValue.forEach(function (value) {
+                if ($(`select[name='p_tag'] option[value='${value}']`).length === 0) {
+                
+                  $("select[name='p_tag']").append(
+                    `<option value="${value}">${value}</option>`
+                  );
+                }
+              });
+              $("select[name='p_tag']")
+                .val(rearrangedValue)
+                .trigger("change"); 
+            }
           }
-        }
 
         response["outcome"]["p_description"] !== undefined
           ? $("textarea[name='p_description']").val(
@@ -820,6 +830,8 @@ $(document).ready(function () {
   });
 
   $(document).on("click", ".formCancel", function () {
+    $(".pro-zone__prompt").css("display", "block");
+    $(".drop-zone").css("display", "flex");
     console.log("CCCCC");
     $(".errormsg").html("");
     if ($(".form-control[name=p_tag]").length > 0) {
@@ -1094,8 +1106,10 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         console.log(".......sd.......");
-        console.log(response.p_image);
         var response = JSON.parse(response);
+        console.log(response.msg.min_price);
+        console.log(response.msg.p_tag);
+
         loading_hide(".save_loader_show", "Save");
         response["msg"]["pname"] !== undefined
           ? $(".pname").html(response["msg"]["pname"])
@@ -1127,7 +1141,7 @@ $(document).ready(function () {
         response["msg"]["qty"] !== undefined
           ? $(".qty").html(response["msg"]["qty"])
           : $(".qty").html("");
-        response["msg"]["p_tag"] !== undefined
+          response["msg"]["p_tag"] !== undefined
           ? $(".p_tag").html(response["msg"]["p_tag"])
           : $(".p_tag").html("");
         response["msg"]["p_description"] !== undefined

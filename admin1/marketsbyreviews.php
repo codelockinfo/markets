@@ -42,7 +42,7 @@ if ($_SESSION['current_user']['role'] == 1) {
 
               <label for="review" class="font-weight-normal required">Shop Reviews</label>
               <div class="mb-3">
-                <input type="number" class="form-control product w-100" placeholder="Shop Reviews" name="review">
+                <input type="number" class="form-control product number w-100" placeholder="Shop Reviews" name="review">
                 <span class="errormsg review"></span>
               </div>
               <div class="mb-3">

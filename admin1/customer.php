@@ -36,13 +36,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="title" class="font-weight-normal required w-100">Email</label>
             <div class="mb-3">
-              <input type="email" class="form-control w-100 " placeholder="Enter Your Email" name="email">
+              <input type="email" class="form-control validtext w-100 " placeholder="Enter Your Email" name="email">
               <div class="errormsg email"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Contact</label>
             <div class="mb-3 row">
               <div class="col">
-                <input type="text" class="form-control price w-100" placeholder="Enter Your Contact" name="contact">
+                <input type="number" class="form-control price number w-100" placeholder="Enter Your Contact" name="contact">
                 <span class="errormsg contact"></span>
               </div>
             </div>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="imageAppend form-control">
                 <div class="drop-zone">
                   <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
-                  <input type="file" name="c_image" id="removeImage" class="drop-zone__input">
+                  <input type="file" name="c_image" id="removeImage" class="drop-zone__input validsimg">
                 </div>
                 <!-- <div class="drop-zone__thumb"></div> -->
               </div>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                 </div>
               </div>
-              <div class="errormsg myFile c_image"></div>
+              <div class="errormsg myFile c_image" ></div>
             </div>
             <div class="mb-3">
               <label for="city" class="font-weight-normal required">City</label>

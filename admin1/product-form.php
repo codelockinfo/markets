@@ -62,7 +62,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div>
                   <label class="font-weight-normal w-100 checkboxcategory">
                     <input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3 d-none " value="1"/>
-                    <i class="fa fa-plus me-1" id="increment-btn" aria-hidden="true"></i>Add a new categorie
+                    <i class="fa fa-plus me-1" id="increment-btn" aria-hidden="true"></i>Add a new category
                   </label>
                   <div class="categoryinput hidecategory">
                     <input type="text" name="addcategory" class="form-control w-100"/>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="title" class="font-weight-normal w-100">SKU</label>
             <div class="mb-3">
-              <input type="text" class="form-control w-100" placeholder="SKU" name="sku">
+              <input type="text" class="form-control number w-100" placeholder="SKU" name="sku">
               <div class="errormsg sku"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
@@ -109,7 +109,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="pro-zone">
                   <span class="pro-zone__prompt">Drop file here or click to upload</span>  
 
-                  <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input">
+                  <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input validtext">
                   <!-- <div id="imagePreview"></div>  -->
                 </div>
               </div>
@@ -234,6 +234,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
   allowHtml: true,
   allowClear: true,
-  tags: true 
+  tags: true,
+  width: "100%", 
 });
 </script>

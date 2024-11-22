@@ -51,7 +51,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="mb-3 ">
                 <div class="row ">
                   <div class="col w-50 mb-3">
-                    <textarea type="text" placeholder="Invoice Name" class="form-control max-width-500" name="i_name"></textarea>
+                    <textarea type="text" placeholder="Invoice Name" class="form-control validtext max-width-500" name="i_name"></textarea>
                     <span class="errormsg i_name"></span>
 
                   </div>
@@ -59,13 +59,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="row mt-4 invoicename">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
-                    <textarea type="text" placeholder="Bill To" class="form-control " name="bill_no"></textarea>
+                    <textarea type="text" placeholder="Bill To" class="form-control validtext" name="bill_no"></textarea>
                     <span class="errormsg bill_no"></span>
 
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
-                    <textarea type="text" placeholder="Ship To " class="form-control" name="ship_to"></textarea>
+                    <textarea type="text" placeholder="Ship To " class="form-control validtext" name="ship_to"></textarea>
                     <span class="errormsg ship_to"></span>
 
                   </div>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1" name="date">
+                  <input type="date" class="form-control  mt-1" name="date">
                   <span class="errormsg date"></span>
 
                 </div>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" placeholder="Payment Terms" name="terms">
+                  <input type="text" class="form-control validtext mt-1" placeholder="Payment Terms" name="terms">
                   <span class="errormsg terms"></span>
 
                 </div>
@@ -98,7 +98,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1" name="due_date">
+                  <input type="date" class="form-control mt-1 " name="due_date">
                   <span class="errormsg due_date"></span>
 
                 </div>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl ">
-                  <input type="text" class="form-control mt-1" placeholder=" Product Number" name="po_number">
+                  <input type="text" class="form-control mt-1 validtext" placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
                 </div>
