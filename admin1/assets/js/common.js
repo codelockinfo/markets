@@ -201,13 +201,14 @@ $(document).ready(function () {
         .find(".item_0, .quantity_0, .rate_0")
         .each(function () {
           let baseClass = "";
-          if ($(this).hasClass("item_")) {
+          if ($(this).hasClass("item_0")) {
             baseClass = "item";
-          } else if ($(this).hasClass("quantity_")) {
+          } else if ($(this).hasClass("quantity_0")) {
             baseClass = "quantity";
-          } else if ($(this).hasClass("rate_")) {
+          } else if ($(this).hasClass("rate_0")) {
             baseClass = "rate";
           }
+  
           if (baseClass) {
             $(this)
               .removeClass(function (_, className) {
@@ -216,7 +217,7 @@ $(document).ready(function () {
               .addClass(`${baseClass}_${index}`);
           }
           $(this)
-            .find("input, span")
+            .find("input[name], span[name]")
             .each(function () {
               const originalName = $(this).attr("name");
               if (originalName) {
@@ -226,7 +227,7 @@ $(document).ready(function () {
             });
         });
     });
-  }
+  }   
 
   function removeRow(button) {
     button.closest("tr.attr").remove();

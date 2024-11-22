@@ -85,7 +85,7 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                         <span class="errormsg password"></span>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 signInsave">Sign in</button>
+                                        <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 save_loader_show  signInsave">Sign in</button>
                                     </div>
                                     <div class="mt-3 position-relative text-center mb-3">
                                         <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
@@ -136,7 +136,7 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
                                     Don't have an account?
-                                    <a href="<?php echo SITE_ADMIN_URL ?>sign-up.php" class="text-info text-gradient font-weight-bold">Sign up</a>
+                                    <a href="<?php echo SITE_ADMIN_URL ?>sign-up.php" class="text-info text-gradient   font-weight-bold ">Sign up</a>
                                 </p>
                             </div>
                         </div>

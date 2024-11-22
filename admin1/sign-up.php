@@ -73,7 +73,7 @@ include 'header.php';
                       <span class="errormsg name"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="shopname" class="form-control validsignf" placeholder="Shop Name" name="shop">
+                      <input type="shopname" class="form-control validsignf" placeholder="Shop Name or market name" name="shop">
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
