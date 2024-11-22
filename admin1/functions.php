@@ -459,26 +459,35 @@ class admin_functions
         $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
         $newFilename = "";
         $maxSize = 5 * 1024 * 1024;
-        $folder = "assets/img/customer/";
-        if (!empty($_FILES["c_image"]["name"])) {
+        if ($_FILES["c_image"]["name"] != "" && $id != "" || isset($_FILES["c_image"]["name"]) && isset($_FILES["c_image"]["name"]) != '' && $id == "") {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-            $filename = $_FILES["c_image"]["name"];
-            $tmpfile = $_FILES["c_image"]["tmp_name"];
+            $filename = isset($_FILES["c_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
+            $tmpfile = isset($_FILES["c_image"]["tmp_name"]) ? $_FILES["c_image"]["tmp_name"] : '';
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
-            $fileExtension = strtolower($extension);
+            $fileNameCmps = explode(".", $filename);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $folder = "assets/img/customer/";
             $fullpath = $folder . $newFilename;
+            $file = $_FILES['c_image'];
+
             if (!is_dir($folder)) {
-                if (!mkdir($folder, 0777, true)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
                     $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
                     return json_encode($response_data);
                 }
             }
+
             if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
-            if ($_FILES['c_image']['size'] > $maxSize) {
+            if ($file['size'] > $maxSize) {
                 $error_array['c_image'] = "File size must be 5MB or less.";
+            }
+            if (empty($filename)) {
+
+                $error_array['c_image'] = "Please upload your image.";
             }
         }
         if (empty($_POST['name'])) {
@@ -685,7 +694,7 @@ class admin_functions
             }
         }
         
-        if (empty($error_array)) {
+         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
             $ship_to = $_POST['ship_to'];

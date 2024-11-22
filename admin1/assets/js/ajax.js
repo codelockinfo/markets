@@ -898,7 +898,7 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         var response = JSON.parse(response);
-        loading_hide(".save_loader_show", "Sign in");
+       
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
           window.location.href = "analytics.php";
@@ -912,6 +912,7 @@ $(document).ready(function () {
           response["msg"]["errormsg"] !== undefined
             ? $(".error-msg").html(response["msg"]["errormsg"])
             : $(".error-msg").html("");
+            loading_hide(".save_loader_show", "Sign in");
         }
       },
     });
@@ -1094,6 +1095,7 @@ $(document).ready(function () {
     console.log("Product save button click");
     var form_data = $("#productinsert")[0];
     var form_data = new FormData(form_data);
+    
     form_data.append("routine_name", "insert_products");
     var selectedTags = $(".multiple_tag").val();
     if (selectedTags !== null) {
@@ -1101,7 +1103,7 @@ $(document).ready(function () {
         form_data.append("p_tag[]", selectedTags[i]);
       }
     }
-
+    
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
