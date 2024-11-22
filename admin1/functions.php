@@ -344,31 +344,30 @@ class admin_functions
                 $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                 $newFilename = time() . '_' . $key . '.' . $fileExtension;
                 $fullpath = $folder . $newFilename;
-
-
+            
+            
                 if ($tmpfile != "") {
-                    if (!in_array($fileExtension, $allowedExtensions)) {
-                        $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-                    }
+                if (!in_array($fileExtension, $allowedExtensions)) {
+                    $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
                     if ($file['size'][$key] > $maxSize) {
-                        $error_array['p_image'] = "File size for $filename must be 5MB or less.";
-                    }
-
+                    $error_array['p_image'] = "File size for $filename must be 5MB or less.";
+                }
+            
                     if (empty($error_array)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
-                            $uploadedFiles[] = $newFilename;
+                    $uploadedFiles[] = $newFilename;
                             $is_image_update  = true;
-                        } else {
+                } else {
 
-                            $error_array['p_image'] = "Error moving uploaded file $filename.";
-                        }
-                    }
+                    $error_array['p_image'] = "Error moving uploaded file $filename.";
+                }
+            }
                 } else {
                     $error_array['p_image'] = "Please upload another product image.";
                 }
             }
-        }
-        if (empty($product_id))
+        }else if (empty($product_id))
          {
                 $error_array['p_image'] = "Please select image";
          }
