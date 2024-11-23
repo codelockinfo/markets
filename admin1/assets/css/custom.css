@@ -1044,6 +1044,7 @@
   position: relative;
 }
 
+
 .tooltip-container {
   position: relative;
   display: flex;
@@ -1088,4 +1089,5 @@
 .tooltip-icon:hover + .tooltiptext {
   visibility: visible;
   opacity: 1;
+
 }

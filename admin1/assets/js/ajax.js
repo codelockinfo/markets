@@ -788,6 +788,17 @@ $(document).ready(function () {
   $(".signImage").on("input change", function () {
     $(this).siblings(".imageError").text("");
   });
+
+  $(document).on('input', 'input', function() {
+    const parentTd = $(this).closest('td');
+    parentTd.removeClass('error');
+    const closestColXl = $(this).closest('.col-xl');
+    closestColXl.removeClass('error');
+ });
+
+  $(".date-input").on("change", function () {
+    $(this).next(".errormsg").text("");
+  });
   $("#removeimage").on("change", function () {
     $(this).closest(".mb-3").find(".errormsg").html("");
   });
@@ -1359,11 +1370,49 @@ $(document).ready(function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
+        if (response["msg"]["amount_paid"] !== undefined) {
+          // $(".amount_paid").html(response["msg"]["amount_paid"]);
+          $(".ampunt_p").addClass("error");
+      } else {
+          $(".amount_paid").html("");
+          $(".ampunt_p").removeClass("error");
+      }
+        response["msg"]["i_image"] !== undefined
+          ? $(".i_image").html(response["msg"]["i_image"])
+          : $(".i_image").html("");
 
-   if (response.msg) {
-          $(".errormsg").html("");
+        response["msg"]["i_name"] !== undefined
+          ? $(".i_name").html(response["msg"]["i_name"])
+          : $(".i_name").html("");
+
+        response["msg"]["bill_no"] !== undefined
+          ? $(".bill_no").html(response["msg"]["bill_no"])
+          : $(".bill_no").html("");
+
+        response["msg"]["ship_to"] !== undefined
+          ? $(".ship_to").html(response["msg"]["ship_to"])
+          : $(".ship_to").html("");
+
+        response["msg"]["date"] !== undefined
+          ? $(".date").html(response["msg"]["date"])
+          : $(".date").html("");
+
+        response["msg"]["terms"] !== undefined
+          ? $(".terms").html(response["msg"]["terms"])
+          : $(".terms").html("");
+
+        response["msg"]["due_date"] !== undefined
+          ? $(".due_date").html(response["msg"]["due_date"])
+          : $(".due_date").html("");
+
+        response["msg"]["po_number"] !== undefined
+          ? $(".po_number").html(response["msg"]["po_number"])
+          : $(".po_number").html("");
+
+        if (response.msg) {
           for (const [field, message] of Object.entries(response.msg)) {
-            $(`.${field}`).html(message); // Add error message to the appropriate span
+            const fieldElement = $(`td[class*='${field}']`);
+            fieldElement.addClass("error");
           }
         } else {
           alert("Data submitted successfully!");
@@ -1383,7 +1432,7 @@ $(document).ready(function () {
         }
       },
     });
-  }); 
+  });
 
   function confirmAndDelete(deleteId, routineName, type, onSuccess) {
     Swal.fire({

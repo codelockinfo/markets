@@ -227,8 +227,8 @@ $(document).ready(function () {
             });
         });
     });
-  }   
-
+  } 
+  
   function removeRow(button) {
     button.closest("tr.attr").remove();
     updateRemoveButtonVisibility();
