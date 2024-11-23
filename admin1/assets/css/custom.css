@@ -267,6 +267,7 @@
   position: relative;
   display: flex !important;
   flex-wrap: wrap !important;
+  justify-content: center;
 }
 
 .drop-zone__thumb::after {
@@ -478,8 +479,8 @@
 /* preview & close button css */
 .close-button {
   position: absolute;
-  /* left: 90%; */
-  /* top: -13px; */
+  left: 82%;
+  top: 16px;
   /* height: 20px;
   width: 20px; */
   z-index: 1;
@@ -491,10 +492,12 @@
   line-height: 20px;
   cursor: pointer;
   border-radius: 50%;
+  padding-inline: 6px;
 }
-.close-buttons_profile{
+.close-buttons_profile,
+.close-button_product{
   position: absolute;
-   left: 90%; 
+  left: 100%; 
   top: 0px;
   z-index: 1;
   text-align: center;
@@ -1036,4 +1039,65 @@
 .main-product-img{
   width: 280px;
   height: 280px;
+}
+.img-wrapper{
+  position: relative;
+}
+
+
+.tooltip-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tooltip-icon {
+  margin-left: 10px;
+  color: #ff0000; /* Red for warning */
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 0%;
+  right: 0%; /* Adjust this for spacing from the icon */
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%; /* Point arrow to the icon */
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #000 transparent transparent;
+}
+
+.tooltip-icon:hover + .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+
+}
+.error label {
+  color: #cc0033;
+}
+
+.error input[type="number"],
+.error input[type="text"] {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
 }

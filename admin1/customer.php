@@ -34,23 +34,25 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control validtext product w-100" placeholder="Enter Your Name" name="name">
               <span class="errormsg name"></span>
             </div>
-            <label for="title" class="font-weight-normal w-100">Email</label>
+            <label for="title" class="font-weight-normal required w-100">Email</label>
             <div class="mb-3">
-              <input type="email" class="form-control w-100 " placeholder="Enter Your Email" name="email">
+              <input type="email" class="form-control validtext w-100 " placeholder="Enter Your Email" name="email">
               <div class="errormsg email"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Contact</label>
             <div class="mb-3 row">
               <div class="col">
-                <input type="text" class="form-control price w-100" placeholder="Enter Your Contact" name="contact">
+                <input type="number" class="form-control price number w-100" placeholder="Enter Your Contact" name="contact">
                 <span class="errormsg contact"></span>
               </div>
             </div>
             <label for="p-image" class="font-weight-normal required">Customer Image</label>
             <div class="mb-3">
-              <div class="drop-zone form-control">
-                <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
-                <input type="file" name="c_image" id="removeImage" class="drop-zone__input">
+              <div class="imageAppend form-control">
+                <div class="drop-zone">
+                  <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                  <input type="file" name="c_image" id="removeImage" class="drop-zone__input validsimg">
+                </div>
                 <!-- <div class="drop-zone__thumb"></div> -->
               </div>
 
@@ -62,15 +64,15 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                 </div>
               </div>
-              <div class="errormsg myFile c_image"></div>
+              <div class="errormsg myFile c_image" ></div>
             </div>
             <div class="mb-3">
-              <label for="city" class="font-weight-normal required">city</label>
+              <label for="city" class="font-weight-normal required">City</label>
               <input  type="text" class="w-100 form-control validtext" name="city" placeholder="Enter city">
               <span class="errormsg city"></span>
             </div>
             <div class="mb-3">
-              <label for="state" class="font-weight-normal required">state</label>
+              <label for="state" class="font-weight-normal required">State</label>
               <input id="pro-description" class="w-100 form-control validtext" name="state" placeholder="Enter state">
               <span class="errormsg state"></span>
             </div>

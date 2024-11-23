@@ -36,6 +36,22 @@ function getCookie(cname) {
   return "";
 }
 
+function formatNumber(num) {
+  if (num >= 10000000) {
+    // For Crores
+    return (num / 10000000).toFixed(1) + "Cr";
+  } else if (num >= 100000) {
+    // For Lakhs
+    return (num / 100000).toFixed(1) + "L";
+  } else if (num >= 1000) {
+    // For Thousands
+    return (num / 1000).toFixed(1) + "K";
+  } else {
+    return num;
+  }
+  return num.toString(); // For numbers less than 1000
+}
+
 function loading_show($selector) {
   $($selector)
     .addClass("loading")
@@ -94,21 +110,22 @@ function CountData(routineName) {
       console.log("Sending routine_name:", routineName);
       if (response.data === "success") {
         response.totalearning !== undefined
-          ? $(".totalEarning").text("Rs. " + response.totalearning)
-          : $(".countClient").text(0);
+          ? $(".totalEarning").text(
+              "Rs. " + formatNumber(response.totalearning)
+            )
+          : "";
         response.totalproduct !== undefined
           ? $(".totalProduct").text(response.totalproduct)
-          : $(".totalProduct").text(0);
+          : '';
         response.totalclient !== undefined
           ? $(".totalClient").text(response.totalclient)
-          : $(".totalClient").text(0);
+          : '';
         response.totalitemsale !== undefined
           ? $(".totalItemSale").text(response.totalitemsale)
-          : $(".totalItemSale").text(0);
+          : '';
         response.totalamountsale !== undefined
-          ? $(".totalAmountSale").text("Rs. " + response.totalamountsale)
-          : $(".totalAmountSale").text("Rs. " + 0);
-      } else {
+          ? $(".totalAmountSale").text("Rs. " + formatNumber(response.totalamountsale))
+          : '';
       }
     },
   });
@@ -137,7 +154,7 @@ function loadData(routineName) {
       } else {
         console.log("Data found");
         $("#getdata").html(response.outcome);
-        console.log(response.pagination,"pagggggg")
+        console.log(response.pagination, "pagggggg");
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
@@ -318,9 +335,28 @@ function get_product(id) {
               response["outcome"]["product_img_alt"]
             )
           : "";
-        response["outcome"]["p_tag"] !== undefined
-          ? $("select[name='p_tag']").val(response["outcome"]["p_tag"]).change()
-          : "";
+
+          if (response.outcome.p_tag) {
+            const arrangedValue = response.outcome.p_tag;
+            console.log("Original p_tag value:", arrangedValue);
+  
+            if (arrangedValue.trim() !== "") {
+              const rearrangedValue = arrangedValue.split(",").reverse();
+              console.log("Reversed p_tag value:", rearrangedValue);
+              rearrangedValue.forEach(function (value) {
+                if ($(`select[name='p_tag'] option[value='${value}']`).length === 0) {
+                
+                  $("select[name='p_tag']").append(
+                    `<option value="${value}">${value}</option>`
+                  );
+                }
+              });
+              $("select[name='p_tag']")
+                .val(rearrangedValue)
+                .trigger("change"); 
+            }
+          }
+
         response["outcome"]["p_description"] !== undefined
           ? $("textarea[name='p_description']").val(
               response["outcome"]["p_description"]
@@ -333,36 +369,36 @@ function get_product(id) {
             ? response["outcome"]["p_image"]
             : "";
 
-        console.log("p_image:", p_image);
-
         if (p_image !== "") {
-          $(".pro-zone__prompt").hide();
-          var imagePreview =
-            '<div class="drop-zone__thumb">' +
-            '<div class="img-wrapper">' +
-            '<img src="../admin1/assets/img/product_img/' +
-            p_image +
-            '" class="picture__img"/>' +
-            '<button class="close-button">x</button>' +
-            "</div>" +
-            "</div>";
-
-          $(".pro-zone").append(imagePreview);
-          $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone__thumb").remove();
-            $(".pro-zone__prompt").show();
-            let inputElement = $("input[name='p_image']");
-            inputElement.val("");
+          var filePath = "../admin1/assets/img/product_img/" + p_image;
+          $.ajax({
+            url: filePath,
+            type: "HEAD", // Only requests the headers, which is faster
+            success: function () {
+              var imagePreview =
+                '<div class="drop-zone__thumb">' +
+                '<div class="img-wrapper">' +
+                '<img src="' +
+                filePath +
+                '" class="picture__img"/>' +
+                '<button class="close-button_product">x</button>' +
+                "</div>" +
+                "</div>";
+              $(".imageAppend").append(imagePreview);
+              $(".pro-zone").hide();
+            },
+            error: function () {
+              $(".pro-zone").hide();
+              console.log("currpt image not found");
+            },
           });
         } else {
-          $(".pro-zone__prompt").show();
+          $(".pro-zone").show();
         }
         if (response["product_img_result"] !== undefined) {
           var imagePreviews = ""; // Declare once before the loop
           $.each(response["product_img_result"], function (index, image) {
-            console.log(image, " ..... image");
             var imageUrl = image.p_image;
-            console.log(imageUrl, "  ... imageUrl");
 
             // Concatenate each preview into the single imagePreviews string
             imagePreviews +=
@@ -371,17 +407,35 @@ function get_product(id) {
               '<img src="../admin1/assets/img/product_img/' +
               imageUrl +
               '" class="picture__img"/>' +
-              '<button class="close-button">x</button>' +
+              '<button class="close-button_product delete" data-productimageid="' +
+              image["product_image_id"] +
+              '" data-id="' +
+              image["product_image_id"] +
+              '" data-delete-type="product_form_image">x</button>' +
               "</div>" +
               "</div>";
           });
-          $(".pro-zone").append(imagePreviews); // Append the concatenated HTML after the loop
+          $(".imageAppend").append(imagePreviews); // Append the concatenated HTML after the loop
         }
       }
     },
   });
 }
 
+function lastInsertedId(table_name, id) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
+    success: function (response) {
+      var response = JSON.parse(response);
+      if (response["data"] == "success") {
+        $(".invoiceid").val(response.outcome);
+      }
+    },
+  });
+}
 function get_invoice(id) {
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -395,6 +449,9 @@ function get_invoice(id) {
 
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
+        : "";
+      response["outcome"]["invoice_id"] !== undefined
+        ? $(".invoiceid").val(response["outcome"]["invoice_id"])
         : "";
       response["outcome"]["bill_no"] !== undefined
         ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
@@ -425,30 +482,43 @@ function get_invoice(id) {
       response["outcome"]["balance_due"] !== undefined
         ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
         : "";
+      response["outcome"]["terms_condition"] !== undefined
+        ? $("textarea[name='terms_condition']").val(
+            response["outcome"]["terms_condition"]
+          )
+        : "";
+      response["outcome"]["notes"] !== undefined
+        ? $("textarea[name='notes']").val(response["outcome"]["notes"])
+        : "";
       var i_image =
         response["outcome"]["i_image"] !== undefined
           ? response["outcome"]["i_image"]
           : "";
 
       if (i_image != "") {
-        $(".pro-zone__prompt").hide();
-        var imagePreview =
-          '<div class="drop-zone__thumb">' +
-          '<img src="../admin1/assets/img/invoice_img/' +
-          i_image +
-          '" class="picture__img"/>' +
-          '<button class="close-button close">x</button>' +
-          "</div>";
-        $(".drop-zone").append(imagePreview);
-        $(".close-button").on("click", function () {
-          $(this).closest(".drop-zone__thumb").remove();
-          $(".pro-zone__prompt").show();
-          let inputElement = $("input[file='i_image']");
-          inputElement.val("");
-          inputElement.trigger("click");
+        var filePath = "../admin1/assets/img/invoice_img/" + i_image;
+        $.ajax({
+          url: filePath,
+          type: "HEAD", // Only requests the headers, which is faster
+          success: function () {
+            var imagePreview =
+              '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">' +
+              '<img src="' +
+              filePath +
+              '" class="picture__img"/>' +
+              '<button class="close-buttons_profile">x</button>' +
+              "</div>" +
+              "</div>";
+            $(".imageAppend").append(imagePreview);
+            $(".drop-zone").hide();
+          },
+          error: function () {
+            $(".drop-zone").show();
+          },
         });
       } else {
-        $(".pro-zone__prompt").show();
+        $(".drop-zone").show();
       }
       // invoice_item get
       console.log(response.item_data);
@@ -496,24 +566,29 @@ function get_customer(id) {
           : "";
 
       if (c_image != "") {
-        $(".pro-zone__prompt").hide();
-        var imagePreview =
-          '<div class="drop-zone__thumb">' +
-          '<img src="../admin1/assets/img/customer/' +
-          c_image +
-          '" class="picture__img"/>' +
-          '<button class="close-button close">x</button>' +
-          "</div>";
-        $(".drop-zone").append(imagePreview);
-        $(".close-button").on("click", function () {
-          $(this).closest(".drop-zone__thumb").remove();
-          $(".pro-zone__prompt").show();
-          let inputElement = $("input[file='c_image']");
-          inputElement.val("");
-          inputElement.trigger("click");
+        var filePath = "../admin1/assets/img/customer/" + c_image;
+        $.ajax({
+          url: filePath,
+          type: "HEAD", // Only requests the headers, which is faster
+          success: function () {
+            var imagePreview =
+              '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">' +
+              '<img src="' +
+              filePath +
+              '" class="picture__img"/>' +
+              '<button class="close-buttons_profile">x</button>' +
+              "</div>" +
+              "</div>";
+            $(".imageAppend").append(imagePreview);
+            $(".drop-zone").hide();
+          },
+          error: function () {
+            $(".drop-zone").show();
+          },
         });
       } else {
-        $(".pro-zone__prompt").show();
+        $(".drop-zone").show();
       }
     },
   });
@@ -551,24 +626,29 @@ function get_blog(id) {
           ? response["outcome"]["image"]
           : "";
       if (image != "") {
-        $(".pro-zone__prompt").hide();
-        var imagePreview =
-          '<div class="drop-zone__thumb">' +
-          '<img src="../admin1/assets/img/blog_img/' +
-          image +
-          '" class="picture__img"/>' +
-          '<button class="close-button close">x</button>' +
-          "</div>";
-        $(".drop-zone").append(imagePreview);
-        $(".close-button").on("click", function () {
-          $(this).closest(".drop-zone__thumb").remove();
-          $(".pro-zone__prompt").show();
-          let inputElement = $("input[file='image']");
-          inputElement.val("");
-          inputElement.trigger("click");
+        var filePath = "../admin1/assets/img/blog_img/" + image;
+        $.ajax({
+          url: filePath,
+          type: "HEAD", // Only requests the headers, which is faster
+          success: function () {
+            var imagePreview =
+              '<div class="drop-zone__thumb">' +
+              '<div class="img-wrapper">' +
+              '<img src="' +
+              filePath +
+              '" class="picture__img"/>' +
+              '<button class="close-buttons_profile">x</button>' +
+              "</div>" +
+              "</div>";
+            $(".imageAppend").append(imagePreview);
+            $(".drop-zone").hide();
+          },
+          error: function () {
+            $(".drop-zone").show();
+          },
         });
       } else {
-        $(".pro-zone__prompt").show();
+        $(".drop-zone").show();
       }
       response["outcome"]["body"] !== undefined
         ? CKEDITOR.instances.myeditor.setData(response["outcome"]["body"])
@@ -709,6 +789,26 @@ $(document).ready(function () {
     $(this).siblings(".imageError").text("");
   });
 
+  $(document).on('input', 'input', function() {
+    const parentTd = $(this).closest('td');
+    parentTd.removeClass('error');
+    const closestColXl = $(this).closest('.col-xl');
+    closestColXl.removeClass('error');
+ });
+
+  $(".date-input").on("change", function () {
+    $(this).next(".errormsg").text("");
+  });
+  $("#removeimage").on("change", function () {
+    $(this).closest(".mb-3").find(".errormsg").html("");
+  });
+  $("#imageUpload").on("change", function () {
+    $(this).closest(".mb-3").find(".errormsg").html("");
+  });
+  $("#removeImage").on("change", function () {
+    $(this).closest(".mb-3").find(".errormsg").html("");
+  });
+  
   $(".validtext").on("keypress", function () {
     $(this).next(".errormsg").text("");
   });
@@ -750,23 +850,33 @@ $(document).ready(function () {
   });
 
   $(document).on("click", ".formCancel", function () {
+    $(".pro-zone__prompt").css("display", "block");
+    $(".drop-zone").css("display", "flex");
     console.log("CCCCC");
     $(".errormsg").html("");
-    if ($(".form-control[name=p_tag]").val().length > 0) {
-      $(this).closest("form").find(".multiple_tag").val(null).trigger("change");
-      $(this).closest("form").find(".select2-selection__clear").remove();
+    if ($(".form-control[name=p_tag]").length > 0) {
+      if ($(".form-control[name=p_tag]").val().length > 0) {
+        $(this)
+          .closest("form")
+          .find(".multiple_tag")
+          .val(null)
+          .trigger("change");
+        $(this).closest("form").find(".select2-selection__clear").remove();
+      }
     }
     $(this).closest("form")[0].reset();
     if (CKEDITOR.instances["myeditor"]) {
       CKEDITOR.instances["myeditor"].setData("");
     }
     var $thumbnailElement = $(".drop-zone__thumb");
+    var $inputElement = $(".pro-zone");
     if ($thumbnailElement.length > 0) {
       $thumbnailElement.html("");
-      $thumbnailElement.removeClass("drop-zone__thumb");
-      $thumbnailElement.html(
-        '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
-      );
+      $inputElement.show();
+      $inputElement.removeClass("drop-zone__thumb");
+      // $thumbnailElement.html(
+      //   '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
+      // );
     }
   });
 
@@ -799,7 +909,7 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         var response = JSON.parse(response);
-        loading_hide(".save_loader_show", "Sign in");
+       
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
           window.location.href = "analytics.php";
@@ -813,6 +923,7 @@ $(document).ready(function () {
           response["msg"]["errormsg"] !== undefined
             ? $(".error-msg").html(response["msg"]["errormsg"])
             : $(".error-msg").html("");
+            loading_hide(".save_loader_show", "Sign in");
         }
       },
     });
@@ -894,18 +1005,24 @@ $(document).ready(function () {
           $(".shop_logo").html("");
         }
         loading_hide(".save_loader_show", "SIGN UP");
-        showMessage(response.msg, "success");
         if (response["data"] == "success") {
-          $(".drop-zone__thumb .img-wrapper").append(
-            '<button class="close-button">x</button>'
-          );
-          $(".close-button").on("click", function () {
-            $(this).closest(".drop-zone").find("img").remove();
-            $(this).remove();
-          });
+          showMessage(response.msg, "success");
 
-          profileLoadData("listprofile");
           profileUpdateImage();
+          var profile_image = $(".picture__img").attr("src");
+          console.log(profile_image);
+          if (profile_image == undefined) {
+            $(".profile-image").attr(
+              "src",
+              "../admin1/assets/img/image_not_found.png"
+            );
+          } else {
+            $(".profile-image").attr("src", profile_image);
+          }
+          // profileLoadData("listprofile");
+          // $(".drop-zone__thumb .img-wrapper").append(
+          //   '<button class="close-button">x</button>'
+          // );
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -989,6 +1106,7 @@ $(document).ready(function () {
     console.log("Product save button click");
     var form_data = $("#productinsert")[0];
     var form_data = new FormData(form_data);
+    
     form_data.append("routine_name", "insert_products");
     var selectedTags = $(".multiple_tag").val();
     if (selectedTags !== null) {
@@ -996,7 +1114,7 @@ $(document).ready(function () {
         form_data.append("p_tag[]", selectedTags[i]);
       }
     }
-
+    
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1010,8 +1128,10 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         console.log(".......sd.......");
-        console.log(response.p_image);
         var response = JSON.parse(response);
+        console.log(response.msg.min_price);
+        console.log(response.msg.p_tag);
+
         loading_hide(".save_loader_show", "Save");
         response["msg"]["pname"] !== undefined
           ? $(".pname").html(response["msg"]["pname"])
@@ -1043,7 +1163,7 @@ $(document).ready(function () {
         response["msg"]["qty"] !== undefined
           ? $(".qty").html(response["msg"]["qty"])
           : $(".qty").html("");
-        response["msg"]["p_tag"] !== undefined
+          response["msg"]["p_tag"] !== undefined
           ? $(".p_tag").html(response["msg"]["p_tag"])
           : $(".p_tag").html("");
         response["msg"]["p_description"] !== undefined
@@ -1131,12 +1251,110 @@ $(document).ready(function () {
     });
   });
 
+  // $(document).on("click", ".invoice ", function (event) {
+  //   event.preventDefault();
+  //   console.log("invoice  button click");
+  //   var form_data = $("#invoice_frm")[0];
+  //   var form_data = new FormData(form_data);
+  //   form_data.append("routine_name", "invoice");
+
+  //   $.ajax({
+  //     url: "../admin1/ajax_call.php",
+  //     method: "POST",
+  //     dataType: "json",
+  //     contentType: false,
+  //     processData: false,
+  //     data: form_data,
+  //     beforeSend: function () {
+  //       loading_show(".save_loader_show");
+  //     },
+  //     success: function (response) {
+  //       console.log(response);
+  //       var response = JSON.parse(response);
+  //       loading_hide(".save_loader_show", "Save");
+  //       response["msg"]["i_image"] !== undefined
+  //         ? $(".i_image").html(response["msg"]["i_image"])
+  //         : $(".i_image").html("");
+
+  //       response["msg"]["i_name"] !== undefined
+  //         ? $(".i_name").html(response["msg"]["i_name"])
+  //         : $(".i_name").html("");
+
+  //       response["msg"]["bill_no"] !== undefined
+  //         ? $(".bill_no").html(response["msg"]["bill_no"])
+  //         : $(".bill_no").html("");
+
+  //       response["msg"]["ship_to"] !== undefined
+  //         ? $(".ship_to").html(response["msg"]["ship_to"])
+  //         : $(".ship_to").html("");
+
+  //       response["msg"]["date"] !== undefined
+  //         ? $(".date").html(response["msg"]["date"])
+  //         : $(".date").html("");
+
+  //       response["msg"]["terms"] !== undefined
+  //         ? $(".terms").html(response["msg"]["terms"])
+  //         : $(".terms").html("");
+
+  //       response["msg"]["due_date"] !== undefined
+  //         ? $(".due_date").html(response["msg"]["due_date"])
+  //         : $(".due_date").html("");
+
+  //       response["msg"]["po_number"] !== undefined
+  //         ? $(".po_number").html(response["msg"]["po_number"])
+  //         : $(".po_number").html("");
+
+  //       response["msg"]["item"] !== undefined
+  //         ? $(".item").html(response["msg"]["item"])
+  //         : $(".item").html("");
+
+  //       response["msg"]["quantity"] !== undefined
+  //         ? $(".quantity").html(response["msg"]["quantity"])
+  //         : $(".quantity").html("");
+
+  //       response["msg"]["rate"] !== undefined
+  //         ? $(".rate").html(response["msg"]["rate"])
+  //         : $(".rate").html("");
+
+  //       response["msg"]["amount"] !== undefined
+  //         ? $(".amount").html(response["msg"]["amount"])
+  //         : $(".amount").html("");
+
+  //       if (response["data"] == "success") {
+  //         console.log(response);
+  //         console.log("Updated invoice ID:", response["update_invoice_id"]);
+  //         if (!response["update_invoice_id"]) {
+  //           $("#invoice_frm")[0].reset();
+  //           resetThumbnail();
+  //           $(".myFile").html("");
+  //         }
+  //         showMessage(response.msg, "success");
+  //         window.location.href = "invoice-list.php";
+  //       } else {
+  //         showMessage(response.msg_error, "fail");
+  //       }
+  //     },
+  //   });
+  // });
+
+
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
     console.log("invoice  button click");
     var form_data = $("#invoice_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
+    const formData = {
+      item: [],
+      quantity: [],
+      rate: [],
+    };
+
+    $(".attr").each(function () {
+      formData.item.push($(this).find(".item_title input").val());
+      formData.quantity.push($(this).find(".item_quantity input").val());
+      formData.rate.push($(this).find(".item_rate input").val());
+    });
 
     $.ajax({
       url: "../admin1/ajax_call.php",
@@ -1152,6 +1370,13 @@ $(document).ready(function () {
         console.log(response);
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
+        if (response["msg"]["amount_paid"] !== undefined) {
+          // $(".amount_paid").html(response["msg"]["amount_paid"]);
+          $(".ampunt_p").addClass("error");
+      } else {
+          $(".amount_paid").html("");
+          $(".ampunt_p").removeClass("error");
+      }
         response["msg"]["i_image"] !== undefined
           ? $(".i_image").html(response["msg"]["i_image"])
           : $(".i_image").html("");
@@ -1184,22 +1409,14 @@ $(document).ready(function () {
           ? $(".po_number").html(response["msg"]["po_number"])
           : $(".po_number").html("");
 
-        response["msg"]["item"] !== undefined
-          ? $(".item").html(response["msg"]["item"])
-          : $(".item").html("");
-
-        response["msg"]["quantity"] !== undefined
-          ? $(".quantity").html(response["msg"]["quantity"])
-          : $(".quantity").html("");
-
-        response["msg"]["rate"] !== undefined
-          ? $(".rate").html(response["msg"]["rate"])
-          : $(".rate").html("");
-
-        response["msg"]["amount"] !== undefined
-          ? $(".amount").html(response["msg"]["amount"])
-          : $(".amount").html("");
-
+        if (response.msg) {
+          for (const [field, message] of Object.entries(response.msg)) {
+            const fieldElement = $(`td[class*='${field}']`);
+            fieldElement.addClass("error");
+          }
+        } else {
+          alert("Data submitted successfully!");
+        }
         if (response["data"] == "success") {
           console.log(response);
           console.log("Updated invoice ID:", response["update_invoice_id"]);
@@ -1207,8 +1424,6 @@ $(document).ready(function () {
             $("#invoice_frm")[0].reset();
             resetThumbnail();
             $(".myFile").html("");
-          } else {
-            window.location.href = "invoice-list.php";
           }
           showMessage(response.msg, "success");
           window.location.href = "invoice-list.php";
@@ -1255,8 +1470,12 @@ $(document).ready(function () {
           data.invoice_id = deleteId;
         } else if (type === "product_images") {
           data.product_image_id = deleteId;
+        } else if (type === "product_form_image") {
+          data.product_image_id = deleteId;
         } else if (type === "product_main_image") {
           data.product_id = deleteId;
+        } else if (type === "invoice_line_item") {
+          data.invoice_item_id = deleteId;
         }
         $.ajax({
           url: "../admin1/ajax_call.php",
@@ -1296,6 +1515,17 @@ $(document).ready(function () {
       .closest(".position-relative")
       .remove();
   }
+
+  function delete_product_form_image_response(deleteId) {
+    console.log("Function called with deleteId:", deleteId);
+    $("[data-id='" + deleteId + "']")
+      .closest(".drop-zone__thumb")
+      .remove();
+    if ($(".drop-zone__thumb").length === 0) {
+      $(".pro-zone").show();
+    }
+  }
+
   function delete_product_main_image_response(deleteId) {
     console.log("Function called with deleteId:", deleteId);
 
@@ -1326,11 +1556,20 @@ $(document).ready(function () {
           delete_product_image_response(deleteId);
         },
       },
+      product_form_image: {
+        routine: "multipimgdelete",
+        callback: function () {
+          delete_product_form_image_response(deleteId);
+        },
+      },
       product_main_image: {
         routine: "product_main_image",
         callback: function () {
           delete_product_main_image_response(deleteId);
         },
+      },
+      invoice_line_item: {
+        routine: "invoice_line_item",
       },
       customer: { routine: "customerdelete", callback: listcustomer },
       blog: { routine: "blogdelete", callback: listblog },
@@ -1565,7 +1804,7 @@ $(document).ready(function () {
     var page = $(this).data("page");
     var search_text = $(".search-btn_1").val();
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
-   
+
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1578,11 +1817,11 @@ $(document).ready(function () {
       },
       success: function (data) {
         var data = JSON.parse(data);
-        console.log("assss",data)
+        console.log("assss", data);
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
-          console.log(data.pagination,"...............");
+          console.log(data.pagination, "...............");
         } else {
           $("#getdata").html(NO_DATA);
           $("#pagination").html("Pagination not found");
@@ -2033,6 +2272,33 @@ $(document).ready(function () {
   }
 });
 
+$(document).on("click", ".picture__img", function () {
+  console.log("input click...........");
+  $(this)
+    .closest(".imageAppend")
+    .find(".pro-zone .pro-zone__input")
+    .trigger("click");
+});
+
+$(document).on("click", ".close-button_product", function (event) {
+  event.stopPropagation();
+  console.log("close-button_product");
+  // $(this).closest(".drop-zone__thumb").remove(); // Remove imgWrapper
+  // console.log($(".drop-zone__thumb"));
+  //   if ($(".drop-zone__thumb").children().length === 0) {
+  //     console.log("OOOOOOOOOO");
+  //     $(".pro-zone").show();
+  //   }
+  return false;
+});
+
+$(document).on("click", ".close-buttons_profile", function (event) {
+  event.stopPropagation();
+  console.log("close-buttons_profile");
+  var closemainclass = $(this).closest(".form-control");
+  closemainclass.find(".drop-zone__thumb").remove();
+  closemainclass.find(".drop-zone").css("display", "flex");
+});
 // video anable disable
 $(document).on("click", ".toggle-button", function () {
   var videoId = $(this).data("video-id");

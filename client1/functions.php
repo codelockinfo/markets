@@ -441,8 +441,7 @@ class client_functions
         return $response;
     }
 
-    function marketlist2showclientside()
-    {
+    function marketlist2showclientside(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT name FROM markets LIMIT 30 OFFSET 30";
         $result = $this->db->query($query);
@@ -461,8 +460,7 @@ class client_functions
         return $response;
     }
 
-    function marketlist3showclientside()
-    {
+    function marketlist3showclientside(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT name FROM markets";
         $result = $this->db->query($query);
@@ -482,8 +480,7 @@ class client_functions
         return $response;
     }
 
-    function truncateText($text, $wordLimit)
-    {
+    function truncateText($text, $wordLimit) {
         // Split the text into words
         $words = explode(' ', $text);
 
@@ -497,8 +494,7 @@ class client_functions
         return $text;
     }
 
-    function truncateTextByChar($text, $charLimit)
-    {
+    function truncateTextByChar($text, $charLimit){
         // Check if the length of the text exceeds the limit
         if (strlen($text) > $charLimit) {
             // Truncate to the character limit and add ellipsis
@@ -508,8 +504,7 @@ class client_functions
         return $text;
     }
 
-    function productshowclientside()
-    {
+    function productshowclientside(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $output = [];
         $browsecategorytitle = $browsecategorybutton = $browsecategorytab = $browsecategorytabmobile = "";
@@ -821,16 +816,13 @@ class client_functions
         return $response;
     }
 
-    function market_collection()
-    {
+    function market_collection() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-
         if (isset($_POST['id'])) {
             $userId = intval($_POST['id']);
-            $query = "SELECT * FROM products WHERE status='1' AND user_id = $userId";
+            $query = "SELECT * FROM products WHERE status = '1' AND user_id = $userId";
             $result = $this->db->query($query);
             $output = "";
-
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $user_id = $row["user_id"];
@@ -838,16 +830,20 @@ class client_functions
                     $productName = htmlspecialchars($row["title"]);
                     $productPrice = htmlspecialchars($row["maxprice"]);
                     $productDescription = htmlspecialchars($row["p_description"]);
-                    $images = explode(',', $row["p_image"]);
                     $imagePathBase = "../admin1/assets/img/product_img/";
                     $noimagePath = "../admin1/assets/img/noimage.png";
-
-                 
+                    $imagesQuery = "SELECT p_image FROM product_images WHERE product_id = $product_id";
+                    $imagesResult = $this->db->query($imagesQuery);
+                    $images = [];
+                    if ($imagesResult) {
+                        while ($imageRow = mysqli_fetch_array($imagesResult)) {
+                            $images[] = $imageRow['p_image'];
+                        }
+                    }
                     $mainImage = !empty($images[0]) && file_exists($imagePathBase . $images[0])
                         ? htmlspecialchars_decode($imagePathBase . $images[0])
                         : htmlspecialchars_decode($noimagePath);
-
-                
+    
                     $output .= '<div class="col-12 col-md-6 col-lg-4 mt-4">';
                     $output .= '    <div class="market_list_mian_box">';
                     $output .= '        <div class="market-head border-bottom">';
@@ -866,22 +862,20 @@ class client_functions
                     $output .= '                    </div>';
                     $output .= '                </div>';
                     $output .= '                <div class="col-3 text-end">';
-
-                    // Additional images logic
                     $count = 0;
                     foreach ($images as $key => $image) {
                         if ($count >= 3) break;
                         $decodedPath = (!empty($image) && file_exists($imagePathBase . $image))
                             ? htmlspecialchars_decode($imagePathBase . $image)
                             : htmlspecialchars_decode($noimagePath);
-
+    
                         $output .= '                    <div class="m-img-box p-1 border rounded w-50 mt-1 d-inline-block">';
                         $output .= '                        <img src="' . $decodedPath . '" class="img-fluid" alt="Product Image ' . ($key + 1) . '">';
                         $output .= '                    </div>';
                         $count++;
                     }
 
-                    $output .= '                </div>'; // End of col-3
+                    $output .= '                </div>'; 
                     $output .= '            </div>';
                     $output .= '            <div class="market-footer border-top">';
                     $output .= '                <div class="market-name">';
@@ -902,17 +896,17 @@ class client_functions
                     $output .= '    </div>';
                     $output .= '</div>';
                 }
-
                 $response_data = array('data' => 'success', 'outcome' => $output);
             }
-        }
 
+        }
+    
         $response = json_encode($response_data);
         return $response;
     }
+    
 
-    function customer()
-    {
+    function customer(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $userId = intval($_POST['id']);
@@ -991,6 +985,7 @@ class client_functions
         return $response;
     }
 
+    
     function catlog() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
@@ -1074,4 +1069,5 @@ class client_functions
         }
 
     }
+
 }

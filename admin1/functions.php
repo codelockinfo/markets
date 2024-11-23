@@ -147,14 +147,18 @@ class admin_functions
                             $query = "UPDATE users SET shop_logo = '$shoplogo'  WHERE user_id  = $user_id";
                             $result = $this->db->query($query);
                             if ($result) {
-                                $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
+                                $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
                             }
                         }
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
                     }
                 } else {
-                    $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
+                    $query = "UPDATE users SET shop_logo = ''  WHERE user_id  = $user_id";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
+                    }
                 }
             }
         }
@@ -271,10 +275,10 @@ class admin_functions
         }
     }
 
-    function insert_products()
-    {
+    function insert_products() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
+        $p_tag = $_POST['p_tag'] ?? [];
         $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
         if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
             if (isset($_POST['addcategory']) && $_POST['addcategory'] == '') {
@@ -303,6 +307,9 @@ class admin_functions
         }
         if (isset($_POST['image_alt']) && $_POST['image_alt'] == '') {
             $error_array['image_alt'] = "Please enter the image alt.";
+        }
+        if (empty($p_tag) || !is_array($p_tag)) {
+            $error_array['p_tag'] = "Please select at least one product tag.";
         }
         if (isset($_POST['min_price']) && isset($_POST['max_price'])) {
             $min_price = filter_input(INPUT_POST, 'min_price', FILTER_VALIDATE_FLOAT);
@@ -337,34 +344,33 @@ class admin_functions
                 $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                 $newFilename = time() . '_' . $key . '.' . $fileExtension;
                 $fullpath = $folder . $newFilename;
-
-
+            
+            
                 if ($tmpfile != "") {
-                    if (!in_array($fileExtension, $allowedExtensions)) {
-                        $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-                    }
+                if (!in_array($fileExtension, $allowedExtensions)) {
+                    $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
                     if ($file['size'][$key] > $maxSize) {
-                        $error_array['p_image'] = "File size for $filename must be 5MB or less.";
-                    }
-
+                    $error_array['p_image'] = "File size for $filename must be 5MB or less.";
+                }
+            
                     if (empty($error_array)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
-                            $uploadedFiles[] = $newFilename;
+                    $uploadedFiles[] = $newFilename;
                             $is_image_update  = true;
-                        } else {
+                } else {
 
-                            $error_array['p_image'] = "Error moving uploaded file $filename.";
-                        }
-                    }
+                    $error_array['p_image'] = "Error moving uploaded file $filename.";
+                }
+            }
                 } else {
                     $error_array['p_image'] = "Please upload another product image.";
                 }
             }
-        } else {
-            if (empty($product_id)) {
+        }else if (empty($product_id))
+         {
                 $error_array['p_image'] = "Please select image";
-            }
-        }
+         }
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $product_name = str_replace("'", "\'", $product_name);
@@ -373,7 +379,7 @@ class admin_functions
             $addcheckboxcategory = (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] !== '') ? $_POST['addcheckboxcategory'] : '';
             $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
             $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
-            $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
+             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
             $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';
             $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
@@ -421,19 +427,16 @@ class admin_functions
                 $result = $this->db->query($query);
 
                 if (!empty($uploadedFiles)) {
-                    $query = "DELETE FROM product_images WHERE product_id	 = $product_id";
-                    $result = $this->db->query($query);
-                    
-                    $uploadedFilenames = implode(',', $uploadedFiles);
+
+
+                    // $uploadedFilenames = implode(',', $uploadedFiles);
                     // $query .= ", p_image = '$uploadedFilenames'";
                     // $uploadedFilenames = implode(',', $uploadedFiles);
-    
-                    foreach (array_slice($uploadedFiles, 0) as $sub_img) {
+                    foreach ($uploadedFiles as $key => $sub_img) {
                         $query = "INSERT INTO product_images(user_id,product_id,p_image)values('$user_id','$product_id','$sub_img')";
                         $result = $this->db->query($query);
                     }
                 }
-                
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Product data updated', "updated_product_id" => $product_id);
                 } else {
@@ -444,42 +447,50 @@ class admin_functions
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
         $response = json_encode($response_data);
+        // echo $response;
         return $response;
     }
 
-    function add_customer()
-    {
+    function add_customer() {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
-        $is_image = false;
-
-        if (isset($_FILES["c_image"]) && $_FILES["c_image"]["name"] != "") {
-            $allowedExtensions = ['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'];
-            $maxSize = 5 * 1024 * 1024;
-            $filename = $_FILES["c_image"]["name"];
-            $tmpfile = $_FILES["c_image"]["tmp_name"];
-            $file = $_FILES['c_image'];
+    
+        $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
+        $newFilename = "";
+        $maxSize = 5 * 1024 * 1024;
+        if ($_FILES["c_image"]["name"] != "" && $id != "" || isset($_FILES["c_image"]["name"]) && isset($_FILES["c_image"]["name"]) != '' && $id == "") {
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+            $filename = isset($_FILES["c_image"]["name"]) ? $_FILES["c_image"]["name"] : '';
+            $tmpfile = isset($_FILES["c_image"]["tmp_name"]) ? $_FILES["c_image"]["tmp_name"] : '';
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
+            $fileNameCmps = explode(".", $filename);
+            $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/customer/";
             $fullpath = $folder . $newFilename;
-            if (empty($filename)) {
-                $error_array['c_image'] = "Please upload your image.";
+            $file = $_FILES['c_image'];
+
+            if (!is_dir($folder)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
+                    $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
+                    return json_encode($response_data);
+                }
             }
-            if (!in_array(strtolower($extension), $allowedExtensions)) {
+
+            if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
             if ($file['size'] > $maxSize) {
                 $error_array['c_image'] = "File size must be 5MB or less.";
             }
+            if (empty($filename)) {
 
-            $is_image = true;
-        } else {
-            $error_array['c_image'] = "Please upload your image.";
+                $error_array['c_image'] = "Please upload your image.";
+            }
         }
-
         if (empty($_POST['name'])) {
-            $error_array['name'] = "Please enter customer name";
+            $error_array['name'] = "Please enter customer name.";
         }
         if (empty($_POST['email'])) {
             $error_array['email'] = "Please enter customer email.";
@@ -496,55 +507,62 @@ class admin_functions
         if (empty($_POST['state'])) {
             $error_array['state'] = "Please enter customer state.";
         }
-        if (empty($error_array)) {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $contact = $_POST['contact'];
-            $address = $_POST['address'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-
-
-            if ($id == '') {
-                if ($is_image) {
-                    if (move_uploaded_file($tmpfile, $fullpath)) {
-                        if (isset($_SESSION['current_user']['user_id'])) {
-                            $user_id = $_SESSION['current_user']['user_id'];
-                            $query = "INSERT INTO customer (`name`,`email`,`contact`,`c_image`,`city`,`state`,`address`,`user_id`) 
-                            VALUES ('$name', '$email','$contact', '$newFilename','$city', '$state','$address','$user_id')";
-                            $result = $this->db->query($query);
-                        }
-                    } else {
-                        $error_array['c_image'] = "Error moving uploaded file.";
-                    }
-                }
-            } else {
-                $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
-
-                if ($is_image) {
-                    if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
-                        c_image = '$newFilename',city='$city', state='$state', address = '$address' WHERE customer_id = $id";
-                    } else {
-                        $error_array['c_image'] = "Error moving uploaded file.";
-                    }
-                }
-
-                $result = $this->db->query($query);
-            }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => $id == '' ? 'Customer inserted successfully!' : 'Customer data updated', "updated_customer_id" => $id);
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error inserting/updating in the database");
-            }
-        } else {
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong");
+        if (!empty($error_array)) {
+            $response_data = array('data' => 'fail', 'msg' => $error_array);
+            return json_encode($response_data);
         }
-
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $contact = $_POST['contact'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        if ($id == '') { 
+            if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
+                          VALUES ('$name', '$email', '$contact', '$newFilename', '$city', '$state', '$address', '$user_id')";
+                $result = $this->db->query($query);
+    
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Customer inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
+                }
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "Error moving uploaded file.");
+            }
+        } else { 
+            if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
+                $query = "UPDATE customer SET 
+                          name = '$name', email = '$email', contact = '$contact', 
+                          c_image = '$newFilename', city = '$city', state = '$state', address = '$address' 
+                          WHERE customer_id = $id";
+            } else {
+                $existing_image_query = "SELECT c_image FROM customer WHERE customer_id = $id";
+                $existing_image_result = $this->db->query($existing_image_query);
+                $existing_image_row = $existing_image_result->fetch_assoc();
+                $existing_image = $existing_image_row['c_image'];
+    
+                $query = "UPDATE customer SET 
+                          name = '$name', email = '$email', contact = '$contact', 
+                          c_image = '$existing_image', city = '$city', state = '$state', address = '$address' 
+                          WHERE customer_id = $id";
+            }
+            $result = $this->db->query($query);
+    
+            if ($result) {
+                $response_data = array('data' => 'success', 'msg' => 'Customer updated successfully!', 'updated_customer_id' => $id);
+            } else {
+                $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
+            }
+        }
         return json_encode($response_data);
     }
+    
 
-    function listgallary(){
+    function listgallary()
+    {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
@@ -570,7 +588,7 @@ class admin_functions
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
-    
+
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
@@ -581,14 +599,14 @@ class admin_functions
                         $output .= '  </div>';
                         $output .= '</div>';
                     }
-    
+
                     $response_data = array(
                         'data' => 'success',
                         'outcome' => $output,
                         'pagination' => '',
                         'pagination_needed' => ($total_records > $limit)
                     );
-    
+
                     if ($total_records > $limit) {
                         $total_pages = ceil($total_records / $limit);
                         if ($total_pages > 1) {
@@ -606,12 +624,10 @@ class admin_functions
                 }
             }
         }
-        
+
         $response = json_encode($response_data);
         return $response;
     }
-
-
     function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -638,7 +654,6 @@ class admin_functions
                     $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
                     return json_encode($response_data);
                 }
-
             }
 
             if (!in_array($fileExtension, $allowedExtensions)) {
@@ -648,9 +663,7 @@ class admin_functions
                 $error_array['i_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-
                 $error_array['i_image'] = "Please upload your image.";
-           
             }
         }
 
@@ -661,8 +674,24 @@ class admin_functions
         if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-
-        if (empty($error_array)) {
+        if (empty($_POST['amount_paid'])) $error_array['amount_paid'] = "Please enter amount_paid number.";
+        if (empty($_POST['item']) || !is_array($_POST['item'])) {
+            $error_array['item_title'] = "Please enter at least one item.";
+        } else {
+            foreach ($_POST['item'] as $index => $item) {
+                if (empty($item)) {
+                    $error_array["item_$index"] = "Item title is required.";
+                }
+                if (empty($_POST['quantity'][$index]) || !is_numeric($_POST['quantity'][$index])) {
+                    $error_array["quantity_$index"] = "Quantity must be a valid number.";
+                }
+                if (empty($_POST['rate'][$index]) || !is_numeric($_POST['rate'][$index])) {
+                    $error_array["rate_$index"] = "Rate must be a valid number.";
+                }
+            }
+        }
+        
+         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
             $ship_to = $_POST['ship_to'];
@@ -673,83 +702,48 @@ class admin_functions
             $total = isset($_POST['total']) ? $_POST['total'] : 0;
             $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
+            $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
+            $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
+            if (!empty(array_filter($_POST['item']))) {
 
-            if ($id == '') {
-                if (move_uploaded_file($tmpfile, $fullpath)) {
-                    if (isset($_SESSION['current_user']['user_id'])) {
-                        $user_id = $_SESSION['current_user']['user_id'];
-                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                                  VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
-                    }
-                }
-            } else {
-                if (!empty($filename)) {
+                if ($id == '') {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
-                                  po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', i_image = '$newFilename' WHERE invoice_id = $id";
+                        if (isset($_SESSION['current_user']['user_id'])) {
+                            $user_id = $_SESSION['current_user']['user_id'];
+                            $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                                      VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                        }
                     }
                 } else {
-                    $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
-                    $existing_image_result = $this->db->query($existing_image_query);
-                    $existing_image_row = $existing_image_result->fetch_assoc();
-                    $existing_image = $existing_image_row['i_image'];
+                    if (!empty($filename)) {
+                        if (move_uploaded_file($tmpfile, $fullpath)) {
+                            $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
+                                      po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due',notes = '$notes',terms_condition = '$termscondition', i_image = '$newFilename' WHERE invoice_id = $id";
+                        }
+                    } else {
+                        $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
+                        $existing_image_result = $this->db->query($existing_image_query);
+                        $existing_image_row = $existing_image_result->fetch_assoc();
+                        $existing_image = $existing_image_row['i_image'];
 
-                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
-                              po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', i_image = '$existing_image' WHERE invoice_id = $id";
-                }
-            }
-
-            $result = $this->db->query($query);
-            if ($result) {
-                $last_id = empty($id) ? $this->db->insert_id : $id;
-                $items = $_POST['item'];
-                $quantities = $_POST['quantity'];
-                $rates = $_POST['rate'];
-                $values = [];
-
-                foreach ($items as $index => $item) {
-                    $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                    $rate = !empty($rates[$index]) ? $rates[$index] : null;
-                    $amount = $quantity * $rate;
-
-                    if (empty($item)) {
-                        $error_array[$index]['item'] = "Please enter item.";
-                    }
-                    if (empty($quantity) || !is_numeric($quantity)) {
-                        $error_array[$index]['quantity'] = "Please enter valid quantity.";
-                    }
-                    if (empty($rate) || !is_numeric($rate)) {
-                        $error_array[$index]['rate'] = "Please enter valid rate.";
-                    }
-                    if ($amount <= 0) {
-                        $error_array[$index]['amount'] = "Amount is not valid.";
-                    }
-
-                    if (empty($error_array[$index])) {
-                        $item = $this->db->real_escape_string($item);
-                        $quantity = $quantity !== null ? $this->db->real_escape_string($quantity) : 0;
-                        $rate = $rate !== null ? $this->db->real_escape_string($rate) : 0;
-                        $amount = $amount !== null ? $this->db->real_escape_string($amount) : 0;
-                        $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : null;
-                        $last_id = $this->db->real_escape_string($last_id);
-                        $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                        $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
+                                  po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$existing_image' WHERE invoice_id = $id";
                     }
                 }
 
-    
                 $result = $this->db->query($query);
                 if ($result) {
                     $last_id = empty($id) ? $this->db->insert_id : $id;
                     $items = $_POST['item'];
                     $quantities = $_POST['quantity'];
                     $rates = $_POST['rate'];
-                    $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
-    
                     $values = [];
+
                     foreach ($items as $index => $item) {
                         $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
                         $rate = !empty($rates[$index]) ? $rates[$index] : null;
                         $amount = $quantity * $rate;
+
                         if (empty($item)) {
                             $error_array[$index]['item'] = "Please enter item.";
                         }
@@ -762,59 +756,92 @@ class admin_functions
                         if ($amount <= 0) {
                             $error_array[$index]['amount'] = "Amount is not valid.";
                         }
-    
-                        if (empty($error_array[$index])) {
-                            $item = $this->db->real_escape_string($item);
-                            $quantity = $this->db->real_escape_string($quantity);
-                            $rate = $this->db->real_escape_string($rate);
-                            $amount = $this->db->real_escape_string($amount);
-                            $user_id = $this->db->real_escape_string($user_id);
-                            $last_id = $this->db->real_escape_string($last_id);
-                            if (!empty($invoice_item_ids[$index])) {
-                                if (!empty($id)) {
 
-                                $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
-                                $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
-                                         WHERE id='$invoice_item_id' ";
-                                          $res1 = $this->db->query($sql1);
-                                }
-                            } else {
-                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
-                            }
+                        if (empty($error_array[$index])) {
+                            $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
+                            $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
+                            $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
+                            $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
+                            $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
+
+                            $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
                         }
                     }
-    
-                    if (!empty($values)) {
-                        if (empty($id)) {
 
+
+                    // $result = $this->db->query($query);
+                    if ($result) {
+                        $last_id = empty($id) ? $this->db->insert_id : $id;
+                        $items = $_POST['item'];
+                        $quantities = $_POST['quantity'];
+                        $rates = $_POST['rate'];
+                        $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
+
+                        $values = [];
+                        foreach ($items as $index => $item) {
+                            $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                            $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                            $amount = $quantity * $rate;
+                            if (empty($item)) {
+                                $error_array[$index]['item'] = "Please enter item.";
+                            }
+                            if (empty($quantity) || !is_numeric($quantity)) {
+                                $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                            }
+                            if (empty($rate) || !is_numeric($rate)) {
+                                $error_array[$index]['rate'] = "Please enter valid rate.";
+                            }
+                            if ($amount <= 0) {
+                                $error_array[$index]['amount'] = "Amount is not valid.";
+                            }
+
+                            if (empty($error_array[$index])) {
+                                $item = $this->db->real_escape_string($item);
+                                $quantity = $this->db->real_escape_string($quantity);
+                                $rate = $this->db->real_escape_string($rate);
+                                $amount = $this->db->real_escape_string($amount);
+                                $user_id = $_SESSION['current_user']['user_id'];
+                                $last_id = $this->db->real_escape_string($last_id);
+                                if (!empty($invoice_item_ids[$index])) {
+                                    if (!empty($id)) {
+
+                                        $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
+                                        $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
+                                             WHERE invoice_item_id='$invoice_item_id' ";
+                                        $res1 = $this->db->query($sql1);
+                                    }
+                                } else {
+                                    $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                                }
+                            }
+                        }
+                        if (!empty($values)) {
                             $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
                             $res1 = $this->db->query($sql1);
                         }
-                    }
-    
-                    if ($res1) {
-                        $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
-                    } else {
-                        $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
-                    }
 
-    
-                    $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
+                        if ($res1) {
+                            $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
+                            // $response_data = ['data' => 'success', 'msg' => 'Items successfully added'];
+                        } else {
+                            $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
+                        }
+                    } else {
+                        $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
+                    }
                 } else {
                     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                 }
-
-                $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
             } else {
-                $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
+                $response_data = ['data' => 'fail', 'msg' => 'Please Add line item'];
             }
         } else {
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
-    
+
         return json_encode($response_data);
     }
-    
+
 
     function isValidYouTubeURL($url)
     {
@@ -880,29 +907,30 @@ class admin_functions
     {
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
+        $newFilename = "";
+
+        $maxSize = 5 * 1024 * 1024;
 
         if ($_FILES["blog_image"]["name"] != "" && $id != "" || isset($_FILES["blog_image"]["name"]) && isset($_FILES["blog_image"]["name"]) != '' && $id == "") {
-
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $filename = isset($_FILES["blog_image"]["name"]) ? $_FILES["blog_image"]["name"] : '';
             $tmpfile = isset($_FILES["blog_image"]["tmp_name"]) ? $_FILES["blog_image"]["tmp_name"] : '';
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $newFilename = time() . '.' . $extension;
-            $fileName = $_FILES['blog_image']['name'];
-            $fileNameCmps = explode(".", $fileName);
+            $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
             $folder = "assets/img/blog_img/";
             $fullpath = $folder . $newFilename;
             $file = $_FILES['blog_image'];
-            $maxSize = 5 * 1024 * 1024;  // 5MB in bytes
 
             if (!is_dir($folder)) {
                 $mkdir = mkdir($folder, 0777, true);
                 if (!$mkdir) {
-                    $response_data = array('data' => 'fail', 'msg' => 'Failed to create directory for image upload.');
+                    $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
                     return json_encode($response_data);
                 }
             }
+
             if (!in_array($fileExtension, $allowedExtensions)) {
                 $error_array['blog_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
@@ -910,10 +938,10 @@ class admin_functions
                 $error_array['blog_image'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['blog_image'] = "Please upload the blog image.";
+
+                $error_array['blog_image'] = "Please upload your image.";
             }
         }
-
         if (empty($_POST['blog_title'])) {
             $error_array['blog_title'] = "Please enter the blog title.";
         }
@@ -966,7 +994,10 @@ class admin_functions
                         author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                     }
                 } else {
-
+                    $existing_image_query = "SELECT image FROM blogs WHERE blog_id = $id";
+                    $existing_image_result = $this->db->query($existing_image_query);
+                    $existing_image_row = $existing_image_result->fetch_assoc();
+                    $existing_image = $existing_image_row['blog_image'];
                     $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$existing_image',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
@@ -1437,7 +1468,7 @@ class admin_functions
                             }
                         }
                         $output .= ' </div>';
-                    } 
+                    }
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1483,7 +1514,7 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-        
+
 
     function invoicelisting()
     {
@@ -1578,7 +1609,7 @@ class admin_functions
         global $NO_IMAGE;
         if (isset($_SESSION['current_user']['user_id'])) {
 
-             $limit = 12;
+            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
@@ -1634,8 +1665,8 @@ class admin_functions
                 $response_data = array(
                     'data' => 'success',
                     'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '',  
-                    'pagination_needed' => ($total_records > $limit) ? true : false 
+                    'pagination' => isset($pagination) ? $pagination : '',
+                    'pagination_needed' => ($total_records > $limit) ? true : false
                 );
                 if ($total_records > $limit) {
                     $total_pages = ceil($total_records / $limit);
@@ -1674,12 +1705,15 @@ class admin_functions
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
                 $previewImage = (!empty($image) && file_exists($imagePath)) ?
-                    '<div class="drop-zone form-control">
-                    <span class="pro-zone__prompt" id="dragfile" style="display: none;">Drop File Here Or Click To Upload</span>
-                    <input type="file" name="shop_logo" class="drop-zone__input">
+                    '<div class="form-control">
+                    <div class="drop-zone" style="display: none;">
+                        <span class="pro-zone__prompt" id="dragfile" >Drop File Here Or Click To Upload</span>
+                        <input type="file" name="shop_logo" class="drop-zone__input">
+                    </div>
                     <div class="drop-zone__thumb">
                         <div class="img-wrapper">
                             <img src="' . $decodedPath . '" class="picture__img">
+                            <button class="close-buttons_profile">x</button>
                         </div>
                     </div>
                 </div>' :
@@ -1691,7 +1725,16 @@ class admin_functions
                 $shop = $row['shop'];
                 $phone_number = $row['phone_number'];
                 $address = $row['address'];
-
+                $profileimage = ' <form role="form" id="profileImageSave" enctype="multipart/form-data" method="POST">
+                                        <div class="mb-3">
+                                            <label for="p-image" class="font-weight-normal">Upload Profile Image</label>
+                                            ' . $previewImage . '
+                                            <div class="errormsg shop_logo imageError"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn bg-gradient-info btn-sm profileImageSave save_loader_show">Save</button>
+                                        </div>
+                                    </form>';
                 $output['profile_deatils'] = '<ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm">
                         <strong class="text-dark">Name:</strong> &nbsp;' . $name . '
@@ -1719,7 +1762,7 @@ class admin_functions
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="profileUpdate">Product Images</h1>
+                                    <h1 class="modal-title fs-5" id="profileUpdate">Choose profile image</h1>
                                     <button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
@@ -1830,8 +1873,8 @@ class admin_functions
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
 
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <div class="" role="">';
-                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs" aria-hidden="true"></i>';
+                    $output .= '    <div class="" >';
+                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blog" aria-hidden="true"></i>';
                     $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
@@ -1941,8 +1984,8 @@ class admin_functions
                 while ($row = mysqli_fetch_array($result)) {
                     $link = $row["short_link"];
                     $title =  $row['title'];
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '<div class="card card-blog card-plain">';
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
                     $output .= '<a class="border-radius-xl">';
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
@@ -2319,7 +2362,7 @@ class admin_functions
                     $input = $row['shop_name'];
                     $query = "SELECT * FROM users WHERE   user_id = '$input'";
                     $result = $this->db->query($query);
-                    $id=$row["famous_market_id"];
+                    $id = $row["famous_market_id"];
                     if ($result) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
@@ -2437,19 +2480,20 @@ class admin_functions
         $delete_id = isset($_POST['product_image_id']) ? $_POST['product_image_id'] : '2';
         return $this->deleteRecord('product_images', $delete_id);
     }
-    function product_main_image(){
+    function product_main_image()
+    {
         // $delete_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
         // if(!empty($delete_id)){
         //     return $this->deleteRecord('products', $delete_id);
         // }
-        
+
         $product_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
         if (!empty($product_id)) {
             $query = "UPDATE products SET p_image = ' ' WHERE product_id = '$product_id'";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'message' => "Delete successfully");
-            }else {
+            } else {
                 $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
             }
             return json_encode($response_data);
@@ -2508,6 +2552,11 @@ class admin_functions
     {
         $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
         return $this->deleteRecord('marketreviews', $delete_id);
+    }
+    function invoice_line_item()
+    {
+        $delete_id = isset($_POST["invoice_item_id"]) ? $_POST["invoice_item_id"] : '';
+        return $this->deleteRecord('invoice_item', $delete_id);
     }
 
     function forget_password()
@@ -2601,14 +2650,36 @@ class admin_functions
                 $row = $result->fetch_assoc();
                 $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
                 $product_img_result = $this->db->query($product_img_query);
-                if($product_img_result->num_rows > 0){
-                    $product_img_results = [];
+                $product_img_results = [];
+                if ($product_img_result->num_rows > 0) {
                     while ($product_img_row = $product_img_result->fetch_assoc()) {
                         $product_img_results[] = $product_img_row; // Append each row to response array
                     }
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results);
             }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function last_inserted_id()
+    {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        $table_name = isset($_POST['table_name']) ? $_POST['table_name'] : '';
+
+        $query = "SELECT $id  FROM $table_name ORDER BY $id DESC LIMIT 1";
+        $result = $this->db->query($query);
+
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $lastInvoiceNumber = $row ? intval($row['invoice_id']) : 0;
+            $newInvoiceNumber = $lastInvoiceNumber + 1;
+            $response_data = array('data' => 'success', 'outcome' => $newInvoiceNumber);
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => 'Something went wrong.');
         }
         $response = json_encode($response_data);
         return $response;
@@ -2632,8 +2703,8 @@ class admin_functions
                     $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
                     $inv_amount = $invoice_items['amount'];
-                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="'.$invoice_items['id'].'">';
                     $item_data .=  '<tr class="attr">';
+                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="' . $invoice_items['invoice_item_id'] . '">';
                     $item_data .=  '<td>';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
@@ -2651,7 +2722,7 @@ class admin_functions
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
 
-                    $item_data .=  '<td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style="display: none;"></i></td>';
+                    $item_data .=  '<td  data-delete-type="invoice_line_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
                 }
 

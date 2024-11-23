@@ -29,19 +29,21 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3">
+                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3 invoiceid" value="" readonly>
                 </div>
                 <div class="col mb-3 orderchange">
-                  <div class="drop-zone form-control max-width-300 invoice_imgorder">
-                    <span class="pro-zone__prompt">Drop file here or click to upload</span>
-                    <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
+                  <div class="imageAppend form-control max-width-300">
+                    <div class="drop-zone  invoice_imgorder">
+                      <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                      <input type="file" name="i_image" id="removeimage" class="drop-zone__input">
+                    </div>
                   </div>
                   <span class="errormsg i_image"></span>
 
                 </div>
                 <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end">
+                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end invoiceid" value="" readonly>
                 </div>
               </div>
             </div>
@@ -49,7 +51,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="mb-3 ">
                 <div class="row ">
                   <div class="col w-50 mb-3">
-                    <textarea type="text" placeholder="Invoice Name" class="form-control max-width-500" name="i_name"></textarea>
+                    <textarea type="text" placeholder="Invoice Name" class="form-control validtext max-width-500" name="i_name"></textarea>
                     <span class="errormsg i_name"></span>
 
                   </div>
@@ -57,13 +59,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="row mt-4 invoicename">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
-                    <textarea type="text" placeholder="Bill To" class="form-control " name="bill_no"></textarea>
+                    <textarea type="text" placeholder="Bill To" class="form-control validtext" name="bill_no"></textarea>
                     <span class="errormsg bill_no"></span>
 
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
-                    <textarea type="text" placeholder="Ship To " class="form-control" name="ship_to"></textarea>
+                    <textarea type="text" placeholder="Ship To " class="form-control validtext" name="ship_to"></textarea>
                     <span class="errormsg ship_to"></span>
 
                   </div>
@@ -76,7 +78,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1" name="date">
+                  <input type="date" class="form-control price mt-1 date-input" name="date">
                   <span class="errormsg date"></span>
 
                 </div>
@@ -86,7 +88,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" placeholder="Payment Terms" name="terms">
+                  <input type="text" class="form-control validtext mt-1" placeholder="Payment Terms" name="terms">
                   <span class="errormsg terms"></span>
 
                 </div>
@@ -96,7 +98,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1" name="due_date">
+                  <input type="date" class="form-control mt-1 price date-input " name="due_date">
                   <span class="errormsg due_date"></span>
 
                 </div>
@@ -106,7 +108,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl ">
-                  <input type="text" class="form-control mt-1" placeholder=" Product Number" name="po_number">
+                  <input type="text" class="form-control mt-1 price " placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
 
                 </div>
@@ -126,21 +128,21 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   </thead>
                   <tbody id="attributes-body" class="get_invoiceitem">
                     <tr class="attr">
-                      <td>
-                        <input type="text" class="form-control mt-1" placeholder="Item Title" name="item[]">
-                        <span class="errormsg item"></span>
+                    <td class="item_0">
+                        <input type="text" class="form-control mt-1 validtext" placeholder="Item Title" name="item[]">
+                        <span class="errormsg item_0"></span>
+                      </td>
+                      <td  class="quantity_0">
+                        <input type="number" class="form-control mt-1 price" placeholder="1" name="quantity[]" min="1">
+                        <span class="errormsg item_quantity quantity_0"></span>
+                      </td>
+                      <td class="rate_0">
+                        <input type="text" class="form-control mt-1 price" placeholder="₹ 0" name="rate[]">
+                        <span class="errormsg item_rate rate_0"></span>
                       </td>
                       <td>
-                        <input type="number" class="form-control mt-1" placeholder="1" name="quantity[]" min="1">
-                        <span class="errormsg quantity"></span>
-                      </td>
-                      <td>
-                        <input type="text" class="form-control mt-1" placeholder="₹ 0" name="rate[]">
-                        <span class="errormsg rate"></span>
-                      </td>
-                      <td>
-                        <input type="text" class="form-control mt-1" placeholder="₹ 0.00" name="amount[]" disabled>
-                        <span class="errormsg item"></span>
+                        <input type="text" class="form-control mt-1 price" placeholder="₹ 0.00" name="amount[]" disabled>
+                        <span class="errormsg amount"></span>
                       </td>
 
                       <td class="invoice-rowclose"><i class="fa fa-times cursor-pointer remove" aria-hidden="true"></i></td>
@@ -155,7 +157,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 
             <div class="col">
-              <div class="row ">
+              <div class="row hidden">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Subtotal :</span>
                 </div>
@@ -168,15 +170,16 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Total :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="total" placeholder="₹ 0.00">
+                  <input type="text" class="form-control mt-1" name="total" placeholder="₹ 0.00" disabled>
                 </div>
               </div>
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Amount Paid :</span>
                 </div>
-                <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="amount_paid" placeholder="₹ 0.00">
+                <div class="col-xl ampunt_p">
+                  <input type="text" class="form-control mt-1 price" name="amount_paid" placeholder="₹ 0.00">
+                  <!-- <span class="errormsg amount_paid"></span> -->
                 </div>
               </div>
               <div class="row  mt-2">
@@ -184,19 +187,19 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Balance Due :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="balance_due" placeholder="₹ 0.00">
+                  <input type="text" class="form-control mt-1" name="balance_due" placeholder="₹ 0.00" disabled>
                 </div>
               </div>
             </div>
             <div class="row mt-4">
               <div class="col w-50">
                 <div class="row notes">
-                  <span class="text-normal ps-4 fs-5"><strong>Notes :</strong></span>
-                  <textarea name="text" id="" placeholder="Who Is This Form?" class="form-control max-width-500 mt-2"></textarea>
+                  <span class="text-normal ps-0 fs-5"><strong>Notes :</strong></span>
+                  <textarea name="notes" id="" placeholder="Notes - any relevant information not already covered" class="form-control max-width-500 mt-2"></textarea>
                 </div>
-                <div class="row mt-2 terms">
-                  <span class="text-normal ps-4 fs-5"><strong>Terms :</strong></span>
-                  <textarea name="text" id="" placeholder="Who Is This Form?" class="form-control max-width-500 mt-2"></textarea>
+                <div class="row mt-2 terms-condition">
+                  <span class="text-normal ps-0 fs-5"><strong>Terms :</strong></span>
+                  <textarea name="terms_condition" id="" placeholder="Terms and conditions - late fees, payment methods, delivery schedule" class="form-control max-width-500 mt-2"></textarea>
                 </div>
               </div>
             </div>
@@ -277,5 +280,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   var id = "<?php echo $id; ?>";
   if (id !== "") {
     get_invoice(id);
+  }else{
+    lastInsertedId("invoice","invoice_id");
   }
 </script>

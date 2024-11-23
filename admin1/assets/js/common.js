@@ -47,7 +47,11 @@ window.onload = function () {
           promptElement.style.display = "block";
         }
       } else {
-        promptElement.style.display = "block";
+        const thumbnailElement =
+          dropZoneElement.querySelector(".drop-zone__thumb");
+        if (!thumbnailElement) {
+          promptElement.style.display = "block";
+        }
       }
     });
     dropZoneElement.addEventListener("dragover", (e) => {
@@ -90,55 +94,55 @@ window.onload = function () {
     });
   });
 
-function clearThumbnail(dropZoneElement) {
-  const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-  if (thumbnailElement) {
+  function clearThumbnail(dropZoneElement) {
+    const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    if (thumbnailElement) {
+      thumbnailElement.innerHTML = "";
+    }
+  }
+
+  function updateThumbnail(dropZoneElement, file, inputElement) {
+    console.log("updateThumbnail");
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
+    if (!thumbnailElement) {
+      thumbnailElement = document.createElement("div");
+      thumbnailElement.classList.add("drop-zone__thumb");
+      dropZoneElement.appendChild(thumbnailElement);
+    }
+
     thumbnailElement.innerHTML = "";
-  }
-}
 
-function updateThumbnail(dropZoneElement, file, inputElement) {
-  console.log("updateThumbnail");
-  let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-  const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
-  if (!thumbnailElement) {
-    thumbnailElement = document.createElement("div");
-    thumbnailElement.classList.add("drop-zone__thumb");
-    dropZoneElement.appendChild(thumbnailElement);
-  }
+    if (file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.addEventListener("load", (e) => {
+        console.log("Load");
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        img.classList.add("picture__img");
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("close-buttons_profile");
+        closeButton.innerText = "x";
 
-  thumbnailElement.innerHTML = "";
+        closeButton.addEventListener("click", (event) => {
+          event.stopPropagation();
 
-  if (file.type.startsWith("image/")) {
-    const reader = new FileReader();
-    reader.addEventListener("load", (e) => {
-      console.log("Load");
-      const img = document.createElement("img");
-      img.src = e.target.result; 
-      img.classList.add("picture__img");
-      const closeButton = document.createElement("button");
-      closeButton.classList.add("close-buttons_profile");
-      closeButton.innerText = "x";
-
-      closeButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-
-        thumbnailElement.innerHTML = "";
-        inputElement.value = ""; 
-        inputElement.disabled = false;
-        promptElement.style.display = "block"; 
-        setTimeout(() => {
-          inputElement.value = null; 
-        }, 0);
+          thumbnailElement.innerHTML = "";
+          inputElement.value = "";
+          inputElement.disabled = false;
+          promptElement.style.display = "block";
+          setTimeout(() => {
+            inputElement.value = null;
+          }, 0);
+        });
+        thumbnailElement.appendChild(img);
+        thumbnailElement.appendChild(closeButton);
+        promptElement.style.display = "none";
       });
-      thumbnailElement.appendChild(img);
-      thumbnailElement.appendChild(closeButton);
-      promptElement.style.display = "none";
-    });
 
-    reader.readAsDataURL(file); 
+      reader.readAsDataURL(file);
+    }
   }
-}
 };
 // multi select js in product form page
 
@@ -187,10 +191,44 @@ $(document).ready(function () {
     row.find("input").val("");
     row.find(".remove").show();
     $("#attributes-body").append(row);
+    updateRowClasses();
     updateRemoveButtonVisibility();
     updateSubtotal();
   }
-
+  function updateRowClasses() {
+    $(".attr").each(function (index) {
+      $(this)
+        .find(".item_0, .quantity_0, .rate_0")
+        .each(function () {
+          let baseClass = "";
+          if ($(this).hasClass("item_0")) {
+            baseClass = "item";
+          } else if ($(this).hasClass("quantity_0")) {
+            baseClass = "quantity";
+          } else if ($(this).hasClass("rate_0")) {
+            baseClass = "rate";
+          }
+  
+          if (baseClass) {
+            $(this)
+              .removeClass(function (_, className) {
+                return (className.match(/(^|\s)(item|quantity|rate)_\d+/g) || []).join(" ");
+              })
+              .addClass(`${baseClass}_${index}`);
+          }
+          $(this)
+            .find("input[name], span[name]")
+            .each(function () {
+              const originalName = $(this).attr("name");
+              if (originalName) {
+                const updatedName = originalName.replace(/\[\d+\]/, `[${index}]`);
+                $(this).attr("name", updatedName);
+              }
+            });
+        });
+    });
+  } 
+  
   function removeRow(button) {
     button.closest("tr.attr").remove();
     updateRemoveButtonVisibility();
@@ -405,30 +443,24 @@ $(window).on("load", function () {
 // multiple
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");
+  const imageAppend = inputElement.closest(".imageAppend");
 
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
-  inputElement.addEventListener("change", (e) => {
-    console.log("ooooooooooooooo");
-    const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-
-    if (inputElement.files.length > 0) {
-      promptText.style.display = "none";
-    } else {
-      promptText.style.display = "block";
-    }
-
+  inputElement.addEventListener("change", () => {
+    updatePromptText(dropZoneElement, inputElement.files);
     const fileArray = Array.from(inputElement.files);
-    fileArray.forEach((file, index) => {
+
+    fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
-        updateThumbnail(dropZoneElement, file, index, inputElement);
+        updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
           icon: "error",
           title: alertTitle("fail"),
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        inputElement.value = "";
+        inputElement.value = ""; 
       }
     });
   });
@@ -438,20 +470,13 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   });
 
   dropZoneElement.addEventListener("drop", (e) => {
-    console.log("--------------------------");
     e.preventDefault();
-    const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-
-    if (e.dataTransfer.files.length > 0) {
-      promptText.style.display = "none";
-    } else {
-      promptText.style.display = "block";
-    }
-
     const fileArray = Array.from(e.dataTransfer.files);
-    fileArray.forEach((file, index) => {
+    updatePromptText(dropZoneElement, fileArray);
+
+    fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
-        updateThumbnail(dropZoneElement, file, index, inputElement);
+        updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
           icon: "error",
@@ -463,21 +488,25 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   });
 });
 
-function updateThumbnail(dropZoneElement, file, index, inputElement) {
-  console.log("updatethumbnail");
+function updatePromptText(dropZoneElement, files) {
+  const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
+  promptText.style.display = files.length > 0 ? "none" : "block";
+}
+
+function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
   let thumbnailContainer = dropZoneElement.querySelector(".drop-zone__thumb");
 
+  
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("drop-zone__thumb");
-    dropZoneElement.appendChild(thumbnailContainer);
+    imageAppend.appendChild(thumbnailContainer);
   }
 
   if (file.type.startsWith("image/")) {
     const reader = new FileReader();
 
     reader.addEventListener("load", function (e) {
-      console.log("hjdsdsjdsjdhsjdhjsd");
       const imgWrapper = document.createElement("div");
       imgWrapper.classList.add("img-wrapper");
 
@@ -486,21 +515,22 @@ function updateThumbnail(dropZoneElement, file, index, inputElement) {
       img.classList.add("picture__img");
 
       const closeButton = document.createElement("button");
-      closeButton.classList.add("close-button");
+      closeButton.classList.add("close-button_product");
       closeButton.innerText = "x";
 
       closeButton.addEventListener("click", (event) => {
         event.stopPropagation();
         thumbnailContainer.removeChild(imgWrapper);
-        if (thumbnailContainer.childElementCount === 0) {
-          const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-          promptText.style.display = "block";
-        }
+
+        
         const fileListArray = Array.from(inputElement.files);
-        fileListArray.splice(index, 1);
+        fileListArray.splice(fileListArray.indexOf(file), 1);
         const dataTransfer = new DataTransfer();
         fileListArray.forEach((file) => dataTransfer.items.add(file));
         inputElement.files = dataTransfer.files;
+
+   
+        updatePromptText(dropZoneElement, inputElement.files);
       });
 
       imgWrapper.appendChild(img);
@@ -511,6 +541,7 @@ function updateThumbnail(dropZoneElement, file, index, inputElement) {
     reader.readAsDataURL(file);
   }
 }
+
 
 $(document).on("change", ".addcategory", function () {
   if ($(this).is(":checked")) {
