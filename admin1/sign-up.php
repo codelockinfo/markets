@@ -74,7 +74,7 @@ include 'header.php';
                     </div>
                     <div class="mb-3">
                       <div class="tooltip-container">
-                        <input type="shopname" class="form-control validsignf" placeholder="Shop Name " name="shop">
+                        <input type="text" class="form-control validsignf" placeholder="Shop Name " name="shop">
                         <i class="fa-solid fa-exclamation tooltip-icon"></i>
                         <h6 class="tooltiptext">Enter your shop name or markert name</h6>
                       </div>

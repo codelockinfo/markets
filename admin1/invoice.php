@@ -59,13 +59,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="row mt-4 invoicename">
                   <div class="col-xl-6 mb-3">
                     <span class="text-normal"><strong>Bill To :</strong></span>
-                    <textarea type="text" placeholder="Bill To" class="form-control validtext" name="bill_no"></textarea>
+                    <textarea type="text" placeholder="Bill To" class="form-control valikey" name="bill_no"></textarea>
                     <span class="errormsg bill_no"></span>
 
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
-                    <textarea type="text" placeholder="Ship To " class="form-control validtext" name="ship_to"></textarea>
+                    <textarea type="text" placeholder="Ship To " class="form-control valikey" name="ship_to"></textarea>
                     <span class="errormsg ship_to"></span>
 
                   </div>
@@ -87,7 +87,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl mt-2">
                   <span class="text-normal">Payment Terms :</span>
                 </div>
-                <div class="col-xl">
+                <div class="col-xl ">
                   <input type="text" class="form-control validtext mt-1" placeholder="Payment Terms" name="terms">
                   <span class="errormsg terms"></span>
 
@@ -169,8 +169,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl mt-2">
                   <span class="text-normal">Total :</span>
                 </div>
-                <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="total" placeholder="₹ 0.00" disabled>
+                <div class="col-xl ">
+                  <input type="text" class="form-control mt-1 price"  name="total" placeholder="₹ 0.00" disabled>
+                  <!-- <span class="errormsg amount_paid"></span> -->
                 </div>
               </div>
               <div class="row  mt-2">
@@ -179,15 +180,16 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ampunt_p">
                   <input type="text" class="form-control mt-1 price" name="amount_paid" placeholder="₹ 0.00">
-                  <!-- <span class="errormsg amount_paid"></span> -->
+            
                 </div>
               </div>
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Balance Due :</span>
                 </div>
-                <div class="col-xl">
-                  <input type="text" class="form-control mt-1" name="balance_due" placeholder="₹ 0.00" disabled>
+                <div class="col-xl ">
+                  <input type="text" class="form-control mt-1 price" name="balance_due" placeholder="₹ 0.00" disabled>
+                  
                 </div>
               </div>
             </div>

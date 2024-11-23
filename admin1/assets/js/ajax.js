@@ -786,7 +786,7 @@ $(document).ready(function () {
   }
 
   $(".signImage").on("input change", function () {
-    $(this).siblings(".imageError").text("");
+    $(this).closest(".mb-2").find(".imageError").text("");
   });
 
   $(document).on('input', 'input', function() {
@@ -813,8 +813,12 @@ $(document).ready(function () {
     $(this).next(".errormsg").text("");
   });
 
+  $(".valikey").on("keypress", function(){
+    $(this).closest(".mb-3").find(".errormsg").text("");
+  });
+
   $(".validsignf").on("keypress", function () {
-    $(this).next(".errormsg").text("");
+    $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
   $(".number").on("keypress", function (e) {
@@ -846,7 +850,7 @@ $(document).ready(function () {
   }
 
   $(".form-select").on("input change", function () {
-    $(this).siblings(".errormsg").text("");
+    $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
   $(document).on("click", ".formCancel", function () {
@@ -1344,6 +1348,8 @@ $(document).ready(function () {
     var form_data = $("#invoice_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
+    form_data.append("total", $('input[name="total"]').val() || "0");
+    form_data.append("balance_due", $('input[name="balance_due"]').val() || "0");
     const formData = {
       item: [],
       quantity: [],

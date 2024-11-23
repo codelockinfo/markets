@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <input type="hidden" name="id" value="<?php echo $id;?>"/>
             <label for="title" class="font-weight-normal required">Product Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext product w-100" placeholder="Product Title" name="pname">
+              <input type="text" class="form-control valikey product w-100" placeholder="Product Title" name="pname">
               <span class="errormsg pname"></span>
             </div>
             <label for="p-tags" class="font-weight-normal required w-100">Product Category</label>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="title" class="font-weight-normal w-100">SKU</label>
             <div class="mb-3">
-              <input type="text" class="form-control number w-100" placeholder="SKU" name="sku">
+              <input type="text" class="form-control valikey w-100" placeholder="SKU" name="sku">
               <div class="errormsg sku"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
@@ -126,12 +126,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
             <label for="text" class="font-weight-normal">Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Image Alt" name="image_alt">
+              <input type="text" class="form-control valikey" placeholder="Image Alt" name="image_alt">
               <span class="errormsg image_alt"></span>
             </div>
             <label for="text" class="font-weight-normal">Product Tag</label>
             <div class="mb-3">
-              <select class="js-select2  form-select mb-3 multiple_tag form-control  w-100" aria-label="Default select example" multiple="multiple" name="p_tag">
+              <select class="js-select2 form-select  multiple_tag form-control  w-100" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="">Select products</option>
                 <option value="Saree">Saree</option>
                 <option value="Fashion">Fashion</option>
@@ -141,7 +141,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-description" class="font-weight-normal required">Product Description</label>
             <div class="mb-3">
-              <textarea id="pro-description" class="w-100 form-control validtext" name="p_description" placeholder="Product Description"></textarea>
+              <textarea id="pro-description" class="w-100 form-control valikey" name="p_description" placeholder="Product Description"></textarea>
               <span class="errormsg p_description"></span>
             </div>
             <div class="mb-3">
