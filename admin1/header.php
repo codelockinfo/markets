@@ -18,7 +18,7 @@ include($myRoot . '/markets/connection.php');
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/nucleo-icons.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/nucleo-svg.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/soft-ui-dashboard.css?v=1.0.7'); ?>" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/custom.css'); ?>" rel="stylesheet">                                                
+        <link rel="stylesheet" href="<?php echo main_url('/admin1/assets/css/custom1.css'); ?>" rel="stylesheet">                                                
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 
