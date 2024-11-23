@@ -68,12 +68,16 @@ include 'header.php';
                 </div>
                 <div class="card-body card_body_form">
                   <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
-                    <div class="mb-3">
-                      <input type="fname" class="form-control validsignf" placeholder="Enter Your Name" name="name">
+                    <div class="mb-3 ">
+                      <input type="text" class="form-control validsignf"  placeholder="Enter Your Name" name="name" />
                       <span class="errormsg name"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="shopname" class="form-control validsignf" placeholder="Shop Name or market name" name="shop">
+                      <div class="tooltip-container">
+                        <input type="shopname" class="form-control validsignf" placeholder="Shop Name " name="shop">
+                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <h6 class="tooltiptext">Enter yourshop name or markert name</h6>
+                      </div>
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
@@ -85,18 +89,26 @@ include 'header.php';
                       <span class="errormsg phone_number"></span>
                     </div>
                     <div class="mb-3">
-                      <select class="form-select" aria-label="Default select example" name="business_type">
-                        <option selected value="">Your Business Type</option>
-                        <option value="0">Retail</option>
-                        <option value="1">Wholesale</option>
-                      </select>
+                      <div class="tooltip-container">
+                        <select class="form-select" aria-label="Default select example" name="business_type">
+                          <option selected value="">Your Business Type</option>
+                          <option value="0">Retail</option>
+                          <option value="1">Wholesale</option>
+                        </select>
+                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <h6 class="tooltiptext"> choice any one business  </h6>
+                      </div>
                       <span class="errormsg business_type"></span>
                     </div>
                     <div class="mb-2">
-                    <label>Shop Image</label>
-                    <img id="newpreview" src="" alt="Image Preview">
-                    <input id="shop_image_Input" type="file" class="form-control signImage" name="shop_img"> 
-              
+                      <label>Shop Image</label>
+                      <img id="newpreview" src="" alt="Image Preview">
+                      <div class="tooltip-container">
+                        <input id="shop_image_Input" type="file" class="form-control signImage" name="shop_img">
+                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <h6 class="tooltiptext">Choose a file that represents your shop accurately.</h6>
+                      </div>
+
                       <div class="col">
                         <div class="row mt-2">
                           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
@@ -114,7 +126,11 @@ include 'header.php';
                     <div class="mb-2">
                       <label>Shop Logo Image</label>
                       <img id="shop_logo_preview" src="" alt="Shop logo Image Preview">
-                      <input id="shop_logo_image" type="file" class="form-control signImage" name="shop_logo">
+                      <div class="tooltip-container">
+                        <input id="shop_logo_image" type="file" class="form-control signImage" name="shop_logo">
+                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <h6 class="tooltiptext"> Choose a file that represents your shop logo accurately. </h6>
+                      </div>
                       <div class="col">
                         <div class="row mt-2">
                           <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
