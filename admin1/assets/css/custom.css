@@ -1043,3 +1043,18 @@
 .img-wrapper{
   position: relative;
 }
+.error label {
+  color: #cc0033;
+}
+
+.error input[type="number"],
+.error input[type="text"] {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+
+.error .error-message {
+  display: inline-block;
+}
