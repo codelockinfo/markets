@@ -26,7 +26,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <form role="form" id="videoinsert" enctype="multipart/form-data" method="POST">
             <label for="title" class="font-weight-normal required">Video Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control validtext" placeholder="Video Title" name="video_title">
+              <input type="text" class="form-control valikey" placeholder="Video Title" name="video_title">
               <span class="errormsg video_title"></span>
             </div>
             <label for="p-tags" class="font-weight-normal required">Video Category</label>

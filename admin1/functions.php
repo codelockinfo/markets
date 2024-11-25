@@ -628,7 +628,8 @@ class admin_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function invoice() {
+
+    function invoice(){
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -1754,7 +1755,7 @@ class admin_functions
                         <div class="position-relative">
                             <img src="' . $decodedPath . '" alt="profile_image" class="profile-image border-radius-lg shadow-sm mb-4">
                             <div class="position-absolute top-0 custom-position" data-bs-toggle="modal" data-bs-target="#profileImageUpdate">
-                                <i class="fa fa-pen text-primary cursor-pointer mt-3"></i>
+                                <i class="fa fa-pen text-primary cursor-pointer mt-3 profilepen_icon"></i>
                             </div>
                         </div>
                     </a>
@@ -2705,15 +2706,15 @@ class admin_functions
                     $inv_amount = $invoice_items['amount'];
                     $item_data .=  '<tr class="attr">';
                     $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="' . $invoice_items['invoice_item_id'] . '">';
-                    $item_data .=  '<td>';
+                    $item_data .=  '<td class="item_0">';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_item . '" name="item[]" ">';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  '</td>';
-                    $item_data .=  '<td>';
+                    $item_data .=  '<td class="quantity_0">';
                     $item_data .=  '<input type="number" class="form-control mt-1" value="' . $inv_quantity . '" name="quantity[]" min="1" >';
                     $item_data .=  ' <span class="errormsg quantity"></span>';
                     $item_data .=  '</td>';
-                    $item_data .=  '<td>';
+                    $item_data .=  '<td class="rate_0">';
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_rate . '" name="rate[]" >';
                     $item_data .=  '<span class="errormsg rate"></span>';
                     $item_data .=  ' </td>';

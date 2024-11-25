@@ -52,19 +52,20 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
             <div class="mb-3">
               <div class="imageAppend form-control">
                 <div class="drop-zone">
-                  <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
-                  <input type="file" name="blog_image" class="drop-zone__input">
-                </div>  
-              </div>  
+                  <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                  <input type="file" name="blog_image" id="removeImage" class="drop-zone__input validsimg">
+                </div>
+                <!-- <div class="drop-zone__thumb"></div> -->
+              </div>
               <div class="col">
                 <div class="row mt-2">
                   <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
                 </div>
                 <div class="row mt-lg-n1">
-                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each File Should Not Exceed 5MB</label>
+                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                 </div>
               </div>
-              <div class="errormsg blog_image myFile"></div>
+              <div class="errormsg myFile blog_image" ></div>
             </div>
             <label for="text" class="font-weight-normal">Blog Image Alt</label>
             <div class="mb-3">

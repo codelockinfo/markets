@@ -76,12 +76,12 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                     <span class="errormsg"></span>
                                     <label>Email</label>
                                     <div class=" mb-3">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                        <input type="email" name="email" class="form-control valikey" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                         <span class="errormsg email"></span>
                                     </div>
                                     <label>Password</label>
                                     <div class="mb-3">
-                                        <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" name="password" class="form-control valikey" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                         <span class="errormsg password"></span>
                                     </div>
                                     <div class="text-center">
