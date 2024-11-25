@@ -859,7 +859,7 @@
   box-shadow: 5px 5px 20px 9px rgba(0, 0, 0, .05);
 }
 .custom-position{
-  left:8%;
+  left:0%;
 }
 .product_imagebox{
   cursor: pointer;
@@ -981,7 +981,7 @@
 
 .tooltip-icon {
   margin-left: 10px;
-  color: #ff0000;
+  color: black;
   cursor: pointer;
   position: relative;
   background-color: #f0f0f0; 

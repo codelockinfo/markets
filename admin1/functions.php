@@ -1657,7 +1657,7 @@ class admin_functions{
                         
                             <img src="' . $decodedPath . '" alt="profile_image" class="profile-image border-radius-lg shadow-sm mb-4">
                             <div class="position-absolute top-0 custom-position" data-bs-toggle="modal" data-bs-target="#profileImageUpdate">
-                                <i class="fa fa-pen text-primary cursor-pointer mt-3 profilepen_icon"></i>
+                                <i class="fa fa-pen text-primary cursor-pointer  profilepen_icon"></i>
                             </div>
                         </div>
                     </a>

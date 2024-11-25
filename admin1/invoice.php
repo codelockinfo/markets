@@ -120,10 +120,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <thead>
                     <tr>
                       <th class="w-70 bg-gradient text-light ps-3 text-bold">Item</th>
-                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
-                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
-                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
-                      <th class="w-10 bg-gradient-info text-light text-center text-bold">Action</th>
+                      <th class="w-10 bg-gradient text-light text-center text-bold">Quantity</th>
+                      <th class="w-10 bg-gradient text-light text-center text-bold">Rate</th>
+                      <th class="w-10 bg-gradient text-light text-center text-bold">Amount</th>
+                      <th class="w-10 bg-gradient text-light text-center text-bold">Action</th>
                     </tr>
                   </thead>
                   <tbody id="attributes-body" class="get_invoiceitem">
