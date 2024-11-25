@@ -7,7 +7,6 @@ require_once 'googleconfig.php';
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
-                <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid pe-0">
                         <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="<?php echo CLS_SITE_URL; ?>">
@@ -45,7 +44,6 @@ require_once 'googleconfig.php';
                         </div>
                     </div>
                 </nav>
-                <!-- End Navbar -->
             </div>
         </div>
     </div>
@@ -83,7 +81,6 @@ require_once 'googleconfig.php';
             </div>
         </div>
     </main>
-    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
     <footer class="footer mt-3 py-2">
         <div class="container">
             <div class="row">

@@ -50,7 +50,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">
-
           </div>
             <div id="pagination"></div>
         </div>
@@ -125,7 +124,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 </html>
 <script type="text/javascript">
-  console.log("blog LIST");
-  // listblog();
+ 
   loadData("bloglisting");
 </script>

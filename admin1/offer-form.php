@@ -139,7 +139,5 @@ if ($_SESSION['current_user']['role'] == 1) {
 
 </html>
 <script type="text/javascript"> 
-console.log("offer LIST");
-// offerlist();
 loadData("offerlisting");
 </script>

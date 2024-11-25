@@ -171,7 +171,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ">
                   <input type="text" class="form-control mt-1 price"  name="total" placeholder="₹ 0.00" disabled>
-                  <!-- <span class="errormsg amount_paid"></span> -->
+                 
                 </div>
               </div>
               <div class="row  mt-2">

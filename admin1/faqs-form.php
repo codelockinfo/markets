@@ -14,7 +14,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   <?php
   include 'sidebar.php';
   ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
       $para_array = array("title" => "FAQ's Form", "link" => "", "button_text" => "");
@@ -42,7 +41,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                 <button type="button" class="btn bg-gradient-info btn-sm faqSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
               </div>
-              <!-- <div class="alert" role="alert" id="success_message" name="success_alert"></div> -->
+              
             </form>
           </div>
         </div>
@@ -133,7 +132,5 @@ if ($_SESSION['current_user']['role'] == 1) {
 
 </html>
 <script type="text/javascript"> 
-console.log("faq LIST");
-// listFAQ();
 loadData("FAQlisting");
 </script>

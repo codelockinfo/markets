@@ -7,7 +7,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 }
 
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
     <?php
     include 'sidebar.php';
@@ -24,7 +23,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <i class="fas fa-arrow-left text-sm ms-1 text-white" aria-hidden="true"></i>
                                     </a>
                                 </div>
-                                <div class="input-group d-xl-none d-block ms-2">
+                                <div class="input-group d-xl-none d-block ms-2 me-3">
                                     <a href="<?php echo SITE_ADMIN_URL ?>index.php">
                                         <i class="fa fa-home text-sm ms-1 text-white" aria-hidden="true"></i>
                                     </a>
@@ -129,38 +128,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="card card-body blur shadow-blur mx-4 mt-n6 p-4 overflow-hidden">
                 <div class="row gx-4" id="profile_data">
-                    <!-- <div class="col-auto">
-                        <div class="avatar avatar-xl position-relative">
-                            <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                        </div>
-                    </div>
-                    <div class="col-auto my-auto">
-                        <div class="h-100">
-                            <h5 class="mb-1">
-                                Marco Men
-                            </h5>
-                            <p class="mb-0 font-weight-bold text-sm">
-                                CEO / Co-Founder
-                            </p>
-                        </div>
-                    </div> -->
+               
                 </div>
             </div>
             <div class="py-4">
                 <div class="row">
                     <div class="col-xl-6 col-md-6 profile-sec">
                         <div class="card" id="img">
-                            <!-- <li class="list-group-item border-0 ps-0 pb-0">
-                                <strong class="text-dark text-sm p-3">Your Shop:</strong> &nbsp;
-                                <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0 mt-3" href="#">
-                                    <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="profile_image" class="w-80 border-radius-lg shadow-sm mb-4">
-                                </a>
-                            </li>
-                            <div class="mx-auto text-center">
-                                <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
-                                    <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
-                                </a>
-                            </div> -->
+                           
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 profile-sec">
@@ -178,20 +153,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                 </div>
                             </div>
                             <div class="card-header profile-section" id="getdataa">
-                                <!-- <ul class="list-group"> -->
-                                <!-- <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; Kalpesh Vaghela</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Shop
-                                            Name:</strong> &nbsp; Marco Men</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Address:</strong> &nbsp; 1001, Sliver Hub, Mota-Varachha,
-                                        Surat</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile
-                                            Number:</strong> &nbsp; (+91) 1234 123 123 </li>
-                                    <li class="list-group-item border-0 ps-0 text-sm">
-                                    </li> -->
-                                <!-- </ul> -->
                             </div>
-
-
                             <div class="card-header text-end">
                                 <a href="#">
                                     <button type="button" class="btn bg-gradient-info btn-sm">View your profile</button>
@@ -201,7 +163,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     </div>
                     <div class="col-12 mt-4">
                         <div class="card mb-4">
-                            <!-- <div class="card-body d-flex p-3 row"> -->
                             <div class="d-flex justify-content-between p-3">
                                 <div class="col-auto mx-auto ms-sm-3 mt-2">
                                     <h6 class="mb-1">
@@ -250,132 +211,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                             </div>
                             <div class="card-body p-3">
                                 <div class="row" id="getdata">
-                                    <!-- <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                        <div class="card card-blog card-plain">
-                                            <div class="position-relative">
-                                                <a class="d-block shadow-xl border-radius-xl">
-                                                    <img src="<?php echo main_url('/admin1/assets/img/698472_R-1049.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                                </a>
-                                            </div>
-                                            <div class="card-body px-1 pb-0">
-                                                <a href="#">
-                                                    <h5>
-                                                        Modern
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex justify-content-between mb-3">
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        $250
-                                                    </div>
-                                                    <div class="ms-auto text-end">
-                                                        <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                                                        <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                        <div class="card card-blog card-plain">
-                                            <div class="position-relative">
-                                                <a class="d-block shadow-xl border-radius-xl">
-                                                    <img src="<?php echo main_url('/admin1/assets/img/755236_COVER.jpg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                                                </a>
-                                            </div>
-                                            <div class="card-body px-1 pb-0">
-                                                <a href="#">
-                                                    <h5>
-                                                        Scandinavian
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex justify-content-between mb-3">
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        $250
-                                                    </div>
-                                                    <div class="ms-auto text-end">
-                                                        <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                                                        <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                        <div class="card card-blog card-plain">
-                                            <div class="position-relative">
-                                                <a class="d-block shadow-xl border-radius-xl">
-                                                    <img src="<?php echo main_url('/admin1/assets/img/265844_COVER.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                                </a>
-                                            </div>
-                                            <div class="card-body px-1 pb-0">
-                                                <a href="#">
-                                                    <h5>
-                                                        Minimalist
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex justify-content-between mb-3">
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        $250
-                                                    </div>
-                                                    <div class="ms-auto text-end">
-                                                        <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                                                        <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                        <div class="card card-blog card-plain">
-                                            <div class="position-relative">
-                                                <a class="d-block shadow-xl border-radius-xl">
-                                                    <img src="<?php echo main_url('/admin1/assets/img/265844_COVER.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                                </a>
-                                            </div>
-                                            <div class="card-body px-1 pb-0">
-                                                <a href="#">
-                                                    <h5>
-                                                        Minimalist
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex justify-content-between mb-3">
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        $250
-                                                    </div>
-                                                    <div class="ms-auto text-end">
-                                                        <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                                                        <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                        <div class="card card-blog card-plain">
-                                            <div class="position-relative">
-                                                <a class="d-block shadow-xl border-radius-xl">
-                                                    <img src="<?php echo main_url('/admin1/assets/img/265844_COVER.jpeg'); ?>" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                                </a>
-                                            </div>
-                                            <div class="card-body px-1 pb-0">
-                                                <a href="#">
-                                                    <h5>
-                                                        Minimalist
-                                                    </h5>
-                                                </a>
-                                                <div class="d-flex justify-content-between mb-3">
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        $250
-                                                    </div>
-                                                    <div class="ms-auto text-end">
-                                                        <button type="button" class="btn btn-outline-danger text-danger px-3 btn-sm pt-2 mb-0">Delete</button>
-                                                        <button type="button" class="btn btn-outline-secondary text-dark px-3 btn-sm pt-2 mb-0">Edit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
                                     <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                                         <div class="card h-100 card-plain border">
                                             <div class="card-body d-flex flex-column justify-content-center text-center">
@@ -387,18 +222,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
-                               
-                                <!-- <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
-                                    <div class="mx-auto text-center nav-wrapper position-relative end-0">
-                                        <a href="<?php echo SITE_ADMIN_URL ?>product-list.php">
-                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 viewproduct" style="display:none;">View All Product</button>
-                                        </a>
-                                        <a href="<?php echo SITE_ADMIN_URL ?>product-form.php">
-                                            <button type="button" class="btn bg-gradient-info px-3 btn-sm pt-2 mb-0 addproduct" style="display:none;">Add Product</button>
-                                        </a>
-
-                                    </div>
-                                </div> -->
                                 <div id="pagination"></div>
                             </div>
                         </div>

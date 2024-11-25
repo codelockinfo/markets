@@ -110,7 +110,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="pro-zone__prompt">Drop file here or click to upload</span>  
 
                   <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input validtext">
-                  <!-- <div id="imagePreview"></div>  -->
                 </div>
               </div>
               <div class="col">
@@ -148,7 +147,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <button type="button" class="btn bg-gradient-info btn-sm productSave save_loader_show">Save</button>
               <button type="button" class="btn bg-gradient-info btn-sm pform_reset formCancel">Cancel</button>
             </div>
-            <!-- <div class="alert" role="alert" id="success_message" name="success_alert"></div> -->
           </form>
         </div>
       </div>
@@ -217,7 +215,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script> -->
 </body>
 
 </html>

@@ -55,7 +55,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
                   <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
                   <input type="file" name="blog_image" id="removeImage" class="drop-zone__input validsimg">
                 </div>
-                <!-- <div class="drop-zone__thumb"></div> -->
+       
               </div>
               <div class="col">
                 <div class="row mt-2">
@@ -149,10 +149,8 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
 
 <script>
     var id = "<?php echo $id; ?>";
-
     get_Categories();
     if (id !== "") {
     get_blog(id);
- 
     }
 </script>

@@ -39,7 +39,6 @@ if ($_SESSION['current_user']['role'] == 1) {
                 </select>
                 <span class="errormsg shopname"></span>
               </div>
-
               <label for="review" class="font-weight-normal required">Shop Reviews</label>
               <div class="mb-3">
                 <input type="number" class="form-control product number w-100" placeholder="Shop Reviews" name="review">
@@ -49,9 +48,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                 <button type="button" class="btn bg-gradient-info btn-sm reviewSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm pform_reset formCancel">Cancel</button>
               </div>
-            
             </form>
-            
           </div>
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
@@ -131,8 +128,6 @@ if ($_SESSION['current_user']['role'] == 1) {
 
 </html>
 <script type="text/javascript">
-  console.log("listbrousetextile LIST");
-  // listreview()
   loadData("reviewlisting");
   select_shop();
 </script>

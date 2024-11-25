@@ -26,12 +26,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="card-header pb-0 p-3">
             <h6 class="mb-1 mt-1 text-lg">Videos</h6>
           </div>
-          <!-- <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
-            <div class="input-group search-btn search-icon">
-              <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control search-btn_1" placeholder="Type here...">
-            </div>
-          </div> -->
           <div class="dropdown mt-3">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filters
@@ -54,26 +48,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">
-
-            <!-- <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav> -->
           </div>
         </div>
       </div>
@@ -148,8 +122,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </html>
 <script type="text/javascript">
   console.log("video LIST");
-  // listvideo();
-//   loadData("videolisting");
+
   loadData("allvideolisting");
 
 </script>

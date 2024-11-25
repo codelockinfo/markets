@@ -1,9 +1,4 @@
-/*--------------------------------
 
-hermes-dashboard-icons Web Font - built using nucleoapp.com
-License - nucleoapp.com/license/
-
--------------------------------- */
 @font-face {
   font-family: 'NucleoIcons';
   src: url('../fonts/nucleo-icons.eot');
@@ -12,9 +7,6 @@ License - nucleoapp.com/license/
   font-style: normal;
 }
 
-/*------------------------
-    base class definition
--------------------------*/
 .ni {
   display: inline-block;
   font: normal normal normal 14px/1 NucleoIcons;
@@ -24,15 +16,11 @@ License - nucleoapp.com/license/
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*------------------------
-  change icon size
--------------------------*/
 .ni-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;
   vertical-align: -15%;
 }
-
 .ni-2x {
   font-size: 2em;
 }
@@ -49,9 +37,6 @@ License - nucleoapp.com/license/
   font-size: 5em;
 }
 
-/*----------------------------------
-  add a square/circle background
------------------------------------*/
 .ni.square,
 .ni.circle {
   padding: 0.33333333em;
@@ -63,9 +48,6 @@ License - nucleoapp.com/license/
   border-radius: 50%;
 }
 
-/*------------------------
-  list icons
--------------------------*/
 .ni-ul {
   padding-left: 0;
   margin-left: 2.14285714em;
@@ -94,9 +76,6 @@ License - nucleoapp.com/license/
   left: -1.9047619em;
 }
 
-/*------------------------
-  spinning icons
--------------------------*/
 .ni.spin {
   -webkit-animation: nc-spin 2s infinite linear;
   -moz-animation: nc-spin 2s infinite linear;
@@ -131,7 +110,6 @@ License - nucleoapp.com/license/
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -141,9 +119,6 @@ License - nucleoapp.com/license/
   }
 }
 
-/*------------------------
-  rotated/flipped icons
--------------------------*/
 .ni.rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
@@ -152,7 +127,6 @@ License - nucleoapp.com/license/
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-
 .ni.rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
@@ -188,10 +162,6 @@ License - nucleoapp.com/license/
   -o-transform: scale(1, -1);
   transform: scale(1, -1);
 }
-
-/*------------------------
-    font icons
--------------------------*/
 
 .ni-active-40::before {
   content: "\ea02";
@@ -592,6 +562,3 @@ License - nucleoapp.com/license/
 .ni-ui-04::before {
   content: "\ea65";
 }
-
-
-/* all icon font classes list here */
