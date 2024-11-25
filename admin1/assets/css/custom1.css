@@ -952,6 +952,9 @@
     margin: 5px; 
     object-fit:cover;
 }
+.pro_delete_btn:hover{
+  background-color: #cdcaca;
+}
 .no_proimg{
   width: 300px; 
   height: 300px;
@@ -1053,10 +1056,20 @@
 
 .tooltip-icon {
   margin-left: 10px;
-  color: #ff0000; /* Red for warning */
+  color: #ff0000;
   cursor: pointer;
   position: relative;
+  background-color: #f0f0f0; 
+  height: 20px; 
+  width: 20px; 
+  border-radius: 50%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 3px;
 }
+
 
 .tooltiptext {
   visibility: hidden;
@@ -1106,4 +1119,7 @@
   border-radius: 50%;
   background: #fff;
   padding: 8px;
+}
+.bg-gradient{
+  background: #21d4fd ;
 }

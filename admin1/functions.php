@@ -223,8 +223,11 @@ class admin_functions
         $mobilepattern = "/^[789]\d{9}$/";
         if (empty($phone_number)) {
             $error_array['phone_number'] = "Please enter the phone number.";
-        } elseif (!preg_match($mobilepattern, $phone_number)) {
+        } else if (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
+        }
+        if (strlen($phone_number) !== 10) {
+            $error_array['phone_number'] = "The phone number must be exactly 10 digits.";
         }
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
@@ -672,7 +675,6 @@ class admin_functions
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
         if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
         if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
-        if (empty($_POST['terms'])) $error_array['terms'] = "Please enter payment terms.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
         if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
         if (empty($_POST['amount_paid'])) $error_array['amount_paid'] = "Please enter amount_paid number.";
@@ -1439,7 +1441,7 @@ class admin_functions
                     $output .= '<div class="position-relative">';
                     $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="main-product-img img-fluid shadow border-radius-xl modal_img">';
                     $output .= '<div class="position-absolute top-50 start-50 translate-middle">';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product_main_image" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class=" pro_delete_btn fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product_main_image" aria-hidden="true"></i>';
                     $output .= '</div>';
 
                     $output .= '</div>';
@@ -1462,7 +1464,7 @@ class admin_functions
                                 $output .= '<div class="col-6 col-md-4 p-2 position-relative">';
                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
 
-                                $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" aria-label="Delete">';
+                                $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="pro_delete_btn btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" aria-label="Delete">';
                                 $output .= '<i class="fa fa-trash"></i>';
                                 $output .= '</button>';
                                 $output .= '</div>';

@@ -51,7 +51,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="mb-3 ">
                 <div class="row ">
                   <div class="col w-50 mb-3">
-                    <textarea type="text" placeholder="Invoice Name" class="form-control validtext max-width-500" name="i_name"></textarea>
+                    <textarea type="text" placeholder="Invoice Name" class="form-control valikey max-width-500" name="i_name"></textarea>
                     <span class="errormsg i_name"></span>
 
                   </div>
@@ -89,7 +89,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ">
                   <input type="text" class="form-control validtext mt-1" placeholder="Payment Terms" name="terms">
-                  <span class="errormsg terms"></span>
+                  <span class="errormsg "></span>
 
                 </div>
               </div>
@@ -119,7 +119,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <table class="mt-4" id="attributes">
                   <thead>
                     <tr>
-                      <th class="w-70 bg-gradient-info text-light ps-3 text-bold">Item</th>
+                      <th class="w-70 bg-gradient text-light ps-3 text-bold">Item</th>
                       <th class="w-10 bg-gradient-info text-light text-center text-bold">Quantity</th>
                       <th class="w-10 bg-gradient-info text-light text-center text-bold">Rate</th>
                       <th class="w-10 bg-gradient-info text-light text-center text-bold">Amount</th>
@@ -129,7 +129,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <tbody id="attributes-body" class="get_invoiceitem">
                     <tr class="attr">
                     <td class="item_0">
-                        <input type="text" class="form-control mt-1 validtext" placeholder="Item Title" name="item[]">
+                        <input type="text" class="form-control mt-1 valid_invoice_item " placeholder="Item Title" name="item[]">
                         <span class="errormsg item_0"></span>
                       </td>
                       <td  class="quantity_0">

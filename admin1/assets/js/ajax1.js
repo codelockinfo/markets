@@ -460,9 +460,7 @@ function get_invoice(id) {
       response["outcome"]["ship_to"] !== undefined
         ? $("textarea[name='ship_to']").val(response["outcome"]["ship_to"])
         : "";
-      response["outcome"]["terms"] !== undefined
-        ? $("input[name='terms']").val(response["outcome"]["terms"])
-        : "";
+      
       response["outcome"]["due_date"] !== undefined
         ? $("input[name='due_date']").val(response["outcome"]["due_date"])
         : "";
@@ -816,7 +814,9 @@ $(document).ready(function () {
   $(".valikey").on("keypress", function(){
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
-
+  $(".valid_invoice_item").on("keypress", function(){
+    $(this).closest(".attr").find(".errormsg").text("");
+  });
   $(".validsignf").on("keypress", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
@@ -830,8 +830,9 @@ $(document).ready(function () {
   });
 
   $(".validurl").on("keypress", function () {
-    $(this).next(".errormsg").text("");
+    $(this).closest("mb-3").find(".errormsg").text("");
   });
+  
 
   $(".price").on("keypress", function (e) {
     if (e.which >= 48 && e.which <= 57) {
@@ -1403,9 +1404,7 @@ $(document).ready(function () {
           ? $(".date").html(response["msg"]["date"])
           : $(".date").html("");
 
-        response["msg"]["terms"] !== undefined
-          ? $(".terms").html(response["msg"]["terms"])
-          : $(".terms").html("");
+       
 
         response["msg"]["due_date"] !== undefined
           ? $(".due_date").html(response["msg"]["due_date"])
