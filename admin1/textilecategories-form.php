@@ -117,8 +117,6 @@ if ($_SESSION['current_user']['role'] == 1) {
 
 </html>
 <script type="text/javascript"> 
-
-
 loadData("brousetextilelisting");
 get_Categories();
 </script>
