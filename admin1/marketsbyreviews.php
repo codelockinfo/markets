@@ -9,7 +9,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -39,7 +38,6 @@ if ($_SESSION['current_user']['role'] == 1) {
                 </select>
                 <span class="errormsg shopname"></span>
               </div>
-
               <label for="review" class="font-weight-normal required">Shop Reviews</label>
               <div class="mb-3">
                 <input type="number" class="form-control product number w-100" placeholder="Shop Reviews" name="review">
@@ -49,9 +47,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                 <button type="button" class="btn bg-gradient-info btn-sm reviewSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm pform_reset formCancel">Cancel</button>
               </div>
-            
             </form>
-            
           </div>
         </div>
         <div class="col-xl-6 col-md-6 mx-auto main-sec">
@@ -128,11 +124,8 @@ if ($_SESSION['current_user']['role'] == 1) {
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
-
 </html>
 <script type="text/javascript">
-  console.log("listbrousetextile LIST");
-  // listreview()
   loadData("reviewlisting");
   select_shop();
 </script>

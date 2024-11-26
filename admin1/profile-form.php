@@ -8,7 +8,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 <?php
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -126,5 +125,4 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
-
 </html>

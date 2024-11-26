@@ -9,12 +9,10 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
   ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
       $para_array = array("title" => "Banner Image Form", "link" => "", "button_text" => "");
@@ -151,7 +149,5 @@ if ($_SESSION['current_user']['role'] == 1) {
 
 </html>
 <script type="text/javascript"> 
-console.log("banner LIST");
-// listbanner();
 loadData("bannerlisting");
 </script>

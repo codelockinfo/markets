@@ -1,13 +1,10 @@
 <?php
 include 'header.php';
 ?>
-
 <body class="bg-white">
-  <!-- Navbar -->
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="<?php echo CLS_SITE_URL; ?>">
@@ -22,18 +19,6 @@ include 'header.php';
             </button>
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
-                <!-- <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="#">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="profile.html">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
-                  </a>
-                </li> -->
                 <li class="nav-item">
                   <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
@@ -41,9 +26,6 @@ include 'header.php';
                   </a>
                 </li>
               </ul>
-              <!-- <li class="nav-item d-flex align-items-center">
-                <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
-              </li> -->
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <a href="<?php echo CLS_SITE_URL; ?>" target="_blank" class="btn bg-gradient-info btn-sm btn-round mb-0 me-1">Preview</a>
@@ -52,7 +34,6 @@ include 'header.php';
             </div>
           </div>
         </nav>
-        <!-- End Navbar -->
       </div>
     </div>
   </div>
@@ -96,7 +77,7 @@ include 'header.php';
                           <option value="1">Wholesale</option>
                         </select>
                         <i class="fa-solid fa-exclamation tooltip-icon"></i>
-                        <h6 class="tooltiptext"> choice any one business  </h6>
+                        <h6 class="tooltiptext"> Choice any one business  </h6>
                       </div>
                       <span class="errormsg business_type"></span>
                     </div>
@@ -149,10 +130,6 @@ include 'header.php';
                       <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
-                    <!-- <div class="text-center">
-                      <button type="button" class="btn btn-primary bg-dark btn-sm signUpsave save_loader_show">Save</button>
-                      <button type="button" class="btn btn-secondary bg-dark btn-sm formCancel signUpcancel">Cancel</button>
-                    </div> -->
                     <div class="text-center">
                       <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 signUpsave save_loader_show">Sign up</button>
                     </div>
@@ -176,7 +153,6 @@ include 'header.php';
       </div>
     </section>
   </main>
-  <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <footer class="footer mt-3 py-3">
     <div class="container">
       <div class="row">
@@ -191,23 +167,6 @@ include 'header.php';
             Blog
           </a>
         </div>
-        <!-- <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
-            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
-              <span class="text-lg fab fa-dribbble"></span>
-            </a>
-            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
-              <span class="text-lg fab fa-twitter"></span>
-            </a>
-            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
-              <span class="text-lg fab fa-instagram"></span>
-            </a>
-            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
-              <span class="text-lg fab fa-pinterest"></span>
-            </a>
-            <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
-              <span class="text-lg fab fa-github"></span>
-            </a>
-          </div> -->
       </div>
       <div class="row">
         <div class="mx-auto text-center mt-0">
@@ -220,8 +179,6 @@ include 'header.php';
       </div>
     </div>
   </footer>
-  <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   </main>
 </body>
-
 </html>

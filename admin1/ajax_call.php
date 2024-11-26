@@ -2,7 +2,6 @@
 
 header("Access-Control-Allow-Origin: *");
 include_once 'functions.php';
-
 $is_error = 0;
 $comeback = array('result' => 'fail', 'message' => 'Opps! Bad request call!');
 

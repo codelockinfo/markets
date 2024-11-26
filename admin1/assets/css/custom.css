@@ -7,9 +7,6 @@
   color: #f56b6b; 
 }
 
-
-
-/* sign-in & sign-up background img css */
 .b-img {
   transform: skewX(-8deg);
   overflow: hidden;
@@ -23,6 +20,7 @@
   transform: skewX(8deg);
   height: 800px;
 }
+
 .no-data{
   text-align: center;
   margin: 0 auto;
@@ -31,14 +29,13 @@
 .no-data img{
   width:50%;
 }
-/* sign-in & sign-up background img css end */
+
 .profile-image{
   width: 320px;
   height: 320px;
   object-fit: cover;
 }
 
-/* sign-in form space css */
 .card-space {
   margin-top: -35px;
 }
@@ -64,11 +61,6 @@
   }
 }
 
-/* sign-in form space css end */
-
-
-
-/* plans page css  */
 .pricing .card {
   border: none;
   border-radius: 1rem;
@@ -121,9 +113,11 @@
   .dropdown .dropdown-toggle.active:after {
     content: "\f106";
   }
+
   .dropdown .dropdown-toggle.active:after {
     content: "\f106";
   }
+
   .pricing .card:hover {
     background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
     opacity: 0.6;
@@ -131,6 +125,7 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
   }
+
 }
 
 @media (max-width:992px) {
@@ -148,11 +143,6 @@
   }
 }
 
-/* plans page css end */
-
-
-
-/* sidebar dropdown css */
 .sidenav1 {
   height: 100%;
   width: 80%;
@@ -236,14 +226,8 @@
   }
 }
 
-/* sidebar dropdown css end */
-
-
-
-/* banner image & markets form css */
 .drop-zone {
   position: relative;
-  /* max-width: 50%; */
   height: 200px;
   padding: 25px;
   display: flex;
@@ -278,12 +262,9 @@
   width: 100%;
   padding: 5px 0;
   color: #ffffff;
-  /* background: rgba(0, 0, 0, 0.75); */
   font-size: 14px;
   text-align: center;
 }
-
-/* banner image form css end */
 
 #imagePreview {
   display: flex;
@@ -291,6 +272,7 @@
   flex-wrap: wrap;
   margin-top: 10px;
 }
+
 .img-preview {
   width: 100px;
   height: 100px;
@@ -298,7 +280,6 @@
   object-fit: cover;
 }
 
-/* offer & textile catagories form css */
 .form {
   width: 500px;
   margin: 5% auto;
@@ -379,11 +360,6 @@
   height: 100%;
 }
 
-/* offer form css end */
-
-
-
-/* FAQ's accordion css */
 .main-editor {
   width: 100%;
   margin: 0px;
@@ -393,7 +369,6 @@
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  /* margin: 50px auto; */
   padding: 0 50px;
 }
 
@@ -475,14 +450,11 @@
   }
 }
 
-/* FAQ's accordion css end */
-/* preview & close button css */
 .close-button {
   position: absolute;
   left: 82%;
   top: 16px;
-  /* height: 20px;
-  width: 20px; */
+ 
   z-index: 1;
   text-align: center;
   border: none;
@@ -518,11 +490,7 @@
  padding: 20px !important;
 }
 
-/* preview & close button css end */
 
-
-
-/* multi select dropdown css in product form */
 .select2.select2-container .select2-selection--multiple .select2-search--inline .select2-search__field {
   margin-top: 0;
   height: 42px !important;
@@ -557,11 +525,6 @@
   font-size: 16px;
 }
 
-/* multi select dropdown css in product form end */
-
-
-
-/* sign-in form media query */
 @media (min-width: 450px) and (max-width: 768px) {
   .facebook {
     width: 150px;
@@ -574,11 +537,6 @@
   }
 }
 
-/* sign-in form media query end */
-
-
-
-/* navigation bar media query */
 @media (min-width:576px) and (max-width: 620px) {
   .search-btn {
     margin-right: 5px;
@@ -608,19 +566,13 @@
   }
 }
 
-/* navigation bar media query end */
 
-
-/* product form media query */
 @media (max-width:410px) {
   .price1 {
     display: none;
   }
 }
 
-/* product form media query end */
-
-/* profile page css */
 @media (max-width:768px) {
   .profile-sec {
     margin-top: 10px;
@@ -632,18 +584,11 @@
   }
 }
 
-/* profile page css end */
-
-/* enable & disable buttton css */
 .btn-enable:hover {
   background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
   color: white;
 }
 
-/* enablew & disable button css end */
-
-
-/* paragraph form css */
 @media (max-width:1200px) {
   .para-main {
     margin-top: 10px;
@@ -651,20 +596,12 @@
   }
 }
 
-/* paragraph form css end */
-
-/* banner and other form media query  css for margin */
 @media (max-width:1200px) {
   .main-sec {
     margin: 10px 0px;
   }
 }
 
-/* banner and other form css end */
-
-
-
-/* invoice page css */
 .invoicename{
   margin-right: none !important;
 }
@@ -711,9 +648,8 @@
 
 .invoic_twocol {
   display: flex;
-  flex-wrap: wrap; /* Allows flex items to wrap */
+  flex-wrap: wrap;
 }
-
 
 .bill-to {
   margin: 10px;
@@ -767,10 +703,6 @@
   }
 }
 
-/* invoice page css end */
-
-
-/* invoice preview page css */
 @media (max-width:575px) {
   .table-scroll {
     width: 100%;
@@ -778,11 +710,6 @@
   }
 }
 
-/* invoice preview page css end */
-
-
-
-/* quantity css start */
 #qty_selector {
   width: 100%;
 }
@@ -822,12 +749,10 @@
   }
 }
 
-/* quantity css end */
 .navbar-vertical .navbar-nav .nav-link.active{
   color: #344767;
   background-color: #fff;
 }
-/* quantity css end */
 
 .pagination {
   justify-content: center !important;
@@ -934,7 +859,7 @@
   box-shadow: 5px 5px 20px 9px rgba(0, 0, 0, .05);
 }
 .custom-position{
-  left:33%
+  left:0%;
 }
 .product_imagebox{
   cursor: pointer;
@@ -951,6 +876,9 @@
    height: 150px;
     margin: 5px; 
     object-fit:cover;
+}
+.pro_delete_btn:hover{
+  background-color: #cdcaca;
 }
 .no_proimg{
   width: 300px; 
@@ -1053,9 +981,18 @@
 
 .tooltip-icon {
   margin-left: 10px;
-  color: #ff0000; /* Red for warning */
+  color: black;
   cursor: pointer;
   position: relative;
+  background-color: #f0f0f0; 
+  height: 20px; 
+  width: 20px; 
+  border-radius: 50%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 3px;
 }
 
 .tooltiptext {
@@ -1069,7 +1006,7 @@
   position: absolute;
   z-index: 1;
   top: 0%;
-  right: 0%; /* Adjust this for spacing from the icon */
+  right: 0%; 
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
@@ -1079,7 +1016,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  right: 100%; /* Point arrow to the icon */
+  right: 100%;
   transform: translateY(-50%);
   border-width: 5px;
   border-style: solid;
@@ -1106,4 +1043,7 @@
   border-radius: 50%;
   background: #fff;
   padding: 8px;
+}
+.bg-gradient{
+  background: #21d4fd ;
 }

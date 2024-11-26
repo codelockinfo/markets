@@ -27,10 +27,9 @@ window.onload = function () {
         inputElement.click();
       }
     });
-    console.log(inputElement);
-    console.log("LLLLLLLLLLLLLLLLLLLLLLLLLL");
+  
     inputElement.addEventListener("change", (e) => {
-      console.log("inputelement change");
+      
       if (inputElement && inputElement.files && inputElement.files.length > 0) {
         const file = inputElement.files[0];
         if (file.type.startsWith("image/")) {
@@ -102,7 +101,7 @@ window.onload = function () {
   }
 
   function updateThumbnail(dropZoneElement, file, inputElement) {
-    console.log("updateThumbnail");
+
     let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
     const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
     if (!thumbnailElement) {
@@ -116,7 +115,7 @@ window.onload = function () {
     if (file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.addEventListener("load", (e) => {
-        console.log("Load");
+      
         const img = document.createElement("img");
         img.src = e.target.result;
         img.classList.add("picture__img");
@@ -185,7 +184,7 @@ $(document).ready(function () {
 
 // invoice add row
 $(document).ready(function () {
-  console.log("addrow");
+ 
   function addRow() {
     const row = $(".attr").first().clone(true, true);
     row.find("input").val("");
@@ -254,10 +253,10 @@ $(document).ready(function () {
   }
 
   function updateSubtotal() {
-    console.log("new sabtotle");
+    
     let subtotal = 0;
     $("#attributes-body .attr").each(function () {
-      console.log("amountText");
+      
       const amountText = $(this).find('input[name="amount[]"]').val();
       const amount = parseFloat(amountText) || 0;
       subtotal += amount;
@@ -296,13 +295,13 @@ $(document).ready(function () {
     //   const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
 
     //   dropZoneElement.addEventListener("click", () => {
-    //     console.log("dropZoneElement click");
+    //    
     //     if (!inputElement.disabled) {
     //       inputElement.click();
     //     }
     //   });
     //   inputElement.addEventListener("change", (e) => {
-    //     console.log("change");
+    //    
     //     if (inputElement.files.length) {
     //       const file = inputElement.files[0];
     //       if (file.type.startsWith("image/")) {
@@ -333,7 +332,7 @@ $(document).ready(function () {
 
     //   dropZoneElement.addEventListener("drop", (e) => {
     //     e.preventDefault();
-    //     console.log("dropZoneElement drop");
+    //     
     //     const file = e.dataTransfer.files[0];
     //     if (file && file.type.startsWith("image/")) {
     //       inputElement.files = e.dataTransfer.files;
@@ -362,7 +361,7 @@ $(document).ready(function () {
     // }
 
     // function updateThumbnail(dropZoneElement, file, inputElement) {
-    //   console.log("updateThumbnail   jjj");
+    //  
     //   let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
     //   const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
 
@@ -380,7 +379,7 @@ $(document).ready(function () {
     //   if (file.type.startsWith("image/")) {
     //     const reader = new FileReader();
     //     reader.addEventListener("load", (e) => {
-    //       console.log("load dosc");
+    //      
     //       const img = document.createElement("img");
     //       img.src = e.target.result;
     //       img.classList.add("picture__imgs");
@@ -420,7 +419,7 @@ $(".increment-btn").click(function (e) {
   value = isNaN(value) ? 0 : value;
   value++;
   $(this).closest(".product_data").find(".qty-input").val(value);
-  console.log("After increment: ", value);
+  
 });
 
 $(".decrement-btn").click(function (e) {
@@ -428,11 +427,11 @@ $(".decrement-btn").click(function (e) {
   var dec_value = $(this).closest(".product_data").find(".qty-input").val();
   var value = parseInt(dec_value, 10);
   value = isNaN(value) ? 0 : value;
-  console.log("Before decrement: ", value);
+ 
   if (value > 1) {
     value--;
     $(this).closest(".product_data").find(".qty-input").val(value);
-    console.log("After decrement: ", value);
+   
   }
 });
 // loder

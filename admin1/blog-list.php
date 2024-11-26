@@ -5,12 +5,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
   ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
       $para_array = array("title" => "Blog List", "link" => "blog-form.php", "button_text" => "Add Blog");
@@ -50,7 +48,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">
-
           </div>
             <div id="pagination"></div>
         </div>
@@ -122,10 +119,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 </body>
-
 </html>
 <script type="text/javascript">
-  console.log("blog LIST");
-  // listblog();
-  loadData("bloglisting");
+   loadData("bloglisting");
 </script>

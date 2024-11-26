@@ -12,11 +12,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-      $para_array = array("title" => "Invoice List", "link" => "invoice.php", "button_text" => "Add Invoice");
-      $title = $para_array['title']; 
-      $link = $para_array['link'];
-      $button_text = $para_array['button_text'];
-      include 'adminheadertop.php';
+    $para_array = array("title" => "Invoice List", "link" => "invoice.php", "button_text" => "Add Invoice");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
@@ -24,7 +24,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="card-header pb-0 p-3">
             <h6 class="mb-1 mt-1 text-lg">Invoices</h6>
           </div>
-        
         </div>
         <div class="input-group search-btn search-icon1 w-80 mx-auto">
           <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
@@ -101,10 +100,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 </body>
-
 </html>
 <script type="text/javascript">
-  console.log("invoice LIST");
   loadData("invoicelisting");
-
 </script>

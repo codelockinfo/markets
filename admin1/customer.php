@@ -6,12 +6,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
-
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -53,9 +51,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
                   <input type="file" name="c_image" id="removeImage" class="drop-zone__input validsimg">
                 </div>
-                <!-- <div class="drop-zone__thumb"></div> -->
               </div>
-
               <div class="col">
                 <div class="row mt-2">
                   <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
@@ -85,7 +81,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <button type="button" class="btn bg-gradient-info btn-sm customersave save_loader_show">Save</button>
               <button type="button" class="btn bg-gradient-info btn-sm pform_reset formCancel">Cancel</button>
             </div>
-            <!-- <div class="alert" role="alert" id="success_message" name="success_alert"></div> -->
           </form>
         </div>
       </div>
@@ -154,7 +149,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script> -->
 </body>
 
 </html>

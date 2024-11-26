@@ -38,18 +38,18 @@ function getCookie(cname) {
 
 function formatNumber(num) {
   if (num >= 10000000) {
-    // For Crores
+   
     return (num / 10000000).toFixed(1) + "Cr";
   } else if (num >= 100000) {
-    // For Lakhs
+   
     return (num / 100000).toFixed(1) + "L";
   } else if (num >= 1000) {
-    // For Thousands
+    
     return (num / 1000).toFixed(1) + "K";
   } else {
     return num;
   }
-  return num.toString(); // For numbers less than 1000
+  return num.toString(); 
 }
 
 function loading_show($selector) {
@@ -91,14 +91,14 @@ function check_toggle_status() {
           $("#flexSwitchCheckDefault").prop("checked", false);
         }
       } else {
-        console.log("Something went wrong");
+       
       }
     },
   });
 }
 
 function CountData(routineName) {
-  console.log(routineName + " on load");
+ 
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -106,8 +106,7 @@ function CountData(routineName) {
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
-      console.log("Sending routine_name:", routineName);
+     
       if (response.data === "success") {
         response.totalearning !== undefined
           ? $(".totalEarning").text(
@@ -132,8 +131,6 @@ function CountData(routineName) {
 }
 
 function loadData(routineName) {
-  console.log(routineName + " on load");
-  console.log("fffff");
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -141,20 +138,14 @@ function loadData(routineName) {
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
-      console.log("Sending routine_name:", routineName);
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
-
         $(".dropdownhide").hide();
         $("#pagination").hide();
-
         $(".addproduct").show();
         $(".viewproduct").hide();
       } else {
-        console.log("Data found");
         $("#getdata").html(response.outcome);
-        console.log(response.pagination, "pagggggg");
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
@@ -180,12 +171,10 @@ function listgallary() {
 }
 
 function listproduct() {
-  console.log("product function called");
   loadData("productlisting");
 }
 
 function listcustomer() {
-  console.log("customerlist function called");
   loadData("customerlisting");
 }
 
@@ -238,7 +227,7 @@ function listreview() {
 }
 
 function profileLoadData(routineName) {
-  console.log(routineName + " on load");
+ 
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -246,7 +235,7 @@ function profileLoadData(routineName) {
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
+     
       if (response.outcome === "No data found") {
         // $("#" + elementId).html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
       } else {
@@ -281,9 +270,6 @@ function profileLoadData(routineName) {
           : $("#profile_data").html("");
       }
     },
-    error: function (xhr, status, error) {
-      console.error("Error occurred:", error);
-    },
   });
 }
 
@@ -295,7 +281,6 @@ function demo() {
     data: { routine_name: "demo_function" },
     beforeSend: function () {},
     success: function (response) {
-      console.log(response);
     },
   });
 }
@@ -308,7 +293,6 @@ function get_product(id) {
     data: { routine_name: "getproduct", id: id },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
       if (response.outcome !== "" && response.outcome !== undefined) {
         response["outcome"]["title"] !== undefined
           ? $("input[name='pname']").val(response["outcome"]["title"])
@@ -335,17 +319,12 @@ function get_product(id) {
               response["outcome"]["product_img_alt"]
             )
           : "";
-
           if (response.outcome.p_tag) {
             const arrangedValue = response.outcome.p_tag;
-            console.log("Original p_tag value:", arrangedValue);
-  
             if (arrangedValue.trim() !== "") {
               const rearrangedValue = arrangedValue.split(",").reverse();
-              console.log("Reversed p_tag value:", rearrangedValue);
               rearrangedValue.forEach(function (value) {
                 if ($(`select[name='p_tag'] option[value='${value}']`).length === 0) {
-                
                   $("select[name='p_tag']").append(
                     `<option value="${value}">${value}</option>`
                   );
@@ -389,7 +368,6 @@ function get_product(id) {
             },
             error: function () {
               $(".pro-zone").hide();
-              console.log("currpt image not found");
             },
           });
         } else {
@@ -444,9 +422,6 @@ function get_invoice(id) {
     data: { routine_name: "getinvoice", id: id },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
-      console.log(response.outcome.i_name);
-
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
@@ -460,9 +435,7 @@ function get_invoice(id) {
       response["outcome"]["ship_to"] !== undefined
         ? $("textarea[name='ship_to']").val(response["outcome"]["ship_to"])
         : "";
-      response["outcome"]["terms"] !== undefined
-        ? $("input[name='terms']").val(response["outcome"]["terms"])
-        : "";
+      
       response["outcome"]["due_date"] !== undefined
         ? $("input[name='due_date']").val(response["outcome"]["due_date"])
         : "";
@@ -521,7 +494,6 @@ function get_invoice(id) {
         $(".drop-zone").show();
       }
       // invoice_item get
-      console.log(response.item_data);
       if (response.item_data) {
         $(".get_invoiceitem").html(response.item_data);
       }
@@ -537,7 +509,6 @@ function get_customer(id) {
     dataType: "json",
     data: { routine_name: routine_name, id: id },
     success: function (response) {
-      console.log(response);
       var response = JSON.parse(response);
       response["outcome"]["name"] !== undefined
         ? $("input[name='name']").val(response["outcome"]["name"])
@@ -602,8 +573,6 @@ function get_blog(id) {
     data: { routine_name: "getblog", id: id },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response);
-
       response["outcome"]["title"] !== undefined
         ? $("input[name='blog_title']").val(response["outcome"]["title"])
         : "";
@@ -683,7 +652,6 @@ function activeSidebarMenu() {
 }
 
 function get_Categories() {
-  console.log("CAtegories");
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -697,16 +665,13 @@ function get_Categories() {
           $(
             "select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]"
           ).append(response["outcome"]);
-        }
-      } else {
-        console.log("Something went wrong");
-      }
+        } 
+      }  
     },
   });
 }
 
 function select_shop() {
-  console.log("select shop");
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -715,7 +680,6 @@ function select_shop() {
     beforeSend: function () {},
     success: function (response) {
       var response = JSON.parse(response);
-      console.log("Response:", response);
       if (response.data === "success") {
         if (Array.isArray(response.outcome)) {
           $("#mySelect")
@@ -728,22 +692,18 @@ function select_shop() {
             if (shopName) {
               var optionHtml =
                 "<option value='" + userId + "'>" + shopName + "</option>";
-              console.log(optionHtml);
+            
               $("#mySelect").append(optionHtml);
             }
           });
         }
-      } else {
-        console.log("Something went wrong");
-      }
+      } 
     },
   });
 }
 
 $(document).ready(function () {
-  console.log("DOCUMENT READY ...");
   activeSidebarMenu();
-
   function showMessage(msg, type) {
     var alertTitle =
       type === "success" ? "Success" : type === "fail" ? "Failure" : "Error";
@@ -816,8 +776,10 @@ $(document).ready(function () {
   $(".valikey").on("input", function(){
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
-
-  $(".validsignf").on("input", function () {
+  $(".valid_invoice_item").on("keypress", function(){
+    $(this).closest(".attr").find(".errormsg").text("");
+  });
+  $(".validsignf").on("keypress", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
@@ -829,14 +791,14 @@ $(document).ready(function () {
     }
   });
 
-  $(".validurl").on("input", function () {
-    $(this).next(".errormsg").text(""); 
-});
-
-$(".price").on("input", function () {
-  const value = $(this).val();
-  $(this).next(".errormsg").text("");
-});
+  $(".validurl").on("keypress", function () {
+    $(this).closest("mb-3").find(".errormsg").text("");
+  });
+  
+  $(".price").on("input", function () {
+    const value = $(this).val();
+    $(this).next(".errormsg").text("");
+  });
 
   if (CKEDITOR.instances["myeditor"]) {
     CKEDITOR.instances["myeditor"].on("change", function () {
@@ -903,7 +865,6 @@ $(document).on("click", ".formCancel", function (event) {
   $(document).on("click", ".formCancel", function () {
     $(".pro-zone__prompt").css("display", "block");
     $(".drop-zone").css("display", "flex");
-    console.log("CCCCC");
     $(".errormsg").html("");
     if ($(".form-control[name=p_tag]").length > 0) {
       if ($(".form-control[name=p_tag]").val().length > 0) {
@@ -958,9 +919,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
         var response = JSON.parse(response);
-       
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
           window.location.href = "analytics.php";
@@ -1002,7 +961,6 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
         var response = JSON.parse(response);
         response["msg"]["name"] !== undefined
           ? $(".name").html(response["msg"]["name"])
@@ -1029,11 +987,9 @@ $(document).on("click", ".formCancel", function (event) {
     });
   });
   function profileUpdateImage() {
-    console.log("profile update ...using modal");
     $("#profileImageUpdate").modal("hide"); // Use the modal ID to hide it
   }
   $(document).on("click", ".profileImageSave", function (e) {
-    console.log("profileImageSave ");
     var form_data = $("#profileImageSave")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "profile_imagesave");
@@ -1048,7 +1004,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         if (response["msg"]["shop_logo"] !== undefined) {
           $(".shop_logo").html(response["msg"]["shop_logo"]);
@@ -1061,7 +1017,7 @@ $(document).on("click", ".formCancel", function (event) {
 
           profileUpdateImage();
           var profile_image = $(".picture__img").attr("src");
-          console.log(profile_image);
+          
           if (profile_image == undefined) {
             $(".profile-image").attr(
               "src",
@@ -1083,7 +1039,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".signUpsave", function (e) {
     e.preventDefault();
-    console.log("signUpsavebutton click");
+   
     var form_data = $("#savesignup")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_signup");
@@ -1098,7 +1054,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         response["msg"]["name"] !== undefined
           ? $(".name").html(response["msg"]["name"])
@@ -1144,8 +1100,6 @@ $(document).on("click", ".formCancel", function (event) {
   });
 
   $(document).on("keydown", "#savesignin input", function (event) {
-    console.log("KEYDOWN");
-    console.log(event.key);
     if (event.key === "Enter") {
       event.preventDefault();
       $(".signUpsave").click();
@@ -1154,7 +1108,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".productSave", function (event) {
     event.preventDefault();
-    console.log("Product save button click");
+   
     var form_data = $("#productinsert")[0];
     var form_data = new FormData(form_data);
     
@@ -1177,11 +1131,9 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
-        console.log(".......sd.......");
+        
         var response = JSON.parse(response);
-        console.log(response.msg.min_price);
-        console.log(response.msg.p_tag);
+       
 
         loading_hide(".save_loader_show", "Save");
         response["msg"]["pname"] !== undefined
@@ -1221,7 +1173,7 @@ $(document).on("click", ".formCancel", function (event) {
           ? $(".p_description").html(response["msg"]["p_description"])
           : $(".p_description").html("");
         if (response["data"] == "success") {
-          console.log(response);
+          
           if (!response["updated_product_id"]) {
             $("#productinsert")[0].reset();
             resetThumbnail();
@@ -1241,7 +1193,7 @@ $(document).on("click", ".formCancel", function (event) {
   // custemer
   $(document).on("click", ".customersave", function (event) {
     event.preventDefault();
-    console.log("customer click");
+   
     var form_data = $("#custemer_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "add_customer");
@@ -1256,7 +1208,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (data) {
-        console.log(data);
+        
         var response = JSON.parse(data);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["name"] !== undefined
@@ -1284,8 +1236,7 @@ $(document).on("click", ".formCancel", function (event) {
           ? $(".address").html(response["msg"]["address"])
           : $(".address").html("");
         if (response["data"] == "success") {
-          console.log(response);
-          console.log("Updated Customer ID:", response["updated_customer_id"]);
+         
           if (!response["updated_customer_id"]) {
             $("#custemer_frm")[0].reset();
             resetThumbnail();
@@ -1304,7 +1255,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   // $(document).on("click", ".invoice ", function (event) {
   //   event.preventDefault();
-  //   console.log("invoice  button click");
+  //  
   //   var form_data = $("#invoice_frm")[0];
   //   var form_data = new FormData(form_data);
   //   form_data.append("routine_name", "invoice");
@@ -1320,7 +1271,7 @@ $(document).on("click", ".formCancel", function (event) {
   //       loading_show(".save_loader_show");
   //     },
   //     success: function (response) {
-  //       console.log(response);
+  //      
   //       var response = JSON.parse(response);
   //       loading_hide(".save_loader_show", "Save");
   //       response["msg"]["i_image"] !== undefined
@@ -1372,8 +1323,7 @@ $(document).on("click", ".formCancel", function (event) {
   //         : $(".amount").html("");
 
   //       if (response["data"] == "success") {
-  //         console.log(response);
-  //         console.log("Updated invoice ID:", response["update_invoice_id"]);
+  //       
   //         if (!response["update_invoice_id"]) {
   //           $("#invoice_frm")[0].reset();
   //           resetThumbnail();
@@ -1391,7 +1341,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
-    console.log("invoice  button click");
+   
     var form_data = $("#invoice_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
@@ -1420,7 +1370,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+      
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         if (response["msg"]["amount_paid"] !== undefined) {
@@ -1450,9 +1400,7 @@ $(document).on("click", ".formCancel", function (event) {
           ? $(".date").html(response["msg"]["date"])
           : $(".date").html("");
 
-        response["msg"]["terms"] !== undefined
-          ? $(".terms").html(response["msg"]["terms"])
-          : $(".terms").html("");
+       
 
         response["msg"]["due_date"] !== undefined
           ? $(".due_date").html(response["msg"]["due_date"])
@@ -1471,8 +1419,7 @@ $(document).on("click", ".formCancel", function (event) {
           alert("Data submitted successfully!");
         }
         if (response["data"] == "success") {
-          console.log(response);
-          console.log("Updated invoice ID:", response["update_invoice_id"]);
+       
           if (!response["update_invoice_id"]) {
             $("#invoice_frm")[0].reset();
             resetThumbnail();
@@ -1563,14 +1510,14 @@ $(document).on("click", ".formCancel", function (event) {
   }
 
   function delete_product_image_response(deleteId) {
-    console.log("Function called with deleteId:", deleteId);
+    
     $("[data-id='" + deleteId + "']")
       .closest(".position-relative")
       .remove();
   }
 
   function delete_product_form_image_response(deleteId) {
-    console.log("Function called with deleteId:", deleteId);
+    
     $("[data-id='" + deleteId + "']")
       .closest(".drop-zone__thumb")
       .remove();
@@ -1580,7 +1527,7 @@ $(document).on("click", ".formCancel", function (event) {
   }
 
   function delete_product_main_image_response(deleteId) {
-    console.log("Function called with deleteId:", deleteId);
+    
 
     $("[data-id='" + deleteId + "']")
       .closest(".modal")
@@ -1653,7 +1600,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".videoSave", function (event) {
     event.preventDefault();
-    console.log("video save button click");
+    
     var form_data = $("#videoinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_videos");
@@ -1668,7 +1615,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+        
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["video_title"] !== undefined
@@ -1696,7 +1643,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".blogSave", function (event) {
     event.preventDefault();
-    console.log("Blog save button click");
+   
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -1715,7 +1662,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+        
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["blog_title"] !== undefined
@@ -1756,7 +1703,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".bannerSave", function (event) {
     event.preventDefault();
-    console.log("Banner save button click");
+   
     var form_data = $("#bannerinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_banner");
@@ -1771,7 +1718,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["myFile"] !== undefined
@@ -1809,10 +1756,10 @@ $(document).on("click", ".formCancel", function (event) {
     var search_text = $(this).val();
     var page = $(this).data("page");
     var routine_name = $("#search").data("routine");
-    console.log("dddrer", routine_name);
+    
     var page = $("#search").find(".page-link.active").data("page");
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
-    console.log(sortValue + " ****sortValue ");
+    
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
@@ -1829,10 +1776,9 @@ $(document).on("click", ".formCancel", function (event) {
         }
         var pagination = response.pagination;
         var pagination_needed = response.pagination_needed;
-        console.log("pagination_needed:", pagination_needed);
+       
         if (response.outcome != "") {
-          console.log("Updating content...");
-          console.log("ddddddddddd:", response.outcome);
+         
           if (response.outcome == "No data found") {
             $("#getdata").html(NO_DATA);
           } else {
@@ -1840,10 +1786,10 @@ $(document).on("click", ".formCancel", function (event) {
           }
         }
         if (pagination_needed) {
-          console.log("Showing pagination...");
+         
           $("#pagination").html(pagination).show();
         } else {
-          console.log("Hiding pagination...");
+         
           $("#pagination").hide();
         }
       },
@@ -1853,7 +1799,7 @@ $(document).on("click", ".formCancel", function (event) {
   $(document).on("click", "#dataPagination a", function (event) {
     event.preventDefault();
     var routine_name = $("#dataPagination").data("routine");
-    console.log("Routine name:", routine_name);
+    
     var page = $(this).data("page");
     var search_text = $(".search-btn_1").val();
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
@@ -1870,11 +1816,11 @@ $(document).on("click", ".formCancel", function (event) {
       },
       success: function (data) {
         var data = JSON.parse(data);
-        console.log("assss", data);
+       
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
-          console.log(data.pagination, "...............");
+          
         } else {
           $("#getdata").html(NO_DATA);
           $("#pagination").html("Pagination not found");
@@ -1950,15 +1896,13 @@ $(document).on("click", ".formCancel", function (event) {
         ischecked_value: ischecked_value,
         table_name: table_name,
       },
-      success: function (response) {
-        console.log("Ajax response received: ", response);
-      },
+     
     });
   }
 
   $(document).on("click", ".marketSave", function (event) {
     event.preventDefault();
-    console.log("market save button click");
+   
     var form_data = $("#f_marketinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_market");
@@ -1973,7 +1917,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
 
@@ -1996,7 +1940,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".brouseSave", function (event) {
     event.preventDefault();
-    console.log(" brouseSave save button click");
+   
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_brousetxt");
@@ -2030,7 +1974,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".offerSave", function (event) {
     event.preventDefault();
-    console.log(" offers save button click");
+   
     var form_data = $("#offersinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_offers");
@@ -2045,7 +1989,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+      
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["myFile"] !== undefined
@@ -2072,7 +2016,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".paragraphSave", function (event) {
     event.preventDefault();
-    console.log(" paragraph save button click");
+    
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -2091,7 +2035,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["myeditor"] !== undefined
@@ -2111,7 +2055,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".faqSave", function (event) {
     event.preventDefault();
-    console.log(" faqSave save button click");
+   
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -2130,7 +2074,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["faq_question"] !== undefined
@@ -2153,7 +2097,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(document).on("click", ".reviewSave", function (event) {
     event.preventDefault();
-    console.log("review save button click");
+   
     var form_data = $("#reviewinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_review");
@@ -2168,7 +2112,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        console.log(response);
+        
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
 
@@ -2207,7 +2151,7 @@ $(document).on("click", ".formCancel", function (event) {
       processData: false,
       data: form_data,
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
@@ -2237,7 +2181,7 @@ $(document).on("click", ".formCancel", function (event) {
       processData: false,
       data: form_data,
       success: function (response) {
-        console.log(response);
+       
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           showMessage(response["msg"], "success");
@@ -2254,7 +2198,7 @@ $(document).on("click", ".formCancel", function (event) {
 
   $(".dropdown .dropdown-item").click(function () {
     var search_text = $(".search-btn_1").val();
-    console.log("Search text:", search_text);
+   
     var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
     var sortby = $(this).data("sortby");
@@ -2288,10 +2232,9 @@ $(document).on("click", ".formCancel", function (event) {
         }
         var pagination = response.pagination;
         var pagination_needed = response.pagination_needed;
-        console.log("pagination_needed:", pagination_needed);
+       
         if (response.outcome != "") {
-          console.log("Updating content...");
-          console.log("ddddddddddd:", response.outcome);
+         
           if (response.outcome == "No data found") {
             $("#getdata").html(NO_DATA);
           } else {
@@ -2299,10 +2242,10 @@ $(document).on("click", ".formCancel", function (event) {
           }
         }
         if (pagination_needed) {
-          console.log("Showing pagination...");
+          
           $("#pagination").html(pagination).show();
         } else {
-          console.log("Hiding pagination...");
+         
           $("#pagination").hide();
         }
       },
@@ -2326,7 +2269,7 @@ $(document).on("click", ".formCancel", function (event) {
 });
 
 $(document).on("click", ".picture__img", function () {
-  console.log("input click...........");
+ 
   $(this)
     .closest(".imageAppend")
     .find(".pro-zone .pro-zone__input")
@@ -2335,11 +2278,11 @@ $(document).on("click", ".picture__img", function () {
 
 $(document).on("click", ".close-button_product", function (event) {
   event.stopPropagation();
-  console.log("close-button_product");
+ 
   // $(this).closest(".drop-zone__thumb").remove(); // Remove imgWrapper
-  // console.log($(".drop-zone__thumb"));
+  // 
   //   if ($(".drop-zone__thumb").children().length === 0) {
-  //     console.log("OOOOOOOOOO");
+  //    
   //     $(".pro-zone").show();
   //   }
   return false;
@@ -2347,7 +2290,7 @@ $(document).on("click", ".close-button_product", function (event) {
 
 $(document).on("click", ".close-buttons_profile", function (event) {
   event.stopPropagation();
-  console.log("close-buttons_profile");
+  
   var closemainclass = $(this).closest(".form-control");
   closemainclass.find(".drop-zone__thumb").remove();
   closemainclass.find(".drop-zone").css("display", "flex");
@@ -2367,7 +2310,7 @@ $(document).on("click", ".toggle-button", function () {
       video_id: videoId,
     },
     success: function (response) {
-      console.log("Ajax response received: ", response);
+      
     },
   });
 });
@@ -2387,7 +2330,7 @@ function check_toggle_btn(videoId) {
         var check_status = response["outcome"]["toggle"];
         $("#checkbox_" + videoId).prop("checked", check_status == 1);
       } else {
-        console.log("Something went wrong");
+        
       }
     },
   });
