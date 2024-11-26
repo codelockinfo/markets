@@ -1,13 +1,11 @@
 <?php
 include 'header.php';
 require_once 'googleconfig.php';
-
 if (isset($_SESSION['current_user']['user_id'])) {
     header("Location: index.php");
 }
 $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !== '') ? $_SESSION['errorMessage'] : '';
 ?>
-
 <body class="bg-white">
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
@@ -145,5 +143,4 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
         </div>
     </footer>
 </body>
-
 </html>

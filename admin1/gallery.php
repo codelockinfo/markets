@@ -10,7 +10,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   <?php
   include 'sidebar.php';
   ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
       $para_array = array("title" => "Gallery", "link" => "", "button_text" => "");

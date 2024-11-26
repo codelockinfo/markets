@@ -145,7 +145,6 @@
                         </svg>
                       <?php } ?>
                       <span class="ms-1"><?php echo isset($button_text) ? $button_text : "Undefind";?> </span>
-
                     </a>
                   </li>
                 </ul>

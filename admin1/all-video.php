@@ -1,13 +1,10 @@
 <?php
 include 'header.php';
-
 if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
 }
-
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -121,8 +118,5 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 
 </html>
 <script type="text/javascript">
-  console.log("video LIST");
-
   loadData("allvideolisting");
-
 </script>

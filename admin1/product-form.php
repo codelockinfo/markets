@@ -10,7 +10,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
- 
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -216,9 +215,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
-
 </html>
-
 <script>
     get_Categories();
     var id = "<?php echo $id; ?>";

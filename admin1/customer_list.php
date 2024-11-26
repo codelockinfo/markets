@@ -17,14 +17,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-  <?php
+    <?php
     $para_array = array("title" => "Customer List", "link" => "customer.php", "button_text" => "Add Customer");
-    $title = $para_array['title']; 
+    $title = $para_array['title'];
     $link = $para_array['link'];
     $button_text = $para_array['button_text'];
 
     include 'adminheadertop.php';
-  ?>
+    ?>
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3">
@@ -40,7 +40,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="row" id="getdata">
           </div>
           <div id="pagination"></div>
-     
         </div>
       </div>
     </div>
@@ -108,11 +107,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
-
 </body>
-
 </html>
 <script type="text/javascript">
- 
   loadData("customerlisting");
 </script>

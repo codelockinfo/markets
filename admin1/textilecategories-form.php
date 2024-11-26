@@ -9,7 +9,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -31,7 +30,6 @@ if ($_SESSION['current_user']['role'] == 1) {
               <label for="text" class="font-weight-normal">Categories</label>             
                 <select class="form-select required" aria-label="Default select example" id="mySelect" name="categories">
                   <option selected value="">Select Category</option>
-                 
                 </select>                                    
               <span class="errormsg categories"></span>
             </div>
@@ -46,7 +44,6 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-5">
             <div class="row" id="getdata">
-        
             </div>
           </div>
         </div>
@@ -120,8 +117,8 @@ if ($_SESSION['current_user']['role'] == 1) {
 
 </html>
 <script type="text/javascript"> 
-console.log("brouse textile LIST");
-// listbrousetextile();
+
+
 loadData("brousetextilelisting");
 get_Categories();
 </script>

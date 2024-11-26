@@ -2,7 +2,6 @@
 include 'header.php';
 require_once 'googleconfig.php';
 ?>
-
 <body class="bg-white">
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
@@ -108,5 +107,4 @@ require_once 'googleconfig.php';
         </div>
     </footer>
 </body>
-
 </html>

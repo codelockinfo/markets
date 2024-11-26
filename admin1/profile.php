@@ -5,7 +5,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     header("Location: sign-in.php");
     die();
 }
-
 ?>
 <body class="g-sidenav-show bg-gray-100">
     <?php
@@ -135,7 +134,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="row">
                     <div class="col-xl-6 col-md-6 profile-sec">
                         <div class="card" id="img">
-                           
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 profile-sec">
@@ -170,9 +168,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     </h6>
                                 </div>
                                 <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
-
-
-                                    <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
+                                   <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
                                         <div class="input-group search-btn search-icon dropdownhide">
                                             <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
                                             <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search" data-routine="productlisting">
@@ -194,20 +190,15 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </ul>
                                     </div>
                                     <div class="d-flex nav-wrapper position-relative end-0 mt-3 ms-2">
-
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php" class="btn bg-gradient-info viewproduct">
                                             View All Products
                                         </a>
-
                                         </a>
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-form.php" class="btn bg-gradient-info addproduct">
                                             Add Product
                                         </a>
-
-
                                     </div>
                                 </div>
-
                             </div>
                             <div class="card-body p-3">
                                 <div class="row" id="getdata">
@@ -293,7 +284,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         </div>
     </div>
 </body>
-
 </html>
 <script type="text/javascript">
     loadData("productlisting");

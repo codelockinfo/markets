@@ -1,13 +1,11 @@
 <?php
 include 'header.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
-
 if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -39,7 +37,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     </div>
                   </div>
                   <span class="errormsg i_image"></span>
-
                 </div>
                 <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
@@ -53,7 +50,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="col w-50 mb-3">
                     <textarea type="text" placeholder="Invoice Name" class="form-control valikey max-width-500" name="i_name"></textarea>
                     <span class="errormsg i_name"></span>
-
                   </div>
                 </div>
                 <div class="row mt-4 invoicename">
@@ -61,13 +57,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     <span class="text-normal"><strong>Bill To :</strong></span>
                     <textarea type="text" placeholder="Bill To" class="form-control valikey" name="bill_no"></textarea>
                     <span class="errormsg bill_no"></span>
-
                   </div>
                   <div class="col-xl-6">
                     <span class="text-normal"><strong>Ship To :</strong></span>
                     <textarea type="text" placeholder="Ship To " class="form-control valikey" name="ship_to"></textarea>
                     <span class="errormsg ship_to"></span>
-
                   </div>
                 </div>
               </div>
@@ -80,7 +74,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl">
                   <input type="date" class="form-control price mt-1 date-input" name="date">
                   <span class="errormsg date"></span>
-
                 </div>
               </div>
               <div class="row  mt-2">
@@ -90,7 +83,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl ">
                   <input type="text" class="form-control validtext mt-1" placeholder="Payment Terms" name="terms">
                   <span class="errormsg "></span>
-
                 </div>
               </div>
               <div class="row  mt-2">
@@ -100,7 +92,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl">
                   <input type="date" class="form-control mt-1 price date-input " name="due_date">
                   <span class="errormsg due_date"></span>
-
                 </div>
               </div>
               <div class="row  mt-2">
@@ -110,7 +101,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div class="col-xl ">
                   <input type="text" class="form-control mt-1 price " placeholder=" Product Number" name="po_number">
                   <span class="errormsg po_number"></span>
-
                 </div>
               </div>
             </div>
@@ -154,8 +144,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
               <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
             </div>
-
-
             <div class="col">
               <div class="row hidden">
                 <div class="col-xl mt-2">
@@ -180,7 +168,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ampunt_p">
                   <input type="text" class="form-control mt-1 price" name="amount_paid" placeholder="₹ 0.00">
-            
                 </div>
               </div>
               <div class="row  mt-2">

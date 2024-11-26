@@ -136,7 +136,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
-
 </html>
 <script type="text/javascript"> 
 loadData("offerlisting");

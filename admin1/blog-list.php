@@ -5,12 +5,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
   ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
       $para_array = array("title" => "Blog List", "link" => "blog-form.php", "button_text" => "Add Blog");
@@ -121,9 +119,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 </body>
-
 </html>
 <script type="text/javascript">
- 
-  loadData("bloglisting");
+   loadData("bloglisting");
 </script>

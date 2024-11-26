@@ -1,7 +1,6 @@
 <?php
 include 'header.php';
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -236,5 +235,4 @@ include 'header.php';
       </div>
     </div>
 </body>
-
 </html>

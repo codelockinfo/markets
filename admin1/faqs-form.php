@@ -9,7 +9,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -41,7 +40,6 @@ if ($_SESSION['current_user']['role'] == 1) {
                 <button type="button" class="btn bg-gradient-info btn-sm faqSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
               </div>
-              
             </form>
           </div>
         </div>
@@ -129,7 +127,6 @@ if ($_SESSION['current_user']['role'] == 1) {
     </div>
   </div>
 </body>
-
 </html>
 <script type="text/javascript"> 
 loadData("FAQlisting");

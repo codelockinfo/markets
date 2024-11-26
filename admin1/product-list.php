@@ -5,7 +5,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -121,7 +120,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 </body>
-
 </html>
 <script type="text/javascript">
   loadData("productlisting");

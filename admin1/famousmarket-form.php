@@ -14,28 +14,26 @@ if ($_SESSION['current_user']['role'] == 1) {
   <?php
   include 'sidebar.php';
   ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-      $para_array = array("title" => "Famous Markets Form", "link" => "", "button_text" => "");
-      $title = $para_array['title']; 
-      $link = $para_array['link'];
-      $button_text = $para_array['button_text'];
-      include 'adminheadertop.php';
+    $para_array = array("title" => "Famous Markets Form", "link" => "", "button_text" => "");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-5">
             <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
-            <label for="name" class="font-weight-normal required">Shop Name</label>
+              <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">
                 <select class="form-select required" aria-label="Select Shop" id="mySelect" name="shop_name">
                   <option selected value="">Select Shop</option>
                 </select>
                 <span class="errormsg shop_name"></span>
               </div>
-              
               <div class="mb-3">
                 <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
@@ -47,7 +45,6 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-5">
             <div class="row" id="getdata">
-        
             </div>
           </div>
         </div>
@@ -118,9 +115,8 @@ if ($_SESSION['current_user']['role'] == 1) {
   </div>
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
 </body>
-
 </html>
-<script type="text/javascript"> 
-listfamousmarket();
-select_shop();
+<script type="text/javascript">
+  listfamousmarket();
+  select_shop();
 </script>

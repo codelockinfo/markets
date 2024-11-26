@@ -9,7 +9,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -125,7 +124,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   <script src="<?php echo main_url('/admin1/assets/js/common.js'); ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
-
 </html>
 <script type="text/javascript">
   loadData("reviewlisting");

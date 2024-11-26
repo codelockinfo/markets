@@ -1,7 +1,6 @@
 <?php
 include 'header.php';
 ?>
-
 <body class="bg-white">
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
@@ -20,7 +19,6 @@ include 'header.php';
             </button>
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
-
                 <li class="nav-item">
                   <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
@@ -28,7 +26,6 @@ include 'header.php';
                   </a>
                 </li>
               </ul>
-              
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <a href="<?php echo CLS_SITE_URL; ?>" target="_blank" class="btn bg-gradient-info btn-sm btn-round mb-0 me-1">Preview</a>
@@ -133,7 +130,6 @@ include 'header.php';
                       <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
-                    
                     <div class="text-center">
                       <button type="button" class="btn bg-gradient-info w-100 mt-0 mb-0 signUpsave save_loader_show">Sign up</button>
                     </div>
@@ -171,7 +167,6 @@ include 'header.php';
             Blog
           </a>
         </div>
-        
       </div>
       <div class="row">
         <div class="mx-auto text-center mt-0">
@@ -186,5 +181,4 @@ include 'header.php';
   </footer>
   </main>
 </body>
-
 </html>
