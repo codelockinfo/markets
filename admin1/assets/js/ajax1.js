@@ -796,7 +796,7 @@ $(document).ready(function () {
     closestColXl.removeClass('error');
  });
 
-  $(".date-input").on("change", function () {
+  $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");
   });
   $("#removeimage").on("change", function () {
@@ -809,19 +809,19 @@ $(document).ready(function () {
     $(this).closest(".mb-3").find(".errormsg").html("");
   });
   
-  $(".validtext").on("keypress", function () {
+  $(".validtext").on("input", function () {
     $(this).next(".errormsg").text("");
   });
 
-  $(".valikey").on("keypress", function(){
+  $(".valikey").on("input", function(){
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
-  $(".validsignf").on("keypress", function () {
+  $(".validsignf").on("input", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
-  $(".number").on("keypress", function (e) {
+  $(".number").on("input", function (e) {
     if (e.which >= 48 && e.which <= 57) {
       $(this).next(".errormsg").text("");
     } else {
@@ -829,17 +829,14 @@ $(document).ready(function () {
     }
   });
 
-  $(".validurl").on("keypress", function () {
-    $(this).next(".errormsg").text("");
-  });
+  $(".validurl").on("input", function () {
+    $(this).next(".errormsg").text(""); 
+});
 
-  $(".price").on("keypress", function (e) {
-    if (e.which >= 48 && e.which <= 57) {
-      $(this).next(".errormsg").text("");
-    } else {
-      e.preventDefault();
-    }
-  });
+$(".price").on("input", function () {
+  const value = $(this).val();
+  $(this).next(".errormsg").text("");
+});
 
   if (CKEDITOR.instances["myeditor"]) {
     CKEDITOR.instances["myeditor"].on("change", function () {
@@ -849,7 +846,57 @@ $(document).ready(function () {
     });
   }
 
-  $(".form-select").on("input change", function () {
+$(document).on("click", ".formCancel", function (event) {
+  event.preventDefault(); 
+  var formType = $(this).closest('form').data('form-type');
+  if (id !== "") {
+      switch(formType) {
+          case 'product':
+              window.location.href = "product-list.php";
+              break;
+          case 'blog':
+              window.location.href = "blog-list.php"; 
+              break;
+          case 'customer':
+              window.location.href = "customer_list.php"; 
+              break;
+          default:
+              window.location.href = "default-page.php"; 
+              break;
+      }
+     } else {
+    $(".pro-zone__prompt").css("display", "block");
+    $(".drop-zone").css("display", "flex");
+    console.log("CCCCC");
+    $(".errormsg").html("");
+    if ($(".form-control[name=p_tag]").length > 0) {
+      if ($(".form-control[name=p_tag]").val().length > 0) {
+        $(this)
+          .closest("form")
+          .find(".multiple_tag")
+          .val(null)
+          .trigger("change");
+        $(this).closest("form").find(".select2-selection__clear").remove();
+      }
+    }
+    $(this).closest("form")[0].reset();
+    if (CKEDITOR.instances["myeditor"]) {
+      CKEDITOR.instances["myeditor"].setData("");
+    }
+    var $thumbnailElement = $(".drop-zone__thumb");
+    var $inputElement = $(".pro-zone");
+    if ($thumbnailElement.length > 0) {
+      $thumbnailElement.html("");
+      $inputElement.show();
+      $inputElement.removeClass("drop-zone__thumb");
+      // $thumbnailElement.html(
+      //   '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
+      // );
+    }
+  }
+});
+
+  $(".form-select").on("input change paste", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
 

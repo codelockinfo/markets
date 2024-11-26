@@ -23,7 +23,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-3">
-          <form role="form" id="bloginsert" enctype="multipart/form-data" method="post">
+          <form role="form" id="bloginsert" enctype="multipart/form-data" method="post"  data-form-type="blog">
           <input type="hidden" name="id" value="<?php echo $id;?>"/>
             <label for="title" class="font-weight-normal required">Blog Title</label>
             <div class="mb-3">

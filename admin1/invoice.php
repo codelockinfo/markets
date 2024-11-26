@@ -129,7 +129,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <tbody id="attributes-body" class="get_invoiceitem">
                     <tr class="attr">
                     <td class="item_0">
-                        <input type="text" class="form-control mt-1 validtext" placeholder="Item Title" name="item[]">
+                        <input type="text" class="form-control mt-1 valikey" placeholder="Item Title" name="item[]">
                         <span class="errormsg item_0"></span>
                       </td>
                       <td  class="quantity_0">

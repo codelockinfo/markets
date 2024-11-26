@@ -847,10 +847,14 @@ class admin_functions
     function isValidYouTubeURL($url)
     {
         $allowedPatterns = array(
-            '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/',
+            '/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+(&.*)?$/',
             '/^https?:\/\/youtu\.be\/[a-zA-Z0-9_-]+$/',
-            '/^https?:\/\/(www\.)?youtube\.com\/embed\/[a-zA-Z0-9_-]+$/'
-        );
+            '/^https?:\/\/(www\.)?youtube\.com\/embed\/[a-zA-Z0-9_-]+$/',
+            '/^https?:\/\/(www\.)?youtube\.com\/playlist\?list=[a-zA-Z0-9_-]+$/',
+            '/^https?:\/\/(www\.)?youtube\.com\/(channel|user|c)\/[a-zA-Z0-9_-]+$/',
+            '/^https?:\/\/(www\.)?youtube\.com\/shorts\/[a-zA-Z0-9_-]+(\?.*)?$/',
+            '/^https?:\/\/(www\.)?youtube\.com(\/)?$/'
+        );           
         foreach ($allowedPatterns as $pattern) {
             if (preg_match($pattern, $url)) {
                 return true;

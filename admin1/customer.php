@@ -27,7 +27,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-3 product-main">
-          <form role="form" id="custemer_frm" enctype="multipart/form-data" method="POST">
+          <form role="form" id="custemer_frm" enctype="multipart/form-data" method="POST" data-form-type="customer">
             <input type="hidden" name="id" value="<?php echo $id; ?>" />
             <label for="title" class="font-weight-normal required">Customer Name</label>
             <div class="mb-3">
