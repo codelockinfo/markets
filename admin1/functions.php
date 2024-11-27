@@ -661,7 +661,6 @@ class admin_functions{
             $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
             $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
             if (!empty(array_filter($_POST['item']))) {
-
                 if ($id == '') {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         if (isset($_SESSION['current_user']['user_id'])) {
@@ -686,43 +685,42 @@ class admin_functions{
                                   po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$existing_image' WHERE invoice_id = $id";
                     }
                 }
-
                 $result = $this->db->query($query);
-                if ($result) {
-                    $last_id = empty($id) ? $this->db->insert_id : $id;
-                    $items = $_POST['item'];
-                    $quantities = $_POST['quantity'];
-                    $rates = $_POST['rate'];
-                    $values = [];
+                // if ($result) {
+                    // $last_id = empty($id) ? $this->db->insert_id : $id;
+                    // $items = $_POST['item'];
+                    // $quantities = $_POST['quantity'];
+                    // $rates = $_POST['rate'];
+                    // $values = [];
 
-                    foreach ($items as $index => $item) {
-                        $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                        $rate = !empty($rates[$index]) ? $rates[$index] : null;
-                        $amount = $quantity * $rate;
+                    // foreach ($items as $index => $item) {
+                    //     $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                    //     $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                    //     $amount = $quantity * $rate;
 
-                        if (empty($item)) {
-                            $error_array[$index]['item'] = "Please enter item.";
-                        }
-                        if (empty($quantity) || !is_numeric($quantity)) {
-                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
-                        }
-                        if (empty($rate) || !is_numeric($rate)) {
-                            $error_array[$index]['rate'] = "Please enter valid rate.";
-                        }
-                        if ($amount <= 0) {
-                            $error_array[$index]['amount'] = "Amount is not valid.";
-                        }
+                    //     if (empty($item)) {
+                    //         $error_array[$index]['item'] = "Please enter item.";
+                    //     }
+                    //     if (empty($quantity) || !is_numeric($quantity)) {
+                    //         $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                    //     }
+                    //     if (empty($rate) || !is_numeric($rate)) {
+                    //         $error_array[$index]['rate'] = "Please enter valid rate.";
+                    //     }
+                    //     if ($amount <= 0) {
+                    //         $error_array[$index]['amount'] = "Amount is not valid.";
+                    //     }
 
-                        if (empty($error_array[$index])) {
-                            $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
-                            $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
-                            $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
-                            $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
-                            $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
+                    //     if (empty($error_array[$index])) {
+                    //         $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
+                    //         $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
+                    //         $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
+                    //         $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
+                    //         $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
 
-                            $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
-                        }
-                    }
+                    //         $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                    //     }
+                    // }
                     if ($result) {
                         $last_id = empty($id) ? $this->db->insert_id : $id;
                         $items = $_POST['item'];
@@ -782,9 +780,9 @@ class admin_functions{
                     } else {
                         $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                     }
-                } else {
-                    $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
-                }
+                // } else {
+                //     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
+                // }
             } else {
                 $response_data = ['data' => 'fail', 'msg' => 'Please Add line item'];
             }

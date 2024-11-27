@@ -455,6 +455,9 @@ function get_invoice(id) {
       response["outcome"]["balance_due"] !== undefined
         ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
         : "";
+        response["outcome"]["terms"] !== undefined
+        ? $("input[name='terms']").val(response["outcome"]["terms"])
+        : "";
       response["outcome"]["terms_condition"] !== undefined
         ? $("textarea[name='terms_condition']").val(
             response["outcome"]["terms_condition"]
