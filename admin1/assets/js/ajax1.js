@@ -352,7 +352,7 @@ function get_product(id) {
           var filePath = "../admin1/assets/img/product_img/" + p_image;
           $.ajax({
             url: filePath,
-            type: "HEAD", // Only requests the headers, which is faster
+            type: "HEAD", 
             success: function () {
               var imagePreview =
                 '<div class="drop-zone__thumb">' +
@@ -374,11 +374,9 @@ function get_product(id) {
           $(".pro-zone").show();
         }
         if (response["product_img_result"] !== undefined) {
-          var imagePreviews = ""; // Declare once before the loop
+          var imagePreviews = ""; 
           $.each(response["product_img_result"], function (index, image) {
             var imageUrl = image.p_image;
-
-            // Concatenate each preview into the single imagePreviews string
             imagePreviews +=
               '<div class="drop-zone__thumb">' +
               '<div class="img-wrapper">' +
@@ -393,7 +391,7 @@ function get_product(id) {
               "</div>" +
               "</div>";
           });
-          $(".imageAppend").append(imagePreviews); // Append the concatenated HTML after the loop
+          $(".imageAppend").append(imagePreviews); 
         }
       }
     },
@@ -475,7 +473,7 @@ function get_invoice(id) {
         var filePath = "../admin1/assets/img/invoice_img/" + i_image;
         $.ajax({
           url: filePath,
-          type: "HEAD", // Only requests the headers, which is faster
+          type: "HEAD", 
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
@@ -496,7 +494,6 @@ function get_invoice(id) {
       } else {
         $(".drop-zone").show();
       }
-      // invoice_item get
       if (response.item_data) {
         $(".get_invoiceitem").html(response.item_data);
       }
@@ -532,8 +529,6 @@ function get_customer(id) {
       response["outcome"]["address"] !== undefined
         ? $("textarea[name='address']").val(response["outcome"]["address"])
         : "";
-
-      // Handle customer image
       var c_image =
         response["outcome"]["c_image"] !== undefined
           ? response["outcome"]["c_image"]
@@ -543,7 +538,7 @@ function get_customer(id) {
         var filePath = "../admin1/assets/img/customer/" + c_image;
         $.ajax({
           url: filePath,
-          type: "HEAD", // Only requests the headers, which is faster
+          type: "HEAD", 
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
@@ -601,7 +596,7 @@ function get_blog(id) {
         var filePath = "../admin1/assets/img/blog_img/" + image;
         $.ajax({
           url: filePath,
-          type: "HEAD", // Only requests the headers, which is faster
+          type: "HEAD", 
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
@@ -854,9 +849,7 @@ $(document).on("click", ".formCancel", function (event) {
       $thumbnailElement.html("");
       $inputElement.show();
       $inputElement.removeClass("drop-zone__thumb");
-      // $thumbnailElement.html(
-      //   '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
-      // );
+      
     }
   }
 });
@@ -889,9 +882,7 @@ $(document).on("click", ".formCancel", function (event) {
       $thumbnailElement.html("");
       $inputElement.show();
       $inputElement.removeClass("drop-zone__thumb");
-      // $thumbnailElement.html(
-      //   '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
-      // );
+      
     }
   });
 
@@ -945,7 +936,7 @@ $(document).on("click", ".formCancel", function (event) {
   $(document).on("keydown", "#savesignin input", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
-      $(".signInsave").click(); // Trigger the button click
+      $(".signInsave").click(); 
     }
   });
 
@@ -990,7 +981,7 @@ $(document).on("click", ".formCancel", function (event) {
     });
   });
   function profileUpdateImage() {
-    $("#profileImageUpdate").modal("hide"); // Use the modal ID to hide it
+    $("#profileImageUpdate").modal("hide"); 
   }
   $(document).on("click", ".profileImageSave", function (e) {
     var form_data = $("#profileImageSave")[0];
@@ -1029,10 +1020,7 @@ $(document).on("click", ".formCancel", function (event) {
           } else {
             $(".profile-image").attr("src", profile_image);
           }
-          // profileLoadData("listprofile");
-          // $(".drop-zone__thumb .img-wrapper").append(
-          //   '<button class="close-button">x</button>'
-          // );
+         
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1193,7 +1181,6 @@ $(document).on("click", ".formCancel", function (event) {
       },
     });
   });
-  // custemer
   $(document).on("click", ".customersave", function (event) {
     event.preventDefault();
    
@@ -1256,92 +1243,6 @@ $(document).on("click", ".formCancel", function (event) {
     });
   });
 
-  // $(document).on("click", ".invoice ", function (event) {
-  //   event.preventDefault();
-  //  
-  //   var form_data = $("#invoice_frm")[0];
-  //   var form_data = new FormData(form_data);
-  //   form_data.append("routine_name", "invoice");
-
-  //   $.ajax({
-  //     url: "../admin1/ajax_call.php",
-  //     method: "POST",
-  //     dataType: "json",
-  //     contentType: false,
-  //     processData: false,
-  //     data: form_data,
-  //     beforeSend: function () {
-  //       loading_show(".save_loader_show");
-  //     },
-  //     success: function (response) {
-  //      
-  //       var response = JSON.parse(response);
-  //       loading_hide(".save_loader_show", "Save");
-  //       response["msg"]["i_image"] !== undefined
-  //         ? $(".i_image").html(response["msg"]["i_image"])
-  //         : $(".i_image").html("");
-
-  //       response["msg"]["i_name"] !== undefined
-  //         ? $(".i_name").html(response["msg"]["i_name"])
-  //         : $(".i_name").html("");
-
-  //       response["msg"]["bill_no"] !== undefined
-  //         ? $(".bill_no").html(response["msg"]["bill_no"])
-  //         : $(".bill_no").html("");
-
-  //       response["msg"]["ship_to"] !== undefined
-  //         ? $(".ship_to").html(response["msg"]["ship_to"])
-  //         : $(".ship_to").html("");
-
-  //       response["msg"]["date"] !== undefined
-  //         ? $(".date").html(response["msg"]["date"])
-  //         : $(".date").html("");
-
-  //       response["msg"]["terms"] !== undefined
-  //         ? $(".terms").html(response["msg"]["terms"])
-  //         : $(".terms").html("");
-
-  //       response["msg"]["due_date"] !== undefined
-  //         ? $(".due_date").html(response["msg"]["due_date"])
-  //         : $(".due_date").html("");
-
-  //       response["msg"]["po_number"] !== undefined
-  //         ? $(".po_number").html(response["msg"]["po_number"])
-  //         : $(".po_number").html("");
-
-  //       response["msg"]["item"] !== undefined
-  //         ? $(".item").html(response["msg"]["item"])
-  //         : $(".item").html("");
-
-  //       response["msg"]["quantity"] !== undefined
-  //         ? $(".quantity").html(response["msg"]["quantity"])
-  //         : $(".quantity").html("");
-
-  //       response["msg"]["rate"] !== undefined
-  //         ? $(".rate").html(response["msg"]["rate"])
-  //         : $(".rate").html("");
-
-  //       response["msg"]["amount"] !== undefined
-  //         ? $(".amount").html(response["msg"]["amount"])
-  //         : $(".amount").html("");
-
-  //       if (response["data"] == "success") {
-  //       
-  //         if (!response["update_invoice_id"]) {
-  //           $("#invoice_frm")[0].reset();
-  //           resetThumbnail();
-  //           $(".myFile").html("");
-  //         }
-  //         showMessage(response.msg, "success");
-  //         window.location.href = "invoice-list.php";
-  //       } else {
-  //         showMessage(response.msg_error, "fail");
-  //       }
-  //     },
-  //   });
-  // });
-
-
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
    
@@ -1377,7 +1278,6 @@ $(document).on("click", ".formCancel", function (event) {
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         if (response["msg"]["amount_paid"] !== undefined) {
-          // $(".amount_paid").html(response["msg"]["amount_paid"]);
           $(".ampunt_p").addClass("error");
       } else {
           $(".amount_paid").html("");
@@ -1832,56 +1732,6 @@ $(document).on("click", ".formCancel", function (event) {
     });
   });
 
-  // $(document).on("click", "#pagination-video a", function (event) {
-  //   event.preventDefault();
-  //   var page = $(this).data("page");
-  //   $.ajax({
-  //     url: "../admin1/ajax_call.php",
-  //     type: "post",
-  //     dataType: "json",
-  //     data: {
-  //       page: page,
-  //       search_text: $("#search_text").val(),
-  //       routine_name: "videolisting",
-  //     },
-  //     success: function (data) {
-  //       var data = JSON.parse(data);
-  //       if (data.data == "success") {
-  //         $("#getdata").html(data.outcome);
-  //         $("#pagination").html(data.pagination);
-  //       } else {
-  //         $("#getdata").html("Data not found");
-  //         $("#pagination").html("Pagination not found");
-  //       }
-  //     },
-  //   });
-  // });
-
-  // blog pagination
-  // $(document).on("click", "#pagination-blog a", function (event) {
-  //   event.preventDefault();
-  //   var page = $(this).data("page");
-  //   $.ajax({
-  //     url: "../admin1/ajax_call.php",
-  //     type: "post",
-  //     dataType: "json",
-  //     data: {
-  //       page: page,
-  //       search_text: $("#search_text").val(),
-  //       routine_name: "bloglisting",
-  //     },
-  //     success: function (data) {
-  //       var data = JSON.parse(data);
-  //       if (data.data == "success") {
-  //         $("#getdata").html(data.outcome);
-  //         $("#pagination").html(data.pagination);
-  //       } else {
-  //         $("#getdata").html("Data not found");
-  //         $("#pagination").html("Pagination not found");
-  //       }
-  //     },
-  //   });
-  // });
 
   $(document).on("click", "#flexSwitchCheckDefault", function () {
     toggle_enabledisable(this);
@@ -2282,12 +2132,6 @@ $(document).on("click", ".picture__img", function () {
 $(document).on("click", ".close-button_product", function (event) {
   event.stopPropagation();
  
-  // $(this).closest(".drop-zone__thumb").remove(); // Remove imgWrapper
-  // 
-  //   if ($(".drop-zone__thumb").children().length === 0) {
-  //    
-  //     $(".pro-zone").show();
-  //   }
   return false;
 });
 
@@ -2298,7 +2142,6 @@ $(document).on("click", ".close-buttons_profile", function (event) {
   closemainclass.find(".drop-zone__thumb").remove();
   closemainclass.find(".drop-zone").css("display", "flex");
 });
-// video anable disable
 $(document).on("click", ".toggle-button", function () {
   var videoId = $(this).data("video-id");
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
@@ -2514,7 +2357,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Function to handle image preview for both inputs shop image and shop logo
 document.addEventListener("DOMContentLoaded", function () {
   function handleImagePreview(inputId, previewId) {
     const fileInput = document.getElementById(inputId);
@@ -2536,7 +2378,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Call the function for both inputs
-  handleImagePreview("shop_image_Input", "newpreview"); // For shop image
-  handleImagePreview("shop_logo_image", "shop_logo_preview"); // For shop logo image
+  handleImagePreview("shop_image_Input", "newpreview"); 
+  handleImagePreview("shop_logo_image", "shop_logo_preview"); 
 });
