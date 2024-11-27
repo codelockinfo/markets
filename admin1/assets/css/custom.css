@@ -1047,3 +1047,8 @@
 .bg-gradient{
   background: #21d4fd ;
 }
+.number::-webkit-inner-spin-button, 
+.number::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
