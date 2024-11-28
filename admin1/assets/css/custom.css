@@ -249,7 +249,7 @@
 
 .drop-zone__thumb {
   position: relative;
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap !important;
   justify-content: center;
 }
