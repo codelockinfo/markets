@@ -1694,7 +1694,10 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                                     <form role="form" id="profileImageSave" enctype="multipart/form-data" method="POST">
                                         <div class="mb-3">
                                             <label for="p-image" class="font-weight-normal">Upload Profile Image</label>
-                                            ' . $previewImage . '
+                                            <div class="drop-zone form-control">
+                                                <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
+                                                <input type="file" name="shop_logo" class="drop-zone__input">
+                                            </div>
                                             <div class="errormsg shop_logo imageError"></div>
                                         </div>
                                         <div class="mb-3">
