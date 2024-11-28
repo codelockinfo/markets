@@ -5,11 +5,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
 include_once '../connection.php';
 $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
-class admin_functions{
+    class admin_functions{
     public $cls_errors = array();
     public $msg = array();
     protected $db;
-    
+
     public function __construct(){
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
@@ -25,7 +25,7 @@ class admin_functions{
         }
     }
 
-    function insert_signin(){
+    function insert_signin() {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -33,30 +33,40 @@ class admin_functions{
         if (empty($email)) {
             $error_array['email'] = "Please enter an email address.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_array['email'] = "Please enter the valid email address";
+            $error_array['email'] = "Please enter a valid email address.";
+        } else {
+            $email_query = "SELECT * FROM users WHERE email = '$email'";
+            $email_result = $this->db->query($email_query);
+            if (mysqli_num_rows($email_result) == 0) {
+                $error_array['email'] = "Email is not registered.";
+            }
         }
         if (empty($password)) {
-            $error_array['password'] = 'Please enter the password.';
+            $error_array['password'] = "Please enter the password.";
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = 'Password not valid';
+            $error_array['password'] = "Password not valid.";
         }
         if (empty($error_array)) {
-            $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+            $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
             $result = $this->db->query($query);
-            if ($result->num_rows > 0) {
+    
+            if (mysqli_num_rows($result) > 0) {
                 $userinfo = mysqli_fetch_assoc($result);
                 $_SESSION['current_user'] = $userinfo;
-                $response_data = array('data' => 'success', 'msg' => 'login successfully');
+                $response_data = array('data' => 'success', 'msg' => 'Login successfully');
             } else {
-                $error_array['errormsg'] = 'User does not exist! <a href="sign-up.php">Sign Up</a>';
+                
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         } else {
+            $error_array['errormsg'] = "User does not exist! <a href='sign-up.php'>Sign Up</a>";
             $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
+    
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function profile_updatedata(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
@@ -211,12 +221,12 @@ class admin_functions{
         $mobilepattern = "/^[789]\d{9}$/";
         if (empty($phone_number)) {
             $error_array['phone_number'] = "Please enter the phone number.";
+        } else if (strlen($phone_number) !== 10) {
+            $error_array['phone_number'] = "The phone number must be exactly 10 digits.";
         } else if (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
-        if (strlen($phone_number) !== 10) {
-            $error_array['phone_number'] = "The phone number must be exactly 10 digits.";
-        }
+
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -315,7 +325,7 @@ class admin_functions{
         $is_image_update  = false;
         if (isset($_FILES["p_image"]["name"][0]) && !empty($_FILES["p_image"]["name"][0])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
-            $maxSize = 5 * 1024 * 1024; 
+            $maxSize = 5 * 1024 * 1024;
             $folder = "assets/img/product_img/";
             if (!is_dir($folder)) {
                 $mkdir = mkdir($folder, 0777, true);
@@ -332,28 +342,28 @@ class admin_functions{
                 $newFilename = time() . '_' . $key . '.' . $fileExtension;
                 $fullpath = $folder . $newFilename;
                 if ($tmpfile != "") {
-                if (!in_array($fileExtension, $allowedExtensions)) {
-                    $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-                }
+                    if (!in_array($fileExtension, $allowedExtensions)) {
+                        $error_array['p_image'] = "Unsupported file format for $filename. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                    }
                     if ($file['size'][$key] > $maxSize) {
-                    $error_array['p_image'] = "File size for $filename must be 5MB or less.";
-                }
+                        $error_array['p_image'] = "File size for $filename must be 5MB or less.";
+                    }
                     if (empty($error_array)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
-                    $uploadedFiles[] = $newFilename;
+                            $uploadedFiles[] = $newFilename;
                             $is_image_update  = true;
-                } else {
-                    $error_array['p_image'] = "Error moving uploaded file $filename.";
-                }
-            }
+                        } else {
+                            $error_array['p_image'] = "Error moving uploaded file $filename.";
+                        }
+                    }
                 } else {
                     $error_array['p_image'] = "Please upload another product image.";
                 }
             }
         }else if (empty($product_id))
          {
-                $error_array['p_image'] = "Please select image";
-         }
+            $error_array['p_image'] = "Please select image";
+        }
         if (empty($error_array)) {
             $product_name = (isset($_POST['pname']) && $_POST['pname'] !== '') ? $_POST['pname'] : '';
             $product_name = str_replace("'", "\'", $product_name);
@@ -362,7 +372,7 @@ class admin_functions{
             $addcheckboxcategory = (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] !== '') ? $_POST['addcheckboxcategory'] : '';
             $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
             $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
-             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
+            $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
             $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';
             $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
@@ -424,7 +434,7 @@ class admin_functions{
             $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong.");
         }
         $response = json_encode($response_data);
-     
+
         return $response;
     }
 
@@ -490,13 +500,13 @@ class admin_functions{
         $address = $_POST['address'];
         $city = $_POST['city'];
         $state = $_POST['state'];
-        if ($id == '') { 
+        if ($id == '') {
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
                           VALUES ('$name', '$email', '$contact', '$newFilename', '$city', '$state', '$address', '$user_id')";
                 $result = $this->db->query($query);
-    
+
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Customer inserted successfully!');
                 } else {
@@ -505,7 +515,7 @@ class admin_functions{
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error moving uploaded file.");
             }
-        } else { 
+        } else {
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
                 $query = "UPDATE customer SET 
                           name = '$name', email = '$email', contact = '$contact', 
@@ -516,14 +526,14 @@ class admin_functions{
                 $existing_image_result = $this->db->query($existing_image_query);
                 $existing_image_row = $existing_image_result->fetch_assoc();
                 $existing_image = $existing_image_row['c_image'];
-    
+
                 $query = "UPDATE customer SET 
                           name = '$name', email = '$email', contact = '$contact', 
                           c_image = '$existing_image', city = '$city', state = '$state', address = '$address' 
                           WHERE customer_id = $id";
             }
             $result = $this->db->query($query);
-    
+
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Customer updated successfully!', 'updated_customer_id' => $id);
             } else {
@@ -532,7 +542,7 @@ class admin_functions{
         }
         return json_encode($response_data);
     }
-    
+
     function listgallary() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -647,7 +657,7 @@ class admin_functions{
                 }
             }
         }
-         if (empty($error_array)) {
+        if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
             $ship_to = $_POST['ship_to'];
@@ -687,99 +697,99 @@ class admin_functions{
                 }
                 $result = $this->db->query($query);
                 // if ($result) {
-                    // $last_id = empty($id) ? $this->db->insert_id : $id;
-                    // $items = $_POST['item'];
-                    // $quantities = $_POST['quantity'];
-                    // $rates = $_POST['rate'];
-                    // $values = [];
+                // $last_id = empty($id) ? $this->db->insert_id : $id;
+                // $items = $_POST['item'];
+                // $quantities = $_POST['quantity'];
+                // $rates = $_POST['rate'];
+                // $values = [];
 
-                    // foreach ($items as $index => $item) {
-                    //     $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                    //     $rate = !empty($rates[$index]) ? $rates[$index] : null;
-                    //     $amount = $quantity * $rate;
+                // foreach ($items as $index => $item) {
+                //     $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                //     $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                //     $amount = $quantity * $rate;
 
-                    //     if (empty($item)) {
-                    //         $error_array[$index]['item'] = "Please enter item.";
-                    //     }
-                    //     if (empty($quantity) || !is_numeric($quantity)) {
-                    //         $error_array[$index]['quantity'] = "Please enter valid quantity.";
-                    //     }
-                    //     if (empty($rate) || !is_numeric($rate)) {
-                    //         $error_array[$index]['rate'] = "Please enter valid rate.";
-                    //     }
-                    //     if ($amount <= 0) {
-                    //         $error_array[$index]['amount'] = "Amount is not valid.";
-                    //     }
+                //     if (empty($item)) {
+                //         $error_array[$index]['item'] = "Please enter item.";
+                //     }
+                //     if (empty($quantity) || !is_numeric($quantity)) {
+                //         $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                //     }
+                //     if (empty($rate) || !is_numeric($rate)) {
+                //         $error_array[$index]['rate'] = "Please enter valid rate.";
+                //     }
+                //     if ($amount <= 0) {
+                //         $error_array[$index]['amount'] = "Amount is not valid.";
+                //     }
 
-                    //     if (empty($error_array[$index])) {
-                    //         $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
-                    //         $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
-                    //         $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
-                    //         $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
-                    //         $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
+                //     if (empty($error_array[$index])) {
+                //         $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
+                //         $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
+                //         $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
+                //         $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
+                //         $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
 
-                    //         $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
-                    //     }
-                    // }
-                    if ($result) {
-                        $last_id = empty($id) ? $this->db->insert_id : $id;
-                        $items = $_POST['item'];
-                        $quantities = $_POST['quantity'];
-                        $rates = $_POST['rate'];
-                        $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
+                //         $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                //     }
+                // }
+                if ($result) {
+                    $last_id = empty($id) ? $this->db->insert_id : $id;
+                    $items = $_POST['item'];
+                    $quantities = $_POST['quantity'];
+                    $rates = $_POST['rate'];
+                    $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
 
-                        $values = [];
-                        foreach ($items as $index => $item) {
-                            $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                            $rate = !empty($rates[$index]) ? $rates[$index] : null;
-                            $amount = $quantity * $rate;
-                            if (empty($item)) {
-                                $error_array[$index]['item'] = "Please enter item.";
-                            }
-                            if (empty($quantity) || !is_numeric($quantity)) {
-                                $error_array[$index]['quantity'] = "Please enter valid quantity.";
-                            }
-                            if (empty($rate) || !is_numeric($rate)) {
-                                $error_array[$index]['rate'] = "Please enter valid rate.";
-                            }
-                            if ($amount <= 0) {
-                                $error_array[$index]['amount'] = "Amount is not valid.";
-                            }
+                    $values = [];
+                    foreach ($items as $index => $item) {
+                        $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
+                        $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                        $amount = $quantity * $rate;
+                        if (empty($item)) {
+                            $error_array[$index]['item'] = "Please enter item.";
+                        }
+                        if (empty($quantity) || !is_numeric($quantity)) {
+                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                        }
+                        if (empty($rate) || !is_numeric($rate)) {
+                            $error_array[$index]['rate'] = "Please enter valid rate.";
+                        }
+                        if ($amount <= 0) {
+                            $error_array[$index]['amount'] = "Amount is not valid.";
+                        }
 
-                            if (empty($error_array[$index])) {
-                                $item = $this->db->real_escape_string($item);
-                                $quantity = $this->db->real_escape_string($quantity);
-                                $rate = $this->db->real_escape_string($rate);
-                                $amount = $this->db->real_escape_string($amount);
-                                $user_id = $_SESSION['current_user']['user_id'];
-                                $last_id = $this->db->real_escape_string($last_id);
-                                if (!empty($invoice_item_ids[$index])) {
-                                    if (!empty($id)) {
+                        if (empty($error_array[$index])) {
+                            $item = $this->db->real_escape_string($item);
+                            $quantity = $this->db->real_escape_string($quantity);
+                            $rate = $this->db->real_escape_string($rate);
+                            $amount = $this->db->real_escape_string($amount);
+                            $user_id = $_SESSION['current_user']['user_id'];
+                            $last_id = $this->db->real_escape_string($last_id);
+                            if (!empty($invoice_item_ids[$index])) {
+                                if (!empty($id)) {
 
-                                        $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
-                                        $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
+                                    $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
+                                    $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
                                              WHERE invoice_item_id='$invoice_item_id' ";
-                                        $res1 = $this->db->query($sql1);
-                                    }
-                                } else {
-                                    $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                                    $res1 = $this->db->query($sql1);
                                 }
+                            } else {
+                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
                             }
                         }
-                        if (!empty($values)) {
-                            $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
-                            $res1 = $this->db->query($sql1);
-                        }
-
-                        if ($res1) {
-                            $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
-                       
-                        } else {
-                            $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
-                        }
-                    } else {
-                        $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                     }
+                    if (!empty($values)) {
+                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                        $res1 = $this->db->query($sql1);
+                    }
+
+                    if ($res1) {
+                        $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
+                       
+                    } else {
+                        $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
+                    }
+                } else {
+                    $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
+                }
                 // } else {
                 //     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                 // }
@@ -801,7 +811,7 @@ class admin_functions{
             '/^https?:\/\/(www\.)?youtube\.com\/(channel|user|c)\/[a-zA-Z0-9_-]+$/',
             '/^https?:\/\/(www\.)?youtube\.com\/shorts\/[a-zA-Z0-9_-]+(\?.*)?$/',
             '/^https?:\/\/(www\.)?youtube\.com(\/)?$/'
-        );           
+        );
         foreach ($allowedPatterns as $pattern) {
             if (preg_match($pattern, $url)) {
                 return true;
@@ -1443,7 +1453,7 @@ class admin_functions{
             $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; 
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
             $query = "SELECT COUNT(*) AS total FROM invoice WHERE $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
@@ -1720,7 +1730,7 @@ class admin_functions{
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-            $sort_query = ''; 
+            $sort_query = '';
             switch ($sort) {
                 case 'best_selling':
                     $sort_query = 'ORDER BY best_selling DESC';
@@ -1790,7 +1800,7 @@ class admin_functions{
                     $output .= '</div>';
                 }
                 $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
-                    'pagination_needed' => ($total_records > $limit) ? true : false 
+                    'pagination_needed' => ($total_records > $limit) ? true : false
                 );
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
@@ -1804,7 +1814,7 @@ class admin_functions{
                 if ($total_pages > 1) {
                     $pagination .= '<div class="pagination" id="dataPagination" data-routine="bloglisting">';
                     for ($i = 1; $i <= $total_pages; $i++) {
-                        $active_class = ($i == $page) ? 'active' : ''; 
+                        $active_class = ($i == $page) ? 'active' : '';
                         $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                     }
                     $pagination .= '</div>';
@@ -1853,7 +1863,7 @@ class admin_functions{
                     $sort_query = 'ORDER BY created_date ASC';
                     break;
                 case 'featured':
-                 
+
                     $sort_query = 'ORDER BY featured DESC';
                     break;
                 default:
@@ -1906,7 +1916,7 @@ class admin_functions{
 
             $pagination .= '<div class="pagination" id="dataPagination" data-routine="videolisting">';
             for ($i = 1; $i <= $total_pages; $i++) {
-                $active_class = ($i == $page) ? 'active' : ''; 
+                $active_class = ($i == $page) ? 'active' : '';
                 $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
             }
             $pagination .= '</div>';
@@ -2078,7 +2088,7 @@ class admin_functions{
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            
+
             $query = "SELECT * FROM faqs WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
@@ -2652,7 +2662,7 @@ class admin_functions{
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     $all_categories = "";
-                    $category_names = []; 
+                    $category_names = [];
                     while ($categoryrow = mysqli_fetch_assoc($result)) {
                         if (!in_array($categoryrow['categoies_name'], $category_names)) {
                             $category_names[] = $categoryrow['categoies_name'];

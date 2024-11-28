@@ -916,7 +916,7 @@ $(document).on("click", ".formCancel", function (event) {
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
-          window.location.href = "analytics.php";
+          window.location.href = "index.php";
         } else {
           response["msg"]["password"] !== undefined
             ? $(".password").html(response["msg"]["password"])
@@ -1198,7 +1198,6 @@ $(document).on("click", ".formCancel", function (event) {
         loading_show(".save_loader_show");
       },
       success: function (data) {
-        
         var response = JSON.parse(data);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["name"] !== undefined
