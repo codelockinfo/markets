@@ -87,7 +87,7 @@ include 'header.php';
                       <div class="tooltip-container">
                         <input id="shop_image_Input" type="file" class="form-control signImage" name="shop_img">
                         <i class="fa-solid fa-exclamation tooltip-icon"></i>
-                        <h6 class="tooltiptext">Choose a file that represents your shop accurately.</h6>
+                        <h6 class="tooltiptext_img">Choose a file that represents your shop accurately.</h6>
                       </div>
 
                       <div class="col">
@@ -110,7 +110,7 @@ include 'header.php';
                       <div class="tooltip-container">
                         <input id="shop_logo_image" type="file" class="form-control signImage" name="shop_logo">
                         <i class="fa-solid fa-exclamation tooltip-icon"></i>
-                        <h6 class="tooltiptext"> Choose a file that represents your shop logo accurately. </h6>
+                        <h6 class="tooltiptext_img"> Choose a file that represents your shop logo accurately. </h6>
                       </div>
                       <div class="col">
                         <div class="row mt-2">

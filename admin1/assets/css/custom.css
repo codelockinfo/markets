@@ -1028,6 +1028,42 @@
   opacity: 1;
 
 }
+
+/* two  */
+
+.tooltiptext_img {
+  visibility: hidden;
+  width: auto;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 100;
+  top: 190%;
+  right: 0%; 
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext_img::after {
+  content: '';
+  position: absolute;
+  top: -9%;
+  left: 3%;
+  transform: rotate(180deg);
+  border-width: 9px;
+  border-style: solid;
+  border-color: transparent #000 transparent transparent;
+}
+
+.tooltip-icon:hover + .tooltiptext_img {
+  visibility: visible;
+  opacity: 1;
+
+}
 .error label {
   color: #cc0033;
 }
