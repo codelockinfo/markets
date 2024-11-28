@@ -71,7 +71,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
             </div>
             <div class="mb-3">
               <button type="button" class="btn bg-gradient-info btn-sm blogSave save_loader_show">Save</button>
-              <button type="button" class="btn bg-gradient-info btn-sm formCancel">Cancel</button>
+              <button type="button" class="btn bg-gradient-info btn-sm cencle_loader_show formCancel">Cancel</button>
             </div>
             <div class="alert"  role="alert" id="success_message" name="success_alert"></div>
           </form>

@@ -69,6 +69,16 @@ function loading_hide($selector, $buttonName, $buttonIcon) {
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
 }
 
+function loading_hidefun($selector, $buttonName, $buttonIcon) {
+  if ($buttonIcon != undefined) {
+    $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
+  } else {
+    $buttonIcon = "cencle";
+  }
+ 
+  $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
+}
+
 function redirect403() {
   window.location = "https://www.shopify.com/admin/apps";
 }
@@ -811,6 +821,36 @@ $(document).ready(function () {
 
 $(document).on("click", ".formCancel", function (event) {
   event.preventDefault(); 
+  console.log("sddd");
+  loading_show(".cencle_loader_show");
+$(".pro-zone__prompt").css("display", "block");
+$(".drop-zone").css("display", "flex");
+$(".errormsg").html("");
+if ($(".form-control[name=p_tag]").length > 0) {
+  if ($(".form-control[name=p_tag]").val().length > 0) {
+    $(this)
+      .closest("form")
+      .find(".multiple_tag")
+      .val(null)
+      .trigger("change");
+    $(this).closest("form").find(".select2-selection__clear").remove();
+  }
+}
+$(this).closest("form")[0].reset();
+if (CKEDITOR.instances["myeditor"]) {
+  CKEDITOR.instances["myeditor"].setData("");
+}
+var $thumbnailElement = $(".drop-zone__thumb");
+var $inputElement = $(".pro-zone");
+if ($thumbnailElement.length > 0) {
+  $thumbnailElement.html("");
+  $inputElement.show();
+  $inputElement.removeClass("drop-zone__thumb");
+  
+}
+setTimeout(function(){
+  loading_hidefun(".cencle_loader_show", "blogs");
+}, 300);
   var formType = $(this).closest('form').data('form-type');
   if (id !== "") {
       switch(formType) {
@@ -827,68 +867,15 @@ $(document).on("click", ".formCancel", function (event) {
               window.location.href = "default-page.php"; 
               break;
       }
-     } else {
-    $(".pro-zone__prompt").css("display", "block");
-    $(".drop-zone").css("display", "flex");
-    console.log("CCCCC");
-    $(".errormsg").html("");
-    if ($(".form-control[name=p_tag]").length > 0) {
-      if ($(".form-control[name=p_tag]").val().length > 0) {
-        $(this)
-          .closest("form")
-          .find(".multiple_tag")
-          .val(null)
-          .trigger("change");
-        $(this).closest("form").find(".select2-selection__clear").remove();
-      }
-    }
-    $(this).closest("form")[0].reset();
-    if (CKEDITOR.instances["myeditor"]) {
-      CKEDITOR.instances["myeditor"].setData("");
-    }
-    var $thumbnailElement = $(".drop-zone__thumb");
-    var $inputElement = $(".pro-zone");
-    if ($thumbnailElement.length > 0) {
-      $thumbnailElement.html("");
-      $inputElement.show();
-      $inputElement.removeClass("drop-zone__thumb");
-      
-    }
-  }
+    } 
+
 });
 
   $(".form-select").on("input change paste", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
-  $(document).on("click", ".formCancel", function () {
-    $(".pro-zone__prompt").css("display", "block");
-    $(".drop-zone").css("display", "flex");
-    $(".errormsg").html("");
-    if ($(".form-control[name=p_tag]").length > 0) {
-      if ($(".form-control[name=p_tag]").val().length > 0) {
-        $(this)
-          .closest("form")
-          .find(".multiple_tag")
-          .val(null)
-          .trigger("change");
-        $(this).closest("form").find(".select2-selection__clear").remove();
-      }
-    }
-    $(this).closest("form")[0].reset();
-    if (CKEDITOR.instances["myeditor"]) {
-      CKEDITOR.instances["myeditor"].setData("");
-    }
-    var $thumbnailElement = $(".drop-zone__thumb");
-    var $inputElement = $(".pro-zone");
-    if ($thumbnailElement.length > 0) {
-      $thumbnailElement.html("");
-      $inputElement.show();
-      $inputElement.removeClass("drop-zone__thumb");
-      
-    }
-  });
-
+ 
   function resetThumbnail() {
     var $thumbnailElement = $(".drop-zone__thumb");
     if ($thumbnailElement.length > 0) {
