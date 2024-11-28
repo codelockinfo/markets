@@ -1024,7 +1024,10 @@ $(document).on("click", ".formCancel", function (event) {
           } else {
             $(".profile-image").attr("src", profile_image);
           }
-         
+          
+          $(".pro-zone__prompt").css("display", "block");
+          $(".drop-zone__thumb").remove();
+          
         } else {
           showMessage(response.msg_error, "fail");
         }
