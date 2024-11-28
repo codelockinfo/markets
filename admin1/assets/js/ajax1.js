@@ -1017,10 +1017,7 @@ $(document).on("click", ".formCancel", function (event) {
           var profile_image = $(".picture__img").attr("src");
           
           if (profile_image == undefined) {
-            $(".profile-image").attr(
-              "src",
-              "../admin1/assets/img/image_not_found.png"
-            );
+            $(".profile-image").attr("src","../admin1/assets/img/image_not_found.png");
           } else {
             $(".profile-image").attr("src", profile_image);
           }
