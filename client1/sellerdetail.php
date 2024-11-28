@@ -58,7 +58,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
             <div class="p-2 p-sm-5 bg-light rounded contact-form" id="customer">
                 <!-- <div class="row g-4">
                     <div class="col-xl-2">
-                        <img src="<?php echo main_url('/admin1/assets/img/vectormen.png'); ?>" alt="vectormen" class="seller-image border-radius-lg shadow-sm">
+                        <img src="<?php echo main_url('admin1/assets/img/vectormen.png'); ?>" alt="vectormen" class="seller-image border-radius-lg shadow-sm">
                     </div>
                     <div class="col-xl-8">
                         <span class="text-capitalize text-dark"><strong>name :</strong></span>
@@ -69,7 +69,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-7">
-                        <img src="<?php echo main_url('/admin1/assets/img/shop-photo.jpg'); ?>" alt="shop-photo" class="w-100 border-radius-lg shadow-sm mb-4">
+                        <img src="<?php echo main_url('admin1/assets/img/shop-photo.jpg'); ?>" alt="shop-photo" class="w-100 border-radius-lg shadow-sm mb-4">
                     </div>
                     <div class="col-md-6 col-lg-5">
                         <div>
@@ -98,7 +98,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                             </div>
                             <div class="d-inline-flex w-100 rounded ">
                                 <a href="https://api.whatsapp.com/send?phone=6325487985&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." target="_blank">
-                                    <img src="<?php echo main_url('/client1/img/whatsapplogo.png'); ?>" alt="whatsapplogo" class="w-50">
+                                    <img src="<?php echo main_url('client1/img/whatsapplogo.png'); ?>" alt="whatsapplogo" class="w-50">
                                 </a>
                             </div>
                         </div>

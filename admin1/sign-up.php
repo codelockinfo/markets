@@ -66,7 +66,7 @@ include 'header.php';
                       <span class="errormsg email"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="tel" class="form-control number" placeholder="Mobile No." name="phone_number">
+                      <input type="number" class="form-control price  number" placeholder="Mobile No." name="phone_number">
                       <span class="errormsg phone_number"></span>
                     </div>
                     <div class="mb-3">

@@ -218,14 +218,17 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
             $error_array['business_type'] = "Please select the business type.";
         }
         $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-        $mobilepattern = "/^[789]\d{9}$/";
+        $mobilepattern = "/^[789]\d{9}$/";  
         if (empty($phone_number)) {
+
             $error_array['phone_number'] = "Please enter the phone number.";
         } else if (strlen($phone_number) !== 10) {
             $error_array['phone_number'] = "The phone number must be exactly 10 digits.";
         } else if (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
+
+
 
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
@@ -478,8 +481,14 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         if (empty($_POST['email'])) {
             $error_array['email'] = "Please enter customer email.";
         }
-        if (empty($_POST['contact'])) {
-            $error_array['contact'] = "Please enter customer contact number.";
+        $phone_number = isset($_POST['contact']) ? $_POST['contact'] : '';
+        $mobilepattern = "/^[789]\d{9}$/"; 
+        if (empty($phone_number)) {
+            $error_array['contact'] = "Please enter the phone number.";
+        } elseif (strlen($phone_number) !== 10) {
+            $error_array['contact'] = "The phone number must be exactly 10 digits.";
+        } elseif (!preg_match($mobilepattern, $phone_number)) {
+            $error_array['contact'] = "The mobile number is invalid.";
         }
         if (empty($_POST['address'])) {
             $error_array['address'] = "Please enter customer address.";

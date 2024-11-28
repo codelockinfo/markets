@@ -770,10 +770,13 @@ $(document).ready(function () {
   $(".validtext").on("input", function () {
     $(this).next(".errormsg").text("");
   });
-
-  $(".valikey").on("input", function(){
-    $(this).closest(".mb-3").find(".errormsg").text("");
+  $(".valikey").on("input", function() {
+    const name = $(this).attr("name"); 
+    $(`.errormsg.${name}`).text("");  
   });
+  $(".number").on("input", function() {
+    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 10);
+  })
   $(".valid_invoice_item").on("keypress", function(){
     $(this).closest(".attr").find(".errormsg").text("");
   });
@@ -974,6 +977,7 @@ $(document).on("click", ".formCancel", function (event) {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
+          // window.location.href = "profile.php"; 
         } else {
           showMessage(response.msg_error, "fail");
         }

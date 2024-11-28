@@ -928,7 +928,7 @@ class client_functions
                     $decodedPathnew = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePathnew)) ? $imagePathnew : $noimagePath
                     );
-                    $whatsappLogoPath = main_url('/client1/img/whatsapplogo.png');
+                    $whatsappLogoPath = main_url('client1/img/whatsapplogo.png');
 
                     $output .= '<div class="row g-4">';
                     $output .= '    <div class="col-xl-2">';
