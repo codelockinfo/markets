@@ -40,7 +40,7 @@
                       <a class="dropdown-item border-radius-md" href="#">
                         <div class="d-flex py-1">
                           <div class="my-auto">
-                            <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
+                            <img src="<?php echo main_url('admin1/assets/img/team-2.jpg'); ?>" alt="team-2" class="avatar avatar-sm me-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="text-sm font-weight-normal mb-1">
@@ -58,7 +58,7 @@
                       <a class="dropdown-item border-radius-md" href="#">
                         <div class="d-flex py-1">
                           <div class="my-auto">
-                            <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
+                            <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-spotify.svg'); ?>" alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark me-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="text-sm font-weight-normal mb-1">

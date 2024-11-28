@@ -10,7 +10,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define("DB_OBJECT", "mysql"); 
     define('MODE', 'dev');
     define('ABS_PATH', dirname(dirname(__FILE__)));
-    define('MAIN_URL', 'http://localhost/markets/');
+    define('MAIN_URL', 'http://localhost/markets');
     define('CLS_SITE_URL', 'http://localhost/markets/client1/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'http://localhost/markets/admin1/');
@@ -22,9 +22,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define("DB_OBJECT", "mysql");
     define('MODE', 'live');
     define('ABS_PATH', dirname(dirname(__FILE__)));
-    define('MAIN_URL', 'https://codelocksolutions.in/markets/');
+    define('MAIN_URL', 'https://codelocksolutions.in/markets');
     define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/client1/');
-     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
+    define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'https://codelocksolutions.in/markets/admin1/');
 } else {
     echo 'Undefine host';

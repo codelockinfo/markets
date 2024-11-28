@@ -20,7 +20,7 @@ include 'header.php';
             <div class="col w-100">
               <div class="row mb-3">
                 <div class="col">
-                  <img src="<?php echo main_url('/admin1/assets/img/market.png'); ?>" alt="market" class="max-width-100 mt-n4">
+                  <img src="<?php echo main_url('admin1/assets/img/market.png'); ?>" alt="market" class="max-width-100 mt-n4">
                 </div>
                 <div class="col">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>

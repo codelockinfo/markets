@@ -125,7 +125,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>"
+                                                <img src="<?php echo main_url('admin1/assets/img/team-2.jpg'); ?>"
                                                     alt="team-2" class="avatar avatar-sm  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
@@ -144,7 +144,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>"
+                                                <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-spotify.svg'); ?>"
                                                     alt="logo-spotify" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
@@ -318,12 +318,12 @@
                                 </div>
                                 <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                                     <div class="bg-gradient-primary border-radius-lg h-100">
-                                        <img src="<?php echo main_url('/admin1/assets/img/shapes/waves-white.svg'); ?>"
+                                        <img src="<?php echo main_url('admin1/assets/img/shapes/waves-white.svg'); ?>"
                                             class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
                                         <div
                                             class="position-relative d-flex align-items-center justify-content-center h-100">
                                             <img class="w-100 position-relative z-index-2 pt-4"
-                                                src="<?php echo main_url('/admin1/assets/img/illustrations/rocket-white.png'); ?>"
+                                                src="<?php echo main_url('admin1/assets/img/illustrations/rocket-white.png'); ?>"
                                                 alt="rocket">
                                         </div>
                                     </div>
@@ -583,7 +583,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-xd.svg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-xd.svg'); ?>"
                                                             class="avatar avatar-sm me-3" alt="xd">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -596,25 +596,25 @@
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Ryan Tompson">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-1.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-1.jpg'); ?>"
                                                             alt="team1">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Romina Hadid">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-2.jpg'); ?>"
                                                             alt="team2">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Alexander Smith">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-3.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-3.jpg'); ?>"
                                                             alt="team3">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Jessica Doe">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-4.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-4.jpg'); ?>"
                                                             alt="team4">
                                                     </a>
                                                 </div>
@@ -641,7 +641,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-atlassian.svg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-atlassian.svg'); ?>"
                                                             class="avatar avatar-sm me-3" alt="atlassian">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -654,13 +654,13 @@
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Romina Hadid">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-2.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-2.jpg'); ?>"
                                                             alt="team5">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Jessica Doe">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-4.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-4.jpg'); ?>"
                                                             alt="team6">
                                                     </a>
                                                 </div>
@@ -687,7 +687,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-slack.svg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-slack.svg'); ?>"
                                                             class="avatar avatar-sm me-3" alt="team7">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -700,13 +700,13 @@
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Romina Hadid">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-3.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-3.jpg'); ?>"
                                                             alt="team8">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Jessica Doe">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-1.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-1.jpg'); ?>"
                                                             alt="team9">
                                                     </a>
                                                 </div>
@@ -733,7 +733,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-spotify.svg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-spotify.svg'); ?>"
                                                             class="avatar avatar-sm me-3" alt="spotify">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -746,25 +746,25 @@
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Ryan Tompson">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-4.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-4.jpg'); ?>"
                                                             alt="user1">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Romina Hadid">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-3.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-3.jpg'); ?>"
                                                             alt="user2">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Alexander Smith">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-4.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-4.jpg'); ?>"
                                                             alt="user3">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Jessica Doe">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-1.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-1.jpg'); ?>"
                                                             alt="user4">
                                                     </a>
                                                 </div>
@@ -791,7 +791,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-jira.svg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-jira.svg'); ?>"
                                                             class="avatar avatar-sm me-3" alt="jira">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -804,7 +804,7 @@
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Ryan Tompson">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-4.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-4.jpg'); ?>"
                                                             alt="user5">
                                                     </a>
                                                 </div>
@@ -831,7 +831,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
-                                                        <img src="<?php echo main_url('/admin1/assets/img/small-logos/logo-invision.svg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/small-logos/logo-invision.svg'); ?>"
                                                             class="avatar avatar-sm me-3" alt="invision">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -844,13 +844,13 @@
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Ryan Tompson">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-1.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-1.jpg'); ?>"
                                                             alt="user6">
                                                     </a>
                                                     <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Jessica Doe">
-                                                        <img src="<?php echo main_url('/admin1/assets/img/team-4.jpg'); ?>"
+                                                        <img src="<?php echo main_url('admin1/assets/img/team-4.jpg'); ?>"
                                                             alt="user7">
                                                     </a>
                                                 </div>
