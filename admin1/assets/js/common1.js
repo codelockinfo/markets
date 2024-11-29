@@ -13,6 +13,7 @@
 // }
 
 window.onload = function () {
+  console.log("WINDOW ON LOAD");
   document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     console.log("drop-zone__input");
     const dropZoneElement = inputElement.closest(".drop-zone");
