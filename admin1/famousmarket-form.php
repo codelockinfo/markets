@@ -34,6 +34,11 @@ if ($_SESSION['current_user']['role'] == 1) {
                 </select>
                 <span class="errormsg shop_name"></span>
               </div>
+              <label for="review" class="font-weight-normal required">Shop Reviews</label>
+              <div class="mb-3">
+                <input type="number" class="form-control product number w-100" placeholder="Shop Reviews" name="review">
+                <span class="errormsg review"></span>
+              </div>
               <div class="mb-3">
                 <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info cencle_loader_show btn-sm formCancel">Cancel</button>

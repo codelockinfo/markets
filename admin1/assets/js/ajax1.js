@@ -1620,15 +1620,15 @@ setTimeout(function(){
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
-        response["msg"]["heading"] !== undefined
-          ? $(".heading").html(response["msg"]["heading"])
-          : $(".heading").html("");
-        response["msg"]["sub_heading"] !== undefined
-          ? $(".sub_heading").html(response["msg"]["sub_heading"])
-          : $(".sub_heading").html("");
-        response["msg"]["banner_text"] !== undefined
-          ? $(".banner_text").html(response["msg"]["banner_text"])
-          : $(".banner_text").html("");
+        // response["msg"]["heading"] !== undefined
+        //   ? $(".heading").html(response["msg"]["heading"])
+        //   : $(".heading").html("");
+        // response["msg"]["sub_heading"] !== undefined
+        //   ? $(".sub_heading").html(response["msg"]["sub_heading"])
+        //   : $(".sub_heading").html("");
+        // response["msg"]["banner_text"] !== undefined
+        //   ? $(".banner_text").html(response["msg"]["banner_text"])
+        //   : $(".banner_text").html("");
         response["msg"]["banner_btn_link"] !== undefined
           ? $(".banner_btn_link").html(response["msg"]["banner_btn_link"])
           : $(".banner_btn_link").html("");
@@ -1767,6 +1767,9 @@ setTimeout(function(){
         response["msg"]["shop_name"] !== undefined
           ? $(".shop_name").html(response["msg"]["shop_name"])
           : $(".shop_name").html("");
+          response["msg"]["review"] !== undefined
+          ? $(".review").html(response["msg"]["shop_name"])
+          : $(".review").html("");
 
         if (response["data"] == "success") {
           $("#f_marketinsert")[0].reset();
@@ -1938,48 +1941,48 @@ setTimeout(function(){
     });
   });
 
-  $(document).on("click", ".reviewSave", function (event) {
-    event.preventDefault();
+  // $(document).on("click", ".reviewSave", function (event) {
+  //   event.preventDefault();
    
-    var form_data = $("#reviewinsert")[0];
-    var form_data = new FormData(form_data);
-    form_data.append("routine_name", "insert_review");
-    $.ajax({
-      url: "../admin1/ajax_call.php",
-      type: "post",
-      dataType: "json",
-      contentType: false,
-      processData: false,
-      data: form_data,
-      beforeSend: function () {
-        loading_show(".save_loader_show");
-      },
-      success: function (response) {
+  //   var form_data = $("#reviewinsert")[0];
+  //   var form_data = new FormData(form_data);
+  //   form_data.append("routine_name", "insert_review");
+  //   $.ajax({
+  //     url: "../admin1/ajax_call.php",
+  //     type: "post",
+  //     dataType: "json",
+  //     contentType: false,
+  //     processData: false,
+  //     data: form_data,
+  //     beforeSend: function () {
+  //       loading_show(".save_loader_show");
+  //     },
+  //     success: function (response) {
         
-        var response = JSON.parse(response);
-        loading_hide(".save_loader_show", "Save");
+  //       var response = JSON.parse(response);
+  //       loading_hide(".save_loader_show", "Save");
 
-        response["msg"]["description"] !== undefined
-          ? $(".description").html(response["msg"]["description"])
-          : $(".description").html("");
-        response["msg"]["shopname"] !== undefined
-          ? $(".shopname").html(response["msg"]["shopname"])
-          : $(".shopname").html("");
-        response["msg"]["review"] !== undefined
-          ? $(".review").html(response["msg"]["review"])
-          : $(".review").html("");
-        if (response["data"] == "success") {
-          $("#reviewinsert")[0].reset();
-          resetThumbnail();
-          showMessage(response.msg, "success");
-          $(".shop_logo").html("");
-          listreview();
-        } else {
-          showMessage(response.msg_error, "fail");
-        }
-      },
-    });
-  });
+  //       response["msg"]["description"] !== undefined
+  //         ? $(".description").html(response["msg"]["description"])
+  //         : $(".description").html("");
+  //       response["msg"]["shopname"] !== undefined
+  //         ? $(".shopname").html(response["msg"]["shopname"])
+  //         : $(".shopname").html("");
+  //       response["msg"]["review"] !== undefined
+  //         ? $(".review").html(response["msg"]["review"])
+  //         : $(".review").html("");
+  //       if (response["data"] == "success") {
+  //         $("#reviewinsert")[0].reset();
+  //         resetThumbnail();
+  //         showMessage(response.msg, "success");
+  //         $(".shop_logo").html("");
+  //         listreview();
+  //       } else {
+  //         showMessage(response.msg_error, "fail");
+  //       }
+  //     },
+  //   });
+  // });
 
   $(".forgotPasswordForm").on("click", function (event) {
     event.preventDefault();

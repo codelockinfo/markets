@@ -59,7 +59,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         } else {
-            $error_array['errormsg'] = "User does not exist! <a href='sign-up.php'>Sign Up</a>";
+            // $error_array['errormsg'] = "User does not exist! <a href='sign-up.php'>Sign Up</a>";
             $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
     
@@ -1017,15 +1017,15 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload the banner image.";
         }
-        if (isset($_POST['heading']) && $_POST['heading'] == '') {
-            $error_array['heading'] = "Please enter the heading.";
-        }
-        if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
-            $error_array['sub_heading'] = "Please enter the sub heading.";
-        }
-        if (isset($_POST['banner_text']) && $_POST['banner_text'] == '') {
-            $error_array['banner_text'] = "Please enter the banner text.";
-        }
+        // if (isset($_POST['heading']) && $_POST['heading'] == '') {
+        //     $error_array['heading'] = "Please enter the heading.";
+        // }
+        // if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
+        //     $error_array['sub_heading'] = "Please enter the sub heading.";
+        // }
+        // if (isset($_POST['banner_text']) && $_POST['banner_text'] == '') {
+        //     $error_array['banner_text'] = "Please enter the banner text.";
+        // }
         if (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] == '') {
             $error_array['banner_btn_link'] = "Please enter the banner button link.";
         } elseif (isset($_POST['banner_btn_link']) && !$this->isValidURL($_POST['banner_btn_link'])) {
@@ -1034,14 +1034,14 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
                 $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-                $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
-                $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
-                $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
+                // $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
+                // $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
+                // $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
                 $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
 
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO banners (banner_img,img_alt,heading,sub_heading,banner_text,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt', '$heading','$sub_heading','$banner_text','$banner_btn_link','$user_id')";
+                    $query = "INSERT INTO banners (banner_img,img_alt,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt','$banner_btn_link','$user_id')";
                     $result = $this->db->query($query);
                 }
                 if ($result) {
@@ -1062,13 +1062,18 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         if (isset($_POST['shop_name']) && $_POST['shop_name'] == '') {
             $error_array['shop_name'] = "Please select the shop.";
         }
+        if (isset($_POST['review']) && $_POST['review'] == '') {
+            $error_array['review'] = "Please enter.";
+        }
         if (empty($error_array)) {
             $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
+            $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
+            
             $shop_name = str_replace("'", "\'", $shop_name);
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO famous_markets (shop_name, user_id) VALUES ('$shop_name', '$user_id')";
+                $query = "INSERT INTO famous_markets (shop_name,review ,user_id) VALUES ('$shop_name','$review', '$user_id')";
                 $result = $this->db->query($query);
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Market inserted successfully!');
@@ -1236,47 +1241,47 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         return $response;
     }
 
-    function insert_review() {
+    // function insert_review() {
 
-        $error_array = array();
+    //     $error_array = array();
 
-        if (isset($_POST['description']) && $_POST['description'] == '') {
-            $error_array['description'] = "Please enter the shop description.";
-        }
+    //     if (isset($_POST['description']) && $_POST['description'] == '') {
+    //         $error_array['description'] = "Please enter the shop description.";
+    //     }
 
-        if (isset($_POST['shopname']) && $_POST['shopname'] == '') {
-            $error_array['shopname'] = "Please enter the shop name.";
-        }
+    //     if (isset($_POST['shopname']) && $_POST['shopname'] == '') {
+    //         $error_array['shopname'] = "Please enter the shop name.";
+    //     }
 
-        if (isset($_POST['review']) && $_POST['review'] == '') {
-            $error_array['review'] = "Please give the review.";
-        }
-        if (empty($error_array)) {
+    //     if (isset($_POST['review']) && $_POST['review'] == '') {
+    //         $error_array['review'] = "Please give the review.";
+    //     }
+    //     if (empty($error_array)) {
 
-            $description = (isset($_POST['description']) && $_POST['description'] !== '') ? $_POST['description'] : '';
-            $description = str_replace("'", "\'", $description);
+    //         $description = (isset($_POST['description']) && $_POST['description'] !== '') ? $_POST['description'] : '';
+    //         $description = str_replace("'", "\'", $description);
 
-            $shopname = (isset($_POST['shopname']) && $_POST['shopname'] !== '') ? $_POST['shopname'] : '';
-            $shopname = str_replace("'", "\'", $shopname);
+    //         $shopname = (isset($_POST['shopname']) && $_POST['shopname'] !== '') ? $_POST['shopname'] : '';
+    //         $shopname = str_replace("'", "\'", $shopname);
 
-            $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
+    //         $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
 
-            if (isset($_SESSION['current_user']['user_id'])) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO marketreviews (description,shopname,review,user_id) VALUES ('$description','$shopname','$review','$user_id')";
-                $result = $this->db->query($query);
-            }
-            if ($result) {
-                $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-            } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
-        } else {
-            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
+    //         if (isset($_SESSION['current_user']['user_id'])) {
+    //             $user_id = $_SESSION['current_user']['user_id'];
+    //             $query = "INSERT INTO marketreviews (description,shopname,review,user_id) VALUES ('$description','$shopname','$review','$user_id')";
+    //             $result = $this->db->query($query);
+    //         }
+    //         if ($result) {
+    //             $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+    //         } else {
+    //             $response_data = array('data' => 'fail', 'msg' => "Error");
+    //         }
+    //     } else {
+    //         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
+    //     }
+    //     $response = json_encode($response_data);
+    //     return $response;
+    // }
 
     function productlisting(){
         global $NO_IMAGE;
@@ -2228,6 +2233,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $output .= '</div>';
                 while ($row = mysqli_fetch_array($res)) {
                     $input = $row['shop_name'];
+                
                     $query = "SELECT * FROM users WHERE   user_id = '$input'";
                     $result = $this->db->query($query);
                     $id = $row["famous_market_id"];
@@ -2239,7 +2245,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                                 $output .= '    <div class="d-flex ">';
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
-                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; // Added d-flex and align-items-center
+                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; 
                                 $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_market" aria-hidden="true"></i>'; // Removed margin-top for centering
                                 $output .= '    </div>';
                                 $output .= '  </div>';
@@ -2260,56 +2266,56 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         return $response;
     }
 
-    function reviewlisting(){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = $_SESSION['current_user']['user_id'];
-            $sql = "SELECT * FROM marketreviews WHERE status='1'";
-            $res = $this->db->query($sql);
-            if ($res && mysqli_num_rows($res) > 0) {
-                $output = "";
-                $output .= '<div class="mb-3 form-check-reverse text-right">';
-                $output .= '  <div class="container">';
-                $output .= '    <div class="btn-group">';
-                $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-                $output .= '        <div class="form-check form-switch ps-0">';
-                $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
-                $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
-                $output .= '        </div>';
-                $output .= '      </div>';
-                $output .= '    </div>';
-                $output .= '  </div>';
-                $output .= '</div>';
-                while ($row = mysqli_fetch_array($res)) {
-                    $input = $row['shopname'];
-                    $query = "SELECT * FROM users WHERE user_id = '$input'";
-                    $result = $this->db->query($query);
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        while ($user_row = mysqli_fetch_array($result)) {
-                            $output .= '<div class="card card-blog card-plain mb-3">';
-                            $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                            $output .= '    <div class="d-flex ">';
-                            $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>';
-                            $output .= '    </div>';
-                            $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
-                            $output .= '      <i data-id="' . $row["marketreview_id"] . '" class="fa fa-trash cursor-pointer delete"  data-delete-type="review" aria-hidden="true"></i>'; // Removed margin-top for centering
-                            $output .= '    </div>';
-                            $output .= '  </div>';
-                            $output .= '</div>';
-                        }
-                        $response_data = array('data' => 'success', 'outcome' => $output);
-                    } else {
-                        $response_data = array('data' => 'fail', 'outcome' => "No user data found for review.");
-                    }
-                }
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
-            }
-        }
+    // function reviewlisting(){
+    //     $response_data = array('data' => 'fail', 'msg' => "Error");
+    //     if (isset($_SESSION['current_user']['user_id'])) {
+    //         $user_id = $_SESSION['current_user']['user_id'];
+    //         $sql = "SELECT * FROM marketreviews WHERE status='1'";
+    //         $res = $this->db->query($sql);
+    //         if ($res && mysqli_num_rows($res) > 0) {
+    //             $output = "";
+    //             $output .= '<div class="mb-3 form-check-reverse text-right">';
+    //             $output .= '  <div class="container">';
+    //             $output .= '    <div class="btn-group">';
+    //             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
+    //             $output .= '        <div class="form-check form-switch ps-0">';
+    //             $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
+    //             $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
+    //             $output .= '        </div>';
+    //             $output .= '      </div>';
+    //             $output .= '    </div>';
+    //             $output .= '  </div>';
+    //             $output .= '</div>';
+    //             while ($row = mysqli_fetch_array($res)) {
+    //                 $input = $row['shopname'];
+    //                 $query = "SELECT * FROM users WHERE user_id = '$input'";
+    //                 $result = $this->db->query($query);
+    //                 if ($result && mysqli_num_rows($result) > 0) {
+    //                     while ($user_row = mysqli_fetch_array($result)) {
+    //                         $output .= '<div class="card card-blog card-plain mb-3">';
+    //                         $output .= '  <div class="d-flex justify-content-between align-items-center">';
+    //                         $output .= '    <div class="d-flex ">';
+    //                         $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>';
+    //                         $output .= '    </div>';
+    //                         $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
+    //                         $output .= '      <i data-id="' . $row["marketreview_id"] . '" class="fa fa-trash cursor-pointer delete"  data-delete-type="review" aria-hidden="true"></i>'; // Removed margin-top for centering
+    //                         $output .= '    </div>';
+    //                         $output .= '  </div>';
+    //                         $output .= '</div>';
+    //                     }
+    //                     $response_data = array('data' => 'success', 'outcome' => $output);
+    //                 } else {
+    //                     $response_data = array('data' => 'fail', 'outcome' => "No user data found for review.");
+    //                 }
+    //             }
+    //         } else {
+    //             $response_data = array('data' => 'fail', 'outcome' => "No data found");
+    //         }
+    //     }
 
-        $response = json_encode($response_data);
-        return $response;
-    }
+    //     $response = json_encode($response_data);
+    //     return $response;
+    // }
 
     function deleteRecord($table, $delete_id){
         $delete_id = $this->db->real_escape_string($delete_id);
@@ -2393,10 +2399,10 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         return $this->deleteRecord('faqs', $delete_id);
     }
 
-    function reviewdelete(){
-        $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
-        return $this->deleteRecord('marketreviews', $delete_id);
-    }
+    // function reviewdelete(){
+    //     $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
+    //     return $this->deleteRecord('marketreviews', $delete_id);
+    // }
 
     function invoice_line_item(){
         $delete_id = isset($_POST["invoice_item_id"]) ? $_POST["invoice_item_id"] : '';
