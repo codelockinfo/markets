@@ -42,8 +42,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <label for="type" class="font-weight-normal required">Business Type</label>
             <div class="mb-3">
               <select class="form-select" aria-label="Default select example" name="business_type">
-                <option selected value="">Your Business Type</option>
-                <option value="0">Retail</option>
+                <option selected value="" disabled>Your Business Type</option>
+                <option value="0">Manufacturer</option>
                 <option value="1">Wholesale</option>
               </select>
               <span class="errormsg business_type"></span>

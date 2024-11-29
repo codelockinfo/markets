@@ -21,7 +21,7 @@ if ($_SESSION['current_user']['role'] == 1) {
         $button_text = $para_array['button_text'];
         include 'adminheadertop.php';
     ?>
-    <div class="container-fluid py-4">
+    <!-- <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
           <div class="card z-index-0 p-5 product-main">
@@ -120,7 +120,7 @@ if ($_SESSION['current_user']['role'] == 1) {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <script src="<?php echo main_url('admin1/assets/js/common.js'); ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>

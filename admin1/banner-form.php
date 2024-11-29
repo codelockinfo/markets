@@ -46,21 +46,21 @@ if ($_SESSION['current_user']['role'] == 1) {
               <div class="mb-3">
                 <input type="text" class="form-control validtext" placeholder="Banner Image Alt" name="image_alt">
               </div>
-              <label for="b-heading" class="font-weight-normal required">Heading</label>
-              <div class="mb-3">
-                <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
-                <span class="errormsg heading"></span>
-              </div>
-              <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
+                <!-- <label for="b-heading" class="font-weight-normal required">Heading</label>
+                <div class="mb-3">
+                  <input type="text" class="form-control validtext" placeholder="Heading" name="heading">
+                  <span class="errormsg heading"></span>
+                </div> -->
+              <!-- <label for="b-subheading" class="font-weight-normal required">Sub Heading</label>
               <div class="mb-3">
                 <input type="text" class="form-control validtext" placeholder="Sub Heading" name="sub_heading">
                 <span class="errormsg sub_heading"></span>
-              </div>
-              <label for="b-subheading" class="font-weight-normal required">Banner Button Text</label>
+              </div> -->
+              <!-- <label for="b-subheading" class="font-weight-normal required">Banner Button Text</label>
               <div class="mb-3">
                 <input type="text" class="form-control validtext" placeholder="Banner Text" name="banner_text">
                 <span class="errormsg banner_text"></span>
-              </div>
+              </div> -->
               <label for="b-subheading" class="font-weight-normal required">Banner Button Link</label>
               <div class="mb-3">
                 <input type="url" class="form-control validurl" placeholder="https://example.com" name="banner_btn_link">

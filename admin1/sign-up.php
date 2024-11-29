@@ -72,8 +72,8 @@ include 'header.php';
                     <div class="mb-3">
                       <div class="tooltip-container">
                         <select class="form-select" aria-label="Default select example" name="business_type">
-                          <option selected value="">Your Business Type</option>
-                          <option value="0">Retail</option>
+                          <option selected value="" disabled>Your Business Type</option>
+                          <option value="0">Manufacturer</option>
                           <option value="1">Wholesale</option>
                         </select>
                         <i class="fa-solid fa-exclamation tooltip-icon"></i>
