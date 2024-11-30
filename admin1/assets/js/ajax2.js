@@ -417,7 +417,16 @@ function lastInsertedId(table_name, id) {
     success: function (response) {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
-        $(".invoiceid").val(response.outcome);
+        const year = new Date().getFullYear(); 
+        let rawOutcome = response.outcome.toString();
+        console.log("Raw Outcome:", rawOutcome);
+        if (rawOutcome.startsWith(year.toString())) {
+            rawOutcome = rawOutcome.slice(year.toString().length);
+        }
+        const paddedId = rawOutcome.padStart(5, "0");
+        const formattedId = `${year}${paddedId}`; 
+        $(".invoiceid").val(formattedId); 
+        console.log("Generated Invoice ID:", formattedId);
       }
     },
   });
