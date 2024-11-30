@@ -3,9 +3,10 @@ include 'header.php';
 if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
-}else{?>
-  <script>profileLoadData('listprofile');</script>
-<?php
+}
+if ($_SESSION['current_user']['role'] == 1) {
+  header("Location: index.php");
+  die();
 }
 ?>
 <body class="g-sidenav-show bg-gray-100">
@@ -14,52 +15,45 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Profile Form", "link" => "profile.php", "button_text" => "Preview");
-        $title = $para_array['title']; 
-        $link = $para_array['link'];
-        $button_text = $para_array['button_text'];
-        include 'adminheadertop.php';
+      $para_array = array("title" => "Topbar Form", "link" => "", "button_text" => "");
+      $title = $para_array['title']; 
+      $link = $para_array['link'];
+      $button_text = $para_array['button_text'];
+      include 'adminheadertop.php';
     ?>
-    <div class="container-fluid py-4">
-      <div class="col-xl-5 col-lg-9 col-md-5 mx-auto">
-        <div class="card card-body z-index-0 p-3">
-          <form role="form" id="profileUpdate" enctype="multipart/form-data" method="POST">
-            <label for="name" class="font-weight-normal required">Name</label>
-            <div class="mb-3">
-              <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
-              <span class="errormsg name"></span>
+    <div class="container-fluid w-100 py-4">
+      <div class="row">
+        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
+          <div class="card z-index-0 p-5">
+            <form role="form" id="topbarinsert" enctype="multipart/form-data" method="POST">
+              <label for="text" class="font-weight-normal"> topbar input 1</label>
+              <div class="mb-3">
+                <input type="text" class="form-control valikey" placeholder=" topbar input 1" name="topbar_input1">
+                <span class="errormsg topbar_input1"></span>
+              </div>
+              <label for="image-link" class="font-weight-normal required">topbar input 2</label>
+              <div class="mb-3">
+                <input type="url" class="form-control valikey" placeholder="topbar input 2" name="topbar_input2">
+                <span class="errormsg topbar_input2"></span>
+              </div>
+              <div class="mb-3">
+                <button type="button" class="btn bg-gradient-info btn-sm topbarSave formSave save_loader_show">Save</button>
+                <button type="button" class="btn bg-gradient-info btn-sm cencle_loader_show formCancel">Cancel</button>
+              </div>
+              <div class="alert" role="alert" id="success_message" name="success_alert"></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
+          <div class="card z-index-0 p-5">
+            <div class="row" id="getdata">
+           
             </div>
-            <label for="shopname" class="font-weight-normal required">Shop Name</label>
-            <div class="mb-3">
-              <input type="shopname" class="form-control" placeholder="Shop Name" name="shop">
-              <span class="errormsg shop"></span>
-            </div>
-            <label for="mobilenumber" class="font-weight-normal required">Mobile Number</label>
-            <div class="mb-3">
-              <input type="tel" class="form-control" placeholder="Mobile No." name="phone_number">
-              <span class="errormsg phone_number"></span>
-            </div>
-            <label for="type" class="font-weight-normal required">Business Type</label>
-            <div class="mb-3">
-              <select class="form-select" aria-label="Default select example" name="business_type">
-                <option selected value="" disabled>Your Business Type</option>
-                <option value="0">Manufacturer</option>
-                <option value="1">Wholesale</option>
-              </select>
-              <span class="errormsg business_type"></span>
-            </div>
-            <label for="address" class="font-weight-normal required">Address</label>
-            <div class="mb-3">
-              <input type="address" class="form-control" placeholder="Address" name="address">
-              <span class="errormsg address"></span>
-            </div>
-            <div class="text-center">
-              <button type="button" class="btn bg-gradient-info btn-sm profileDataUpdate save_loader_show">Save</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="tel:7600464414">
@@ -123,6 +117,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
     </div>
   </div>
-  <script src="<?php echo main_url('admin1/assets/js/common1.js'); ?>"></script>
+  <!-- <script src="<?php echo main_url('admin1/assets/js/common1.js'); ?>"></script> -->
 </body>
 </html>
+<script type="text/javascript"> 
+loadData("topbarlisting");
+</script>

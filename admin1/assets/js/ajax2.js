@@ -199,6 +199,12 @@ function listinvoice() {
 function offerlist() {
   loadData("offerlisting");
 }
+function topbarlist(){
+  loadData("topbarlisting")
+}
+function custom_product(){
+  loadData("custm_productlisting");
+}
 
 function listvideo() {
   loadData("videolisting");
@@ -232,9 +238,9 @@ function listfamousmarket() {
   loadData("famousmarketlisting");
 }
 
-function listreview() {
-  loadData("reviewlisting");
-}
+// function listreview() {
+//   loadData("reviewlisting");
+// }
 
 function profileLoadData(routineName) {
  
@@ -886,13 +892,21 @@ setTimeout(function(){
 
  
   function resetThumbnail() {
+    console.log("resetThumbnail");
     var $thumbnailElement = $(".drop-zone__thumb");
+    var propzone = $thumbnailElement.closest(".drop-zone").find(".pro-zone__prompt");
+    console.log(propzone, " ,,,,ppppppppropzone");
     if ($thumbnailElement.length > 0) {
       $thumbnailElement.html("");
       $thumbnailElement.removeClass("drop-zone__thumb");
-      $thumbnailElement.html(
-        '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
-      );
+
+      if(propzone.length >= 1){
+        propzone.css("display", "block");
+      }else{
+        $thumbnailElement.html(
+          '<span class="pro-zone__prompt">Drop file here or click to upload</span>'
+        );
+      }
     }
   }
 
@@ -1364,9 +1378,7 @@ setTimeout(function(){
           data.offer_id = deleteId;
         } else if (type === "faq") {
           data.faq_id = deleteId;
-        } else if (type === "review") {
-          data.marketreview_id = deleteId;
-        } else if (type === "customer") {
+        } else  if (type === "customer") {
           data.customer_id = deleteId;
         } else if (type === "invoice") {
           data.invoice_id = deleteId;
@@ -1378,7 +1390,12 @@ setTimeout(function(){
           data.product_id = deleteId;
         } else if (type === "invoice_line_item") {
           data.invoice_item_id = deleteId;
-        }
+        }else if (type === "topbar") {
+          data.id = deleteId;
+        } 
+        // if (type === "review") {
+        //   data.marketreview_id = deleteId;
+        // } else
         $.ajax({
           url: "../admin1/ajax_call.php",
           type: "POST",
@@ -1447,7 +1464,8 @@ setTimeout(function(){
     var deleteMapping = {
       product: { routine: "productdelete", callback: listproduct },
       invoice: { routine: "invoicedelete", callback: listinvoice },
-      review: { routine: "reviewdelete", callback: listreview },
+      topbar: { routine: "topbardelete", callback: topbarlist },
+      // review: { routine: "reviewdelete", callback: listreview },
       famous_market: {
         routine: "famousmarketdelete",
         callback: listfamousmarket,
@@ -1487,7 +1505,7 @@ setTimeout(function(){
       },
       offer: { routine: "offerdelete", callback: offerlist },
       faq: { routine: "faqdelete", callback: listFAQ },
-      review: { routine: "reviewdelete", callback: listreview },
+      // review: { routine: "reviewdelete", callback: listreview },
     };
 
     if (deleteMapping[deleteType]) {
@@ -1950,6 +1968,7 @@ setTimeout(function(){
     });
   });
 
+
   // $(document).on("click", ".reviewSave", function (event) {
   //   event.preventDefault();
    
@@ -1992,6 +2011,47 @@ setTimeout(function(){
   //     },
   //   });
   // });
+  // --------
+   $(document).on("click", ".topbarSave", function (event) {
+    event.preventDefault();
+    var form_data = $("#topbarinsert")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "insert_topbar");
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
+      success: function (response) {
+        
+        var response = JSON.parse(response);
+        loading_hide(".save_loader_show", "Save");
+
+        response["msg"]["topbar_input1"] !== undefined
+          ? $(".topbar_input1").html(response["msg"]["topbar_input1"])
+          : $(".topbar_input1").html("");
+
+        response["msg"]["topbar_input2"] !== undefined
+          ? $(".topbar_input2").html(response["msg"]["topbar_input2"])
+          : $(".topbar_input2").html("");
+
+        if (response["data"] == "success") {
+          $("#topbarinsert")[0].reset();
+          resetThumbnail();
+          showMessage(response.msg, "success");
+          $(".shop_logo").html("");
+          topbarlist();
+        } else {
+          showMessage(response.msg_error, "fail");
+        }
+      },
+    });
+  });
 
   $(".forgotPasswordForm").on("click", function (event) {
     event.preventDefault();

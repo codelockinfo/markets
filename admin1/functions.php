@@ -1178,6 +1178,38 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         return $response;
     }
 
+    function insert_topbar() {
+        $error_array = array();
+         if (isset($_POST['topbar_input1']) && $_POST['topbar_input1'] == '') {
+            $error_array['topbar_input1'] = "Please enter topbar text.";
+        }
+        if (isset($_POST['topbar_input2']) && $_POST['topbar_input2'] == '') {
+            $error_array['topbar_input2'] = "Please enter second topbar text.";
+        }
+        if (empty($error_array)) {
+            
+                $topbar_input1 = (isset($_POST['topbar_input1']) && $_POST['topbar_input1'] !== '') ? $_POST['topbar_input1'] : '';
+                $topbar_input2 = (isset($_POST['topbar_input2']) && $_POST['topbar_input2'] !== '') ? $_POST['topbar_input2'] : '';
+
+                if (isset($_SESSION['current_user']['user_id'])) {
+                    $user_id = $_SESSION['current_user']['user_id'];
+                    $query = "INSERT INTO topbar (topbar_input1,topbar_input2,user_id) VALUES ('$topbar_input1','$topbar_input2','$user_id')";
+                    $result = $this->db->query($query);
+                }
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' =>'topbar Form inserted successfully!');
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => "Error");
+                }
+          
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+
     function insert_paragraph(){
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
@@ -2039,7 +2071,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                    $output .= '</div>';
+                                                    $output .= '</div>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
@@ -2267,6 +2299,138 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         return $response;
     }
 
+    function topbarlisting(){
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            $query = "SELECT * FROM topbar WHERE user_id = '$user_id'";
+            $result = $this->db->query($query);
+            $output = "";
+            $output .= '<div class="mb-3 form-check-reverse text-right">';
+            $output .= '  <div class="container">';
+            $output .= '    <div class="btn-group">';
+            $output .= '      <div class="btn-group" role="group">';
+            $output .= '        <div class="form-check form-switch ps-0 toggle_offon">';
+            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="topbar" checked>';
+            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="topbar">';
+            $output .= '        </div>';
+            $output .= '      </div>';
+            $output .= '    </div>';
+            $output .= '  </div>';
+            $output .= '</div>';
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        
+                        $output .= '<div class="card card-blog card-plain mb-3">';
+                                $output .= '  <div class="d-flex justify-content-between align-items-center">';
+                                $output .= '    <div class="d-flex ">';
+                                $output .= '      <div class="shop-name text-secondary px-3">' .$row['topbar_input1']  . '</div>';
+                                $output .= '      <div class="shop-name text-secondary px-3">' .$row['topbar_input2']  . '</div>';
+                                $output .= '    </div>';
+                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
+                                $output .= '      <i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '    </div>';
+                                $output .= '  </div>';
+                                $output .= '</div>';
+                    }
+                    $response_data = array('data' => 'success', 'outcome' => $output);
+                } else {
+                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                }
+            }
+        } else {
+            $response_data = array('data' => 'fail', 'msg' => "User not logged in");
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    function custm_productlisting(){
+        global $NO_IMAGE;
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $limit = 12;
+            $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+            $offset = ($page - 1) * $limit;
+            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' LIMIT $offset, $limit";
+            } else {
+                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%'";
+            }
+            $result = $this->db->query($sql);
+            $output = "";
+            $pagination = "";
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $product_id = $row['product_id'];
+                    $image = $row["p_image"];
+                    $imagePath = "../admin1/assets/img/product_img/" . $image;
+                    $noimagePath = $NO_IMAGE;
+                    $decodedPath = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                    );
+                    $title = $row['title'];
+                    $maxPrice = $row['maxprice'];
+                    $minPrice = $row['minprice'];
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain image-container mb-4">';
+                    $output .= '    <div class="position-relative">';
+                    $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
+                    $output .= '      </a>';
+                   
+                    $output .= '    </div>';
+                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '      <a href="#">';
+                    $output .= '        <h5>' . $title . '</h5>';
+                    $output .= '      </a>';
+                    $output .= '      <div class="d-flex justify-content-between mb-3">';
+                    $output .= '         <div class="ms-1 d-inline fs-6">';
+                    $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
+                    $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
+                    $output .= '         </div>';
+                    $output .= '        <div class="ms-auto text-end">';
+                    $output .= '</div>';
+                   
+                    $output .= '        </div>';
+                    $output .= '      </div>';
+                    $output .= '    </div>';
+                    $output .= '  </div>';
+                }
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',
+                    'pagination_needed' => ($total_records > $limit) ? true : false
+                );
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
+            // $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $total_pages = ceil($total_records / $limit);
+                if ($total_pages > 1) {
+                    $pagination .= '<div class="pagination" id="dataPagination" data-routine="productlisting">';
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $active_class = ($i == $page) ? 'active' : '';
+                        $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                    }
+                    $pagination .= '</div>';
+                }
+                $response_data['pagination'] = $pagination;
+            }
+       
+        $response = json_encode($response_data);
+        return $response;  
+    }
+
     // function reviewlisting(){
     //     $response_data = array('data' => 'fail', 'msg' => "Error");
     //     if (isset($_SESSION['current_user']['user_id'])) {
@@ -2393,6 +2557,11 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function offerdelete(){
         $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
         return $this->deleteRecord('offers', $delete_id);
+    }
+
+    function topbardelete(){
+        $delete_id = isset($_POST["id"]) ? $_POST["id"] : '2';
+        return $this->deleteRecord('topbar', $delete_id);
     }
 
     function faqdelete(){
