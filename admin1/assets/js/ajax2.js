@@ -883,13 +883,21 @@ setTimeout(function(){
 
  
   function resetThumbnail() {
+    console.log("resetThumbnail");
     var $thumbnailElement = $(".drop-zone__thumb");
+    var propzone = $thumbnailElement.closest(".drop-zone").find(".pro-zone__prompt");
+    console.log(propzone, " ,,,,ppppppppropzone");
     if ($thumbnailElement.length > 0) {
       $thumbnailElement.html("");
       $thumbnailElement.removeClass("drop-zone__thumb");
-      $thumbnailElement.html(
-        '<span class="drop-zone__prompt">Drop file here or click to upload</span>'
-      );
+
+      if(propzone.length >= 1){
+        propzone.css("display", "block");
+      }else{
+        $thumbnailElement.html(
+          '<span class="pro-zone__prompt">Drop file here or click to upload</span>'
+        );
+      }
     }
   }
 
