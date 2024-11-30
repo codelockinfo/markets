@@ -248,44 +248,69 @@ function profileLoadData(routineName) {
     url: "../admin1/ajax_call.php",
     type: "post",
     dataType: "json",
+    timeout: 5000, 
     data: { routine_name: routineName },
     success: function (response) {
-      var response = JSON.parse(response);
-     
-      if (response.outcome === "No data found") {
-        // $("#" + elementId).html('<div style="color: red; text-align: center;">' + response.outcome + '</div>');
-      } else {
-        response["profiledata"]["name"] !== undefined
-          ? $("input[name='name']").val(response["profiledata"]["name"])
-          : "";
-        response["profiledata"]["shop"] !== undefined
-          ? $("input[name='shop']").val(response["profiledata"]["shop"])
-          : "";
-        response["profiledata"]["phone_number"] !== undefined
-          ? $("input[name='phone_number']").val(
-              response["profiledata"]["phone_number"]
-            )
-          : "";
-        response["profiledata"]["business_type"] !== undefined
-          ? $("select[name='business_type']")
-              .val(response["profiledata"]["business_type"])
-              .change()
-          : "";
-        response["profiledata"]["address"] !== undefined
-          ? $("input[name='address']").val(response["profiledata"]["address"])
-          : "";
-
-        response["outcome"]["profile_deatils"] !== undefined
-          ? $("#getdataa").html(response["outcome"]["profile_deatils"])
-          : $("#getdataa").html("");
-        response["outcome"]["deatils"] !== undefined
-          ? $("#img").html(response["outcome"]["deatils"])
-          : $("#img").html("");
-        response["outcome"]["logo"] !== undefined
-          ? $("#profile_data").html(response["outcome"]["logo"])
-          : $("#profile_data").html("");
+      
+      try {
+        const parsedResponse =
+        typeof response === "string" ? JSON.parse(response) : response;
+        console.log(parsedResponse, " .....parsedResponse");
+        if (parsedResponse.data === "success") {
+          console.log("Data loaded successfully:", parsedResponse.data);
+          parsedResponse["profiledata"]["name"] !== undefined
+            ? $("input[name='name']").val(parsedResponse["profiledata"]["name"])
+            : "";
+          parsedResponse["profiledata"]["shop"] !== undefined
+            ? $("input[name='shop']").val(parsedResponse["profiledata"]["shop"])
+            : "";
+          parsedResponse["profiledata"]["phone_number"] !== undefined
+            ? $("input[name='phone_number']").val(
+              parsedResponse["profiledata"]["phone_number"]
+              )
+            : "";
+          parsedResponse["profiledata"]["business_type"] !== undefined
+            ? $("select[name='business_type']")
+                .val(parsedResponse["profiledata"]["business_type"])
+                .change()
+            : "";
+          parsedResponse["profiledata"]["address"] !== undefined
+            ? $("input[name='address']").val(parsedResponse["profiledata"]["address"])
+            : "";
+          parsedResponse["outcome"]["profile_deatils"] !== undefined
+            ? $("#getdataa").html(parsedResponse["outcome"]["profile_deatils"])
+            : $("#getdataa").html("");
+          parsedResponse["outcome"]["deatils"] !== undefined
+            ? $("#img").html(parsedResponse["outcome"]["deatils"])
+            : $("#img").html("");
+          parsedResponse["outcome"]["logo"] !== undefined
+            ? $("#profile_data").html(parsedResponse["outcome"]["logo"])
+            : $("#profile_data").html("");
+          
+        } else if (parsedResponse.data === "fail") {
+          console.error("Error from server:", parsedResponse.message);
+        } else { 
+          console.warn("Unexpected status:", parsedResponse.status);
+        }
+      } catch (error) {
+        console.error("Error parsing response:", error.message);
       }
     },
+    
+    error: function (xhr, status, error) {
+      console.log(status , " ..........status");
+      console.log(xhr.status , "......xhr.status ");
+      if (status === 'timeout') {
+        console.log('Request timed out. Please try again.');
+        profileLoadData('listprofile');
+      }else if (xhr.status === 500) {
+        console.error("Internal server error (500)");
+        profileLoadData('listprofile');
+      } else {
+        console.error(`AJAX Error - Status: ${status}, Error: ${error}`);
+      }
+    },
+    
   });
 }
 
