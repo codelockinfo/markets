@@ -13,16 +13,21 @@
 // }
 
 window.onload = function () {
+  console.log("WINDOW ON LOAD");
   document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    console.log("drop-zone__input");
     const dropZoneElement = inputElement.closest(".drop-zone");
     const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
-
+    
+    console.log(dropZoneElement);
+    
     if (!promptElement) {
       console.error("pro-zone__prompt element is missing");
       return;
     }
 
     dropZoneElement.addEventListener("click", () => {
+      console.log("CLICKSSSSS");
       if (!inputElement.disabled) {
         inputElement.click();
       }

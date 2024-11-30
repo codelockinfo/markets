@@ -111,7 +111,7 @@ if ($_SESSION['current_user']['role'] == 1) {
         </div>
       </div>
     </div>
-    <script src="<?php echo main_url('admin1/assets/js/common.js'); ?>"></script>
+    <script src="<?php echo main_url('admin1/assets/js/common1.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
 
