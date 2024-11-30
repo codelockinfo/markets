@@ -40,7 +40,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end invoiceid" value="" readonly>
+                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end invoiceid" value="" name="invoice_id" readonly>
                 </div>
               </div>
             </div>

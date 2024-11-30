@@ -672,6 +672,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
             $ship_to = $_POST['ship_to'];
             $date = $_POST['date'];
             $terms = $_POST['terms'];
+            $invoice_id = $_POST['invoice_id'];
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
             $total = isset($_POST['total']) ? $_POST['total'] : 0;
@@ -684,8 +685,8 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         if (isset($_SESSION['current_user']['user_id'])) {
                             $user_id = $_SESSION['current_user']['user_id'];
-                            $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                                      VALUES ('$newFilename', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                            $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                         }
                     }
                 } else {
@@ -741,55 +742,55 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 //     }
                 // }
                 if ($result) {
-                    $last_id = empty($id) ? $this->db->insert_id : $id;
-                    $items = $_POST['item'];
-                    $quantities = $_POST['quantity'];
-                    $rates = $_POST['rate'];
-                    $invoice_item_ids = isset($_POST['invoice_item_id']) ? $_POST['invoice_item_id'] : [];
-
-                    $values = [];
+                        $invoice_id = isset($_POST['invoice_id']) ? $_POST['invoice_id'] : null;
+                        if (empty($invoice_id)) {
+                            $invoice_id = $this->db->insert_id;
+                        }
+                    $items = $_POST['item'] ?? [];
+                    $quantities = $_POST['quantity'] ?? [];
+                    $rates = $_POST['rate'] ?? [];
+                    $invoice_item_ids = $_POST['invoice_item_id'] ?? [];
+                    $error_array = [];
+                    $values = []; 
                     foreach ($items as $index => $item) {
-                        $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                        $rate = !empty($rates[$index]) ? $rates[$index] : null;
+                        $quantity = $quantities[$index] ?? null;
+                        $rate = $rates[$index] ?? null;
                         $amount = $quantity * $rate;
                         if (empty($item)) {
                             $error_array[$index]['item'] = "Please enter item.";
                         }
                         if (empty($quantity) || !is_numeric($quantity)) {
-                            $error_array[$index]['quantity'] = "Please enter valid quantity.";
+                            $error_array[$index]['quantity'] = "Please enter a valid quantity.";
                         }
                         if (empty($rate) || !is_numeric($rate)) {
-                            $error_array[$index]['rate'] = "Please enter valid rate.";
+                            $error_array[$index]['rate'] = "Please enter a valid rate.";
                         }
                         if ($amount <= 0) {
                             $error_array[$index]['amount'] = "Amount is not valid.";
                         }
-
                         if (empty($error_array[$index])) {
                             $item = $this->db->real_escape_string($item);
                             $quantity = $this->db->real_escape_string($quantity);
                             $rate = $this->db->real_escape_string($rate);
                             $amount = $this->db->real_escape_string($amount);
                             $user_id = $_SESSION['current_user']['user_id'];
-                            $last_id = $this->db->real_escape_string($last_id);
+                            $invoice_id_escaped = $this->db->real_escape_string($invoice_id);
                             if (!empty($invoice_item_ids[$index])) {
-                                if (!empty($id)) {
-
-                                    $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
-                                    $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
-                                             WHERE invoice_item_id='$invoice_item_id' ";
-                                    $res1 = $this->db->query($sql1);
-                                }
+                                $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
+                                $sql1 = "UPDATE invoice_item 
+                                         SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
+                                         WHERE invoice_item_id='$invoice_item_id'";
+                                $res1 = $this->db->query($sql1);
                             } else {
-                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
+                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$invoice_id_escaped')";
                             }
                         }
                     }
                     if (!empty($values)) {
-                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) 
+                                 VALUES " . implode(", ", $values);
                         $res1 = $this->db->query($sql1);
                     }
-
                     if ($res1) {
                         $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                        
