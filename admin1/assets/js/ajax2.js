@@ -2256,6 +2256,47 @@ function check_toggle_btn(videoId) {
   });
 }
 
+// product
+$(document).on("click", ".protoggle-button", function () {
+  var productId = $(this).data("product-id");
+  var ischecked_value = $(this).is(":checked") ? 1 : 0;
+
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      routine_name: "protoggle_checkuncheck",
+      ischecked_value: ischecked_value,
+      product_id: productId,
+    },
+    success: function (response) {
+      
+    },
+  });
+});
+
+function check_toggle_btn(productId) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: {
+      routine_name: "check_toggle_btn",
+      product_id: productId,
+    },
+
+    success: function (response) {
+      if (response["outcome"] !== undefined) {
+        var check_status = response["outcome"]["toggle"];
+        $("#checkbox_" + productId).prop("checked", check_status == 1);
+      } else {
+        
+      }
+    },
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var ctxhtml = document.getElementById("chart-bars");
   if (ctxhtml) {

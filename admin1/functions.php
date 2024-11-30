@@ -2368,6 +2368,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
             $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
+                    $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
                     $product_id = $row['product_id'];
                     $image = $row["p_image"];
                     $imagePath = "../admin1/assets/img/product_img/" . $image;
@@ -2396,6 +2397,10 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                     $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
                     $output .= '         </div>';
                     $output .= '        <div class="ms-auto text-end">';
+                    $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
+                    $output .= '<input class="form-check-input ms-auto protoggle-button" type="checkbox" id="checkbox_' . $product_id . '" data-product-id="' . $product_id . '" ' . $toggleactive . '>';
+                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
+                    $output .= '</div>';
                     $output .= '</div>';
                    
                     $output .= '        </div>';
@@ -2842,6 +2847,41 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $response = json_encode($response_data);
         return $response;
     }
+// product check uncheck
+
+function protoggle_checkuncheck() {
+    $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+
+    if (isset($_POST['ischecked_value']) && isset($_POST['product_id'])) {
+        $product_id = intval($_POST['product_id']);
+        $ischecked_value = $_POST['ischecked_value'];
+         $query = "UPDATE products SET toggle= '$ischecked_value' WHERE product_id = $product_id";
+        $result = $this->db->query($query);
+        if ($result) {
+            $response_data = array('data' => 'success', 'outcome' => "Update successfully");
+        } else {
+            $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        }
+    }
+
+    $response = json_encode($response_data);
+    return $response;
+}
+
+function procheck_toggle_btn() {
+    $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+    if (isset($_POST['product_id'])) {
+        $product_id = intval($_POST['product_id']);
+        $query = "SELECT * FROM products WHERE  product_id = $product_id AND toggle='1'";
+        $result = $this->db->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $response_data = array('data' => 'success', 'outcome' => $row);
+        }
+    }
+    $response = json_encode($response_data);
+    return $response;
+}
 
     function get_categories(){
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
