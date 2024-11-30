@@ -47,7 +47,8 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
             $error_array['password'] = "Password not valid.";
         }
         if (empty($error_array)) {
-            $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+            $hashed_password = md5(string: $password);
+            $query = "SELECT * FROM users WHERE email = '$email' AND password = '$hashed_password'";
             $result = $this->db->query($query);
     
             if (mysqli_num_rows($result) > 0) {
@@ -55,7 +56,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'Login successfully');
             } else {
-                
+                $error_array['password'] = "Password not valid.";
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         } else {
@@ -262,8 +263,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 return json_encode(array('data' => 'fail', 'msg' => $error_array));
             } else {
                 if (move_uploaded_file($_FILES['shop_img']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
+                    $hashed_password = md5($password);
                     $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
-                              VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$password', '$email')";
+                              VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
                         return json_encode(array('data' => 'success', 'msg' => 'Data inserted successfully!'));
