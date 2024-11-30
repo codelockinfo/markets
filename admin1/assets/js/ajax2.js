@@ -807,9 +807,9 @@ $(document).ready(function () {
       e.preventDefault();
     }
   });
-
-  $(".validurl").on("keypress", function () {
-    $(this).closest("mb-3").find(".errormsg").text("");
+ 
+  $(".validurl").on("input", function () {
+    $(this).closest(".mb-3").find(".errormsg").text("");
   });
   
   $(".price").on("input", function () {
@@ -900,6 +900,18 @@ setTimeout(function(){
       }
     }
   }
+  $("#email").on("input", function () {
+    var email = $(this).val();
+    var emailErrorDiv = $(".email");
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    if (email === "") {
+      emailErrorDiv.text("");
+    } else if (!emailRegex.test(email)) {
+      emailErrorDiv.text("Please enter  valid email formate.");
+    } else {
+      emailErrorDiv.text(""); 
+    }
+  });
 
   $(document).on("click", ".signInsave", function (e) {
     e.preventDefault();
