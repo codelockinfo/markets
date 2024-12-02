@@ -2492,7 +2492,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function deleteRecord($table, $delete_id){
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
-        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
+       $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
         $result = $this->db->query($query);
         if ($result === TRUE) {
             $response_data = array('data' => 'success', 'message' => "Delete successfully");
@@ -2505,6 +2505,11 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function productdelete(){
         $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
         return $this->deleteRecord('products', $delete_id);
+    }
+    function userdelete(){
+  
+        $delete_id = isset($_POST["id"]) ? $_POST["id"] : '2';
+        return $this->deleteRecord('users', $delete_id);
     }
 
     function invoicedelete() {
@@ -3053,6 +3058,132 @@ function procheck_toggle_btn() {
                     }
                     $response_data = array('data' => 'success', 'outcome' => $yearly_totals);
                 }
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function userlisting() {
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        global $NO_IMAGE;
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $search_value = isset($_POST['search_text']) ? $this->db->real_escape_string(trim($_POST['search_text'])) : '';
+            $limit = 12;
+            $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+            $offset = ($page - 1) * $limit;
+            $userid_clause = ($_SESSION['current_user']['role'] == 1)
+                ? "user_id = " . (int)$_SESSION['current_user']['user_id']
+                : "1=1";
+            $search_clause = "($userid_clause AND (name LIKE '%$search_value%' OR shop LIKE '%$search_value%' OR email LIKE '%$search_value%' OR business_type LIKE '%$search_value%'))";
+    
+            $count_query = "SELECT COUNT(*) AS total FROM users WHERE $search_clause ";
+    
+            $res_count = $this->db->query($count_query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $data_query = "SELECT * FROM users WHERE $search_clause LIMIT $limit OFFSET $offset ";
+    
+            $result = $this->db->query($data_query);
+            $output = "";
+            $pagination = "";
+    
+            if ($result && $result->num_rows > 0) {
+                $output .= '<table class="Table table">';
+                $output .= '<thead>';
+                $output .= '<tr>';
+                $output .= '   <th>ID</th>';
+                $output .= '   <th>Name</th>';
+                $output .= '   <th>Shop Name</th>';
+                $output .= '   <th>Email</th>';
+                $output .= '   <th>Contact</th>';
+                $output .= '   <th>Shop Image</th>';
+                $output .= '   <th>Delete</th>';
+                $output .= '   <th>Toggle</th>';
+                $output .= '</tr>';
+                $output .= '</thead>';
+                $output .= '<tbody>';
+    
+                while ($row = $result->fetch_assoc()) {
+                    $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
+                    $image = $row["shop_img"];
+                    $user_id = $row['user_id'];
+                    $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                    $noimagePath = $NO_IMAGE;
+                    $decodedPath = htmlspecialchars_decode(
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
+                    );
+    
+                    $output .= '<tr>';
+                    $output .= '<td>' . $row['user_id'] . '</td>';
+                    $output .= '<td>' . htmlspecialchars($row['name']) . '</td>';
+                    $output .= '<td>' . htmlspecialchars($row['shop']) . '</td>';
+                    $output .= '<td>' . htmlspecialchars($row['email']) . '</td>';
+                    $output .= '<td>' . htmlspecialchars($row['phone_number']) . '</td>';
+                    $output .= '<td><img src="' . $decodedPath . '" alt="Shop Image" class="user_img"></td>';
+                    $output .= '<td><i data-id="' . $row["user_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="users" aria-hidden="true"></i></td>';
+                    $output .='<td>';
+                    $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
+                    $output .= '<input class="form-check-input ms-auto usertoggle-button" type="checkbox" id="checkbox_' . $user_id . '" data-user-id="' . $user_id . '" ' . $toggleactive . '>';
+                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="users">';
+                    $output .= '</div>';
+                    $output .='</td>';
+
+                    $output .= '</tr>';
+                }
+                
+                $output .= '</tbody>';
+                $output .= '</table>';
+                if ($total_records > $limit) {
+                    $total_pages = ceil($total_records / $limit);
+                    $pagination .= '<div class="pagination" id="dataPagination" data-routine="userlisting">';
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $active_class = ($i == $page) ? 'active' : '';
+                        $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+                    }
+                    $pagination .= '</div>';
+                }
+    
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => $pagination,
+                    'pagination_needed' => ($total_records > $limit) ? true : false
+                );
+            }else{
+                     $response_data = array('data' => 'fail', 'msg' => "Error");
+
+            }
+        }
+        return json_encode($response_data);
+    }
+    function usertoggle_checkuncheck() {
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+    
+        if (isset($_POST['ischecked_value']) && isset($_POST['user_id'])) {
+            $user_id = intval($_POST['user_id']);
+            $ischecked_value = $_POST['ischecked_value'];
+             $query = "UPDATE users SET toggle= '$ischecked_value' WHERE user_id = $user_id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'outcome' => "Update successfully");
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+            }
+        }
+    
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function usercheck_toggle_btn() {
+        $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
+        if (isset($_POST['user_id'])) {
+            $user_id = intval($_POST['user_id']);
+            $query = "SELECT * FROM users WHERE  user_id = $user_id AND toggle='1'";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $response_data = array('data' => 'success', 'outcome' => $row);
             }
         }
         $response = json_encode($response_data);
