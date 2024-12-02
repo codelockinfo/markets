@@ -268,17 +268,27 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
-                        return json_encode(array('data' => 'success', 'msg' => 'Data inserted successfully!'));
+                        $subject = "Market";
+                        $message = file_get_contents('thankemail_template.php');
+                        $headers = "From: no-reply@marketsearch.com";
+    
+                        if (mail($email, $subject, $message, $headers)) {
+                            $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                        } else {
+                            $response_data = array('data' => 'fail', 'msg' => 'could not be sent. Mailer Error:');
+                        }
                     } else {
-                        return json_encode(array('data' => 'fail', 'msg' => 'Error inserting data.'));
+                        $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
                     }
                 } else {
-                    return json_encode(array('data' => 'fail', 'msg' => 'Error uploading files.'));
+                    $response_data = array('data' => 'fail', 'msg' => 'Error uploading files.');
                 }
             }
         } else {
-            return json_encode(array('data' => 'fail', 'msg' => $error_array));
+            $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
+        $response = json_encode($response_data);
+        return $response;
     }
 
     function insert_products() {
