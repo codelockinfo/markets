@@ -187,7 +187,9 @@ function listproduct() {
 function listcustomer() {
   loadData("customerlisting");
 }
-
+function listuser(){
+  loadData("userlisting");
+}
 function listblog() {
   loadData("bloglisting");
 }
@@ -1429,6 +1431,8 @@ setTimeout(function(){
           data.invoice_item_id = deleteId;
         }else if (type === "topbar") {
           data.id = deleteId;
+        } else if (type === "users") {
+          data.id = deleteId;
         } 
         // if (type === "review") {
         //   data.marketreview_id = deleteId;
@@ -1502,6 +1506,7 @@ setTimeout(function(){
       product: { routine: "productdelete", callback: listproduct },
       invoice: { routine: "invoicedelete", callback: listinvoice },
       topbar: { routine: "topbardelete", callback: topbarlist },
+      users: { routine: "userdelete", callback: listuser },
       // review: { routine: "reviewdelete", callback: listreview },
       famous_market: {
         routine: "famousmarketdelete",
@@ -2090,6 +2095,7 @@ setTimeout(function(){
     });
   });
 
+
   $(".forgotPasswordForm").on("click", function (event) {
     event.preventDefault();
     var form_data = $("#forgetpassword")[0];
@@ -2321,7 +2327,46 @@ function check_toggle_btn(productId) {
     },
   });
 }
+// user
+$(document).on("click", ".usertoggle-button", function () {
+  var userId = $(this).data("user-id");
+  var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      routine_name: "usertoggle_checkuncheck",
+      ischecked_value: ischecked_value,
+      user_id: userId,
+    },
+    success: function (response) {
+      
+    },
+  });
+});
+
+function check_toggle_btn(userId) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: {
+      routine_name: "check_toggle_btn",
+      user_id: userId,
+    },
+
+    success: function (response) {
+      if (response["outcome"] !== undefined) {
+        var check_status = response["outcome"]["toggle"];
+        $("#checkbox_" +userId).prop("checked", check_status == 1);
+      } else {
+        
+      }
+    },
+  });
+}
 document.addEventListener("DOMContentLoaded", function () {
   var ctxhtml = document.getElementById("chart-bars");
   if (ctxhtml) {

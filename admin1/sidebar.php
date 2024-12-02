@@ -62,6 +62,8 @@
                 <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
                 <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>topbar.php">Topbar</a>
                 <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>custmize_product.php">Prduct</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>user.php">User</a>
+
 
                 <!-- <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>marketsbyreviews.php">Markets By Reviews</a> -->
               </div>
