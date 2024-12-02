@@ -74,7 +74,7 @@ include 'header.php';
                         <select class="form-select" aria-label="Default select example" name="business_type">
                           <option selected value="" disabled>Your Business Type</option>
                           <option value="0">Manufacturer</option>
-                          <option value="1">Wholesale</option>
+                          <option value="1">wholesaler</option>
                         </select>
                         <i class="fa-solid fa-exclamation tooltip-icon"></i>
                         <h6 class="tooltiptext"> Choice any one business  </h6>
