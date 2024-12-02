@@ -274,16 +274,16 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     
-                        if ($this->verifyEmail($email)) { 
+                        // if ($this->verifyEmail($email)) { 
                             if (mail($email, $subject, $message, $headers)) {
                                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                             } else {
                                 $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
                             }
-                        } else { 
-                            $error_array['email'] = "Email does not exist.";
-                            $response_data = array('data' => 'fail', 'msg' => $error_array);
-                        } 
+                        // } else { 
+                        //     $error_array['email'] = "Email does not exist.";
+                        //     $response_data = array('data' => 'fail', 'msg' => $error_array);
+                        // } 
                         
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
