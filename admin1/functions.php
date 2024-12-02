@@ -277,7 +277,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                         if (mail($email, $subject, $message, $headers)) {
                             $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                         } else {
-                            $response_data = array('data' => 'fail', 'msg' => 'could not be sent. Mailer Error:');
+                            $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
                         }
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
