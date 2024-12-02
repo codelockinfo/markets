@@ -274,11 +274,17 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     
-                        if (mail($email, $subject, $message, $headers)) {
-                            $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-                        } else {
-                            $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
-                        }
+                        if ($this->verifyEmail($email)) { 
+                            if (mail($email, $subject, $message, $headers)) {
+                                $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                            } else {
+                                $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
+                            }
+                        } else { 
+                            $error_array['email'] = "Email does not exist.";
+                            $response_data = array('data' => 'fail', 'msg' => $error_array);
+                        } 
+                        
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
                     }
@@ -292,7 +298,28 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $response = json_encode($response_data);
         return $response;
     }
-
+    function verifyEmail($email) { 
+        list($user, $domain) = explode('@', $email); 
+        $mxhosts = []; 
+        getmxrr($domain, $mxhosts); 
+        $host = $mxhosts[0]; 
+         
+        $connect = fsockopen($host, 25); 
+        if ($connect) { 
+            fputs($connect, "HELO " . $domain . "\r\n"); 
+            fputs($connect, "MAIL FROM: codelockinfo@gmail.com \r\n"); 
+            fputs($connect, "RCPT TO: <$email>\r\n"); 
+            $response = fgets($connect, 256); 
+            fclose($connect); 
+             
+            if (strpos($response, '250') === 0) { 
+                return true;  
+            } else { 
+                return false; 
+            } 
+        } 
+        return false; 
+    } 
     function insert_products() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
