@@ -270,7 +270,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                     if ($result) {
                         $subject = "Market";
                         $message = file_get_contents('thankemail_template.php');
-                        $headers = "From: no-reply@marketsearch.com";
+                        $headers ="From:no-reply@marketsearch.com"." \r\n";     
+                        $headers = "MIME-Version: 1.0\r\n";
+                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     
                         if (mail($email, $subject, $message, $headers)) {
                             $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
