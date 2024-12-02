@@ -307,7 +307,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $connect = fsockopen($host, 25); 
         if ($connect) { 
             fputs($connect, "HELO " . $domain . "\r\n"); 
-            fputs($connect, "MAIL FROM: codelockinfo@gmail.com \r\n"); 
+            fputs($connect, "MAIL FROM: <test@$domain>\r\n"); 
+
+            // fputs($connect, "MAIL FROM: codelockinfo@gmail.com \r\n"); 
             fputs($connect, "RCPT TO: <$email>\r\n"); 
             $response = fgets($connect, 256); 
             fclose($connect); 
