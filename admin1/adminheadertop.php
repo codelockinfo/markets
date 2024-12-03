@@ -158,5 +158,10 @@
         </div>
       </div>
      
-      <div class="user_msg"></div>
+      <div class="user_msgactive"></div>
     </div>
+  <script>
+    $(document).ready(function () {
+      userData("user_massge");
+    });
+  </script>
