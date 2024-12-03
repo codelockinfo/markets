@@ -152,4 +152,6 @@
             </div>
         </div>
       </div>
+     
+      <div class="user_msg"></div>
     </div>
