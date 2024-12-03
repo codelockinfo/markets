@@ -140,7 +140,22 @@ function CountData(routineName) {
     },
   });
 }
-
+function userData(routineName){
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: routineName },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      console.log(response.outcome);
+      if (response.data === "success") {
+        $(".user_msgactive").html(response.outcome);
+      }
+    }
+  })
+}
 function loadData(routineName) {
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -870,57 +885,57 @@ $(document).ready(function () {
     });
   }
 
-$(document).on("click", ".formCancel", function (event) {
-  event.preventDefault(); 
-  console.log("sddd");
-  loading_show(".cencle_loader_show");
-$(".pro-zone__prompt").css("display", "block");
-$(".drop-zone").css("display", "flex");
-$(".errormsg").html("");
-if ($(".form-control[name=p_tag]").length > 0) {
-  if ($(".form-control[name=p_tag]").val().length > 0) {
-    $(this)
-      .closest("form")
-      .find(".multiple_tag")
-      .val(null)
-      .trigger("change");
-    $(this).closest("form").find(".select2-selection__clear").remove();
-  }
-}
-$(this).closest("form")[0].reset();
-if (CKEDITOR.instances["myeditor"]) {
-  CKEDITOR.instances["myeditor"].setData("");
-}
-var $thumbnailElement = $(".drop-zone__thumb");
-var $inputElement = $(".pro-zone");
-if ($thumbnailElement.length > 0) {
-  $thumbnailElement.html("");
-  $inputElement.show();
-  $inputElement.removeClass("drop-zone__thumb");
-  
-}
-setTimeout(function(){
-  loading_hidefun(".cencle_loader_show", "blogs");
-}, 300);
-  var formType = $(this).closest('form').data('form-type');
-  if (id !== "") {
-      switch(formType) {
-          case 'product':
-              window.location.href = "product-list.php";
-              break;
-          case 'blog':
-              window.location.href = "blog-list.php"; 
-              break;
-          case 'customer':
-              window.location.href = "customer_list.php"; 
-              break;
-          default:
-              window.location.href = "default-page.php"; 
-              break;
+  $(document).on("click", ".formCancel", function (event) {
+    event.preventDefault(); 
+    console.log("sddd");
+    loading_show(".cencle_loader_show");
+    $(".pro-zone__prompt").css("display", "block");
+    $(".drop-zone").css("display", "flex");
+    $(".errormsg").html("");
+    if ($(".form-control[name=p_tag]").length > 0) {
+      if ($(".form-control[name=p_tag]").val().length > 0) {
+        $(this)
+          .closest("form")
+          .find(".multiple_tag")
+          .val(null)
+          .trigger("change");
+        $(this).closest("form").find(".select2-selection__clear").remove();
       }
+    }
+    $(this).closest("form")[0].reset();
+    if (CKEDITOR.instances["myeditor"]) {
+      CKEDITOR.instances["myeditor"].setData("");
+    }
+    var $thumbnailElement = $(".drop-zone__thumb");
+    var $inputElement = $(".pro-zone");
+    if ($thumbnailElement.length > 0) {
+      $thumbnailElement.html("");
+      $inputElement.show();
+      $inputElement.removeClass("drop-zone__thumb");
+      
+    }
+    setTimeout(function(){
+      loading_hidefun(".cencle_loader_show", "blogs");
+    }, 300);
+    var formType = $(this).closest('form').data('form-type');
+    if (id !== "") {
+        switch(formType) {
+            case 'product':
+                window.location.href = "product-list.php";
+                break;
+            case 'blog':
+                window.location.href = "blog-list.php"; 
+                break;
+            case 'customer':
+                window.location.href = "customer_list.php"; 
+                break;
+            default:
+                window.location.href = "default-page.php"; 
+                break;
+        }
     } 
 
-});
+  });
 
   $(".form-select").on("input change paste", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
@@ -2559,7 +2574,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 $(document).on('click','.popup-close-button',function() {
   console.log("click");
-  $(this).closest(".user_msg").remove();
+  $(this).closest(".user_msgactive").remove();
 });
 document.addEventListener("DOMContentLoaded", function () {
   function handleImagePreview(inputId, previewId) {

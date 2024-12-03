@@ -2545,13 +2545,16 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                     $output .='</td>';
 
                     $output .= '</tr>';
+                    
                 }
                 
                 $output .= '</tbody>';
                 $output .= '</table>';
-                $response_data = array('data' => 'success','outcome' => $output);
+                $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
+                'pagination_needed' => ($total_records > $limit) ? true : false
+            );
             }else{
-                     $response_data = array('data' => 'fail', 'msg' => "Error");
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
 
             }
              $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
@@ -2570,8 +2573,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $response_data['pagination'] = $pagination;
             }
         } 
-        
-        return json_encode($response_data);
+        $response = json_encode($response_data);
+        return $response;
+       
     }
     // function reviewlisting(){
     //     $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -3219,28 +3223,19 @@ function usercheck_toggle_btn() {
             } 
             $sql = "SELECT * FROM users $userquery AND toggle='1'";
                 $result = $this->db->query($sql); 
-                $msg ='';
                 if ($result ) {
                     if (mysqli_num_rows($result) > 0) {
-                       
-                        $msg .= '<div class="alert alert-info">Your profile is currently being reviewed by our team. 
-        This is a necessary step to verify your details and complete your registration.
-        <span class="popup-close-button">&times;</span>
-        </div>';
-
-                        
-                       
-                        
-
-                    $response_data = array('data' => 'success', 'outcome' => $msg);
+                        $msg= '<div class="alert alert-info">Your profile is currently being reviewed by our team. 
+                                    This is a necessary step to verify your details and complete your registration.
+                                    <span class="popup-close-button">&times;</span>
+                                    </div>';
+                        $response_data = array('data' => 'success', 'outcome' => $msg);
                     }else{
-                    $response_data = array('data' => 'fail', 'outcome' => '');   
+                        $response_data = array('data' => 'fail', 'outcome' => '');   
                     }
                 }else{
                     $response_data = array('data' => 'fail', 'outcome' => '');   
-                }
-               
-            
+                } 
         }
         return json_encode($response_data);
     }

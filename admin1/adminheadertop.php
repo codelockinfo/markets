@@ -23,6 +23,11 @@
                     <span class="d-sm-inline d-none">Profile</span>
                   </a>
                 </li>
+                <li class="nav-item d-flex align-items-center">
+                  <a href="<?php echo SITE_ADMIN_URL ?>logout.php" class="nav-link text-white font-weight-bold px-0">
+                    <i class="fa fa-sign-out ms-sm-3"></i>
+                  </a>
+                </li>
                 <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
                   <a href="#" class="nav-link text-white p-0">
                     <a href="#" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -152,4 +157,11 @@
             </div>
         </div>
       </div>
+     
+      <div class="user_msgactive"></div>
     </div>
+  <script>
+    $(document).ready(function () {
+      userData("user_massge");
+    });
+  </script>
