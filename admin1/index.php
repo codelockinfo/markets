@@ -318,6 +318,5 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       CountData('totalitemsale');
       
   });
-  loadData("user_massge");
 
 </script>

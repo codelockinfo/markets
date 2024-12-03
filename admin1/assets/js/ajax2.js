@@ -140,7 +140,22 @@ function CountData(routineName) {
     },
   });
 }
-
+function userData(routineName){
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: routineName },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);
+      console.log(response.outcome);
+      if (response.data === "success") {
+        $(".user_msgactive").html(response.outcome);
+      }
+    }
+  })
+}
 function loadData(routineName) {
   $.ajax({
     url: "../admin1/ajax_call.php",
@@ -2559,7 +2574,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 $(document).on('click','.popup-close-button',function() {
   console.log("click");
-  $(this).closest(".user_msg").remove();
+  $(this).closest(".user_msgactive").remove();
 });
 document.addEventListener("DOMContentLoaded", function () {
   function handleImagePreview(inputId, previewId) {
