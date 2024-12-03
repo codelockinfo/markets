@@ -961,7 +961,7 @@ $(document).ready(function () {
   $("#email").on("input", function () {
     var email = $(this).val();
     var emailErrorDiv = $(".email");
-    var emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com\.[a-z]{2}$/; 
+    var emailRegex =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
     if (email === "") {
       emailErrorDiv.text("");
     } else if (!emailRegex.test(email)) {
