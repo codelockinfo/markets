@@ -135,6 +135,7 @@ function CountData(routineName) {
         response.totalamountsale !== undefined
           ? $(".totalAmountSale").text("Rs. " + formatNumber(response.totalamountsale))
           : '';
+        
       }
     },
   });
@@ -150,12 +151,15 @@ function loadData(routineName) {
       var response = JSON.parse(response);
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
+        $(".user_msg").html(NO_DATA)
         $(".dropdownhide").hide();
         $("#pagination").hide();
         $(".addproduct").show();
         $(".viewproduct").hide();
       } else {
         $("#getdata").html(response.outcome);
+        $(".user_msg").html(response.outcome);
+
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
@@ -207,6 +211,9 @@ function topbarlist(){
 function custom_product(){
   loadData("custm_productlisting");
 }
+// function usermsg(){
+//   loadData("user_massge");
+// }
 
 function listvideo() {
   loadData("videolisting");
@@ -235,7 +242,9 @@ function listproductprofile() {
 function listbanner() {
   loadData("bannerlisting");
 }
-
+function listcontactus(){
+  loadData("contactuslisting")
+}
 function listfamousmarket() {
   loadData("famousmarketlisting");
 }
@@ -1793,12 +1802,14 @@ setTimeout(function(){
 
 
   $(document).on("click", "#flexSwitchCheckDefault", function () {
-    toggle_enabledisable(this);
+    var previousState = $(this).is(":checked");
+    toggle_enabledisable(this, previousState);
   });
-
-  function toggle_enabledisable(thisObj) {
+  
+  function toggle_enabledisable(thisObj, previousState) { 
     var table_name = $("#flexSwitchCheckDefault").val();
     var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
+  
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
@@ -1808,9 +1819,14 @@ setTimeout(function(){
         ischecked_value: ischecked_value,
         table_name: table_name,
       },
-     
+      success: function (response) {
+        if (response.status === "error") {
+          $(thisObj).prop("checked", previousState);
+        }
+      },
     });
   }
+  
 
   $(document).on("click", ".marketSave", function (event) {
     event.preventDefault();
@@ -2541,7 +2557,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
+$(document).on('click','.popup-close-button',function() {
+  console.log("click");
+  $(this).closest(".user_msg").remove();
+});
 document.addEventListener("DOMContentLoaded", function () {
   function handleImagePreview(inputId, previewId) {
     const fileInput = document.getElementById(inputId);

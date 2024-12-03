@@ -18,6 +18,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
+    <div class="user_msg"></div>
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
@@ -108,6 +109,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           </div>
         </div>
       </div>
+     
       <div class="row mt-4">
         <div class="col-lg-5 mb-lg-0 mb-4">
           <div class="card z-index-2">
@@ -315,5 +317,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       CountData('totalproduct');
       CountData('totalclient');
       CountData('totalitemsale');
+      
   });
+  loadData("user_massge");
+
 </script>

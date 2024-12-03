@@ -1091,3 +1091,47 @@
 .user_img{
   width: 50px; height: 50px;
 }
+.alert {
+	padding:12px;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: .9rem;
+	font-weight: 300;
+	letter-spacing: 1px;
+  position: relative;
+
+}
+
+.alert:hover {
+  cursor: pointer;
+}
+
+.alert-info {
+  background-image: linear-gradient(310deg, #6683ee 0%, #21d4fd 100%);
+  color: white;
+}
+.alert-info:before {
+  content: '\f05a';
+  font-family: 'FontAwesome';
+  padding: 10px;
+}
+
+.popup-close-button {
+  position: absolute; 
+  top: 50%; 
+  right: 10px;
+  transform: translateY(-50%); 
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.popup-close-button:hover,
+.popup-close-button:focus {
+  color: white !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
