@@ -4,6 +4,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   header("Location: sign-in.php");
   die();
 }
+if ($_SESSION['current_user']['role'] == 1) {
+  header("Location: index.php");
+  die();
+}
 ?>
 <body class="g-sidenav-show bg-gray-100">
   <?php
