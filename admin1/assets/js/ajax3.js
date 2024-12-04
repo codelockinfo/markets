@@ -180,8 +180,8 @@ function loadData(routineName) {
           $(".addproduct").hide();
           $(".viewproduct").show();
         }
-        check_toggle_status();
-        check_toggle_btn();
+        // check_toggle_status();
+        // check_toggle_btn();
       }
     },
     error: function (xhr, status, error) {
@@ -1470,7 +1470,7 @@ $(document).ready(function () {
       product_images: {
         routine: "deleteData",
         callback: function () {
-          delete_product_image_response(deleteId);
+          delete_product_image_response(deleteId);git 
         },
       },
       product_form_image: {
