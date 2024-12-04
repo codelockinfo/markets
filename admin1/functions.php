@@ -2491,16 +2491,13 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $userid_clause = "AND user_id = $user_id";
             }
             $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1'";
-            echo "$query";
-            echo "<br>";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
-                $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit and role='1' ";
+                $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' LIMIT $offset, $limit  ";
             } else {
                 $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
             }
-            echo $sql;die;
             
             $result = $this->db->query($sql);
             $output = "";
