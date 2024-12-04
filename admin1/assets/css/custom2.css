@@ -1135,4 +1135,8 @@
   text-decoration: none;
   cursor: pointer;
 }
+.form-switch .form-check-input:checked {
+  border:none !important;
+  background-color: #7798fc !important;
+}
 

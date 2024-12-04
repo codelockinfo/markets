@@ -3,7 +3,6 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
-// include_once '../append/Login.php';
 include_once '../connection.php';
 
 class client_functions
@@ -23,7 +22,7 @@ class client_functions
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_array['email'] = "Please enter a valid email address";
         }
-
+        
         if (isset($_POST['name']) && $_POST['name'] == '') {
             $error_array['name'] = "Please enter name";
         }
