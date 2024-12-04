@@ -1042,7 +1042,7 @@
   position: absolute;
   z-index: 100;
   top: 190%;
-  right: 3%; 
+  right: 8%;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
@@ -1051,9 +1051,9 @@
 .tooltiptext_img::after {
   content: '';
   position: absolute;
-  top: -9%;
-  right: 3%;
-  transform: rotate(180deg);
+  top: -27%;
+  right: 7%;
+  transform: rotate(90deg);
   border-width: 9px;
   border-style: solid;
   border-color: transparent #000 transparent transparent;
