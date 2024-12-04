@@ -11,9 +11,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     protected $db;
 
     public function __construct(){
-        echo "HIi";die;
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
+        echo "HIi ENNDDD";die;
     }
 
     public function demo_function(){
