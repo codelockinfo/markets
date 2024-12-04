@@ -10,7 +10,6 @@ $limit = 12;
     public $cls_errors = array();
     public $msg = array();
     protected $db;
-
     public function __construct(){
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
@@ -49,7 +48,7 @@ $limit = 12;
         }
         if (empty($error_array)) {
             $hashed_password = md5(string: $password);
-            $query = "SELECT * FROM users WHERE email = '$email' AND password = '$hashed_password'";
+            $query = "SELECT * FROM users WHERE email ='$email' AND password ='$hashed_password'";
             $result = $this->db->query($query);
     
             if (mysqli_num_rows($result) > 0) {
@@ -99,6 +98,7 @@ $limit = 12;
                 $query = "UPDATE users SET name = '$name', shop = '$shop', phone_number = '$phone_number', business_type = '$business_type', address = '$address'  WHERE user_id  = $user_id";
                 $result = $this->db->query($query);
                 if ($result) {
+
                     $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
                 }
             } else {
@@ -108,8 +108,7 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-
-    function profile_imagesave(){
+    function profile_imagesave() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -134,7 +133,7 @@ $limit = 12;
                     }
                     if (empty($error_array)) {
                         if (move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
-                            $query = "UPDATE users SET shop_logo = '$shoplogo' WHERE user_id = $user_id";
+                            $query = "UPDATE users SET shop_logo ='$shoplogo' WHERE user_id =$user_id";
                             $result = $this->db->query($query);
                             if ($result) {
                                 $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -144,7 +143,7 @@ $limit = 12;
                         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
                     }
                 } else {
-                    $query = "UPDATE users SET shop_logo = '' WHERE user_id = $user_id";
+                    $query = "UPDATE users SET shop_logo = ''WHERE user_id = $user_id";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -250,8 +249,8 @@ $limit = 12;
             } else {
                 if (move_uploaded_file($_FILES['shop_img']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
                     $hashed_password = md5($password);
-                    $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
-                              VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email')";
+                    $query = "INSERT INTO users (name,shop,address,phone_number,business_type,shop_logo,shop_img,password,email) 
+                              VALUES ('$name','$shop','$address','$phone_number','$business_type','$shoplogo', '$newFilename', '$hashed_password','$email')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
                         $subject = "Market";
@@ -265,7 +264,6 @@ $limit = 12;
                             } else {
                                 $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
                             }
-                        
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
                     }
@@ -383,7 +381,7 @@ $limit = 12;
             $p_description = str_replace("'", "\'", $p_description);
             $user_id = $_SESSION['current_user']['user_id'];
             if ($addcategory != '' && $addcheckboxcategory != '') {
-                $add_category_query = "INSERT INTO allcategories (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+                $add_category_query = "INSERT INTO allcategories(categoies_name,user_id)VALUES('$addcategory','$user_id')";
                 $category_result = $this->db->query($add_category_query);
                 if ($category_result) {
                     $select_catagory = $this->db->insert_id;
@@ -396,8 +394,7 @@ $limit = 12;
                 $uploadedFilenames = implode(',', $uploadedFiles);
                 $uploadedFilenames;
 
-                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                $query = "INSERT INTO products (title,category,qty,sku,minprice,maxprice,p_image,product_img_alt,p_tag,p_description, user_id) VALUES ('$product_name','$select_catagory','$qty','$sku','$min_price','$max_price', '$newFilename','$product_image_alt','$p_tag','$p_description','$user_id')";
                 $result = $this->db->query($query);
                 $last_id = $this->db->insert_id;
 
@@ -418,7 +415,7 @@ $limit = 12;
                     $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', sku = '$sku', minprice = '$min_price',
                     maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";
                 }
-                $query .= " WHERE product_id  = $product_id";
+                $query .= "WHERE product_id  = $product_id";
                 $result = $this->db->query($query);
 
                 if (!empty($uploadedFiles)) {
@@ -513,9 +510,8 @@ $limit = 12;
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
-                          VALUES ('$name', '$email', '$contact', '$newFilename', '$city', '$state', '$address', '$user_id')";
+                          VALUES('$name', '$email', '$contact', '$newFilename', '$city', '$state', '$address', '$user_id')";
                 $result = $this->db->query($query);
-
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Customer inserted successfully!');
                 } else {
@@ -526,20 +522,14 @@ $limit = 12;
             }
         } else {
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
-                $query = "UPDATE customer SET 
-                          name = '$name', email = '$email', contact = '$contact', 
-                          c_image = '$newFilename', city = '$city', state = '$state', address = '$address' 
-                          WHERE customer_id = $id";
+                $query = "UPDATE customer SET name = '$name', email = '$email',contact = '$contact',c_image = '$newFilename', city = '$city',state = '$state',address = '$address'WHERE customer_id = $id";
             } else {
                 $existing_image_query = "SELECT c_image FROM customer WHERE customer_id = $id";
                 $existing_image_result = $this->db->query($existing_image_query);
                 $existing_image_row = $existing_image_result->fetch_assoc();
                 $existing_image = $existing_image_row['c_image'];
 
-                $query = "UPDATE customer SET 
-                          name = '$name', email = '$email', contact = '$contact', 
-                          c_image = '$existing_image', city = '$city', state = '$state', address = '$address' 
-                          WHERE customer_id = $id";
+                $query = "UPDATE customer SET name = '$name',email = '$email',contact = '$contact',c_image = '$existing_image', city = '$city',state = '$state',address = '$address' WHERE customer_id = $id";
             }
             $result = $this->db->query($query);
 
@@ -559,7 +549,7 @@ $limit = 12;
             global $limit;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; 
 
             $query = "SELECT COUNT(*) AS total FROM products WHERE $userid_clause";
             $res_count = $this->db->query($query);
@@ -604,7 +594,6 @@ $limit = 12;
                 }
             }
         }
-
         $response = json_encode($response_data);
         return $response;
     }
@@ -684,15 +673,14 @@ $limit = 12;
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                         if (isset($_SESSION['current_user']['user_id'])) {
                             $user_id = $_SESSION['current_user']['user_id'];
-                            $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                            $query = "INSERT INTO invoice (i_image, invoice_id,i_name, bill_no, ship_to,date,terms,due_date,notes, terms_condition,po_number,user_id,total,amount_paid,balance_due)
+                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid','$balance_due')";
                         }
                     }
                 } else {
                     if (!empty($filename)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
-                            $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
-                                      po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due',notes = '$notes',terms_condition = '$termscondition', i_image = '$newFilename' WHERE invoice_id = $id";
+                            $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',po_number = '$po_number', total = '$total',amount_paid = '$amount_paid', balance_due = '$balance_due',notes = '$notes',terms_condition = '$termscondition', i_image = '$newFilename' WHERE invoice_id = $id";
                         }
                     } else {
                         $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
@@ -705,41 +693,6 @@ $limit = 12;
                     }
                 }
                 $result = $this->db->query($query);
-                // if ($result) {
-                // $last_id = empty($id) ? $this->db->insert_id : $id;
-                // $items = $_POST['item'];
-                // $quantities = $_POST['quantity'];
-                // $rates = $_POST['rate'];
-                // $values = [];
-
-                // foreach ($items as $index => $item) {
-                //     $quantity = !empty($quantities[$index]) ? $quantities[$index] : null;
-                //     $rate = !empty($rates[$index]) ? $rates[$index] : null;
-                //     $amount = $quantity * $rate;
-
-                //     if (empty($item)) {
-                //         $error_array[$index]['item'] = "Please enter item.";
-                //     }
-                //     if (empty($quantity) || !is_numeric($quantity)) {
-                //         $error_array[$index]['quantity'] = "Please enter valid quantity.";
-                //     }
-                //     if (empty($rate) || !is_numeric($rate)) {
-                //         $error_array[$index]['rate'] = "Please enter valid rate.";
-                //     }
-                //     if ($amount <= 0) {
-                //         $error_array[$index]['amount'] = "Amount is not valid.";
-                //     }
-
-                //     if (empty($error_array[$index])) {
-                //         $quantity = isset($quantity) ? $this->db->real_escape_string($quantity) : '';
-                //         $rate = isset($rate) ? $this->db->real_escape_string($rate) : '';
-                //         $amount = isset($amount) ? $this->db->real_escape_string($amount) : '';
-                //         $user_id = isset($user_id) ? $this->db->real_escape_string($user_id) : '';
-                //         $last_id = isset($last_id) ? $this->db->real_escape_string($last_id) : '';
-
-                //         $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$last_id')";
-                //     }
-                // }
                 if ($result) {
                         $invoice_id = isset($_POST['invoice_id']) ? $_POST['invoice_id'] : null;
                         if (empty($invoice_id)) {
@@ -781,13 +734,12 @@ $limit = 12;
                                          WHERE invoice_item_id='$invoice_item_id'";
                                 $res1 = $this->db->query($sql1);
                             } else {
-                                $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$invoice_id_escaped')";
+                                $values[] = "('$item','$quantity','$rate','$amount','$user_id','$invoice_id_escaped')";
                             }
                         }
                     }
                     if (!empty($values)) {
-                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) 
-                                 VALUES " . implode(", ", $values);
+                        $sql1 = "INSERT INTO invoice_item(item,quantity,rate,amount,user_id,invoice_id)VALUES " . implode(", ", $values);
                         $res1 = $this->db->query($sql1);
                     }
                     if ($res1) {
@@ -799,9 +751,6 @@ $limit = 12;
                 } else {
                     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
                 }
-                // } else {
-                //     $response_data = ['data' => 'fail', 'msg' => 'Error inserting/updating invoice in database'];
-                // }
             } else {
                 $response_data = ['data' => 'fail', 'msg' => 'Please Add line item'];
             }
@@ -1017,15 +966,7 @@ $limit = 12;
         if (empty($filename)) {
             $error_array['myFile'] = "Please upload the banner image.";
         }
-        // if (isset($_POST['heading']) && $_POST['heading'] == '') {
-        //     $error_array['heading'] = "Please enter the heading.";
-        // }
-        // if (isset($_POST['sub_heading']) && $_POST['sub_heading'] == '') {
-        //     $error_array['sub_heading'] = "Please enter the sub heading.";
-        // }
-        // if (isset($_POST['banner_text']) && $_POST['banner_text'] == '') {
-        //     $error_array['banner_text'] = "Please enter the banner text.";
-        // }
+     
         if (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] == '') {
             $error_array['banner_btn_link'] = "Please enter the banner button link.";
         } elseif (isset($_POST['banner_btn_link']) && !$this->isValidURL($_POST['banner_btn_link'])) {
@@ -1034,14 +975,10 @@ $limit = 12;
         if (empty($error_array)) {
             if (move_uploaded_file($tmpfile, $fullpath)) {
                 $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
-                // $heading = (isset($_POST['heading']) && $_POST['heading'] !== '') ? $_POST['heading'] : '';
-                // $sub_heading = (isset($_POST['sub_heading']) && $_POST['sub_heading'] !== '') ? $_POST['sub_heading'] : '';
-                // $banner_text = (isset($_POST['banner_text']) && $_POST['banner_text'] !== '') ? $_POST['banner_text'] : '';
                 $banner_btn_link = (isset($_POST['banner_btn_link']) && $_POST['banner_btn_link'] !== '') ? $_POST['banner_btn_link'] : '';
-
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO banners (banner_img,img_alt,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt','$banner_btn_link','$user_id')";
+                    $query = "INSERT INTO banners(banner_img,img_alt,banner_btn_link,user_id)VALUES('$newFilename','$image_alt','$banner_btn_link','$user_id')";
                     $result = $this->db->query($query);
                 }
                 if ($result) {
@@ -1161,7 +1098,7 @@ $limit = 12;
 
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO offers (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
+                    $query = "INSERT INTO offers(img,img_alt,img_link,user_id)VALUES('$newFilename','$image_alt','$img_link','$user_id')";
                     $result = $this->db->query($query);
                 }
                 if ($result) {
@@ -1207,8 +1144,7 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-
-
+    
     function insert_paragraph(){
         $error_array = array();
         if (isset($_POST['myeditor']) && $_POST['myeditor'] == '') {
@@ -1258,7 +1194,7 @@ $limit = 12;
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO faqs (question,answer,user_id) VALUES ('$faq_question','$myeditor','$user_id')";
+                $query = "INSERT INTO faqs(question,answer,user_id)VALUES('$faq_question','$myeditor','$user_id')";
                 $result = $this->db->query($query);
             }
             if ($result) {
@@ -1272,48 +1208,6 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-
-    // function insert_review() {
-
-    //     $error_array = array();
-
-    //     if (isset($_POST['description']) && $_POST['description'] == '') {
-    //         $error_array['description'] = "Please enter the shop description.";
-    //     }
-
-    //     if (isset($_POST['shopname']) && $_POST['shopname'] == '') {
-    //         $error_array['shopname'] = "Please enter the shop name.";
-    //     }
-
-    //     if (isset($_POST['review']) && $_POST['review'] == '') {
-    //         $error_array['review'] = "Please give the review.";
-    //     }
-    //     if (empty($error_array)) {
-
-    //         $description = (isset($_POST['description']) && $_POST['description'] !== '') ? $_POST['description'] : '';
-    //         $description = str_replace("'", "\'", $description);
-
-    //         $shopname = (isset($_POST['shopname']) && $_POST['shopname'] !== '') ? $_POST['shopname'] : '';
-    //         $shopname = str_replace("'", "\'", $shopname);
-
-    //         $review = (isset($_POST['review']) && $_POST['review'] !== '') ? $_POST['review'] : '';
-
-    //         if (isset($_SESSION['current_user']['user_id'])) {
-    //             $user_id = $_SESSION['current_user']['user_id'];
-    //             $query = "INSERT INTO marketreviews (description,shopname,review,user_id) VALUES ('$description','$shopname','$review','$user_id')";
-    //             $result = $this->db->query($query);
-    //         }
-    //         if ($result) {
-    //             $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-    //         } else {
-    //             $response_data = array('data' => 'fail', 'msg' => "Error");
-    //         }
-    //     } else {
-    //         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
-    //     }
-    //     $response = json_encode($response_data);
-    //     return $response;
-    // }
 
     function productlisting(){
         global $NO_IMAGE;
@@ -1459,12 +1353,7 @@ $limit = 12;
                     $output .= '    </div>';
                     $output .= '  </div>';
                 }
-                $response_data = array(
-                    'data' => 'success',
-                    'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '',
-                    'pagination_needed' => ($total_records > $limit) ? true : false
-                );
+                $response_data = array('data' => 'success','outcome' => $output, 'pagination' => isset($pagination) ? $pagination: '', 'pagination_needed' => ($total_records > $limit) ? true : false );
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
@@ -1545,12 +1434,7 @@ $limit = 12;
                         $output .= '  </div>';
                         $output .= '</div>';
                     }
-                    $response_data = array(
-                        'data' => 'success',
-                        'outcome' => $output,
-                        'pagination' => '',
-                        'pagination_needed' => ($total_records > $limit)
-                    );
+                    $response_data = array('data' => 'success','outcome' => $output,'pagination' => '','pagination_needed' => ($total_records > $limit));
                     if ($total_records > $limit) {
                         $total_pages = ceil($total_records / $limit);
                         if ($total_pages > 1) {
@@ -1578,7 +1462,7 @@ $limit = 12;
         if (isset($_SESSION['current_user']['user_id'])) {
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " .(int)$_SESSION['current_user']['user_id'] : "1=1";
             $query = "SELECT COUNT(*) AS total FROM customer WHERE $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
@@ -2019,7 +1903,6 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-
         $response = json_encode($response_data);
         return $response;
     }
@@ -2029,7 +1912,6 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-
             $query = "SELECT * FROM offers WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
@@ -2070,7 +1952,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
-                                                    $output .= '</div>';
+                   $output .= '</div>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $output);
             } else {
@@ -2106,7 +1988,6 @@ $limit = 12;
                         $categoies_id = (isset($row['categories']) && $row['categories'] != '') ? $row['categories'] : '';
                         $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
                         $category_result = $this->db->query($category_query);
-
                         if (mysqli_num_rows($category_result) > 0) {
                             while ($category_row = mysqli_fetch_assoc($category_result)) {
                                 $categories = $category_row['categoies_name'];
@@ -2137,7 +2018,6 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-
             $query = "SELECT * FROM faqs WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
@@ -2253,13 +2133,7 @@ $limit = 12;
                 if ($result) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
-                            $toggleactive = ($row['status'] == "1") ? "checked" : "";
-                            // $output .= '<div class="col-md-12 col-lg-12 wow bounceInUp">' . $row["paragraph"] . ' </div>';
-                            // $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                            // $output .= '<input class="form-check-input ms-auto protoggle-button" type="checkbox" id="checkbox_' . $row['id'] . '" data-product-id="' .$row['id']. '" ' . $toggleactive . '>';
-                            // $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
-                            // $output .= '</div>';
-
+                
                         }
                         $response_data = array('data' => 'success', 'outcome' => $output);
                     } else {
@@ -2321,7 +2195,6 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-
         $response = json_encode($response_data);
         return $response;
     }
@@ -2409,7 +2282,6 @@ $limit = 12;
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
-                   
                     $output .= '    </div>';
                     $output .= '    <div class="card-body px-1 pb-0">';
                     $output .= '      <a href="#">';
@@ -2426,7 +2298,6 @@ $limit = 12;
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
-                   
                     $output .= '        </div>';
                     $output .= '      </div>';
                     $output .= '    </div>';
@@ -2441,7 +2312,6 @@ $limit = 12;
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            // $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
             $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
@@ -2502,7 +2372,6 @@ $limit = 12;
                 $output .= '</tr>';
                 $output .= '</thead>';
                 $output .= '<tbody>';
-    
                 while ($row = $result->fetch_assoc()) {
                     $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
                     $image = $row["shop_img"];
@@ -2512,7 +2381,6 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-    
                     $output .= '<tr>';
                     $output .= '<td>' . $row['user_id'] . '</td>';
                     $output .= '<td>' . htmlspecialchars($row['name']) . '</td>';
@@ -2527,9 +2395,7 @@ $limit = 12;
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="users">';
                     $output .= '</div>';
                     $output .='</td>';
-
                     $output .= '</tr>';
-                    
                 }
                 
                 $output .= '</tbody>';
@@ -2573,8 +2439,6 @@ $limit = 12;
         }
         return json_encode($response_data);
     }
-
-
 
     function product_main_image(){
         $product_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '';
@@ -2765,7 +2629,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
-            $query = "SELECT  * from  customer  WHERE customer_id = $id ";
+            $query = "SELECT  * from  customer  WHERE customer_id = $id";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -2838,7 +2702,6 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
             }
         }
-
         $response = json_encode($response_data);
         return $response;
     }
@@ -2858,11 +2721,9 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-// product check uncheck
 
 function protoggle_checkuncheck() {
     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-
     if (isset($_POST['ischecked_value']) && isset($_POST['product_id'])) {
         $product_id = intval($_POST['product_id']);
         $ischecked_value = $_POST['ischecked_value'];
@@ -2874,7 +2735,6 @@ function protoggle_checkuncheck() {
             $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         }
     }
-
     $response = json_encode($response_data);
     return $response;
 }
@@ -2896,7 +2756,6 @@ function procheck_toggle_btn() {
 // user toggle
 function usertoggle_checkuncheck() {
     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-
     if (isset($_POST['ischecked_value']) && isset($_POST['user_id'])) {
         $user_id = intval($_POST['user_id']);
         $ischecked_value = $_POST['ischecked_value'];
@@ -2908,7 +2767,6 @@ function usertoggle_checkuncheck() {
             $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         }
     }
-
     $response = json_encode($response_data);
     return $response;
 }
@@ -2970,7 +2828,6 @@ function usercheck_toggle_btn() {
                 }
             }
         }
-
         return json_encode($response_data);
     }
 
@@ -3008,7 +2865,6 @@ function usercheck_toggle_btn() {
             }
             $sql = "SELECT * FROM products WHERE  status='1' $userquery";
             $result = $this->db->query($sql);
-
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     $countproduct = $result->num_rows;
@@ -3030,7 +2886,6 @@ function usercheck_toggle_btn() {
             }
             $sql = "SELECT * FROM customer WHERE status='1' $userquery";
             $result = $this->db->query($sql);
-
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     $countclient = $result->num_rows;
@@ -3069,7 +2924,6 @@ function usercheck_toggle_btn() {
                                 }
                             }
                         }
-
                         $response_data = array('data' => 'success', 'totalitemsale' => $totalitemsale, 'totalamountsale' => $totalamountsale);
                     }
                 }

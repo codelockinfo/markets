@@ -170,7 +170,6 @@ function loadData(routineName) {
       } else {
         $("#getdata").html(response.outcome);
         $(".user_msg").html(response.outcome);
-
         if (response.pagination != "") {
           $("#pagination").html(response.pagination);
           $(".dropdownhide").show();
@@ -222,9 +221,6 @@ function topbarlist() {
 function custom_product() {
   loadData("custm_productlisting");
 }
-// function usermsg(){
-//   loadData("user_massge");
-// }
 
 function listvideo() {
   loadData("videolisting");
@@ -259,10 +255,6 @@ function listcontactus() {
 function listfamousmarket() {
   loadData("famousmarketlisting");
 }
-
-// function listreview() {
-//   loadData("reviewlisting");
-// }
 
 function profileLoadData(routineName) {
   $.ajax({
@@ -1043,7 +1035,6 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
-          // window.location.href = "profile.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1180,7 +1171,6 @@ $(document).ready(function () {
         form_data.append("p_tag[]", selectedTags[i]);
       }
     }
-
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1193,7 +1183,6 @@ $(document).ready(function () {
       },
       success: function (response) {
         var response = JSON.parse(response);
-
         loading_hide(".save_loader_show", "Save");
         response["msg"]["pname"] !== undefined
           ? $(".pname").html(response["msg"]["pname"])
@@ -1215,7 +1204,6 @@ $(document).ready(function () {
         } else {
           $(".p_image").html("");
         }
-
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
@@ -1250,7 +1238,6 @@ $(document).ready(function () {
   });
   $(document).on("click", ".customersave", function (event) {
     event.preventDefault();
-
     var form_data = $("#custemer_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "add_customer");
@@ -1310,7 +1297,6 @@ $(document).ready(function () {
 
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
-
     var form_data = $("#invoice_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
@@ -1567,7 +1553,6 @@ $(document).ready(function () {
 
   $(document).on("click", ".blogSave", function (event) {
     event.preventDefault();
-
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -1626,7 +1611,6 @@ $(document).ready(function () {
 
   $(document).on("click", ".bannerSave", function (event) {
     event.preventDefault();
-
     var form_data = $("#bannerinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_banner");
@@ -1649,15 +1633,6 @@ $(document).ready(function () {
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
-        // response["msg"]["heading"] !== undefined
-        //   ? $(".heading").html(response["msg"]["heading"])
-        //   : $(".heading").html("");
-        // response["msg"]["sub_heading"] !== undefined
-        //   ? $(".sub_heading").html(response["msg"]["sub_heading"])
-        //   : $(".sub_heading").html("");
-        // response["msg"]["banner_text"] !== undefined
-        //   ? $(".banner_text").html(response["msg"]["banner_text"])
-        //   : $(".banner_text").html("");
         response["msg"]["banner_btn_link"] !== undefined
           ? $(".banner_btn_link").html(response["msg"]["banner_btn_link"])
           : $(".banner_btn_link").html("");
@@ -1967,49 +1942,6 @@ $(document).ready(function () {
     });
   });
 
-  // $(document).on("click", ".reviewSave", function (event) {
-  //   event.preventDefault();
-
-  //   var form_data = $("#reviewinsert")[0];
-  //   var form_data = new FormData(form_data);
-  //   form_data.append("routine_name", "insert_review");
-  //   $.ajax({
-  //     url: "../admin1/ajax_call.php",
-  //     type: "post",
-  //     dataType: "json",
-  //     contentType: false,
-  //     processData: false,
-  //     data: form_data,
-  //     beforeSend: function () {
-  //       loading_show(".save_loader_show");
-  //     },
-  //     success: function (response) {
-
-  //       var response = JSON.parse(response);
-  //       loading_hide(".save_loader_show", "Save");
-
-  //       response["msg"]["description"] !== undefined
-  //         ? $(".description").html(response["msg"]["description"])
-  //         : $(".description").html("");
-  //       response["msg"]["shopname"] !== undefined
-  //         ? $(".shopname").html(response["msg"]["shopname"])
-  //         : $(".shopname").html("");
-  //       response["msg"]["review"] !== undefined
-  //         ? $(".review").html(response["msg"]["review"])
-  //         : $(".review").html("");
-  //       if (response["data"] == "success") {
-  //         $("#reviewinsert")[0].reset();
-  //         resetThumbnail();
-  //         showMessage(response.msg, "success");
-  //         $(".shop_logo").html("");
-  //         listreview();
-  //       } else {
-  //         showMessage(response.msg_error, "fail");
-  //       }
-  //     },
-  //   });
-  // });
-  // --------
   $(document).on("click", ".topbarSave", function (event) {
     event.preventDefault();
     var form_data = $("#topbarinsert")[0];
@@ -2232,7 +2164,6 @@ function check_toggle_btn(videoId) {
   });
 }
 
-// product
 $(document).on("click", ".protoggle-button", function () {
   var productId = $(this).data("product-id");
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
@@ -2269,7 +2200,7 @@ function check_toggle_btn(productId) {
     },
   });
 }
-// user
+
 $(document).on("click", ".usertoggle-button", function () {
   var userId = $(this).data("user-id");
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
@@ -2504,7 +2435,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
-
   handleImagePreview("shop_image_Input", "newpreview");
   handleImagePreview("shop_logo_image", "shop_logo_preview");
 });
