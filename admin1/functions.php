@@ -13,7 +13,6 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     public function __construct(){
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
-        echo "HIi ENNDDD";die;
     }
 
     public function demo_function(){
@@ -2481,6 +2480,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function userlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         global $NO_IMAGE;
+        echo "HEREREE";die;
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $this->db->real_escape_string(trim($_POST['search_text'])) : '';
             $limit = 12;
