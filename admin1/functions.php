@@ -115,19 +115,12 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM users WHERE user_id = '$user_id'";
-            $result = $this->db->query($query);
-            if ($result) {
-                $row = $result->fetch_assoc();
-                $image = $row["shop_logo"];
-            }
             if (isset($_FILES['shop_logo'])) {
                 $maxSize = 5 * 1024 * 1024;
                 $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
                 $folder = "assets/img/sigup_img/";
                 if (isset($_FILES['shop_logo']['name']) && $_FILES['shop_logo']['name'] != "") {
                     $filename = $_FILES['shop_logo']['name'];
-                    $tmpfile = $_FILES['shop_logo']['tmp_name'];
                     $fileNameCmps = explode(".", $filename);
                     $fileExtension = strtolower(end($fileNameCmps));
                     $shoplogo = time() . '.' . $fileExtension;
@@ -143,8 +136,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                     }
                     if (empty($error_array)) {
                         if (move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
-
-                            $query = "UPDATE users SET shop_logo = '$shoplogo'  WHERE user_id  = $user_id";
+                            $query = "UPDATE users SET shop_logo = '$shoplogo' WHERE user_id = $user_id";
                             $result = $this->db->query($query);
                             if ($result) {
                                 $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -154,7 +146,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
                     }
                 } else {
-                    $query = "UPDATE users SET shop_logo = ''  WHERE user_id  = $user_id";
+                    $query = "UPDATE users SET shop_logo = '' WHERE user_id = $user_id";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -2491,14 +2483,14 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $userid_clause = "AND user_id = $user_id";
             }
             $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1'";
-    
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
-                $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause LIMIT $offset, $limit and role='1' ";
+                $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' LIMIT $offset, $limit  ";
             } else {
                 $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
             }
+            
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -2557,7 +2549,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
 
             }
-             $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
+            $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
@@ -2572,7 +2564,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 }
                 $response_data['pagination'] = $pagination;
             }
-        } 
+        }
         $response = json_encode($response_data);
         return $response;
        
