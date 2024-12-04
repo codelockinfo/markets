@@ -163,7 +163,6 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
             $filename = $_FILES['shop_img']['name'];
-            $tmpfile = $_FILES['shop_img']['tmp_name'];
             $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
             $newFilename = uniqid() . '.' . $fileExtension;
@@ -182,7 +181,6 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         }
         if (isset($_FILES['shop_logo'])) {
             $filename = $_FILES['shop_logo']['name'];
-            $tmpfile = $_FILES['shop_logo']['tmp_name'];
             $fileNameCmps = explode(".", $filename);
             $fileExtension = strtolower(end($fileNameCmps));
             $shoplogo = time() . '.' . $fileExtension;
@@ -220,8 +218,6 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         } else if (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
-
-
 
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
