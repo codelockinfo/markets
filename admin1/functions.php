@@ -5,6 +5,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
 include_once '../connection.php';
 $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
+$limit = 12;
     class admin_functions{
     public $cls_errors = array();
     public $msg = array();
@@ -60,15 +61,12 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         } else {
-            // $error_array['errormsg'] = "User does not exist! <a href='sign-up.php'>Sign Up</a>";
             $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
-    
         $response = json_encode($response_data);
         return $response;
     }
     
-
     function profile_updatedata(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if ($_SESSION['current_user']['user_id']) {
@@ -558,7 +556,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 12;
+            global $limit;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
@@ -568,8 +566,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $sql = "SELECT * FROM products WHERE $userid_clause LIMIT $offset, $limit";
             $result = $this->db->query($sql);
-            $output = "";
-            $pagination = "";
+            $output = $pagination = "";
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
@@ -1324,7 +1321,7 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit = 12;
+            global $limit;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = '';
@@ -1496,10 +1493,10 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
 
     function invoicelisting(){
         global $NO_IMAGE;
+        global $limit;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
-            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
@@ -1577,8 +1574,8 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function customerlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         global $NO_IMAGE;
+        global $limit;
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
@@ -1770,10 +1767,10 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
 
     function bloglisting() {
         global $NO_IMAGE;
+        global $limit;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         if (isset($_SESSION['current_user']['user_id'])) {
-            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1881,9 +1878,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function videolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
+        global $limit;
         if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit = 12;
             $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = '';
@@ -2377,20 +2374,19 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     }
     function custm_productlisting(){
         global $NO_IMAGE;
+        global $limit;
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
-            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $limit = 12;
-            $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-            $offset = ($page - 1) * $limit;
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
-            $res_count = $this->db->query($query);
-            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            if ($total_records > $limit) {
-                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' LIMIT $offset, $limit";
-            } else {
-                $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%'";
-            }
+        $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+        $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+        $offset = ($page - 1) * $limit;
+        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
+        $res_count = $this->db->query($query);
+        $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+        if ($total_records > $limit) {
+            $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' LIMIT $offset, $limit";
+        } else {
+            $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%'";
+        }
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -2468,9 +2464,9 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
     function userlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         global $NO_IMAGE;
+        global $limit;
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $this->db->real_escape_string(trim($_POST['search_text'])) : '';
-            $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = '';
@@ -2565,57 +2561,6 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         return $response;
        
     }
-    // function reviewlisting(){
-    //     $response_data = array('data' => 'fail', 'msg' => "Error");
-    //     if (isset($_SESSION['current_user']['user_id'])) {
-    //         $user_id = $_SESSION['current_user']['user_id'];
-    //         $sql = "SELECT * FROM marketreviews WHERE status='1'";
-    //         $res = $this->db->query($sql);
-    //         if ($res && mysqli_num_rows($res) > 0) {
-    //             $output = "";
-    //             $output .= '<div class="mb-3 form-check-reverse text-right">';
-    //             $output .= '  <div class="container">';
-    //             $output .= '    <div class="btn-group">';
-    //             $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-    //             $output .= '        <div class="form-check form-switch ps-0">';
-    //             $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="marketreviews" checked>';
-    //             $output .= '          <input type="hidden" id="toggleStatus" name="status" value="marketreviews">';
-    //             $output .= '        </div>';
-    //             $output .= '      </div>';
-    //             $output .= '    </div>';
-    //             $output .= '  </div>';
-    //             $output .= '</div>';
-    //             while ($row = mysqli_fetch_array($res)) {
-    //                 $input = $row['shopname'];
-    //                 $query = "SELECT * FROM users WHERE user_id = '$input'";
-    //                 $result = $this->db->query($query);
-    //                 if ($result && mysqli_num_rows($result) > 0) {
-    //                     while ($user_row = mysqli_fetch_array($result)) {
-    //                         $output .= '<div class="card card-blog card-plain mb-3">';
-    //                         $output .= '  <div class="d-flex justify-content-between align-items-center">';
-    //                         $output .= '    <div class="d-flex ">';
-    //                         $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($user_row['shop']) . '</div>';
-    //                         $output .= '    </div>';
-    //                         $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
-    //                         $output .= '      <i data-id="' . $row["marketreview_id"] . '" class="fa fa-trash cursor-pointer delete"  data-delete-type="review" aria-hidden="true"></i>'; // Removed margin-top for centering
-    //                         $output .= '    </div>';
-    //                         $output .= '  </div>';
-    //                         $output .= '</div>';
-    //                     }
-    //                     $response_data = array('data' => 'success', 'outcome' => $output);
-    //                 } else {
-    //                     $response_data = array('data' => 'fail', 'outcome' => "No user data found for review.");
-    //                 }
-    //             }
-    //         } else {
-    //             $response_data = array('data' => 'fail', 'outcome' => "No data found");
-    //         }
-    //     }
-
-    //     $response = json_encode($response_data);
-    //     return $response;
-    // }
-
     function deleteRecord($table, $delete_id){
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
