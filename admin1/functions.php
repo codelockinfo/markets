@@ -2481,7 +2481,6 @@ $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
         $response_data = array('data' => 'fail', 'msg' => "Error");
         global $NO_IMAGE;
         if (isset($_SESSION['current_user']['user_id'])) {
-            echo "HEREREE STEP11";die;
             $search_value = isset($_POST['search_text']) ? $this->db->real_escape_string(trim($_POST['search_text'])) : '';
             $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
