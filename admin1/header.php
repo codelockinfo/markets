@@ -33,7 +33,7 @@ include($myRoot . '/markets/connection.php');
         <script src="<?php echo main_url('admin1/assets/js/soft-ui-dashboard.js'); ?>"></script>
         <script src="<?php echo main_url('admin1/assets/js/ckeditor/ckeditor.js'); ?>"></script>
         <script src="<?php echo main_url('admin1/assets/js/common1.js'); ?>"></script>
-        <script src="<?php echo main_url('admin1/assets/js/ajax2.js'); ?>"></script>
+        <script src="<?php echo main_url('admin1/assets/js/ajax3.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
