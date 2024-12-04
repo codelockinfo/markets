@@ -1451,7 +1451,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '<div>';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="product" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
                     $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
                     $output .= '        </div>';
@@ -1837,7 +1837,7 @@ $limit = 12;
 
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="" >';
-                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blog" aria-hidden="true"></i>';
+                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs" aria-hidden="true"></i>';
                     $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
@@ -1945,7 +1945,7 @@ $limit = 12;
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="video" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="videos" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2065,7 +2065,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offer" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2116,7 +2116,7 @@ $limit = 12;
                                 $output .= '      <div class="shop-name text-secondary px-3">' . $categories  . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; // Added d-flex and align-items-center
-                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagory" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>'; // Removed margin-top for centering
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
@@ -2154,7 +2154,7 @@ $limit = 12;
                     $output .= '    </div>';
                     $output .= '  </div>';
                     $output .= '  <div class="col-xl-1">';
-                    $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faq" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faqs" aria-hidden="true"></i>';
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
@@ -2225,7 +2225,7 @@ $limit = 12;
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '</a>';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0" data-delete-type="banner" aria-hidden="true"></i>';
+                        $output .= '    <i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0" data-delete-type="banners" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '</div>';
@@ -2306,7 +2306,7 @@ $limit = 12;
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; 
-                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_market" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>'; // Removed margin-top for centering
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
@@ -2392,7 +2392,7 @@ $limit = 12;
             $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
-                    $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
+                    $toggleactive = (isset($row['toggle']) && $row['toggle'] == "1") ? "checked" : "";
                     $product_id = $row['product_id'];
                     $image = $row["p_image"];
                     $imagePath = "../admin1/assets/img/product_img/" . $image;
@@ -2564,7 +2564,7 @@ $limit = 12;
     function deleteRecord($table, $delete_id){
         $delete_id = $this->db->real_escape_string($delete_id);
         $table_singular = rtrim($table, 's');
-       $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
+        $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
         $result = $this->db->query($query);
         if ($result === TRUE) {
             $response_data = array('data' => 'success', 'message' => "Delete successfully");
@@ -2574,28 +2574,10 @@ $limit = 12;
         return json_encode($response_data);
     }
 
-    function productdelete(){
-        $delete_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '2';
-        return $this->deleteRecord('products', $delete_id);
-    }
-    function userdelete(){
-  
-        $delete_id = isset($_POST["id"]) ? $_POST["id"] : '2';
-        return $this->deleteRecord('users', $delete_id);
-    }
 
-    function invoicedelete() {
-        $delete_id = isset($_POST["invoice_id"]) ? $_POST["invoice_id"] : '2';
-        return $this->deleteRecord('invoice', $delete_id);
-    }
-
-    function multipimgdelete(){
-        $delete_id = isset($_POST['product_image_id']) ? $_POST['product_image_id'] : '2';
-        return $this->deleteRecord('product_images', $delete_id);
-    }
 
     function product_main_image(){
-        $product_id = isset($_POST['product_id']) ? $_POST['product_id'] : '';
+        $product_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '';
         if (!empty($product_id)) {
             $query = "UPDATE products SET p_image = ' ' WHERE product_id = '$product_id'";
             $result = $this->db->query($query);
@@ -2608,60 +2590,12 @@ $limit = 12;
         }
     }
 
-    function customerdelete() {
-        $delete_id = isset($_POST['customer_id']) ? $_POST['customer_id'] : '2';
-        return $this->deleteRecord('customer', $delete_id);
-    }
-
-    function blogdelete(){
-        $delete_id = isset($_POST["blog_id"]) ? $_POST["blog_id"] : '2';
-        return $this->deleteRecord('blogs', $delete_id);
-    }
-
-    function videodelete(){
-        $delete_id = isset($_POST["video_id"]) ? $_POST["video_id"] : '2';
-        return $this->deleteRecord('videos', $delete_id);
-    }
-
-    function bannerdelete() {
-        $delete_id = isset($_POST["banner_id"]) ? $_POST["banner_id"] : '2';
-        return $this->deleteRecord('banners', $delete_id);
-    }
-
-    function famousmarketdelete(){
-        $delete_id = isset($_POST["famous_market_id"]) ? $_POST["famous_market_id"] : '2';
-        return $this->deleteRecord('famous_markets', $delete_id);
-    }
-
-    function b_textile_catagorysdelete(){
-        $delete_id = isset($_POST["b_textile_catagory_id"]) ? $_POST["b_textile_catagory_id"] : '2';
-        return $this->deleteRecord('b_textile_catagorys', $delete_id);
-    }
-
-    function offerdelete(){
-        $delete_id = isset($_POST["offer_id"]) ? $_POST["offer_id"] : '2';
-        return $this->deleteRecord('offers', $delete_id);
-    }
-
-    function topbardelete(){
-        $delete_id = isset($_POST["id"]) ? $_POST["id"] : '2';
-        return $this->deleteRecord('topbar', $delete_id);
-    }
-
-    function faqdelete(){
-        $delete_id = isset($_POST["faq_id"]) ? $_POST["faq_id"] : '2';
-        return $this->deleteRecord('faqs', $delete_id);
-    }
-
-    // function reviewdelete(){
-    //     $delete_id = isset($_POST["marketreview_id"]) ? $_POST["marketreview_id"] : '2';
-    //     return $this->deleteRecord('marketreviews', $delete_id);
-    // }
-
-    function invoice_line_item(){
-        $delete_id = isset($_POST["invoice_item_id"]) ? $_POST["invoice_item_id"] : '';
-        return $this->deleteRecord('invoice_item', $delete_id);
-    }
+    function deleteData(){
+        $delete_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '0';
+        $delete_table_name = isset($_POST['delete_table']) ? $_POST['delete_table'] : '';
+        $delete_table_name = ($delete_table_name == "product_form_image") ? 'product_images': $delete_table_name;
+        return $this->deleteRecord($delete_table_name, $delete_id);
+    }    
 
     function forget_password() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
@@ -2816,7 +2750,7 @@ $limit = 12;
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_amount . '" name="amount[]" disabled="" >';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
-                    $item_data .=  '<td  data-delete-type="invoice_line_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
+                    $item_data .=  '<td  data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
                 }
 
@@ -3146,13 +3080,11 @@ function usercheck_toggle_btn() {
     }
     function user_massge() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-    
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = "";
             if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userquery = "WHERE user_id = $user_id";
-                
             } 
             $sql = "SELECT * FROM users $userquery AND toggle='1'";
                 $result = $this->db->query($sql); 
