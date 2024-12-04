@@ -121,8 +121,8 @@ function CountData(routineName) {
         response.totalproduct !== undefined
           ? $(".totalProduct").text(response.totalproduct)
           : "";
-        response.totalclient !== undefined
-          ? $(".totalClient").text(response.totalclient)
+        response.countclient !== undefined
+          ? $(".totalClient").text(response.countclient)
           : "";
         response.totalitemsale !== undefined
           ? $(".totalItemSale").text(response.totalitemsale)

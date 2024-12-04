@@ -476,7 +476,10 @@ $limit = 12;
         }
         if (empty($_POST['email'])) {
             $error_array['email'] = "Please enter customer email.";
+        } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $error_array['email'] = "Please enter a valid email address.";
         }
+
         $phone_number = isset($_POST['contact']) ? $_POST['contact'] : '';
         $mobilepattern = "/^[789]\d{9}$/"; 
         if (empty($phone_number)) {
@@ -2860,7 +2863,7 @@ function usercheck_toggle_btn() {
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     $countclient = $result->num_rows;
-                    $response_data = array('data' => 'success', 'outcome' => $countclient);
+                    $response_data = array('data' => 'success', 'totalclient' => $countclient);
                 }
             }
         }
