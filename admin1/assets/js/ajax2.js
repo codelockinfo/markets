@@ -38,18 +38,15 @@ function getCookie(cname) {
 
 function formatNumber(num) {
   if (num >= 10000000) {
-   
     return (num / 10000000).toFixed(0) + "Cr";
   } else if (num >= 100000) {
-   
     return (num / 100000).toFixed(0) + "L";
   } else if (num >= 1000) {
-    
     return (num / 1000).toFixed(0) + "K";
   } else {
     return num;
   }
-  return num.toString(); 
+  return num.toString();
 }
 
 function loading_show($selector) {
@@ -75,7 +72,7 @@ function loading_hidefun($selector, $buttonName, $buttonIcon) {
   } else {
     $buttonIcon = "cencle";
   }
- 
+
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
 }
 
@@ -101,14 +98,12 @@ function check_toggle_status() {
           $("#flexSwitchCheckDefault").prop("checked", false);
         }
       } else {
-       
       }
     },
   });
 }
 
 function CountData(routineName) {
- 
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -116,7 +111,7 @@ function CountData(routineName) {
     data: { routine_name: routineName },
     success: function (response) {
       var response = JSON.parse(response);
-     
+
       if (response.data === "success") {
         response.totalearning !== undefined
           ? $(".totalEarning").text(
@@ -125,22 +120,23 @@ function CountData(routineName) {
           : "";
         response.totalproduct !== undefined
           ? $(".totalProduct").text(response.totalproduct)
-          : '';
+          : "";
         response.totalclient !== undefined
           ? $(".totalClient").text(response.totalclient)
-          : '';
+          : "";
         response.totalitemsale !== undefined
           ? $(".totalItemSale").text(response.totalitemsale)
-          : '';
+          : "";
         response.totalamountsale !== undefined
-          ? $(".totalAmountSale").text("Rs. " + formatNumber(response.totalamountsale))
-          : '';
-        
+          ? $(".totalAmountSale").text(
+              "Rs. " + formatNumber(response.totalamountsale)
+            )
+          : "";
       }
     },
   });
 }
-function userData(routineName){
+function userData(routineName) {
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
@@ -153,8 +149,8 @@ function userData(routineName){
       if (response.data === "success") {
         $(".user_msgactive").html(response.outcome);
       }
-    }
-  })
+    },
+  });
 }
 function loadData(routineName) {
   $.ajax({
@@ -166,7 +162,7 @@ function loadData(routineName) {
       var response = JSON.parse(response);
       if (response.outcome === "No data found") {
         $("#getdata").html(NO_DATA);
-        $(".user_msg").html(NO_DATA)
+        $(".user_msg").html(NO_DATA);
         $(".dropdownhide").hide();
         $("#pagination").hide();
         $(".addproduct").show();
@@ -206,7 +202,7 @@ function listproduct() {
 function listcustomer() {
   loadData("customerlisting");
 }
-function listuser(){
+function listuser() {
   loadData("userlisting");
 }
 function listblog() {
@@ -220,10 +216,10 @@ function listinvoice() {
 function offerlist() {
   loadData("offerlisting");
 }
-function topbarlist(){
-  loadData("topbarlisting")
+function topbarlist() {
+  loadData("topbarlisting");
 }
-function custom_product(){
+function custom_product() {
   loadData("custm_productlisting");
 }
 // function usermsg(){
@@ -257,8 +253,8 @@ function listproductprofile() {
 function listbanner() {
   loadData("bannerlisting");
 }
-function listcontactus(){
-  loadData("contactuslisting")
+function listcontactus() {
+  loadData("contactuslisting");
 }
 function listfamousmarket() {
   loadData("famousmarketlisting");
@@ -269,18 +265,16 @@ function listfamousmarket() {
 // }
 
 function profileLoadData(routineName) {
- 
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
     dataType: "json",
-    timeout: 5000, 
+    timeout: 5000,
     data: { routine_name: routineName },
     success: function (response) {
-      
       try {
         const parsedResponse =
-        typeof response === "string" ? JSON.parse(response) : response;
+          typeof response === "string" ? JSON.parse(response) : response;
         console.log(parsedResponse, " .....parsedResponse");
         if (parsedResponse.data === "success") {
           console.log("Data loaded successfully:", parsedResponse.data);
@@ -292,7 +286,7 @@ function profileLoadData(routineName) {
             : "";
           parsedResponse["profiledata"]["phone_number"] !== undefined
             ? $("input[name='phone_number']").val(
-              parsedResponse["profiledata"]["phone_number"]
+                parsedResponse["profiledata"]["phone_number"]
               )
             : "";
           parsedResponse["profiledata"]["business_type"] !== undefined
@@ -301,7 +295,9 @@ function profileLoadData(routineName) {
                 .change()
             : "";
           parsedResponse["profiledata"]["address"] !== undefined
-            ? $("input[name='address']").val(parsedResponse["profiledata"]["address"])
+            ? $("input[name='address']").val(
+                parsedResponse["profiledata"]["address"]
+              )
             : "";
           parsedResponse["outcome"]["profile_deatils"] !== undefined
             ? $("#getdataa").html(parsedResponse["outcome"]["profile_deatils"])
@@ -312,31 +308,29 @@ function profileLoadData(routineName) {
           parsedResponse["outcome"]["logo"] !== undefined
             ? $("#profile_data").html(parsedResponse["outcome"]["logo"])
             : $("#profile_data").html("");
-          
         } else if (parsedResponse.data === "fail") {
           console.error("Error from server:", parsedResponse.message);
-        } else { 
+        } else {
           console.warn("Unexpected status:", parsedResponse.status);
         }
       } catch (error) {
         console.error("Error parsing response:", error.message);
       }
     },
-    
+
     error: function (xhr, status, error) {
-      console.log(status , " ..........status");
-      console.log(xhr.status , "......xhr.status ");
-      if (status === 'timeout') {
-        console.log('Request timed out. Please try again.');
-        profileLoadData('listprofile');
-      }else if (xhr.status === 500) {
+      console.log(status, " ..........status");
+      console.log(xhr.status, "......xhr.status ");
+      if (status === "timeout") {
+        console.log("Request timed out. Please try again.");
+        profileLoadData("listprofile");
+      } else if (xhr.status === 500) {
         console.error("Internal server error (500)");
-        profileLoadData('listprofile');
+        profileLoadData("listprofile");
       } else {
         console.error(`AJAX Error - Status: ${status}, Error: ${error}`);
       }
     },
-    
   });
 }
 
@@ -347,8 +341,7 @@ function demo() {
     dataType: "json",
     data: { routine_name: "demo_function" },
     beforeSend: function () {},
-    success: function (response) {
-    },
+    success: function (response) {},
   });
 }
 
@@ -386,22 +379,22 @@ function get_product(id) {
               response["outcome"]["product_img_alt"]
             )
           : "";
-          if (response.outcome.p_tag) {
-            const arrangedValue = response.outcome.p_tag;
-            if (arrangedValue.trim() !== "") {
-              const rearrangedValue = arrangedValue.split(",").reverse();
-              rearrangedValue.forEach(function (value) {
-                if ($(`select[name='p_tag'] option[value='${value}']`).length === 0) {
-                  $("select[name='p_tag']").append(
-                    `<option value="${value}">${value}</option>`
-                  );
-                }
-              });
-              $("select[name='p_tag']")
-                .val(rearrangedValue)
-                .trigger("change"); 
-            }
+        if (response.outcome.p_tag) {
+          const arrangedValue = response.outcome.p_tag;
+          if (arrangedValue.trim() !== "") {
+            const rearrangedValue = arrangedValue.split(",").reverse();
+            rearrangedValue.forEach(function (value) {
+              if (
+                $(`select[name='p_tag'] option[value='${value}']`).length === 0
+              ) {
+                $("select[name='p_tag']").append(
+                  `<option value="${value}">${value}</option>`
+                );
+              }
+            });
+            $("select[name='p_tag']").val(rearrangedValue).trigger("change");
           }
+        }
 
         response["outcome"]["p_description"] !== undefined
           ? $("textarea[name='p_description']").val(
@@ -419,7 +412,7 @@ function get_product(id) {
           var filePath = "../admin1/assets/img/product_img/" + p_image;
           $.ajax({
             url: filePath,
-            type: "HEAD", 
+            type: "HEAD",
             success: function () {
               var imagePreview =
                 '<div class="drop-zone__thumb">' +
@@ -441,7 +434,7 @@ function get_product(id) {
           $(".pro-zone").show();
         }
         if (response["product_img_result"] !== undefined) {
-          var imagePreviews = ""; 
+          var imagePreviews = "";
           $.each(response["product_img_result"], function (index, image) {
             var imageUrl = image.p_image;
             imagePreviews +=
@@ -458,7 +451,7 @@ function get_product(id) {
               "</div>" +
               "</div>";
           });
-          $(".imageAppend").append(imagePreviews); 
+          $(".imageAppend").append(imagePreviews);
         }
       }
     },
@@ -474,15 +467,15 @@ function lastInsertedId(table_name, id) {
     success: function (response) {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
-        const year = new Date().getFullYear(); 
+        const year = new Date().getFullYear();
         let rawOutcome = response.outcome.toString();
         console.log("Raw Outcome:", rawOutcome);
         if (rawOutcome.startsWith(year.toString())) {
-            rawOutcome = rawOutcome.slice(year.toString().length);
+          rawOutcome = rawOutcome.slice(year.toString().length);
         }
         const paddedId = rawOutcome.padStart(5, "0");
-        const formattedId = `${year}${paddedId}`; 
-        $(".invoiceid").val(formattedId); 
+        const formattedId = `${year}${paddedId}`;
+        $(".invoiceid").val(formattedId);
         console.log("Generated Invoice ID:", formattedId);
       }
     },
@@ -509,7 +502,7 @@ function get_invoice(id) {
       response["outcome"]["ship_to"] !== undefined
         ? $("textarea[name='ship_to']").val(response["outcome"]["ship_to"])
         : "";
-      
+
       response["outcome"]["due_date"] !== undefined
         ? $("input[name='due_date']").val(response["outcome"]["due_date"])
         : "";
@@ -529,7 +522,7 @@ function get_invoice(id) {
       response["outcome"]["balance_due"] !== undefined
         ? $("input[name='balance_due']").val(response["outcome"]["balance_due"])
         : "";
-        response["outcome"]["terms"] !== undefined
+      response["outcome"]["terms"] !== undefined
         ? $("input[name='terms']").val(response["outcome"]["terms"])
         : "";
       response["outcome"]["terms_condition"] !== undefined
@@ -549,7 +542,7 @@ function get_invoice(id) {
         var filePath = "../admin1/assets/img/invoice_img/" + i_image;
         $.ajax({
           url: filePath,
-          type: "HEAD", 
+          type: "HEAD",
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
@@ -614,7 +607,7 @@ function get_customer(id) {
         var filePath = "../admin1/assets/img/customer/" + c_image;
         $.ajax({
           url: filePath,
-          type: "HEAD", 
+          type: "HEAD",
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
@@ -672,7 +665,7 @@ function get_blog(id) {
         var filePath = "../admin1/assets/img/blog_img/" + image;
         $.ajax({
           url: filePath,
-          type: "HEAD", 
+          type: "HEAD",
           success: function () {
             var imagePreview =
               '<div class="drop-zone__thumb">' +
@@ -739,8 +732,8 @@ function get_Categories() {
           $(
             "select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]"
           ).append(response["outcome"]);
-        } 
-      }  
+        }
+      }
     },
   });
 }
@@ -766,12 +759,12 @@ function select_shop() {
             if (shopName) {
               var optionHtml =
                 "<option value='" + userId + "'>" + shopName + "</option>";
-            
+
               $("#mySelect").append(optionHtml);
             }
           });
         }
-      } 
+      }
     },
   });
 }
@@ -823,12 +816,12 @@ $(document).ready(function () {
     $(this).closest(".mb-2").find(".imageError").text("");
   });
 
-  $(document).on('input', 'input', function() {
-    const parentTd = $(this).closest('td');
-    parentTd.removeClass('error');
-    const closestColXl = $(this).closest('.col-xl');
-    closestColXl.removeClass('error');
- });
+  $(document).on("input", "input", function () {
+    const parentTd = $(this).closest("td");
+    parentTd.removeClass("error");
+    const closestColXl = $(this).closest(".col-xl");
+    closestColXl.removeClass("error");
+  });
 
   $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");
@@ -842,18 +835,18 @@ $(document).ready(function () {
   $("#removeImage").on("change", function () {
     $(this).closest(".mb-3").find(".errormsg").html("");
   });
-  
+
   $(".validtext").on("input", function () {
     $(this).next(".errormsg").text("");
   });
-  $(".valikey").on("input", function() {
-    const name = $(this).attr("name"); 
-    $(`.errormsg.${name}`).text("");  
+  $(".valikey").on("input", function () {
+    const name = $(this).attr("name");
+    $(`.errormsg.${name}`).text("");
   });
-  $(".number").on("input", function() {
+  $(".number").on("input", function () {
     this.value = this.value.replace(/[^0-9]/g, "").slice(0, 10);
-  })
-  $(".valid_invoice_item").on("keypress", function(){
+  });
+  $(".valid_invoice_item").on("keypress", function () {
     $(this).closest(".attr").find(".errormsg").text("");
   });
   $(".validsignf").on("keypress", function () {
@@ -867,11 +860,11 @@ $(document).ready(function () {
       e.preventDefault();
     }
   });
- 
+
   $(".validurl").on("input", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
-  
+
   $(".price").on("input", function () {
     const value = $(this).val();
     $(this).next(".errormsg").text("");
@@ -886,72 +879,73 @@ $(document).ready(function () {
   }
 
   $(document).on("click", ".formCancel", function (event) {
-      event.preventDefault(); 
-      console.log("sddd");
-      loading_show(".cencle_loader_show");
-      var formType = $(this).closest('form').data('form-type');
-      if (id !== "") {
-          switch(formType) {
-              case 'product':
-                  window.location.href = "product-list.php";
-                  break;
-              case 'blog':
-                  window.location.href = "blog-list.php"; 
-                  break;
-              case 'customer':
-                  window.location.href = "customer_list.php"; 
-                  break;
-              default:
-                  window.location.href = "default-page.php"; 
-                  break;
-          }
-      } 
-      $(".pro-zone__prompt").css("display", "block");
-      $(".drop-zone").css("display", "flex");
-      $(".errormsg").html("");
-      if ($(".form-control[name=p_tag]").length > 0) {
-        if ($(".form-control[name=p_tag]").val().length > 0) {
-          $(this)
-            .closest("form")
-            .find(".multiple_tag")
-            .val(null)
-            .trigger("change");
-          $(this).closest("form").find(".select2-selection__clear").remove();
-        }
+    event.preventDefault();
+    console.log("sddd");
+    loading_show(".cencle_loader_show");
+    var formType = $(this).closest("form").data("form-type");
+    if (id !== "") {
+      switch (formType) {
+        case "product":
+          window.location.href = "product-list.php";
+          break;
+        case "blog":
+          window.location.href = "blog-list.php";
+          break;
+        case "customer":
+          window.location.href = "customer_list.php";
+          break;
+        default:
+          window.location.href = "default-page.php";
+          break;
       }
-      if (CKEDITOR.instances["myeditor"]) {
-        CKEDITOR.instances["myeditor"].setData("");
+    }
+    $(".pro-zone__prompt").css("display", "block");
+    $(".drop-zone").css("display", "flex");
+    $(".errormsg").html("");
+    if ($(".form-control[name=p_tag]").length > 0) {
+      if ($(".form-control[name=p_tag]").val().length > 0) {
+        $(this)
+          .closest("form")
+          .find(".multiple_tag")
+          .val(null)
+          .trigger("change");
+        $(this).closest("form").find(".select2-selection__clear").remove();
       }
-      var $thumbnailElement = $(".drop-zone__thumb");
-      var $inputElement = $(".pro-zone");
-      if ($thumbnailElement.length > 0) {
-        $thumbnailElement.html("");
-        $inputElement.show();
-        $inputElement.removeClass("drop-zone__thumb");
-      }
-      $(this).closest("form")[0].reset();
-      setTimeout(function(){
-        loading_hidefun(".cencle_loader_show", "blogs");
-      }, 300);
+    }
+    if (CKEDITOR.instances["myeditor"]) {
+      CKEDITOR.instances["myeditor"].setData("");
+    }
+    var $thumbnailElement = $(".drop-zone__thumb");
+    var $inputElement = $(".pro-zone");
+    if ($thumbnailElement.length > 0) {
+      $thumbnailElement.html("");
+      $inputElement.show();
+      $inputElement.removeClass("drop-zone__thumb");
+    }
+    $(this).closest("form")[0].reset();
+    setTimeout(function () {
+      loading_hidefun(".cencle_loader_show", "blogs");
+    }, 300);
   });
 
   $(".form-select").on("input change paste", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
 
- 
   function resetThumbnail() {
     console.log("resetThumbnail");
     var $thumbnailElement = $(".drop-zone__thumb");
-    var propzone = $thumbnailElement.closest(".drop-zone").find(".pro-zone__prompt");
+    var propzone = $thumbnailElement
+      .closest(".drop-zone")
+      .find(".pro-zone__prompt");
     console.log(propzone, " ,,,,ppppppppropzone");
     if ($thumbnailElement.length > 0) {
       $thumbnailElement.html("");
       $thumbnailElement.removeClass("drop-zone__thumb");
 
-      if(propzone.length >= 1){
+      if (propzone.length >= 1) {
         propzone.css("display", "block");
-      }else{
+      } else {
         $thumbnailElement.html(
           '<span class="pro-zone__prompt">Drop file here or click to upload</span>'
         );
@@ -961,13 +955,14 @@ $(document).ready(function () {
   $("#email").on("input", function () {
     var email = $(this).val();
     var emailErrorDiv = $(".email");
-    var emailRegex =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+    var emailRegex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email === "") {
       emailErrorDiv.text("");
     } else if (!emailRegex.test(email)) {
       emailErrorDiv.text("Please enter  valid email formate.");
     } else {
-      emailErrorDiv.text(""); 
+      emailErrorDiv.text("");
     }
   });
 
@@ -1001,7 +996,7 @@ $(document).ready(function () {
           response["msg"]["errormsg"] !== undefined
             ? $(".error-msg").html(response["msg"]["errormsg"])
             : $(".error-msg").html("");
-            loading_hide(".save_loader_show", "Sign in");
+          loading_hide(".save_loader_show", "Sign in");
         }
       },
     });
@@ -1010,7 +1005,7 @@ $(document).ready(function () {
   $(document).on("keydown", "#savesignin input", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
-      $(".signInsave").click(); 
+      $(".signInsave").click();
     }
   });
 
@@ -1048,7 +1043,7 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
-          // window.location.href = "profile.php"; 
+          // window.location.href = "profile.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1056,7 +1051,7 @@ $(document).ready(function () {
     });
   });
   function profileUpdateImage() {
-    $("#profileImageUpdate").modal("hide"); 
+    $("#profileImageUpdate").modal("hide");
   }
   $(document).on("click", ".profileImageSave", function (e) {
     var form_data = $("#profileImageSave")[0];
@@ -1073,7 +1068,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-       
         var response = JSON.parse(response);
         if (response["msg"]["shop_logo"] !== undefined) {
           $(".shop_logo").html(response["msg"]["shop_logo"]);
@@ -1086,16 +1080,18 @@ $(document).ready(function () {
 
           profileUpdateImage();
           var profile_image = $(".picture__img").attr("src");
-          
+
           if (profile_image == undefined) {
-            $(".profile-image").attr("src","../admin1/assets/img/image_not_found.png");
+            $(".profile-image").attr(
+              "src",
+              "../admin1/assets/img/image_not_found.png"
+            );
           } else {
             $(".profile-image").attr("src", profile_image);
           }
-          
+
           $(".pro-zone__prompt").css("display", "block");
           $(".drop-zone__thumb").remove();
-          
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1105,7 +1101,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".signUpsave", function (e) {
     e.preventDefault();
-   
+
     var form_data = $("#savesignup")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_signup");
@@ -1120,7 +1116,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-       
         var response = JSON.parse(response);
         response["msg"]["name"] !== undefined
           ? $(".name").html(response["msg"]["name"])
@@ -1174,10 +1169,10 @@ $(document).ready(function () {
 
   $(document).on("click", ".productSave", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#productinsert")[0];
     var form_data = new FormData(form_data);
-    
+
     form_data.append("routine_name", "insert_products");
     var selectedTags = $(".multiple_tag").val();
     if (selectedTags !== null) {
@@ -1185,7 +1180,7 @@ $(document).ready(function () {
         form_data.append("p_tag[]", selectedTags[i]);
       }
     }
-    
+
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -1197,9 +1192,7 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        
         var response = JSON.parse(response);
-       
 
         loading_hide(".save_loader_show", "Save");
         response["msg"]["pname"] !== undefined
@@ -1232,14 +1225,13 @@ $(document).ready(function () {
         response["msg"]["qty"] !== undefined
           ? $(".qty").html(response["msg"]["qty"])
           : $(".qty").html("");
-          response["msg"]["p_tag"] !== undefined
+        response["msg"]["p_tag"] !== undefined
           ? $(".p_tag").html(response["msg"]["p_tag"])
           : $(".p_tag").html("");
         response["msg"]["p_description"] !== undefined
           ? $(".p_description").html(response["msg"]["p_description"])
           : $(".p_description").html("");
         if (response["data"] == "success") {
-          
           if (!response["updated_product_id"]) {
             $("#productinsert")[0].reset();
             resetThumbnail();
@@ -1258,7 +1250,7 @@ $(document).ready(function () {
   });
   $(document).on("click", ".customersave", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#custemer_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "add_customer");
@@ -1300,7 +1292,6 @@ $(document).ready(function () {
           ? $(".address").html(response["msg"]["address"])
           : $(".address").html("");
         if (response["data"] == "success") {
-         
           if (!response["updated_customer_id"]) {
             $("#custemer_frm")[0].reset();
             resetThumbnail();
@@ -1319,12 +1310,15 @@ $(document).ready(function () {
 
   $(document).on("click", ".invoice ", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#invoice_frm")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
     form_data.append("total", $('input[name="total"]').val() || "0");
-    form_data.append("balance_due", $('input[name="balance_due"]').val() || "0");
+    form_data.append(
+      "balance_due",
+      $('input[name="balance_due"]').val() || "0"
+    );
     const formData = {
       item: [],
       quantity: [],
@@ -1348,15 +1342,14 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-      
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         if (response["msg"]["amount_paid"] !== undefined) {
           $(".ampunt_p").addClass("error");
-      } else {
+        } else {
           $(".amount_paid").html("");
           $(".ampunt_p").removeClass("error");
-      }
+        }
         response["msg"]["i_image"] !== undefined
           ? $(".i_image").html(response["msg"]["i_image"])
           : $(".i_image").html("");
@@ -1377,8 +1370,6 @@ $(document).ready(function () {
           ? $(".date").html(response["msg"]["date"])
           : $(".date").html("");
 
-       
-
         response["msg"]["due_date"] !== undefined
           ? $(".due_date").html(response["msg"]["due_date"])
           : $(".due_date").html("");
@@ -1396,7 +1387,6 @@ $(document).ready(function () {
           alert("Data submitted successfully!");
         }
         if (response["data"] == "success") {
-       
           if (!response["update_invoice_id"]) {
             $("#invoice_frm")[0].reset();
             resetThumbnail();
@@ -1423,42 +1413,9 @@ $(document).ready(function () {
     }).then((result) => {
       if (result.isConfirmed) {
         var data = { routine_name: routineName };
-        if (type === "product") {
-          data.product_id = deleteId;
-        } else if (type === "blog") {
-          data.blog_id = deleteId;
-        } else if (type === "video") {
-          data.video_id = deleteId;
-        } else if (type === "banner") {
-          data.banner_id = deleteId;
-        } else if (type === "famous_market") {
-          data.famous_market_id = deleteId;
-        } else if (type === "b_textile_catagory") {
-          data.b_textile_catagory_id = deleteId;
-        } else if (type === "offer") {
-          data.offer_id = deleteId;
-        } else if (type === "faq") {
-          data.faq_id = deleteId;
-        } else  if (type === "customer") {
-          data.customer_id = deleteId;
-        } else if (type === "invoice") {
-          data.invoice_id = deleteId;
-        } else if (type === "product_images") {
-          data.product_image_id = deleteId;
-        } else if (type === "product_form_image") {
-          data.product_image_id = deleteId;
-        } else if (type === "product_main_image") {
-          data.product_id = deleteId;
-        } else if (type === "invoice_line_item") {
-          data.invoice_item_id = deleteId;
-        }else if (type === "topbar") {
-          data.id = deleteId;
-        } else if (type === "users") {
-          data.id = deleteId;
-        } 
-        // if (type === "review") {
-        //   data.marketreview_id = deleteId;
-        // } else
+        data.delete_table = type;
+        data.delete_id = deleteId;
+
         $.ajax({
           url: "../admin1/ajax_call.php",
           type: "POST",
@@ -1492,14 +1449,12 @@ $(document).ready(function () {
   }
 
   function delete_product_image_response(deleteId) {
-    
     $("[data-id='" + deleteId + "']")
       .closest(".position-relative")
       .remove();
   }
 
   function delete_product_form_image_response(deleteId) {
-    
     $("[data-id='" + deleteId + "']")
       .closest(".drop-zone__thumb")
       .remove();
@@ -1509,8 +1464,6 @@ $(document).ready(function () {
   }
 
   function delete_product_main_image_response(deleteId) {
-    
-
     $("[data-id='" + deleteId + "']")
       .closest(".modal")
       .find(".btn-close")
@@ -1523,25 +1476,19 @@ $(document).ready(function () {
   $(document).delegate(".delete", "click", function () {
     var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
-
     var deleteMapping = {
-      product: { routine: "productdelete", callback: listproduct },
-      invoice: { routine: "invoicedelete", callback: listinvoice },
-      topbar: { routine: "topbardelete", callback: topbarlist },
-      users: { routine: "userdelete", callback: listuser },
-      // review: { routine: "reviewdelete", callback: listreview },
-      famous_market: {
-        routine: "famousmarketdelete",
-        callback: listfamousmarket,
-      },
+      products: { routine: "deleteData", callback: listproduct },
+      invoice: { routine: "deleteData", callback: listinvoice },
+      customer: { routine: "deleteData", callback: listcustomer },
+      blogs: { routine: "deleteData", callback: listblog },
       product_images: {
-        routine: "multipimgdelete",
+        routine: "deleteData",
         callback: function () {
           delete_product_image_response(deleteId);
         },
       },
       product_form_image: {
-        routine: "multipimgdelete",
+        routine: "deleteData",
         callback: function () {
           delete_product_form_image_response(deleteId);
         },
@@ -1552,24 +1499,18 @@ $(document).ready(function () {
           delete_product_main_image_response(deleteId);
         },
       },
-      invoice_line_item: {
-        routine: "invoice_line_item",
-      },
-      customer: { routine: "customerdelete", callback: listcustomer },
-      blog: { routine: "blogdelete", callback: listblog },
-      video: { routine: "videodelete", callback: listvideo },
-      banner: { routine: "bannerdelete", callback: listbanner },
-      famous_market: {
-        routine: "famousmarketdelete",
-        callback: listfamousmarket,
-      },
-      b_textile_catagory: {
-        routine: "b_textile_catagorysdelete",
+      invoice_item: { routine: "deleteData" },
+      users: { routine: "deleteData", callback: listuser },
+      videos: { routine: "deleteData", callback: listvideo },
+      banners: { routine: "deleteData", callback: listbanner },
+      offers: { routine: "deleteData", callback: offerlist },
+      topbar: { routine: "deleteData", callback: topbarlist },
+      faqs: { routine: "deleteData", callback: listFAQ },
+      famous_markets: { routine: "deleteData", callback: listfamousmarket },
+      b_textile_catagorys: {
+        routine: "deleteData",
         callback: listbrousetextile,
       },
-      offer: { routine: "offerdelete", callback: offerlist },
-      faq: { routine: "faqdelete", callback: listFAQ },
-      // review: { routine: "reviewdelete", callback: listreview },
     };
 
     if (deleteMapping[deleteType]) {
@@ -1584,7 +1525,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".videoSave", function (event) {
     event.preventDefault();
-    
+
     var form_data = $("#videoinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_videos");
@@ -1599,7 +1540,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["video_title"] !== undefined
@@ -1627,7 +1567,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".blogSave", function (event) {
     event.preventDefault();
-   
+
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -1646,7 +1586,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["blog_title"] !== undefined
@@ -1687,7 +1626,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".bannerSave", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#bannerinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_banner");
@@ -1702,7 +1641,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["myFile"] !== undefined
@@ -1740,10 +1678,10 @@ $(document).ready(function () {
     var search_text = $(this).val();
     var page = $(this).data("page");
     var routine_name = $("#search").data("routine");
-    
+
     var page = $("#search").find(".page-link.active").data("page");
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
-    
+
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
@@ -1760,9 +1698,8 @@ $(document).ready(function () {
         }
         var pagination = response.pagination;
         var pagination_needed = response.pagination_needed;
-       
+
         if (response.outcome != "") {
-         
           if (response.outcome == "No data found") {
             $("#getdata").html(NO_DATA);
           } else {
@@ -1770,10 +1707,8 @@ $(document).ready(function () {
           }
         }
         if (pagination_needed) {
-         
           $("#pagination").html(pagination).show();
         } else {
-         
           $("#pagination").hide();
         }
       },
@@ -1783,7 +1718,7 @@ $(document).ready(function () {
   $(document).on("click", "#dataPagination a", function (event) {
     event.preventDefault();
     var routine_name = $("#dataPagination").data("routine");
-    
+
     var page = $(this).data("page");
     var search_text = $(".search-btn_1").val();
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
@@ -1800,11 +1735,10 @@ $(document).ready(function () {
       },
       success: function (data) {
         var data = JSON.parse(data);
-       
+
         if (data.data === "success") {
           $("#getdata").html(data.outcome);
           $("#pagination").html(data.pagination);
-          
         } else {
           $("#getdata").html(NO_DATA);
           $("#pagination").html("Pagination not found");
@@ -1813,16 +1747,15 @@ $(document).ready(function () {
     });
   });
 
-
   $(document).on("click", "#flexSwitchCheckDefault", function () {
     var previousState = $(this).is(":checked");
     toggle_enabledisable(this, previousState);
   });
-  
-  function toggle_enabledisable(thisObj, previousState) { 
+
+  function toggle_enabledisable(thisObj, previousState) {
     var table_name = $("#flexSwitchCheckDefault").val();
     var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
-  
+
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "POST",
@@ -1839,11 +1772,10 @@ $(document).ready(function () {
       },
     });
   }
-  
 
   $(document).on("click", ".marketSave", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#f_marketinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_market");
@@ -1858,14 +1790,13 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
 
         response["msg"]["shop_name"] !== undefined
           ? $(".shop_name").html(response["msg"]["shop_name"])
           : $(".shop_name").html("");
-          response["msg"]["review"] !== undefined
+        response["msg"]["review"] !== undefined
           ? $(".review").html(response["msg"]["shop_name"])
           : $(".review").html("");
 
@@ -1884,7 +1815,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".brouseSave", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#b_textileCtgryinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_brousetxt");
@@ -1918,7 +1849,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".offerSave", function (event) {
     event.preventDefault();
-   
+
     var form_data = $("#offersinsert")[0];
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_offers");
@@ -1933,7 +1864,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-      
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["myFile"] !== undefined
@@ -1960,7 +1890,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".paragraphSave", function (event) {
     event.preventDefault();
-    
+
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -1979,7 +1909,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["myeditor"] !== undefined
@@ -1999,7 +1928,7 @@ $(document).ready(function () {
 
   $(document).on("click", ".faqSave", function (event) {
     event.preventDefault();
-   
+
     var $contentheader = CKEDITOR.instances["myeditor"];
     if ($contentheader != undefined) {
       CKEDITOR.instances["myeditor"].updateElement();
@@ -2018,7 +1947,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-       
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
         response["msg"]["faq_question"] !== undefined
@@ -2039,10 +1967,9 @@ $(document).ready(function () {
     });
   });
 
-
   // $(document).on("click", ".reviewSave", function (event) {
   //   event.preventDefault();
-   
+
   //   var form_data = $("#reviewinsert")[0];
   //   var form_data = new FormData(form_data);
   //   form_data.append("routine_name", "insert_review");
@@ -2057,7 +1984,7 @@ $(document).ready(function () {
   //       loading_show(".save_loader_show");
   //     },
   //     success: function (response) {
-        
+
   //       var response = JSON.parse(response);
   //       loading_hide(".save_loader_show", "Save");
 
@@ -2083,7 +2010,7 @@ $(document).ready(function () {
   //   });
   // });
   // --------
-   $(document).on("click", ".topbarSave", function (event) {
+  $(document).on("click", ".topbarSave", function (event) {
     event.preventDefault();
     var form_data = $("#topbarinsert")[0];
     var form_data = new FormData(form_data);
@@ -2099,7 +2026,6 @@ $(document).ready(function () {
         loading_show(".save_loader_show");
       },
       success: function (response) {
-        
         var response = JSON.parse(response);
         loading_hide(".save_loader_show", "Save");
 
@@ -2124,7 +2050,6 @@ $(document).ready(function () {
     });
   });
 
-
   $(".forgotPasswordForm").on("click", function (event) {
     event.preventDefault();
     var form_data = $("#forgetpassword")[0];
@@ -2138,7 +2063,6 @@ $(document).ready(function () {
       processData: false,
       data: form_data,
       success: function (response) {
-       
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
@@ -2168,7 +2092,6 @@ $(document).ready(function () {
       processData: false,
       data: form_data,
       success: function (response) {
-       
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           showMessage(response["msg"], "success");
@@ -2185,7 +2108,7 @@ $(document).ready(function () {
 
   $(".dropdown .dropdown-item").click(function () {
     var search_text = $(".search-btn_1").val();
-   
+
     var page_name = $(this).closest(".filterDropdown").data("filter");
     var sortValue = $(this).data("value");
     var sortby = $(this).data("sortby");
@@ -2219,9 +2142,8 @@ $(document).ready(function () {
         }
         var pagination = response.pagination;
         var pagination_needed = response.pagination_needed;
-       
+
         if (response.outcome != "") {
-         
           if (response.outcome == "No data found") {
             $("#getdata").html(NO_DATA);
           } else {
@@ -2229,10 +2151,8 @@ $(document).ready(function () {
           }
         }
         if (pagination_needed) {
-          
           $("#pagination").html(pagination).show();
         } else {
-         
           $("#pagination").hide();
         }
       },
@@ -2256,7 +2176,6 @@ $(document).ready(function () {
 });
 
 $(document).on("click", ".picture__img", function () {
- 
   $(this)
     .closest(".imageAppend")
     .find(".pro-zone .pro-zone__input")
@@ -2265,13 +2184,13 @@ $(document).on("click", ".picture__img", function () {
 
 $(document).on("click", ".close-button_product", function (event) {
   event.stopPropagation();
- 
+
   return false;
 });
 
 $(document).on("click", ".close-buttons_profile", function (event) {
   event.stopPropagation();
-  
+
   var closemainclass = $(this).closest(".form-control");
   closemainclass.find(".drop-zone__thumb").remove();
   closemainclass.find(".drop-zone").css("display", "flex");
@@ -2289,9 +2208,7 @@ $(document).on("click", ".toggle-button", function () {
       ischecked_value: ischecked_value,
       video_id: videoId,
     },
-    success: function (response) {
-      
-    },
+    success: function (response) {},
   });
 });
 
@@ -2310,7 +2227,6 @@ function check_toggle_btn(videoId) {
         var check_status = response["outcome"]["toggle"];
         $("#checkbox_" + videoId).prop("checked", check_status == 1);
       } else {
-        
       }
     },
   });
@@ -2330,9 +2246,7 @@ $(document).on("click", ".protoggle-button", function () {
       ischecked_value: ischecked_value,
       product_id: productId,
     },
-    success: function (response) {
-      
-    },
+    success: function (response) {},
   });
 });
 
@@ -2351,7 +2265,6 @@ function check_toggle_btn(productId) {
         var check_status = response["outcome"]["toggle"];
         $("#checkbox_" + productId).prop("checked", check_status == 1);
       } else {
-        
       }
     },
   });
@@ -2370,9 +2283,7 @@ $(document).on("click", ".usertoggle-button", function () {
       ischecked_value: ischecked_value,
       user_id: userId,
     },
-    success: function (response) {
-      
-    },
+    success: function (response) {},
   });
 });
 
@@ -2389,9 +2300,8 @@ function check_toggle_btn(userId) {
     success: function (response) {
       if (response["outcome"] !== undefined) {
         var check_status = response["outcome"]["toggle"];
-        $("#checkbox_" +userId).prop("checked", check_status == 1);
+        $("#checkbox_" + userId).prop("checked", check_status == 1);
       } else {
-        
       }
     },
   });
@@ -2570,7 +2480,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-$(document).on('click','.popup-close-button',function() {
+$(document).on("click", ".popup-close-button", function () {
   console.log("click");
   $(this).closest(".user_msgactive").remove();
 });
@@ -2595,6 +2505,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  handleImagePreview("shop_image_Input", "newpreview"); 
-  handleImagePreview("shop_logo_image", "shop_logo_preview"); 
+  handleImagePreview("shop_image_Input", "newpreview");
+  handleImagePreview("shop_logo_image", "shop_logo_preview");
 });
