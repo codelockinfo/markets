@@ -24,11 +24,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="card-header pb-0 p-3">
             <h6 class="mb-1 mt-1 text-lg">Videos</h6>
           </div>
-
-        </div>
-        <div class="input-group search-btn search-icon1 w-80 mx-auto">
-          <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-          <input type="text" class="form-control search-btn_1" placeholder="Type here...">
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">

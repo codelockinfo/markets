@@ -45,10 +45,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </ul>
           </div>
         </div>
-        <div class="input-group search-btn search-icon1 w-80 mx-auto">
-          <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-          <input type="text" class="form-control search-btn_1" placeholder="Type here...">
-        </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">
           </div>

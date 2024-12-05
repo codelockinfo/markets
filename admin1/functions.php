@@ -1251,8 +1251,7 @@ $limit = 12;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
             $sql = "SELECT * FROM products WHERE title  LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
-            $output = "";
-            $pagination = "";
+            $output = $pagination ="";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $product_id = $row['product_id'];
@@ -1265,7 +1264,7 @@ $limit = 12;
                     $title = $row['title'];
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xl-3 col-md-4 col-sm-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
@@ -1459,16 +1458,20 @@ $limit = 12;
         global $NO_IMAGE;
         global $limit;
         if (isset($_SESSION['current_user']['user_id'])) {
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
-            $query = "SELECT COUNT(*) AS total FROM customer WHERE $userid_clause";
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) 
+                ? "user_id = " . (int)$_SESSION['current_user']['user_id'] 
+                : "1=1";
+            $query = "SELECT COUNT(*) AS total FROM customer WHERE name LIKE '%$search_value%' AND ($userid_clause)";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            $sql = "SELECT * FROM customer WHERE $userid_clause LIMIT $offset, $limit";
+    
+            $sql = "SELECT * FROM customer WHERE ($userid_clause) AND name LIKE '%$search_value%' LIMIT $offset, $limit";
             $result = $this->db->query($sql);
-            $output = "";
-            $pagination = "";
+    
+            $output = $pagination = "";
             if ($result && $result->num_rows > 0) {
                 $output = '<div class="container-fluid p-3 d-flex flex-wrap justify-content-start">';
                 while ($row = $result->fetch_assoc()) {
@@ -1489,10 +1492,10 @@ $limit = 12;
                     $output .= '      <a href="#">';
                     $output .= '      </a>';
                     $output .= '      <div class=" justify-content-between mb-3">';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> name:</h6> ' . $row['name'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">email :</h6> ' . $row['email'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
-                    $output  .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
+                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> name:</h6> ' . $row['name'] . '</div>';
+                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">email :</h6> ' . $row['email'] . '</div>';
+                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
+                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="" >';
                     $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
@@ -1507,7 +1510,10 @@ $limit = 12;
                     $output .= '</div>';
                 }
                 $output .= '</div>';
-                $response_data = array('data' => 'success', 'outcome' => $output, 'pagination' => isset($pagination) ? $pagination : '',
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',
                     'pagination_needed' => ($total_records > $limit) ? true : false
                 );
                 if ($total_records > $limit) {
@@ -1528,6 +1534,7 @@ $limit = 12;
             return json_encode($response_data);
         }
     }
+    
 
     function listprofile() {
         global $NO_IMAGE;

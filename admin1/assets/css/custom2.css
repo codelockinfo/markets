@@ -553,16 +553,16 @@
     margin-left: 10px;
   }
 }
-
+/* 
 @media (max-width:520px) {
   .search-icon {
     display: none;
   }
-}
+} */
 
 @media (min-width:520px) {
   .search-icon1 {
-    display: none;
+    /* display: none; */
   }
 }
 
