@@ -2863,7 +2863,7 @@ function usercheck_toggle_btn() {
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     $countclient = $result->num_rows;
-                    $response_data = array('data' => 'success', 'totalclient' => $countclient);
+                    $response_data = array('data' => 'success', 'countclient' => $countclient);
                 }
             }
         }
