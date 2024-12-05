@@ -2116,27 +2116,6 @@ $limit = 12;
         return $response;
     }
 
-    function contactuslisting(){
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-        if (isset($_SESSION['current_user']['user_id'])) {
-            $query = "SELECT * FROM contactus ";
-            $result = $this->db->query($query);
-            $output = "";
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        $toggleactive = ($row['status'] == "1") ? "checked" : "";
-                    }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "data not found");
-                }
-            }
-        }
-        $response = json_encode($response_data);
-        return $response;
-    }
-    
     function famousmarketlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {

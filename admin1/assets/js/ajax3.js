@@ -249,9 +249,7 @@ function listproductprofile() {
 function listbanner() {
   loadData("bannerlisting");
 }
-function listcontactus() {
-  loadData("contactuslisting");
-}
+
 function listfamousmarket() {
   loadData("famousmarketlisting");
 }

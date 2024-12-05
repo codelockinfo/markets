@@ -64,12 +64,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="mb-3">
               <label for="city" class="font-weight-normal required">City</label>
-              <input  type="text" class="w-100 form-control valikey" name="city" placeholder="Enter city">
+              <input  type="text" class="w-100 form-control validtext" name="city" placeholder="Enter city">
               <span class="errormsg city"></span>
             </div>
             <div class="mb-3">
               <label for="state" class="font-weight-normal required">State</label>
-              <input id="pro-description" class="w-100 form-control valikey" name="state" placeholder="Enter state">
+              <input id="pro-description" class="w-100 form-control validtext" name="state" placeholder="Enter state">
               <span class="errormsg state"></span>
             </div>
             <div class="mb-3">
