@@ -3,7 +3,7 @@
       <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-0 w-100 z-index-2 mt-2">
           <div class="container-fluid">
-            <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-0" id="navbar">
+            <div class="collapse navbar-collapse me-md-0 mt-sm-0 mt-0" id="navbar">
               <div class="ms-md-auto pe-md-0 d-flex align-items-center">
                 <div class="input-group back-btn d-xl-none d-block">
                   <a href="javascript:history.back()">
@@ -19,7 +19,7 @@
               <ul class="navbar-nav justify-content-end">
                 <li class="nav-item d-flex align-items-center">
                   <a href="<?php echo SITE_ADMIN_URL ?>profile.php" class="nav-link text-white font-weight-bold px-0">
-                    <i class="fa fa-user me-sm-1"></i>
+                    <i class="fa fa-user me-sm-1 me-2"></i>
                     <span class="d-sm-inline d-none">Profile</span>
                   </a>
                 </li>

@@ -1772,7 +1772,7 @@ $(document).ready(function () {
           ? $(".shop_name").html(response["msg"]["shop_name"])
           : $(".shop_name").html("");
         response["msg"]["review"] !== undefined
-          ? $(".review").html(response["msg"]["shop_name"])
+          ? $(".review").html(response["msg"]["review"])
           : $(".review").html("");
 
         if (response["data"] == "success") {

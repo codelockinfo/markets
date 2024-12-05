@@ -1006,7 +1006,7 @@ $limit = 12;
             $error_array['shop_name'] = "Please select the shop.";
         }
         if (isset($_POST['review']) && $_POST['review'] == '') {
-            $error_array['review'] = "Please enter.";
+            $error_array['review'] = "Please enter review";
         }
         if (empty($error_array)) {
             $shop_name = (isset($_POST['shop_name']) && $_POST['shop_name'] !== '') ? $_POST['shop_name'] : '';
@@ -2122,7 +2122,7 @@ $limit = 12;
                     }
                     $response_data = array('data' => 'success', 'outcome' => $output);
                 } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                    $response_data = array('data' => 'fail', 'outcome' => "data not found");
                 }
             }
         }
@@ -2334,7 +2334,7 @@ $limit = 12;
             $result = $this->db->query($sql);
     
             if ($result && $result->num_rows > 0) {
-                $output .= '<table class="Table table">';
+                $output .= '<table class="Table table text-center"">';
                 $output .= '<thead>';
                 $output .= '<tr>';
                 $output .= '   <th>ID</th>';

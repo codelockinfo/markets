@@ -161,15 +161,15 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     </div>
                     <div class="col-12 mt-4">
                         <div class="card mb-4">
-                            <div class="d-flex justify-content-between p-3">
-                                <div class="col-auto mx-auto ms-sm-3 mt-2">
+                            <div class="d-md-flex d-block justify-content-between align-items-center p-3">
+                                <div class="col-auto ">
                                     <h6 class="mb-1">
                                         Your Products
                                     </h6>
                                 </div>
-                                <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2">
+                                <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2 justify-content-end">
                                    <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
-                                        <div class="input-group search-btn search-icon dropdownhide">
+                                        <div class="input-group search-btn search-icons dropdownhide">
                                             <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
                                             <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search" data-routine="productlisting">
                                         </div>

@@ -31,7 +31,7 @@ if ($_SESSION['current_user']['role'] == 1) {
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3">
           <div class="card-header pb-0 p-3">
-            <h6 class="mb-1 mt-1 text-lg">User List</h6>
+            <h6 class="mb-1 mt-1 text-lg"></h6>
           </div>
         </div>
         <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
