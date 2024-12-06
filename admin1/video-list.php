@@ -24,6 +24,27 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="card-header pb-0 p-3">
             <h6 class="mb-1 mt-1 text-lg">Videos</h6>
           </div>
+          <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
+            <div class="input-group search-btn search-icon dropdownhide">
+              <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search" data-routine="videolisting">
+            </div>
+          </div>
+          <div class="dropdown mt-3">
+            <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Filters
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Featured</a></li>
+              <li><a class="dropdown-item" href="#">Best Selling</a></li>
+              <li><a class="dropdown-item" href="#">Alphabetically, A-Z</a></li>
+              <li><a class="dropdown-item" href="#">Alphabetically, Z-A</a></li>
+              <li><a class="dropdown-item" href="#">Price, low to high</a></li>
+              <li><a class="dropdown-item" href="#">Price, high to low</a></li>
+              <li><a class="dropdown-item" href="#">Date, old to new</a></li>
+              <li><a class="dropdown-item" href="#">Date, new to old</a></li>
+            </ul>
+          </div>
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">

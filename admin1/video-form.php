@@ -43,9 +43,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="url" id="y-shorturl" class="form-control validurl" placeholder="Youtube Shorts" name="youtube_shorts">
               <span class="errormsg youtube_shorts"></span>
             </div>
-            <label for="y-videolink" class="font-weight-normal required">Youtube Vlogs Link</label>
+            <label for="y-videolink" class="font-weight-normal required">auto generate number</label>
             <div class="mb-3">
-              <input type="url" id="y-vlogurl" class="form-control validurl" placeholder="Youtube Vlogs" name="youtube_vlogs">
+              <input type="text" id="genrate" class="form-control g_id" name="auto_genrate">
               <span class="errormsg youtube_vlogs"></span>
             </div>
             <div class="mb-3">

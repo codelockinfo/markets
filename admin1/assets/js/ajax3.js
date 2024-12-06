@@ -813,6 +813,11 @@ $(document).ready(function () {
     closestColXl.removeClass("error");
   });
 
+    let randomNumber = Math.floor(10000000 + Math.random() * 90000000);
+    $('#genrate').val(randomNumber); 
+  
+
+
   $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");
   });
@@ -1535,9 +1540,9 @@ $(document).ready(function () {
         response["msg"]["youtube_shorts"] !== undefined
           ? $(".youtube_shorts").html(response["msg"]["youtube_shorts"])
           : $(".youtube_shorts").html("");
-        response["msg"]["youtube_vlogs"] !== undefined
-          ? $(".youtube_vlogs").html(response["msg"]["youtube_vlogs"])
-          : $(".youtube_vlogs").html("");
+        response["msg"]["auto_genrate"] !== undefined
+          ? $(".auto_genrate").html(response["msg"]["auto_genrate"])
+          : $(".auto_genrate").html("");
         if (response["data"] == "success") {
           $("#videoinsert")[0].reset();
           showMessage(response.msg, "success");

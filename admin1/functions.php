@@ -797,22 +797,18 @@ $limit = 12;
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {
             $error_array['youtube_shorts'] = "Please enter the valid YouTube shorts link.";
         }
-        if (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] == '') {
-            $error_array['youtube_vlogs'] = "Please enter the youTube vlogs link.";
-        } elseif (isset($_POST['youtube_vlogs']) && !$this->isValidYouTubeURL($_POST['youtube_vlogs'])) {
-            $error_array['youtube_vlogs'] = "Please enter the valid YouTube vlogs link.";
-        }
+       
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
             $video_title = (isset($_POST['video_title']) && $_POST['video_title'] !== '') ? $_POST['video_title'] : '';
             $video_title = str_replace("'", "\'", $video_title);
             $category = (isset($_POST['category']) && $_POST['category'] !== '') ? $_POST['category'] : '';
             $youtube_shorts = (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] !== '') ? $_POST['youtube_shorts'] : '';
-            $youtube_vlogs = (isset($_POST['youtube_vlogs']) && $_POST['youtube_vlogs'] !== '') ? $_POST['youtube_vlogs'] : '';
+            $auto_genrate = (isset($_POST['auto_genrate']) && $_POST['auto_genrate'] !== '') ? $_POST['auto_genrate'] : '';
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO videos (title,category,short_link,vlog_link,user_id) VALUES ('$video_title', '$category','$youtube_shorts','$youtube_vlogs','$user_id')";
+                $query = "INSERT INTO videos (title,category,short_link,auto_genrate,user_id) VALUES ('$video_title', '$category','$youtube_shorts','$auto_genrate','$user_id')";
                 $result = $this->db->query($query);
             }
             if ($result) {
@@ -1759,6 +1755,7 @@ $limit = 12;
     }
 
     function videolisting() {
+        
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         global $limit;
@@ -1799,11 +1796,11 @@ $limit = 12;
                 default:
                     break;
             }
-            $query = "SELECT COUNT(*) AS total FROM videos WHERE title LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM videos WHERE title LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -1822,6 +1819,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="videos" aria-hidden="true"></i>';
                     $output .= '</div>';
@@ -1835,7 +1833,7 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-        $query = "SELECT COUNT(*) AS total FROM videos WHERE title LIKE '%$search_value%' $userid_clause";
+        $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
         $res_count = $this->db->query($query);
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         if ($total_records > $limit) {
@@ -1856,11 +1854,12 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $output = $userid = "";
         if (isset($_SESSION['current_user']['user_id'])) {
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid = "WHERE user_id = $user_id";
             }
-            $query = "SELECT * FROM videos $userid";
+            $query = "SELECT * FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid";
             $result = $this->db->query($query);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -1989,8 +1988,8 @@ $limit = 12;
                                 $output .= '    <div class="d-flex ">';
                                 $output .= '      <div class="shop-name text-secondary px-3">' . $categories  . '</div>';
                                 $output .= '    </div>';
-                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; // Added d-flex and align-items-center
-                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
+                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
@@ -2149,7 +2148,7 @@ $limit = 12;
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
                                 $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; 
-                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>'; // Removed margin-top for centering
+                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
