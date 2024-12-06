@@ -35,6 +35,8 @@ include($myRoot . '/markets/connection.php');
         <script src="<?php echo main_url('admin1/assets/js/common1.js'); ?>"></script>
         <script src="<?php echo main_url('admin1/assets/js/ajax3.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     
     
 

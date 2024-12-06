@@ -719,9 +719,12 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          $(
-            "select[name=categories],select[name=select_catagory],select[name=catagory],select[name=category]"
-          ).append(response["outcome"]);
+          $("select[name=categories], select[name=select_catagory], select[name=catagory], select[name=category]").append(response["outcome"]);
+
+          $("select[name=categories], select[name=select_catagory], select[name=catagory], select[name=category]").select2({
+            placeholder: "Select a category",
+            allowClear: true 
+          });
         }
       }
     },
@@ -752,6 +755,10 @@ function select_shop() {
 
               $("#mySelect").append(optionHtml);
             }
+          });
+          $('#mySelect').select2({
+            placeholder: "Select Shop",
+            allowClear: true,
           });
         }
       }
