@@ -1755,7 +1755,6 @@ $limit = 12;
     }
 
     function videolisting() {
-        
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         global $limit;
@@ -1769,20 +1768,11 @@ $limit = 12;
                 $userid_clause = "AND user_id = $user_id";
             }
             switch ($sort) {
-                case 'best_selling':
-                    $sort_query = 'ORDER BY best_selling DESC';
-                    break;
                 case 'alphabetically_az':
                     $sort_query = 'ORDER BY title ASC';
                     break;
                 case 'alphabetically_za':
                     $sort_query = 'ORDER BY title DESC';
-                    break;
-                case 'price_low_high':
-                    $sort_query = 'ORDER BY minprice ASC';
-                    break;
-                case 'price_high_low':
-                    $sort_query = 'ORDER BY minprice DESC';
                     break;
                 case 'date_new_old':
                     $sort_query = 'ORDER BY created_date DESC';
@@ -1791,7 +1781,7 @@ $limit = 12;
                     $sort_query = 'ORDER BY created_date ASC';
                     break;
                 case 'featured':
-                    $sort_query = 'ORDER BY featured DESC';
+                    $sort_query = "AND featured = '1' ORDER BY featured DESC";
                     break;
                 default:
                     break;
@@ -1833,7 +1823,8 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
-        $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
+        $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+        $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%'  $userid_clause $filter_query";
         $res_count = $this->db->query($query);
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         if ($total_records > $limit) {
@@ -1852,48 +1843,91 @@ $limit = 12;
 
     function allvideolisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $output = $userid = "";
-        if (isset($_SESSION['current_user']['user_id'])) {
+        $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
+        global $limit;
+        if (isset($_SESSION['current_user']) && isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+            $offset = ($page - 1) * $limit;
+            $userid_clause = $sort_query = '';
             if ($_SESSION['current_user']['role'] == 1) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $userid = "WHERE user_id = $user_id";
+                $userid_clause = "AND user_id = $user_id";
             }
-            $query = "SELECT * FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid";
-            $result = $this->db->query($query);
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        $link = $row["short_link"];
-                        $title = $row['title'];
-                        $video_id = $row['video_id'];
-                        $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
-                        $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                        $output .= '<div class="card card-blog card-plain mb-4">';
-                        $output .= '<div class="position-relative">';
-                        $output .= '<a class="border-radius-xl">';
-                        $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-                        $output .= '</a>';
-                        $output .= '</div>';
-                        $output .= '<div class="card-body px-1 pb-0">';
-                        $output .= '<div class="d-flex justify-content-between mb-3">';
-                        $output .= '<div class="ms-auto text-end">';
-                        $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-                        $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>';
-                        $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                    }
-                    $response_data = array('data' => 'success', 'outcome' => $output);
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            switch ($sort) {
+                case 'alphabetically_az':
+                    $sort_query = 'ORDER BY title ASC';
+                    break;
+                case 'alphabetically_za':
+                    $sort_query = 'ORDER BY title DESC';
+                    break;
+                case 'date_new_old':
+                    $sort_query = 'ORDER BY created_date DESC';
+                    break;
+                case 'date_old_new':
+                    $sort_query = 'ORDER BY created_date ASC';
+                    break;
+                case 'featured':
+                    $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                    break;
+                default:
+                    break;
+            }
+            $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
+            $sql = "SELECT * FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $result = $this->db->query($sql);
+            $output = "";
+            $pagination = "";
+        }
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $link = $row["short_link"];
+                    $title =  $row['title'];
+                    $video_id = $row['video_id'];
+                    $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
+                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="border-radius-xl">';
+                    $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
+                    $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>';
+                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
                 }
+                $response_data = array('data' => 'success', 'outcome' => $output);
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
         }
+        $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+        $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%'  $userid_clause $filter_query";
+        $res_count = $this->db->query($query);
+        $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+        if ($total_records > $limit) {
+            $total_pages = ceil($total_records / $limit);
+            $pagination .= '<div class="pagination" id="dataPagination" data-routine="videolisting">';
+            for ($i = 1; $i <= $total_pages; $i++) {
+                $active_class = ($i == $page) ? 'active' : '';
+                $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
+            }
+            $pagination .= '</div>';
+        }
+        $response_data['pagination'] = $pagination;
         $response = json_encode($response_data);
         return $response;
     }
@@ -2118,7 +2152,8 @@ $limit = 12;
     function famousmarketlisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
-            $sql = "SELECT * FROM famous_markets WHERE status='1'";
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $sql = "SELECT * FROM famous_markets WHERE  status='1'";
             $res = $this->db->query($sql);
             if (mysqli_num_rows($res) > 0) {
                 $output = "";

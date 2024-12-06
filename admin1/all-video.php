@@ -30,24 +30,21 @@ if ($_SESSION['current_user']['role'] == 1) {
           <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
             <div class="input-group search-btn search-icon dropdownhide">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search" data-routine="videolisting">
+              <input type="text" class="form-control search-btn_1" placeholder="Type here..."  id="search" data-routine="allvideolisting">
             </div>
           </div>
-          <!-- <div class="dropdown mt-3">
-            <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Filters
+          <div class="dropdown mt-3 filterDropdown"  data-filter="allvideolist">
+            <button class="btn bg-gradient-info dropdown-toggle dropdownhide " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Featured</a></li>
-              <li><a class="dropdown-item" href="#">Best Selling</a></li>
-              <li><a class="dropdown-item" href="#">Alphabetically, A-Z</a></li>
-              <li><a class="dropdown-item" href="#">Alphabetically, Z-A</a></li>
-              <li><a class="dropdown-item" href="#">Price, low to high</a></li>
-              <li><a class="dropdown-item" href="#">Price, high to low</a></li>
-              <li><a class="dropdown-item" href="#">Date, old to new</a></li>
-              <li><a class="dropdown-item" href="#">Date, new to old</a></li>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="videos">
+            <li class="dropdown-item" data-value="featured" data-sortby="Featured">Featured</li>
+              <li class="dropdown-item" data-value="alphabetically_az" data-sortby="Alphabetically, A-Z">Alphabetically, A-Z</li>
+              <li class="dropdown-item" data-value="alphabetically_za" data-sortby="Alphabetically, Z-A">Alphabetically, Z-A</li>
+              <li class="dropdown-item" data-value="date_old_new" data-sortby="Date, old to new">Date, old to new</li>
+              <li class="dropdown-item" data-value="date_new_old" data-sortby="Date, new to old">Date, new to old</li>
             </ul>
-          </div> -->
+          </div>
         </div>
         <div class="card-body p-3">
           <div class="row" id="getdata">

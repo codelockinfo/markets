@@ -2053,7 +2053,11 @@ $(document).ready(function () {
         ? "bloglisting"
         : page_name == "productlist"
         ? "productlisting"
-        : "videolisting";
+        : page_name =="videolist"
+        ? "videolisting"
+        :page_name == "allvideolist"
+        ? "allvideolisting"
+        :"invoicelisting";
     var tablename = $(this).closest(".dropdown-menu").data("table");
     $(".dropdown-item").each(function () {
       $(this).removeClass("active");
