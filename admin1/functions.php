@@ -1379,13 +1379,14 @@ $limit = 12;
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
             $output = $pagination = "";
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
-            $query = "SELECT COUNT(*) AS total FROM invoice WHERE $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' AND ($userid_clause)";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            $sql = "SELECT * FROM invoice WHERE $userid_clause LIMIT $offset, $limit";
+            $sql = "SELECT * FROM invoice WHERE ($userid_clause) AND i_name LIKE '%$search_value%' LIMIT $offset, $limit";
             $result = $this->db->query($sql);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {

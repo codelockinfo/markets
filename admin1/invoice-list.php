@@ -24,6 +24,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="card-header pb-0 p-3">
             <h6 class="mb-1 mt-1 text-lg">Invoices</h6>
           </div>
+          <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
+            <div class="input-group search-btn search-icon dropdownhide">
+              <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search" data-routine="invoicelisting" >
+            </div>
+          </div>
         </div>
         
         <div class="card-body p-3">
