@@ -883,24 +883,6 @@ $(document).ready(function () {
   $(document).on("click", ".formCancel", function (event) {
     event.preventDefault();
     console.log("sddd");
-    loading_show(".cencle_loader_show");
-    var formType = $(this).closest("form").data("form-type");
-    if (id !== "") {
-      switch (formType) {
-        case "product":
-          window.location.href = "product-list.php";
-          break;
-        case "blog":
-          window.location.href = "blog-list.php";
-          break;
-        case "customer":
-          window.location.href = "customer_list.php";
-          break;
-        default:
-          window.location.href = "default-page.php";
-          break;
-      }
-    }
     $(".pro-zone__prompt").css("display", "block");
     $(".drop-zone").css("display", "flex");
     $(".errormsg").html("");
@@ -928,6 +910,24 @@ $(document).ready(function () {
     setTimeout(function () {
       loading_hidefun(".cencle_loader_show", "blogs");
     }, 300);
+    loading_show(".cencle_loader_show");
+    var formType = $(this).closest("form").data("form-type");
+    if (id !== "") {
+      switch (formType) {
+        case "product":
+          window.location.href = "product-list.php";
+          break;
+        case "blog":
+          window.location.href = "blog-list.php";
+          break;
+        case "customer":
+          window.location.href = "customer_list.php";
+          break;
+        default:
+          window.location.href = "default-page.php";
+          break;
+      }
+    }
   });
 
   $(".form-select").on("input change paste", function () {
