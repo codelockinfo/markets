@@ -31,7 +31,7 @@ if ($_SESSION['current_user']['role'] == 1) {
               <div class="mb-3">
                 <div class="drop-zone form-control">
                   <span class="pro-zone__prompt">Drop file here or click to upload</span>
-                  <input type="file" name="myFile" class="drop-zone__input">
+                  <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
                 </div>
                 <div class="col">
                   <div class="row mt-2">
@@ -62,7 +62,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           </div>
         </div>
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-5">
+          <div class="card z-index-0 p-5 h-100">
             <div class="row" id="getdata">
            
             </div>

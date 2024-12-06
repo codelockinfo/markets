@@ -646,8 +646,8 @@ $limit = 12;
         if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
         if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
-        if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-        if (empty($_POST['amount_paid'])) $error_array['amount_paid'] = "Please enter amount_paid number.";
+        // if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
+        // if (empty($_POST['amount_paid'])) $error_array['amount_paid'] = "Please enter amount_paid number.";
         if (empty($_POST['item']) || !is_array($_POST['item'])) {
             $error_array['item_title'] = "Please enter at least one item.";
         } else {
@@ -2358,6 +2358,7 @@ $limit = 12;
             $result = $this->db->query($sql);
     
             if ($result && $result->num_rows > 0) {
+                $output .= '<div class="table-scroll">';
                 $output .= '<table class="Table table text-center"">';
                 $output .= '<thead>';
                 $output .= '<tr>';
@@ -2400,7 +2401,8 @@ $limit = 12;
                     $output .= '</tr>';
                 }
                 $output .= '</tbody>';
-                $output .= '</table>';
+                $output .= '</div>';
+                $output .= '</div>';
                 $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
                 'pagination_needed' => ($total_records > $limit) ? true : false);
             }else{

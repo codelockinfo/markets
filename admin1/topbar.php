@@ -45,7 +45,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           </div>
         </div>
         <div class="col-xl-6 col-lg-9 col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-5">
+          <div class="card z-index-0 p-5 h-100">
             <div class="row" id="getdata">
            
             </div>

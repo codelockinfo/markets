@@ -44,7 +44,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           </div>
         </div>
         <div class="col-xl-6">
-          <div class="card p-5">
+          <div class="card p-5 h-100">
             <div class="mb-3 form-check-reverse text-right ">
               <div class="container">
                 <div class="btn-group">
