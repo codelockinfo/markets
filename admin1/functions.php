@@ -413,7 +413,7 @@ $limit = 12;
             } else {
                 $newimageadded = ($is_image_update) ? "p_image='$newFilename'" : "";
                 $query = "UPDATE products SET title ='$product_name', category ='$select_catagory', qty ='$qty', sku ='$sku', minprice ='$min_price',
-                maxprice ='$max_price', product_img_alt ='$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'  $newimageadded ";
+                maxprice ='$max_price', product_img_alt ='$product_image_alt', p_tag = '$p_tag',   $newimageadded,p_description = '$p_description' ";
                 $query .= " WHERE product_id  = $product_id";
                 $result = $this->db->query($query);
 
