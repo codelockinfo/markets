@@ -31,7 +31,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
             </div>
             <label for="p-tags" class="font-weight-normal required">Blog Category</label>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Categories</label>             
+                      
                 <select class="form-select required" aria-label="Default select example" id="mySelect" name="category">
                   <option selected value="">Select Category</option>
                 </select>                                    

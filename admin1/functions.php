@@ -412,8 +412,8 @@ $limit = 12;
                 }
             } else {
                 $newimageadded = ($is_image_update) ? "p_image='$newFilename'" : "";
-                $query = "UPDATE products SET title = '$product_name', category = '$select_catagory', qty = '$qty', $newimageadded , sku = '$sku', minprice = '$min_price',
-                maxprice = '$max_price', product_img_alt = '$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'";
+                $query = "UPDATE products SET title ='$product_name', category ='$select_catagory', qty ='$qty', sku ='$sku', minprice ='$min_price',
+                maxprice ='$max_price', product_img_alt ='$product_image_alt', p_tag = '$p_tag', p_description = '$p_description'  $newimageadded ";
                 $query .= " WHERE product_id  = $product_id";
                 $result = $this->db->query($query);
 
@@ -2554,6 +2554,7 @@ $limit = 12;
                 if ($product_img_result->num_rows > 0) {
                     while ($product_img_row = $product_img_result->fetch_assoc()) {
                         $product_img_results[] = $product_img_row;
+                        
                     }
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results);
