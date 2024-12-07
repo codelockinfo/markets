@@ -17,8 +17,8 @@ include 'header.php';
                 <span class="navbar-toggler-bar bar3"></span>
               </span>
             </button>
-            <div class="collapse navbar-collapse" id="navigation">
-              <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              <ul class="navbar-nav ">
                 <li class="nav-item">
                   <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
@@ -55,8 +55,8 @@ include 'header.php';
                     </div>
                     <div class="mb-3">
                       <div class="tooltip-container">
-                        <input type="text" class="form-control validsignf" placeholder="Shop Name " name="shop">
-                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <input type="text" class="form-control position-relative validsignf" placeholder="Shop Name " name="shop">
+                        <i class="fa-solid fa-exclamation tooltip-icon position-absolute"></i>
                         <h6 class="tooltiptext">Enter your shop name or markert name</h6>
                       </div>
                       <span class="errormsg shop"></span>
@@ -71,12 +71,12 @@ include 'header.php';
                     </div>
                     <div class="mb-3">
                       <div class="tooltip-container">
-                        <select class="form-select" aria-label="Default select example" name="business_type">
+                        <select class="form-select position-relative" aria-label="Default select example" name="business_type">
                           <option selected value="" disabled>Your Business Type</option>
                           <option value="0">Manufacturer</option>
                           <option value="1">wholesaler</option>
                         </select>
-                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <i class="fa-solid fa-exclamation tooltip-icon position-absolute"></i>
                         <h6 class="tooltiptext"> Choice any one business  </h6>
                       </div>
                       <span class="errormsg business_type"></span>
@@ -85,8 +85,8 @@ include 'header.php';
                       <label>Shop Image</label>
                       <img id="newpreview" src="" alt="Image Preview">
                       <div class="tooltip-container">
-                        <input id="shop_image_Input" type="file" class="form-control signImage" name="shop_img">
-                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <input id="shop_image_Input" type="file" class="form-control signImage position-relative" name="shop_img">
+                        <i class="fa-solid fa-exclamation tooltip-icon position-absolute"></i>
                         <h6 class="tooltiptext_img">Choose a file that represents your shop accurately.</h6>
                       </div>
 
@@ -108,8 +108,8 @@ include 'header.php';
                       <label>Shop Logo Image</label>
                       <img id="shop_logo_preview" src="" alt="Shop logo Image Preview">
                       <div class="tooltip-container">
-                        <input id="shop_logo_image" type="file" class="form-control signImage" name="shop_logo">
-                        <i class="fa-solid fa-exclamation tooltip-icon"></i>
+                        <input id="shop_logo_image" type="file" class="form-control signImage position-relative" name="shop_logo">
+                        <i class="fa-solid fa-exclamation tooltip-icon position-absolute"></i>
                         <h6 class="tooltiptext_img"> Choose a file that represents your shop logo accurately. </h6>
                       </div>
                       <div class="col">
