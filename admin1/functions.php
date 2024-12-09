@@ -793,6 +793,9 @@ $limit = 12;
         if (isset($_POST['category']) && $_POST['category'] == '') {
             $error_array['category'] = "Please select the video catagory.";
         }
+        if (isset($_POST['auto_genrate']) && $_POST['auto_genrate'] == '') {
+            $error_array['auto_genrate'] = "please enter number";
+        }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
             $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {

@@ -78,7 +78,7 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                     </div>
                                     
                                     <div class="row ms-0 w-100">
-                                            <a class="text-justify btn text-dark btn-outline-dark " href='<?php echo $client->createAuthUrl(); ?>'>
+                                            <a class="btn text-dark btn-outline-dark " href='<?php echo $client->createAuthUrl(); ?>'>
                                                 <svg class="img-fluid google" width="30px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <g id="google-icon" transform="translate(3.000000, 2.000000)" fill-rule="nonzero">

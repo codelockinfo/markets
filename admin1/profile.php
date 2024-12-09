@@ -152,7 +152,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                             </div>
                             <div class="card-header profile-section" id="getdataa">
                             </div>
-                            <div class="card-header text-end">
+                            <div class="card-header">
                                 <a href="<?php echo CLS_SITE_URL ?>">
                                     <button type="button" class="btn bg-gradient-info btn-sm">View your profile</button>
                                 </a>

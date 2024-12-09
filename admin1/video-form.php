@@ -46,7 +46,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <label for="y-videolink" class="font-weight-normal required">auto generate number</label>
             <div class="mb-3">
               <input type="text" id="genrate" class="form-control g_id" name="auto_genrate">
-              <span class="errormsg youtube_vlogs"></span>
+              <span class="errormsg auto_genrate"></span>
             </div>
             <div class="mb-3">
               <button type="button" class="btn bg-gradient-info btn-sm videoSave save_loader_show">Save</button>
