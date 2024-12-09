@@ -78,8 +78,8 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                     </div>
                                     
                                     <div class="row ms-0 w-100">
-                                            <a class="text-justify btn text-dark btn-outline-dark img-fluid " href='<?php echo $client->createAuthUrl(); ?>'>
-                                                <svg class="img-fluid google" width="100px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <a class="text-justify btn text-dark btn-outline-dark " href='<?php echo $client->createAuthUrl(); ?>'>
+                                                <svg class="img-fluid google" width="30px" height="20px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <g id="google-icon" transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
                                                             <path d="M57.8123233,30.1515267 C57.8123233,27.7263183 57.6155321,25.9565533 57.1896408,24.1212666 L29.4960833,24.1212666 L29.4960833,35.0674653 L45.7515771,35.0674653 C45.4239683,37.7877475 43.6542033,41.8844383 39.7213169,44.6372555 L39.6661883,45.0037254 L48.4223791,51.7870338 L49.0290201,51.8475849 C54.6004021,46.7020943 57.8123233,39.1313952 57.8123233,30.1515267" id="Path" fill="#4285F4"></path>

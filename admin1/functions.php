@@ -1599,7 +1599,7 @@ $limit = 12;
                         <strong class="text-dark">Mobile Number:</strong> &nbsp;' . $phone_number . '
                     </li>
                 </ul>';
-                $output['deatils'] = '<li class="list-group-item border-0 ps-0 pb-0 text-center mt-4">
+                $output['deatils'] = '<li class="list-group-item text-center mt-4">
                     <a class="mb-0 ps-1 pe-2 py-0 mt-3" href="javascript:void(0);">
                         <div class="position-relative d-inline-block">
                         
@@ -1637,7 +1637,7 @@ $limit = 12;
                         </div>
                     </div>
                 </li>
-                <div class="mx-auto text-center">
+                <div class="text-center">
                     <a href="' . SITE_ADMIN_URL . 'profile-form.php">
                         <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                     </a>

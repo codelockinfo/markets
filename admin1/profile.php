@@ -167,14 +167,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         Your Products
                                     </h6>
                                 </div>
-                                <div class=" d-flex col-auto col-lg-0 col-md-0 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-2 justify-content-end">
-                                   <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
+                                <div class=" d-flex col-auto col-lg-0 col-md-0">
+                                   <div class="ms-md-auto pe-md-0 d-flex align-items-start align-items-md-center me-2">
                                         <div class="input-group search-btn search-icons dropdownhide">
                                             <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
                                             <input type="text" class="form-control search-btn_1" placeholder="Type here..." id="search" data-routine="productlisting">
                                         </div>
                                     </div>
-                                    <div class="dropdown mt-3 filterDropdown" data-filter="productlist">
+                                    <div class="dropdown mt-0 mt-md-3 filterDropdown" data-filter="productlist">
                                         <button class="btn bg-gradient-info dropdown-toggle dropdownhide" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                             Sort By
                                         </button>
@@ -189,7 +189,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                             <li class="dropdown-item" data-value="date_new_old" data-sortby="Date, new to old">Date, new to old</li>
                                         </ul>
                                     </div>
-                                    <div class="d-flex nav-wrapper position-relative end-0 mt-3 ms-2">
+                                    <div class="d-flex nav-wrapper position-relative end-0 mt-0 mt-md-3 ms-2">
                                         <a href="<?php echo SITE_ADMIN_URL ?>product-list.php" class="btn bg-gradient-info viewproduct">
                                             View All Products
                                         </a>

@@ -91,7 +91,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="errormsg sku"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Product Price</label>
-            <div class="mb-3 row">
+            <div class="mb-3 row align-items-center">
               <div class="col-5">
                 <input type="number" class="form-control price w-100" placeholder="Min Price" name="min_price">
                 <span class="errormsg min_price"></span>
