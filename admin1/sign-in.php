@@ -22,8 +22,8 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                 <span class="navbar-toggler-bar bar3"></span>
                             </span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                            <ul class="navbar-nav ">
                                 <li class="nav-item">
                                     <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up.php">
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>

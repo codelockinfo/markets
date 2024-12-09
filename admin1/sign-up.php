@@ -136,7 +136,7 @@ include 'header.php';
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-1 text-sm mx-auto">
+                  <p class="mb-1 text-sm mx-auto mt-4">
                     Already have an account?
                     <a href="<?php echo SITE_ADMIN_URL ?>sign-in.php" class="text-info text-gradient font-weight-bold">Sign in</a>
                   </p>

@@ -118,7 +118,7 @@
       <div class="page-header min-height-150  border-radius-xl mt-4">
         <span class="mask bg-gradient-info opacity-6"></span>
       </div>
-      <div class="card card-body blur shadow-blur mx-4 mt-n6">
+      <div class="card card-body blur shadow-blur mx-4 mt-n6 mt_new">
         <div class="row gx-4">
           <div class="col-auto my-auto">
             <div class="h-100">
