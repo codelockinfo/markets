@@ -134,17 +134,17 @@ $limit = 12;
                     }
                     if (empty($error_array)) {
                         if (move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
-                            $query = "UPDATE users SET shop_logo = '$shoplogo' WHERE user_id = $user_id";
+                            $query = "UPDATE users SET shop_logo='$shoplogo' WHERE user_id =$user_id";
                             $result = $this->db->query($query);
                             if ($result) {
                                 $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
                             }
                         }
                     } else {
-                        $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' => "Oops! Something went wrong ");
+                        $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' =>"Oops! Something went wrong ");
                     }
                 } else {
-                    $query = "UPDATE users SET shop_logo = '' WHERE user_id = $user_id";
+                    $query = "UPDATE users SET shop_logo = ''WHERE user_id =$user_id";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -1544,7 +1544,7 @@ $limit = 12;
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM users WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM users WHERE user_id ='$user_id'";
             $result = $this->db->query($query);
             if ($result) {
                 $row = $result->fetch_assoc();
@@ -1562,7 +1562,7 @@ $limit = 12;
                     </div>
                     <div class="drop-zone__thumb">
                         <div class="img-wrapper">
-                            <img src="' . $decodedPath . '" class="picture__img">
+                            <img src="'.$decodedPath.'" class="picture__img">
                             <button class="close-buttons_profile">x</button>
                         </div>
                     </div>
