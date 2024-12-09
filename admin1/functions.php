@@ -2834,13 +2834,11 @@ function usercheck_toggle_btn() {
 
     function totalearning() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-        if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = "";
-            if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $userquery = "WHERE user_id =$user_id";
-            }
-            $sql = "SELECT * FROM invoice  $userquery";
+        if (isset($_SESSION['current_user']['user_id']) && isset($_SESSION['current_user']['role'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            $role = $_SESSION['current_user']['role'];
+            $userquery = ($role == 1) ? "AND user_id = $user_id" : "";
+            $sql = "SELECT * FROM invoice WHERE status = '1' $userquery";
             $result = $this->db->query($sql);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -2856,36 +2854,36 @@ function usercheck_toggle_btn() {
         return $response;
     }
 
-    function totalproduct(){
+    function totalproduct() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-        if (isset($_SESSION['current_user']['user_id'])) {
-            $user_id = "";
-            if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $userquery = "and user_id =$user_id";
-            }
-            $sql = "SELECT * FROM products WHERE  status='1' $userquery";
+        if (isset($_SESSION['current_user']['user_id']) && isset($_SESSION['current_user']['role'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            $role = $_SESSION['current_user']['role'];
+            $userquery = ($role == 1) ? "AND user_id = $user_id" : "";
+    
+            $sql = "SELECT * FROM products WHERE status = '1' $userquery";
             $result = $this->db->query($sql);
-
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                    $countproduct = $result->num_rows;
-                    $response_data = array('data' => 'success', 'totalproduct' => $countproduct);
-                }
+    
+            if ($result && $result->num_rows > 0) {
+                $countproduct = $result->num_rows;
+                $response_data = array('data' => 'success', 'totalproduct' => $countproduct);
+            } else {
+                $response_data['outcome'] = 'No products found.';
             }
-        }
+        } 
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function totalclient() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-        if (isset($_SESSION['current_user']['user_id'])) {
+        if (isset($_SESSION['current_user']['user_id']) && isset($_SESSION['current_user']['role'])) {
             $user_id = "";
-            if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $userquery = "and user_id = $user_id";
-            }
+            $user_id = $_SESSION['current_user']['user_id'];
+            $role = $_SESSION['current_user']['role'];
+            $userquery = ($role == 1) ? "AND user_id = $user_id" : "";
+
             $sql = "SELECT * FROM customer WHERE status='1' $userquery";
             $result = $this->db->query($sql);
 
@@ -2902,12 +2900,12 @@ function usercheck_toggle_btn() {
 
     function totalitemsale() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
-        if (isset($_SESSION['current_user']['user_id'])) {
+        if (isset($_SESSION['current_user']['user_id']) && isset($_SESSION['current_user']['role'])) {
             $user_id = "";
-            if (isset($_SESSION['current_user']['role']) && isset($_SESSION['current_user']['role']) == 1) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $userquery = "WHERE user_id = $user_id";
-            }
+            $user_id = $_SESSION['current_user']['user_id'];
+            $role = $_SESSION['current_user']['role'];
+            $userquery = ($role == 1) ? "AND user_id = $user_id" : ""; 
+
             $sql = "SELECT * FROM invoice  $userquery";
             $result = $this->db->query($sql);
             if ($result) {
