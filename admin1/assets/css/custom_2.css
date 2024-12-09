@@ -489,7 +489,9 @@
   max-height: 173px;
  padding: 20px !important;
 }
-
+.select2-container{
+  width: 100% !important;
+}
 
 .select2.select2-container .select2-selection--multiple .select2-search--inline .select2-search__field {
   margin-top: 0;

@@ -119,7 +119,7 @@
         <span class="mask bg-gradient-info opacity-6"></span>
       </div>
       <div class="card card-body blur shadow-blur mx-4 mt-n6 mt_new">
-        <div class="row gx-4">
+        <div class="row justify-content-center justify-content-sm-between">
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
