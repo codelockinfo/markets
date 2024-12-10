@@ -576,7 +576,14 @@
     margin-left: 10px;
   }
 }
-
+.invoice_notice{
+  max-width: 500px;
+}
+@media (max-width:1199px) {
+  .invoice_notice{
+    max-width: 100%;
+  }
+}
 @media (max-width: 768px) {
   .profile-sec {
     margin-top: 10px;

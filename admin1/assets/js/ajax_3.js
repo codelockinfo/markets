@@ -510,6 +510,9 @@ function get_invoice(id) {
       response["outcome"]["total"] !== undefined
         ? $("input[name='total']").val(response["outcome"]["total"])
         : "";
+        response["outcome"]["total"] !== undefined
+        ? $("input[name='subtotal']").val(response["outcome"]["total"])
+        : "";
       response["outcome"]["amount_paid"] !== undefined
         ? $("input[name='amount_paid']").val(response["outcome"]["amount_paid"])
         : "";
