@@ -1194,4 +1194,10 @@
   top: 2px !important;
 }
 
-
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #bed1ec;
+  outline: 0;
+  box-shadow: 0 0 0 2px #9db3d0;
+}

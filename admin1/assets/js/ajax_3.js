@@ -888,6 +888,7 @@ $(document).ready(function () {
     event.preventDefault();
     console.log("sddd");
     $(".pro-zone__prompt").css("display", "block");
+    
     $(".drop-zone").css("display", "flex");
     $(".errormsg").html("");
     if ($(".form-control[name=p_tag]").length > 0) {
@@ -899,6 +900,15 @@ $(document).ready(function () {
           .trigger("change");
         $(this).closest("form").find(".select2-selection__clear").remove();
       }
+    }
+    if ($(".form-select[name=shop_name]").length > 0) {
+      $(".form-select[name=shop_name]").val("").trigger("change");
+    }
+    if ($(".form-select[name=categories]").length > 0) {
+      $(".form-select[name=categories]").val("").trigger("change");
+    }
+    if ($(".form-select[name=select_catagory]").length > 0) {
+     $(".form-select[name=select_catagory]").val("").trigger("change");
     }
     if (CKEDITOR.instances["myeditor"]) {
       CKEDITOR.instances["myeditor"].setData("");
