@@ -27,6 +27,7 @@ $limit = 12;
     }
 
     function insert_signin() {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -157,6 +158,7 @@ $limit = 12;
     }
 
     function insert_signup()  {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         if (isset($_FILES['shop_img'])) {
@@ -647,8 +649,6 @@ $limit = 12;
         if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
         if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
-        // if (empty($_POST['po_number'])) $error_array['po_number'] = "Please enter PO number.";
-        // if (empty($_POST['amount_paid'])) $error_array['amount_paid'] = "Please enter amount_paid number.";
         if (empty($_POST['item']) || !is_array($_POST['item'])) {
             $error_array['item_title'] = "Please enter at least one item.";
         } else {
@@ -2464,6 +2464,8 @@ $limit = 12;
         $delete_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '0';
         $delete_table_name = isset($_POST['delete_table']) ? $_POST['delete_table'] : '';
         $delete_table_name = ($delete_table_name == "product_form_image") ? 'product_images': $delete_table_name;
+        $delete_table_name = ($delete_table_name == "product_form_image") ? 'products': $delete_table_name;
+
         return $this->deleteRecord($delete_table_name, $delete_id);
     }    
 
@@ -2546,6 +2548,7 @@ $limit = 12;
 
     function getproduct() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $pro_img="";
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
             $query = "SELECT  * from  products WHERE product_id = $id AND  status = 1";
@@ -2557,13 +2560,15 @@ $limit = 12;
                 $product_img_results = [];
                 if ($product_img_result->num_rows > 0) {
                     while ($product_img_row = $product_img_result->fetch_assoc()) {
-                        $product_img_results[] = $product_img_row;
-                        
+                        $product_img_results[] = $product_img_row; 
                     }
                 }
-                $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results);
+    
+                $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
+            
         }
+        
         $response = json_encode($response_data);
         return $response;
     }

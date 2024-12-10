@@ -24,7 +24,7 @@
                   </a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                  <a href="<?php echo SITE_ADMIN_URL ?>logout.php" class="nav-link text-white font-weight-bold px-0">
+                  <a href="<?php echo SITE_ADMIN_URL ?>logout.php" class="nav-link text-white font-weight-bold px-0"  title="logout">
                     <i class="fa fa-sign-out ms-sm-3"></i>
                   </a>
                 </li>

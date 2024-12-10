@@ -24,7 +24,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     ?>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto para-main">
+        <div class=" col-md-6 mx-auto para-main">
           <div class="card z-index-0 p-5">
             <form role="form" id="paragraphinsert" enctype="multipart/form-data" method="POST">
               <label for="body" class="font-weight-normal required">Paragraph</label>
@@ -40,7 +40,7 @@ if ($_SESSION['current_user']['role'] == 1) {
             </form>
           </div>
         </div>
-        <div class="col-xl-6 col-lg-9 col-md-6 mx-auto para-main">
+        <div class="col-md-6 mx-auto para-main">
           <div class="card z-index-0 p-5 h-100">
             <div class="mb-3 form-check-reverse text-right ">
               <div class="container">
