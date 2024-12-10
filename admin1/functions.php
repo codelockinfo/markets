@@ -1264,7 +1264,7 @@ $limit = 12;
                     $title = $row['title'];
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
-                    $output .= '<div class="col-xl-3 col-md-4 col-sm-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
@@ -1401,7 +1401,7 @@ $limit = 12;
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
-                        $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                        $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
                         $output .= '      <a class="d-block product_imagebox border-radius-xl">';
@@ -1486,7 +1486,7 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4 m-3">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block product_imagebox border-radius-xl">';
@@ -1711,7 +1711,7 @@ $limit = 12;
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
                     $title = htmlspecialchars($row['title']);
-                    $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';

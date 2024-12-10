@@ -26,10 +26,9 @@ if ($_SESSION['current_user']['role'] == 1) {
         
         <div class="col-xl-12 main-sec">
           <div class="card z-index-0 p-5">
-            <div class="mb-3 form-check-reverse text-right ">
-              <div class="container">
-                <div class="d-flex justify-content-between ">
-                <div><h4>contact us page show and hide  frontend side </h4></div>
+            <div class="mb-3">
+                  <div class="d-flex justify-content-between ">
+                <div><h5>contact us page show and hide  frontend side </h5></div>
                 <div class="btn-group">
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <div class="form-check form-switch ps-0">
@@ -40,7 +39,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                 </div>
                 </div>
                
-              </div>
+                </div>
             </div>
             
             <img src="assets/img/contactus-3.webp">
