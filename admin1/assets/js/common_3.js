@@ -1,9 +1,7 @@
-$(document).ready(function () {
-  $inputintervalId = setInterval(function () {
+window.onload = function () {
     console.log("WINDOW ON LOAD");
     document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       console.log("drop-zone__input");
-      clearInterval($inputintervalId);
       const dropZoneElement = inputElement.closest(".drop-zone");
       const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
       
@@ -85,57 +83,57 @@ $(document).ready(function () {
         dropZoneElement.classList.remove("drop-zone--over");
       });
     });
-  });
-  function clearThumbnail(dropZoneElement) {
-    const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-    if (thumbnailElement) {
+
+    function clearThumbnail(dropZoneElement) {
+      const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+      if (thumbnailElement) {
+        thumbnailElement.innerHTML = "";
+      }
+    }
+
+    function updateThumbnail(dropZoneElement, file, inputElement) {
+
+      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
+      if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+      }
+
       thumbnailElement.innerHTML = "";
-    }
-  }
 
-  function updateThumbnail(dropZoneElement, file, inputElement) {
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.addEventListener("load", (e) => {
+        
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          img.classList.add("picture__img");
+          const closeButton = document.createElement("button");
+          closeButton.classList.add("close-buttons_profile");
+          closeButton.innerText = "x";
 
-    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-    const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
-    if (!thumbnailElement) {
-      thumbnailElement = document.createElement("div");
-      thumbnailElement.classList.add("drop-zone__thumb");
-      dropZoneElement.appendChild(thumbnailElement);
-    }
+          closeButton.addEventListener("click", (event) => {
+            event.stopPropagation();
 
-    thumbnailElement.innerHTML = "";
-
-    if (file.type.startsWith("image/")) {
-      const reader = new FileReader();
-      reader.addEventListener("load", (e) => {
-      
-        const img = document.createElement("img");
-        img.src = e.target.result;
-        img.classList.add("picture__img");
-        const closeButton = document.createElement("button");
-        closeButton.classList.add("close-buttons_profile");
-        closeButton.innerText = "x";
-
-        closeButton.addEventListener("click", (event) => {
-          event.stopPropagation();
-
-          thumbnailElement.innerHTML = "";
-          inputElement.value = "";
-          inputElement.disabled = false;
-          promptElement.style.display = "block";
-          setTimeout(() => {
-            inputElement.value = null;
-          }, 0);
+            thumbnailElement.innerHTML = "";
+            inputElement.value = "";
+            inputElement.disabled = false;
+            promptElement.style.display = "block";
+            setTimeout(() => {
+              inputElement.value = null;
+            }, 0);
+          });
+          thumbnailElement.appendChild(img);
+          thumbnailElement.appendChild(closeButton);
+          promptElement.style.display = "none";
         });
-        thumbnailElement.appendChild(img);
-        thumbnailElement.appendChild(closeButton);
-        promptElement.style.display = "none";
-      });
 
-      reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
+      }
     }
-  }
-});
+}
 // multi select js in product form page
 
 $(document).ready(function () {
