@@ -81,7 +81,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl ">
-                  <input type="text" class="form-control validtext mt-1" placeholder="Payment Terms" name="terms">
+                <select class="form-select position-relative" aria-label="Default select example" name="terms">
+                          <option selected value="" disabled>payment Terms</option>
+                          <option value="online">online</option>
+                          <option value="cash">cash</option>
+                        </select>
                   <span class="errormsg "></span>
                 </div>
               </div>

@@ -38,17 +38,10 @@ if ($_SESSION['current_user']['role'] == 1) {
                   </div>
                 </div>
                 </div>
-               
                 </div>
-            </div>
-            
-            <img src="assets/img/contactus-3.webp">
-            <div  id="">
-             
-            </div>                   
+                <img src="assets/img/contactus-3.webp">
+            </div>          
           </div>
-     
-          
         </div>
       </div>
     </div>

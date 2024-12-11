@@ -26,14 +26,14 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class=" col-md-6 mx-auto main-sec">
           <div class="card z-index-0 p-5">
             <form role="form" id="topbarinsert" enctype="multipart/form-data" method="POST">
-              <label for="text" class="font-weight-normal"> topbar input 1</label>
+              <label for="text" class="font-weight-normal required  "> Topbar input 1</label>
               <div class="mb-3">
-                <input type="text" class="form-control valikey" placeholder=" topbar input 1" name="topbar_input1">
+                <input type="text" class="form-control valikey" placeholder="Topbar input 1" name="topbar_input1">
                 <span class="errormsg topbar_input1"></span>
               </div>
-              <label for="image-link" class="font-weight-normal required">topbar input 2</label>
+              <label for="image-link" class="font-weight-normal required">Topbar input 2</label>
               <div class="mb-3">
-                <input type="url" class="form-control valikey" placeholder="topbar input 2" name="topbar_input2">
+                <input type="url" class="form-control valikey" placeholder="Topbar input 2" name="topbar_input2">
                 <span class="errormsg topbar_input2"></span>
               </div>
               <div class="mb-3">
