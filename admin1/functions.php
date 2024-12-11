@@ -577,7 +577,7 @@ $limit = 12;
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block border-radius-xl product_imagebox">';
+                        $output .= '      <a class="d-block border-radius-xl product_imagebox mt-2 mt-xl-4">';
                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
@@ -1267,7 +1267,7 @@ $limit = 12;
                     $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain image-container mb-4">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+                    $output .= '      <a class="d-block border-radius-xl mt-2 mt-xl-4 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
@@ -1399,12 +1399,11 @@ $limit = 12;
                         $imagePath = "../admin1/assets/img/invoice_img/" . $image;
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
-                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
-                        );
+                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
                         $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block product_imagebox border-radius-xl">';
+                        $output .= '      <a class="d-block product_imagebox border-radius-xl mt-2 mt-xl-4">';
                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
@@ -1489,7 +1488,7 @@ $limit = 12;
                     $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4 m-3">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block product_imagebox border-radius-xl">';
+                    $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
@@ -1714,7 +1713,7 @@ $limit = 12;
                     $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block  border-radius-xl blog_imagebox" >';
+                    $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4" >';
                     $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3  product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
@@ -1812,7 +1811,7 @@ $limit = 12;
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0">';
                     $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
-                    $output .= '<a class="border-radius-xl">';
+                    $output .= '<a class="d-block product_imagebox border-radius-xl m-3 m-xl-4">';
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                     $output .= '</a>';
                     $output .= '</div>';
@@ -1972,7 +1971,7 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                    $output .= '<div class="col-12 col-xxl-6 mb-xl-0 mb-2">';
                     $output .= '<div class="card card-blog card-plain mb-4">';
                     $output .= '<div class="position-relative">';
                     $output .= '<a class="d-block border-radius-xl offer_imgbox">';
@@ -2026,16 +2025,19 @@ $limit = 12;
                         if (mysqli_num_rows($category_result) > 0) {
                             while ($category_row = mysqli_fetch_assoc($category_result)) {
                                 $categories = $category_row['categoies_name'];
-                                $output .= '<div class="card card-blog card-plain mb-3">';
+                                $output .= '<div class="d-flex mb-3">';
+                                $output .= '<div class="card card-blog card-plain col-11 ">';
                                 $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                                $output .= '    <div class="d-flex ">';
+                                $output .= '    <div class="d-flex">';
                                 $output .= '      <div class="shop-name text-secondary px-3">' . $categories  . '</div>';
-                                $output .= '    </div>';
-                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
-                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
+                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center ps-3 col-1">';
+                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
+                                $output .= '    </div>';
+                                $output .= '    </div>';
+
                             }
                         }
                     }
@@ -2133,7 +2135,7 @@ $limit = 12;
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
-                        $output .= '<div class="col-xl-6 col-md-6 mb-xl-0 mb-2">';
+                        $output .= '<div class="col-12 col-xxl-6 mb-xl-0 mb-2">';
                         $output .= '<div class="card card-blog card-plain mb-4">';
                         $output .= '<div class="position-relative">';
                         $output .= '<a class="d-block border-radius-xl offer_imgbox">';
@@ -2186,16 +2188,19 @@ $limit = 12;
                     if ($result) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
-                                $output .= '<div class="card card-blog card-plain mb-3">';
+                                $output.=' <div class="d-flex align-item-center mb-3">';
+                                $output .= '<div class="card card-blog card-plain col-11">';
                                 $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                                $output .= '    <div class="d-flex ">';
+                                $output .= '    <div class="">';
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
-                                $output .= '    </div>';
-                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center">'; 
-                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
+                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center ps-3 col-1">'; 
+                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
+                                $output .= '    </div>';
+                                $output .= '    </div>';
+                                
                             }
                             $response_data = array('data' => 'success', 'outcome' => $output);
                         } else {
@@ -2233,17 +2238,20 @@ $limit = 12;
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
-                        $output .= '<div class="card card-blog card-plain mb-3">';
+                        $output.='<div class="d-flex align-items-center  mb-3">';
+                        $output .= '<div class="card card-blog card-plain col-11">';
                         $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                        $output .= '    <div class="d-flex ">';
-                        $output .= '      <div class="shop-name text-secondary px-3">' .$row['topbar_input1']  . '</div>';
-                        $output .= '      <div class="shop-name text-secondary px-3">' .$row['topbar_input2']  . '</div>';
-                        $output .= '    </div>';
-                        $output .= '    <div class="action-icons ms-auto d-flex align-items-center">';
-                        $output .= '      <i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
+                        $output .= '    <div class="topbar">';
+                        $output .= '      <div class="shop-name text-secondary px-3"><b>topbar1:</b>' .$row['topbar_input1']  . '</div>';
+                        $output .= '      <div class="shop-name text-secondary px-3"><b>topbar2:</b>' .$row['topbar_input2']  . '</div>';
                         $output .= '    </div>';
                         $output .= '  </div>';
                         $output .= '</div>';
+                        $output .= '    <div class="action-icons ms-auto ps-3 col-1">';
+                        $output .= '      <i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
+                        $output .= '    </div>';
+                        $output .= '    </div>';
+
                     }
                     $response_data = array('data' => 'success', 'outcome' => $output);
                 } else {
@@ -2374,7 +2382,7 @@ $limit = 12;
                 $output .= '   <th>Contact</th>';
                 $output .= '   <th>Shop Image</th>';
                 $output .= '   <th>Delete</th>';
-                $output .= '   <th>Toggle</th>';
+                $output .= '   <th>Approve</th>';
                 $output .= '</tr>';
                 $output .= '</thead>';
                 $output .= '<tbody>';
@@ -2398,7 +2406,7 @@ $limit = 12;
                     $output .= '<td><img src="' . $decodedPath . '" alt="Shop Image" class="user_img"></td>';
                     $output .= '<td><i data-id="' . $row["user_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="users" aria-hidden="true"></i></td>';
                     $output .='<td>';
-                    $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
+                    $output .= '<div class="form-check form-switch  toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto usertoggle-button" type="checkbox" id="checkbox_' . $userId . '" data-user-id="' . $userId . '" ' . $toggleactive . '>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="users">';
                     $output .= '</div>';
@@ -2563,7 +2571,9 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-    
+                   $pro_img.='<div class="field" >';
+                $pro_img.='<input type="file" id="files" name="p_image[]" multiple />';
+                $pro_img.='</div>';
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             

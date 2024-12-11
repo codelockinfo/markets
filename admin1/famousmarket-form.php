@@ -25,7 +25,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <div class="container-fluid py-4">
       <div class="row">
         <div class=" col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-5">
+          <div class="card z-index-0 p-3 p-lg-5">
             <form role="form" id="f_marketinsert" enctype="multipart/form-data" method="POST">
               <label for="name" class="font-weight-normal required">Shop Name</label>
               <div class="mb-3">

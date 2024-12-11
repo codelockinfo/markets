@@ -238,11 +238,9 @@
 .drop-zone {
   position: relative;
   height: 200px;
-  padding: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   font-size: 20px;
   cursor: pointer;
   color: #cccccc;
@@ -1209,4 +1207,17 @@
   border-color: #bed1ec;
   outline: 0;
   box-shadow: 0 0 0 2px #9db3d0;
+}
+.topbar{
+  width: 100%;
+}
+
+.imageThumb {
+  width: 100%;
+  max-height: 173px;   
+  padding: 20px !important;   
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
 }

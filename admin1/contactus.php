@@ -25,7 +25,7 @@ if ($_SESSION['current_user']['role'] == 1) {
       <div class="row">
         
         <div class="col-xl-12 main-sec">
-          <div class="card z-index-0 p-5">
+          <div class="card z-index-0 p-3 p-lg-5 ">
             <div class="mb-3">
                   <div class="d-flex justify-content-between ">
                 <div><h5>contact us page show and hide  frontend side </h5></div>
