@@ -11,7 +11,6 @@ include($myRoot . '/markets/connection.php');
         </div>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
         <title>Surat's Textile Market Tour: Everything You Need to Know</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
