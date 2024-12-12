@@ -577,8 +577,8 @@ $limit = 12;
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
                         $output .= '  <div class="card card-blog card-plain mb-4">';
                         $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block border-radius-xl product_imagebox mt-2 mt-xl-4">';
-                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-6 product_main_image">';
+                        $output .= '      <a class="d-block border-radius-xl product_imagebox m-2 m-xl-4">';
+                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
                         $output .= '  </div>';
@@ -1971,15 +1971,11 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-12 col-xxl-6 mb-xl-0 mb-2">';
+                    $output .= '<div class="col-12 col-xxl-6 mb-xl-0">';
                     $output .= '<div class="card card-blog card-plain mb-4">';
-                    $output .= '<div class="position-relative">';
-                    $output .= '<a class="d-block border-radius-xl offer_imgbox">';
-                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image" >';
-                    $output .= '</a>';
-                    $output .= '</div>';
-                    $output .= '<div class="d-flex justify-content-between mb-3">';
-                    $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
+                    $output .= '<div class="position-relative d-inline-block border-radius-xl offer_imgbox">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image" >';
+                    $output .= '<div class="position-absolute top-1 end-0 mt-2 me-2">';
                     $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2137,10 +2133,8 @@ $limit = 12;
                         );
                         $output .= '<div class="col-12 col-xxl-6 mb-xl-0 mb-2">';
                         $output .= '<div class="card card-blog card-plain mb-4">';
-                        $output .= '<div class="position-relative">';
-                        $output .= '<a class="d-block border-radius-xl offer_imgbox">';
+                        $output .= '<div class="position-relative d-inline-block  border-radius-xl offer_imgbox">';
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
-                        $output .= '</a>';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
                         $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0" data-delete-type="banners" aria-hidden="true"></i>';
                         $output .= '</div>';
@@ -2571,9 +2565,9 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-                   $pro_img.='<div class="field" >';
-                $pro_img.='<input type="file" id="files" name="p_image[]" multiple />';
-                $pro_img.='</div>';
+                // $pro_img.='<div class="field">';
+                // $pro_img.='<input type="file" id="files" name="p_image[]" multiple />';
+                // $pro_img.='</div>';
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             

@@ -9,22 +9,23 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
+
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-      $para_array = array("title" => "FAQ's Form", "link" => "", "button_text" => "");
-      $title = $para_array['title']; 
-      $link = $para_array['link'];
-      $button_text = $para_array['button_text'];
-      include 'adminheadertop.php';
+    $para_array = array("title" => "FAQ's Form", "link" => "", "button_text" => "");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-6">
-          <div class="card p-3 p-lg-5">
+        <div class="col-md-6 mx-auto main-sec">
+          <div class="card z-index-0 p-3 p-lg-5">
             <form role="form" class="form main-editor" id="faqinsert" enctype="multipart/form-data" method="POST">
               <label for="faq-question" class="font-weight-normal required">Question</label>
               <div class="mb-3">
@@ -43,7 +44,7 @@ if ($_SESSION['current_user']['role'] == 1) {
             </form>
           </div>
         </div>
-        <div class="col-xl-6">
+        <div class="col-md-6 mx-auto main-sec">
           <div class="card p-3 p-lg-5 h-100">
             <div class="mb-3 form-check-reverse text-right ">
               <div class="container">
@@ -57,7 +58,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                 </div>
               </div>
             </div>
-            <div class="accordion"  id="getdata">
+            <div class="accordion" id="getdata">
             </div>
           </div>
         </div>
@@ -66,7 +67,8 @@ if ($_SESSION['current_user']['role'] == 1) {
   </div>
 
 </body>
+
 </html>
-<script type="text/javascript"> 
-loadData("FAQlisting");
+<script type="text/javascript">
+  loadData("FAQlisting");
 </script>

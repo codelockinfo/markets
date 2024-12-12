@@ -1116,7 +1116,7 @@
 }
 
 .alert {
-  padding: 12px;
+  padding: 0px;
   border-radius: 5px;
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;

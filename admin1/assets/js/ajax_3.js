@@ -426,31 +426,31 @@ function demo() {
           if (response.pro_img) {
             $(".get_pro").html(response.pro_img);
           }
-          if (window.File && window.FileList && window.FileReader) {
-            $("#files").on("change", function(e) {
-              console.log("sd")
-              var files = e.target.files,
-                filesLength = files.length;
-              for (var i = 0; i < filesLength; i++) {
-                var f = files[i]
-                var fileReader = new FileReader();
-                fileReader.onload = (function(e) {
-                  var file = e.target;
-                  $("<div class=\"pip\">" +
-                    "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+          // if (window.File && window.FileList && window.FileReader) {
+          //   $("#files").on("change", function(e) {
+          //     console.log("sd")
+          //     var files = e.target.files,
+          //       filesLength = files.length;
+          //     for (var i = 0; i < filesLength; i++) {
+          //       var f = files[i]
+          //       var fileReader = new FileReader();
+          //       fileReader.onload = (function(e) {
+          //         var file = e.target;
+          //         $("<div class=\"pip\">" +
+          //           "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
                     
-                    "</div>").insertAfter("#files");
-                  $(".remove").click(function(){
-                    $(this).parent(".pip").remove();
-                  });
+          //           "</div>").insertAfter("#files");
+          //         $(".remove").click(function(){
+          //           $(this).parent(".pip").remove();
+          //         });
                   
                   
-                });
-                fileReader.readAsDataURL(f);
-              }
-              console.log(files);
-            });
-          }
+          //       });
+          //       fileReader.readAsDataURL(f);
+          //     }
+          //     console.log(files);
+          //   });
+          // }
           if (response["product_img_result"] !== undefined) {
             var imagePreviews = "";
             $.each(response["product_img_result"], function (index, image) {
