@@ -53,7 +53,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <button type="button" class="btn bg-gradient-info btn-sm cencle_loader_show formCancel">Cancel</button>
 
             </div>
-            <div class="alert" role="alert" id="success_message" name="success_alert"></div>
+            <div class="alert1" role="alert" id="success_message" name="success_alert"></div>
           </form>
         </div>
       </div>

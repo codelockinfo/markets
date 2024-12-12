@@ -1115,8 +1115,13 @@
   height: 50px;
 }
 
+.title{
+  height: 60px;
+  overflow: hidden;
+}
+
 .alert {
-  padding: 0px;
+  padding: 12px;
   border-radius: 5px;
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
