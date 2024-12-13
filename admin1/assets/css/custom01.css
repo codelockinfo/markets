@@ -450,9 +450,9 @@
 }
 
 .select2.select2-container
-  .select2-selection--multiple
-  .select2-selection__choice
-  .select2-selection__choice__remove {
+.select2-selection--multiple
+.select2-selection__choice
+.select2-selection__choice__remove {
   position: absolute;
   top: 0;
   left: 0;
