@@ -1476,7 +1476,6 @@ $limit = 12;
     
             $output = $pagination = "";
             if ($result && $result->num_rows > 0) {
-                $output = '<div class="container-fluid p-3 d-flex flex-wrap justify-content-start">';
                 while ($row = $result->fetch_assoc()) {
                     $image = $row["c_image"];
                     $imagePath = "../admin1/assets/img/customer/" . $image;
@@ -1484,8 +1483,8 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain mb-4 m-3">';
+                    $output .= '<div class="col-xxl-3 col-md-4 col-sm-6 mb-xl-0 mb-4">';
+                    $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
@@ -1512,11 +1511,7 @@ $limit = 12;
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $output .= '</div>';
-                $response_data = array(
-                    'data' => 'success',
-                    'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '',
+                $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '',
                     'pagination_needed' => ($total_records > $limit) ? true : false
                 );
                 if ($total_records > $limit) {
@@ -1538,7 +1533,6 @@ $limit = 12;
         }
     }
     
-
     function listprofile() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
