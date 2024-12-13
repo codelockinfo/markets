@@ -85,7 +85,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                           <option selected value="" disabled>payment Terms</option>
                           <option value="online">online</option>
                           <option value="cash">cash</option>
-                        </select>
+                 </select>
                   <span class="errormsg "></span>
                 </div>
               </div>

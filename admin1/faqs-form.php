@@ -9,7 +9,6 @@ if ($_SESSION['current_user']['role'] == 1) {
   die();
 }
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
   <?php
   include 'sidebar.php';
@@ -65,9 +64,7 @@ if ($_SESSION['current_user']['role'] == 1) {
       </div>
     </div>
   </div>
-
 </body>
-
 </html>
 <script type="text/javascript">
   loadData("FAQlisting");

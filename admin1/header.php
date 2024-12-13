@@ -2,7 +2,6 @@
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
 include($myRoot . '/markets/connection.php');
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,10 +34,6 @@ include($myRoot . '/markets/connection.php');
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="<?php echo main_url('admin1/assets/js/common_2.js'); ?>"></script>
-
-    
-    
-
     </head>       
     
 

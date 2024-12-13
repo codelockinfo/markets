@@ -31,7 +31,6 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
             </div>
             <label for="p-tags" class="font-weight-normal required">Blog Category</label>
             <div class="mb-3">
-                      
                 <select class="form-select required" aria-label="Default select example" id="mySelect" name="category">
                   <option selected value="">Select Category</option>
                 </select>                                    
@@ -79,7 +78,6 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
       </div>
     </div>  
   </div>
-
   <script src="<?php echo main_url('admin1/assets/js/common_2.js'); ?>"></script>
 </body>
 </html>

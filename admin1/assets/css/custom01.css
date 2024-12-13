@@ -37,6 +37,9 @@
   width: 100%;
 }
 
+.increment-btn, .decrement-btn a,i:hover {
+  color: black !important;
+}
 .card-space {
   margin-top: -35px;
 }
@@ -301,7 +304,7 @@
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  padding: 0 50px;
+
 }
 
 .accordion h1 {
@@ -1108,9 +1111,7 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .accordion {
-    padding: 0 16px;
-  }
+
   .accordion h1 {
     font-size: 22px;
   }

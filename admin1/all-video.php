@@ -55,9 +55,7 @@ if ($_SESSION['current_user']['role'] == 1) {
   </div>
   </div>
   </div>
-
 </body>
-
 </html>
 <script type="text/javascript">
   loadData("allvideolisting");

@@ -52,7 +52,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   </div>
   </div>
   </div>
-
 </body>
 </html>
 <script type="text/javascript">

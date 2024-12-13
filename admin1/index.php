@@ -108,7 +108,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           </div>
         </div>
       </div>
-     
       <div class="row mt-4">
         <div class="col-lg-5 mb-lg-0 mb-4">
           <div class="card z-index-2">
@@ -245,8 +244,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
     </div>
   </div>
-
-  <script src="<?php echo main_url('/admin1/assets/js/common_2.js'); ?>"></script>
+<script src="<?php echo main_url('/admin1/assets/js/common_2.js'); ?>"></script>
 </body>
 </html>
 <script>
