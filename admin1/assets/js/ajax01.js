@@ -447,7 +447,7 @@ function get_product(id) {
                     '<button class="close-button_product">x</button>' +
                     "</div>" +
                     "</div>"
-                ).insertAfter("#files");
+                ).insertBefore("#files");
                 $(".remove").click(function () {
                   $(this).parent(".pip").remove();
                 });
@@ -475,7 +475,7 @@ function get_product(id) {
               "</div>" +
               "</div>";
           });
-          $(".imageAppend").append(imagePreviews);
+          $("#files").before(imagePreviews);
         }
       }
     },
