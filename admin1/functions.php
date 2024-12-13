@@ -633,14 +633,14 @@ $limit = 12;
                     return json_encode($response_data);
                 }
             }
-            if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }
-            if ($file['size'] > $maxSize) {
-                $error_array['i_image'] = "File size must be 5MB or less.";
-            }
-            if (empty($filename)) {
-                $error_array['i_image'] = "Please upload your image.";
+            if (!empty($filename)) {
+                if (!in_array($fileExtension, $allowedExtensions)) {
+                    $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
+                if ($file['size'] > $maxSize) {
+                    $error_array['i_image'] = "File size must be 5MB or less.";
+                }
+                // $error_array['i_image'] = "Please upload your image.";
             }
         }
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
@@ -682,6 +682,9 @@ $limit = 12;
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                             $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
                                       VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                    }else{
+                        $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                                      VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                     }
                 } else {
                     if (!empty($filename)) {
