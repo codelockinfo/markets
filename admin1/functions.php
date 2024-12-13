@@ -692,11 +692,12 @@ $limit = 12;
                             $newImageUploaded = $newFilename;
                         }
                     } else {
-                        $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
-                        $existing_image_result = $this->db->query($existing_image_query);
-                        $existing_image_row = $existing_image_result->fetch_assoc();
-                        $existing_image = $existing_image_row['i_image'];
-                        $newImageUploaded = $existing_image;
+                        // $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
+                        // $existing_image_result = $this->db->query($existing_image_query);
+                        // $existing_image_row = $existing_image_result->fetch_assoc();
+                        // $existing_image = $existing_image_row['i_image'];
+                        // $newImageUploaded = $existing_image;
+                        $newImageUploaded = '';
                     }
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
                                 po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
