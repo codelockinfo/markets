@@ -912,7 +912,7 @@ $limit = 12;
                     $existing_image_query = "SELECT image FROM blogs WHERE blog_id = $id";
                     $existing_image_result = $this->db->query($existing_image_query);
                     $existing_image_row = $existing_image_result->fetch_assoc();
-                    $existing_image = $existing_image_row['blog_image'];
+                    $existing_image = $existing_image_row['image'];
                     $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$existing_image',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
@@ -2549,6 +2549,7 @@ $limit = 12;
     }
 
     function getproduct() {
+        // print_r($_POST);
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $pro_img="";
         $id = isset($_POST['id']) ? $_POST['id'] : '';
