@@ -1271,7 +1271,7 @@ $limit = 12;
                     $output .= '      </a>';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5 class="title">' . $title . '</h5>';
                     $output .= '      </a>';
@@ -1406,7 +1406,7 @@ $limit = 12;
                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
-                        $output .= '    <div class="card-body px-1 pb-0">';
+                        $output .= '    <div class="card-body  pb-0">';
                         $output .= '      <a href="#">';
                         $output .= '      </a>';
                         $output .= '      <div class=" justify-content-between mb-3">';
@@ -1476,6 +1476,7 @@ $limit = 12;
     
             $output = $pagination = "";
             if ($result && $result->num_rows > 0) {
+               
                 while ($row = $result->fetch_assoc()) {
                     $image = $row["c_image"];
                     $imagePath = "../admin1/assets/img/customer/" . $image;
@@ -1483,14 +1484,14 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-xxl-3 col-md-4 col-sm-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body  pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '      </a>';
                     $output .= '      <div class=" justify-content-between customer_list">';
@@ -1511,7 +1512,11 @@ $limit = 12;
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '',
+               
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',
                     'pagination_needed' => ($total_records > $limit) ? true : false
                 );
                 if ($total_records > $limit) {
@@ -1533,6 +1538,7 @@ $limit = 12;
         }
     }
     
+
     function listprofile() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1710,7 +1716,7 @@ $limit = 12;
                     $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3  product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body  pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5 class="title">' . $title . '</h5>';
                     $output .= '      </a>';
@@ -1808,7 +1814,7 @@ $limit = 12;
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                     $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="card-body  pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
@@ -1897,7 +1903,7 @@ $limit = 12;
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                     $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="card-body  pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
@@ -2288,7 +2294,7 @@ $limit = 12;
                     $output .= '      </a>';
                    
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
