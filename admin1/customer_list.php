@@ -6,7 +6,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   die();
 }
 ?>
-
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
@@ -22,7 +21,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     $title = $para_array['title'];
     $link = $para_array['link'];
     $button_text = $para_array['button_text'];
-
     include 'adminheadertop.php';
     ?>
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
@@ -46,7 +44,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
     </div>
   </div>
-
   <script src="<?php echo main_url('admin1/assets/js/common_2.js'); ?>"></script>
 </body>
 </html>

@@ -17,8 +17,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <?php
     $para_array = array("title" => "Product List",  "button_text" => "");
     $title = $para_array['title']; 
-   
-    $button_text = $para_array['button_text'];
+       $button_text = $para_array['button_text'];
     include 'adminheadertop.php';
     ?>
     <div class="col-12 mt-4 p-4 overflow-x-hidden">

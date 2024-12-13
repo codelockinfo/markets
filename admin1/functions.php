@@ -2,7 +2,6 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-
 include_once '../connection.php';
 $NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
 $limit = 12;
@@ -1906,6 +1905,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '<div class="card-body px-1 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>';
@@ -2021,7 +2021,7 @@ $limit = 12;
                         if (mysqli_num_rows($category_result) > 0) {
                             while ($category_row = mysqli_fetch_assoc($category_result)) {
                                 $categories = $category_row['categoies_name'];
-                                $output .= '<div class="d-flex mb-3">';
+                                $output .= '<div class="d-flex mb-3 align-items-center">';
                                 $output .= '<div class="card card-blog card-plain col-11 ">';
                                 $output .= '  <div class="d-flex justify-content-between align-items-center">';
                                 $output .= '    <div class="d-flex">';
@@ -2029,7 +2029,7 @@ $limit = 12;
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
-                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center ps-3 col-1">';
+                                $output .= '    <div class="col-1 text-end p-0">';
                                 $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
                                 $output .= '    </div>';
                                 $output .= '    </div>';
@@ -2057,16 +2057,16 @@ $limit = 12;
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
-                        $output .= '<div class="row mb-3">';
-                        $output .= '  <div class="col-11 accordion-item">';
+                        $output .= '<div class="row mb-3 p-3 p-xl-0 align-items-center">';
+                        $output .= '  <div class="col-11 accordion-item p-0">';
                         $output .= '    <input type="checkbox" id="' . $row["faq_id"] . '">';
                         $output .= '    <label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon "></span> ' . $row["question"] . '</label>';
                         $output .= '    <div class="accordion-item-desc">';
                         $output .= '        ' . $row["answer"] . '';
                         $output .= '    </div>';
                         $output .= '  </div>';
-                        $output .= '  <div class="col-1">';
-                        $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer mt-3 delete" data-delete-type="faqs" aria-hidden="true"></i>';
+                        $output .= '  <div class="col-1 text-end p-0">';
+                        $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="faqs" aria-hidden="true"></i>';
                         $output .= '  </div>';
                         $output .= '</div>';
                     }
@@ -2182,7 +2182,7 @@ $limit = 12;
                     if ($result) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
-                                $output.=' <div class="d-flex align-item-center mb-3">';
+                                $output.=' <div class="d-flex  align-items-center mb-3">';
                                 $output .= '<div class="card card-blog card-plain col-11">';
                                 $output .= '  <div class="d-flex justify-content-between align-items-center">';
                                 $output .= '    <div class="">';
@@ -2190,7 +2190,7 @@ $limit = 12;
                                 $output .= '    </div>';
                                 $output .= '  </div>';
                                 $output .= '</div>';
-                                $output .= '    <div class="action-icons ms-auto d-flex align-items-center ps-3 col-1">'; 
+                                $output .= '    <div class="col-1 text-end p-0">'; 
                                 $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
                                 $output .= '    </div>';
                                 $output .= '    </div>';
@@ -2241,7 +2241,7 @@ $limit = 12;
                         $output .= '    </div>';
                         $output .= '  </div>';
                         $output .= '</div>';
-                        $output .= '    <div class="action-icons ms-auto ps-3 col-1">';
+                        $output .= '    <div class="col-1 text-end p-0">';
                         $output .= '      <i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
                         $output .= '    </div>';
                         $output .= '    </div>';

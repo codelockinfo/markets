@@ -23,7 +23,6 @@ if ($_SESSION['current_user']['role'] == 1) {
     ?>
     <div class="container-fluid py-4">
       <div class="row">
-        
         <div class="col-xl-12 main-sec">
           <div class="card z-index-0 p-3 p-lg-5 ">
             <div class="mb-3">
@@ -45,10 +44,8 @@ if ($_SESSION['current_user']['role'] == 1) {
         </div>
       </div>
     </div>
- 
     <script src="<?php echo main_url('admin1/assets/js/common_2.js'); ?>"></script>
 </body>
-
 </html>
 <script type="text/javascript"> 
 </script>
