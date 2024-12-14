@@ -1038,7 +1038,12 @@ border:1px solid #d2d6da;
   display: inline-block;
   margin: 10px 10px 0 0;
 }
-
+.custom-table{
+  --bs-table-border-color: #d2d6da;
+}
+.bg-gradient{
+  background-color: #21d4fd !important;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {

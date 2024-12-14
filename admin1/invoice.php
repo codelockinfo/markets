@@ -110,7 +110,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="table-scroll1">
               <div class="row">
-                <table class="mt-4" id="attributes">
+                <table class="mt-4 table custom-table" id="attributes">
                   <thead>
                     <tr>
                       <th class="w-70 bg-gradient text-light ps-3 text-bold">Item</th>
