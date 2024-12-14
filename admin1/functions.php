@@ -633,14 +633,14 @@ $limit = 12;
                     return json_encode($response_data);
                 }
             }
-            if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }
-            if ($file['size'] > $maxSize) {
-                $error_array['i_image'] = "File size must be 5MB or less.";
-            }
-            if (empty($filename)) {
-                $error_array['i_image'] = "Please upload your image.";
+            if (!empty($filename)) {
+                if (!in_array($fileExtension, $allowedExtensions)) {
+                    $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
+                if ($file['size'] > $maxSize) {
+                    $error_array['i_image'] = "File size must be 5MB or less.";
+                }
+                // $error_array['i_image'] = "Please upload your image.";
             }
         }
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
@@ -682,6 +682,9 @@ $limit = 12;
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                             $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
                                       VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                    }else{
+                        $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
+                                      VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                     }
                 } else {
                     if (!empty($filename)) {
@@ -689,11 +692,12 @@ $limit = 12;
                             $newImageUploaded = $newFilename;
                         }
                     } else {
-                        $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
-                        $existing_image_result = $this->db->query($existing_image_query);
-                        $existing_image_row = $existing_image_result->fetch_assoc();
-                        $existing_image = $existing_image_row['i_image'];
-                        $newImageUploaded = $existing_image;
+                        // $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
+                        // $existing_image_result = $this->db->query($existing_image_query);
+                        // $existing_image_row = $existing_image_result->fetch_assoc();
+                        // $existing_image = $existing_image_row['i_image'];
+                        // $newImageUploaded = $existing_image;
+                        $newImageUploaded = '';
                     }
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
                                 po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
@@ -1271,7 +1275,7 @@ $limit = 12;
                     $output .= '      </a>';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5 class="title">' . $title . '</h5>';
                     $output .= '      </a>';
@@ -1406,7 +1410,7 @@ $limit = 12;
                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
-                        $output .= '    <div class="card-body px-1 pb-0">';
+                        $output .= '    <div class="card-body  pb-0">';
                         $output .= '      <a href="#">';
                         $output .= '      </a>';
                         $output .= '      <div class=" justify-content-between mb-3">';
@@ -1476,6 +1480,7 @@ $limit = 12;
     
             $output = $pagination = "";
             if ($result && $result->num_rows > 0) {
+               
                 while ($row = $result->fetch_assoc()) {
                     $image = $row["c_image"];
                     $imagePath = "../admin1/assets/img/customer/" . $image;
@@ -1483,7 +1488,7 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-xxl-3 col-md-4 col-sm-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
@@ -1511,7 +1516,11 @@ $limit = 12;
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '',
+               
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',
                     'pagination_needed' => ($total_records > $limit) ? true : false
                 );
                 if ($total_records > $limit) {
@@ -1533,6 +1542,7 @@ $limit = 12;
         }
     }
     
+
     function listprofile() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1897,7 +1907,7 @@ $limit = 12;
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                     $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="card-body  pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
@@ -2288,7 +2298,7 @@ $limit = 12;
                     $output .= '      </a>';
                    
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
