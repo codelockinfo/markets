@@ -413,7 +413,7 @@ function get_product(id) {
                 '<button class="close-button_product">x</button>' +
                 "</div>" +
                 "</div>";
-              $(".imageAppend").append(imagePreview);
+              $("#files").before(imagePreview);
               $(".pro-zone").hide();
             },
             error: function () {

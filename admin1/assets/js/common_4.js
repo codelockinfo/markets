@@ -1,31 +1,30 @@
 window.onload = function () {
-    console.log("WINDOW ON LOAD");
-    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-      console.log("drop-zone__input");
-      const dropZoneElement = inputElement.closest(".drop-zone");
+  console.log("WINDOW ON LOAD");
+
+  // Attach the delegated event listener to the document
+  document.addEventListener("click", function (e) {
+    if (e.target.matches(".drop-zone__input")) {
+      console.log("drop-zone__input clicked");
+      const dropZoneElement = e.target.closest(".drop-zone");
       const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
-      
-      console.log(dropZoneElement);
-      
+
       if (!promptElement) {
         console.error("pro-zone__prompt element is missing");
         return;
       }
 
       dropZoneElement.addEventListener("click", () => {
-
-        if (!inputElement.disabled) {
-          inputElement.click();
+        if (!e.target.disabled) {
+          e.target.click();
         }
       });
-    
-      inputElement.addEventListener("change", (e) => {
-        
-        if (inputElement && inputElement.files && inputElement.files.length > 0) {
-          const file = inputElement.files[0];
+
+      e.target.addEventListener("change", (e) => {
+        if (e.target && e.target.files && e.target.files.length > 0) {
+          const file = e.target.files[0];
           if (file.type.startsWith("image/")) {
             clearThumbnail(dropZoneElement);
-            updateThumbnail(dropZoneElement, file, inputElement);
+            updateThumbnail(dropZoneElement, file, e.target);
             promptElement.style.display = "none";
           } else {
             Swal.fire({
@@ -33,7 +32,7 @@ window.onload = function () {
               title: "Failure",
               text: "Only PNG, JPG, JPEG, GIF files are allowed!",
             });
-            inputElement.value = "";
+            e.target.value = "";
             promptElement.style.display = "block";
           }
         } else {
@@ -44,6 +43,7 @@ window.onload = function () {
           }
         }
       });
+
       dropZoneElement.addEventListener("dragover", (e) => {
         e.preventDefault();
         dropZoneElement.classList.add("drop-zone--over");
@@ -59,10 +59,10 @@ window.onload = function () {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
         if (file && file.type.startsWith("image/")) {
-          if (inputElement) {
-            inputElement.files = e.dataTransfer.files;
+          if (e.target) {
+            e.target.files = e.dataTransfer.files;
             clearThumbnail(dropZoneElement);
-            updateThumbnail(dropZoneElement, file, inputElement);
+            updateThumbnail(dropZoneElement, file, e.target);
 
             promptElement.style.display = "none";
           } else {
@@ -74,66 +74,67 @@ window.onload = function () {
             title: "Failure",
             text: "Only PNG, JPG, JPEG, GIF files are allowed!",
           });
-          if (inputElement) {
-            inputElement.value = "";
+          if (e.target) {
+            e.target.value = "";
           }
           promptElement.style.display = "block";
         }
 
         dropZoneElement.classList.remove("drop-zone--over");
       });
-    });
+    }
+  });
 
-    function clearThumbnail(dropZoneElement) {
-      const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-      if (thumbnailElement) {
-        thumbnailElement.innerHTML = "";
-      }
+  function clearThumbnail(dropZoneElement) {
+    const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    if (thumbnailElement) {
+      thumbnailElement.innerHTML = "";
+    }
+  }
+
+  function updateThumbnail(dropZoneElement, file, inputElement) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
+    if (!thumbnailElement) {
+      thumbnailElement = document.createElement("div");
+      thumbnailElement.classList.add("drop-zone__thumb");
+      dropZoneElement.appendChild(thumbnailElement);
     }
 
-    function updateThumbnail(dropZoneElement, file, inputElement) {
+    thumbnailElement.innerHTML = "";
 
-      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
-      if (!thumbnailElement) {
-        thumbnailElement = document.createElement("div");
-        thumbnailElement.classList.add("drop-zone__thumb");
-        dropZoneElement.appendChild(thumbnailElement);
-      }
+    if (file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.addEventListener("load", (e) => {
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        img.classList.add("picture__img");
 
-      thumbnailElement.innerHTML = "";
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("close-buttons_profile");
+        closeButton.innerText = "x";
 
-      if (file.type.startsWith("image/")) {
-        const reader = new FileReader();
-        reader.addEventListener("load", (e) => {
-        
-          const img = document.createElement("img");
-          img.src = e.target.result;
-          img.classList.add("picture__img");
-          const closeButton = document.createElement("button");
-          closeButton.classList.add("close-buttons_profile");
-          closeButton.innerText = "x";
+        closeButton.addEventListener("click", (event) => {
+          event.stopPropagation();
 
-          closeButton.addEventListener("click", (event) => {
-            event.stopPropagation();
-
-            thumbnailElement.innerHTML = "";
-            inputElement.value = "";
-            inputElement.disabled = false;
-            promptElement.style.display = "block";
-            setTimeout(() => {
-              inputElement.value = null;
-            }, 0);
-          });
-          thumbnailElement.appendChild(img);
-          thumbnailElement.appendChild(closeButton);
-          promptElement.style.display = "none";
+          thumbnailElement.innerHTML = "";
+          inputElement.value = "";
+          inputElement.disabled = false;
+          promptElement.style.display = "block";
+          setTimeout(() => {
+            inputElement.value = null;
+          }, 0);
         });
 
-        reader.readAsDataURL(file);
-      }
+        thumbnailElement.appendChild(img);
+        thumbnailElement.appendChild(closeButton);
+        promptElement.style.display = "none";
+      });
+
+      reader.readAsDataURL(file);
     }
-}
+  }
+};
 // multi select js in product form page
 
 $(document).ready(function () {
@@ -175,7 +176,6 @@ $(document).ready(function () {
 
 // invoice add row
 $(document).ready(function () {
- 
   function addRow() {
     const row = $(".attr").first().clone(true, true);
     row.find("input").val("");
@@ -198,11 +198,13 @@ $(document).ready(function () {
           } else if ($(this).hasClass("rate_0")) {
             baseClass = "rate";
           }
-  
+
           if (baseClass) {
             $(this)
               .removeClass(function (_, className) {
-                return (className.match(/(^|\s)(item|quantity|rate)_\d+/g) || []).join(" ");
+                return (
+                  className.match(/(^|\s)(item|quantity|rate)_\d+/g) || []
+                ).join(" ");
               })
               .addClass(`${baseClass}_${index}`);
           }
@@ -211,14 +213,17 @@ $(document).ready(function () {
             .each(function () {
               const originalName = $(this).attr("name");
               if (originalName) {
-                const updatedName = originalName.replace(/\[\d+\]/, `[${index}]`);
+                const updatedName = originalName.replace(
+                  /\[\d+\]/,
+                  `[${index}]`
+                );
                 $(this).attr("name", updatedName);
               }
             });
         });
     });
-  } 
-  
+  }
+
   function removeRow(button) {
     button.closest("tr.attr").remove();
     updateRemoveButtonVisibility();
@@ -244,10 +249,8 @@ $(document).ready(function () {
   }
 
   function updateSubtotal() {
-    
     let subtotal = 0;
     $("#attributes-body .attr").each(function () {
-      
       const amountText = $(this).find('input[name="amount[]"]').val();
       const amount = parseFloat(amountText) || 0;
       subtotal += amount;
@@ -296,7 +299,6 @@ $(".increment-btn").click(function (e) {
   value = isNaN(value) ? 0 : value;
   value++;
   $(this).closest(".product_data").find(".qty-input").val(value);
-  
 });
 
 $(".decrement-btn").click(function (e) {
@@ -304,11 +306,10 @@ $(".decrement-btn").click(function (e) {
   var dec_value = $(this).closest(".product_data").find(".qty-input").val();
   var value = parseInt(dec_value, 10);
   value = isNaN(value) ? 0 : value;
- 
+
   if (value > 1) {
     value--;
     $(this).closest(".product_data").find(".qty-input").val(value);
-   
   }
 });
 // loder
@@ -336,7 +337,7 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
           title: alertTitle("fail"),
           text: "Only PNG, JPG, JPEG, GIF files are allowed!",
         });
-        inputElement.value = ""; 
+        inputElement.value = "";
       }
     });
   });
@@ -372,7 +373,6 @@ function updatePromptText(dropZoneElement, files) {
 function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
   let thumbnailContainer = dropZoneElement.querySelector(".drop-zone__thumb");
 
-  
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("drop-zone__thumb");
@@ -403,7 +403,6 @@ function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
         fileListArray.forEach((file) => dataTransfer.items.add(file));
         inputElement.files = dataTransfer.files;
 
-   
         updatePromptText(dropZoneElement, inputElement.files);
       });
 
