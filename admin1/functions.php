@@ -2562,7 +2562,7 @@ $limit = 12;
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                echo $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
+                $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
                 $product_img_result = $this->db->query($product_img_query);
                 $product_img_results = [];
                 if ($product_img_result->num_rows > 0) {
