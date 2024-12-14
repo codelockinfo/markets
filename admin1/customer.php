@@ -34,7 +34,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="title" class="font-weight-normal required w-100">Email</label>
             <div class="mb-3">
-              <input type="email" class="form-control valikey w-100 " placeholder="Enter Your Email" name="email">
+              <input type="email" class="form-control valikey w-100 " id="email" placeholder="Enter Your Email" name="email">
               <div class="errormsg email"></div>
             </div>
             <label for="title" class="font-weight-normal required w-100">Contact</label>
