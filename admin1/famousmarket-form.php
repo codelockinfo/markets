@@ -40,7 +40,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                 <span class="errormsg review"></span>
               </div>
               <div class="mb-3">
-                <button type="button" class="btn bg-gradient-info btn-sm marketSave formSave save_loader_show">Save</button>
+                <button type="button" class="btn bg-gradient-info btn-sm marketSave  save_loader_show">Save</button>
                 <button type="button" class="btn bg-gradient-info cencle_loader_show btn-sm formCancel">Cancel</button>
               </div>
               <div class="alert1" role="alert" id="success_message" name="success_alert"></div>
