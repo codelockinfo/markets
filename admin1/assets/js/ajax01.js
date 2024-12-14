@@ -2177,7 +2177,9 @@ $(document).on("click", ".picture__img", function () {
 
 $(document).on("click", ".close-button_product", function (event) {
   event.stopPropagation();
-  $(this).closest(".drop-zone__thumb").remove();
+  if($(this).data("id") == undefined ){
+    $(this).closest(".drop-zone__thumb").remove();
+  }
   return false;
 });
 
