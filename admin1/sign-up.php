@@ -62,7 +62,7 @@ include 'header.php';
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control validsignf" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <input type="email" class="form-control validsignf" placeholder="Email" id="email" aria-label="Email" aria-describedby="email-addon" name="email">
                       <span class="errormsg email"></span>
                     </div>
                     <div class="mb-3">
