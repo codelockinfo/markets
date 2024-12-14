@@ -111,7 +111,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input validtext">
                 </div>
               </div>
-              <div class="col">
+              <div>
                 <div class="row mt-2">
                   <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
                 </div>

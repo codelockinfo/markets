@@ -23,7 +23,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3 align-items-center">
-          <div class="card-header ">
+          <div class="">
             <h6 class="mb-1 mt-1 text-lg">Products</h6>
           </div>
           <div class="ms-md-auto  d-flex align-items-center me-2">

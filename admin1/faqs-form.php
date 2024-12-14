@@ -46,7 +46,7 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class="col-md-6 mx-auto main-sec">
           <div class="card p-3 p-lg-5 h-100">
             <div class="mb-3 form-check-reverse text-right ">
-              <div class="container">
+              <div class="">
                 <div class="btn-group">
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <div class="form-check form-switch ps-0">
