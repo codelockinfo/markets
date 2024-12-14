@@ -52,7 +52,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="file" name="c_image" id="removeImage" class="drop-zone__input validsimg">
                 </div>
               </div>
-              <div class="col">
+              <div>
                 <div class="row mt-2">
                   <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
                 </div>

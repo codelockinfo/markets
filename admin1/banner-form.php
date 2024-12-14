@@ -23,8 +23,8 @@ if ($_SESSION['current_user']['role'] == 1) {
     ?>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-3 p-lg-5">
+        <div class="col-md-6  main-sec">
+          <div class="card p-3 p-lg-5">
             <form role="form" id="bannerinsert" enctype="multipart/form-data" method="POST">
               <label for="b-image" class="font-weight-normal required">Banner Image</label>
               <div class="mb-3">
@@ -32,7 +32,7 @@ if ($_SESSION['current_user']['role'] == 1) {
                   <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
                   <input type="file" name="myFile" id="removeImage" class="drop-zone__input">
                 </div>
-                <div class="col">
+                <div >
                   <div class="row mt-2">
                     <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
                   </div>
@@ -59,8 +59,8 @@ if ($_SESSION['current_user']['role'] == 1) {
             </form>
           </div>
         </div>
-        <div class="col-md-6 mx-auto main-sec">
-          <div class="card z-index-0 p-5 h-100">
+        <div class="col-md-6 main-sec">
+          <div class="card  p-3 p-lg-5 h-100">
             <div class="row" id="getdata">     
              </div>
           </div>

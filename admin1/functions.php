@@ -692,11 +692,11 @@ $limit = 12;
                             $newImageUploaded = $newFilename;
                         }
                     } else {
-                        // $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
-                        // $existing_image_result = $this->db->query($existing_image_query);
-                        // $existing_image_row = $existing_image_result->fetch_assoc();
-                        // $existing_image = $existing_image_row['i_image'];
-                        // $newImageUploaded = $existing_image;
+                        $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
+                        $existing_image_result = $this->db->query($existing_image_query);
+                        $existing_image_row = $existing_image_result->fetch_assoc();
+                        $existing_image = $existing_image_row['i_image'];
+                        $newImageUploaded = $existing_image;
                         $newImageUploaded = '';
                     }
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
@@ -1275,7 +1275,7 @@ $limit = 12;
                     $output .= '      </a>';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5 class="title">' . $title . '</h5>';
                     $output .= '      </a>';
@@ -1410,17 +1410,17 @@ $limit = 12;
                         $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                         $output .= '      </a>';
                         $output .= '    </div>';
-                        $output .= '    <div class="card-body px-1 pb-0">';
+                        $output .= '    <div class="card-body  pb-0">';
                         $output .= '      <a href="#">';
                         $output .= '      </a>';
                         $output .= '      <div class=" justify-content-between mb-3">';
-                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Invoice Name:</h6>' . $row['i_name'] . '</div>';
-                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
-                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
-                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
-                        $output .= '         <div class="ms-1 fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
+                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Invoice Name:</h6>' . $row['i_name'] . '</div>';
+                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
+                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
+                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
+                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
-                        $output .= '    <div>';
+                        $output .= '    <div class="mt-2">';
                         $output .= ' <a href=""><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href=""><i data-id="" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
@@ -1480,6 +1480,7 @@ $limit = 12;
     
             $output = $pagination = "";
             if ($result && $result->num_rows > 0) {
+               
                 while ($row = $result->fetch_assoc()) {
                     $image = $row["c_image"];
                     $imagePath = "../admin1/assets/img/customer/" . $image;
@@ -1487,23 +1488,23 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-                    $output .= '<div class="col-xxl-3 col-md-4 col-sm-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
                     $output .= '  <div class="card card-blog card-plain mb-4">';
                     $output .= '    <div class="position-relative">';
                     $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body px-2 pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '      </a>';
                     $output .= '      <div class=" justify-content-between customer_list">';
-                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> name:</h6> ' . $row['name'] . '</div>';
-                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">email :</h6> ' . $row['email'] . '</div>';
-                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
-                    $output .= '         <div class="ms-1 fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> name:</h6> ' . $row['name'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">email :</h6> ' . $row['email'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <div class="" >';
+                    $output .= '    <div class="mt-3">';
                     $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
                     $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
@@ -1515,7 +1516,11 @@ $limit = 12;
                     $output .= '  </div>';
                     $output .= '</div>';
                 }
-                $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '',
+               
+                $response_data = array(
+                    'data' => 'success',
+                    'outcome' => $output,
+                    'pagination' => isset($pagination) ? $pagination : '',
                     'pagination_needed' => ($total_records > $limit) ? true : false
                 );
                 if ($total_records > $limit) {
@@ -1537,6 +1542,7 @@ $limit = 12;
         }
     }
     
+
     function listprofile() {
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1714,7 +1720,7 @@ $limit = 12;
                     $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3  product_main_image">';
                     $output .= '      </a>';
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body px-2 pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5 class="title">' . $title . '</h5>';
                     $output .= '      </a>';
@@ -1812,7 +1818,7 @@ $limit = 12;
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                     $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="card-body px-2 pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
@@ -1901,7 +1907,7 @@ $limit = 12;
                     $output .= '<iframe width="100%" height="500px" src="' . $link . '" class="border-radius-xl" title="' . $title . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                     $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '<div class="card-body px-1 pb-0">';
+                    $output .= '<div class="card-body  pb-0">';
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
@@ -2292,7 +2298,7 @@ $limit = 12;
                     $output .= '      </a>';
                    
                     $output .= '    </div>';
-                    $output .= '    <div class="card-body px-1 pb-0">';
+                    $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
                     $output .= '        <h5>' . $title . '</h5>';
                     $output .= '      </a>';
@@ -2565,8 +2571,10 @@ $limit = 12;
                     }
                 }
                 $pro_img.='<div class="field">';
-                $pro_img.='<input type="file" id="files" name="p_image[]" multiple />';
                 $pro_img.='</div>';
+               
+                $pro_img.='<input type="file" id="files" class="get_img" name="p_image[]" multiple />';
+      
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             
