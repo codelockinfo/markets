@@ -1037,7 +1037,13 @@ border:1px solid #d2d6da;
 .get_img{
   border: 1px dotted black; 
 }
-
+.custom-table{
+  --bs-table-border-color: #d2d6da;
+  border-collapse: inherit;
+}
+.bg-gradient{
+  background-color: #21d4fd !important;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {
