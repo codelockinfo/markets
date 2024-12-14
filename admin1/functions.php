@@ -2061,7 +2061,7 @@ $limit = 12;
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
-                        $output .= '<div class="row mb-3 p-3 p-xl-0 align-items-center">';
+                        $output .= '<div class="row mb-3 p-3  align-items-center">';
                         $output .= '  <div class="col-11 accordion-item p-0">';
                         $output .= '    <input type="checkbox" id="' . $row["faq_id"] . '">';
                         $output .= '    <label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon "></span> ' . $row["question"] . '</label>';
@@ -2188,7 +2188,7 @@ $limit = 12;
                             while ($row = mysqli_fetch_array($result)) {
                                 $output.=' <div class="d-flex  align-items-center mb-3">';
                                 $output .= '<div class="card card-blog card-plain col-11">';
-                                $output .= '  <div class="d-flex justify-content-between align-items-center">';
+                                $output .= '  <div class="d-flex  align-items-center">';
                                 $output .= '    <div class="">';
                                 $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '    </div>';
@@ -2553,7 +2553,7 @@ $limit = 12;
     }
 
     function getproduct() {
-        // print_r($_POST);
+        
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $pro_img="";
         $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -2562,7 +2562,7 @@ $limit = 12;
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
+                echo $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
                 $product_img_result = $this->db->query($product_img_query);
                 $product_img_results = [];
                 if ($product_img_result->num_rows > 0) {
@@ -2570,9 +2570,8 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-                $pro_img.='<div class="field">';
-                $pro_img.='</div>';
-               
+                // $pro_img.='<div class="field">';
+                // $pro_img.='</div>';
                 $pro_img.='<input type="file" id="files" class="get_img" name="p_image[]" multiple />';
       
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
