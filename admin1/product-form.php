@@ -104,7 +104,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
-              <div class="imageAppend form-control d-flex flex-wrap gap-4 justify-content-center get_pro">
+              <div class="imageAppend form-control d-flex flex-wrap  get_pro">
                 <div class="pro-zone">
                   <span class="pro-zone__prompt">Drop file here or click to upload</span>  
 

@@ -405,7 +405,7 @@ function get_product(id) {
             type: "HEAD",
             success: function () {
               var imagePreview =
-                '<div class="drop-zone__thumb">' +
+                '<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">' +
                 '<div class="img-wrapper">' +
                 '<img src="' +
                 filePath +
@@ -462,7 +462,7 @@ function get_product(id) {
           $.each(response["product_img_result"], function (index, image) {
             var imageUrl = image.p_image;
             imagePreviews +=
-              '<div class="drop-zone__thumb">' +
+              '<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">' +
               '<div class="img-wrapper">' +
               '<img src="../admin1/assets/img/product_img/' +
               imageUrl +

@@ -2302,7 +2302,7 @@ $limit = 12;
                     $output .= '    </div>';
                     $output .= '    <div class="card-body pb-0">';
                     $output .= '      <a href="#">';
-                    $output .= '        <h5>' . $title . '</h5>';
+                    $output .= '        <h5 class="title">' . $title . '</h5>';
                     $output .= '      </a>';
                     $output .= '      <div class="d-flex justify-content-between mb-3">';
                     $output .= '         <div class="ms-1 d-inline fs-6">';
@@ -2572,9 +2572,12 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-                $pro_img.='<div class="field">';
+                $pro_img.='<div class="field row">';
+                $pro_img.='<div class="">';
                 $pro_img.='<input type="file" id="files" class="get_img" name="p_image[]" multiple />';
                 $pro_img.='</div>';
+                $pro_img.='</div>';
+
       
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
