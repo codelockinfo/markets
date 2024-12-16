@@ -1337,7 +1337,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '<div>';
-                    $output .= ' <a href=""><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                    $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
 
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
                     $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
@@ -1419,6 +1419,8 @@ $limit = 12;
                         $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
                         $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
                         $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
+                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
+
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '    <div class="mt-2">';
                         $output .= ' <a href=""><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
