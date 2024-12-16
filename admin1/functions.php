@@ -2573,9 +2573,7 @@ $limit = 12;
                     }
                 }
                 $pro_img.='<div class="field row">';
-                $pro_img.='<div class="">';
-                $pro_img.='<input type="file" id="files" class="get_img" name="p_image[]" multiple />';
-                $pro_img.='</div>';
+                $pro_img.='<input type="file" id="files" class=" col-6 col-lg-3 col-md-4" name="p_image[]" multiple />';
                 $pro_img.='</div>';
 
       

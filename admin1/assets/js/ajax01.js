@@ -437,7 +437,7 @@ function get_product(id) {
               fileReader.onload = function (e) {
                 var file = e.target;
                 $(
-                  '<div class="pip drop-zone__thumb">' +
+                  '<div class=" drop-zone__thumb col-6 col-lg-3 col-md-4">' +
                     '<div class="img-wrapper">' +
                     '<img class="imageThumb" src="' +
                     e.target.result +
