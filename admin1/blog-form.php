@@ -78,7 +78,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
       </div>
     </div>  
   </div>
-  <script src="<?php echo main_url('admin1/assets/js/common_2.js'); ?>"></script>
+  <script src="<?php echo main_url('admin1/assets/js/common_4.js'); ?>"></script>
 </body>
 </html>
 
