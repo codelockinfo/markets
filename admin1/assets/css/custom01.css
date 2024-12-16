@@ -172,6 +172,7 @@
   font-size: 20px;
   cursor: pointer;
   color: #cccccc;
+  text-align: center;
 }
 
 .drop-zone--over {
@@ -830,7 +831,7 @@ border:1px solid #d2d6da;
 .tooltiptext {
   visibility: hidden;
   width: auto;
-  background-color: #000;
+  background-color: #464545;
   color: #fff;
   text-align: center;
   border-radius: 5px;
@@ -842,6 +843,7 @@ border:1px solid #d2d6da;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
+  font-weight: normal;
 }
 
 .tooltiptext::after {
@@ -852,7 +854,7 @@ border:1px solid #d2d6da;
   transform: translateY(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: transparent #000 transparent transparent;
+  border-color: transparent #464545 transparent transparent;
 }
 
 .tooltip-icon:hover + .tooltiptext {
@@ -863,7 +865,7 @@ border:1px solid #d2d6da;
 .tooltiptext_img {
   visibility: hidden;
   width: auto;
-  background-color: #000;
+  background-color: #464545;
   color: #fff;
   text-align: center;
   border-radius: 5px;
@@ -875,6 +877,7 @@ border:1px solid #d2d6da;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
+  font-weight: normal;
 }
 
 .tooltiptext_img::after {
@@ -885,7 +888,7 @@ border:1px solid #d2d6da;
   transform: rotate(90deg);
   border-width: 9px;
   border-style: solid;
-  border-color: transparent #000 transparent transparent;
+  border-color: transparent #464545 transparent transparent;
 }
 
 .tooltip-icon:hover + .tooltiptext_img {
