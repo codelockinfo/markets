@@ -63,7 +63,7 @@
                 <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>topbar.php">Topbar</a>
                 <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>custmize_product.php">Products</a>
                 <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>user.php">Users</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>contactus.php">contact us</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>contactus.php">Contact Us</a>
 
 
 
