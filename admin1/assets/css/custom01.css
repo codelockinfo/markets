@@ -843,7 +843,7 @@ border:1px solid #d2d6da;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  font-weight: normal;
+  font-weight: 100 !important;
 }
 
 .tooltiptext::after {
@@ -877,7 +877,7 @@ border:1px solid #d2d6da;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  font-weight: normal;
+  font-weight: 100 !important;
 }
 
 .tooltiptext_img::after {

@@ -45,7 +45,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="y-videolink" class="font-weight-normal required">auto generate number</label>
             <div class="mb-3">
-              <input type="text" id="genrate" class="form-control g_id" name="auto_genrate">
+              <input type="text" id="genrate" class="form-control g_id" name="auto_genrate" disabled>
               <span class="errormsg auto_genrate"></span>
             </div>
             <div class="mb-3">

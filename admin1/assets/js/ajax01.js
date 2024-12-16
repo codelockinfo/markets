@@ -2182,14 +2182,34 @@ $(document).on("click", ".close-button_product", function (event) {
   }
   return false;
 });
-
 $(document).on("click", ".close-buttons_profile", function (event) {
   event.stopPropagation();
-
   var closemainclass = $(this).closest(".form-control");
   closemainclass.find(".drop-zone__thumb").remove();
   closemainclass.find(".drop-zone").css("display", "flex");
+
+  var invoiceId = $(".invoiceid").val();
+  console.log(invoiceId)
+  if (invoiceId) {
+    $.ajax({
+      url: "../admin1/ajax_call.php",
+      type: "post",
+      dataType: "json",
+      data: { routine_name: "clear_invoice_image", invoice_id: invoiceId },
+      success: function (response) {
+        console("sd");
+        var response = JSON.parse(response);
+        if (response["data"] == "success") {
+          console.log("image update ");
+        } else {
+          console.log("Failed to update the invoice. Please try again.");
+        }
+      },
+      
+    });
+  }
 });
+
 $(document).on("click", ".toggle-button", function () {
   var videoId = $(this).data("video-id");
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
