@@ -26,7 +26,7 @@ if ($_SESSION['current_user']['role'] == 1) {
         <div class=" col-md-6 main-sec">
           <div class="card  p-3 p-lg-5">
             <form role="form" id="topbarinsert" enctype="multipart/form-data" method="POST">
-              <label for="text" class="font-weight-normal required  "> Topbar input 1</label>
+              <label for="text" class="font-weight-normal required  "> Topbar Input 1</label>
               <div class="mb-3">
                 <input type="text" class="form-control valikey" placeholder="Topbar Input 1" name="topbar_input1">
                 <span class="errormsg topbar_input1"></span>
