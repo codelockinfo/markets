@@ -1,4 +1,7 @@
 <?php
+
+use Google\Service\Directory\Printer;
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
@@ -442,7 +445,8 @@ $limit = 12;
     function add_customer() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
+        // Print_r($_POST['id']);die()
+         $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
         $newFilename = "";
         $maxSize = 5 * 1024 * 1024;
         if ($_FILES["c_image"]["name"] != "" && $id != "" || isset($_FILES["c_image"]["name"]) && isset($_FILES["c_image"]["name"]) != '' && $id == "") {
@@ -483,7 +487,7 @@ $limit = 12;
         }
 
         $phone_number = isset($_POST['contact']) ? $_POST['contact'] : '';
-        $mobilepattern = "/^[789]\d{9}$/"; 
+        $mobilepattern = "/^[6789]\d{9}$/"; 
         if (empty($phone_number)) {
             $error_array['contact'] = "Please enter the phone number.";
         } elseif (strlen($phone_number) !== 10) {
@@ -535,8 +539,7 @@ $limit = 12;
                 $existing_image = $existing_image_row['c_image'];
                 $newImageAdded = $existing_image;
             }
-            $query = "UPDATE customer SET 
-                          name = '$name', email = '$email', contact = '$contact', 
+            $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
                           c_image = '$newImageAdded', city = '$city', state = '$state', address = '$address' 
                           WHERE customer_id = $id";
             $result = $this->db->query($query);
@@ -606,10 +609,11 @@ $limit = 12;
     }
 
     function invoice(){
+        // print_r($_POST);
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
-        $newFilename = "";
+        $newImageUploaded = $newFilename = "";
         $maxSize = 5 * 1024 * 1024;
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
@@ -635,13 +639,13 @@ $limit = 12;
             }
             if (!empty($filename)) {
                 if (!in_array($fileExtension, $allowedExtensions)) {
-                    $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-                }
-                if ($file['size'] > $maxSize) {
-                    $error_array['i_image'] = "File size must be 5MB or less.";
-                }
-                // $error_array['i_image'] = "Please upload your image.";
+                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
             }
+                if ($file['size'] > $maxSize) {
+                $error_array['i_image'] = "File size must be 5MB or less.";
+            }
+                // $error_array['i_image'] = "Please upload your image.";
+        }
         }
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
@@ -668,7 +672,7 @@ $limit = 12;
             $bill_no = $_POST['bill_no'];
             $ship_to = $_POST['ship_to'];
             $date = $_POST['date'];
-            $terms = $_POST['terms'];
+            $terms = isset($_POST['terms']) ? $_POST['terms'] : "";
             $invoice_id = $_POST['invoice_id'];
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
@@ -678,7 +682,8 @@ $limit = 12;
             $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
             $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
             if (!empty(array_filter($_POST['item']))) {
-                if ($id == '') {
+            // echo $id;
+            if ($id == '') { 
                     if (move_uploaded_file($tmpfile, $fullpath)) {
                             $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
                                       VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
@@ -690,20 +695,19 @@ $limit = 12;
                     if (!empty($filename)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $newImageUploaded = $newFilename;
-                        }
-                    } else {
+                }
+            } else { 
                         $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
                         $existing_image_result = $this->db->query($existing_image_query);
                         $existing_image_row = $existing_image_result->fetch_assoc();
                         $existing_image = $existing_image_row['i_image'];
                         $newImageUploaded = $existing_image;
-                        $newImageUploaded = '';
-                    }
+                }
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
                                 po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
-                }
-                $result = $this->db->query($query);
-                if ($result) {
+            }
+            $result = $this->db->query($query);
+            if ($result) {
                         $invoice_id = isset($_POST['invoice_id']) ? $_POST['invoice_id'] : null;
                         if (empty($invoice_id)) {
                             $invoice_id = $this->db->insert_id;
@@ -753,9 +757,9 @@ $limit = 12;
                         $res1 = $this->db->query($sql1);
                     }
                     if ($res1) {
-                        $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
+                $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                        
-                    } else {
+            } else {
                         $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                     }
                 } else {
@@ -768,6 +772,50 @@ $limit = 12;
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
         return json_encode($response_data);
+    }
+    
+    function clear_invoice_image(){
+        if ($_POST['routine_name'] === 'clear_invoice_image') {
+            $invoice_id = $_POST['invoice_id'];
+            $query = "UPDATE invoice SET i_image = '' WHERE invoice_id =  $invoice_id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data=['data'=> 'success' ,'msg'=> "image blank"];
+            } else {
+                $response_data = ['data'=> 'fail' ,'msg'=> "false"];
+            }
+        }
+        return json_encode($response_data);
+
+    }
+
+    function clear_customer_image(){
+        if ($_POST['routine_name'] === 'clear_customer_image') {
+            $customer_id = $_POST['customer_id'];
+            $query = "UPDATE customer SET c_image = '' WHERE customer_id =  $customer_id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data=['data'=> 'success' ,'msg'=> "image blank"];
+            } else {
+                $response_data = ['data'=> 'fail' ,'msg'=> "false"];
+            }
+        }
+        return json_encode($response_data);
+
+    }
+    function clear_blog_image(){
+        if ($_POST['routine_name'] === 'clear_blog_image') {
+            $blog_id = $_POST['blog_id'];
+            $query = "UPDATE blogs SET image = '' WHERE blog_id =  $blog_id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data=['data'=> 'success' ,'msg'=> "image blank"];
+            } else {
+                $response_data = ['data'=> 'fail' ,'msg'=> "false"];
+            }
+        }
+        return json_encode($response_data);
+
     }
 
     function isValidYouTubeURL($url){

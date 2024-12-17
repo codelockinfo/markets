@@ -24,12 +24,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="col-lg-4 plan-card">
             <div class="card">
               <div class="card-body">
-                <ul class="fa-ul">
+                <ul class="list-unstyled">
                   <li class="card-title text-uppercase">Starter</li>
-                  <li class="card-price text-center">Free</li>
+                  <li class="card-price">Free</li>
                 </ul>
                 <hr>
-                <ul class="fa-ul">
+                <ul class="list-unstyled">
                   <li><span class="fa-li"></span>Business Registration</li>
                   <li><span class="fa-li"></span>Basic Listing</li>
                   <li><span class="fa-li"></span>Access to Community Forums</li>
@@ -45,12 +45,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="col-lg-4  plan-card">
             <div class="card mb-5 mb-lg-0">
               <div class="card-body">
-                <ul class="fa-ul">
+                <ul class="list-unstyled">
                   <li class="card-title text-uppercase">Pro</li>
-                  <li class="card-price text-center">199<span class="period">Rs / month</span></li>
+                  <li class="card-price ">199<span class="period">Rs / month</span></li>
                 </ul>
                 <hr>
-                <ul class="fa-ul">
+                <ul class="list-unstyled">
                   <li><span class="fa-li"></span><strong>Enhanced Listing</strong></li>
                   <li><span class="fa-li"></span>Increased Product Listings</li>
                   <li><span class="fa-li"></span>Priority Placement</li>
@@ -70,12 +70,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="col-lg-4  plan-card">
             <div class="card">
               <div class="card-body">
-                <ul class="fa-ul">
+                <ul class="list-unstyled">
                   <li class="card-title text-uppercase">Business</li>
-                  <li class="card-price text-center">499<span class="period">Rs / month</span></li>
+                  <li class="card-price ">499<span class="period">Rs / month</span></li>
                 </ul>
                 <hr>
-                <ul class="fa-ul">
+                <ul class="list-unstyled">
                   <li><span class="fa-li"></span><strong>Premium Listing</strong></li>
                   <li><span class="fa-li"></span>Unlimited Product Listings</li>
                   <li><span class="fa-li"></span>Advanced Analytics</li>
