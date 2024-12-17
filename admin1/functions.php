@@ -1565,7 +1565,7 @@ $limit = 12;
                     '<div class="form-control">
                     <div class="drop-zone" style="display: none;">
                         <span class="pro-zone__prompt" id="dragfile" >Drop File Here Or Click To Upload</span>
-                        <input type="file" name="shop_logo" class="drop-zone__input">
+                        <input type="file" name="shop_logo" class="profile-drop-zone__input">
                     </div>
                     <div class="drop-zone__thumb">
                         <div class="img-wrapper">
@@ -1631,7 +1631,7 @@ $limit = 12;
                                             <label for="p-image" class="font-weight-normal">Upload Profile Image</label>
                                             <div class="drop-zone form-control">
                                                 <span class="pro-zone__prompt" id="dragfile">Drop File Here Or Click To Upload</span>
-                                                <input type="file" name="shop_logo" class="drop-zone__input">
+                                                <input type="file" name="shop_logo" class="profile-drop-zone__input">
                                             </div>
                                             <div class="errormsg shop_logo imageError"></div>
                                         </div>
