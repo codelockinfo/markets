@@ -1569,6 +1569,7 @@ $(document).ready(function () {
             $(".myFile").html("");
           }
           showMessage(response.msg, "success");
+          $("td").removeClass("error");
           window.location.href = "invoice-list.php";
         } else {
           showMessage(response.msg_error, "fail");
