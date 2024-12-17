@@ -95,6 +95,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   var id = "<?php echo $id; ?>";
   if (id !== "") {
   get_customer(id);
-  clear_customer_image(id);
+
   }
 </script>

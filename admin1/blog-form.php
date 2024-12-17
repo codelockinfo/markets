@@ -87,7 +87,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
     get_Categories();
     if (id !== "") {
     get_blog(id);
-    clear_blog_image(id);
+   
 
     }
 </script>
