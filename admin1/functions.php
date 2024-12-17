@@ -487,7 +487,7 @@ $limit = 12;
         }
 
         $phone_number = isset($_POST['contact']) ? $_POST['contact'] : '';
-        $mobilepattern = "/^[789]\d{9}$/"; 
+        $mobilepattern = "/^[6789]\d{9}$/"; 
         if (empty($phone_number)) {
             $error_array['contact'] = "Please enter the phone number.";
         } elseif (strlen($phone_number) !== 10) {
@@ -539,8 +539,7 @@ $limit = 12;
                 $existing_image = $existing_image_row['c_image'];
                 $newImageAdded = $existing_image;
             }
-            $query = "UPDATE customer SET 
-                          name = '$name', email = '$email', contact = '$contact', 
+            $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
                           c_image = '$newImageAdded', city = '$city', state = '$state', address = '$address' 
                           WHERE customer_id = $id";
             $result = $this->db->query($query);
@@ -779,6 +778,35 @@ $limit = 12;
         if ($_POST['routine_name'] === 'clear_invoice_image') {
             $invoice_id = $_POST['invoice_id'];
             $query = "UPDATE invoice SET i_image = '' WHERE invoice_id =  $invoice_id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data=['data'=> 'success' ,'msg'=> "image blank"];
+            } else {
+                $response_data = ['data'=> 'fail' ,'msg'=> "false"];
+            }
+        }
+        return json_encode($response_data);
+
+    }
+
+    function clear_customer_image(){
+        if ($_POST['routine_name'] === 'clear_customer_image') {
+            $customer_id = $_POST['customer_id'];
+            $query = "UPDATE customer SET c_image = '' WHERE customer_id =  $customer_id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data=['data'=> 'success' ,'msg'=> "image blank"];
+            } else {
+                $response_data = ['data'=> 'fail' ,'msg'=> "false"];
+            }
+        }
+        return json_encode($response_data);
+
+    }
+    function clear_blog_image(){
+        if ($_POST['routine_name'] === 'clear_blog_image') {
+            $blog_id = $_POST['blog_id'];
+            $query = "UPDATE blogs SET image = '' WHERE blog_id =  $blog_id";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data=['data'=> 'success' ,'msg'=> "image blank"];

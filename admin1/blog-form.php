@@ -23,7 +23,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-3">
           <form role="form" id="bloginsert" enctype="multipart/form-data" method="post"  data-form-type="blog">
-          <input type="hidden" name="id" value="<?php echo $id;?>"/>
+          <input type="hidden" name="id" class="blogid" value="<?php echo $id;?>"/>
             <label for="title" class="font-weight-normal required">Blog Title</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext" placeholder="Blog Title" name="blog_title">
@@ -87,5 +87,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
     get_Categories();
     if (id !== "") {
     get_blog(id);
+    clear_blog_image(id);
+
     }
 </script>
