@@ -26,7 +26,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       <div class="col-xl-6  col-md-9 mx-auto">
         <div class="card z-index-0 p-3 product-main">
           <form role="form" id="custemer_frm" enctype="multipart/form-data" method="POST" data-form-type="customer">
-            <input type="hidden" name="id" value="<?php echo $id; ?>" />
+            <input type="hidden" name="id" class="customerid" value="<?php echo $id; ?>" />
+
+
             <label for="title" class="font-weight-normal required">Customer Name</label>
             <div class="mb-3">
               <input type="text" class="form-control validtext product w-100" placeholder="Enter Your Name" name="name">
@@ -93,5 +95,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   var id = "<?php echo $id; ?>";
   if (id !== "") {
   get_customer(id);
+  clear_customer_image(id);
   }
 </script>
