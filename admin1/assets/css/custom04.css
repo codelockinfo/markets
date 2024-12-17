@@ -179,7 +179,8 @@
   border-style: solid;
 }
 
-.drop-zone__input {
+.drop-zone__input,
+.profile-drop-zone__input {
   display: none;
 }
 
