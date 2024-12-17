@@ -163,7 +163,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         <div class="card mb-4">
                             <div class="d-md-flex d-block justify-content-between align-items-center p-3">
                                 <div class="col-auto ">
-                                    <h6 class="mb-1">
+                                    <h6 class="mb-1 mt-1 text-lg d-none d-sm-block">
                                         Your Products
                                     </h6>
                                 </div>

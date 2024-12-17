@@ -22,7 +22,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3 align-items-center">
           <div>
-            <h6 class="mb-1 mt-1 text-lg">Videos</h6>
+            <h6 class="mb-1 mt-1 text-lg d-none d-sm-block">Videos</h6>
           </div>
           <div class="ms-md-auto d-flex align-items-center me-2">
             <div class="input-group search-btn search-icon dropdownhide">

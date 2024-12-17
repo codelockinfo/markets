@@ -175,6 +175,7 @@ $(document).ready(function () {
     const row = $(".attr").first().clone(true, true);
     row.find("input").val("");
     row.find(".remove").show();
+    row.find('.invoice-rowclose').removeAttr('data-id').removeClass('delete');
     $("#attributes-body").append(row);
     updateRowClasses();
     updateRemoveButtonVisibility();
