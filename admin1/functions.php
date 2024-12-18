@@ -329,7 +329,48 @@ $limit = 12;
         if (isset($_POST['p_description']) && $_POST['p_description'] == '') {
             $error_array['p_description'] = "Please enter the description.";
         }
-        $is_image_update  = false;
+        $newmainFilename = "";
+        $is_image_update  = $is_mian_image_update = false;
+        $maxSize = 5 * 1024 * 1024;
+        if (isset($_FILES["productmain_image"]["name"]) && !empty($_FILES["productmain_image"]["name"])) {
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
+            $filename = isset($_FILES["productmain_image"]["name"]) ? $_FILES["productmain_image"]["name"] : '';
+            $tmpfile = isset($_FILES["productmain_image"]["tmp_name"]) ? $_FILES["productmain_image"]["tmp_name"] : '';
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newmainFilename = time() . '.' . $extension;
+            $fileNameCmps = explode(".", $filename);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $folder = "assets/img/product_img/";
+            $fullpath = $folder . $newmainFilename;
+            $file = $_FILES['productmain_image'];
+            if (!is_dir($folder)) {
+                $mkdir = mkdir($folder, 0777, true);
+                if (!$mkdir) {
+                    $response_data = ['data' => 'fail', 'msg' => 'Failed to create directory for image upload.'];
+                    return json_encode($response_data);
+                }
+            }
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $error_array['productmain_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            }
+            if ($file['size'] > $maxSize) {
+                $error_array['productmain_image'] = "File size must be 5MB or less.";
+            }
+            if (empty($filename)) {
+                $error_array['productmain_image'] = "Please upload your image.";
+            }
+            if (empty($error_array)) {
+                if (move_uploaded_file($tmpfile, $fullpath)) {
+                    $newmainFilename = $newmainFilename;
+                    $is_mian_image_update  = true;
+                } else {
+                    $error_array['productmain_image'] = "Error moving uploaded file $filename.";
+                }
+            }
+        }else if (empty($product_id)){
+           $error_array['productmain_image'] = "Please select image";
+        }
+      
         if (isset($_FILES["p_image"]["name"][0]) && !empty($_FILES["p_image"]["name"][0])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;
@@ -401,7 +442,7 @@ $limit = 12;
                 $uploadedFilenames;
 
                 $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$newFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$newmainFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                 $result = $this->db->query($query);
                 $last_id = $this->db->insert_id;
 
@@ -415,7 +456,7 @@ $limit = 12;
                     $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");
                 }
             } else {
-                $newimageadded = ($is_image_update) ? ", p_image='$newFilename'" : "";
+                $newimageadded = ($is_mian_image_update) ? ", p_image='$newmainFilename'" : "";
                 $query = "UPDATE products SET title ='$product_name', category ='$select_catagory', qty ='$qty', sku ='$sku', 
                           minprice ='$min_price', maxprice ='$max_price', product_img_alt ='$product_image_alt', p_tag = '$p_tag', 
                           p_description = '$p_description' $newimageadded WHERE product_id = $product_id";
@@ -516,14 +557,14 @@ $limit = 12;
         $user_id = $_SESSION['current_user']['user_id'];
         if ($id == '') {
             $c_image = move_uploaded_file($tmpfile, $fullpath) ? $newFilename :'';
-            $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
+                $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
                           VALUES ('$name', '$email', '$contact', '$c_image', '$city', '$state', '$address', '$user_id')";
-            $result = $this->db->query($query);
-            if ($result) {
+                $result = $this->db->query($query);
+                if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'customer inserted successfully!');
-            } else {
+                } else {
                 $response_data = array('data' => 'fail', 'msg' => "Error");
-            }
+                }
                
         } else {
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
@@ -539,12 +580,12 @@ $limit = 12;
                           c_image = '$newImageAdded', city = '$city', state = '$state', address = '$address' 
                           WHERE customer_id = $id";
             $result = $this->db->query($query);
-        
+
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Customer updated successfully!', 'updated_customer_id' => $id);
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
-            }  
+            }
         }
         return json_encode($response_data);
     }
@@ -687,7 +728,7 @@ $limit = 12;
                         $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
                                       VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                     }
-            } else {
+                } else {
                     if (!empty($filename)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $newImageUploaded = $newFilename;
@@ -2624,7 +2665,7 @@ $limit = 12;
                     $pro_img.=' <span class="choose-text">Choose Files</span>';
                     $pro_img.=' </label>';
                     $pro_img.=' </div>';
-                
+      
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             

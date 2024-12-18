@@ -102,12 +102,30 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <span class="errormsg max_price"></span>
               </div>
             </div>
+            <label class="font-weight-normal">Product Main Image</label>
+            <div class="mb-3">
+              <div class="productMainImageAppend form-control">
+                <div class="drop-zone">
+                  <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
+                  <input type="file" name="productmain_image" id="removeImage" class="drop-zone__input validsimg">
+                </div>
+              </div>
+              <div>
+                <div class="row mt-2">
+                  <label class="font-weight-normal"><strong>Allowed File Types:</strong> PNG,JPG,JPEG,GIF</label>
+                </div>
+                <div class="row mt-lg-n1">
+                  <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
+                </div>
+              </div>
+              <div class="errormsg myFile productmain_image" ></div>
+            </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
               <div class="imageAppend form-control d-flex flex-wrap  justify-content-center  get_pro">
                 <div class="pro-zone">
                   <span class="pro-zone__prompt ">Drop file here or click to upload</span>  
-
+                  
                   <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input validtext">
                 </div>
               </div>

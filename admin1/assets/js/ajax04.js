@@ -525,14 +525,14 @@ function get_product(id) {
             )
           : "";
 
-        var p_image =
+        var productmain_image =
           response["outcome"]["p_image"] !== undefined &&
           response["outcome"]["p_image"].trim() !== ""
             ? response["outcome"]["p_image"]
             : "";
-
-        if (p_image !== "") {
-          var filePath = "../admin1/assets/img/product_img/" + p_image;
+            console.log(productmain_image);
+        if (productmain_image !== "") {
+          var filePath = "../admin1/assets/img/product_img/" + productmain_image;
           $.ajax({
             url: filePath,
             type: "HEAD",
@@ -543,18 +543,19 @@ function get_product(id) {
                 '<img src="' +
                 filePath +
                 '" class="picture__img"/>' +
-                '<button class="close-button_product">x</button>' +
+                '<button class="close-buttons_profile">x</button>' +
                 "</div>" +
                 "</div>";
-              $("#files").before(imagePreview);
-              $(".pro-zone").hide();
+                console.log(imagePreview);
+              $(".productMainImageAppend").append(imagePreview);
+              $(".productMainImageAppend .drop-zone").hide();
             },
             error: function () {
-              $(".pro-zone").hide();
+              $(".productMainImageAppend .drop-zone").hide();
             },
           });
         } else {
-          $(".pro-zone").show();
+          $(".productMainImageAppend .drop-zone").show();
         }
         if (response.pro_img) {
           $(".get_pro").html(response.pro_img);
@@ -569,6 +570,7 @@ function get_product(id) {
               var fileReader = new FileReader();
               fileReader.onload = function (e) {
                 var file = e.target;
+                console.log(file);
                 $(
                   '<div class=" drop-zone__thumb ">' +
                     '<div class="img-wrapper">' +
@@ -577,7 +579,7 @@ function get_product(id) {
                     '" title="' +
                     file.name +
                     '"/>' +
-                    '<button class="close-button_product">x</button>' +
+                    '<button class="close-button_product" data-name="'+ file.name +'">x</button>' +
                     "</div>" +
                     "</div>"
                 ).insertBefore("#files");
@@ -1389,6 +1391,11 @@ $(document).ready(function () {
         response["msg"]["max_price"] !== undefined
           ? $(".max_price").html(response["msg"]["max_price"])
           : $(".max_price").html("");
+        if (response.msg && response.msg.productmain_image) {
+          $(".productmain_image").html(response.msg.productmain_image);
+        } else {
+          $(".productmain_image").html("");
+        }
         if (response.msg && response.msg.p_image) {
           $(".p_image").html(response.msg.p_image);
         } else {
