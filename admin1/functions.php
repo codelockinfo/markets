@@ -3012,7 +3012,7 @@ function usercheck_toggle_btn() {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userquery = "WHERE user_id = $user_id";
             } 
-            $sql = "SELECT * FROM users $userquery AND toggle='1'";
+            $sql = "SELECT * FROM users $userquery AND toggle='0' and role='1'";
                 $result = $this->db->query($sql); 
                 if ($result ) {
                     if (mysqli_num_rows($result) > 0) {
