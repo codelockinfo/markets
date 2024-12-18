@@ -310,9 +310,12 @@ $(".decrement-btn").click(function (e) {
 });
 // loder
 $(window).on("load", function () {
-  $("#preloader").fadeOut();
-  $("#status").fadeOut(1000);
+  setTimeout(function () {
+    $("#preloader").fadeOut();
+    $("#status").fadeOut(1000);
+  },5000); 
 });
+
 // multiple
 document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".pro-zone");

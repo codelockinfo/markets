@@ -1052,10 +1052,8 @@ border:1px solid #d2d6da;
     display: inline-block;
     padding: 30px 25px;
     font-size: 14px;
-    font-weight: bolder;
-    color: #344767;
-    /* background-color: #7798fc; */
-    border: 1px solid #7c8aa0;
+    color:#495057 !important;
+    border: 1px solid #d2d6da !important;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
