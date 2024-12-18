@@ -2621,11 +2621,14 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-                $pro_img.='<div class="field row">';
-                $pro_img.='<input type="file" id="files" class=" col-6 col-lg-3 col-md-4" name="p_image[]" multiple />';
-                $pro_img.='</div>';
-
-      
+                    
+                    $pro_img.=' <div class="d-flex flex-wrap align-items-center">';
+                    $pro_img.=' <input type="file" id="files" class="file-input" name="p_image[]" multiple style="display: none;" />';
+                    $pro_img.='<label for="files" class="file-label ">';
+                    $pro_img.=' <span class="choose-text">Choose Files</span>';
+                    $pro_img.=' </label>';
+                    $pro_img.=' </div>';
+                
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             

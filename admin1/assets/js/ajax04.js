@@ -538,7 +538,7 @@ function get_product(id) {
             type: "HEAD",
             success: function () {
               var imagePreview =
-                '<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">' +
+                '<div class="drop-zone__thumb ">' +
                 '<div class="img-wrapper">' +
                 '<img src="' +
                 filePath +
@@ -570,7 +570,7 @@ function get_product(id) {
               fileReader.onload = function (e) {
                 var file = e.target;
                 $(
-                  '<div class=" drop-zone__thumb col-6 col-lg-3 col-md-4">' +
+                  '<div class=" drop-zone__thumb ">' +
                     '<div class="img-wrapper">' +
                     '<img class="imageThumb" src="' +
                     e.target.result +
