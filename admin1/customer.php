@@ -46,7 +46,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <span class="errormsg contact"></span>
               </div>
             </div>
-            <label for="p-image" class="font-weight-normal required">Customer Image</label>
+            <label for="p-image" class="font-weight-normal">Customer Image</label>
             <div class="mb-3">
               <div class="imageAppend form-control">
                 <div class="drop-zone">

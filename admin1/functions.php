@@ -445,7 +445,6 @@ $limit = 12;
     function add_customer() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
-        // Print_r($_POST['id']);die()
          $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
         $newFilename = "";
         $maxSize = 5 * 1024 * 1024;
@@ -467,15 +466,15 @@ $limit = 12;
                     return json_encode($response_data);
                 }
             }
-            if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }
-            if ($file['size'] > $maxSize) {
-                $error_array['c_image'] = "File size must be 5MB or less.";
-            }
-            if (empty($filename)) {
-                $error_array['c_image'] = "Please upload your image.";
-            }
+            // if (!in_array($fileExtension, $allowedExtensions)) {
+            //     $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+            // }
+            // if ($file['size'] > $maxSize) {
+            //     $error_array['c_image'] = "File size must be 5MB or less.";
+            // }
+            // if (empty($filename)) {
+            //     $error_array['c_image'] = "Please upload your image.";
+            // }
         }
         if (empty($_POST['name'])) {
             $error_array['name'] = "Please enter customer name.";
@@ -514,21 +513,18 @@ $limit = 12;
         $address = $_POST['address'];
         $city = $_POST['city'];
         $state = $_POST['state'];
+        $user_id = $_SESSION['current_user']['user_id'];
         if ($id == '') {
-            if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
-                          VALUES ('$name', '$email', '$contact', '$newFilename', '$city', '$state', '$address', '$user_id')";
-                $result = $this->db->query($query);
-
-                if ($result) {
-                    $response_data = array('data' => 'success', 'msg' => 'Customer inserted successfully!');
-                } else {
-                    $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
-                }
+            $c_image = move_uploaded_file($tmpfile, $fullpath) ? $newFilename :'';
+            $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
+                          VALUES ('$name', '$email', '$contact', '$c_image', '$city', '$state', '$address', '$user_id')";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'msg' => 'customer inserted successfully!');
             } else {
-                $response_data = array('data' => 'fail', 'msg' => "Error moving uploaded file.");
+                $response_data = array('data' => 'fail', 'msg' => "Error");
             }
+               
         } else {
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
                 $newImageAdded = $newFilename;
@@ -543,12 +539,12 @@ $limit = 12;
                           c_image = '$newImageAdded', city = '$city', state = '$state', address = '$address' 
                           WHERE customer_id = $id";
             $result = $this->db->query($query);
-
+        
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => 'Customer updated successfully!', 'updated_customer_id' => $id);
             } else {
                 $response_data = array('data' => 'fail', 'msg' => "Database error: " . mysqli_error($this->db));
-            }
+            }  
         }
         return json_encode($response_data);
     }
@@ -691,7 +687,7 @@ $limit = 12;
                         $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
                                       VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
                     }
-                } else {
+            } else {
                     if (!empty($filename)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $newImageUploaded = $newFilename;
@@ -1512,7 +1508,7 @@ $limit = 12;
 
     function customerlisting() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        global $NO_IMAGE;
+       
         global $limit;
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
@@ -1534,7 +1530,7 @@ $limit = 12;
                 while ($row = $result->fetch_assoc()) {
                     $image = $row["c_image"];
                     $imagePath = "../admin1/assets/img/customer/" . $image;
-                    $noimagePath = $NO_IMAGE;
+                    $noimagePath = "../admin1/assets/img/customer/person-man.webp";
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
