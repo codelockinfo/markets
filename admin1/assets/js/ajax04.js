@@ -2676,12 +2676,12 @@ $(document).on("click", ".modal .btn-close", function () {
   $(".drop-zone .pro-zone__prompt").css("display","block");
 });
 
-function get_invoicepre(id) {
+function get_invoicepdf(id) {
   $.ajax({
     url: "../admin1/ajax_call.php",
     type: "post",
     dataType: "json",
-    data: { routine_name: "getinvoicepre", id: id },
+    data: { routine_name: "getinvoicepdf", id: id },
     success: function (response) {
       var response = JSON.parse(response);
       console.log("sddd")

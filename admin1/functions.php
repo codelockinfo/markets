@@ -3097,7 +3097,7 @@ function usercheck_toggle_btn() {
         return $response;
     }
 
-    function getinvoicepre() {
+    function getinvoicepdf() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {

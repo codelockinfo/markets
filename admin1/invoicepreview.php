@@ -139,7 +139,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
 <script>
    var id = "<?php echo $id; ?>";
-   get_invoicepre(id);
+   get_invoicepdf(id);
   $(document).ready(function() {
     $('#downloadPdf').on('click', function() {
       const {
@@ -147,32 +147,12 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
       } = window.jspdf;
       const pdf = new jsPDF();
       html2canvas(document.querySelector('#content')).then((canvas) => {
-        const imgData = canvas.toDataURL('image/png'); // Convert canvas to image data
-        const pdfWidth = pdf.internal.pageSize.getWidth(); // Get page width
-        const pdfHeight = (canvas.height * pdfWidth) / canvas.width; // Scale height proportionally
-
-        // Add the image to the PDF
+        const imgData = canvas.toDataURL('image/png'); 
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-        // Save the generated PDF
         pdf.save('html-to-pdf.pdf');
       });
     });
   });
 </script>
-<!-- <script>
-  var doc = new jsPDF(); 
-var specialElementHandlers = { 
-    '#editor': function (element, renderer) { 
-        return true; 
-    } 
-};
-$('#downloadPdf').click(function () { 
-    doc.fromHTML($('#content').html(), 15, 15, { 
-        'width': 190, 
-            'elementHandlers': specialElementHandlers 
-    }); 
-    doc.save('sample-page.pdf'); 
-});
-   
-    </script> -->
