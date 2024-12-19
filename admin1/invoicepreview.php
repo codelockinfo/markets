@@ -81,7 +81,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                     <th class="w-17 bg-gradient-info text-light ps-3 text-bold">Amount</th>
                   </tr>
                 </thead>
-                <tbody class="get_invoiceitem">   
+                <tbody class="">   
                   <tr>
                     <td class="text-normal">Footwear</td>
                     <td class="text-center">02</td>
