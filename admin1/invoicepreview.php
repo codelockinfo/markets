@@ -12,7 +12,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
           <div class="col w-100">
             <div class="row mb-3">
-              <div class="col">
+              <div class="">
                 <img src="<?php echo main_url('admin1/assets/img/market.png'); ?>" alt="market" class="max-width-100 mt-n4">
               </div>
               <div class="col">
@@ -40,47 +40,47 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
           </div>
           <div class="col w-100">
             <div class="row">
-              <div class="col">
+              <div class="">
                 <span class="text-normal"><strong>Date :</strong></span>
                 <span class="text-normal" id="date"></span>
               </div>
             </div>
             <div class="row mt-2">
-              <div class="col">
+              <div class="">
                 <span class="text-normal"><strong>Payment Terms :</strong></span>
                 <span class="text-normal" id="terms"></span>
               </div>
             </div>
             <div class="row mt-2">
-              <div class="col">
+              <div class="">
                 <span class="text-normal"><strong>Due Date :</strong></span>
                 <span class="text-normal" id="due_date"></span>
               </div>
             </div>
             <div class="row mt-2">
-              <div class="col">
+              <div class="">
                 <span class="text-normal"><strong>PO Number :</strong></span>
                 <span class="text-normal" id="po_number"></span>
               </div>
             </div>
           </div>
-          <div class="col w-100">
-            <div class="row">
-              <table class="table mt-4">
-                <thead>
-                  <tr>
+          <div class="table-scroll1"><div class="row">
+                <table class="mt-4 custom-table">
+                  <thead>
+                    <tr>
                     <th class="w-50 bg-gradient-info text-light ps-3 text-bold">Item</th>
                     <th class="w-16 bg-gradient-info text-light ps-3 text-bold">Quantity</th>
                     <th class="w-17 bg-gradient-info text-light ps-3 text-bold">Rate</th>
                     <th class="w-17 bg-gradient-info text-light ps-3 text-bold">Amount</th>
-                  </tr>
-                </thead>
-                <tbody class="get_invoiceitems">
-                  <tr>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                    </tr>
+                  </thead>
+                  <tbody class="get_invoiceitems">
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            
           </div>
           <div class="col mt-2 w-100 mt-5">
             <div class="row mb-3 text-end">

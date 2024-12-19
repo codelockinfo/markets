@@ -3116,9 +3116,9 @@ function usercheck_toggle_btn() {
                     $item_data .=  '<tr class="attr">';
                     $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="' . $invoice_items['invoice_item_id'] . '">';
                     $item_data .=  '<td >' . $inv_item . '</td>';
-                    $item_data .=  '<td>' . $inv_quantity . '</td>';
-                    $item_data .=  '<td >' . $inv_rate . '</td>';
-                    $item_data .=  '<td >' . $inv_amount . '</td>';
+                    $item_data .=  '<td class="text-center">' . $inv_quantity . '</td>';
+                    $item_data .=  '<td class="text-center">' . $inv_rate . '</td>';
+                    $item_data .=  '<td class="text-center">' . $inv_amount . '</td>';
 
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
