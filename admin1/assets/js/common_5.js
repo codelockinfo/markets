@@ -313,7 +313,7 @@ $(window).on("load", function () {
   setTimeout(function () {
     $("#preloader").fadeOut();
     $("#status").fadeOut(1000);
-  },5000); 
+  },3000); 
 });
 
 // multiple

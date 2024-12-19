@@ -2675,3 +2675,33 @@ $(document).on("click", ".modal .btn-close", function () {
   $(this).closest(".modal").find(".drop-zone .drop-zone__thumb").empty();
   $(".drop-zone .pro-zone__prompt").css("display","block");
 });
+
+function get_invoicepre(id) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "getinvoice", id: id },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log("sddd")
+      console.log(response.outcome.bill_no);
+      $("address[id='bill_no']").html(response.outcome.bill_no);
+      $("address[id='ship_to']").html(response.outcome.ship_to);
+      $("span[id='date']").html(response.outcome.date);
+      $("span[id='terms']").html(response.outcome.terms);
+      $("span[id='due_date']").html(response.outcome.due_date);
+      $("span[id='po_number']").html(response.outcome.po_number);
+      $("span[id='due_date']").html(response.outcome.due_date);
+      $("span[id='total']").html(response.outcome.total);
+      $("span[id='amount_paid']").html(response.outcome.amount_paid);
+      $("span[id='balance_due']").html(response.outcome.balance_due);
+      $("span[id='notes']").html(response.outcome.notes);
+      $("span[id='terms_condition']").html(response.outcome.terms_condition);
+     
+      if (response.item_data) {
+        $(".get_invoiceitem").html(response.item_data);
+      }
+    },
+  });
+}
