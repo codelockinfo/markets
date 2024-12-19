@@ -1,10 +1,9 @@
 <?php
 include 'header.php';
+include_once '../connection.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 ?>
-
 <body class="g-sidenav-show bg-gray-100">
-
 <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <div class="container py-2">
       <div class="mx-auto" id="content" style="background-color: white ;">
@@ -16,15 +15,12 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
               <div class="col">
                 <img src="<?php echo main_url('admin1/assets/img/market.png'); ?>" alt="market" class="max-width-100 mt-n4">
               </div>
-
-              <!-- work -->
               <div class="col">
                 <h1 class="text-normal fs-2 text-end">INVOICE</h1>
                 <p class="text-normal text-end"># 101</p>
               </div>
             </div>
           </div>
-          <!-- work -->
           <div class="col w-100">
             <div class="row mb-3">
               <div class="col w-50 mb-3">
@@ -42,7 +38,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
               </div>
             </div>
           </div>
-          <!-- work -->
           <div class="col w-100">
             <div class="row">
               <div class="col">
@@ -69,7 +64,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
               </div>
             </div>
           </div>
-          <!-- Table -->
           <div class="col w-100">
             <div class="row">
               <table class="table mt-4">
@@ -81,30 +75,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                     <th class="w-17 bg-gradient-info text-light ps-3 text-bold">Amount</th>
                   </tr>
                 </thead>
-                <tbody class="">   
+                <tbody class="get_invoiceitems">
                   <tr>
-                    <td class="text-normal">Footwear</td>
-                    <td class="text-center">02</td>
-                    <td class="text-center">₹ 1150.00</td>
-                    <td class="text-center">₹ 2300.00</td>
-                  </tr>
-                  <tr>
-                    <td class="text-normal">Dress</td>
-                    <td class="text-center">03</td>
-                    <td class="text-center">₹ 650.00</td>
-                    <td class="text-center">₹ 1950.00</td>
-                  </tr>
-                  <tr>
-                    <td class="text-normal">Tops</td>
-                    <td class="text-center">02</td>
-                    <td class="text-center">₹ 750.00</td>
-                    <td class="text-center">₹ 1500.00</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          
           <div class="col mt-2 w-100 mt-5">
             <div class="row mb-3 text-end">
               <div class="col">
@@ -118,15 +95,12 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 <span class="text-normal" id="total"></span>
               </div>
             </div>
-
             <div class="row mt-2 mb-3" style="text-align: end;">
               <div class="col">
                  <span style="font-weight: bold;">Amount Paid :</span>
                   <span id="amount_paid"></span>
                </div>
             </div>
-
-
             <div class="row mt-2 mb-3 text-end">
               <div class="col">
                 <span class="text-normal"><strong>Balance Due :</strong></span>
@@ -134,8 +108,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
               </div>
             </div>
           </div>
-
-
           <div class="col w-100 mt-5">
             <div class="row">
               <span class="text-normal ps-4 fs-5"><strong>Notes :</strong></span>

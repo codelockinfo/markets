@@ -1509,7 +1509,7 @@ $limit = 12;
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '    <div class="mt-2">';
                         $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'" target="_blank"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
+                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
                         $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                         $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
@@ -3096,6 +3096,38 @@ function usercheck_toggle_btn() {
         $response = json_encode($response_data);
         return $response;
     }
+
+    function getinvoicepre() {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        if (!empty($id)) {
+            $query = "SELECT  * from  invoice WHERE invoice_id = $id";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
+                $item_result = $this->db->query($item_query);
+                $item_data = "";
+                while ($invoice_items = $item_result->fetch_assoc()) {
+                    $inv_item = $invoice_items['item'];
+                    $inv_quantity = $invoice_items['quantity'];
+                    $inv_rate = $invoice_items['rate'];
+                    $inv_amount = $invoice_items['amount'];
+                    $item_data .=  '<tr class="attr">';
+                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="' . $invoice_items['invoice_item_id'] . '">';
+                    $item_data .=  '<td >' . $inv_item . '</td>';
+                    $item_data .=  '<td>' . $inv_quantity . '</td>';
+                    $item_data .=  '<td >' . $inv_rate . '</td>';
+                    $item_data .=  '<td >' . $inv_amount . '</td>';
+
+                }
+                $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
 
 
 }

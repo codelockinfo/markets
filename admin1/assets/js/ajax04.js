@@ -2681,7 +2681,7 @@ function get_invoicepre(id) {
     url: "../admin1/ajax_call.php",
     type: "post",
     dataType: "json",
-    data: { routine_name: "getinvoice", id: id },
+    data: { routine_name: "getinvoicepre", id: id },
     success: function (response) {
       var response = JSON.parse(response);
       console.log("sddd")
@@ -2700,7 +2700,7 @@ function get_invoicepre(id) {
       $("span[id='terms_condition']").html(response.outcome.terms_condition);
      
       if (response.item_data) {
-        $(".get_invoiceitem").html(response.item_data);
+        $(".get_invoiceitems").html(response.item_data);
       }
     },
   });
