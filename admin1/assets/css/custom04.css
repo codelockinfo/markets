@@ -1137,7 +1137,14 @@ border:1px solid #d2d6da;
   .sidenav1 a {
     font-size: 18px;
   }
+  
 }
+@media (max-width: 768px) {
+  .title_font {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 767px) {
 
   .accordion h1 {
@@ -1148,6 +1155,9 @@ border:1px solid #d2d6da;
   .facebook {
     width: 150px;
     height: 20px;
+  }
+  .title_font {
+    font-size: 17px;
   }
  
 }
