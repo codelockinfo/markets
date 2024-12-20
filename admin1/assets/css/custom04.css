@@ -845,6 +845,7 @@ border:1px solid #d2d6da;
   opacity: 0;
   transition: opacity 0.3s;
   font-weight: 100 !important;
+  font-size: 13px;
 }
 
 .tooltiptext::after {
