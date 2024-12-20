@@ -24,7 +24,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3">
-          <div class="card-header pb-0 p-3">
+          <div class="card-header pb-0 p-3 d-none d-sm-block">
             <h6 class="mb-1 mt-1 text-lg">Videos</h6>
           </div>
           <div class="ms-md-auto pe-md-0 d-flex align-items-center me-2">
