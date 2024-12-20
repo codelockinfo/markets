@@ -2662,12 +2662,12 @@ $limit = 12;
                     }
                 }
                     
-                    $pro_img.=' <div class="d-flex flex-wrap align-items-center">';
+                    // $pro_img.=' <div class="d-flex flex-wrap align-items-center">';
                     $pro_img.=' <input type="file" id="files" class="file-input" name="p_image[]" multiple style="display: none;" />';
-                    $pro_img.='<label for="files" class="file-label ">';
+                    $pro_img.='<label for="files" class="file-label " style="display:block;">';
                     $pro_img.=' <span class="choose-text">Choose Files</span>';
                     $pro_img.=' </label>';
-                    $pro_img.=' </div>';
+                    // $pro_img.=' </div>';
       
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
