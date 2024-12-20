@@ -101,7 +101,7 @@ include 'header.php';
                       <div class="errormsg shop_img imageError"></div>
                     </div>
                     <div class="mb-3">
-                      <input type="address" class="form-control validsignf" placeholder="Shop address" name="address">
+                      <textarea class="form-control validsignf" placeholder="Shop address" name="address"></textarea>
                       <span class="errormsg address"></span>
                     </div>
                     <div class="mb-2">

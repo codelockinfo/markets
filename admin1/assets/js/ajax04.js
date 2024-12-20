@@ -485,8 +485,16 @@ function get_product(id) {
               .val(response["outcome"]["category"])
               .change()
           : "";
+          response["outcome"]["cloth"] !== undefined
+          ? $("select[name='cloth']")
+              .val(response["outcome"]["cloth"])
+              .change()
+          : "";
         response["outcome"]["qty"] !== undefined
           ? $("input[name='qty']").val(response["outcome"]["qty"])
+          : "";
+          response["outcome"]["fabric_type"] !== undefined
+          ? $("input[name='fabric_type']").val(response["outcome"]["fabric_type"])
           : "";
         response["outcome"]["sku"] !== undefined
           ? $("input[name='sku']").val(response["outcome"]["sku"])
@@ -1144,7 +1152,7 @@ $(document).ready(function () {
     if (email === "") {
       emailErrorDiv.text("");
     } else if (!emailRegex.test(email)) {
-      emailErrorDiv.text("Please enter  valid email formate.");
+      emailErrorDiv.text("The email address entered is invalid.");
     } else {
       emailErrorDiv.text("");
     }
