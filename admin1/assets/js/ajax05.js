@@ -485,8 +485,16 @@ function get_product(id) {
               .val(response["outcome"]["category"])
               .change()
           : "";
+          response["outcome"]["cloth"] !== undefined
+          ? $("select[name='cloth']")
+              .val(response["outcome"]["cloth"])
+              .change()
+          : "";
         response["outcome"]["qty"] !== undefined
           ? $("input[name='qty']").val(response["outcome"]["qty"])
+          : "";
+          response["outcome"]["fabric_type"] !== undefined
+          ? $("input[name='fabric_type']").val(response["outcome"]["fabric_type"])
           : "";
         response["outcome"]["sku"] !== undefined
           ? $("input[name='sku']").val(response["outcome"]["sku"])
@@ -1144,7 +1152,7 @@ $(document).ready(function () {
     if (email === "") {
       emailErrorDiv.text("");
     } else if (!emailRegex.test(email)) {
-      emailErrorDiv.text("Please enter  valid email formate.");
+      emailErrorDiv.text("The email address entered is invalid.");
     } else {
       emailErrorDiv.text("");
     }
@@ -2680,3 +2688,33 @@ $(document).on("click", ".modal .btn-close", function () {
   $(this).closest(".modal").find(".drop-zone .drop-zone__thumb").empty();
   $(".drop-zone .pro-zone__prompt").css("display","block");
 });
+
+function get_invoicepdf(id) {
+  $.ajax({
+    url: "../admin1/ajax_call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "getinvoicepdf", id: id },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log("sddd")
+      console.log(response.outcome.bill_no);
+      $("address[id='bill_no']").html(response.outcome.bill_no);
+      $("address[id='ship_to']").html(response.outcome.ship_to);
+      $("span[id='date']").html(response.outcome.date);
+      $("span[id='terms']").html(response.outcome.terms);
+      $("span[id='due_date']").html(response.outcome.due_date);
+      $("span[id='po_number']").html(response.outcome.po_number);
+      $("span[id='due_date']").html(response.outcome.due_date);
+      $("span[id='total']").html(response.outcome.total);
+      $("span[id='amount_paid']").html(response.outcome.amount_paid);
+      $("span[id='balance_due']").html(response.outcome.balance_due);
+      $("span[id='notes']").html(response.outcome.notes);
+      $("span[id='terms_condition']").html(response.outcome.terms_condition);
+     
+      if (response.item_data) {
+        $(".get_invoiceitems").html(response.item_data);
+      }
+    },
+  });
+}

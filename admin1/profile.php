@@ -130,11 +130,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                
                 </div>
             </div>
+            <div class="user_msgactive"></div>      
             <div class="py-4">
                 <div class="row">
                     <div class="col-xl-6 col-md-6 profile-sec">
                         <div class="card" id="img">
-                        </div>
+                        </div> 
                     </div>
                     <div class="col-xl-6 col-md-6 profile-sec">
                         <div class="card h-100">
@@ -227,4 +228,5 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 <script type="text/javascript">
     loadData("productlisting");
     profileLoadData('listprofile')
+    userData("user_massge");
 </script>

@@ -142,6 +142,25 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
               <div class="errormsg myFile p_image"></div>
             </div>
+            <div class="mb-3 row">
+              <div class="col">
+                <label for="text" class="font-weight-normal">Select cloth</label>
+              <select class="form-select position-relative" aria-label="Default select example" name="cloth">
+                          <option selected value="" disabled>Cloths type</option>
+                          <option value="0">Stich</option>
+                          <option value="1">Semistich</option>
+                          <option value="2">Unstich</option>
+
+                        </select>
+                <div class="errormsg cloth"></div>
+              </div>  
+              <div class="col quantity1">
+                <label for="text" class="font-weight-normal">Fabric Type</label>           
+                <div class="d-flex flex-row justify-content-between">
+                <input type="text" class="form-control  w-100" placeholder="fabric type" name="fabric_type">
+                  </div>
+                </div>
+              </div>
 
             <label for="text" class="font-weight-normal">Image Alt</label>
             <div class="mb-3">

@@ -35,9 +35,9 @@ $limit = 12;
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
         $error_array = array();
         if (empty($email)) {
-            $error_array['email'] = "Please enter an email address.";
+            $error_array['email'] = "Email address cannot be empty.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_array['email'] = "Please enter a valid email address.";
+            $error_array['email'] = "The email address entered is invalid.";
         } else {
             $email_query = "SELECT * FROM users WHERE email = '$email'";
             $email_result = $this->db->query($email_query);
@@ -46,9 +46,9 @@ $limit = 12;
             }
         }
         if (empty($password)) {
-            $error_array['password'] = "Please enter the password.";
+            $error_array['password'] = "Password cannot be empty.";
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = "Password not valid.";
+            $error_array['password'] = "The password is not valid.";
         }
         if (empty($error_array)) {
             $hashed_password = md5(string: $password);
@@ -60,7 +60,7 @@ $limit = 12;
                 $_SESSION['current_user'] = $userinfo;
                 $response_data = array('data' => 'success', 'msg' => 'Login successfully');
             } else {
-                $error_array['password'] = "Password not valid.";
+                $error_array['password'] = "The password is not valid.  ";
                 $response_data = array('data' => 'fail', 'msg' => $error_array);
             }
         } else {
@@ -172,13 +172,13 @@ $limit = 12;
             $fullpath = $folder . $newFilename;
             $maxSize = 5 * 1024 * 1024;
             if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['shop_img'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                $error_array['shop_img'] = "The shop image size exceeds the maximum allowed limit. Please upload a smaller image.";
             }
             if ($_FILES['shop_img']['size'] > $maxSize) {
                 $error_array['shop_img'] = "File size must be 5MB or less.";
             }
             if (empty($filename)) {
-                $error_array['shop_img'] = "Please select the shop image.";
+                $error_array['shop_img'] = "The shop image is required.";
             }
         }
         if (isset($_FILES['shop_logo'])) {
@@ -188,24 +188,24 @@ $limit = 12;
             $shoplogo = time() . '.' . $fileExtension;
             $shopLogoPath = $folder . $shoplogo;
             if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['shop_logo'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed";
+                $error_array['shop_logo'] = "Please upload a valid shop logo in JPG, PNG, or SVG format.";
             }
             if ($_FILES['shop_logo']['size'] > $maxSize) {
-                $error_array['shop_logo'] = "File size must be 5MB or less.";
+                $error_array['shop_logo'] = "The shop logo size exceeds the maximum allowed limit. Please upload a smaller image.";
             }
 
             if (empty($filename)) {
-                $error_array['shop_logo'] = "Please select the shop logo.";
+                $error_array['shop_logo'] = "The shop logo is required.";
             }
         }
         if (isset($_POST['name']) && $_POST['name'] == '') {
-            $error_array['name'] = "Please enter the name.";
+            $error_array['name'] = "Name cannot be empty.";
         }
         if (isset($_POST['shop']) && $_POST['shop'] == '') {
-            $error_array['shop'] = "Please enter the shop name.";
+            $error_array['shop'] = "The shop name cannot be empty.";
         }
         if (isset($_POST['address']) && $_POST['address'] == '') {
-            $error_array['address'] = "Please enter the shop address.";
+            $error_array['address'] = "Address cannot be empty. Please enter the shop's address";
         }
         if (isset($_POST['business_type']) && $_POST['business_type'] == '') {
             $error_array['business_type'] = "Please select the business type.";
@@ -214,7 +214,7 @@ $limit = 12;
         $mobilepattern = "/^[789]\d{9}$/";  
         if (empty($phone_number)) {
 
-            $error_array['phone_number'] = "Please enter the phone number.";
+            $error_array['phone_number'] = "The phone number cannot be empty.";
         } else if (strlen($phone_number) !== 10) {
             $error_array['phone_number'] = "The phone number must be exactly 10 digits.";
         } else if (!preg_match($mobilepattern, $phone_number)) {
@@ -225,20 +225,20 @@ $limit = 12;
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
         if (empty($password)) {
-            $error_array['password'] = "Please enter the password.";
+            $error_array['password'] = "Password cannot be empty. ";
         } elseif (!preg_match($strongPasswordPattern, $password)) {
-            $error_array['password'] = "Password must include an uppercase, lowercase, digit, and special character.";
+            $error_array['password'] = "Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.";
         }
         if (empty($confirmPassword)) {
-            $error_array['Confirm_Password'] = "Please enter the confirm password.";
+            $error_array['Confirm_Password'] = " confirm password cannot be empty. ";
         } elseif ($password !== $confirmPassword) {
             $error_array['Confirm_Password'] = "Passwords do not match.";
         }
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
-            $error_array['email'] = "Please enter an email address.";
+            $error_array['email'] = "Email address cannot be empty.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_array['email'] = "Please enter the valid email address.";
+            $error_array['email'] = "The email address entered is invalid.";
         }
         if (empty($error_array)) {
             $name = isset($_POST['name']) ? mysqli_real_escape_string($this->db, $_POST['name']) : '';
@@ -421,6 +421,9 @@ $limit = 12;
             $min_price = (isset($_POST['min_price']) && $_POST['min_price'] !== '') ? $_POST['min_price'] : '';
             $max_price = (isset($_POST['max_price']) && $_POST['max_price'] !== '') ? $_POST['max_price'] : '';
             $p_tag = (isset($_POST['p_tag']) && is_array($_POST['p_tag'])) ? implode(',', $_POST['p_tag']) : '';
+            $cloth = (isset($_POST['cloth']) && $_POST['cloth'] !== '') ? $_POST['cloth'] : '';
+            $fabric_type = (isset($_POST['fabric_type']) && $_POST['fabric_type'] !== '') ? $_POST['fabric_type'] : '';
+
             $sku = (isset($_POST['sku']) && $_POST['sku'] !== '') ? $_POST['sku'] : '';
             $qty = (isset($_POST['qty']) && $_POST['qty'] !== '') ? $_POST['qty'] : '';
             $product_image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
@@ -441,8 +444,8 @@ $limit = 12;
                 $uploadedFilenames = implode(',', $uploadedFiles);
                 $uploadedFilenames;
 
-                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image, product_img_alt, p_tag, p_description, user_id) 
-                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$newmainFilename', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
+                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image,cloth,fabric_type, product_img_alt, p_tag, p_description, user_id) 
+                    VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$newmainFilename','$cloth','$fabric_type', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                 $result = $this->db->query($query);
                 $last_id = $this->db->insert_id;
 
@@ -458,7 +461,7 @@ $limit = 12;
             } else {
                 $newimageadded = ($is_mian_image_update) ? ", p_image='$newmainFilename'" : "";
                 $query = "UPDATE products SET title ='$product_name', category ='$select_catagory', qty ='$qty', sku ='$sku', 
-                          minprice ='$min_price', maxprice ='$max_price', product_img_alt ='$product_image_alt', p_tag = '$p_tag', 
+                          minprice ='$min_price', maxprice ='$max_price',cloth='$cloth',fabric_type='$fabric_type',product_img_alt ='$product_image_alt', p_tag = '$p_tag', 
                           p_description = '$p_description' $newimageadded WHERE product_id = $product_id";
                 
                 $result = $this->db->query($query);
@@ -1509,7 +1512,7 @@ $limit = 12;
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '    <div class="mt-2">';
                         $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                        $output .= '<a href=""><i data-id="" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
+                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
                         $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                         $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
@@ -3096,6 +3099,38 @@ function usercheck_toggle_btn() {
         $response = json_encode($response_data);
         return $response;
     }
+
+    function getinvoicepdf() {
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        if (!empty($id)) {
+            $query = "SELECT  * from  invoice WHERE invoice_id = $id";
+            $result = $this->db->query($query);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
+                $item_result = $this->db->query($item_query);
+                $item_data = "";
+                while ($invoice_items = $item_result->fetch_assoc()) {
+                    $inv_item = $invoice_items['item'];
+                    $inv_quantity = $invoice_items['quantity'];
+                    $inv_rate = $invoice_items['rate'];
+                    $inv_amount = $invoice_items['amount'];
+                    $item_data .=  '<tr class="attr">';
+                    $item_data .=  '<input type="hidden" name="invoice_item_id[]" value="' . $invoice_items['invoice_item_id'] . '">';
+                    $item_data .=  '<td >' . $inv_item . '</td>';
+                    $item_data .=  '<td class="text-center">' . $inv_quantity . '</td>';
+                    $item_data .=  '<td class="text-center">' . $inv_rate . '</td>';
+                    $item_data .=  '<td class="text-center">' . $inv_amount . '</td>';
+
+                }
+                $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
 
 
 }

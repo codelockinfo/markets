@@ -26,7 +26,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3 align-items-center">
-          <div>
+          <div class="d-none d-sm-block">
             <h6 class="mb-1 mt-1 text-lg">Customer List</h6>
           </div>
           <div class="d-flex align-items-center me-2">
