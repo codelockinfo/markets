@@ -265,7 +265,7 @@ $limit = 12;
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     
                         echo "<pre>";
-                        print_r($_SERVER[]);
+                        print_r($_SERVER);
                         die;
                             if (mail($email, $subject, $message, $headers)) {
                                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
