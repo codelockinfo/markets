@@ -263,12 +263,16 @@ $limit = 12;
                         $headers ="From:no-reply@marketsearch.com"." \r\n";     
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                            if (mail($email, $subject, $message, $headers)) {
+                       
+                            if($_SERVER['SERVER_NAME'] == 'localhost'){
                                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-                            } else {
-                                $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
+                            }else{
+                                if (mail($email, $subject, $message, $headers)) {
+                                    $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                                } else {
+                                    $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
+                                }
                             }
-                        
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
                     }
