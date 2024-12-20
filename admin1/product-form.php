@@ -144,12 +144,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <div class="mb-3 row">
               <div class="col">
+
                 <label for="text" class="font-weight-normal">Select cloth</label>
               <select class="form-select position-relative" aria-label="Default select example" name="cloth">
                           <option selected value="" disabled>Cloths type</option>
-                          <option value="0">Stich</option>
-                          <option value="1">Semistich</option>
-                          <option value="2">Unstich</option>
+                          <option value="0">Stitch</option>
+                          <option value="1">Semi stitch</option>
+                          <option value="2">Un stitch</option>
 
                         </select>
                 <div class="errormsg cloth"></div>

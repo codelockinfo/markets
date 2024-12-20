@@ -27,7 +27,7 @@ if ($_SESSION['current_user']['role'] == 1) {
           <div class="card z-index-0 p-3 p-lg-5 ">
             <div class="mb-3">
                   <div class="d-flex justify-content-between ">
-                <div><h5>Contact us page show and hide  frontend side </h5></div>
+                <div><h5 class="title_font">Contact us page show and hide  frontend side </h5></div>
                 <div class="btn-group">
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <div class="form-check form-switch ps-0">
