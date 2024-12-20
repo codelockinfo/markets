@@ -214,7 +214,7 @@ $limit = 12;
         $mobilepattern = "/^[789]\d{9}$/";  
         if (empty($phone_number)) {
 
-            $error_array['phone_number'] = "The phone number is invalid.";
+            $error_array['phone_number'] = "The phone number cannot be empty.";
         } else if (strlen($phone_number) !== 10) {
             $error_array['phone_number'] = "The phone number must be exactly 10 digits.";
         } else if (!preg_match($mobilepattern, $phone_number)) {
