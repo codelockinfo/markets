@@ -368,10 +368,10 @@ $limit = 12;
                 }
             }
         }else if (empty($product_id)){
-           $error_array['productmain_image'] = "Please select image";
+           $error_array['productmain_image'] = "Please select main image";
         }
       
-        if (isset($_FILES["p_image"]["name"][0]) && !empty($_FILES["p_image"]["name"][0])) {
+        if (isset($_FILES["subimage"]["name"][0]) && !empty($_FILES["subimage"]["name"][0])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $maxSize = 5 * 1024 * 1024;
             $folder = "assets/img/product_img/";
@@ -383,9 +383,9 @@ $limit = 12;
                 }
             }
             $uploadedFiles = [];
-            foreach ($_FILES["p_image"]["name"] as $key => $filename) {
-                $tmpfile = $_FILES["p_image"]["tmp_name"][$key];
-                $file = $_FILES['p_image'];
+            foreach ($_FILES["subimage"]["name"] as $key => $filename) {
+                $tmpfile = $_FILES["subimage"]["tmp_name"][$key];
+                $file = $_FILES['subimage'];
                 $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                 $newFilename = time() . '_' . $key . '.' . $fileExtension;
                 $fullpath = $folder . $newFilename;

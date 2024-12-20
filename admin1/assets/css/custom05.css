@@ -402,8 +402,8 @@ border:1px solid #d2d6da;
 .close-buttons_profile,
 .close-button_product {
   position: absolute;
-  left: 100%;
-  top: 0px;
+  left: 87%;
+  top: -9px;
   z-index: 1;
   text-align: center;
   border: none;
@@ -421,8 +421,8 @@ border:1px solid #d2d6da;
 
 .picture__img {
   width: 100%;
-  max-height: 173px;
-  padding: 20px !important;
+  max-height: 150px;
+  /* padding: 20px !important; */
 }
 
 .select2-container {
@@ -804,6 +804,7 @@ border:1px solid #d2d6da;
 
 .img-wrapper {
   position: relative;
+  margin:5px 3%;
 }
 
 .tooltip-container {
@@ -1050,9 +1051,11 @@ border:1px solid #d2d6da;
   background-color: #21d4fd !important;
 }
 .file-label {
-    display: inline-block;
-    padding: 30px 25px;
+    /* display: inline-block; */
+    display: none;
+    padding: 30px 15px;
     font-size: 14px;
+    font-weight: 600;
     color:#495057 !important;
     border: 1px solid #d2d6da !important;
     border-radius: 5px;
