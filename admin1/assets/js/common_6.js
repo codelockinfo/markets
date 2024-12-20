@@ -324,8 +324,16 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
   inputElement.addEventListener("change", () => {
-    updatePromptText(dropZoneElement, inputElement.files);
     const fileArray = Array.from(inputElement.files);
+    storedFiles = [...storedFiles, ...fileArray];
+    storedFiles = storedFiles.filter(
+      (file, index, self) =>
+        index === self.findIndex((f) => f.name === file.name)
+    );
+    
+    console.log("Merged Files p image:", storedFiles);
+    updatePromptText(dropZoneElement, inputElement.files);
+
 
     fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
@@ -348,6 +356,13 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   dropZoneElement.addEventListener("drop", (e) => {
     e.preventDefault();
     const fileArray = Array.from(e.dataTransfer.files);
+    storedFiles = [...storedFiles, ...fileArray];
+    storedFiles = storedFiles.filter(
+      (file, index, self) =>
+        index === self.findIndex((f) => f.name === file.name)
+    );
+
+    
     updatePromptText(dropZoneElement, fileArray);
 
     fileArray.forEach((file) => {
@@ -366,7 +381,14 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
 
 function updatePromptText(dropZoneElement, files) {
   const promptText = dropZoneElement.querySelector(".pro-zone__prompt");
-  promptText.style.display = files.length > 0 ? "none" : "block";
+  const filelabel = dropZoneElement.querySelector(".file-label");
+  promptText.style.display = storedFiles.length > 0 ? "none" : "block";
+  filelabel.style.display = storedFiles.length > 0 ? "block" : "none";
+  if(storedFiles.length > 0 ){
+    dropZoneElement.classList.add("col-6","col-lg-3","col-md-4");
+  }else{
+    dropZoneElement.classList.remove("col-6","col-lg-3","col-md-4");
+  }
 }
 
 function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
@@ -374,8 +396,10 @@ function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
 
   if (!thumbnailContainer) {
     thumbnailContainer = document.createElement("div");
-    thumbnailContainer.classList.add("drop-zone__thumb");
-    imageAppend.appendChild(thumbnailContainer);
+    thumbnailContainer.classList.add("drop-zone__thumb","col-6","col-lg-3","col-md-4");
+    // imageAppend.appendChild(thumbnailContainer);
+    dropZoneElement.parentNode.insertBefore(thumbnailContainer, dropZoneElement);
+
   }
 
   if (file.type.startsWith("image/")) {
@@ -391,11 +415,15 @@ function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
 
       const closeButton = document.createElement("button");
       closeButton.classList.add("close-button_product");
+      closeButton.setAttribute('data-name', file.name);
       closeButton.innerText = "x";
 
       closeButton.addEventListener("click", (event) => {
         event.stopPropagation();
-        thumbnailContainer.removeChild(imgWrapper);
+        const fileName = closeButton.getAttribute("data-name");
+        storedFiles = storedFiles.filter((file) => file.name !== fileName);
+        // thumbnailContainer.removeChild(imgWrapper);
+        thumbnailContainer.remove();
         const fileListArray = Array.from(inputElement.files);
         fileListArray.splice(fileListArray.indexOf(file), 1);
         const dataTransfer = new DataTransfer();

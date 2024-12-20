@@ -12,7 +12,7 @@ var CLS_CIRCLE_MINUS =
 var CLS_CIRCLE_PLUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 510 510" focusable="false" aria-hidden="true"><path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102    h-102v-51h102v-102h51v102h102V280.5z" fill-rule="evenodd" fill="#3f4eae"></path></svg>';
 var NO_DATA = '<div class="no-data"><img src="assets/img/noimg.gif"></div>';
-
+let storedFiles = []; // Array to store selected files
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
@@ -328,86 +328,86 @@ function profileLoadData(routineName) {
 function initializeDynamicContent(){
   console.log("iiiiiiiiiiiiiiiiiiiiiiii");
     document.querySelectorAll(".profile-drop-zone__input").forEach((inputElement) => {
-    console.log("profile-drop-zone__input");
-    const dropZoneElement = inputElement.closest(".drop-zone");
-    const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
+      console.log("profile-drop-zone__input");
+      const dropZoneElement = inputElement.closest(".drop-zone");
+      const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
 
-    console.log(dropZoneElement);
+      console.log(dropZoneElement);
 
-    if (!promptElement) {
-      console.error("pro-zone__prompt element is missing");
-      return;
-    }
-
-    dropZoneElement.addEventListener("click", () => {
-      if (!inputElement.disabled) {
-        inputElement.click();
+      if (!promptElement) {
+        console.error("pro-zone__prompt element is missing");
+        return;
       }
-    });
 
-    inputElement.addEventListener("change", (e) => {
+      dropZoneElement.addEventListener("click", () => {
+        if (!inputElement.disabled) {
+          inputElement.click();
+        }
+      });
+
+      inputElement.addEventListener("change", (e) => {
       if (inputElement && inputElement.files && inputElement.files.length > 0) {
-        const file = inputElement.files[0];
-        if (file.type.startsWith("image/")) {
-          clearThumbnailProfileImage(dropZoneElement);
-          updateThumbnailProfileImage(dropZoneElement, file, inputElement);
-          promptElement.style.display = "none";
+          const file = inputElement.files[0];
+          if (file.type.startsWith("image/")) {
+            clearThumbnailProfileImage(dropZoneElement);
+            updateThumbnailProfileImage(dropZoneElement, file, inputElement);
+            promptElement.style.display = "none";
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Failure",
+              text: "Only PNG, JPG, JPEG, GIF files are allowed!",
+            });
+            inputElement.value = "";
+            promptElement.style.display = "block";
+          }
+        } else {
+          const thumbnailElement =
+            dropZoneElement.querySelector(".drop-zone__thumb");
+          if (!thumbnailElement) {
+            promptElement.style.display = "block";
+          }
+        }
+      });
+      dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+      });
+
+      ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, () => {
+          dropZoneElement.classList.remove("drop-zone--over");
+        });
+      });
+
+      dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) {
+          if (inputElement) {
+            inputElement.files = e.dataTransfer.files;
+            clearThumbnailProfileImage(dropZoneElement);
+            updateThumbnailProfileImage(dropZoneElement, file, inputElement);
+
+            promptElement.style.display = "none";
+          } else {
+            console.error("inputElement is missing.");
+          }
         } else {
           Swal.fire({
             icon: "error",
             title: "Failure",
             text: "Only PNG, JPG, JPEG, GIF files are allowed!",
           });
-          inputElement.value = "";
+          if (inputElement) {
+            inputElement.value = "";
+          }
           promptElement.style.display = "block";
         }
-      } else {
-        const thumbnailElement =
-          dropZoneElement.querySelector(".drop-zone__thumb");
-        if (!thumbnailElement) {
-          promptElement.style.display = "block";
-        }
-      }
-    });
-    dropZoneElement.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      dropZoneElement.classList.add("drop-zone--over");
-    });
 
-    ["dragleave", "dragend"].forEach((type) => {
-      dropZoneElement.addEventListener(type, () => {
         dropZoneElement.classList.remove("drop-zone--over");
       });
     });
-
-    dropZoneElement.addEventListener("drop", (e) => {
-      e.preventDefault();
-      const file = e.dataTransfer.files[0];
-      if (file && file.type.startsWith("image/")) {
-        if (inputElement) {
-          inputElement.files = e.dataTransfer.files;
-          clearThumbnailProfileImage(dropZoneElement);
-          updateThumbnailProfileImage(dropZoneElement, file, inputElement);
-
-          promptElement.style.display = "none";
-        } else {
-          console.error("inputElement is missing.");
-        }
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Failure",
-          text: "Only PNG, JPG, JPEG, GIF files are allowed!",
-        });
-        if (inputElement) {
-          inputElement.value = "";
-        }
-        promptElement.style.display = "block";
-      }
-
-      dropZoneElement.classList.remove("drop-zone--over");
-    });
-  });
 }
 function clearThumbnailProfileImage(dropZoneElement) {
   const thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
@@ -530,7 +530,7 @@ function get_product(id) {
           response["outcome"]["p_image"].trim() !== ""
             ? response["outcome"]["p_image"]
             : "";
-            console.log(productmain_image);
+        console.log(productmain_image);
         if (productmain_image !== "") {
           var filePath = "../admin1/assets/img/product_img/" + productmain_image;
           $.ajax({
@@ -546,7 +546,7 @@ function get_product(id) {
                 '<button class="close-buttons_profile">x</button>' +
                 "</div>" +
                 "</div>";
-                console.log(imagePreview);
+              console.log(imagePreview);
               $(".productMainImageAppend").append(imagePreview);
               $(".productMainImageAppend .drop-zone").hide();
             },
@@ -562,34 +562,34 @@ function get_product(id) {
         }
         if (window.File && window.FileList && window.FileReader) {
           $("#files").on("change", function (e) {
-            console.log("sd");
-            var files = e.target.files,
-              filesLength = files.length;
-            for (var i = 0; i < filesLength; i++) {
-              var f = files[i];
-              var fileReader = new FileReader();
+            console.log("File input changed");
+
+            let filesArray = Array.from(e.target.files);
+            storedFiles = [...storedFiles, ...filesArray];
+            storedFiles = storedFiles.filter(
+              (file, index, self) =>
+                index === self.findIndex((f) => f.name === file.name)
+            );
+
+            console.log("Merged Files main image:", storedFiles);
+
+            filesArray.forEach((f) => {
+              let fileReader = new FileReader();
+
               fileReader.onload = function (e) {
-                var file = e.target;
-                console.log(file);
+                let fileContent = e.target.result;
                 $(
-                  '<div class=" drop-zone__thumb ">' +
-                    '<div class="img-wrapper">' +
-                    '<img class="imageThumb" src="' +
-                    e.target.result +
-                    '" title="' +
-                    file.name +
-                    '"/>' +
-                    '<button class="close-button_product" data-name="'+ file.name +'">x</button>' +
-                    "</div>" +
-                    "</div>"
+                  `<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">
+                    <div class="img-wrapper">
+                      <img class="picture__img" src="${fileContent}" title="${f.name}" />
+                      <button class="close-button_product" data-name="${f.name}">x</button>
+                    </div>
+                  </div>`
                 ).insertBefore("#files");
-                $(".remove").click(function () {
-                  $(this).parent(".pip").remove();
-                });
               };
               fileReader.readAsDataURL(f);
-            }
-            console.log(files);
+            });
+
           });
         }
         if (response["product_img_result"] !== undefined) {
@@ -1363,6 +1363,9 @@ $(document).ready(function () {
         form_data.append("p_tag[]", selectedTags[i]);
       }
     }
+    storedFiles.forEach(function (file, index) {
+      form_data.append("subimage[]", file);
+    });
     $.ajax({
       url: "../admin1/ajax_call.php",
       type: "post",
@@ -2317,7 +2320,9 @@ $(document).on("click", ".picture__img", function () {
 });
 
 $(document).on("click", ".close-button_product", function (event) {
-  event.stopPropagation();
+  event.stopPropagation();  
+  const fileName = $(this).data("name");
+  storedFiles = storedFiles.filter((file) => file.name !== fileName);
   if($(this).data("id") == undefined ){
     $(this).closest(".drop-zone__thumb").remove();
   }
@@ -2671,7 +2676,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 $(document).on("click", ".modal .btn-close", function () {
-  console.log("modal");  
+  console.log("modal");
   $(this).closest(".modal").find(".drop-zone .drop-zone__thumb").empty();
   $(".drop-zone .pro-zone__prompt").css("display","block");
 });

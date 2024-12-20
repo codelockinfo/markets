@@ -122,11 +122,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
-              <div class="imageAppend form-control d-flex flex-wrap  justify-content-center  get_pro">
+              <div class="imageAppend form-control d-flex flex-wrap  justify-content-center align-items-center  get_pro">
                 <div class="pro-zone">
                   <span class="pro-zone__prompt ">Drop file here or click to upload</span>  
                   
                   <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input validtext">
+                  <label for="files" class="file-label"> 
+                    <span class="choose-text">Choose Files</span> 
+                  </label>
                 </div>
               </div>
               <div>
@@ -170,7 +173,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 
-  <script src="<?php echo main_url('admin1/assets/js/common_5.js'); ?>"></script>
+  <script src="<?php echo main_url('admin1/assets/js/common_6.js'); ?>"></script>
 </body>
 </html>
 <script>
