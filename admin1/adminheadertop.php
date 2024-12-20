@@ -122,7 +122,7 @@
         <div class="row justify-content-center justify-content-sm-between">
           <div class="col-auto my-auto">
             <div class="h-100">
-              <h5 class="mb-1">
+              <h5 class="mb-1 title_font">
                 <?php echo isset($title) ? $title : "Undefind" ?>
               </h5>
             </div>
