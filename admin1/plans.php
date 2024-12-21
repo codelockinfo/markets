@@ -30,13 +30,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span>Business Registration</li>
-                  <li><span class="fa-li"></span>Basic Listing</li>
-                  <li><span class="fa-li"></span>Access to Community Forums</li>
-                  <li><span class="fa-li"></span>Limited Product Listings</li>
-                  <li><span class="fa-li"></span>Standard Support</li>
-                  <li><span class="fa-li"></span>Self-Managed Product Catalog</li>
-                  <li><span class="fa-li"></span>Shop Front View</li>
+                  <li><span class="fa-li"></span>Free Registration</li>
+                  <li><span class="fa-li"></span>List your products 100 </li>
+                  <li><span class="fa-li"></span>Category creation 10</li>
+                  <li><span class="fa-li"></span>Customer Inquiry</li>
+                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
+                  <li><span class="fa-li"></span>Write your blog</li>
                 </ul> 
               </div>
               <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
@@ -51,17 +50,15 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span><strong>Enhanced Listing</strong></li>
-                  <li><span class="fa-li"></span>Increased Product Listings</li>
-                  <li><span class="fa-li"></span>Priority Placement</li>
-                  <li><span class="fa-li"></span>Access to Analytics</li>
-                  <li><span class="fa-li"></span>Direct Messaging</li>
-                  <li><span class="fa-li"></span>Premium Support</li>
-                  <li><span class="fa-li"></span>Discounted Advertising</li>
-                  <li><span class="fa-li"></span>Self-Managed Product Catalog</li>
-                  <li><span class="fa-li"></span>Shop Front View on the Home Page</li>
-                  <li><span class="fa-li"></span>Banner Design Services</li>
-                  <li><span class="fa-li"></span>Exclusive Offers</li>
+                  <li><span class="fa-li"></span><strong>Free Registration</strong></li>
+                  <li><span class="fa-li"></span>List your products 300</li>
+                  <li><span class="fa-li"></span>Category creation 25</li>
+                  <li><span class="fa-li"></span>Customer Inquiry </li>
+                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
+                  <li><span class="fa-li"></span>Write your blog</li>
+                  <li><span class="fa-li"></span>Top bar offer once in a day</li>
+                  <li><span class="fa-li"></span>Market list on home page</li>
+                  <li><span class="fa-li"></span>Invoice Generating </li>
                 </ul>
               </div>
               <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
@@ -76,19 +73,20 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span><strong>Premium Listing</strong></li>
-                  <li><span class="fa-li"></span>Unlimited Product Listings</li>
-                  <li><span class="fa-li"></span>Advanced Analytics</li>
-                  <li><span class="fa-li"></span>Featured in Newsletters</li>
-                  <li><span class="fa-li"></span>Priority Customer Support</li>
-                  <li><span class="fa-li"></span>Exclusive Access</li>
-                  <li><span class="fa-li"></span>Custom Advertising Packages</li>
-                  <li><span class="fa-li"></span>Self-Managed Product Catalog</li>
-                  <li><span class="fa-li"></span>Shop Front View on the Home Page</li>
-                  <li><span class="fa-li"></span>Professional Banner Design Services</li>
-                  <li><span class="fa-li"></span>Exclusive Deals and Offers</li>
-                  <li><span class="fa-li"></span>24/7 Support</li>
-                  <li><span class="fa-li"></span>Promotional Campaigns</li>
+                  <li><span class="fa-li"></span><strong>Free Registration</strong></li>
+                  <li><span class="fa-li"></span>List your products unlimited</li>
+                  <li><span class="fa-li"></span>Category creation 50</li>
+                  <li><span class="fa-li"></span>Customer Inquiry</li>
+                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
+                  <li><span class="fa-li"></span>Write your blog</li>
+                  <li><span class="fa-li"></span>Top bar offer every time</li>
+                  <li><span class="fa-li"></span>Banner Image</li>
+                  <li><span class="fa-li"></span>One offer banner</li>
+                  <li><span class="fa-li"></span>Market list on home page</li>
+                  <li><span class="fa-li"></span>Show your Blog on the home page</li>
+                  <li><span class="fa-li"></span>Videos on the home page</li>
+                  <li><span class="fa-li"></span>Invoice Generating </li>
+                  <li><span class="fa-li"></span>Show your products on the home page</li>
                 </ul>
               </div>
               <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>

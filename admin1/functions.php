@@ -724,15 +724,17 @@ $limit = 12;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
             $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
             $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
+            $shipping_charges = isset($_POST['shipping_charges']) ? $_POST['shipping_charges'] : '';
+
             if (!empty(array_filter($_POST['item']))) {
             // echo $id;
-            if ($id == '') { 
+                if ($id == '') { 
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                            $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                            $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`)
+                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges')";
                     }else{
-                        $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`)
-                                      VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due')";
+                        $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`)
+                                      VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges')";
                     }
                 } else {
                     if (!empty($filename)) {
@@ -746,7 +748,7 @@ $limit = 12;
                         $existing_image = $existing_image_row['i_image'];
                         $newImageUploaded = $existing_image;
                 }
-                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date',
+                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges',
                                 po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
             }
             $result = $this->db->query($query);
@@ -2498,11 +2500,14 @@ $limit = 12;
                     $output .= '<td><img src="' . $decodedPath . '" alt="Shop Image" class="user_img"></td>';
                     $output .= '<td><i data-id="' . $row["user_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="users" aria-hidden="true"></i></td>';
                     $output .='<td>';
+                    $output .='<div class="d-flex justify-content-center">';
                     $output .= '<div class="form-check form-switch  toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto usertoggle-button" type="checkbox" id="checkbox_' . $userId . '" data-user-id="' . $userId . '" ' . $toggleactive . '>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="users">';
                     $output .= '</div>';
-                    $output .='</td>';
+                    $output .='</div>';
+                    $output .='<td>';
+
                     $output .= '</tr>';
                 }
                 $output .= '</tbody>';

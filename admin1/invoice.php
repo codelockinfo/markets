@@ -176,6 +176,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
+                  <span class="text-normal">Shipping Charges:</span>
+                </div>
+                <div class="col-xl ">
+                  <input type="number" class="form-control mt-1" name="shipping_charges" placeholder="₹ 0.00">
+                </div>
+              </div>
+              <div class="row  mt-2">
+                <div class="col-xl mt-2">
                   <span class="text-normal">Balance Due :</span>
                 </div>
                 <div class="col-xl ">
@@ -183,6 +191,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   
                 </div>
               </div>
+              
             </div>
             <div class="row mt-4">
               <div class="col w-50">

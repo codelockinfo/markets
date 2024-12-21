@@ -680,6 +680,9 @@ function get_invoice(id) {
       response["outcome"]["date"] !== undefined
         ? $("input[name='date']").val(response["outcome"]["date"])
         : "";
+        response["outcome"]["shipping_charges"] !== undefined
+        ? $("input[name='shipping_charges']").val(response["outcome"]["shipping_charges"])
+        : "";
 
       response["outcome"]["po_number"] !== undefined
         ? $("input[name='po_number']").val(response["outcome"]["po_number"])
@@ -1151,16 +1154,16 @@ $(document).ready(function () {
   $("#email").on("input", function () {
     var email = $(this).val();
     var emailErrorDiv = $(".email");
-    var emailRegex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|gmail\.in|yahoo\.com|yahoo\.in|gmail\.org|yahoo\.org)$/;
     if (email === "") {
-      emailErrorDiv.text("");
+      emailErrorDiv.text(""); 
     } else if (!emailRegex.test(email)) {
       emailErrorDiv.text("The email address entered is invalid.");
     } else {
-      emailErrorDiv.text("");
+      emailErrorDiv.text(""); 
     }
   });
+  
 
   $(document).on("click", ".signInsave", function (e) {
     e.preventDefault();
@@ -2715,6 +2718,8 @@ function get_invoicepdf(id) {
       $("span[id='balance_due']").html(response.outcome.balance_due);
       $("span[id='notes']").html(response.outcome.notes);
       $("span[id='terms_condition']").html(response.outcome.terms_condition);
+      $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
+
      
       if (response.item_data) {
         $(".get_invoiceitems").html(response.item_data);
