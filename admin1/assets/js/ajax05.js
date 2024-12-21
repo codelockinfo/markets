@@ -582,6 +582,10 @@ function get_product(id) {
             console.log("Merged Files main image:", storedFiles);
 
             filesArray.forEach((f) => {
+              if ($(`.drop-zone__thumb img[title="${f.name}"]`).length > 0) {
+                console.log(`Duplicate preview skipped: ${f.name}`);
+                return; 
+              }
               let fileReader = new FileReader();
 
               fileReader.onload = function (e) {
