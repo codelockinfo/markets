@@ -350,6 +350,10 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
 
     fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
+        if ($(`.drop-zone__thumb img[title="${file.name}"]`).length > 0) {
+          console.log(`Duplicate preview skipped: ${file.name}`);
+          return; 
+        }
         updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
@@ -380,6 +384,10 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
 
     fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
+        if ($(`.drop-zone__thumb img[title="${file.name}"]`).length > 0) {
+          console.log(`Duplicate preview skipped: ${file.name}`);
+          return; 
+        }
         updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
@@ -425,6 +433,7 @@ function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
       const img = document.createElement("img");
       img.src = e.target.result;
       img.classList.add("picture__img");
+      img.setAttribute('title', file.name);
 
       const closeButton = document.createElement("button");
       closeButton.classList.add("close-button_product");
