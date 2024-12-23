@@ -12,7 +12,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "list Invoice");
+        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "List Invoice");
         $title = $para_array['title'];
         $link = $para_array['link'];
         $button_text = $para_array['button_text'];
@@ -82,7 +82,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ">
                 <select class="form-select position-relative" aria-label="Default select example" name="terms">
-                          <option selected value="" disabled>payment Terms</option>
+                          <option selected value="" disabled>Payment Terms</option>
                           <option value="online">online</option>
                           <option value="cash">cash</option>
                  </select>

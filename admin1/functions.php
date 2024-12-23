@@ -890,7 +890,7 @@ $limit = 12;
             $error_array['category'] = "Please select the video catagory.";
         }
         if (isset($_POST['auto_genrate']) && $_POST['auto_genrate'] == '') {
-            $error_array['auto_genrate'] = "please enter number";
+            $error_array['auto_genrate'] = "Please enter number";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
             $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
@@ -1594,10 +1594,10 @@ $limit = 12;
                     $output .= '      <a href="#">';
                     $output .= '      </a>';
                     $output .= '      <div class=" justify-content-between customer_list">';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> name:</h6> ' . $row['name'] . '</div>';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">email :</h6> ' . $row['email'] . '</div>';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> Name:</h6> ' . $row['name'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">Email :</h6> ' . $row['email'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">Contact:</h6> ' . $row['contact'] . '</div>';
+                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">Address :</h6> ' . $row['address'] . '</div>';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="mt-3">';
                     $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer"  data-fild="c_image" aria-hidden="true"></i>';
@@ -2727,20 +2727,20 @@ $limit = 12;
     }
 
     function last_inserted_id(){
-        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+    $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $table_name = isset($_POST['table_name']) ? $_POST['table_name'] : '';
         $query = "SELECT $id  FROM $table_name ORDER BY $id DESC LIMIT 1";
-        $result = $this->db->query($query);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
+    $result = $this->db->query($query);
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
             $lastInvoiceNumber = $row ? intval($row['invoice_id']) : 0;
             $newInvoiceNumber = $lastInvoiceNumber + 1;
             $response_data = array('data' => 'success', 'outcome' => $newInvoiceNumber);
         } 
         $response = json_encode($response_data);
         return $response;
-    }
+}
 
     function getinvoice() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');

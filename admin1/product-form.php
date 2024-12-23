@@ -45,11 +45,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
                     <input type="hidden" value=" 1 " min="1" class="prod_id">
                     <div class="input-group text-center" id="qty_selector">
-                      <a class="decrement-btn" id="decrement-btn">
+                      <a class="decrement-btn cursor-pointer" id="decrement-btn">
                         <i class="fa fa-minus"></i>
                       </a>
                       <input type="text" name="qty" id="qty_display" class="qty-input text-center form-control" value="1"/>
-                      <a class="increment-btn ">
+                      <a class="increment-btn cursor-pointer">
                         <i class="fa fa-plus" id="increment-btn"></i>
                       </a>
                     </div>
@@ -61,7 +61,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div>
                   <label class="font-weight-normal w-100 checkboxcategory">
                     <input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3 d-none " value="1"/>
-                    <i class="fa fa-minus me-1" id="decrement-btn" aria-hidden="true"></i>Add a new category
+                    <i class="fa fa-plus me-1" id="decrement-btn" aria-hidden="true"></i>Add a new category
                   </label>
                   <div class="categoryinput hidecategory">
                     <input type="text" name="addcategory"class="form-control w-100" placeholder="Add more category"/>
@@ -145,9 +145,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             <div class="mb-3 row">
               <div class="col">
 
-                <label for="text" class="font-weight-normal">Select cloth</label>
-              <select class="form-select position-relative" aria-label="Default select example" name="cloth">
-                          <option selected value="" disabled>Cloths type</option>
+                <label for="text" class="font-weight-normal">Select Cloth</label>
+              <select class="form-select position-relative cursor-pointer" aria-label="Default select example" name="cloth">
+                          <option selected value="" disabled>Cloths Type</option>
                           <option value="0">Stitch</option>
                           <option value="1">Semi stitch</option>
                           <option value="2">Un stitch</option>
