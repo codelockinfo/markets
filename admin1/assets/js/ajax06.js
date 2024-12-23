@@ -1589,7 +1589,7 @@ $(document).ready(function () {
     });
   });
 
-  function confirmAndDelete(deleteId, routineName, type, onSuccess) {
+  function confirmAndDelete(deleteId, routineName, type, onSuccess,fild_name) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -1603,6 +1603,7 @@ $(document).ready(function () {
         var data = { routine_name: routineName };
         data.delete_table = type;
         data.delete_id = deleteId;
+        data.fild_name =fild_name;
 
         $.ajax({
           url: "../admin1/ajax-call.php",
@@ -1664,6 +1665,8 @@ $(document).ready(function () {
   $(document).delegate(".delete", "click", function () {
     var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
+    var filde = $(this).attr("data-fild");
+
     var deleteMapping = {
       products: { routine: "deleteData", callback: listproduct },
       invoice: { routine: "deleteData", callback: listinvoice },
@@ -1705,7 +1708,7 @@ $(document).ready(function () {
       var routine = deleteMapping[deleteType].routine;
       var callback = deleteMapping[deleteType].callback;
 
-      confirmAndDelete(deleteId, routine, deleteType, callback);
+      confirmAndDelete(deleteId, routine, deleteType, callback, filde);
     } else {
       console.error("Delete type not found:", deleteType);
     }
