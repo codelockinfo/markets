@@ -583,6 +583,7 @@ function get_product(id) {
 
             filesArray.forEach((f) => {
               if ($(`.drop-zone__thumb img[title="${f.name}"]`).length > 0) {
+                showMessage("This file name already contains an image", "fail"  );
                 console.log(`Duplicate preview skipped: ${f.name}`);
                 return; 
               }
@@ -953,20 +954,21 @@ function select_shop() {
   });
 }
 
+function showMessage(msg, type) {
+  var alertTitle =
+    type === "success" ? "Success" : type === "fail" ? "Failure" : "Error";
+  Swal.fire({
+    title: alertTitle,
+    text: msg,
+    icon: type === "fail" ? "error" : type,
+    timer: 5000,
+    timerProgressBar: true,
+    showConfirmButton: false,
+  });
+}
+
 $(document).ready(function () {
   activeSidebarMenu();
-  function showMessage(msg, type) {
-    var alertTitle =
-      type === "success" ? "Success" : type === "fail" ? "Failure" : "Error";
-    Swal.fire({
-      title: alertTitle,
-      text: msg,
-      icon: type === "fail" ? "error" : type,
-      timer: 5000,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    });
-  }
 
   if ($("textarea#myeditor").length > 0) {
     CKEDITOR.replace("myeditor");
@@ -982,19 +984,6 @@ $(document).ready(function () {
     }
     this.setSelectionRange(c, c);
   });
-
-  function showMessage(msg, type) {
-    var alertTitle =
-      type === "success" ? "Success" : type === "fail" ? "Failure" : "Error";
-    Swal.fire({
-      title: alertTitle,
-      text: msg,
-      icon: type === "fail" ? "error" : type,
-      timer: 5000,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    });
-  }
 
   $(".signImage").on("input change", function () {
     $(this).closest(".mb-2").find(".imageError").text("");
@@ -1014,9 +1003,6 @@ $(document).ready(function () {
 
   $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");
-  });
-  $("#removeimage").on("change", function () {
-    $(this).closest(".mb-3").find(".errormsg").html("");
   });
   $("#imageUpload").on("change", function () {
     $(this).closest(".mb-3").find(".errormsg").html("");
