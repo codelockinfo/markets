@@ -9,10 +9,10 @@
         <div class="mail-img"
             style="background-color: #fff;margin: auto;padding: 50px 100px;border-radius: 30px 30px 0px 0px;">
             <img src="https://codelocksolutions.in/markets/admin1/assets/img/thankyou.jpg" alt=""
-                style="width: 75%;margin: 0 auto;display: flex;">
+                style="width: 85%;margin: 0 auto;display: flex;">
            
             <img src="https://codelocksolutions.in/markets/admin1/assets/img/welcome.jpg" alt=""
-                style="width: 75%;margin: 0 auto;display: flex;">
+                style="width: 85%;margin: 0 auto;display: flex;">
            
         </div>
     </div>
