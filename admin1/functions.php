@@ -1518,7 +1518,7 @@ $limit = 12;
                         $output .= '    <div class="mt-2">';
                         $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
-                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
+                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" data-fild="i_image" aria-hidden="true"></i>';
                         $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                         $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
                         $output .= '        </a>';
@@ -1600,7 +1600,7 @@ $limit = 12;
                     $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="mt-3">';
-                    $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
+                    $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer"  data-fild="c_image" aria-hidden="true"></i>';
                     $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
@@ -1823,7 +1823,7 @@ $limit = 12;
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '    <div class="" >';
                     $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs" aria-hidden="true"></i>';
+                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs"  data-fild="image"aria-hidden="true"></i>';
                     $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '        </a>';
@@ -2076,7 +2076,7 @@ $limit = 12;
                     $output .= '<div class="position-relative d-inline-block border-radius-xl offer_imgbox">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image" >';
                     $output .= '<div class="position-absolute top-1 end-0 mt-2 me-2">';
-                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers" aria-hidden="true"></i>';
+                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers"  data-fild="img" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2236,7 +2236,7 @@ $limit = 12;
                         $output .= '<div class="position-relative d-inline-block  border-radius-xl offer_imgbox">';
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                        $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0" data-delete-type="banners" aria-hidden="true"></i>';
+                        $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0"  data-fild="banner_img" data-delete-type="banners" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '</div>';
@@ -2538,18 +2538,58 @@ $limit = 12;
         return $response;
        
     }
-    function deleteRecord($table, $delete_id){
+
+    function deleteRecord($table, $delete_id,$fild_name) {
+        $folder_path = '';
+        switch ($table) {
+            case 'products':
+                $folder_path = "assets/img/product_img/";
+                break;
+            case 'invoice':
+                $folder_path = "assets/img/invoice_img/";
+                break;
+            case 'blogs':
+                $folder_path = "assets/img/blog_img/";
+                break;
+            case 'offers':
+                $folder_path = "assets/img/offers/";
+                break;
+            case 'customers':
+                $folder_path = "assets/img/customer/";
+                break;
+            case 'banners':
+                $folder_path = "assets/img/banner_img/";
+                break;
+            default:
+                
+                break;
+        }
         $delete_id = $this->db->real_escape_string($delete_id);
+        $fild_name= $this->db->real_escape_string($fild_name);
         $table_singular = rtrim($table, 's');
+        $query1 = "SELECT  $fild_name FROM $table WHERE {$table_singular}_id = $delete_id";
+        $resulttt = $this->db->query($query1);
+        if ($resulttt && $row = mysqli_fetch_assoc($resulttt)) {
+            
+            if (!empty($row[$fild_name])) {
+                $image_path = $folder_path . $row[$fild_name];
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                } 
+            }
+        }
         $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
         $result = $this->db->query($query);
+    
         if ($result === TRUE) {
             $response_data = array('data' => 'success', 'message' => "Delete successfully");
         } else {
             $response_data = array('data' => 'fail', 'message' => "Failed to delete record");
         }
+    
         return json_encode($response_data);
     }
+    
 
     function product_main_image(){
         $product_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '';
@@ -2570,8 +2610,8 @@ $limit = 12;
         $delete_table_name = isset($_POST['delete_table']) ? $_POST['delete_table'] : '';
         $delete_table_name = ($delete_table_name == "product_form_image") ? 'product_images': $delete_table_name;
         $delete_table_name = ($delete_table_name == "product_form_image") ? 'products': $delete_table_name;
-
-        return $this->deleteRecord($delete_table_name, $delete_id);
+        $fild_name = isset($_POST['fild_name']) ? $_POST['fild_name'] : '0';
+        return $this->deleteRecord($delete_table_name, $delete_id, $fild_name);
     }    
 
     function forget_password() {
@@ -2737,7 +2777,7 @@ $limit = 12;
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_amount . '" name="amount[]" disabled="" >';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
-                    $item_data .=  '<td  data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
+                    $item_data .=  '<td  data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose   delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
