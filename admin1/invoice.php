@@ -12,11 +12,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-    $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "list Invoice");
-    $title = $para_array['title'];
-    $link = $para_array['link'];
-    $button_text = $para_array['button_text'];
-    include 'adminheadertop.php';
+        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "list Invoice");
+        $title = $para_array['title'];
+        $link = $para_array['link'];
+        $button_text = $para_array['button_text'];
+        include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
       <div class="col-xl-12 mx-auto">
