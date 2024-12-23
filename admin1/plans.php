@@ -12,11 +12,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Plans", "link" => "", "button_text" => "");
-        $title = $para_array['title']; 
-        $link = $para_array['link'];
-        $button_text = $para_array['button_text'];
-        include 'adminheadertop.php';
+    $para_array = array("title" => "Plans", "link" => "", "button_text" => "");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <section class="pricing py-5">
       <div class="container">
@@ -30,13 +30,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span>Free Registration</li>
-                  <li><span class="fa-li"></span>List your products 100 </li>
-                  <li><span class="fa-li"></span>Category creation 10</li>
-                  <li><span class="fa-li"></span>Customer Inquiry</li>
-                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
-                  <li><span class="fa-li"></span>Write your blog</li>
-                </ul> 
+                  <li><span class="fa-li"></span>Free registration</li>
+                  <li><span class="fa-li"></span>List up to 100 products</li>
+                  <li><span class="fa-li"></span>Create up to 10 categories</li>
+                  <li><span class="fa-li"></span>Receive customer inquiries</li>
+                  <li><span class="fa-li"></span>Upload reels (videos)</li>
+                  <li><span class="fa-li"></span>Write and publish your blog</li>
+                </ul>
+
               </div>
               <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
             </div>
@@ -51,15 +52,16 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <hr>
                 <ul class="list-unstyled">
                   <li><span class="fa-li"></span><strong>Free Registration</strong></li>
-                  <li><span class="fa-li"></span>List your products 300</li>
-                  <li><span class="fa-li"></span>Category creation 25</li>
-                  <li><span class="fa-li"></span>Customer Inquiry </li>
-                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
-                  <li><span class="fa-li"></span>Write your blog</li>
-                  <li><span class="fa-li"></span>Top bar offer once in a day</li>
-                  <li><span class="fa-li"></span>Market list on home page</li>
-                  <li><span class="fa-li"></span>Invoice Generating </li>
+                  <li><span class="fa-li"></span>List up to 300 products</li>
+                  <li><span class="fa-li"></span>Create up to 25 categories</li>
+                  <li><span class="fa-li"></span>Receive customer inquiries</li>
+                  <li><span class="fa-li"></span>Upload reels (videos)</li>
+                  <li><span class="fa-li"></span>Write your own blog</li>
+                  <li><span class="fa-li"></span>Display a top bar offer once per day</li>
+                  <li><span class="fa-li"></span>Feature in the market list on the home page</li>
+                  <li><span class="fa-li"></span>Generate invoices</li>
                 </ul>
+
               </div>
               <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
             </div>
@@ -74,20 +76,21 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <hr>
                 <ul class="list-unstyled">
                   <li><span class="fa-li"></span><strong>Free Registration</strong></li>
-                  <li><span class="fa-li"></span>List your products unlimited</li>
-                  <li><span class="fa-li"></span>Category creation 50</li>
-                  <li><span class="fa-li"></span>Customer Inquiry</li>
-                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
-                  <li><span class="fa-li"></span>Write your blog</li>
-                  <li><span class="fa-li"></span>Top bar offer every time</li>
-                  <li><span class="fa-li"></span>Banner Image</li>
-                  <li><span class="fa-li"></span>One offer banner</li>
-                  <li><span class="fa-li"></span>Market list on home page</li>
-                  <li><span class="fa-li"></span>Show your Blog on the home page</li>
-                  <li><span class="fa-li"></span>Videos on the home page</li>
-                  <li><span class="fa-li"></span>Invoice Generating </li>
-                  <li><span class="fa-li"></span>Show your products on the home page</li>
+                  <li><span class="fa-li"></span>List unlimited products</li>
+                  <li><span class="fa-li"></span>Create up to 50 categories</li>
+                  <li><span class="fa-li"></span>Receive customer inquiries</li>
+                  <li><span class="fa-li"></span>Upload reels (videos)</li>
+                  <li><span class="fa-li"></span>Write and publish your blog</li>
+                  <li><span class="fa-li"></span>Display a top bar offer anytime</li>
+                  <li><span class="fa-li"></span>Feature a banner image</li>
+                  <li><span class="fa-li"></span>Showcase one offer banner</li>
+                  <li><span class="fa-li"></span>Appear in the market list on the home page</li>
+                  <li><span class="fa-li"></span>Feature your blog on the home page</li>
+                  <li><span class="fa-li"></span>Showcase videos on the home page</li>
+                  <li><span class="fa-li"></span>Generate invoices</li>
+                  <li><span class="fa-li"></span>Display your products on the home page</li>
                 </ul>
+
               </div>
               <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60">Choose Plan</a>
             </div>
@@ -99,4 +102,5 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   </div>
 
 </body>
+
 </html>
