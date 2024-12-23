@@ -16,7 +16,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-    $para_array = array("title" => "Customer Form", "link" => "customer_list.php", "button_text" => "Customer List");
+    $para_array = array("title" => "Customer Form", "link" => "customer-list.php", "button_text" => "Customer List");
     $title = $para_array['title'];
     $link = $para_array['link'];
     $button_text = $para_array['button_text'];

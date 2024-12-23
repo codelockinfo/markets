@@ -83,7 +83,7 @@ function redirect403() {
 function check_toggle_status() {
   var table_name = $("#toggleStatus").val();
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "check_toggle_status", table_name: table_name },
@@ -105,7 +105,7 @@ function check_toggle_status() {
 
 function CountData(routineName) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -138,7 +138,7 @@ function CountData(routineName) {
 }
 function userData(routineName) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -154,7 +154,7 @@ function userData(routineName) {
 }
 function loadData(routineName) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -256,7 +256,7 @@ function listfamousmarket() {
 
 function profileLoadData(routineName) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     timeout: 5000,
@@ -459,7 +459,7 @@ function updateThumbnailProfileImage(dropZoneElement, file, inputElement) {
 
 function demo() {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "demo_function" },
@@ -470,7 +470,7 @@ function demo() {
 
 function get_product(id) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getproduct", id: id },
@@ -632,7 +632,7 @@ function get_product(id) {
 
 function lastInsertedId(table_name, id) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
@@ -655,7 +655,7 @@ function lastInsertedId(table_name, id) {
 }
 function get_invoice(id) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getinvoice", id: id },
@@ -751,7 +751,7 @@ function get_invoice(id) {
 function get_customer(id) {
   var routine_name = "getcustomer";
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routine_name, id: id },
@@ -812,7 +812,7 @@ function get_customer(id) {
 
 function get_blog(id) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getblog", id: id },
@@ -898,7 +898,7 @@ function activeSidebarMenu() {
 
 function get_Categories() {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "get_categories" },
@@ -921,7 +921,7 @@ function get_Categories() {
 
 function select_shop() {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "select_shop" },
@@ -1104,7 +1104,7 @@ $(document).ready(function () {
           window.location.href = "blog-list.php";
           break;
         case "customer":
-          window.location.href = "customer_list.php";
+          window.location.href = "customer-list.php";
           break;
         default:
           window.location.href = "default-page.php";
@@ -1157,7 +1157,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_signin");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1199,7 +1199,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "profile_updatedata");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1242,7 +1242,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "profile_imagesave");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1290,7 +1290,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_signup");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1368,7 +1368,7 @@ $(document).ready(function () {
       form_data.append("subimage[]", file);
     });
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1443,7 +1443,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "add_customer");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       method: "POST",
       dataType: "JSON",
       contentType: false,
@@ -1485,10 +1485,10 @@ $(document).ready(function () {
             resetThumbnail();
             $(".myFile").html("");
           } else {
-            window.location.href = "customer_list.php";
+            window.location.href = "customer-list.php";
           }
           showMessage(response.msg, "success");
-          window.location.href = "customer_list.php";
+          window.location.href = "customer-list.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1519,7 +1519,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       method: "POST",
       dataType: "json",
       contentType: false,
@@ -1605,7 +1605,7 @@ $(document).ready(function () {
         data.delete_id = deleteId;
 
         $.ajax({
-          url: "../admin1/ajax_call.php",
+          url: "../admin1/ajax-call.php",
           type: "POST",
           dataType: "json",
           data: data,
@@ -1718,7 +1718,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_videos");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1763,7 +1763,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_blog");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1817,7 +1817,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_banner");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1860,7 +1860,7 @@ $(document).ready(function () {
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
 
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1901,7 +1901,7 @@ $(document).ready(function () {
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
 
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       data: {
@@ -1934,7 +1934,7 @@ $(document).ready(function () {
     var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
 
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1957,7 +1957,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_market");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1997,7 +1997,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_brousetxt");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2031,7 +2031,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_offers");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2076,7 +2076,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_paragraph");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2114,7 +2114,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_faq");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2150,7 +2150,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_topbar");
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2190,7 +2190,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "forget_password");
     $.ajax({
-      url: "ajax_call.php",
+      url: "ajax-call.php",
       type: "POST",
       dataType: "json",
       contentType: false,
@@ -2219,7 +2219,7 @@ $(document).ready(function () {
     form_data.append("routine_name", "reset_passwordform");
 
     $.ajax({
-      url: "ajax_call.php",
+      url: "ajax-call.php",
       type: "POST",
       dataType: "json",
       contentType: false,
@@ -2264,7 +2264,7 @@ $(document).ready(function () {
     $(this).addClass("active");
     var page = $("#dataPagination").find(".page-link.active").data("page");
     $.ajax({
-      url: "ajax_call.php",
+      url: "ajax-call.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -2342,7 +2342,7 @@ $(document).on("click", ".close-buttons_profile", function (event) {
 
   function clearImage(routineName, id, idValue) {
     $.ajax({
-      url: "../admin1/ajax_call.php",
+      url: "../admin1/ajax-call.php",
       type: "POST",
       dataType: "json",
       data: { routine_name: routineName, [id]: idValue },
@@ -2369,7 +2369,7 @@ $(document).on("click", ".toggle-button", function () {
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -2383,7 +2383,7 @@ $(document).on("click", ".toggle-button", function () {
 
 function check_toggle_btn(videoId) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: {
@@ -2406,7 +2406,7 @@ $(document).on("click", ".protoggle-button", function () {
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -2420,7 +2420,7 @@ $(document).on("click", ".protoggle-button", function () {
 
 function check_toggle_btn(productId) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: {
@@ -2443,7 +2443,7 @@ $(document).on("click", ".usertoggle-button", function () {
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -2457,7 +2457,7 @@ $(document).on("click", ".usertoggle-button", function () {
 
 function check_toggle_btn(userId) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: {
@@ -2684,7 +2684,7 @@ $(document).on("click", ".modal .btn-close", function () {
 
 function get_invoicepdf(id) {
   $.ajax({
-    url: "../admin1/ajax_call.php",
+    url: "../admin1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getinvoicepdf", id: id },
