@@ -278,14 +278,23 @@ $(document).ready(function () {
       calculateAmount(row);
     }
   );
-
-  $('input[name="amount_paid"]').on("input", function () {
-    updateSubtotal();
-  });
-
+  
   $('input[name="shipping_charges"]').on("input", function () {
     updateSubtotal();
   });
+
+  $('input[name="amount_paid"]').on("input", function () {
+    const subtotal = parseFloat($('input[name="total"]').val()) || 0;
+    let amountPaid = parseFloat($(this).val()) || 0;
+
+    if (amountPaid > subtotal) {
+        amountPaid = subtotal;
+        $(this).val(amountPaid.toFixed(2));
+    }
+
+    updateSubtotal();
+});
+
 
   updateRemoveButtonVisibility();
   updateSubtotal();
