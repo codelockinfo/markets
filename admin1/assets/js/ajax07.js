@@ -629,7 +629,7 @@ function get_product(id) {
     },
   });
 }
-
+      
 function lastInsertedId(table_name, id) {
   $.ajax({
     url: "../admin1/ajax-call.php",
