@@ -653,6 +653,7 @@ function lastInsertedId(table_name, id) {
     },
   });
 }
+
 function get_invoice(id) {
   $.ajax({
     url: "../admin1/ajax-call.php",
@@ -2453,6 +2454,11 @@ $(document).on("click", ".usertoggle-button", function () {
     },
     success: function (response) {},
   });
+});
+
+$(document).on("click", ".getPayment", function () {
+  console.log("getPayment");
+  
 });
 
 function check_toggle_btn(userId) {
