@@ -50,7 +50,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "conatct_form");
     $.ajax({
-      url: "../client1/ajax_call.php",
+      url: "../client1/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -84,7 +84,7 @@ $(document).ready(function () {
 function loadData(routineName, elementId) {
   console.log(routineName + " on load");
   $.ajax({
-    url: "../client1/ajax_call.php",
+    url: "../client1/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -202,7 +202,7 @@ function loadData(routineName, elementId) {
 }
 function getcollection(id){
   $.ajax({
-    url: "../client1/ajax_call.php",
+    url: "../client1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: { routine_name: "market_collection", id: id }, 
@@ -218,7 +218,7 @@ function getcollection(id){
 
 function getcustomer(id){
   $.ajax({
-    url: "../client1/ajax_call.php",
+    url: "../client1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: { routine_name: "customer", id: id }, 
@@ -233,7 +233,7 @@ function getcustomer(id){
 }
 function getallfemusmarket(id){
   $.ajax({
-    url: "../client1/ajax_call.php",
+    url: "../client1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: { routine_name: "market_collection", id: id }, 
@@ -248,7 +248,7 @@ function getallfemusmarket(id){
 }
 function getcatelog(id) {
   $.ajax({
-    url: "../client1/ajax_call.php",
+    url: "../client1/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: { routine_name: "catlog", id: id },
@@ -337,7 +337,7 @@ function marketlist3showclientside() {
 
 //   // AJAX call to fetch products based on category
 //   $.ajax({
-//     url: "../client1/ajax_call.php", // Update to your actual path
+//     url: "../client1/ajax-call.php", // Update to your actual path
 //     type: 'post',
 //     dataType: "json",
 //     data: {
