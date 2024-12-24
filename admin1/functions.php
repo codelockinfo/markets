@@ -80,7 +80,7 @@ $limit = 12;
                 $error_array['shop'] = "Please enter the shop name.";
             }
             $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-            $mobilepattern = "/^[789]\d{9}$/";
+            $mobilepattern = "/^[6789]\d{9}$/";
             if (empty($phone_number)) {
                 $error_array['phone_number'] = "Please enter the phone number.";
             } elseif (!preg_match($mobilepattern, $phone_number)) {
@@ -211,7 +211,7 @@ $limit = 12;
             $error_array['business_type'] = "Please select the business type.";
         }
         $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-        $mobilepattern = "/^[789]\d{9}$/";  
+        $mobilepattern = "/^[6789]\d{9}$/";  
         if (empty($phone_number)) {
 
             $error_array['phone_number'] = "The phone number cannot be empty.";
@@ -870,7 +870,7 @@ $limit = 12;
             $error_array['auto_genrate'] = "Please enter number";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
-            $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
+            $error_array['youtube_shorts'] = "Please enter the youtube shorts link.";
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {
             $error_array['youtube_shorts'] = "Please enter the valid YouTube shorts link.";
         }
@@ -3127,7 +3127,7 @@ function usercheck_toggle_btn() {
             }
             
             $phone_number = isset($_POST['billing_mobile']) ? $_POST['billing_mobile'] : '';
-            $mobilepattern = "/^[789]\d{9}$/";  
+            $mobilepattern = "/^[6789]\d{9}$/";  
             if (empty($phone_number)) {
                 $error_array['billing_mobile'] = "The phone number cannot be empty.";
             } else if (strlen($phone_number) !== 10) {
