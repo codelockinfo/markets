@@ -102,7 +102,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <span class="errormsg max_price"></span>
               </div>
             </div>
-            <label class="font-weight-normal">Product Main Image</label>
+            <label class="font-weight-normal required ">Product Main Image</label>
             <div class="mb-3">
               <div class="productMainImageAppend form-control">
                 <div class="drop-zone">

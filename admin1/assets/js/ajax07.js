@@ -61,18 +61,8 @@ function loading_hide($selector, $buttonName, $buttonIcon) {
   if ($buttonIcon != undefined) {
     $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
   } else {
-    $buttonIcon = "Save";
+    $buttonIcon = $buttonName;
   }
-  $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
-}
-
-function loading_hidefun($selector, $buttonName, $buttonIcon) {
-  if ($buttonIcon != undefined) {
-    $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
-  } else {
-    $buttonIcon = "cencle";
-  }
-
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
 }
 
@@ -152,6 +142,7 @@ function userData(routineName) {
     },
   });
 }
+
 function loadData(routineName) {
   $.ajax({
     url: "../admin1/ajax-call.php",
@@ -1095,7 +1086,7 @@ $(document).ready(function () {
     }
     $(this).closest("form")[0].reset();
     setTimeout(function () {
-      loading_hidefun(".cencle_loader_show", "blogs");
+      loading_hide(".cencle_loader_show", "cencle");
     }, 300);
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");

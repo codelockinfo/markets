@@ -289,6 +289,7 @@ $limit = 12;
     function insert_products(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
+        $is_mian_image_update= false;
         $p_tag = $_POST['p_tag'] ?? [];
         $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
         if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
@@ -1469,7 +1470,7 @@ $limit = 12;
                         $imagePath = "../admin1/assets/img/invoice_img/" . $image;
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
-                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
                         $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 mb-xl-0 mb-4">';
                         $output .= '<div class="card card-blog card-plain mb-4">';
                         $output .= '<div class="position-relative">';
@@ -1483,6 +1484,7 @@ $limit = 12;
                         $output .= '<div class=" justify-content-between mb-3">';
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Invoice Name:</h6>' . $row['i_name'] . '</div>';
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Subtotal :</h6>' . $row['subtotal'] . '</div>';
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
