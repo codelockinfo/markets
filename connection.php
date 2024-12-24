@@ -26,7 +26,19 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/client1/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'https://codelocksolutions.in/markets/admin1/');
-} else {
+}elseif ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
+    define("DB_SERVER", "localhost");
+    define("DB_DATABASE", "u402017191_tmh");
+    define("DB_USERNAME", "u402017191_tmh");
+    define("DB_PASSWORD", "Tmh@099$");
+    define("DB_OBJECT", "mysql");
+    define('MODE', 'live');
+    define('ABS_PATH', dirname(dirname(__FILE__)));
+    define('MAIN_URL', 'https://textilemarkethub.com/markets');
+    define('CLS_SITE_URL', 'https://textilemarkethub.com/markets');
+    define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
+    define('SITE_ADMIN_URL', 'https://textilemarkethub.com/markets/admin/');
+}else {
     echo 'Undefine host';
     exit;
 }

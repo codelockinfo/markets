@@ -70,7 +70,7 @@ function loading_hidefun($selector, $buttonName, $buttonIcon) {
   if ($buttonIcon != undefined) {
     $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
   } else {
-    $buttonIcon = "cencle";
+    $buttonIcon = "cancle";
   }
 
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
@@ -485,7 +485,7 @@ function get_product(id) {
               .val(response["outcome"]["category"])
               .change()
           : "";
-          response["outcome"]["cloth"] !== undefined
+        response["outcome"]["cloth"] !== undefined
           ? $("select[name='cloth']")
               .val(response["outcome"]["cloth"])
               .change()
@@ -493,7 +493,7 @@ function get_product(id) {
         response["outcome"]["qty"] !== undefined
           ? $("input[name='qty']").val(response["outcome"]["qty"])
           : "";
-          response["outcome"]["fabric_type"] !== undefined
+        response["outcome"]["fabric_type"] !== undefined
           ? $("input[name='fabric_type']").val(response["outcome"]["fabric_type"])
           : "";
         response["outcome"]["sku"] !== undefined
@@ -583,9 +583,9 @@ function get_product(id) {
 
             filesArray.forEach((f) => {
               if ($(`.drop-zone__thumb img[title="${f.name}"]`).length > 0) {
-                showMessage("This file name already contains an image", "fail"  );
+                showMessage("This file name already contains an image", "fail");
                 console.log(`Duplicate preview skipped: ${f.name}`);
-                return; 
+                return;
               }
               let fileReader = new FileReader();
 
@@ -682,7 +682,7 @@ function get_invoice(id) {
       response["outcome"]["date"] !== undefined
         ? $("input[name='date']").val(response["outcome"]["date"])
         : "";
-        response["outcome"]["shipping_charges"] !== undefined
+      response["outcome"]["shipping_charges"] !== undefined
         ? $("input[name='shipping_charges']").val(response["outcome"]["shipping_charges"])
         : "";
 
@@ -1143,11 +1143,11 @@ $(document).ready(function () {
     var emailErrorDiv = $(".email");
     var emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|gmail\.in|yahoo\.com|yahoo\.in|gmail\.org|yahoo\.org)$/;
     if (email === "") {
-      emailErrorDiv.text(""); 
+      emailErrorDiv.text("");
     } else if (!emailRegex.test(email)) {
       emailErrorDiv.text("The email address entered is invalid.");
     } else {
-      emailErrorDiv.text(""); 
+      emailErrorDiv.text("");
     }
   });
   
@@ -2322,7 +2322,7 @@ $(document).on("click", ".picture__img", function () {
 });
 
 $(document).on("click", ".close-button_product", function (event) {
-  event.stopPropagation();  
+  event.stopPropagation();
   const fileName = $(this).data("name");
   storedFiles = storedFiles.filter((file) => file.name !== fileName);
   if($(this).data("id") == undefined ){
@@ -2456,8 +2456,12 @@ $(document).on("click", ".usertoggle-button", function () {
   });
 });
 
-$(document).on("click", ".getPayment", function () {
+$(document).on("click", ".choosePlan", function () {
   console.log("getPayment");
+  var amount = $(this).data("amount");
+  var plan_type = $(this).data("plan_type");
+  $(".amount").val(amount);
+  $(".plan_type").val(plan_type);
   
 });
 
@@ -2480,6 +2484,140 @@ function check_toggle_btn(userId) {
     },
   });
 }
+
+$(document).on("click", ".getPayment", function (e) {
+  console.log("getPayment");
+  var paymentOption = "netbanking";
+  var form_data = $("#getPayment")[0];
+  var form_data = new FormData(form_data);
+  form_data.append("paymentOption", "netbanking");
+  form_data.append("routine_name", "paymentnow");
+  $.ajax({
+    url: "../admin1/ajax-call.php",
+    type: "post",
+    dataType: "json",
+    contentType: false,
+    processData: false,
+    data: form_data,
+    beforeSend: function () {
+      loading_show(".getPayment.save_loader_show");
+    },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response,"   ...response");
+      if (response.data == "success") {
+        var orderID = response.order_number;
+        var orderNumber = response.order_number;
+        var options = {
+          key: response.razorpay_key, // Enter the Key ID generated from the Dashboard
+          amount: response.outcome.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          currency: "INR",
+          name: "Market Search", //your business name
+          description: response.outcome.description,
+          image: "http://localhost/markets/client1/img/shop_1/market9.png",
+          order_id: response.outcome.order_number, //This is a sample Order ID. Pass
+          handler: function (responseData) {
+            // window.location.replace("payment-success.php?oid="+orderID+"&rp_payment_id="+response.razorpay_payment_id+"&rp_signature="+response.razorpay_signature);
+            console.log(responseData, " ......responseData");
+            var razorpay_payment_id = responseData.razorpay_payment_id ? responseData.razorpay_payment_id : '';
+            var razorpay_signature = responseData.razorpay_signature ? responseData.razorpay_signature : '';
+            var inserted_id = response.inserted_id ? response.inserted_id : '';
+              $.ajax({
+                url: "../admin1/ajax-call.php",
+                type: "post",
+                dataType: "json",
+                data: { routine_name: "update_success_payment", razorpay_signature: razorpay_signature, razorpay_payment_id: razorpay_payment_id, inserted_id: inserted_id },
+                success: function (response) {
+                  var response = JSON.parse(response);
+                  if(response.data == "success"){
+                    loading_hide(".save_loader_show", "Done");
+                    showMessage(response["msg"], "success");
+                    window.location.replace("plans.php");
+                  }else{
+                    showMessage(response["msg"], "fail");
+                  }
+                },
+              });
+          },
+          modal: {
+            ondismiss: function () {
+              console.log("Modal Dismiss");
+              // window.location.replace("payment-success.php?oid="+orderID);
+            },
+          },
+          prefill: {
+            //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+            name: response.outcome.name, //your customer's name
+            email: response.outcome.email,
+            contact: response.outcome.mobile, //Provide the customer's phone number for better conversion rates
+          },
+          notes: {
+            address: "Market Search",
+          },
+          config: {
+            display: {
+              blocks: {
+                banks: {
+                  name: "Pay using " + paymentOption,
+                  instruments: [
+                    {
+                      method: paymentOption,
+                    },
+                  ],
+                },
+              },
+              sequence: ["block.banks"],
+              preferences: {
+                show_default_blocks: true,
+              },
+            },
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on("payment.failed", function (response) {
+          console.log("payment failed");
+          showMessage("payment failed", "fail");
+          // window.location.replace("payment-failed.php?oid="+orderID+"&reason="+response.error.description+"&paymentid="+response.error.metadata.payment_id);
+        });
+        rzp1.open();
+        e.preventDefault();
+      } else {
+        response["msg"]["billing_name"] !== undefined
+          ? $(".name").html(response["msg"]["billing_name"])
+          : $(".name").html("");
+        response["msg"]["billing_email"] !== undefined
+          ? $(".email").html(response["msg"]["billing_email"])
+          : $(".email").html("");
+        response["msg"]["billing_mobile"] !== undefined
+          ? $(".phone_number").html(response["msg"]["billing_mobile"])
+          : $(".phone_number").html("");
+        loading_hide(".getPayment.save_loader_show", "Pay now");
+      }
+    },
+  });
+});
+
+function getPaymentPlan(){
+  $.ajax({
+    url: "../admin1/ajax-call.php",
+    type: "post",
+    dataType: "json",
+    data: { routine_name: "get_payment_plan"},
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response,"..response.plan_type");
+      if(response.data == "success"){
+        console.log( response.outcome.plan_type,  ".....plan type");
+        $(".btn[data-plan_type='"+ response.outcome.plan_type +"']").prop("disabled", true);
+        $(".btn[data-plan_type='"+ response.outcome.plan_type +"']").text("Current plan");
+      }
+    },
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var ctxhtml = document.getElementById("chart-bars");
   if (ctxhtml) {
@@ -2712,7 +2850,7 @@ function get_invoicepdf(id) {
       $("span[id='terms_condition']").html(response.outcome.terms_condition);
       $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
 
-     
+
       if (response.item_data) {
         $(".get_invoiceitems").html(response.item_data);
       }

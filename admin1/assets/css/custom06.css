@@ -1069,7 +1069,9 @@ border:1px solid #d2d6da;
 .choose-text {
     display: block;
 }
-
+.btn{
+  --bs-btn-disabled-opacity: 0.5;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {
