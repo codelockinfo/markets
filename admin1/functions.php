@@ -716,9 +716,9 @@ $limit = 12;
             $ship_to = $_POST['ship_to'];
             $date = $_POST['date'];
             $terms = isset($_POST['terms']) ? $_POST['terms'] : "";
-            $invoice_id = $_POST['invoice_id'];
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
+            $invoice_no = $_POST['invoice_no'];
             $total = isset($_POST['total']) ? $_POST['total'] : 0;
             $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
@@ -727,14 +727,13 @@ $limit = 12;
             $shipping_charges = isset($_POST['shipping_charges']) ? $_POST['shipping_charges'] : '';
 
             if (!empty(array_filter($_POST['item']))) {
-            // echo $id;
                 if ($id == '') { 
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                            $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`)
-                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges')";
+                            $query = "INSERT INTO invoice (`i_image`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`,`invoice_no`)
+                                      VALUES ('$newFilename','$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
                     }else{
-                        $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`)
-                                      VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges')";
+                        $query = "INSERT INTO invoice (`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`,`invoice_no`)
+                                      VALUES ( '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
                     }
                 } else {
                     if (!empty($filename)) {
@@ -748,7 +747,7 @@ $limit = 12;
                         $existing_image = $existing_image_row['i_image'];
                         $newImageUploaded = $existing_image;
                 }
-                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges',
+                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges', invoice_no='$invoice_no',
                                 po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
             }
             $result = $this->db->query($query);
@@ -2709,14 +2708,10 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-                    
-                    // $pro_img.=' <div class="d-flex flex-wrap align-items-center">';
                     $pro_img.=' <input type="file" id="files" class="file-input" name="p_image[]" multiple style="display: none;" />';
                     $pro_img.='<label for="files" class="file-label " style="display:block;">';
                     $pro_img.=' <span class="choose-text">Choose Files</span>';
                     $pro_img.=' </label>';
-                    // $pro_img.=' </div>';
-      
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             
@@ -2726,21 +2721,21 @@ $limit = 12;
         return $response;
     }
 
-    function last_inserted_id(){
-    $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
-        $id = isset($_POST['id']) ? $_POST['id'] : '';
-        $table_name = isset($_POST['table_name']) ? $_POST['table_name'] : '';
-        $query = "SELECT $id  FROM $table_name ORDER BY $id DESC LIMIT 1";
-    $result = $this->db->query($query);
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-            $lastInvoiceNumber = $row ? intval($row['invoice_id']) : 0;
-            $newInvoiceNumber = $lastInvoiceNumber + 1;
-            $response_data = array('data' => 'success', 'outcome' => $newInvoiceNumber);
-        } 
-        $response = json_encode($response_data);
-        return $response;
-}
+//     function last_inserted_id(){
+//     $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+//         $id = isset($_POST['id']) ? $_POST['id'] : '';
+//         $table_name = isset($_POST['table_name']) ? $_POST['table_name'] : '';
+//         $query = "SELECT $id  FROM $table_name ORDER BY $id DESC LIMIT 1";
+//     $result = $this->db->query($query);
+//     if ($result) {
+//         $row = mysqli_fetch_assoc($result);
+//             $lastInvoiceNumber = $row ? intval($row['invoice_id']) : 0;
+//             $newInvoiceNumber = $lastInvoiceNumber + 1;
+//             $response_data = array('data' => 'success', 'outcome' => $newInvoiceNumber);
+//         } 
+//         $response = json_encode($response_data);
+//         return $response;
+// }
 
     function getinvoice() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');

@@ -17,7 +17,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
               </div>
               <div class="col">
                 <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                <p class="text-normal text-end"># 101</p>
+                <p class="text-normal text-end" id="invoice_no"># 101</p>
               </div>
             </div>
           </div>

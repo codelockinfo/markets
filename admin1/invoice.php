@@ -27,7 +27,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3 invoiceid" value="" readonly>
+                  <input type="text"  class="form-control ms-auto text-end mb-3 invoice_no genrate" value="" name="invoice_no" readonly >
                 </div>
                 <div class="col mb-3 orderchange">
                   <div class="imageAppend form-control max-width-300">
@@ -40,7 +40,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end invoiceid" value="" name="invoice_id" readonly>
+                  <input type="text"  class="form-control invoice-inputbox ms-auto text-end genrate" value="" name="invoice_no" readonly>
                 </div>
               </div>
             </div>
@@ -222,7 +222,5 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   if (id !== "") {
     get_invoice(id);
 
-  }else{
-    lastInsertedId();
   }
 </script>

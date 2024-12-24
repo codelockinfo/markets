@@ -630,29 +630,29 @@ function get_product(id) {
   });
 }
       
-function lastInsertedId(table_name, id) {
-  $.ajax({
-    url: "../admin1/ajax-call.php",
-    type: "post",
-    dataType: "json",
-    data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
-    success: function (response) {
-      var response = JSON.parse(response);
-      if (response["data"] == "success") {
-        const year = new Date().getFullYear();
-        let rawOutcome = response.outcome.toString();
-        console.log("Raw Outcome:", rawOutcome);
-        if (rawOutcome.startsWith(year.toString())) {
-          rawOutcome = rawOutcome.slice(year.toString().length);
-        }
-        const paddedId = rawOutcome.padStart(5, "0");
-        const formattedId = `${year}${paddedId}`;
-        $(".invoiceid").val(formattedId);
-        console.log("Generated Invoice ID:", formattedId);
-      }
-    },
-  });
-}
+// function lastInsertedId(table_name, id) {
+//   $.ajax({
+//     url: "../admin1/ajax-call.php",
+//     type: "post",
+//     dataType: "json",
+//     data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
+//     success: function (response) {
+//       var response = JSON.parse(response);
+//       if (response["data"] == "success") {
+//         const year = new Date().getFullYear();
+//         let rawOutcome = response.outcome.toString();
+//         console.log("Raw Outcome:", rawOutcome);
+//         if (rawOutcome.startsWith(year.toString())) {
+//           rawOutcome = rawOutcome.slice(year.toString().length);
+//         }
+//         const paddedId = rawOutcome.padStart(5, "0");
+//         const formattedId = `${year}${paddedId}`;
+//         $(".invoiceid").val(formattedId);
+//         console.log("Generated Invoice ID:", formattedId);
+//       }
+//     },
+//   });
+// }
 
 function get_invoice(id) {
   $.ajax({
@@ -665,9 +665,10 @@ function get_invoice(id) {
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
-      response["outcome"]["invoice_id"] !== undefined
-        ? $(".invoiceid").val(response["outcome"]["invoice_id"])
+        response["outcome"]["invoice_no"] !== undefined
+        ? $("input[name='invoice_no']").val(response["outcome"]["invoice_no"])
         : "";
+     
       response["outcome"]["bill_no"] !== undefined
         ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
         : "";
@@ -998,7 +999,8 @@ $(document).ready(function () {
   });
 
   let randomNumber = Math.floor(10000000 + Math.random() * 90000000);
-    $('#genrate').val(randomNumber); 
+  console.log(randomNumber);
+    $('.genrate').val(randomNumber); 
   
 
 
@@ -2714,6 +2716,7 @@ function get_invoicepdf(id) {
       $("span[id='notes']").html(response.outcome.notes);
       $("span[id='terms_condition']").html(response.outcome.terms_condition);
       $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
+      $("p[id='invoice_no']").html(response.outcome.invoice_no);
 
      
       if (response.item_data) {
