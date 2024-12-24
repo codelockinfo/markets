@@ -103,7 +103,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl ">
-                  <input type="text" class="form-control mt-1 price " placeholder=" Product Number" name="po_number">
+                  <input type="text" class="form-control mt-1 price " placeholder="Purchase Order Number" name="po_number">
                   <span class="errormsg po_number"></span>
                 </div>
               </div>
@@ -159,6 +159,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
+                  <span class="text-normal">Shipping Charges:</span>
+                </div>
+                <div class="col-xl ">
+                  <input type="number" class="form-control mt-1" name="shipping_charges" placeholder="₹ 0.00">
+                </div>
+              </div>
+              <div class="row  mt-2">
+                <div class="col-xl mt-2">
                   <span class="text-normal">Total :</span>
                 </div>
                 <div class="col-xl ">
@@ -174,14 +182,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text" class="form-control mt-1 price" name="amount_paid" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row  mt-2">
-                <div class="col-xl mt-2">
-                  <span class="text-normal">Shipping Charges:</span>
-                </div>
-                <div class="col-xl ">
-                  <input type="number" class="form-control mt-1" name="shipping_charges" placeholder="₹ 0.00">
-                </div>
-              </div>
+              
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Balance Due :</span>

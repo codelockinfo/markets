@@ -31,7 +31,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-tags" class="font-weight-normal required">Video Category</label>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Categories</label>
+            
               <select class="form-select required" aria-label="Default select example" id="mySelect" name="category">
                 <option selected value="">Select Category</option>
               </select>

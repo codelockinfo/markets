@@ -298,6 +298,7 @@ function profileLoadData(routineName) {
           parsedResponse["outcome"]["logo"] !== undefined
             ? $("#profile_data").html(parsedResponse["outcome"]["logo"])
             : $("#profile_data").html("");
+        
         } else if (parsedResponse.data === "fail") {
           console.error("Error from server:", parsedResponse.message);
         } else {
@@ -1231,6 +1232,7 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
+          window.location.href = "profile.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
