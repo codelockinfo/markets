@@ -1,9 +1,7 @@
 <?php
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
-$http_host = $_SERVER["HTTP_HOST"];
-$req_schema = $_SERVER["REQUEST_SCHEME"];
 if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
-  include($req_schema.'//'.$http_host . '/connection.php');
+  include($myRoot .'/connection.php');
 }else{
   include($myRoot . '/markets/connection.php');
 }
