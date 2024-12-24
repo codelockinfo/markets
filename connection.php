@@ -35,9 +35,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('MODE', 'live');
     define('ABS_PATH', dirname(dirname(__FILE__)));
     define('MAIN_URL', 'https://textilemarkethub.com/markets');
-    define('CLS_SITE_URL', 'https://textilemarkethub.com/markets');
+    define('CLS_SITE_URL', 'https://textilemarkethub.com/markets/client1/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
-    define('SITE_ADMIN_URL', 'https://textilemarkethub.com/markets/admin/');
+    define('SITE_ADMIN_URL', 'https://textilemarkethub.com/markets/admin1/');
 }else {
     echo 'Undefine host';
     exit;
