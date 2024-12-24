@@ -31,7 +31,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
             <label for="p-tags" class="font-weight-normal required">Video Category</label>
             <div class="mb-3">
-              <label for="text" class="font-weight-normal">Categories</label>
+            
               <select class="form-select required" aria-label="Default select example" id="mySelect" name="category">
                 <option selected value="">Select Category</option>
               </select>
@@ -43,9 +43,9 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="url" id="y-shorturl" class="form-control validurl" placeholder="Youtube Shorts" name="youtube_shorts">
               <span class="errormsg youtube_shorts"></span>
             </div>
-            <label for="y-videolink" class="font-weight-normal required">auto generate number</label>
+            <label for="y-videolink" class="font-weight-normal required">Auto Generate Number</label>
             <div class="mb-3">
-              <input type="text" id="genrate" class="form-control g_id" name="auto_genrate" readonly    >
+              <input type="text" class="form-control g_id genrate" name="auto_genrate" readonly >
               <span class="errormsg auto_genrate"></span>
             </div>
             <div class="mb-3">

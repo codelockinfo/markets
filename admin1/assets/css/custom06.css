@@ -1032,6 +1032,13 @@ border:1px solid #d2d6da;
   outline: 0;
   box-shadow: 0 0 0 2px #9db3d0;
 }
+.form-select:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #bed1ec;
+  outline: 0;
+  box-shadow: 0 0 0 2px #9db3d0;
+}
 .topbar{
   width: 100%;
 }

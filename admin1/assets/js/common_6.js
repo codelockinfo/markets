@@ -252,13 +252,14 @@ $(document).ready(function () {
       subtotal += amount;
     });
     const shippingCharges = parseFloat($('input[name="shipping_charges"]').val()) || 0;
-    subtotal += shippingCharges;
     const amountPaid = parseFloat($('input[name="amount_paid"]').val()) || 0;
-    const balanceDue = subtotal - amountPaid;
+    const total = subtotal + shippingCharges;
+    const balanceDue = total - amountPaid;
     $('input[name="subtotal"]').val(subtotal.toFixed(2));
-    $('input[name="total"]').val(subtotal.toFixed(2));
+    $('input[name="total"]').val(total.toFixed(2));
     $('input[name="balance_due"]').val(balanceDue.toFixed(2));
   }
+  
 
   $(".add")
     .off("click")

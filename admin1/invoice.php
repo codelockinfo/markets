@@ -12,7 +12,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "list Invoice");
+        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "List Invoice");
         $title = $para_array['title'];
         $link = $para_array['link'];
         $button_text = $para_array['button_text'];
@@ -27,7 +27,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="row mb-3 main_invoicechange">
                 <div class="col invoice-title">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control ms-auto text-end mb-3 invoiceid" value="" readonly>
+                  <input type="text"  class="form-control ms-auto text-end mb-3 invoice_no genrate" value="" name="invoice_no" readonly >
                 </div>
                 <div class="col mb-3 orderchange">
                   <div class="imageAppend form-control max-width-300">
@@ -40,7 +40,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col invoice-title1 invoice_order">
                   <h1 class="text-normal fs-2 text-end">INVOICE</h1>
-                  <input type="text" placeholder="# 101" class="form-control invoice-inputbox ms-auto text-end invoiceid" value="" name="invoice_id" readonly>
+                  <input type="text"  class="form-control invoice-inputbox ms-auto text-end genrate" value="" name="invoice_no" readonly>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ">
                 <select class="form-select position-relative" aria-label="Default select example" name="terms">
-                          <option selected value="" disabled>payment Terms</option>
+                          <option selected value="" disabled>Payment Terms</option>
                           <option value="online">online</option>
                           <option value="cash">cash</option>
                  </select>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">PO Number :</span>
                 </div>
                 <div class="col-xl ">
-                  <input type="text" class="form-control mt-1 price " placeholder=" Product Number" name="po_number">
+                  <input type="text" class="form-control mt-1 price " placeholder="Purchase Order Number" name="po_number">
                   <span class="errormsg po_number"></span>
                 </div>
               </div>
@@ -159,6 +159,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
+                  <span class="text-normal">Shipping Charges:</span>
+                </div>
+                <div class="col-xl ">
+                  <input type="number" class="form-control mt-1" name="shipping_charges" placeholder="₹ 0.00">
+                </div>
+              </div>
+              <div class="row  mt-2">
+                <div class="col-xl mt-2">
                   <span class="text-normal">Total :</span>
                 </div>
                 <div class="col-xl ">
@@ -174,14 +182,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text" class="form-control mt-1 price" name="amount_paid" placeholder="₹ 0.00">
                 </div>
               </div>
-              <div class="row  mt-2">
-                <div class="col-xl mt-2">
-                  <span class="text-normal">Shipping Charges:</span>
-                </div>
-                <div class="col-xl ">
-                  <input type="number" class="form-control mt-1" name="shipping_charges" placeholder="₹ 0.00">
-                </div>
-              </div>
+              
               <div class="row  mt-2">
                 <div class="col-xl mt-2">
                   <span class="text-normal">Balance Due :</span>
@@ -222,7 +223,5 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   if (id !== "") {
     get_invoice(id);
 
-  }else{
-    lastInsertedId();
   }
 </script>

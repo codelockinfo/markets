@@ -159,7 +159,7 @@ $limit = 12;
         return $response;
     }
 
-    function insert_signup()  {
+    function insert_signup(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
@@ -286,9 +286,10 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-    function insert_products() {
+    function insert_products(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
+        $is_mian_image_update= false;
         $p_tag = $_POST['p_tag'] ?? [];
         $product_id = (isset($_POST['id']) && $_POST['id'] != "" ? $_POST['id'] : "");
         if (isset($_POST['addcheckboxcategory']) && $_POST['addcheckboxcategory'] != '') {
@@ -333,7 +334,6 @@ $limit = 12;
             $error_array['p_description'] = "Please enter the description.";
         }
         $newmainFilename = "";
-        $is_image_update  = $is_mian_image_update = false;
         $maxSize = 5 * 1024 * 1024;
         if (isset($_FILES["productmain_image"]["name"]) && !empty($_FILES["productmain_image"]["name"])) {
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
@@ -489,7 +489,7 @@ $limit = 12;
         return $response;
     }
 
-    function add_customer() {
+    function add_customer(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
          $id = isset($_POST['id']) && $_POST['id'] !== '' ? $_POST['id'] : '';
@@ -513,15 +513,6 @@ $limit = 12;
                     return json_encode($response_data);
                 }
             }
-            // if (!in_array($fileExtension, $allowedExtensions)) {
-            //     $error_array['c_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            // }
-            // if ($file['size'] > $maxSize) {
-            //     $error_array['c_image'] = "File size must be 5MB or less.";
-            // }
-            // if (empty($filename)) {
-            //     $error_array['c_image'] = "Please upload your image.";
-            // }
         }
         if (empty($_POST['name'])) {
             $error_array['name'] = "Please enter customer name.";
@@ -596,7 +587,7 @@ $limit = 12;
         return json_encode($response_data);
     }
 
-    function listgallary() {
+    function listgallary(){
         $response_data = array('data' => 'fail', 'msg' => "Something went wrong!");
         global $NO_IMAGE;
         global $limit;
@@ -620,13 +611,13 @@ $limit = 12;
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );
                         $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                        $output .= '  <div class="card card-blog card-plain mb-4">';
-                        $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block border-radius-xl product_imagebox m-2 m-xl-4">';
-                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image">';
-                        $output .= '      </a>';
-                        $output .= '    </div>';
-                        $output .= '  </div>';
+                        $output .= '<div class="card card-blog card-plain mb-4">';
+                        $output .= '<div class="position-relative">';
+                        $output .= '<a class="d-block border-radius-xl product_imagebox m-2 m-xl-4">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image">';
+                        $output .= '</a>';
+                        $output .= '</div>';
+                        $output .= '</div>';
                         $output .= '</div>';
                     }
                     $response_data = array('data' => 'success','outcome' => $output, 'pagination' => '','pagination_needed' => ($total_records > $limit) );
@@ -652,7 +643,6 @@ $limit = 12;
     }
 
     function invoice(){
-        // print_r($_POST);
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -687,7 +677,6 @@ $limit = 12;
                 if ($file['size'] > $maxSize) {
                 $error_array['i_image'] = "File size must be 5MB or less.";
             }
-                // $error_array['i_image'] = "Please upload your image.";
         }
         }
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
@@ -710,75 +699,63 @@ $limit = 12;
                 }
             }
         }
+        
         if (empty($error_array)) {
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
             $ship_to = $_POST['ship_to'];
             $date = $_POST['date'];
             $terms = isset($_POST['terms']) ? $_POST['terms'] : "";
-            $invoice_id = $_POST['invoice_id'];
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
+            $invoice_no = $_POST['invoice_no'];
             $total = isset($_POST['total']) ? $_POST['total'] : 0;
             $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
             $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
             $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
             $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
             $shipping_charges = isset($_POST['shipping_charges']) ? $_POST['shipping_charges'] : '';
-
+            $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] : '';
+    
             if (!empty(array_filter($_POST['item']))) {
-            // echo $id;
                 if ($id == '') { 
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                            $query = "INSERT INTO invoice (`i_image`, `invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`)
-                                      VALUES ('$newFilename','$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges')";
-                    }else{
-                        $query = "INSERT INTO invoice (`invoice_id`,`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`,`notes`, `terms_condition`, `po_number`, `user_id`, `total`, `amount_paid`, `balance_due`,`shipping_charges`)
-                                      VALUES ('$invoice_id', '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total', '$amount_paid', '$balance_due','$shipping_charges')";
+                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`)
+                                  VALUES ('$newFilename','$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
+                    } else {
+                        $query = "INSERT INTO invoice (`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`,  `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`)
+                                  VALUES ( '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
                     }
                 } else {
                     if (!empty($filename)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $newImageUploaded = $newFilename;
-                }
-            } else { 
+                        }
+                    } else { 
                         $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
                         $existing_image_result = $this->db->query($existing_image_query);
                         $existing_image_row = $existing_image_result->fetch_assoc();
                         $existing_image = $existing_image_row['i_image'];
                         $newImageUploaded = $existing_image;
+                    }
+                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges', invoice_no='$invoice_no',
+                            subtotal= '$subtotal', po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
                 }
-                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges',
-                                po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
-            }
-            $result = $this->db->query($query);
-            if ($result) {
-                        $invoice_id = isset($_POST['invoice_id']) ? $_POST['invoice_id'] : null;
-                        if (empty($invoice_id)) {
-                            $invoice_id = $this->db->insert_id;
-                        }
+                $result = $this->db->query($query);
+    
+                if ($result) {
+                    $invoice_id = isset($_POST['invoice_id']) ? $_POST['invoice_id'] : $this->db->insert_id; // Ensure we use the inserted ID for new invoices
                     $items = $_POST['item'] ?? [];
                     $quantities = $_POST['quantity'] ?? [];
                     $rates = $_POST['rate'] ?? [];
                     $invoice_item_ids = $_POST['invoice_item_id'] ?? [];
                     $error_array = [];
-                    $values = []; 
+                    $values = [];
                     foreach ($items as $index => $item) {
                         $quantity = $quantities[$index] ?? null;
                         $rate = $rates[$index] ?? null;
                         $amount = $quantity * $rate;
-                        if (empty($item)) {
-                            $error_array[$index]['item'] = "Please enter item.";
-                        }
-                        if (empty($quantity) || !is_numeric($quantity)) {
-                            $error_array[$index]['quantity'] = "Please enter a valid quantity.";
-                        }
-                        if (empty($rate) || !is_numeric($rate)) {
-                            $error_array[$index]['rate'] = "Please enter a valid rate.";
-                        }
-                        if ($amount <= 0) {
-                            $error_array[$index]['amount'] = "Amount is not valid.";
-                        }
+    
                         if (empty($error_array[$index])) {
                             $item = $this->db->real_escape_string($item);
                             $quantity = $this->db->real_escape_string($quantity);
@@ -789,7 +766,7 @@ $limit = 12;
                                 $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
                                 $sql1 = "UPDATE invoice_item 
                                          SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
-                                         WHERE invoice_item_id='$invoice_item_id'";
+                                         WHERE invoice_item_id='$invoice_item_id' AND invoice_id='$invoice_id_escaped'";
                                 $res1 = $this->db->query($sql1);
                             } else {
                                 $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$invoice_id_escaped')";
@@ -802,9 +779,8 @@ $limit = 12;
                         $res1 = $this->db->query($sql1);
                     }
                     if ($res1) {
-                $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
-                       
-            } else {
+                        $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
+                    } else {
                         $response_data = ['data' => 'fail', 'msg' => 'Failed to add items'];
                     }
                 } else {
@@ -816,8 +792,10 @@ $limit = 12;
         } else {
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
+        
         return json_encode($response_data);
     }
+    
     
     function clear_invoice_image(){
         if ($_POST['routine_name'] === 'clear_invoice_image') {
@@ -860,7 +838,6 @@ $limit = 12;
             }
         }
         return json_encode($response_data);
-
     }
 
     function isValidYouTubeURL($url){
@@ -881,7 +858,7 @@ $limit = 12;
         return false;
     }
 
-    function insert_videos() {
+    function insert_videos(){
         $error_array = array();
         if (isset($_POST['video_title']) && $_POST['video_title'] == '') {
             $error_array['video_title'] = "Please enter the video title.";
@@ -890,14 +867,13 @@ $limit = 12;
             $error_array['category'] = "Please select the video catagory.";
         }
         if (isset($_POST['auto_genrate']) && $_POST['auto_genrate'] == '') {
-            $error_array['auto_genrate'] = "please enter number";
+            $error_array['auto_genrate'] = "Please enter number";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
             $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {
             $error_array['youtube_shorts'] = "Please enter the valid YouTube shorts link.";
         }
-       
         $this->isValidYouTubeURL($_POST['youtube_shorts']);
         if (empty($error_array)) {
             $video_title = (isset($_POST['video_title']) && $_POST['video_title'] !== '') ? $_POST['video_title'] : '';
@@ -923,7 +899,7 @@ $limit = 12;
         return $response;
     }
 
-    function insert_blog() {
+    function insert_blog(){
         $error_array = array();
         $id = (isset($_POST['id']) && $_POST['id'] !== '') ? $_POST['id'] : '';
         $newFilename = "";
@@ -1038,7 +1014,7 @@ $limit = 12;
         return false;
     }
 
-    function insert_banner() {
+    function insert_banner(){
         $error_array = array();
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
         $filename = isset($_FILES["myFile"]["name"]) ? $_FILES["myFile"]["name"] : '';
@@ -1153,7 +1129,7 @@ $limit = 12;
         return $response;
     }
 
-    function insert_offers() {
+    function insert_offers(){
         $response_data = array('data' => 'fail', 'msg' => "Something went wrong!");
         $error_array = array();
         $file = $_FILES['myFile'];
@@ -1209,7 +1185,7 @@ $limit = 12;
         return $response;
     }
 
-    function insert_topbar() {
+    function insert_topbar(){
         $response_data = array('data' => 'fail', 'msg' => "Something went wrong!");
         $error_array = array();
          if (isset($_POST['topbar_input1']) && $_POST['topbar_input1'] == '') {
@@ -1270,7 +1246,7 @@ $limit = 12;
         return $response;
     }
 
-    function insert_faq() {
+    function insert_faq(){
         $response_data = array('data' => 'fail', 'msg' => "Something went wrong!");
         $error_array = array();
         if (isset($_POST['faq_question']) && $_POST['faq_question'] == '') {
@@ -1361,26 +1337,26 @@ $limit = 12;
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
                     $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain image-container mb-4">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl mt-2 mt-xl-4 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+                    $output .= '<div class="card card-blog card-plain image-container mb-4">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block border-radius-xl mt-2 mt-xl-4 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-                    $output .= '      </a>';
+                    $output .= '</a>';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="card-body pb-0">';
-                    $output .= '      <a href="#">';
-                    $output .= '        <h5 class="title">' . $title . '</h5>';
-                    $output .= '      </a>';
-                    $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '         <div class="ms-1 d-inline fs-6">';
-                    $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
-                    $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
-                    $output .= '         </div>';
-                    $output .= '        <div class="ms-auto text-end">';
+                    $output .= '</div>';
+                    $output .= '<div class="card-body pb-0">';
+                    $output .= '<a href="#">';
+                    $output .= '<h5 class="title">' . $title . '</h5>';
+                    $output .= '</a>';
+                    $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output .= '<div class="ms-1 d-inline fs-6">';
+                    $output .= '<span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
+                    $output .= '<span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
+                    $output .= '</div>';
+                    $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="modal fade" id="staticBackdrop-' . $product_id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-' . $product_id . '" aria-hidden="true">';
-                    $output .= ' <div class="modal-dialog">';
-                    $output .= ' <div class="modal-content">';
+                    $output .= '<div class="modal-dialog">';
+                    $output .= '<div class="modal-content">';
                     $output .= '<div class="modal-header">';
                     $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
                     $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
@@ -1431,14 +1407,13 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '<div>';
                     $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
-                    $output .= '    <a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
+                    $output .= '<a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
-                    $output .= '        </div>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
                 }
                 $response_data = array(
                     'data' => 'success',
@@ -1495,38 +1470,38 @@ $limit = 12;
                         $imagePath = "../admin1/assets/img/invoice_img/" . $image;
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
-                            (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
+                        (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
                         $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 mb-xl-0 mb-4">';
-                        $output .= '  <div class="card card-blog card-plain mb-4">';
-                        $output .= '    <div class="position-relative">';
-                        $output .= '      <a class="d-block product_imagebox border-radius-xl mt-2 mt-xl-4">';
-                        $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-                        $output .= '      </a>';
-                        $output .= '    </div>';
-                        $output .= '    <div class="card-body  pb-0">';
-                        $output .= '      <a href="#">';
-                        $output .= '      </a>';
-                        $output .= '      <div class=" justify-content-between mb-3">';
-                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Invoice Name:</h6>' . $row['i_name'] . '</div>';
-                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
-                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
-                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
-                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
-                        $output .= '         <div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
-
+                        $output .= '<div class="card card-blog card-plain mb-4">';
+                        $output .= '<div class="position-relative">';
+                        $output .= '<a class="d-block product_imagebox border-radius-xl mt-2 mt-xl-4">';
+                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
+                        $output .= '</a>';
+                        $output .= '</div>';
+                        $output .= '<div class="card-body  pb-0">';
+                        $output .= '<a href="#">';
+                        $output .= '</a>';
+                        $output .= '<div class=" justify-content-between mb-3">';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Invoice Name:</h6>' . $row['i_name'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Payment Terms :</h6>' . $row['terms'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Subtotal :</h6>' . $row['subtotal'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Total :</h6>' . $row['total'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Amount Paid :</h6>' . $row['amount_paid'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Balance :</h6>' . $row['balance_due'] . '</div>';
+                        $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
-                        $output .= '    <div class="mt-2">';
+                        $output .= '<div class="mt-2">';
                         $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
-                        $output .= '        <i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" aria-hidden="true"></i>';
-                        $output .= '        <a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
-                        $output .= '            <i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
-                        $output .= '        </a>';
-                        $output .= '    </div>';
+                        $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" data-fild="i_image" aria-hidden="true"></i>';
+                        $output .= '<a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                        $output .= '<i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
+                        $output .= '</a>';
                         $output .= '</div>';
-                        $output .= '      </div>';
-                        $output .= '    </div>';
-                        $output .= '  </div>';
+                        $output .= '</div>';
+                        $output .= '</div>';
+                        $output .= '</div>';
+                        $output .= '</div>';
                         $output .= '</div>';
                     }
                     $response_data = array(
@@ -1584,34 +1559,33 @@ $limit = 12;
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
                     $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 col-12 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain mb-4">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="card-body px-2 pb-0">';
-                    $output .= '      <a href="#">';
-                    $output .= '      </a>';
-                    $output .= '      <div class=" justify-content-between customer_list">';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> name:</h6> ' . $row['name'] . '</div>';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">email :</h6> ' . $row['email'] . '</div>';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">contact:</h6> ' . $row['contact'] . '</div>';
-                    $output .= '         <div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">address :</h6> ' . $row['address'] . '</div>';
-                    $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <div class="mt-3">';
-                    $output .= '        <i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer" aria-hidden="true"></i>';
-                    $output .= '        <a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
-                    $output .= '            <i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
-                    $output .= '        </a>';
-                    $output .= '    </div>';
+                    $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
+                    $output .= '<div class="card-body px-2 pb-0">';
+                    $output .= '<a href="#">';
+                    $output .= '</a>';
+                    $output .= '<div class=" justify-content-between customer_list">';
+                    $output .= '<div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6"> Name:</h6> ' . $row['name'] . '</div>';
+                    $output .= '<div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">Email :</h6> ' . $row['email'] . '</div>';
+                    $output .= '<div class="fs-6"><span class=" "><h6 class="fw-bold d-inline fs-6">Contact:</h6> ' . $row['contact'] . '</div>';
+                    $output .= '<div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">Address :</h6> ' . $row['address'] . '</div>';
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '<div class="mt-3">';
+                    $output .= '<i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer"  data-fild="c_image" aria-hidden="true"></i>';
+                    $output .= '<a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '<i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
                     $output .= '</div>';
                 }
-               
                 $response_data = array(
                     'data' => 'success',
                     'outcome' => $output,
@@ -1754,7 +1728,7 @@ $limit = 12;
         return $response;
     }
 
-    function bloglisting() {
+    function bloglisting(){
         global $NO_IMAGE;
         global $limit;
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -1809,29 +1783,29 @@ $limit = 12;
                     );
                     $title = htmlspecialchars($row['title']);
                     $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain mb-4">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4" >';
-                    $output .= '        <img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3  product_main_image">';
-                    $output .= '      </a>';
-                    $output .= '    </div>';
-                    $output .= '    <div class="card-body px-2 pb-0">';
-                    $output .= '      <a href="#">';
-                    $output .= '        <h5 class="title">' . $title . '</h5>';
-                    $output .= '      </a>';
-                    $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <div class="" >';
-                    $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                    $output .= '        <i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs" aria-hidden="true"></i>';
-                    $output .= '        <a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
-                    $output .= '            <i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
-                    $output .= '        </a>';
-                    $output .= '    </div>';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block product_imagebox border-radius-xl mt-3 mt-xl-4" >';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl mt-3  product_main_image">';
+                    $output .= '</a>';
                     $output .= '</div>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
+                    $output .= '<div class="card-body px-2 pb-0">';
+                    $output .= '<a href="#">';
+                    $output .= '<h5 class="title">' . $title . '</h5>';
+                    $output .= '</a>';
+                    $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output .= '<div class="ms-auto text-end">';
+                    $output .= '<div class="" >';
+                    $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                    $output .= '<i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs"  data-fild="image"aria-hidden="true"></i>';
+                    $output .= '<a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '<i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
                     $output .= '</div>';
                 }
                 $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
@@ -1918,7 +1892,7 @@ $limit = 12;
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '    <i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="videos" aria-hidden="true"></i>';
+                    $output .= '<i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="videos" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1948,7 +1922,7 @@ $limit = 12;
         return $response;
     }
 
-    function allvideolisting() {
+    function allvideolisting(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         global $limit;
@@ -2040,7 +2014,7 @@ $limit = 12;
         return $response;
     }
 
-    function offerlisting() {
+    function offerlisting(){
         global $NO_IMAGE;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $output = "";
@@ -2076,7 +2050,7 @@ $limit = 12;
                     $output .= '<div class="position-relative d-inline-block border-radius-xl offer_imgbox">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image" >';
                     $output .= '<div class="position-absolute top-1 end-0 mt-2 me-2">';
-                    $output .= '    <i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers" aria-hidden="true"></i>';
+                    $output .= '<i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers"  data-fild="img" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2100,16 +2074,16 @@ $limit = 12;
             $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div>';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-            $output .= '        <div class="form-check form-switch ps-0">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
+            $output .= '<div>';
+            $output .= '<div class="btn-group">';
+            $output .= '<div class="btn-group" role="group" aria-label="Basic example">';
+            $output .= '<div class="form-check form-switch ps-0">';
+            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
+            $output .= '<input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
             $output .= '</div>';
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -2123,16 +2097,16 @@ $limit = 12;
                                 $categories = $category_row['categoies_name'];
                                 $output .= '<div class="d-flex mb-3 align-items-center">';
                                 $output .= '<div class="card card-blog card-plain col-11 ">';
-                                $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                                $output .= '    <div class="d-flex">';
-                                $output .= '      <div class="shop-name text-secondary px-3">' . $categories  . '</div>';
-                                $output .= '    </div>';
-                                $output .= '  </div>';
+                                $output .= '<div class="d-flex justify-content-between align-items-center">';
+                                $output .= '<div class="d-flex">';
+                                $output .= '<div class="shop-name text-secondary px-3">' . $categories  . '</div>';
                                 $output .= '</div>';
-                                $output .= '    <div class="col-1 text-end p-0">';
-                                $output .= '      <i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
-                                $output .= '    </div>';
-                                $output .= '    </div>';
+                                $output .= '</div>';
+                                $output .= '</div>';
+                                $output .= '<div class="col-1 text-end p-0">';
+                                $output .= '<i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
+                                $output .= '</div>';
+                                $output .= '</div>';
 
                             }
                         }
@@ -2158,16 +2132,16 @@ $limit = 12;
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         $output .= '<div class="row mb-3 p-3  align-items-center">';
-                        $output .= '  <div class="col-11 accordion-item p-0">';
-                        $output .= '    <input type="checkbox" id="' . $row["faq_id"] . '">';
-                        $output .= '    <label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon "></span> ' . $row["question"] . '</label>';
-                        $output .= '    <div class="accordion-item-desc">';
-                        $output .= '        ' . $row["answer"] . '';
-                        $output .= '    </div>';
-                        $output .= '  </div>';
-                        $output .= '  <div class="col-1 text-end p-0">';
-                        $output .= '    <i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="faqs" aria-hidden="true"></i>';
-                        $output .= '  </div>';
+                        $output .= '<div class="col-11 accordion-item p-0">';
+                        $output .= '<input type="checkbox" id="' . $row["faq_id"] . '">';
+                        $output .= '<label for="' . $row["faq_id"] . '" class="accordion-item-title"><span class="icon "></span> ' . $row["question"] . '</label>';
+                        $output .= '<div class="accordion-item-desc">';
+                        $output .= '' . $row["answer"] . '';
+                        $output .= '</div>';
+                        $output .= '</div>';
+                        $output .= '<div class="col-1 text-end p-0">';
+                        $output .= '<i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="faqs" aria-hidden="true"></i>';
+                        $output .= '</div>';
                         $output .= '</div>';
                     }
                     $response_data = array('data' => 'success', 'outcome' => $output);
@@ -2211,16 +2185,16 @@ $limit = 12;
             $result = $this->db->query($query);
             $output = "";
             $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div>';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group">';
-            $output .= '        <div class="form-check form-switch ps-0 toggle_offon">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="banners" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="banners">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
+            $output .= '<div>';
+            $output .= '<div class="btn-group">';
+            $output .= '<div class="btn-group" role="group">';
+            $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
+            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="banners" checked>';
+            $output .= '<input type="hidden" id="toggleStatus" name="status" value="banners">';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
             $output .= '</div>';
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -2236,7 +2210,7 @@ $limit = 12;
                         $output .= '<div class="position-relative d-inline-block  border-radius-xl offer_imgbox">';
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                        $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0" data-delete-type="banners" aria-hidden="true"></i>';
+                        $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0"  data-fild="banner_img" data-delete-type="banners" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '</div>';
@@ -2263,16 +2237,16 @@ $limit = 12;
             if (mysqli_num_rows($res) > 0) {
                 $output = "";
                 $output .= '<div class="mb-3 form-check-reverse text-right">';
-                $output .= '  <div>';
-                $output .= '    <div class="btn-group">';
-                $output .= '      <div class="btn-group" role="group" aria-label="Basic example">';
-                $output .= '        <div class="form-check form-switch ps-0">';
-                $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
-                $output .= '          <input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
-                $output .= '        </div>';
-                $output .= '      </div>';
-                $output .= '    </div>';
-                $output .= '  </div>';
+                $output .= '<div>';
+                $output .= '<div class="btn-group">';
+                $output .= '<div class="btn-group" role="group" aria-label="Basic example">';
+                $output .= '<div class="form-check form-switch ps-0">';
+                $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
+                $output .= '<input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';
+                $output .= '</div>';
                 $output .= '</div>';
                 while ($row = mysqli_fetch_array($res)) {
                     $input = $row['shop_name'];                
@@ -2284,17 +2258,16 @@ $limit = 12;
                             while ($row = mysqli_fetch_array($result)) {
                                 $output.=' <div class="d-flex  align-items-center mb-3">';
                                 $output .= '<div class="card card-blog card-plain col-11">';
-                                $output .= '  <div class="d-flex  align-items-center">';
-                                $output .= '    <div class="">';
-                                $output .= '      <div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
-                                $output .= '    </div>';
-                                $output .= '  </div>';
+                                $output .= '<div class="d-flex  align-items-center">';
+                                $output .= '<div class="">';
+                                $output .= '<div class="shop-name text-secondary px-3">' . htmlspecialchars($row['shop']) . '</div>';
                                 $output .= '</div>';
-                                $output .= '    <div class="col-1 text-end p-0">'; 
-                                $output .= '      <i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
-                                $output .= '    </div>';
-                                $output .= '    </div>';
-                                
+                                $output .= '</div>';
+                                $output .= '</div>';
+                                $output .= '<div class="col-1 text-end p-0">'; 
+                                $output .= '<i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
+                                $output .= '</div>';
+                                $output .= '</div>';
                             }
                             $response_data = array('data' => 'success', 'outcome' => $output);
                         } else {
@@ -2318,34 +2291,33 @@ $limit = 12;
             $result = $this->db->query($query);
             $output = "";
             $output .= '<div class="mb-3 form-check-reverse text-right">';
-            $output .= '  <div>';
-            $output .= '    <div class="btn-group">';
-            $output .= '      <div class="btn-group" role="group">';
-            $output .= '        <div class="form-check form-switch ps-0 toggle_offon">';
-            $output .= '          <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="topbar" checked>';
-            $output .= '          <input type="hidden" id="toggleStatus" name="status" value="topbar">';
-            $output .= '        </div>';
-            $output .= '      </div>';
-            $output .= '    </div>';
-            $output .= '  </div>';
+            $output .= '<div>';
+            $output .= '<div class="btn-group">';
+            $output .= '<div class="btn-group" role="group">';
+            $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
+            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="topbar" checked>';
+            $output .= '<input type="hidden" id="toggleStatus" name="status" value="topbar">';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
+            $output .= '</div>';
             $output .= '</div>';
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         $output.='<div class="d-flex align-items-center  mb-3">';
                         $output .= '<div class="card card-blog card-plain col-11">';
-                        $output .= '  <div class="d-flex justify-content-between align-items-center">';
-                        $output .= '    <div class="topbar">';
-                        $output .= '      <div class="shop-name text-secondary px-3"><b>topbar1:</b>' .$row['topbar_input1']  . '</div>';
-                        $output .= '      <div class="shop-name text-secondary px-3"><b>topbar2:</b>' .$row['topbar_input2']  . '</div>';
-                        $output .= '    </div>';
-                        $output .= '  </div>';
+                        $output .= '<div class="d-flex justify-content-between align-items-center">';
+                        $output .= '<div class="topbar">';
+                        $output .= '<div class="shop-name text-secondary px-3"><b>topbar1:</b>' .$row['topbar_input1']  . '</div>';
+                        $output .= '<div class="shop-name text-secondary px-3"><b>topbar2:</b>' .$row['topbar_input2']  . '</div>';
                         $output .= '</div>';
-                        $output .= '    <div class="col-1 text-end p-0">';
-                        $output .= '      <i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
-                        $output .= '    </div>';
-                        $output .= '    </div>';
-
+                        $output .= '</div>';
+                        $output .= '</div>';
+                        $output .= '<div class="col-1 text-end p-0">';
+                        $output .= '<i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
+                        $output .= '</div>';
+                        $output .= '</div>';
                     }
                     $response_data = array('data' => 'success', 'outcome' => $output);
                 } else {
@@ -2387,33 +2359,31 @@ $limit = 12;
                     $maxPrice = $row['maxprice'];
                     $minPrice = $row['minprice'];
                     $output .= '<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">';
-                    $output .= '  <div class="card card-blog card-plain image-container mb-4">';
-                    $output .= '    <div class="position-relative">';
-                    $output .= '      <a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+                    $output .= '<div class="card card-blog card-plain image-container mb-4">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block border-radius-xl mt-5 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-                    $output .= '      </a>';
-                   
-                    $output .= '    </div>';
-                    $output .= '    <div class="card-body pb-0">';
-                    $output .= '      <a href="#">';
-                    $output .= '        <h5 class="title">' . $title . '</h5>';
-                    $output .= '      </a>';
-                    $output .= '      <div class="d-flex justify-content-between mb-3">';
-                    $output .= '         <div class="ms-1 d-inline fs-6">';
-                    $output .= '           <span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
-                    $output .= '           <span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
-                    $output .= '         </div>';
-                    $output .= '        <div class="ms-auto text-end">';
+                    $output .= '</a>';
+                    $output .= '</div>';
+                    $output .= '<div class="card-body pb-0">';
+                    $output .= '<a href="#">';
+                    $output .= '<h5 class="title">' . $title . '</h5>';
+                    $output .= '</a>';
+                    $output .= '<div class="d-flex justify-content-between mb-3">';
+                    $output .= '<div class="ms-1 d-inline fs-6">';
+                    $output .= '<span class="text-decoration-line-through price-line-through"><h6 class="fw-normal d-inline fs-6">Rs:</h6>' . $maxPrice . '</span>';
+                    $output .= '<span class="fs-5">&nbsp;<h6 class="fw-normal d-inline fs-5">Rs:</h6>' . $minPrice . '</span>';
+                    $output .= '</div>';
+                    $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto protoggle-button" type="checkbox" id="checkbox_' . $product_id . '" data-product-id="' . $product_id . '" ' . $toggleactive . '>';
                     $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
                     $output .= '</div>';
                     $output .= '</div>';
-                   
-                    $output .= '        </div>';
-                    $output .= '      </div>';
-                    $output .= '    </div>';
-                    $output .= '  </div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
                 }
                 $response_data = array(
                     'data' => 'success',
@@ -2424,7 +2394,6 @@ $limit = 12;
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            // $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
             $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
@@ -2469,14 +2438,14 @@ $limit = 12;
                 $output .= '<table class="Table table text-center"">';
                 $output .= '<thead>';
                 $output .= '<tr>';
-                $output .= '   <th>ID</th>';
-                $output .= '   <th>Name</th>';
-                $output .= '   <th>Shop Name</th>';
-                $output .= '   <th>Email</th>';
-                $output .= '   <th>Contact</th>';
-                $output .= '   <th>Shop Image</th>';
-                $output .= '   <th>Delete</th>';
-                $output .= '   <th>Approve</th>';
+                $output .= '<th>ID</th>';
+                $output .= '<th>Name</th>';
+                $output .= '<th>Shop Name</th>';
+                $output .= '<th>Email</th>';
+                $output .= '<th>Contact</th>';
+                $output .= '<th>Shop Image</th>';
+                $output .= '<th>Delete</th>';
+                $output .= '<th>Approve</th>';
                 $output .= '</tr>';
                 $output .= '</thead>';
                 $output .= '<tbody>';
@@ -2490,7 +2459,6 @@ $limit = 12;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
-    
                     $output .= '<tr>';
                     $output .= '<td>' . $row['user_id'] . '</td>';
                     $output .= '<td>' . htmlspecialchars($row['name']) . '</td>';
@@ -2507,7 +2475,6 @@ $limit = 12;
                     $output .= '</div>';
                     $output .='</div>';
                     $output .='<td>';
-
                     $output .= '</tr>';
                 }
                 $output .= '</tbody>';
@@ -2538,9 +2505,45 @@ $limit = 12;
         return $response;
        
     }
-    function deleteRecord($table, $delete_id){
+
+    function deleteRecord($table, $delete_id,$fild_name) {
+        $folder_path = '';
+        switch ($table) {
+            case 'products':
+                $folder_path = "assets/img/product_img/";
+                break;
+            case 'invoice':
+                $folder_path = "assets/img/invoice_img/";
+                break;
+            case 'blogs':
+                $folder_path = "assets/img/blog_img/";
+                break;
+            case 'offers':
+                $folder_path = "assets/img/offers/";
+                break;
+            case 'customers':
+                $folder_path = "assets/img/customer/";
+                break;
+            case 'banners':
+                $folder_path = "assets/img/banner_img/";
+                break;
+            default:
+                
+                break;
+        }
         $delete_id = $this->db->real_escape_string($delete_id);
+        $fild_name= $this->db->real_escape_string($fild_name);
         $table_singular = rtrim($table, 's');
+        $query1 = "SELECT  $fild_name FROM $table WHERE {$table_singular}_id = $delete_id";
+        $resulttt = $this->db->query($query1);
+        if ($resulttt && $row = mysqli_fetch_assoc($resulttt)) {
+            if (!empty($row[$fild_name])) {
+                $image_path = $folder_path . $row[$fild_name];
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                } 
+            }
+        }
         $query = "DELETE FROM $table WHERE {$table_singular}_id = $delete_id";
         $result = $this->db->query($query);
         if ($result === TRUE) {
@@ -2550,6 +2553,7 @@ $limit = 12;
         }
         return json_encode($response_data);
     }
+    
 
     function product_main_image(){
         $product_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '';
@@ -2570,8 +2574,8 @@ $limit = 12;
         $delete_table_name = isset($_POST['delete_table']) ? $_POST['delete_table'] : '';
         $delete_table_name = ($delete_table_name == "product_form_image") ? 'product_images': $delete_table_name;
         $delete_table_name = ($delete_table_name == "product_form_image") ? 'products': $delete_table_name;
-
-        return $this->deleteRecord($delete_table_name, $delete_id);
+        $fild_name = isset($_POST['fild_name']) ? $_POST['fild_name'] : '0';
+        return $this->deleteRecord($delete_table_name, $delete_id, $fild_name);
     }    
 
     function forget_password() {
@@ -2651,8 +2655,7 @@ $limit = 12;
         return $response;
     }
 
-    function getproduct() {
-        
+    function getproduct(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $pro_img="";
         $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -2669,14 +2672,10 @@ $limit = 12;
                         $product_img_results[] = $product_img_row; 
                     }
                 }
-                    
-                    // $pro_img.=' <div class="d-flex flex-wrap align-items-center">';
-                    $pro_img.=' <input type="file" id="files" class="file-input" name="p_image[]" multiple style="display: none;" />';
+                    $pro_img.='<input type="file" id="files" class="file-input" name="p_image[]" multiple style="display: none;" />';
                     $pro_img.='<label for="files" class="file-label " style="display:block;">';
-                    $pro_img.=' <span class="choose-text">Choose Files</span>';
-                    $pro_img.=' </label>';
-                    // $pro_img.=' </div>';
-      
+                    $pro_img.='<span class="choose-text">Choose Files</span>';
+                    $pro_img.='</label>';
                 $response_data = array('data' => 'success', 'outcome' => $row, 'product_img_result' => $product_img_results ,'pro_img'=>$pro_img);
             }
             
@@ -2686,23 +2685,7 @@ $limit = 12;
         return $response;
     }
 
-    function last_inserted_id(){
-        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
-        $id = isset($_POST['id']) ? $_POST['id'] : '';
-        $table_name = isset($_POST['table_name']) ? $_POST['table_name'] : '';
-        $query = "SELECT $id  FROM $table_name ORDER BY $id DESC LIMIT 1";
-        $result = $this->db->query($query);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
-            $lastInvoiceNumber = $row ? intval($row['invoice_id']) : 0;
-            $newInvoiceNumber = $lastInvoiceNumber + 1;
-            $response_data = array('data' => 'success', 'outcome' => $newInvoiceNumber);
-        } 
-        $response = json_encode($response_data);
-        return $response;
-    }
-
-    function getinvoice() {
+    function getinvoice(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
@@ -2714,7 +2697,6 @@ $limit = 12;
                 $item_result = $this->db->query($item_query);
                 $item_data = "";
                 while ($invoice_items = $item_result->fetch_assoc()) {
-                    // echo "Item id: " . $invoice_items['invoice_item_id'] . "<br>";
                     $inv_item = $invoice_items['item'];
                     $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
@@ -2737,7 +2719,7 @@ $limit = 12;
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_amount . '" name="amount[]" disabled="" >';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
-                    $item_data .=  '<td  data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
+                    $item_data .=  '<td  data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose   delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
@@ -2839,8 +2821,6 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-// product check uncheck
-
 function protoggle_checkuncheck() {
     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
@@ -2874,7 +2854,7 @@ function procheck_toggle_btn() {
     $response = json_encode($response_data);
     return $response;
 }
-// user toggle
+
 function usertoggle_checkuncheck() {
     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
 
@@ -3027,7 +3007,6 @@ function usercheck_toggle_btn() {
             $user_id = $_SESSION['current_user']['user_id'];
             $role = $_SESSION['current_user']['role'];
             $userquery = ($role == 1) ? "AND user_id = $user_id" : ""; 
-
             $sql = "SELECT * FROM invoice  $userquery";
             $result = $this->db->query($sql);
             if ($result) {
@@ -3047,7 +3026,6 @@ function usercheck_toggle_btn() {
                                 }
                             }
                         }
-
                         $response_data = array('data' => 'success', 'totalitemsale' => $totalitemsale, 'totalamountsale' => $totalamountsale);
                     }
                 }
@@ -3328,5 +3306,4 @@ function usercheck_toggle_btn() {
         $response = json_encode($response_data);
         return $response;
     }
-
 }

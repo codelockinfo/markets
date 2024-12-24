@@ -12,11 +12,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Plans", "link" => "", "button_text" => "");
-        $title = $para_array['title']; 
-        $link = $para_array['link'];
-        $button_text = $para_array['button_text'];
-        include 'adminheadertop.php';
+    $para_array = array("title" => "Plans", "link" => "", "button_text" => "");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <section class="pricing py-5">
       <div class="container">
@@ -26,17 +26,18 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="card-body">
                 <ul class="list-unstyled">
                   <li class="card-title text-uppercase">Starter</li>
-                  <li class="card-price">Free</li>
+                  <li class="card-price fw-bold">Free</li>
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span>Free Registration</li>
-                  <li><span class="fa-li"></span>List your products 100 </li>
-                  <li><span class="fa-li"></span>Category creation 10</li>
-                  <li><span class="fa-li"></span>Customer Inquiry</li>
-                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
-                  <li><span class="fa-li"></span>Write your blog</li>
-                </ul> 
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Free registration</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>List up to 100 products</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Create up to 10 categories</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Receive customer inquiries</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Upload reels (videos)</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Write and publish your blog</li>
+                </ul>
+
               </div>
               <!-- <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60" data-plan_type="0">Choose Plan</a> -->
               <button class="btn btn-block btn-light text-uppercase mx-auto w-60 choosePlan save_loader_show" data-plan_type="0">Choose Plan</button>
@@ -47,20 +48,21 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="card-body">
                 <ul class="list-unstyled">
                   <li class="card-title text-uppercase">Pro</li>
-                  <li class="card-price ">199<span class="period">Rs / month</span></li>
+                  <li class="card-price fw-bold ">199<span class="period">Rs / month</span></li>
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span><strong>Free Registration</strong></li>
-                  <li><span class="fa-li"></span>List your products 300</li>
-                  <li><span class="fa-li"></span>Category creation 25</li>
-                  <li><span class="fa-li"></span>Customer Inquiry </li>
-                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
-                  <li><span class="fa-li"></span>Write your blog</li>
-                  <li><span class="fa-li"></span>Top bar offer once in a day</li>
-                  <li><span class="fa-li"></span>Market list on home page</li>
-                  <li><span class="fa-li"></span>Invoice Generating </li>
+                  <li><span class="fa-li"></span><strong><i class="fa-regular fa-circle-check pe-3"></i>Free Registration</strong></li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>List up to 300 products</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Create up to 25 categories</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Receive customer inquiries</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Upload reels (videos)</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Write your own blog</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Display a top bar offer once per day</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Feature in the market list on the home page</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Generate invoices</li>
                 </ul>
+
               </div>
               <!-- <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60 choosePlan save_loader_show" data-amount="199" data-plan_type="1" data-bs-toggle="modal" data-bs-target="#planPay">Choose Plan</a> -->
               <button class="btn btn-block btn-light text-uppercase mx-auto w-60 choosePlan save_loader_show" data-amount="199" data-plan_type="1" data-bs-toggle="modal" data-bs-target="#planPay">Choose Plan</button>
@@ -71,25 +73,26 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="card-body">
                 <ul class="list-unstyled">
                   <li class="card-title text-uppercase">Business</li>
-                  <li class="card-price ">499<span class="period">Rs / month</span></li>
+                  <li class="card-price fw-bold ">499<span class="period">Rs / month</span></li>
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span><strong>Free Registration</strong></li>
-                  <li><span class="fa-li"></span>List your products unlimited</li>
-                  <li><span class="fa-li"></span>Category creation 50</li>
-                  <li><span class="fa-li"></span>Customer Inquiry</li>
-                  <li><span class="fa-li"></span>Upload Reels(Videos)</li>
-                  <li><span class="fa-li"></span>Write your blog</li>
-                  <li><span class="fa-li"></span>Top bar offer every time</li>
-                  <li><span class="fa-li"></span>Banner Image</li>
-                  <li><span class="fa-li"></span>One offer banner</li>
-                  <li><span class="fa-li"></span>Market list on home page</li>
-                  <li><span class="fa-li"></span>Show your Blog on the home page</li>
-                  <li><span class="fa-li"></span>Videos on the home page</li>
-                  <li><span class="fa-li"></span>Invoice Generating </li>
-                  <li><span class="fa-li"></span>Show your products on the home page</li>
+                  <li><span class="fa-li"></span><strong><i class="fa-regular fa-circle-check pe-3"></i>Free Registration</strong></li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>List unlimited products</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Create up to 50 categories</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Receive customer inquiries</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Upload reels (videos)</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Write and publish your blog</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Display a top bar offer anytime</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Feature a banner image</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Showcase one offer banner</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Appear in the market list on the home page</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Feature your blog on the home page</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Showcase videos on the home page</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Generate invoices</li>
+                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Display your products on the home page</li>
                 </ul>
+
               </div>
               <!-- <a href="#" class="btn btn-block btn-light text-uppercase mx-auto w-60 choosePlan save_loader_show"  data-amount="499" data-plan_type="2"  data-bs-toggle="modal" data-bs-target="#planPay">Choose Plan</a> -->
               <button class="btn btn-block btn-light text-uppercase mx-auto w-60 choosePlan save_loader_show"  data-amount="499" data-plan_type="2"  data-bs-toggle="modal" data-bs-target="#planPay">Choose Plan</button>

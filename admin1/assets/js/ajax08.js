@@ -61,18 +61,8 @@ function loading_hide($selector, $buttonName, $buttonIcon) {
   if ($buttonIcon != undefined) {
     $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
   } else {
-    $buttonIcon = "Save";
+    $buttonIcon = $buttonName;
   }
-  $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
-}
-
-function loading_hidefun($selector, $buttonName, $buttonIcon) {
-  if ($buttonIcon != undefined) {
-    $buttonIcon = '<i class="fas fa-circle-notch fa-spin"></i>';
-  } else {
-    $buttonIcon = "cancle";
-  }
-
   $($selector).removeClass("loading").html($buttonIcon).removeAttr("disabled");
 }
 
@@ -152,6 +142,7 @@ function userData(routineName) {
     },
   });
 }
+
 function loadData(routineName) {
   $.ajax({
     url: "../admin1/ajax-call.php",
@@ -298,6 +289,7 @@ function profileLoadData(routineName) {
           parsedResponse["outcome"]["logo"] !== undefined
             ? $("#profile_data").html(parsedResponse["outcome"]["logo"])
             : $("#profile_data").html("");
+        
         } else if (parsedResponse.data === "fail") {
           console.error("Error from server:", parsedResponse.message);
         } else {
@@ -629,30 +621,30 @@ function get_product(id) {
     },
   });
 }
-
-function lastInsertedId(table_name, id) {
-  $.ajax({
-    url: "../admin1/ajax-call.php",
-    type: "post",
-    dataType: "json",
-    data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
-    success: function (response) {
-      var response = JSON.parse(response);
-      if (response["data"] == "success") {
-        const year = new Date().getFullYear();
-        let rawOutcome = response.outcome.toString();
-        console.log("Raw Outcome:", rawOutcome);
-        if (rawOutcome.startsWith(year.toString())) {
-          rawOutcome = rawOutcome.slice(year.toString().length);
-        }
-        const paddedId = rawOutcome.padStart(5, "0");
-        const formattedId = `${year}${paddedId}`;
-        $(".invoiceid").val(formattedId);
-        console.log("Generated Invoice ID:", formattedId);
-      }
-    },
-  });
-}
+      
+// function lastInsertedId(table_name, id) {
+//   $.ajax({
+//     url: "../admin1/ajax-call.php",
+//     type: "post",
+//     dataType: "json",
+//     data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
+//     success: function (response) {
+//       var response = JSON.parse(response);
+//       if (response["data"] == "success") {
+//         const year = new Date().getFullYear();
+//         let rawOutcome = response.outcome.toString();
+//         console.log("Raw Outcome:", rawOutcome);
+//         if (rawOutcome.startsWith(year.toString())) {
+//           rawOutcome = rawOutcome.slice(year.toString().length);
+//         }
+//         const paddedId = rawOutcome.padStart(5, "0");
+//         const formattedId = `${year}${paddedId}`;
+//         $(".invoiceid").val(formattedId);
+//         console.log("Generated Invoice ID:", formattedId);
+//       }
+//     },
+//   });
+// }
 
 function get_invoice(id) {
   $.ajax({
@@ -665,9 +657,10 @@ function get_invoice(id) {
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
-      response["outcome"]["invoice_id"] !== undefined
-        ? $(".invoiceid").val(response["outcome"]["invoice_id"])
+        response["outcome"]["invoice_no"] !== undefined
+        ? $("input[name='invoice_no']").val(response["outcome"]["invoice_no"])
         : "";
+     
       response["outcome"]["bill_no"] !== undefined
         ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
         : "";
@@ -692,8 +685,8 @@ function get_invoice(id) {
       response["outcome"]["total"] !== undefined
         ? $("input[name='total']").val(response["outcome"]["total"])
         : "";
-      response["outcome"]["total"] !== undefined
-        ? $("input[name='subtotal']").val(response["outcome"]["total"])
+      response["outcome"]["subtotal"] !== undefined
+        ? $("input[name='subtotal']").val(response["outcome"]["subtotal"])
         : "";
       response["outcome"]["amount_paid"] !== undefined
         ? $("input[name='amount_paid']").val(response["outcome"]["amount_paid"])
@@ -998,7 +991,8 @@ $(document).ready(function () {
   });
 
   let randomNumber = Math.floor(10000000 + Math.random() * 90000000);
-    $('#genrate').val(randomNumber); 
+  console.log(randomNumber);
+    $('.genrate').val(randomNumber); 
   
 
 
@@ -1092,7 +1086,7 @@ $(document).ready(function () {
     }
     $(this).closest("form")[0].reset();
     setTimeout(function () {
-      loading_hidefun(".cencle_loader_show", "blogs");
+      loading_hide(".cencle_loader_show", "cencle");
     }, 300);
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");
@@ -1229,6 +1223,7 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
+          window.location.href = "profile.php";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1503,6 +1498,8 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
     form_data.append("total", $('input[name="total"]').val() || "0");
+    form_data.append("subtotal", $('input[name="subtotal"]').val() || "0");
+
     form_data.append(
       "balance_due",
       $('input[name="balance_due"]').val() || "0"
@@ -1590,7 +1587,7 @@ $(document).ready(function () {
     });
   });
 
-  function confirmAndDelete(deleteId, routineName, type, onSuccess) {
+  function confirmAndDelete(deleteId, routineName, type, onSuccess,fild_name) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -1604,6 +1601,7 @@ $(document).ready(function () {
         var data = { routine_name: routineName };
         data.delete_table = type;
         data.delete_id = deleteId;
+        data.fild_name =fild_name;
 
         $.ajax({
           url: "../admin1/ajax-call.php",
@@ -1665,6 +1663,8 @@ $(document).ready(function () {
   $(document).delegate(".delete", "click", function () {
     var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
+    var filde = $(this).attr("data-fild");
+
     var deleteMapping = {
       products: { routine: "deleteData", callback: listproduct },
       invoice: { routine: "deleteData", callback: listinvoice },
@@ -1706,7 +1706,7 @@ $(document).ready(function () {
       var routine = deleteMapping[deleteType].routine;
       var callback = deleteMapping[deleteType].callback;
 
-      confirmAndDelete(deleteId, routine, deleteType, callback);
+      confirmAndDelete(deleteId, routine, deleteType, callback, filde);
     } else {
       console.error("Delete type not found:", deleteType);
     }
@@ -2844,11 +2844,13 @@ function get_invoicepdf(id) {
       $("span[id='po_number']").html(response.outcome.po_number);
       $("span[id='due_date']").html(response.outcome.due_date);
       $("span[id='total']").html(response.outcome.total);
+      $("span[id='subtotal']").html(response.outcome.subtotal);
       $("span[id='amount_paid']").html(response.outcome.amount_paid);
       $("span[id='balance_due']").html(response.outcome.balance_due);
       $("span[id='notes']").html(response.outcome.notes);
       $("span[id='terms_condition']").html(response.outcome.terms_condition);
       $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
+      $("p[id='invoice_no']").html(response.outcome.invoice_no);
 
 
       if (response.item_data) {
