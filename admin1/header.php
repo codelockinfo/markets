@@ -1,9 +1,8 @@
 <?php
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
 $http_host = $_SERVER["HTTP_HOST"];
-$request_uri = $_SERVER["REQUEST_URI"];
 if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
-  include($http_host . $request_uri);
+  include($http_host . '/connection.php');
 }else{
   include($myRoot . '/markets/connection.php');
 }
