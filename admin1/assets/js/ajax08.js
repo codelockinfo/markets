@@ -1220,7 +1220,7 @@ $(document).ready(function () {
         response["msg"]["business_type"] !== undefined
           ? $(".business_type").html(response["msg"]["business_type"])
           : $(".business_type").html("");
-        loading_hide(".save_loader_show", "SIGN UP");
+        loading_hide(".save_loader_show", "save");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
           window.location.href = "profile.php";
@@ -1254,7 +1254,7 @@ $(document).ready(function () {
         } else {
           $(".shop_logo").html("");
         }
-        loading_hide(".save_loader_show", "SIGN UP");
+        loading_hide(".save_loader_show", "save");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
 
