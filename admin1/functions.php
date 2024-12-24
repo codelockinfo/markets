@@ -2976,7 +2976,7 @@ function usercheck_toggle_btn() {
         $response = json_encode($response_data);
         return $response;
     }
-    
+
 
     function totalclient() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
@@ -3111,6 +3111,196 @@ function usercheck_toggle_btn() {
 
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+
+    function paymentnow(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+
+            if (isset($_POST['billing_name']) && $_POST['billing_name'] == '') {
+                $error_array['billing_name'] = "Name cannot be empty.";
+            }
+            
+            $phone_number = isset($_POST['billing_mobile']) ? $_POST['billing_mobile'] : '';
+            $mobilepattern = "/^[789]\d{9}$/";  
+            if (empty($phone_number)) {
+                $error_array['billing_mobile'] = "The phone number cannot be empty.";
+            } else if (strlen($phone_number) !== 10) {
+                $error_array['billing_mobile'] = "The phone number must be exactly 10 digits.";
+            } else if (!preg_match($mobilepattern, $phone_number)) {
+                $error_array['billing_mobile'] = "The mobile number is invalid.";
+            }
+            
+            $email = isset($_POST['billing_email']) ? $_POST['billing_email'] : '';
+            if (empty($email)) {
+                $error_array['billing_email'] = "Email address cannot be empty.";
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $error_array['emabilling_emailil'] = "The email address entered is invalid.";
+            }
+            if(empty($error_array)){
+            
+                $razorpay_mode='test';
+
+                $razorpay_test_key='rzp_test_E1P4Y17C6D3A0A'; //Your Test Key
+                $razorpay_test_secret_key='OqzNiInrdCwxW11Xtu9EkjDd'; //Your Test Secret Key
+
+                $razorpay_live_key= 'Your_Live_Key';
+                $razorpay_live_secret_key='Your_Live_Secret_Key';
+
+                if($razorpay_mode=='test'){
+                    $razorpay_key=$razorpay_test_key;
+                    $authAPIkey="Basic ".base64_encode($razorpay_test_key.":".$razorpay_test_secret_key);
+                }else{
+                    $authAPIkey="Basic ".base64_encode($razorpay_live_key.":".$razorpay_live_secret_key);
+                    $razorpay_key=$razorpay_live_key;
+                }
+
+                // Set transaction details
+                $order_id = uniqid(); 
+
+                $billing_name=$_POST['billing_name'];
+                $billing_mobile=$_POST['billing_mobile'];
+                $billing_email=$_POST['billing_email'];
+                $paymentOption=$_POST['paymentOption'];
+                $payAmount= $_POST['amount'];
+
+                $note="Payment of amount Rs. ".$payAmount;
+
+                $postdata=array(
+                "amount"=>$payAmount*100,
+                "currency"=> "INR",
+                "receipt"=> $note,
+                "notes" =>array(
+                            "notes_key_1"=> $note,
+                            "notes_key_2"=> ""
+                            )
+                );
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.razorpay.com/v1/orders',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS =>json_encode($postdata),
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json',
+                    'Authorization: '.$authAPIkey
+                ),
+                ));
+
+                $response = curl_exec($curl);
+
+                curl_close($curl);
+                $orderRes = json_decode($response);
+                if(isset($orderRes->id)){
+                    
+                    $startDate = new DateTime(); 
+                    $start_date = $startDate->format('Y-m-d H:i:s'); 
+                    $endDate = (clone $startDate)->modify('+1 month');
+                    $end_date = $endDate->format('Y-m-d H:i:s'); 
+                     
+                    $plan_type = (isset($_POST['plan_type']) && $_POST['plan_type'] !== '') ? $_POST['plan_type'] : '';
+                    $amount = (isset($_POST['amount']) && $_POST['amount'] !== '') ? $_POST['amount'] : '';
+                    // $amount = (isset($orderRes->amount) && $orderRes->amount !== '') ? $orderRes->amount : '';
+                    $amount_due = (isset($orderRes->amount_due) && $orderRes->amount_due !== '') ? $orderRes->amount_due : '';
+                    $amount_paid = (isset($orderRes->amount_paid) && $orderRes->amount_paid !== '') ? $orderRes->amount_paid : '';
+                    $attempts = (isset($orderRes->attempts) && $orderRes->attempts !== '') ? $orderRes->attempts : '';
+                    $currency = (isset($orderRes->currency) && $orderRes->currency !== '') ? $orderRes->currency : '';
+                    $entity = (isset($orderRes->entity) && $orderRes->entity !== '') ? $orderRes->entity : '';
+                    $order_id = (isset($orderRes->id) && $orderRes->id !== '') ? $orderRes->id : '';
+                    $notes = (isset($orderRes->notes) && $orderRes->notes !== '') ? $orderRes->notes : '';
+                    $notes = serialize($notes);
+                    $offer_id = (isset($orderRes->offer_id) && $orderRes->offer_id !== '') ? $orderRes->offer_id : '';
+                    $receipt = (isset($orderRes->receipt) && $orderRes->receipt !== '') ? $orderRes->receipt : '';
+                    
+                    $sql = "SELECT * FROM payment WHERE user_id='$user_id' ";
+                    $result = $this->db->query($sql);
+                    if ($result->num_rows > 0) {
+                        $paymentdata = mysqli_fetch_assoc($result);
+                        $lastInsertedId = $paymentdata['id'];
+                        $query = "UPDATE payment SET plan_type = '$plan_type', start_date = '$start_date', end_date = '$end_date', is_paid = '0', amount = '$amount',
+                                 amount_due = '$amount_due', amount_paid = '$amount_paid', attempts = '$attempts', currency = '$currency', entity = '$entity', 
+                                 order_id = '$order_id', notes = '$notes', offer_id = '$offer_id', receipt = '$receipt'
+                                 WHERE user_id ='$user_id'";
+                        $updateresult = mysqli_query($this->db, $query);
+                        if ($updateresult) {
+                            $orderRes->name = $billing_name;
+                            $orderRes->mobile = $billing_mobile;
+                            $orderRes->email = $billing_email;
+
+                            $response_data = array('data' => 'success', 'outcome' => $orderRes, 'order_number'=>$order_id, 'razorpay_key'=>$razorpay_key, 'inserted_id' => $lastInsertedId);
+                        }else{
+                            $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");                        
+                        }
+                    }else{
+                        $query = "INSERT INTO payment (user_id, plan_type, start_date, end_date, is_paid, amount, amount_due, amount_paid, attempts, 
+                                                        currency, entity, order_id, notes, offer_id, receipt) 
+                                    VALUES ('$user_id', '$plan_type' , '$start_date', '$end_date', '0', '$amount', '$amount_due', '$amount_paid', '$attempts', 
+                                    '$currency', '$entity', '$order_id', '$notes', '$offer_id', '$receipt')";
+                        $result = mysqli_query($this->db, $query);
+                        if ($result) {
+                            $lastInsertedId = $this->db->insert_id;
+                            $orderRes->name = $billing_name;
+                            $orderRes->mobile = $billing_mobile;
+                            $orderRes->email = $billing_email;
+
+                            $response_data = array('data' => 'success', 'outcome' => $orderRes, 'order_number'=>$order_id, 'razorpay_key'=>$razorpay_key, 'inserted_id' => $lastInsertedId);
+                        }else{
+                            $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");                        
+                        }
+                    }                        
+                                
+                    
+                }else{
+                    $response_data = array('res'=>'error','order_id'=>$order_id,'outcome'=>'Error with payment');
+                }
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => $error_array);
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
+    function update_success_payment(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if (isset($_SESSION['current_user']['user_id'])) {
+            $razorpay_payment_id = (isset($_POST['razorpay_payment_id']) && $_POST['razorpay_payment_id'] !== '') ? $_POST['razorpay_payment_id'] : '';
+            $razorpay_signature = (isset($_POST['razorpay_signature']) && $_POST['razorpay_signature'] !== '') ? $_POST['razorpay_signature'] : '';
+            $id = (isset($_POST['inserted_id']) && $_POST['inserted_id'] !== '') ? $_POST['inserted_id'] : '';
+            $query = "UPDATE payment SET razorpay_payment_id = '$razorpay_payment_id', razorpay_signature = '$razorpay_signature', is_paid = '1' WHERE id  = $id";
+            $result = $this->db->query($query);
+            if ($result) {
+                $response_data = array('data' => 'success', 'msg' => "Payment status update successfully");
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => "Error updating into database");    
+            }
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
+    function get_payment_plan(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if (isset($_SESSION['current_user']['user_id'])) { 
+            $user_id = $_SESSION['current_user']['user_id'];
+            $sql = "SELECT * FROM payment WHERE user_id='$user_id' ";
+            $result = $this->db->query($sql);
+            if ($result->num_rows > 0) {
+                $paymentdata = mysqli_fetch_assoc($result);
+                $response_data = array('data' => 'success', 'outcome' => $paymentdata);
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => "No data found"); 
             }
         }
         $response = json_encode($response_data);
