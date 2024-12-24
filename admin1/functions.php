@@ -870,7 +870,7 @@ $limit = 12;
             $error_array['auto_genrate'] = "Please enter number";
         }
         if (isset($_POST['youtube_shorts']) && $_POST['youtube_shorts'] == '') {
-            $error_array['youtube_shorts'] = "Please enter the youTube shorts link.";
+            $error_array['youtube_shorts'] = "Please enter the youtube shorts link.";
         } elseif (isset($_POST['youtube_shorts']) && !$this->isValidYouTubeURL($_POST['youtube_shorts'])) {
             $error_array['youtube_shorts'] = "Please enter the valid YouTube shorts link.";
         }
