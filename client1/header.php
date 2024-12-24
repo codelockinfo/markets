@@ -1,6 +1,10 @@
 <?php
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
-include($myRoot . '/markets/connection.php');
+if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
+  include($myRoot .'/connection.php');
+}else{
+  include($myRoot . '/markets/connection.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
