@@ -694,8 +694,8 @@ function get_invoice(id) {
       response["outcome"]["total"] !== undefined
         ? $("input[name='total']").val(response["outcome"]["total"])
         : "";
-      response["outcome"]["total"] !== undefined
-        ? $("input[name='subtotal']").val(response["outcome"]["total"])
+      response["outcome"]["subtotal"] !== undefined
+        ? $("input[name='subtotal']").val(response["outcome"]["subtotal"])
         : "";
       response["outcome"]["amount_paid"] !== undefined
         ? $("input[name='amount_paid']").val(response["outcome"]["amount_paid"])
@@ -1507,6 +1507,8 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "invoice");
     form_data.append("total", $('input[name="total"]').val() || "0");
+    form_data.append("subtotal", $('input[name="subtotal"]').val() || "0");
+
     form_data.append(
       "balance_due",
       $('input[name="balance_due"]').val() || "0"
@@ -2713,6 +2715,7 @@ function get_invoicepdf(id) {
       $("span[id='po_number']").html(response.outcome.po_number);
       $("span[id='due_date']").html(response.outcome.due_date);
       $("span[id='total']").html(response.outcome.total);
+      $("span[id='subtotal']").html(response.outcome.subtotal);
       $("span[id='amount_paid']").html(response.outcome.amount_paid);
       $("span[id='balance_due']").html(response.outcome.balance_due);
       $("span[id='notes']").html(response.outcome.notes);

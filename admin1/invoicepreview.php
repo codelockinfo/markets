@@ -86,8 +86,14 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
             <div class="row mb-3 text-end">
               <div class="col">
                 <span class="text-normal"><strong>Subtotal :</strong></span>
-                <span class="text-normal" id="total"></span>
+                <span class="text-normal" id="subtotal"></span>
               </div>
+            </div>
+            <div class="row mt-2 mb-3" style="text-align: end;">
+              <div class="col">
+                 <span style="font-weight: bold;">Shipping Charges:</span>
+                  <span id="shipping_charges"></span>
+               </div>
             </div>
             <div class="row mt-2 mb-3 text-end">
               <div class="col">
@@ -101,12 +107,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                   <span id="amount_paid"></span>
                </div>
             </div>
-            <div class="row mt-2 mb-3" style="text-align: end;">
-              <div class="col">
-                 <span style="font-weight: bold;">Shipping Charges:</span>
-                  <span id="shipping_charges"></span>
-               </div>
-            </div>
+            
             <div class="row mt-2 mb-3 text-end">
               <div class="col">
                 <span class="text-normal"><strong>Balance Due :</strong></span>
