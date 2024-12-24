@@ -750,7 +750,7 @@ $limit = 12;
                         $existing_image = $existing_image_row['i_image'];
                         $newImageUploaded = $existing_image;
                     }
-                    // Update invoice
+                    // Update invoiced
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges', invoice_no='$invoice_no',
                             subtotal= '$subtotal', po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
                 }
