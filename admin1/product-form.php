@@ -85,7 +85,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
               </div>
             </div>
-            <label for="title" class="font-weight-normal w-100">SKU</label>
+            <label for="title" class="font-weight-normal w-100 required">SKU</label>
             <div class="mb-3">
               <input type="text" class="form-control valikey w-100" placeholder="SKU" name="sku">
               <div class="errormsg sku"></div>
@@ -163,12 +163,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
               </div>
 
-            <label for="text" class="font-weight-normal">Image Alt</label>
+            <label for="text" class="font-weight-normal required">Image Alt</label>
             <div class="mb-3">
               <input type="text" class="form-control valikey" placeholder="Image Alt" name="image_alt">
               <span class="errormsg image_alt"></span>
             </div>
-            <label for="text" class="font-weight-normal">Product Tag</label>
+            <label for="text" class="font-weight-normal required">Product Tag</label>
             <div class="mb-3">
               <select class="js-select2 form-select  multiple_tag form-control  w-100" aria-label="Default select example" multiple="multiple" name="p_tag">
                 <option value="">Select products</option>
