@@ -1,6 +1,12 @@
 <?php
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
-include($myRoot . '/markets/connection.php');
+$http_host = $_SERVER["HTTP_HOST"];
+$request_uri = $_SERVER["REQUEST_URI"];
+if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
+  include($http_host . $request_uri);
+}else{
+  include($myRoot . '/markets/connection.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
