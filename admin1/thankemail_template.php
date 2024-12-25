@@ -4,7 +4,7 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
     include($myRoot .'/connection.php');
     $thankyou = 'https://textilemarkethub.com/admin1/assets/img/thankyou.jpg';
     $welcome = 'https://textilemarkethub.com/admin1/assets/img/welcome.jpg';
-} else {
+}else{
     include($myRoot . '/markets/connection.php');
     $thankyou = 'https://codelocksolutions.in/markets/admin1/assets/img/thankyou.jpg';
     $welcome = 'https://codelocksolutions.in/markets/admin1/assets/img/welcome.jpg';
@@ -16,20 +16,16 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 0; padding: 0;">
-        <tr>
-            <td align="center" style="background-color: #f4f4f4; padding: 20px;">
-                <table width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-radius: 10px; overflow: hidden;">
-                    <tr>
-                        <td align="center" style="padding: 20px;">
-                            <img src="<?php echo $thankyou ?>" alt="Thank You" style="width: 100%; max-width: 500px; display: block; margin-bottom: 20px;">
-                            <img src="<?php echo $welcome ?>" alt="Welcome" style="width: 100%; max-width: 500px; display: block;">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+<body>
+    <div class="main-sec" style="max-width: 1140px;margin: auto;background-color: #ffff;border-radius: 30px;">
+        <div class="mail-img"
+            style="background-color: #fff;margin: auto;padding: 50px 100px;border-radius: 30px 30px 0px 0px;">
+            <img src="<?php echo $thankyou; ?>" alt="Thank you"
+                style="width: 85%;margin: 0 auto;display: flex;">
+            <img src="<?php echo $welcome; ?>" alt="Welcome"
+                style="width: 85%;margin: 0 auto;display: flex;">
+           
+        </div>
+    </div>
 </body>
 </html>
