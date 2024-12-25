@@ -8,9 +8,9 @@
     <div class="main-sec" style="max-width: 1140px;margin: auto;background-color: #ffff;border-radius: 30px;">
         <div class="mail-img"
             style="background-color: #fff;margin: auto;padding: 50px 100px;border-radius: 30px 30px 0px 0px;">
-            <img src="https://codelocksolutions.in/markets/admin1/assets/img/thankyou.jpg" alt="Thank you"
+            <img src="https://textilemarkethub.com/admin1/assets/img/thankyou.jpg" alt="Thank you"
                 style="width: 85%;margin: 0 auto;display: flex;">
-            <img src="https://codelocksolutions.in/markets/admin1/assets/img/welcome.jpg" alt="Welcome"
+            <img src="https://textilemarkethub.com/admin1/assets/img/welcome.jpg" alt="Welcome"
                 style="width: 85%;margin: 0 auto;display: flex;">
         </div>
     </div>
