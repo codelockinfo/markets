@@ -58,7 +58,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
             <div class="p-2 p-sm-5 bg-light rounded contact-form" id="customer">
                 <!-- <div class="row g-4">
                     <div class="col-xl-2">
-                        <img src="<?php echo main_url('admin1/assets/img/vectormen.png'); ?>" alt="vectormen" class="seller-image border-radius-lg shadow-sm">
+                        <img src="<?php echo main_url('admin/assets/img/vectormen.png'); ?>" alt="vectormen" class="seller-image border-radius-lg shadow-sm">
                     </div>
                     <div class="col-xl-8">
                         <span class="text-capitalize text-dark"><strong>name :</strong></span>
@@ -69,7 +69,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-7">
-                        <img src="<?php echo main_url('admin1/assets/img/shop-photo.jpg'); ?>" alt="shop-photo" class="w-100 border-radius-lg shadow-sm mb-4">
+                        <img src="<?php echo main_url('admin/assets/img/shop-photo.jpg'); ?>" alt="shop-photo" class="w-100 border-radius-lg shadow-sm mb-4">
                     </div>
                     <div class="col-md-6 col-lg-5">
                         <div>

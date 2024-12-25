@@ -281,7 +281,7 @@
     </div>
     <div class="sidenav-footer mx-3 ">
       <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
-        <div class="full-background" style="background-image: url('../admin1/assets/img/curved-images/white-curved.jpg')"></div>
+        <div class="full-background" style="background-image: url('../admin/assets/img/curved-images/white-curved.jpg')"></div>
         <div class="card-body text-start p-3 w-100">
           <div class="docs-info">
             <h6 class="text-white up mb-0">Need help?</h6>

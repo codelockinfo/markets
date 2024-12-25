@@ -73,7 +73,7 @@ function redirect403() {
 function check_toggle_status() {
   var table_name = $("#toggleStatus").val();
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "check_toggle_status", table_name: table_name },
@@ -95,7 +95,7 @@ function check_toggle_status() {
 
 function CountData(routineName) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -128,7 +128,7 @@ function CountData(routineName) {
 }
 function userData(routineName) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -145,7 +145,7 @@ function userData(routineName) {
 
 function loadData(routineName) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -247,7 +247,7 @@ function listfamousmarket() {
 
 function profileLoadData(routineName) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     timeout: 5000,
@@ -289,7 +289,6 @@ function profileLoadData(routineName) {
           parsedResponse["outcome"]["logo"] !== undefined
             ? $("#profile_data").html(parsedResponse["outcome"]["logo"])
             : $("#profile_data").html("");
-        
         } else if (parsedResponse.data === "fail") {
           console.error("Error from server:", parsedResponse.message);
         } else {
@@ -317,9 +316,11 @@ function profileLoadData(routineName) {
   });
 }
 
-function initializeDynamicContent(){
+function initializeDynamicContent() {
   console.log("iiiiiiiiiiiiiiiiiiiiiiii");
-    document.querySelectorAll(".profile-drop-zone__input").forEach((inputElement) => {
+  document
+    .querySelectorAll(".profile-drop-zone__input")
+    .forEach((inputElement) => {
       console.log("profile-drop-zone__input");
       const dropZoneElement = inputElement.closest(".drop-zone");
       const promptElement = dropZoneElement.querySelector(".pro-zone__prompt");
@@ -338,7 +339,11 @@ function initializeDynamicContent(){
       });
 
       inputElement.addEventListener("change", (e) => {
-      if (inputElement && inputElement.files && inputElement.files.length > 0) {
+        if (
+          inputElement &&
+          inputElement.files &&
+          inputElement.files.length > 0
+        ) {
           const file = inputElement.files[0];
           if (file.type.startsWith("image/")) {
             clearThumbnailProfileImage(dropZoneElement);
@@ -451,7 +456,7 @@ function updateThumbnailProfileImage(dropZoneElement, file, inputElement) {
 
 function demo() {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "demo_function" },
@@ -462,7 +467,7 @@ function demo() {
 
 function get_product(id) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getproduct", id: id },
@@ -478,15 +483,15 @@ function get_product(id) {
               .change()
           : "";
         response["outcome"]["cloth"] !== undefined
-          ? $("select[name='cloth']")
-              .val(response["outcome"]["cloth"])
-              .change()
+          ? $("select[name='cloth']").val(response["outcome"]["cloth"]).change()
           : "";
         response["outcome"]["qty"] !== undefined
           ? $("input[name='qty']").val(response["outcome"]["qty"])
           : "";
         response["outcome"]["fabric_type"] !== undefined
-          ? $("input[name='fabric_type']").val(response["outcome"]["fabric_type"])
+          ? $("input[name='fabric_type']").val(
+              response["outcome"]["fabric_type"]
+            )
           : "";
         response["outcome"]["sku"] !== undefined
           ? $("input[name='sku']").val(response["outcome"]["sku"])
@@ -532,7 +537,7 @@ function get_product(id) {
             : "";
         console.log(productmain_image);
         if (productmain_image !== "") {
-          var filePath = "../admin1/assets/img/product_img/" + productmain_image;
+          var filePath = "../admin/assets/img/product_img/" + productmain_image;
           $.ajax({
             url: filePath,
             type: "HEAD",
@@ -594,7 +599,6 @@ function get_product(id) {
               };
               fileReader.readAsDataURL(f);
             });
-
           });
         }
         if (response["product_img_result"] !== undefined) {
@@ -604,7 +608,7 @@ function get_product(id) {
             imagePreviews +=
               '<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">' +
               '<div class="img-wrapper">' +
-              '<img src="../admin1/assets/img/product_img/' +
+              '<img src="../admin/assets/img/product_img/' +
               imageUrl +
               '" class="picture__img"/>' +
               '<button class="close-button_product delete" data-productimageid="' +
@@ -621,10 +625,10 @@ function get_product(id) {
     },
   });
 }
-      
+
 // function lastInsertedId(table_name, id) {
 //   $.ajax({
-//     url: "../admin1/ajax-call.php",
+//     url: "../admin/ajax-call.php",
 //     type: "post",
 //     dataType: "json",
 //     data: { routine_name: "last_inserted_id", id: id, table_name: table_name },
@@ -648,7 +652,7 @@ function get_product(id) {
 
 function get_invoice(id) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getinvoice", id: id },
@@ -657,10 +661,10 @@ function get_invoice(id) {
       response["outcome"]["i_name"] !== undefined
         ? $("textarea[name='i_name']").val(response["outcome"]["i_name"])
         : "";
-        response["outcome"]["invoice_no"] !== undefined
+      response["outcome"]["invoice_no"] !== undefined
         ? $("input[name='invoice_no']").val(response["outcome"]["invoice_no"])
         : "";
-     
+
       response["outcome"]["bill_no"] !== undefined
         ? $("textarea[name='bill_no']").val(response["outcome"]["bill_no"])
         : "";
@@ -676,7 +680,9 @@ function get_invoice(id) {
         ? $("input[name='date']").val(response["outcome"]["date"])
         : "";
       response["outcome"]["shipping_charges"] !== undefined
-        ? $("input[name='shipping_charges']").val(response["outcome"]["shipping_charges"])
+        ? $("input[name='shipping_charges']").val(
+            response["outcome"]["shipping_charges"]
+          )
         : "";
 
       response["outcome"]["po_number"] !== undefined
@@ -711,7 +717,7 @@ function get_invoice(id) {
           : "";
 
       if (i_image != "") {
-        var filePath = "../admin1/assets/img/invoice_img/" + i_image;
+        var filePath = "../admin/assets/img/invoice_img/" + i_image;
         $.ajax({
           url: filePath,
           type: "HEAD",
@@ -745,7 +751,7 @@ function get_invoice(id) {
 function get_customer(id) {
   var routine_name = "getcustomer";
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routine_name, id: id },
@@ -776,7 +782,7 @@ function get_customer(id) {
           : "";
 
       if (c_image != "") {
-        var filePath = "../admin1/assets/img/customer/" + c_image;
+        var filePath = "../admin/assets/img/customer/" + c_image;
         $.ajax({
           url: filePath,
           type: "HEAD",
@@ -806,7 +812,7 @@ function get_customer(id) {
 
 function get_blog(id) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getblog", id: id },
@@ -834,7 +840,7 @@ function get_blog(id) {
           ? response["outcome"]["image"]
           : "";
       if (image != "") {
-        var filePath = "../admin1/assets/img/blog_img/" + image;
+        var filePath = "../admin/assets/img/blog_img/" + image;
         $.ajax({
           url: filePath,
           type: "HEAD",
@@ -892,7 +898,7 @@ function activeSidebarMenu() {
 
 function get_Categories() {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "get_categories" },
@@ -901,11 +907,15 @@ function get_Categories() {
       var response = JSON.parse(response);
       if (response["data"] == "success") {
         if (response["outcome"] !== undefined) {
-          $("select[name=categories], select[name=select_catagory], select[name=catagory], select[name=category]").append(response["outcome"]);
+          $(
+            "select[name=categories], select[name=select_catagory], select[name=catagory], select[name=category]"
+          ).append(response["outcome"]);
 
-          $("select[name=categories], select[name=select_catagory], select[name=catagory], select[name=category]").select2({
+          $(
+            "select[name=categories], select[name=select_catagory], select[name=catagory], select[name=category]"
+          ).select2({
             placeholder: "Select a category",
-            allowClear: true 
+            allowClear: true,
           });
         }
       }
@@ -915,7 +925,7 @@ function get_Categories() {
 
 function select_shop() {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "select_shop" },
@@ -938,7 +948,7 @@ function select_shop() {
               $("#mySelect").append(optionHtml);
             }
           });
-          $('#mySelect').select2({
+          $("#mySelect").select2({
             placeholder: "Select Shop",
             allowClear: true,
           });
@@ -992,9 +1002,7 @@ $(document).ready(function () {
 
   let randomNumber = Math.floor(10000000 + Math.random() * 90000000);
   console.log(randomNumber);
-    $('.genrate').val(randomNumber); 
-  
-
+  $(".genrate").val(randomNumber);
 
   $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");
@@ -1142,7 +1150,8 @@ $(document).ready(function () {
   $("#email").on("input", function () {
     var email = $(this).val();
     var emailErrorDiv = $(".email");
-    var emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|gmail\.in|yahoo\.com|yahoo\.in|gmail\.org|yahoo\.org)$/;
+    var emailRegex =
+      /^[a-zA-Z0-9._%+-]+@(gmail\.com|gmail\.in|yahoo\.com|yahoo\.in|gmail\.org|yahoo\.org)$/;
     if (email === "") {
       emailErrorDiv.text("");
     } else if (!emailRegex.test(email)) {
@@ -1151,7 +1160,6 @@ $(document).ready(function () {
       emailErrorDiv.text("");
     }
   });
-  
 
   $(document).on("click", ".signInsave", function (e) {
     e.preventDefault();
@@ -1159,7 +1167,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_signin");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1201,7 +1209,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "profile_updatedata");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1245,7 +1253,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "profile_imagesave");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1271,7 +1279,7 @@ $(document).ready(function () {
           if (profile_image == undefined) {
             $(".profile-image").attr(
               "src",
-              "../admin1/assets/img/image_not_found.png"
+              "../admin/assets/img/image_not_found.png"
             );
           } else {
             $(".profile-image").attr("src", profile_image);
@@ -1293,7 +1301,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_signup");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1371,7 +1379,7 @@ $(document).ready(function () {
       form_data.append("subimage[]", file);
     });
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1411,7 +1419,7 @@ $(document).ready(function () {
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
-        
+
         response["msg"]["qty"] !== undefined
           ? $(".qty").html(response["msg"]["qty"])
           : $(".qty").html("");
@@ -1444,7 +1452,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "add_customer");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       method: "POST",
       dataType: "JSON",
       contentType: false,
@@ -1522,7 +1530,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       method: "POST",
       dataType: "json",
       contentType: false,
@@ -1564,7 +1572,7 @@ $(document).ready(function () {
           ? $(".due_date").html(response["msg"]["due_date"])
           : $(".due_date").html("");
 
-          response["msg"]["balance_due"] !== undefined
+        response["msg"]["balance_due"] !== undefined
           ? $(".balance_due").html(response["msg"]["balance_due"])
           : $(".balance_due").html("");
 
@@ -1596,7 +1604,7 @@ $(document).ready(function () {
     });
   });
 
-  function confirmAndDelete(deleteId, routineName, type, onSuccess,fild_name) {
+  function confirmAndDelete(deleteId, routineName, type, onSuccess, fild_name) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -1610,10 +1618,10 @@ $(document).ready(function () {
         var data = { routine_name: routineName };
         data.delete_table = type;
         data.delete_id = deleteId;
-        data.fild_name =fild_name;
+        data.fild_name = fild_name;
 
         $.ajax({
-          url: "../admin1/ajax-call.php",
+          url: "../admin/ajax-call.php",
           type: "POST",
           dataType: "json",
           data: data,
@@ -1728,7 +1736,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_videos");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1773,7 +1781,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_blog");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1827,7 +1835,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_banner");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -1870,7 +1878,7 @@ $(document).ready(function () {
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
 
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1911,7 +1919,7 @@ $(document).ready(function () {
     var sortValue = $(".dropdown .dropdown-item.active").data("value");
 
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       data: {
@@ -1944,7 +1952,7 @@ $(document).ready(function () {
     var ischecked_value = $(thisObj).is(":checked") ? 1 : 0;
 
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1967,7 +1975,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_market");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2007,7 +2015,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_brousetxt");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2041,7 +2049,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_offers");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2086,7 +2094,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_paragraph");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2124,7 +2132,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_faq");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2160,7 +2168,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "insert_topbar");
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -2262,11 +2270,11 @@ $(document).ready(function () {
         ? "bloglisting"
         : page_name == "productlist"
         ? "productlisting"
-        : page_name =="videolist"
+        : page_name == "videolist"
         ? "videolisting"
-        :page_name == "allvideolist"
+        : page_name == "allvideolist"
         ? "allvideolisting"
-        :"invoicelisting";
+        : "invoicelisting";
     var tablename = $(this).closest(".dropdown-menu").data("table");
     $(".dropdown-item").each(function () {
       $(this).removeClass("active");
@@ -2334,7 +2342,7 @@ $(document).on("click", ".close-button_product", function (event) {
   event.stopPropagation();
   const fileName = $(this).data("name");
   storedFiles = storedFiles.filter((file) => file.name !== fileName);
-  if($(this).data("id") == undefined ){
+  if ($(this).data("id") == undefined) {
     $(this).closest(".drop-zone__thumb").remove();
   }
   return false;
@@ -2348,38 +2356,34 @@ $(document).on("click", ".close-buttons_profile", function (event) {
 
   var invoiceId = $(".invoiceid").val();
   var customerId = $(".customerid").val();
-  var blogId= $(".blogid").val();
+  var blogId = $(".blogid").val();
 
   function clearImage(routineName, id, idValue) {
     $.ajax({
-      url: "../admin1/ajax-call.php",
+      url: "../admin/ajax-call.php",
       type: "POST",
       dataType: "json",
       data: { routine_name: routineName, [id]: idValue },
       success: function (response) {
-       
         if (response.data === "success") {
           console.log(" image cleared successfully.");
         } else {
           console.log("Failed to clear image.");
         }
-      }
-     
+      },
     });
   }
   if (customerId) clearImage("clear_customer_image", "customer_id", customerId);
   if (invoiceId) clearImage("clear_invoice_image", "invoice_id", invoiceId);
-  if (blogId) clearImage("clear_blog_image", "blog_id",blogId);
-
+  if (blogId) clearImage("clear_blog_image", "blog_id", blogId);
 });
-
 
 $(document).on("click", ".toggle-button", function () {
   var videoId = $(this).data("video-id");
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -2393,7 +2397,7 @@ $(document).on("click", ".toggle-button", function () {
 
 function check_toggle_btn(videoId) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: {
@@ -2416,7 +2420,7 @@ $(document).on("click", ".protoggle-button", function () {
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -2430,7 +2434,7 @@ $(document).on("click", ".protoggle-button", function () {
 
 function check_toggle_btn(productId) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: {
@@ -2453,7 +2457,7 @@ $(document).on("click", ".usertoggle-button", function () {
   var ischecked_value = $(this).is(":checked") ? 1 : 0;
 
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -2471,12 +2475,11 @@ $(document).on("click", ".choosePlan", function () {
   var plan_type = $(this).data("plan_type");
   $(".amount").val(amount);
   $(".plan_type").val(plan_type);
-  
 });
 
 function check_toggle_btn(userId) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: {
@@ -2502,7 +2505,7 @@ $(document).on("click", ".getPayment", function (e) {
   form_data.append("paymentOption", "netbanking");
   form_data.append("routine_name", "paymentnow");
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     contentType: false,
@@ -2513,7 +2516,7 @@ $(document).on("click", ".getPayment", function (e) {
     },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response,"   ...response");
+      console.log(response, "   ...response");
       if (response.data == "success") {
         var orderID = response.order_number;
         var orderNumber = response.order_number;
@@ -2528,25 +2531,34 @@ $(document).on("click", ".getPayment", function (e) {
           handler: function (responseData) {
             // window.location.replace("payment-success.php?oid="+orderID+"&rp_payment_id="+response.razorpay_payment_id+"&rp_signature="+response.razorpay_signature);
             console.log(responseData, " ......responseData");
-            var razorpay_payment_id = responseData.razorpay_payment_id ? responseData.razorpay_payment_id : '';
-            var razorpay_signature = responseData.razorpay_signature ? responseData.razorpay_signature : '';
-            var inserted_id = response.inserted_id ? response.inserted_id : '';
-              $.ajax({
-                url: "../admin1/ajax-call.php",
-                type: "post",
-                dataType: "json",
-                data: { routine_name: "update_success_payment", razorpay_signature: razorpay_signature, razorpay_payment_id: razorpay_payment_id, inserted_id: inserted_id },
-                success: function (response) {
-                  var response = JSON.parse(response);
-                  if(response.data == "success"){
-                    loading_hide(".save_loader_show", "Done");
-                    showMessage(response["msg"], "success");
-                    window.location.replace("plans.php");
-                  }else{
-                    showMessage(response["msg"], "fail");
-                  }
-                },
-              });
+            var razorpay_payment_id = responseData.razorpay_payment_id
+              ? responseData.razorpay_payment_id
+              : "";
+            var razorpay_signature = responseData.razorpay_signature
+              ? responseData.razorpay_signature
+              : "";
+            var inserted_id = response.inserted_id ? response.inserted_id : "";
+            $.ajax({
+              url: "../admin/ajax-call.php",
+              type: "post",
+              dataType: "json",
+              data: {
+                routine_name: "update_success_payment",
+                razorpay_signature: razorpay_signature,
+                razorpay_payment_id: razorpay_payment_id,
+                inserted_id: inserted_id,
+              },
+              success: function (response) {
+                var response = JSON.parse(response);
+                if (response.data == "success") {
+                  loading_hide(".save_loader_show", "Done");
+                  showMessage(response["msg"], "success");
+                  window.location.replace("plans.php");
+                } else {
+                  showMessage(response["msg"], "fail");
+                }
+              },
+            });
           },
           modal: {
             ondismiss: function () {
@@ -2609,19 +2621,24 @@ $(document).on("click", ".getPayment", function (e) {
   });
 });
 
-function getPaymentPlan(){
+function getPaymentPlan() {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
-    data: { routine_name: "get_payment_plan"},
+    data: { routine_name: "get_payment_plan" },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log(response,"..response.plan_type");
-      if(response.data == "success"){
-        console.log( response.outcome.plan_type,  ".....plan type");
-        $(".btn[data-plan_type='"+ response.outcome.plan_type +"']").prop("disabled", true);
-        $(".btn[data-plan_type='"+ response.outcome.plan_type +"']").text("Current plan");
+      console.log(response, "..response.plan_type");
+      if (response.data == "success") {
+        console.log(response.outcome.plan_type, ".....plan type");
+        $(".btn[data-plan_type='" + response.outcome.plan_type + "']").prop(
+          "disabled",
+          true
+        );
+        $(".btn[data-plan_type='" + response.outcome.plan_type + "']").text(
+          "Current plan"
+        );
       }
     },
   });
@@ -2832,18 +2849,18 @@ document.addEventListener("DOMContentLoaded", function () {
 $(document).on("click", ".modal .btn-close", function () {
   console.log("modal");
   $(this).closest(".modal").find(".drop-zone .drop-zone__thumb").empty();
-  $(".drop-zone .pro-zone__prompt").css("display","block");
+  $(".drop-zone .pro-zone__prompt").css("display", "block");
 });
 
 function get_invoicepdf(id) {
   $.ajax({
-    url: "../admin1/ajax-call.php",
+    url: "../admin/ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: "getinvoicepdf", id: id },
     success: function (response) {
       var response = JSON.parse(response);
-      console.log("sddd")
+      console.log("sddd");
       console.log(response.outcome.bill_no);
       $("address[id='bill_no']").html(response.outcome.bill_no);
       $("address[id='ship_to']").html(response.outcome.ship_to);
@@ -2860,7 +2877,6 @@ function get_invoicepdf(id) {
       $("span[id='terms_condition']").html(response.outcome.terms_condition);
       $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
       $("p[id='invoice_no']").html(response.outcome.invoice_no);
-
 
       if (response.item_data) {
         $(".get_invoiceitems").html(response.item_data);

@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 include_once '../connection.php';
-$NO_IMAGE =  "../admin1/assets/img/image_not_found.png";
+$NO_IMAGE =  "../admin/assets/img/image_not_found.png";
 $limit = 12;
     class admin_functions{
     public $cls_errors = array();
@@ -606,7 +606,7 @@ $limit = 12;
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         $image = $row["p_image"];
-                        $imagePath = "../admin1/assets/img/product_img/" . $image;
+                        $imagePath = "../admin/assets/img/product_img/" . $image;
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -1350,7 +1350,7 @@ $limit = 12;
                 while ($row = mysqli_fetch_array($result)) {
                     $product_id = $row['product_id'];
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
+                    $imagePath = "../admin/assets/img/product_img/" . $image;
                     $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -1385,7 +1385,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '<div class="modal-body">';
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
+                    $imagePath = "../admin/assets/img/product_img/" . $image;
                     $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -1408,7 +1408,7 @@ $limit = 12;
                             $imageData = $row_image['p_image'];
                             $images = explode(',', $imageData);
                             foreach ($images as $image) {
-                                $imagePath = "../admin1/assets/img/product_img/" . trim($image);
+                                $imagePath = "../admin/assets/img/product_img/" . trim($image);
                                 $decodedPath = htmlspecialchars_decode(
                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                 );
@@ -1489,7 +1489,7 @@ $limit = 12;
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $image = $row["i_image"];
-                        $imagePath = "../admin1/assets/img/invoice_img/" . $image;
+                        $imagePath = "../admin/assets/img/invoice_img/" . $image;
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
@@ -1575,8 +1575,8 @@ $limit = 12;
                
                 while ($row = $result->fetch_assoc()) {
                     $image = $row["c_image"];
-                    $imagePath = "../admin1/assets/img/customer/" . $image;
-                    $noimagePath = "../admin1/assets/img/customer/person-man.webp";
+                    $imagePath = "../admin/assets/img/customer/" . $image;
+                    $noimagePath = "../admin/assets/img/customer/person-man.webp";
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
@@ -1645,7 +1645,7 @@ $limit = 12;
             if ($result) {
                 $row = $result->fetch_assoc();
                 $image = $row["shop_logo"];
-                $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                $imagePath = "../admin/assets/img/sigup_img/" . $image;
                 $noimagePath = $NO_IMAGE;
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -1798,7 +1798,7 @@ $limit = 12;
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $image = $row["image"];
-                    $imagePath = "../admin1/assets/img/blog_img/" . $image;
+                    $imagePath = "../admin/assets/img/blog_img/" . $image;
                     $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -2062,7 +2062,7 @@ $limit = 12;
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row["img"];
-                    $imagePath = "../admin1/assets/img/offers/" . $image;
+                    $imagePath = "../admin/assets/img/offers/" . $image;
                     $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -2222,7 +2222,7 @@ $limit = 12;
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         $image = $row["banner_img"];
-                        $imagePath = "../admin1/assets/img/banner_img/" . $image;
+                        $imagePath = "../admin/assets/img/banner_img/" . $image;
                         $noimagePath = $NO_IMAGE;
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -2372,7 +2372,7 @@ $limit = 12;
                     $toggleactive = (isset($row['toggle']) && $row['toggle'] == "1") ? "checked" : "";
                     $product_id = $row['product_id'];
                     $image = $row["p_image"];
-                    $imagePath = "../admin1/assets/img/product_img/" . $image;
+                    $imagePath = "../admin/assets/img/product_img/" . $image;
                     $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
@@ -2476,7 +2476,7 @@ $limit = 12;
                     $toggleactive = ($row['toggle'] == "1") ? "checked" : "";
                     $image = $row["shop_img"];
                     $userId = $row['user_id'];
-                    $imagePath = "../admin1/assets/img/sigup_img/" . $image;
+                    $imagePath = "../admin/assets/img/sigup_img/" . $image;
                     $noimagePath = $NO_IMAGE;
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
