@@ -2,11 +2,13 @@
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
 if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
     include($myRoot .'/connection.php');
+    $thankyou = 'https://textilemarkethub.com/admin1/assets/img/thankyou.jpg';
+    $welcome = 'https://textilemarkethub.com/admin1/assets/img/welcome.jpg';
 }else{
     include($myRoot . '/markets/connection.php');
+    $thankyou = 'https://codelocksolutions.in/markets/admin1/assets/img/thankyou.jpg';
+    $welcome = 'https://codelocksolutions.in/markets/admin1/assets/img/welcome.jpg';
 }
-$thankyou = SITE_ADMIN_URL .'assets/img/thankyou.jpg';
-$welcome = SITE_ADMIN_URL .'assets/img/welcome.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="en">
