@@ -307,9 +307,6 @@ $limit = 12;
         if (isset($_POST['pname']) && $_POST['pname'] == '') {
             $error_array['pname'] = "Please enter the product title.";
         }
-        if (isset($_POST['sku']) && $_POST['sku'] == '') {
-            $error_array['sku'] = "Please enter the SKU.";
-        }
         if (isset($_POST['min_price']) && $_POST['min_price'] == '') {
             $error_array['min_price'] = "Please enter the minimum price.";
         }
@@ -641,8 +638,7 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
-
-    function invoice(){
+    function invoice() {
         $response_data = ['data' => 'fail', 'msg' => 'An unknown error occurred'];
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         $error_array = [];
@@ -651,7 +647,10 @@ $limit = 12;
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
         }
+    
+        // Validate image upload if exists
         if ($_FILES["i_image"]["name"] != "" && $id != "" || isset($_FILES["i_image"]["name"]) && isset($_FILES["i_image"]["name"]) != '' && $id == "") {
+            // Image upload logic...
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webp'];
             $filename = isset($_FILES["i_image"]["name"]) ? $_FILES["i_image"]["name"] : '';
             $tmpfile = isset($_FILES["i_image"]["tmp_name"]) ? $_FILES["i_image"]["tmp_name"] : '';
@@ -672,18 +671,22 @@ $limit = 12;
             }
             if (!empty($filename)) {
                 if (!in_array($fileExtension, $allowedExtensions)) {
-                $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
-            }
+                    $error_array['i_image'] = "Unsupported file format. Only JPG, JPEG, GIF, SVG, PNG, and WEBP formats are allowed.";
+                }
                 if ($file['size'] > $maxSize) {
-                $error_array['i_image'] = "File size must be 5MB or less.";
+                    $error_array['i_image'] = "File size must be 5MB or less.";
+                }
             }
         }
-        }
+    
+        // Validate invoice fields
         if (empty($_POST['i_name'])) $error_array['i_name'] = "Please enter invoice name.";
         if (empty($_POST['bill_no'])) $error_array['bill_no'] = "Please enter bill number.";
         if (empty($_POST['ship_to'])) $error_array['ship_to'] = "Please enter shipping address.";
         if (empty($_POST['date'])) $error_array['date'] = "Please enter date.";
         if (empty($_POST['due_date'])) $error_array['due_date'] = "Please enter due date.";
+    
+        // Validate items
         if (empty($_POST['item']) || !is_array($_POST['item'])) {
             $error_array['item_title'] = "Please enter at least one item.";
         } else {
@@ -699,8 +702,20 @@ $limit = 12;
                 }
             }
         }
-        
+    
+        // Calculate total, amount_paid, and balance_due
+        $total = isset($_POST['total']) ? floatval($_POST['total']) : 0;
+        $amount_paid = isset($_POST['amount_paid']) ? floatval($_POST['amount_paid']) : 0;
+        $balance_due = isset($_POST['balance_due']) ? floatval($_POST['balance_due']) : 0;
+    
+        // Check if balance_due is negative (error if paid amount exceeds total)
+        if ($balance_due < 0) {
+            $error_array['balance_due'] = "The amount paid cannot exceed the total amount.";
+        }
+    
+        // If there are no validation errors
         if (empty($error_array)) {
+            // Retrieve invoice data
             $i_name = $_POST['i_name'];
             $bill_no = $_POST['bill_no'];
             $ship_to = $_POST['ship_to'];
@@ -709,29 +724,28 @@ $limit = 12;
             $due_date = $_POST['due_date'];
             $po_number = $_POST['po_number'];
             $invoice_no = $_POST['invoice_no'];
-            $total = isset($_POST['total']) ? $_POST['total'] : 0;
-            $amount_paid = isset($_POST['amount_paid']) ? $_POST['amount_paid'] : 0;
-            $balance_due = isset($_POST['balance_due']) ? $_POST['balance_due'] : 0;
             $notes = isset($_POST['notes']) ? $_POST['notes'] : '';
             $termscondition = isset($_POST['terms_condition']) ? $_POST['terms_condition'] : '';
             $shipping_charges = isset($_POST['shipping_charges']) ? $_POST['shipping_charges'] : '';
             $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] : '';
     
             if (!empty(array_filter($_POST['item']))) {
-                if ($id == '') { 
+                if ($id == '') {
+                    // Insert invoice logic with image upload
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`)
-                                  VALUES ('$newFilename','$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
+                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`) 
+                                  VALUES ('$newFilename','$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due', '$shipping_charges', '$invoice_no')";
                     } else {
-                        $query = "INSERT INTO invoice (`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`,  `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`)
+                        $query = "INSERT INTO invoice (`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`) 
                                   VALUES ( '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
                     }
                 } else {
+                    // Update invoice logic
                     if (!empty($filename)) {
                         if (move_uploaded_file($tmpfile, $fullpath)) {
                             $newImageUploaded = $newFilename;
                         }
-                    } else { 
+                    } else {
                         $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
                         $existing_image_result = $this->db->query($existing_image_query);
                         $existing_image_row = $existing_image_result->fetch_assoc();
@@ -741,9 +755,11 @@ $limit = 12;
                     $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges', invoice_no='$invoice_no',
                             subtotal= '$subtotal', po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
                 }
+    
                 $result = $this->db->query($query);
     
                 if ($result) {
+                    // Insert items after the invoice is saved
                     $invoice_id = isset($_POST['invoice_id']) ? $_POST['invoice_id'] : $this->db->insert_id; // Ensure we use the inserted ID for new invoices
                     $items = $_POST['item'] ?? [];
                     $quantities = $_POST['quantity'] ?? [];
@@ -751,6 +767,7 @@ $limit = 12;
                     $invoice_item_ids = $_POST['invoice_item_id'] ?? [];
                     $error_array = [];
                     $values = [];
+    
                     foreach ($items as $index => $item) {
                         $quantity = $quantities[$index] ?? null;
                         $rate = $rates[$index] ?? null;
@@ -764,20 +781,19 @@ $limit = 12;
                             $invoice_id_escaped = $this->db->real_escape_string($invoice_id);
                             if (!empty($invoice_item_ids[$index])) {
                                 $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
-                                $sql1 = "UPDATE invoice_item 
-                                         SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' 
-                                         WHERE invoice_item_id='$invoice_item_id' AND invoice_id='$invoice_id_escaped'";
+                                $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' WHERE invoice_item_id='$invoice_item_id' AND invoice_id='$invoice_id_escaped'";
                                 $res1 = $this->db->query($sql1);
                             } else {
                                 $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$invoice_id_escaped')";
                             }
                         }
                     }
+    
                     if (!empty($values)) {
-                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) 
-                                 VALUES " . implode(", ", $values);
+                        $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
                         $res1 = $this->db->query($sql1);
                     }
+    
                     if ($res1) {
                         $response_data = ['data' => 'success', 'msg' => empty($id) ? 'Invoice inserted successfully' : 'Invoice updated successfully'];
                     } else {
@@ -790,11 +806,13 @@ $limit = 12;
                 $response_data = ['data' => 'fail', 'msg' => 'Please Add line item'];
             }
         } else {
+            // If there are validation errors, return them
             $response_data = ['data' => 'fail', 'msg' => $error_array];
         }
-        
+    
         return json_encode($response_data);
     }
+    
     
     
     function clear_invoice_image(){

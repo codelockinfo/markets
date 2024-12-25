@@ -189,7 +189,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
                 <div class="col-xl ">
                   <input type="text" class="form-control mt-1 price" name="balance_due" placeholder="₹ 0.00" disabled>
-                  
+                  <span class="errormsg  balance_due"></span>
                 </div>
               </div>
               

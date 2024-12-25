@@ -258,7 +258,16 @@ $(document).ready(function () {
     $('input[name="subtotal"]').val(subtotal.toFixed(2));
     $('input[name="total"]').val(total.toFixed(2));
     $('input[name="balance_due"]').val(balanceDue.toFixed(2));
+
+      if (balanceDue < 0) {
+        $('input[name="balance_due"]').css('background-color', '#f8d7da');
+        $('input[name="balance_due"]').css('color', 'red');
+      }else{
+        $('input[name="balance_due"]').css('background-color', ''); 
+        $('input[name="balance_due"]').css('color', ''); 
+      }
   }
+
   
 
   $(".add")

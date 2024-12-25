@@ -85,7 +85,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
               </div>
             </div>
-            <label for="title" class="font-weight-normal w-100 required">SKU</label>
+            <label for="title" class="font-weight-normal w-100 ">SKU</label>
             <div class="mb-3">
               <input type="text" class="form-control valikey w-100" placeholder="SKU" name="sku">
               <div class="errormsg sku"></div>

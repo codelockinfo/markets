@@ -1404,9 +1404,7 @@ $(document).ready(function () {
         response["msg"]["image_alt"] !== undefined
           ? $(".image_alt").html(response["msg"]["image_alt"])
           : $(".image_alt").html("");
-        response["msg"]["sku"] !== undefined
-          ? $(".sku").html(response["msg"]["sku"])
-          : $(".sku").html("");
+        
         response["msg"]["qty"] !== undefined
           ? $(".qty").html(response["msg"]["qty"])
           : $(".qty").html("");
@@ -1558,6 +1556,10 @@ $(document).ready(function () {
         response["msg"]["due_date"] !== undefined
           ? $(".due_date").html(response["msg"]["due_date"])
           : $(".due_date").html("");
+
+          response["msg"]["balance_due"] !== undefined
+          ? $(".balance_due").html(response["msg"]["balance_due"])
+          : $(".balance_due").html("");
 
         response["msg"]["po_number"] !== undefined
           ? $(".po_number").html(response["msg"]["po_number"])
