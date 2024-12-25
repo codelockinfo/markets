@@ -1052,6 +1052,7 @@ $(document).ready(function () {
     event.preventDefault();
     console.log("sddd");
     $(".pro-zone__prompt").css("display", "block");
+    $(".pro-zone .file-label").css("display", "none");
 
     $(".drop-zone").css("display", "flex");
     $(".errormsg").html("");
@@ -1077,12 +1078,18 @@ $(document).ready(function () {
     if (CKEDITOR.instances["myeditor"]) {
       CKEDITOR.instances["myeditor"].setData("");
     }
-    var $thumbnailElement = $(".drop-zone__thumb");
+    var $thumbnailElement = $(".drop-zone .drop-zone__thumb");
     var $inputElement = $(".pro-zone");
     if ($thumbnailElement.length > 0) {
       $thumbnailElement.html("");
-      $inputElement.show();
       $inputElement.removeClass("drop-zone__thumb");
+    }
+    var $thumbnailElement = $(".get_pro .drop-zone__thumb");
+    if ($thumbnailElement.length > 0) {
+      $thumbnailElement.remove();
+      $inputElement.find(".inputElement").show();
+      $inputElement.find(".file-label").hide();
+      $inputElement.removeClass("col-6 col-lg-3 col-md-4");
     }
     $(this).closest("form")[0].reset();
     setTimeout(function () {
