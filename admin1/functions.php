@@ -259,7 +259,11 @@ $limit = 12;
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
                         $subject = "Market";
-                        $message = file_get_contents('thankemail_template.php');
+                        if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
+                            $message = file_get_contents('thankemail_template_textilemarkethub.php');
+                        }else{
+                            $message = file_get_contents('thankemail_template.php');
+                        }
                         $headers ="From:no-reply@marketsearch.com"." \r\n";     
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
