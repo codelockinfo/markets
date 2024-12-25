@@ -1058,7 +1058,10 @@ $(document).ready(function () {
 
   $(document).on("click", ".formCancel", function (event) {
     event.preventDefault();
-    console.log("sddd");
+    console.log("formcancel");
+    
+    var autoGenValue = $('input[name="auto_genrate"]').val();
+    console.log(autoGenValue, " getVal");
     $(".pro-zone__prompt").css("display", "block");
     $(".pro-zone .file-label").css("display", "none");
 
@@ -1105,7 +1108,10 @@ $(document).ready(function () {
     }, 300);
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");
-    if (id !== "") {
+    var id = $('input[name="id"]').val();
+    console.log(autoGenValue, " setVal");
+    $('input[name="auto_genrate"]').val(autoGenValue);
+    if (id !== "" && id !== undefined) {
       switch (formType) {
         case "product":
           window.location.href = "product-list.php";
@@ -1121,6 +1127,8 @@ $(document).ready(function () {
           break;
       }
     }
+    
+
   });
 
   $(".form-select").on("input change paste", function () {
