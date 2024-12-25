@@ -50,7 +50,7 @@ $(document).ready(function () {
     var form_data = new FormData(form_data);
     form_data.append("routine_name", "conatct_form");
     $.ajax({
-      url: "../client1/ajax-call.php",
+      url: "./ajax-call.php",
       type: "post",
       dataType: "json",
       contentType: false,
@@ -84,7 +84,7 @@ $(document).ready(function () {
 function loadData(routineName, elementId) {
   console.log(routineName + " on load");
   $.ajax({
-    url: "../client1/ajax-call.php",
+    url: "./ajax-call.php",
     type: "post",
     dataType: "json",
     data: { routine_name: routineName },
@@ -200,77 +200,76 @@ function loadData(routineName, elementId) {
     },
   });
 }
-function getcollection(id){
+function getcollection(id) {
   $.ajax({
-    url: "../client1/ajax-call.php",
+    url: "./ajax-call.php",
     type: "POST",
     dataType: "json",
-    data: { routine_name: "market_collection", id: id }, 
-    success: function(response) {
+    data: { routine_name: "market_collection", id: id },
+    success: function (response) {
       var response = JSON.parse(response);
       console.log(response);
-      if (response.data === 'success') {
-        $('#getcollection').html(response.outcome);
+      if (response.data === "success") {
+        $("#getcollection").html(response.outcome);
       }
     },
-  }); 
+  });
 }
 
-function getcustomer(id){
+function getcustomer(id) {
   $.ajax({
-    url: "../client1/ajax-call.php",
+    url: "./ajax-call.php",
     type: "POST",
     dataType: "json",
-    data: { routine_name: "customer", id: id }, 
-    success: function(response) {
+    data: { routine_name: "customer", id: id },
+    success: function (response) {
       var response = JSON.parse(response);
       console.log(response);
-      if (response.data === 'success') {
-        $('#customer').html(response.outcome);
+      if (response.data === "success") {
+        $("#customer").html(response.outcome);
       }
     },
-  }); 
+  });
 }
-function getallfemusmarket(id){
+function getallfemusmarket(id) {
   $.ajax({
-    url: "../client1/ajax-call.php",
+    url: "./ajax-call.php",
     type: "POST",
     dataType: "json",
-    data: { routine_name: "market_collection", id: id }, 
-    success: function(response) {
+    data: { routine_name: "market_collection", id: id },
+    success: function (response) {
       var response = JSON.parse(response);
       console.log(response);
-      if (response.data === 'success') {
-        $('#getcollection').html(response.outcome);
+      if (response.data === "success") {
+        $("#getcollection").html(response.outcome);
       }
     },
-  }); 
+  });
 }
 function getcatelog(id) {
   $.ajax({
-    url: "../client1/ajax-call.php",
+    url: "./ajax-call.php",
     type: "POST",
     dataType: "json",
     data: { routine_name: "catlog", id: id },
-    success: function(response) {
+    success: function (response) {
       console.log("slider............ ");
       var response = JSON.parse(response);
-      if (response.data === 'success') {
-        $('#catlog').html(response.outcome);
-        var swiper = new Swiper('.mySwiper', {
+      if (response.data === "success") {
+        $("#catlog").html(response.outcome);
+        var swiper = new Swiper(".mySwiper", {
           slidesPerView: 3,
           spaceBetween: 10,
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
           loop: true,
         });
       }
-    }
+    },
   });
 }
-
 
 function latestbanner() {
   loadData("bannershow", "getdata");
@@ -288,8 +287,8 @@ function paragraphs() {
 function videos() {
   loadData("videoshow", "getvideo");
 }
-function allfaq(){
-  loadData("allFAQshow","allfaq");
+function allfaq() {
+  loadData("allFAQshow", "allfaq");
 }
 function FAQshow() {
   loadData("FAQshow", "accordionExample");
@@ -301,11 +300,11 @@ function productshowclientside() {
   loadData("productshowclientside", "getproduct");
   // loadData("productshowclientside", "categoryProduct");
 }
-function allfem_market(){
-  loadData("allfamousmarketshow","allfems")
+function allfem_market() {
+  loadData("allfamousmarketshow", "allfems");
 }
-function allmarkets(){
-  loadData("allmarket","allmarketdata")
+function allmarkets() {
+  loadData("allmarket", "allmarketdata");
 }
 function marketlistshowclientside() {
   loadData("marketlistshowclientside", "get");
@@ -313,8 +312,8 @@ function marketlistshowclientside() {
 function marketlist2showclientside() {
   loadData("marketlist2showclientside", "get_market");
 }
-function get_categories(){
-  loadData("get_categories","getcategory");
+function get_categories() {
+  loadData("get_categories", "getcategory");
 }
 
 function marketlist3showclientside() {
@@ -337,14 +336,14 @@ function marketlist3showclientside() {
 
 //   // AJAX call to fetch products based on category
 //   $.ajax({
-//     url: "../client1/ajax-call.php", // Update to your actual path
+//     url: "./ajax-call.php", // Update to your actual path
 //     type: 'post',
 //     dataType: "json",
 //     data: {
 //       routine_name: routineName, // Pass the routine name
 //       category_value: category_value,
 //       min_price: minPrice,        // Pass the minimum price from slider
-//       max_price: maxPrice 
+//       max_price: maxPrice
 //     },
 //     success: function (response) {
 //       var response = JSON.parse(response); // Parsing the JSON response
@@ -367,21 +366,23 @@ function marketlist3showclientside() {
 // }
 
 // Set up the event listeners
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // let categoryValue = null; // Initialize variable to store the selected category
 
   // Category item click event
-  $('.category-item').off('click').on('click', function() { 
-    categoryValue = $(this).data('value'); // Get the data-value from the clicked category item
+  $(".category-item")
+    .off("click")
+    .on("click", function () {
+      categoryValue = $(this).data("value"); // Get the data-value from the clicked category item
     });
 
   // Slider mouseup event
-  document.querySelectorAll('input[type="range"]').forEach(function(slider) {
-    slider.addEventListener('mouseup', function() {
+  document.querySelectorAll('input[type="range"]').forEach(function (slider) {
+    slider.addEventListener("mouseup", function () {
       // Get min and max values from the range inputs
-      let parent = slider.closest('.range-slider');
-      let minValue = parent.querySelector('#min_value').value;
-      let maxValue = parent.querySelector('#max_value').value;
+      let parent = slider.closest(".range-slider");
+      let minValue = parent.querySelector("#min_value").value;
+      let maxValue = parent.querySelector("#max_value").value;
 
       // alert('Mouse up detected on slider');
       // Call getData with the current values and selected category
@@ -393,4 +394,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-

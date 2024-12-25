@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
-include_once '../connection.php';
+include_once 'connection.php';
 
 class client_functions
 {
@@ -98,8 +98,8 @@ class client_functions
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {
                 $image = $row["banner_img"];
-                $imagePath = "../admin1/assets/img/banner_img/" . $image;
-                $noimagePath = "../admin1/assets/img/Sunahri.jpg";
+                $imagePath = "./admin1/assets/img/banner_img/" . $image;
+                $noimagePath = "./admin1/assets/img/Sunahri.jpg";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
@@ -129,8 +129,8 @@ class client_functions
                     while ($user_row = mysqli_fetch_array($result)) {
                         $user_id = isset($user_row["user_id"]) ? $user_row["user_id"] : null;
                         $image = $user_row["shop_logo"];
-                        $imagePath = "../admin1/assets/img/sigup_img/" . $image;
-                        $noimagePath = "../admin1/assets/img/noimage.png";
+                        $imagePath = "./admin1/assets/img/sigup_img/" . $image;
+                        $noimagePath = "./admin1/assets/img/noimage.png";
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );;
@@ -192,8 +192,8 @@ class client_functions
                     while ($user_row = mysqli_fetch_array($result)) {
                         $user_id = isset($user_row["user_id"]) ? $user_row["user_id"] : null;
                         $image = $user_row["shop_logo"];
-                        $imagePath = "../admin1/assets/img/sigup_img/" . $image;
-                        $noimagePath = "../admin1/assets/img/noimage.png";
+                        $imagePath = "./admin1/assets/img/sigup_img/" . $image;
+                        $noimagePath = "./admin1/assets/img/noimage.png";
                         $decodedPath = htmlspecialchars_decode(
                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                         );;
@@ -255,8 +255,8 @@ class client_functions
                     $class = 'mt-4';
                 }
                 $image = $row["img"];
-                $imagePath = "../admin1/assets/img/offers/" . $image;
-                $noimagePath = "";
+                $imagePath = "./admin1/assets/img/offers/" . $image;
+                $noimagePath = "./admin1/assets/img/noimage.png";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
@@ -379,7 +379,7 @@ class client_functions
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {
                 $image = $row["logo_img"];
-                $imagePath = "../admin1/assets/img/marketreview/" . $image;
+                $imagePath = "./admin1/assets/img/marketreview/" . $image;
                 $decodedPath = htmlspecialchars_decode($imagePath);
                 $rating = $row['review'];
                 $fullStars = floor($rating);
@@ -429,7 +429,7 @@ class client_functions
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {
                 // $image = $row["p_image"];
-                // $imagePath = "../admin1/assets/img/product_img/".$image;
+                // $imagePath = "./admin1/assets/img/product_img/".$image;
                 // $decodedPath = htmlspecialchars_decode($imagePath);
                 $marketname =  $row['name'];
                 $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">' . $marketname . '</a></li>';
@@ -448,7 +448,7 @@ class client_functions
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {
                 // $image = $row["p_image"];
-                // $imagePath = "../admin1/assets/img/product_img/".$image;
+                // $imagePath = "./admin1/assets/img/product_img/".$image;
                 // $decodedPath = htmlspecialchars_decode($imagePath);
                 $marketname =  $row['name'];
                 $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">' . $marketname . '</a></li>';
@@ -468,7 +468,7 @@ class client_functions
         if ($result) {
             while ($row = mysqli_fetch_array($result)) {
                 // $image = $row["p_image"];
-                // $imagePath = "../admin1/assets/img/product_img/".$image;
+                // $imagePath = "./admin1/assets/img/product_img/".$image;
                 // $decodedPath = htmlspecialchars_decode($imagePath);
                 $marketname =  $row['name'];
                 $output .= '<li class="mt-2"><a href="#" class="text-decoration-none text-capitalize">' . $marketname . '</a></li>';
@@ -578,8 +578,8 @@ class client_functions
                                         $countCategoriesProduct++;
                                         $charLimit  = 105;
                                         $image = $productrow["p_image"];
-                                        $imagePath = "../admin1/assets/img/product_img/" . $image;
-                                        $noimagePath = "../admin1/assets/img/noimage.png";
+                                        $imagePath = "./admin1/assets/img/product_img/" . $image;
+                                        $noimagePath = "./admin1/assets/img/noimage.png";
                                         $decodedPath = htmlspecialchars_decode(
                                             (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                                         );
@@ -682,8 +682,8 @@ class client_functions
     //         if (mysqli_num_rows($result) > 0) {
     //             while ($row = mysqli_fetch_array($result)) {
     //                 $image = $row["p_image"];
-    //                 $imagePath = "../admin1/assets/img/product_img/" . $image;
-    //                 $noimagePath = "../admin1/assets/img/noimage.png";
+    //                 $imagePath = "./admin1/assets/img/product_img/" . $image;
+    //                 $noimagePath = "./admin1/assets/img/noimage.png";
     //                 $decodedPath = htmlspecialchars_decode(
     //                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
     //                 );
@@ -773,8 +773,8 @@ class client_functions
             while ($row = mysqli_fetch_array($result)) {
                 $image = $row["shop_logo"];
                 $user_id = $row["user_id"];
-                $imagePath = "../admin1/assets/img/sigup_img/" . $image;
-                $noimagePath = "../admin1/assets/img/noimage.png";
+                $imagePath = "./admin1/assets/img/sigup_img/" . $image;
+                $noimagePath = "./admin1/assets/img/noimage.png";
                 $decodedPath = htmlspecialchars_decode(
                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                 );
@@ -829,8 +829,8 @@ class client_functions
                     $productName = htmlspecialchars($row["title"]);
                     $productPrice = htmlspecialchars($row["maxprice"]);
                     $productDescription = htmlspecialchars($row["p_description"]);
-                    $imagePathBase = "../admin1/assets/img/product_img/";
-                    $noimagePath = "../admin1/assets/img/noimage.png";
+                    $imagePathBase = "./admin1/assets/img/product_img/";
+                    $noimagePath = "./admin1/assets/img/noimage.png";
                     $imagesQuery = "SELECT p_image FROM product_images WHERE product_id = $product_id";
                     $imagesResult = $this->db->query($imagesQuery);
                     $images = [];
@@ -915,19 +915,19 @@ class client_functions
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     $image = $row['shop_logo'];
-                    $imagePath = "../admin1/assets/img/sigup_img/" . $image;
-                    $noimagePath = "../admin1/assets/img/noimage.png";
+                    $imagePath = "./admin1/assets/img/sigup_img/" . $image;
+                    $noimagePath = "./admin1/assets/img/noimage.png";
                     $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath
                     );
 
                     $shopimage = $row['shop_img'];
-                    $imagePathnew = "../admin1/assets/img/sigup_img/" . $shopimage;
-                    $noimagePath = "../admin1/assets/img/noimage.png";
+                    $imagePathnew = "./admin1/assets/img/sigup_img/" . $shopimage;
+                    $noimagePath = "./admin1/assets/img/noimage.png";
                     $decodedPathnew = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePathnew)) ? $imagePathnew : $noimagePath
                     );
-                    $whatsappLogoPath = main_url('client1/img/whatsapplogo.png');
+                    $whatsappLogoPath = main_url('img/whatsapplogo.png');
 
                     $output .= '<div class="row g-4">';
                     $output .= '    <div class="col-xl-2">';
@@ -996,8 +996,8 @@ class client_functions
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $images = explode(',', $row["p_image"]);
-                    $imagePathBase = "../admin1/assets/img/product_img/";
-                    $noimagePath = "../admin1/assets/img/product_img/noimage.png";
+                    $imagePathBase = "./admin1/assets/img/product_img/";
+                    $noimagePath = "./admin1/assets/img/product_img/noimage.png";
 
                     $output .= '<div class="row">';
                     $output .= '<div class="col-12 col-md-4">';

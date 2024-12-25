@@ -98,7 +98,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                             </div>
                             <div class="d-inline-flex w-100 rounded ">
                                 <a href="https://api.whatsapp.com/send?phone=6325487985&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." target="_blank">
-                                    <img src="<?php echo main_url('client1/img/whatsapplogo.png'); ?>" alt="whatsapplogo" class="w-50">
+                                    <img src="<?php echo main_url('img/whatsapplogo.png'); ?>" alt="whatsapplogo" class="w-50">
                                 </a>
                             </div>
                         </div>

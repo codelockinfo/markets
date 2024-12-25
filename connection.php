@@ -11,7 +11,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('MODE', 'dev');
     define('ABS_PATH', dirname(dirname(__FILE__)));
     define('MAIN_URL', 'http://localhost/markets');
-    define('CLS_SITE_URL', 'http://localhost/markets/client1/');
+    define('CLS_SITE_URL', 'http://localhost/markets/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'http://localhost/markets/admin1/');
 }elseif ($_SERVER['SERVER_NAME'] == 'codelocksolutions.in') {
@@ -23,7 +23,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('MODE', 'live');
     define('ABS_PATH', dirname(dirname(__FILE__)));
     define('MAIN_URL', 'https://codelocksolutions.in/markets');
-    define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/client1/');
+    define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'https://codelocksolutions.in/markets/admin1/');
 }elseif ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
@@ -35,7 +35,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('MODE', 'live');
     define('ABS_PATH', dirname(dirname(__FILE__)));
     define('MAIN_URL', 'https://textilemarkethub.com');
-    define('CLS_SITE_URL', 'https://textilemarkethub.com/client1/');
+    define('CLS_SITE_URL', 'https://textilemarkethub.com/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'https://textilemarkethub.com/admin1/');
 }else {
