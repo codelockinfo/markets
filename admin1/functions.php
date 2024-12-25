@@ -259,7 +259,9 @@ $limit = 12;
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
                         $subject = "Market";
+                        ob_start();
                         $message = file_get_contents('thankemail_template.php');
+                        $message = ob_get_clean();
                         $headers ="From:no-reply@marketsearch.com"." \r\n";     
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
