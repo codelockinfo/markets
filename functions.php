@@ -115,7 +115,7 @@ class client_functions
     function famousmarketshow()
     {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $sql = "SELECT * FROM famous_markets WHERE status='1'limit 4";
+        $sql = "SELECT * FROM famous_markets WHERE status='1' AND toggle='1' limit 4";
         $res = $this->db->query($sql);
 
         if (mysqli_num_rows($res) > 0) {
