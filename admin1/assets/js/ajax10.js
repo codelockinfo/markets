@@ -551,7 +551,7 @@ function get_product(id) {
               $(".productMainImageAppend .drop-zone").hide();
             },
             error: function () {
-              $(".productMainImageAppend .drop-zone").hide();
+              // $(".productMainImageAppend .drop-zone").hide();
             },
           });
         } else {
