@@ -24,11 +24,6 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
                 style="width: 85%;margin: 0 auto;display: flex;">
             <img src="<?php echo $welcome ?>" alt=""
                 style="width: 85%;margin: 0 auto;display: flex;">
-            <!-- <img src="https://codelocksolutions.in/markets/admin1/assets/img/thankyou.jpg" alt=""
-                style="width: 85%;margin: 0 auto;display: flex;">
-           
-            <img src="https://codelocksolutions.in/markets/admin1/assets/img/welcome.jpg" alt=""
-                style="width: 85%;margin: 0 auto;display: flex;"> -->
            
         </div>
     </div>
