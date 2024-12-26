@@ -19,12 +19,25 @@ window.onload = function () {
     });
 
     inputElement.addEventListener("change", (e) => {
+      const allowedTypes = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
+
+      console.log("input change");
       if (inputElement && inputElement.files && inputElement.files.length > 0) {
         const file = inputElement.files[0];
         if (file.type.startsWith("image/")) {
-          clearThumbnail(dropZoneElement);
-          updateThumbnail(dropZoneElement, file, inputElement);
-          promptElement.style.display = "none";
+          console.log(file.type);
+          if (!allowedTypes.includes(file.type)) {
+              Swal.fire({
+                  icon: "error",
+                  title: "Invalid File Type",
+                  text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+              });
+              e.target.value = ""; // Clear the file input if an invalid file is selected
+          }else{
+            clearThumbnail(dropZoneElement);
+            updateThumbnail(dropZoneElement, file, inputElement);
+            promptElement.style.display = "none";
+          }
         } else {
           Swal.fire({
             icon: "error",
@@ -347,24 +360,37 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
   dropZoneElement.addEventListener("click", () => inputElement.click());
 
   inputElement.addEventListener("change", () => {
-    const fileArray = Array.from(inputElement.files);
-    storedFiles = [...storedFiles, ...fileArray];
-    storedFiles = storedFiles.filter(
-      (file, index, self) =>
-        index === self.findIndex((f) => f.name === file.name)
-    );
-    
-    console.log("Merged Files p image:", storedFiles);
-    updatePromptText(dropZoneElement, inputElement.files);
+    console.log("multiple change");
+    const allowedTypes = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
+    const fileArray = Array.from(inputElement.files);
 
     fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
-        if ($(`.drop-zone__thumb img[title="${file.name}"]`).length > 0) {
-          console.log(`Duplicate preview skipped: ${file.name}`);
+        if (!allowedTypes.includes(file.type)) {
+          Swal.fire({
+              icon: "error",
+              title: "Invalid File Type",
+              text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+          });
           return; 
+        }else{
+           
+          storedFiles = [...storedFiles, ...fileArray];
+          storedFiles = storedFiles.filter(
+            (file, index, self) =>
+              index === self.findIndex((f) => f.name === file.name)
+          );
+          
+          console.log("Merged Files p image:", storedFiles);
+          updatePromptText(dropZoneElement, inputElement.files);
+          
+          if ($(`.drop-zone__thumb img[title="${file.name}"]`).length > 0) {
+            console.log(`Duplicate preview skipped: ${file.name}`);
+            return; 
+          }
+          updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
         }
-        updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
       } else {
         Swal.fire({
           icon: "error",
