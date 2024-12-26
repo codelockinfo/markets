@@ -587,20 +587,16 @@ function get_product(id) {
                   title: "Invalid File Type",
                   text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
                 });
-                return false; // Exclude this file
+                return false;
               }
-              return true; // Include this file
+              return true;
             });
             
-            // Merge only the filtered files
             storedFiles = [...storedFiles, ...filesArray];
-            
-            // Remove duplicates based on file name
             storedFiles = storedFiles.filter(
               (file, index, self) => index === self.findIndex((f) => f.name === file.name)
             );
               
-            
             console.log("Merged Files main image:", storedFiles);
 
             filesArray.forEach((f) => {
