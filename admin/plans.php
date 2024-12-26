@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </ul>
                 <hr>
                 <ul class="list-unstyled">
-                  <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Free registration</li>
+                  <li><span class="fa-li"></span><strong><i class="fa-regular fa-circle-check pe-3"></i>Free Registration</strong></li>
                   <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>List up to 100 products</li>
                   <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Create up to 10 categories</li>
                   <li><span class="fa-li"></span><i class="fa-regular fa-circle-check pe-3"></i>Receive customer inquiries</li>
@@ -126,7 +126,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                           </div>
                           <div class="mb-3">
                             <label>Mobile Number</label>
-                            <input type="number" class="form-control price" name="billing_mobile" placeholder="Enter Mobile Number" max-value="10">
+                            <input type="number" class="form-control number price" name="billing_mobile" placeholder="Enter Mobile Number" max="10">
                             <span class="errormsg phone_number"></span>
                           </div>
                           <div class="text-center">

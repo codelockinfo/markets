@@ -278,6 +278,7 @@ $(document).ready(function () {
       }else{
         $('input[name="balance_due"]').css('background-color', ''); 
         $('input[name="balance_due"]').css('color', ''); 
+        $('input[name="balance_due"]').next('span.errormsg').text('');
       }
   }
 

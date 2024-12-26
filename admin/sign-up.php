@@ -50,28 +50,28 @@ include 'header.php';
                 <div class="card-body card_body_form">
                   <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
                     <div class="mb-3 ">
-                      <input type="text" class="form-control validsignf"  placeholder="Enter Your Name" name="name" />
+                      <input type="text" class="form-control change_remove form-control valikey"  placeholder="Enter Your Name" name="name" />
                       <span class="errormsg name"></span>
                     </div>
                     <div class="mb-3">
                       <div class="tooltip-container">
-                        <input type="text" class="form-control position-relative validsignf" placeholder="Shop Name " name="shop">
+                        <input type="text" class="form-control position-relative change_remove form-control valikey" placeholder="Shop Name " name="shop">
                         <i class="fa-solid fa-exclamation tooltip-icon position-absolute"></i>
                         <h6 class="tooltiptext">Enter your shop name or markert name</h6>
                       </div>
                       <span class="errormsg shop"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control validsignf" placeholder="Email" id="email" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <input type="email" class="form-control change_removeform-control valikey" placeholder="Email" id="email" aria-label="Email" aria-describedby="email-addon" name="email">
                       <span class="errormsg email"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="number" class="form-control price  number" placeholder="Mobile No." name="phone_number">
+                      <input type="number" class="form-control price valikey change_remove number" placeholder="Mobile No." name="phone_number">
                       <span class="errormsg phone_number"></span>
                     </div>
                     <div class="mb-3">
                       <div class="tooltip-container">
-                        <select class="form-select position-relative" aria-label="Default select example" name="business_type">
+                        <select class="form-select change_remove position-relative" aria-label="Default select example" name="business_type">
                           <option selected value="" disabled>Your Business Type</option>
                           <option value="0">Manufacturer</option>
                           <option value="1">wholesaler</option>
@@ -101,7 +101,7 @@ include 'header.php';
                       <div class="errormsg shop_img imageError"></div>
                     </div>
                     <div class="mb-3">
-                      <textarea class="form-control validsignf" placeholder="Shop address" name="address"></textarea>
+                      <textarea class="form-control change_remove valikey" placeholder="Shop address" name="address"></textarea>
                       <span class="errormsg address"></span>
                     </div>
                     <div class="mb-2">
@@ -123,11 +123,11 @@ include 'header.php';
                       <div class="errormsg shop_logo imageError"></div>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control password validsignf" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                      <input type="password" class="form-control change_remove password valikey" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
                       <span class="errormsg password"></span>
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control Confirm_Password validsignf" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
+                      <input type="password" class="form-control change_remove Confirm_Password valikey" placeholder="Confirm Password" aria-label="Password" aria-describedby="password-addon" name="Confirm_Password">
                       <span class="errormsg Confirm_Password"></span>
                     </div>
                     <div class="text-center">
