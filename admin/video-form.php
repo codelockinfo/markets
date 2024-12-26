@@ -2,7 +2,7 @@
 include 'header.php';
 
 if (!isset($_SESSION['current_user']['user_id'])) {
-  header("Location: sign-in.php");
+  header("Location: sign-in");
   die();
 }
 
@@ -14,7 +14,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-    $para_array = array("title" => "Video Form", "link" => "video-list.php", "button_text" => "Video List");
+    $para_array = array("title" => "Video Form", "link" => "video-list", "button_text" => "Video List");
     $title = $para_array['title'];
     $link = $para_array['link'];
     $button_text = $para_array['button_text'];

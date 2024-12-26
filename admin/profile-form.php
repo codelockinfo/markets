@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 if (!isset($_SESSION['current_user']['user_id'])) {
-  header("Location: sign-in.php");
+  header("Location: sign-in");
   die();
 }else{?>
   <script>profileLoadData('listprofile');</script>
@@ -14,7 +14,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Profile Form", "link" => "profile.php", "button_text" => "Preview");
+        $para_array = array("title" => "Profile Form", "link" => "profile", "button_text" => "Preview");
         $title = $para_array['title']; 
         $link = $para_array['link'];
         $button_text = $para_array['button_text'];

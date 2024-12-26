@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse w-auto navigation" id="sidenav-collapse-main">
       <ul class="navbar-nav overflow-x-hidden">
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>analytics.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>analytics">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -32,19 +32,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>shop </title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                        <g transform="translate(1716.000000, 291.000000)">
-                          <g transform="translate(0.000000, 148.000000)">
-                            <path class="color-background opacity-6" d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"></path>
-                            <path class="color-background" d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"></path>
-                          </g>
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path fill="#000" d="M511.5 256c-1.54 85.47-16.55 154.21-59.58 195.92-41.71 43.02-110.45 58.04-195.92 59.58-85.47-1.54-154.21-16.55-195.92-59.58C17.05 410.21 2.04 341.46.5 256c1.54-85.47 16.55-154.21 59.58-195.92C101.79 17.05 170.53 2.04 256 .5c85.47 1.54 154.2 16.55 195.92 59.58 43.02 41.71 58.04 110.45 59.58 195.92z" opacity="1" data-original="#47b5ff" class=""></path><path fill="#000" d="M451.92 60.09C410.21 17.05 341.46 2.04 256 .5v511c85.46-1.55 154.21-16.56 195.92-59.58 43.03-41.71 58.04-110.45 59.58-195.92-1.54-85.47-16.56-154.21-59.58-195.91z" opacity="1" data-original="#2192ff" class=""></path><path fill="#ffffff" d="M335.69 168.73c0 44.71-36.25 80.96-80.96 80.96s-80.96-36.25-80.96-80.96 36.25-80.96 80.96-80.96 80.96 36.25 80.96 80.96zm57.76 189.17c-1.73-33.84-29.19-63.17-69.33-78.96-4.77-1.88-10.1-1.53-14.69.74-16.49 8.14-35.06 12.72-54.69 12.72-19.25 0-37.46-4.39-53.7-12.24-4.62-2.23-9.96-2.54-14.71-.61-39.27 15.91-66.04 44.88-67.75 78.28l-.06 23.8c0 23.53 19.07 42.61 42.61 42.61h189.78c23.53 0 42.61-19.07 42.61-42.61z" opacity="1" data-original="#ffffff" class=""></path><path fill="#e1f6ff" d="M256 249.67V87.78c44.13.67 79.68 36.66 79.68 80.94 0 44.29-35.55 80.28-79.68 80.95zM393.45 357.9c-1.73-33.84-29.2-63.18-69.33-78.97-4.77-1.88-10.1-1.53-14.7.74-16.13 7.96-34.25 12.53-53.42 12.71v131.84h94.89c23.53 0 42.61-19.07 42.61-42.61z" opacity="1" data-original="#e1f6ff" class=""></path></g></svg>
                 </div>
               </a>
             </li>
@@ -53,26 +41,22 @@
                 Customize 
               </button>
               <div class="dropdown-container">
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>banner-form.php">Banner</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>famousmarket-form.php">Famous markets</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form.php">Browse by textile</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>offer-form.php">Offers</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>paragraph-form.php">Paragraph</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>all-video.php">video</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>faqs-form.php">FAQ</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>topbar.php">Topbar</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>custmize-product.php">Products</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>user.php">Users</a>
-                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>contactus.php">Contact Us</a>
-
-
-
-                <!-- <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>marketsbyreviews.php">Markets By Reviews</a> -->
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>banner-form">Banner</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>famousmarket-form">Famous markets</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>textilecategories-form">Browse by textile</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>offer-form">Offers</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>paragraph-form">Paragraph</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>all-video">video</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>faqs-form">FAQ</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>topbar">Topbar</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>custmize-product">Products</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>user">Users</a>
+                <a class="custom1 nav-link" href="<?php echo SITE_ADMIN_URL ?>contactus">Contact Us</a>
               </div>
             </div>  
         <?php } ?>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>profile.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>profile">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -92,7 +76,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>product-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>product-list">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -112,7 +96,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>customer-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>customer-list">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -132,7 +116,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>gallery.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>gallery">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>box-3d-50</title>
@@ -153,7 +137,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>video-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>video-list">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
@@ -174,7 +158,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>blog-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>blog-list">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
@@ -195,7 +179,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>analytics.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>analytics">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -215,7 +199,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>invoice-list.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>invoice-list">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -238,7 +222,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>logout.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>logout">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>document</title>
@@ -258,7 +242,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>plans.php">
+          <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>plans">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>document</title>

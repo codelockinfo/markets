@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 include_once '../connection.php';
-$NO_IMAGE =  "../admin/assets/img/image_not_found.png";
+$NO_IMAGE =  "../admin/assets/img/12.png";
 $limit = 12;
     class admin_functions{
     public $cls_errors = array();
@@ -1423,7 +1423,7 @@ $limit = 12;
                     $output .= '<div>';
                     $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
-                    $output .= '<a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
+                    $output .= '<a href="product-form?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1507,9 +1507,9 @@ $limit = 12;
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '<div class="mt-2">';
                         $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
+                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" data-fild="i_image" aria-hidden="true"></i>';
-                        $output .= '<a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                        $output .= '<a href="invoice?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
                         $output .= '</a>';
                         $output .= '</div>';
@@ -1591,7 +1591,7 @@ $limit = 12;
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="mt-3">';
                     $output .= '<i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer"  data-fild="c_image" aria-hidden="true"></i>';
-                    $output .= '<a href="customer.php?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '<a href="customer?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '</a>';
                     $output .= '</div>';
@@ -1727,7 +1727,7 @@ $limit = 12;
                     </div>
                 </li>
                 <div class="text-center">
-                    <a href="' . SITE_ADMIN_URL . 'profile-form.php">
+                    <a href="' . SITE_ADMIN_URL . 'profile-form">
                         <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                     </a>
                 </div>';
@@ -1813,7 +1813,7 @@ $limit = 12;
                     $output .= '<div class="" >';
                     $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs"  data-fild="image"aria-hidden="true"></i>';
-                    $output .= '<a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '<a href="blog-form?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '</a>';
                     $output .= '</div>';
@@ -2610,7 +2610,7 @@ $limit = 12;
                 $query = "INSERT INTO password_resets(email,token,expires) VALUES ('$email', '$token','$expires')";
                 $result = $this->db->query($query);
                 if ($result) {
-                    $reset_link = SITE_ADMIN_URL . "reset_password.php?token=" . $token;
+                    $reset_link = SITE_ADMIN_URL . "reset_password?token=" . $token;
                     $subject = "Password Reset Request";
                     $message = "Click on the following link to reset your password: " . $reset_link;
                     $headers = "From: no-reply@marketsearch.com";
