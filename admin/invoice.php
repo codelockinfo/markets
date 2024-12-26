@@ -206,10 +206,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 </div>
               </div>
             </div>
+            <div class="text-end mt-5">
+              <button type="button"class="btn bg-gradient-info btn-sm invoice save_loader_show">Save</button>
+              <button type="button" class="btn bg-gradient-info btn-sm cencle_loader_show formCancel">Cancel</button>
+            </div>
           </form>
-          <div class="text-end mt-5">
-            <button class="btn bg-gradient-info invoice save_loader_show">Save</button>
-          </div>
         </div>
       </div>
     </div>

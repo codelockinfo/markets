@@ -1374,7 +1374,7 @@ $limit = 12;
                     $output .= '<div class="modal-content">';
                     $output .= '<div class="modal-header">';
                     $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
-                    $output .= '<button type="button" class="btn-close text-danger fs-2 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
+                    $output .= '<button type="button" class="btn-close text-danger fs-3 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
                     $output .= '</div>';
                     $output .= '<div class="modal-body">';
                     $image = $row["p_image"];
@@ -1421,7 +1421,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '<div>';
-                    $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                    $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
                     $output .= '<a href="product-form.php?id=' . $row['product_id'] . '" class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
@@ -1506,7 +1506,7 @@ $limit = 12;
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '<div class="mt-2">';
-                        $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                        $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview.php?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" data-fild="i_image" aria-hidden="true"></i>';
                         $output .= '<a href="invoice.php?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
@@ -1703,7 +1703,7 @@ $limit = 12;
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="profileUpdate">Choose profile image</h1>
-                                    <button type="button" class="btn-close text-danger fs-2 mb-3" data-bs-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="btn-close text-danger fs-3 mb-3" data-bs-dismiss="modal" aria-label="Close">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
                                 </div>
@@ -1811,7 +1811,7 @@ $limit = 12;
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="" >';
-                    $output .= '<a href="' .CLS_SITE_URL . 'index.php"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                    $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs"  data-fild="image"aria-hidden="true"></i>';
                     $output .= '<a href="blog-form.php?id=' . $row['blog_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
@@ -3142,12 +3142,14 @@ function usercheck_toggle_btn() {
             }
             
             $phone_number = isset($_POST['billing_mobile']) ? $_POST['billing_mobile'] : '';
-            $mobilepattern = "/^[6789]\d{9}$/";  
+            $mobilepattern = "/^[6789]\d{9}$/"; 
             if (empty($phone_number)) {
                 $error_array['billing_mobile'] = "The phone number cannot be empty.";
-            } else if (strlen($phone_number) !== 10) {
+            }
+            elseif (strlen($phone_number) !== 10) {
                 $error_array['billing_mobile'] = "The phone number must be exactly 10 digits.";
-            } else if (!preg_match($mobilepattern, $phone_number)) {
+            }
+            elseif (!preg_match($mobilepattern, $phone_number)) {
                 $error_array['billing_mobile'] = "The mobile number is invalid.";
             }
             

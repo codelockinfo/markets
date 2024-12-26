@@ -1027,9 +1027,13 @@ $(document).ready(function () {
   $(".valid_invoice_item").on("keypress", function () {
     $(this).closest(".attr").find(".errormsg").text("");
   });
-  $(".validsignf").on("keypress", function () {
+  // $(".validsignf").on("keypress", function () {
+  //   $(this).closest(".mb-3").find(".errormsg").text("");
+  // });
+  $(".change_remove").on("change", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
+  
 
   $(".number").on("input", function (e) {
     if (e.which >= 48 && e.which <= 57) {
@@ -1061,7 +1065,7 @@ $(document).ready(function () {
     console.log("formcancel");
     
     var autoGenValue = $('input[name="auto_genrate"]').val();
-    console.log(autoGenValue, " getVal");
+    // console.log(autoGenValue, " getVal");
     $(".pro-zone__prompt").css("display", "block");
     $(".pro-zone .file-label").css("display", "none");
 
@@ -1104,7 +1108,7 @@ $(document).ready(function () {
     }
     $(this).closest("form")[0].reset();
     setTimeout(function () {
-      loading_hide(".cencle_loader_show", "cencle");
+      loading_hide(".cencle_loader_show", "cancel");
     }, 300);
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");
