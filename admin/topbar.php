@@ -56,7 +56,7 @@ if ($_SESSION['current_user']['role'] == 1) {
   </div>
   </div>
 
-  <script src="<?php echo main_url('admin/assets/js/common_7.js'); ?>"></script>
+  <script src="<?php echo main_url('admin/assets/js/common_8.js'); ?>"></script>
 </body>
 </html>
 <script type="text/javascript"> 

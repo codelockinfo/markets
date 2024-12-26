@@ -26,7 +26,7 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<?php echo main_url('admin/assets/js/nepcha-analytics.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/jquery-3.7.1.min.js'); ?>"></script>
-        <script src="<?php echo main_url('admin/assets/js/ajax10.js'); ?>"></script>
+        <script src="<?php echo main_url('admin/assets/js/ajax11.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/core/popper.min.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/core/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/plugins/perfect-scrollbar.min.js'); ?>"></script>
@@ -37,7 +37,7 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
         <script src="<?php echo main_url('admin/assets/js/ckeditor/ckeditor.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script src="<?php echo main_url('admin/assets/js/common_7.js'); ?>"></script>
+        <script src="<?php echo main_url('admin/assets/js/common_8.js'); ?>"></script>
     </head>       
     
 

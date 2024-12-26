@@ -193,7 +193,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 
-  <script src="<?php echo main_url('admin/assets/js/common_7.js'); ?>"></script>
+  <script src="<?php echo main_url('admin/assets/js/common_8.js'); ?>"></script>
 </body>
 </html>
 <script>
