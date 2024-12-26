@@ -13,6 +13,8 @@ var CLS_CIRCLE_PLUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 510 510" focusable="false" aria-hidden="true"><path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102    h-102v-51h102v-102h51v102h102V280.5z" fill-rule="evenodd" fill="#3f4eae"></path></svg>';
 var NO_DATA = '<div class="no-data"><img src="assets/img/noimg.gif"></div>';
 let storedFiles = []; // Array to store selected files
+let allowedTypes = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
+
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
@@ -570,34 +572,61 @@ function get_product(id) {
             console.log("File input changed");
 
             let filesArray = Array.from(e.target.files);
+            // console.log(storedFiles,"....storedFiles");
+            // console.log(filesArray,"....filesArray");
+            // storedFiles = [...storedFiles, ...filesArray];
+            // storedFiles = storedFiles.filter(
+            //   (file, index, self) =>
+            //     index === self.findIndex((f) => f.name === file.name)
+            // );
+            filesArray = filesArray.filter((file) => {
+              if (!allowedTypes.includes(file.type)) {
+                console.log(`Skipped unsupported file type: ${file.name} (${file.type})`);
+                Swal.fire({
+                  icon: "error",
+                  title: "Invalid File Type",
+                  text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+                });
+                return false;
+              }
+              return true;
+            });
+            
             storedFiles = [...storedFiles, ...filesArray];
             storedFiles = storedFiles.filter(
-              (file, index, self) =>
-                index === self.findIndex((f) => f.name === file.name)
+              (file, index, self) => index === self.findIndex((f) => f.name === file.name)
             );
-
+              
             console.log("Merged Files main image:", storedFiles);
 
             filesArray.forEach((f) => {
-              if ($(`.drop-zone__thumb img[title="${f.name}"]`).length > 0) {
-                showMessage("This file name already contains an image", "fail");
-                console.log(`Duplicate preview skipped: ${f.name}`);
-                return;
+              if (!allowedTypes.includes(f.type)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid File Type",
+                    text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+                });
+              }else{
+                if ($(`.drop-zone__thumb img[title="${f.name}"]`).length > 0) {
+                  showMessage("This file name already contains an image", "fail");
+                  console.log(`Duplicate preview skipped: ${f.name}`);
+                  return;
+                }
+                let fileReader = new FileReader();
+  
+                fileReader.onload = function (e) {
+                  let fileContent = e.target.result;
+                  $(
+                    `<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">
+                      <div class="img-wrapper">
+                        <img class="picture__img" src="${fileContent}" title="${f.name}" />
+                        <button class="close-button_product" data-name="${f.name}">x</button>
+                      </div>
+                    </div>`
+                  ).insertBefore("#files");
+                };
+                fileReader.readAsDataURL(f);
               }
-              let fileReader = new FileReader();
-
-              fileReader.onload = function (e) {
-                let fileContent = e.target.result;
-                $(
-                  `<div class="drop-zone__thumb col-6 col-lg-3 col-md-4">
-                    <div class="img-wrapper">
-                      <img class="picture__img" src="${fileContent}" title="${f.name}" />
-                      <button class="close-button_product" data-name="${f.name}">x</button>
-                    </div>
-                  </div>`
-                ).insertBefore("#files");
-              };
-              fileReader.readAsDataURL(f);
             });
           });
         }

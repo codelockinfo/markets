@@ -1079,6 +1079,17 @@ border:1px solid #d2d6da;
 .btn{
   --bs-btn-disabled-opacity: 0.5;
 }
+.sidenav .sidenav-header{
+  height:auto;
+}
+.sidenav .navbar-brand{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.navbar-vertical .navbar-brand>img, .navbar-vertical .navbar-brand-img{
+  width: 100%;
+  max-height: unset;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {

@@ -409,7 +409,9 @@ $limit = 12;
                         }
                     }
                 } else {
-                    $error_array['p_image'] = "Please upload another product image.";
+                    if ($_FILES['subimage']['error'][$key] !== UPLOAD_ERR_OK) {
+                        $error_array['p_image'] = "Error uploading file: " . $_FILES['subimage']['name'][$key];
+                    }
                 }
             }
         }else if (empty($product_id))
