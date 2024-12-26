@@ -2,7 +2,7 @@
 include 'header.php';
 
 if (!isset($_SESSION['current_user']['user_id'])) {
-    header("Location: sign-in.php");
+    header("Location: sign-in");
     die();
 }
 ?>
@@ -23,14 +23,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     </a>
                                 </div>
                                 <div class="input-group d-xl-none d-block ms-2 me-2 ">
-                                    <a href="<?php echo SITE_ADMIN_URL ?>index.php">
+                                    <a href="<?php echo SITE_ADMIN_URL ?>index">
                                         <i class="fa fa-home text-sm ms-1 text-white" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
                             <ul class="navbar-nav justify-content-end">
                                 <li class="nav-item d-flex align-items-center">
-                                    <a href="<?php echo SITE_ADMIN_URL ?>profile.php" class="nav-link text-white font-weight-bold px-0">
+                                    <a href="<?php echo SITE_ADMIN_URL ?>profile" class="nav-link text-white font-weight-bold px-0">
                                         <i class="fa fa-user me-sm-1"></i>
                                         <span class="d-sm-inline d-none">Profile</span>
                                     </a>
@@ -145,7 +145,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <h6 class="mb-0">Profile Information</h6>
                                     </div>
                                     <div class="col-md-6 col-auto ms-auto text-end">
-                                        <a href="<?php echo SITE_ADMIN_URL ?>profile-form.php">
+                                        <a href="<?php echo SITE_ADMIN_URL ?>profile-form">
                                             <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                         </a>
                                     </div>
@@ -191,11 +191,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </ul>
                                     </div>
                                     <div class="d-flex nav-wrapper position-relative end-0 mt-0 mt-md-3 ms-2">
-                                        <a href="<?php echo SITE_ADMIN_URL ?>product-list.php" class="btn bg-gradient-info viewproduct">
+                                        <a href="<?php echo SITE_ADMIN_URL ?>product-list" class="btn bg-gradient-info viewproduct">
                                             View All Products
                                         </a>
                                         </a>
-                                        <a href="<?php echo SITE_ADMIN_URL ?>product-form.php" class="btn bg-gradient-info addproduct">
+                                        <a href="<?php echo SITE_ADMIN_URL ?>product-form" class="btn bg-gradient-info addproduct">
                                             Add Product
                                         </a>
                                     </div>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                                         <div class="card h-100 card-plain border">
                                             <div class="card-body d-flex flex-column justify-content-center text-center">
-                                                <a href="<?php echo SITE_ADMIN_URL ?>product-form.php">
+                                                <a href="<?php echo SITE_ADMIN_URL ?>product-form">
                                                     <i class="fa fa-plus text-secondary mb-3"></i>
                                                     <h5 class=" text-secondary">Add New Product</h5>
                                                 </a>

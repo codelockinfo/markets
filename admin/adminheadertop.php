@@ -11,20 +11,20 @@
                   </a>
                 </div>
                 <div class="input-group d-xl-none d-block ms-2 me-2">
-                  <a href="<?php echo SITE_ADMIN_URL ?>index.php">
+                  <a href="<?php echo SITE_ADMIN_URL ?>index">
                         <i class="fa fa-home text-sm ms-1 text-white" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
               <ul class="navbar-nav justify-content-end">
                 <li class="nav-item d-flex align-items-center">
-                  <a href="<?php echo SITE_ADMIN_URL ?>profile.php" class="nav-link text-white font-weight-bold px-0">
+                  <a href="<?php echo SITE_ADMIN_URL ?>profile" class="nav-link text-white font-weight-bold px-0">
                     <i class="fa fa-user me-sm-1 me-2"></i>
                     <span class="d-sm-inline d-none">Profile</span>
                   </a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                  <a href="<?php echo SITE_ADMIN_URL ?>logout.php" class="nav-link text-white font-weight-bold px-0"  title="logout">
+                  <a href="<?php echo SITE_ADMIN_URL ?>logout" class="nav-link text-white font-weight-bold px-0"  title="logout">
                     <i class="fa fa-sign-out ms-sm-3"></i>
                   </a>
                 </li>

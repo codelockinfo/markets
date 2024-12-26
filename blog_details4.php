@@ -15,7 +15,7 @@
     ?>
 
     <!-- Modal Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="searchModal" tab="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
@@ -38,7 +38,7 @@
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Blog details</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">Blog details</li>
             </ol>

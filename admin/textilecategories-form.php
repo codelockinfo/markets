@@ -1,11 +1,11 @@
 <?php
 include 'header.php';
 if (!isset($_SESSION['current_user']['user_id'])) {
-  header("Location: sign-in.php");
+  header("Location: sign-in");
   die();
 }
 if ($_SESSION['current_user']['role'] == 1) {
-  header("Location: index.php");
+  header("Location: /");
   die();
 }
 ?>
