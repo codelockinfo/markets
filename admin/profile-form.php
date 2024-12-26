@@ -26,7 +26,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <form role="form" id="profileUpdate" enctype="multipart/form-data" method="POST">
             <label for="name" class="font-weight-normal required">Name</label>
             <div class="mb-3">
-              <input type="fname" class="form-control" placeholder="Enter Your Name" name="name">
+              <input type="fname" class="form-control valikey" placeholder="Enter Your Name" name="name">
               <span class="errormsg name"></span>
             </div>
             <label for="shopname" class="font-weight-normal required">Shop Name</label>
