@@ -1082,6 +1082,10 @@ border:1px solid #d2d6da;
 .sidenav .sidenav-header{
   height:auto;
 }
+.sidenav .navbar-brand{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 .navbar-vertical .navbar-brand>img, .navbar-vertical .navbar-brand-img{
   width: 100%;
   max-height: unset;
