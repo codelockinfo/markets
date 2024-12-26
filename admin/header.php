@@ -9,8 +9,10 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
 <!DOCTYPE html>
 <html>
     <head>
-    <div id="preloader">
-          <div id="status">&nbsp;</div>
+      
+        <link rel="shortcut icon" href="<?php echo main_url('admin/assets/img/faviconicon.png'); ?>" type="image/x-icon">
+        <div id="preloader">
+              <div id="status">&nbsp;</div>
         </div>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +40,7 @@ if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="<?php echo main_url('admin/assets/js/common_9.js'); ?>"></script>
+        
     </head>       
     
 
