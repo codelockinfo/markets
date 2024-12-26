@@ -230,7 +230,7 @@ $limit = 12;
             $error_array['password'] = "Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.";
         }
         if (empty($confirmPassword)) {
-            $error_array['Confirm_Password'] = " confirm password cannot be empty. ";
+            $error_array['Confirm_Password'] = " Confirm password cannot be empty. ";
         } elseif ($password !== $confirmPassword) {
             $error_array['Confirm_Password'] = "Passwords do not match.";
         }
