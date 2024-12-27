@@ -749,6 +749,8 @@ border:1px solid #d2d6da;
   margin: auto !important;
   display: flex !important;
   margin-top: 10px !important;
+  padding: 8px;
+
 }
 
 #newpreview,
