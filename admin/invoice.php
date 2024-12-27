@@ -146,7 +146,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
             </div>
             <div class="btn-group max-width-200 mt-3" role="group" aria-label="Basic example">
-              <button class="btn bg-gradient-info add" type="button">+ Line Item</button>
+              <button class="btn bg-gradient-info add" type="button">+ ADD ITEM</button>
             </div>
             <div class="col">
               <div class="row hidden">
