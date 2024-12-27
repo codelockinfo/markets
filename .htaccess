@@ -15,3 +15,4 @@ RewriteRule ^markets/([a-zA-Z0-9_-]+)\.php$ /markets/$1 [R=301,L]
 # Ensure the default files are handled correctly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(admin)/([a-zA-Z0-9_-]+)$ /markets/$1/$2.php [L]
+
