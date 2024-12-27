@@ -26,12 +26,12 @@ window.onload = function () {
         if (file.type.startsWith("image/")) {
           console.log(file.type);
           if (!allowedTypes.includes(file.type)) {
-              Swal.fire({
-                  icon: "error",
-                  title: "Invalid File Type",
-                  text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
-              });
-              e.target.value = ""; // Clear the file input if an invalid file is selected
+            Swal.fire({
+              icon: "error",
+              title: "Invalid File Type",
+              text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+            });
+            e.target.value = ""; // Clear the file input if an invalid file is selected
           }else{
             clearThumbnail(dropZoneElement);
             updateThumbnail(dropZoneElement, file, inputElement);
@@ -71,16 +71,16 @@ window.onload = function () {
       if (file && file.type.startsWith("image/")) {
         if (!allowedTypes.includes(file.type)) {
           Swal.fire({
-              icon: "error",
-              title: "Invalid File Type",
-              text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+            icon: "error",
+            title: "Invalid File Type",
+            text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
           });
         }else{
           if (inputElement) {
             inputElement.files = e.dataTransfer.files;
             clearThumbnail(dropZoneElement);
             updateThumbnail(dropZoneElement, file, inputElement);
-  
+
             promptElement.style.display = "none";
           } else {
             console.error("inputElement is missing.");
@@ -195,7 +195,7 @@ $(document).ready(function () {
     const row = $(".attr").first().clone(true, true);
     row.find("input").val("");
     row.find(".remove").show();
-    row.find('.invoice-rowclose').removeAttr('data-id').removeClass('delete');
+    row.find('.invoice-rowclose').removeAttr('data-id').removeClass('delete').addClass("rowremove");
     $("#attributes-body").append(row);
     updateRowClasses();
     updateRemoveButtonVisibility();
@@ -250,7 +250,7 @@ $(document).ready(function () {
     const rows = $("#attributes-body .attr");
     rows.each(function (index) {
       $(this)
-        .find(".remove")
+        .find(".invoice-rowclose")
         .toggle(rows.length > 1);
     });
   }
@@ -279,14 +279,14 @@ $(document).ready(function () {
     $('input[name="total"]').val(total.toFixed(2));
     $('input[name="balance_due"]').val(balanceDue.toFixed(2));
 
-      if (balanceDue < 0) {
+    if (balanceDue < 0) {
         $('input[name="balance_due"]').css('background-color', '#f8d7da');
         $('input[name="balance_due"]').css('color', 'red');
       }else{
         $('input[name="balance_due"]').css('background-color', ''); 
         $('input[name="balance_due"]').css('color', ''); 
         $('input[name="balance_due"]').next('span.errormsg').text('');
-      }
+    }
   }
 
   
@@ -297,7 +297,7 @@ $(document).ready(function () {
       addRow();
     });
 
-  $("#attributes-body").on("click", ".remove", function () {
+  $("#attributes-body").on("click", ".rowremove", function () {
     removeRow($(this));
   });
 
@@ -309,7 +309,7 @@ $(document).ready(function () {
       calculateAmount(row);
     }
   );
-  
+
   $('input[name="shipping_charges"]').on("input", function () {
     updateSubtotal();
   });
@@ -319,12 +319,12 @@ $(document).ready(function () {
     let amountPaid = parseFloat($(this).val()) || 0;
 
     if (amountPaid > subtotal) {
-        amountPaid = subtotal;
-        $(this).val(amountPaid.toFixed(2));
+      amountPaid = subtotal;
+      $(this).val(amountPaid.toFixed(2));
     }
 
     updateSubtotal();
-});
+  });
 
 
   updateRemoveButtonVisibility();
@@ -388,27 +388,27 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
       }
       return true;
     });
-    
+
     storedFiles = [...storedFiles, ...fileArray];
     storedFiles = storedFiles.filter(
       (file, index, self) => index === self.findIndex((f) => f.name === file.name)
     );
     console.log("Merged Files p image:", storedFiles);
     updatePromptText(dropZoneElement, inputElement.files);
-    
+
     fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
         if (!allowedTypes.includes(file.type)) {
           Swal.fire({
-              icon: "error",
-              title: "Invalid File Type",
-              text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+            icon: "error",
+            title: "Invalid File Type",
+            text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
           });
-          return; 
+          return;
         }else{
           if ($(`.drop-zone__thumb img[title="${file.name}"]`).length > 0) {
             console.log(`Duplicate preview skipped: ${file.name}`);
-            return; 
+            return;
           }
           updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
         }
@@ -447,28 +447,28 @@ document.querySelectorAll(".pro-zone__input").forEach((inputElement) => {
       }
       return true;
     });
-    
+
     storedFiles = [...storedFiles, ...fileArray];
     storedFiles = storedFiles.filter(
       (file, index, self) => index === self.findIndex((f) => f.name === file.name)
     );
     console.log("Merged Files p image:", storedFiles);
-    
+
     updatePromptText(dropZoneElement, fileArray);
 
     fileArray.forEach((file) => {
       if (file.type.startsWith("image/")) {
         if (!allowedTypes.includes(file.type)) {
           Swal.fire({
-              icon: "error",
-              title: "Invalid File Type",
-              text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+            icon: "error",
+            title: "Invalid File Type",
+            text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
           });
           
         }else{
           if ($(`.drop-zone__thumb img[title="${file.name}"]`).length > 0) {
             console.log(`Duplicate preview skipped: ${file.name}`);
-            return; 
+            return;
           }
           updateThumbnail(dropZoneElement, file, inputElement, imageAppend);
         }
