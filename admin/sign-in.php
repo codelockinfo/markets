@@ -120,13 +120,13 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
         <div class="container">
             <div class="row">
                 <div class="mb-1 mx-auto text-center">
-                    <a href="<?php echo CLS_SITE_URL ?>about-us.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
+                    <a href="<?php echo CLS_SITE_URL ?>about-us" target="_blank" class="text-secondary me-3 mb-sm-0 mb-0">
                         About Us
                     </a>
-                    <a href="<?php echo CLS_SITE_URL ?>product.php" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
+                    <a href="<?php echo CLS_SITE_URL ?>product" target="_blank" class="text-secondary me-3 mb-sm-0 mb-2">
                         Products
                     </a>
-                    <a href="<?php echo CLS_SITE_URL ?>blog.php" target="_blank" class="text-secondary  me-3 mb-sm-0 mb-2">
+                    <a href="<?php echo CLS_SITE_URL ?>blog" target="_blank" class="text-secondary  me-3 mb-sm-0 mb-2">
                         Blog
                     </a>
                 </div>

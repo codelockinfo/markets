@@ -2570,7 +2570,7 @@ $(document).on("click", ".getPayment", function (e) {
           currency: "INR",
           name: "Market Search", //your business name
           description: response.outcome.description,
-          image: "http://localhost/markets/img/shop_1/market9.png",
+          image: "./assets/img/admin_logo.png",
           order_id: response.outcome.order_number, //This is a sample Order ID. Pass
           handler: function (responseData) {
             // window.location.replace("payment-success.php?oid="+orderID+"&rp_payment_id="+response.razorpay_payment_id+"&rp_signature="+response.razorpay_signature);
