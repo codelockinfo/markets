@@ -581,7 +581,9 @@ function get_product(id) {
             // );
             filesArray = filesArray.filter((file) => {
               if (!allowedTypes.includes(file.type)) {
-                console.log(`Skipped unsupported file type: ${file.name} (${file.type})`);
+                console.log(
+                  `Skipped unsupported file type: ${file.name} (${file.type})`
+                );
                 Swal.fire({
                   icon: "error",
                   title: "Invalid File Type",
@@ -591,29 +593,33 @@ function get_product(id) {
               }
               return true;
             });
-            
+
             storedFiles = [...storedFiles, ...filesArray];
             storedFiles = storedFiles.filter(
-              (file, index, self) => index === self.findIndex((f) => f.name === file.name)
+              (file, index, self) =>
+                index === self.findIndex((f) => f.name === file.name)
             );
-              
+
             console.log("Merged Files main image:", storedFiles);
 
             filesArray.forEach((f) => {
               if (!allowedTypes.includes(f.type)) {
                 Swal.fire({
-                    icon: "error",
-                    title: "Invalid File Type",
-                    text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
+                  icon: "error",
+                  title: "Invalid File Type",
+                  text: "Only PNG, JPG, JPEG, and GIF files are allowed!",
                 });
-              }else{
+              } else {
                 if ($(`.drop-zone__thumb img[title="${f.name}"]`).length > 0) {
-                  showMessage("This file name already contains an image", "fail");
+                  showMessage(
+                    "This file name already contains an image",
+                    "fail"
+                  );
                   console.log(`Duplicate preview skipped: ${f.name}`);
                   return;
                 }
                 let fileReader = new FileReader();
-  
+
                 fileReader.onload = function (e) {
                   let fileContent = e.target.result;
                   $(
@@ -1062,7 +1068,6 @@ $(document).ready(function () {
   $(".change_remove").on("change", function () {
     $(this).closest(".mb-3").find(".errormsg").text("");
   });
-  
 
   $(".number").on("input", function (e) {
     if (e.which >= 48 && e.which <= 57) {
@@ -1092,7 +1097,7 @@ $(document).ready(function () {
   $(document).on("click", ".formCancel", function (event) {
     event.preventDefault();
     console.log("formcancel");
-    
+
     var autoGenValue = $('input[name="auto_genrate"]').val();
     // console.log(autoGenValue, " getVal");
     $(".pro-zone__prompt").css("display", "block");
@@ -1155,14 +1160,11 @@ $(document).ready(function () {
         case "customer":
           window.location.href = "customer-list";
           break;
-          case "invoice":
+        case "invoice":
           window.location.href = "invoice-list";
           break;
-       
       }
     }
-    
-
   });
 
   $(".form-select").on("input change paste", function () {
@@ -1222,7 +1224,7 @@ $(document).ready(function () {
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
-          window.location.href = "index";
+          window.location.href = "/";
         } else {
           response["msg"]["password"] !== undefined
             ? $(".password").html(response["msg"]["password"])
