@@ -1140,6 +1140,10 @@ $(document).ready(function () {
       $inputElement.find(".file-label").hide();
       $inputElement.removeClass("col-6 col-lg-3 col-md-4");
     }
+    var $incoiveitem = $("tr.attr");
+    if ($incoiveitem.length > 0) {
+      $incoiveitem.find(".error").removeClass("error");
+    }
     $(this).closest("form")[0].reset();
     setTimeout(function () {
       loading_hide(".cencle_loader_show", "cancel");
@@ -1147,7 +1151,9 @@ $(document).ready(function () {
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");
     console.log(autoGenValue, " setVal");
-    $('input[name="auto_genrate"]').val(autoGenValue);
+    if (autoGenValue !== undefined) {
+      $('input[name="auto_genrate"]').val(autoGenValue);
+    }
     var id = $('input[name="id"]').val();
     if (id !== "" && id !== undefined) {
       switch (formType) {
@@ -1721,6 +1727,47 @@ $(document).ready(function () {
     loadData("productlisting");
   }
 
+  function delete_invoice_item_response(deleteId) {
+    console.log("calling ");
+    console.log(deleteId, " ....deleteId");
+    $("[data-id='" + deleteId + "']")
+      .closest("tr.attr")
+      .remove();
+    const rows = $("#attributes-body .attr");
+    rows.each(function (index) {
+      $(this)
+        .find(".remove")
+        .toggle(rows.length > 1);
+    });
+    updateSubtotal();
+    // loadData("invoicelisting");
+  }
+
+  function updateSubtotal() {
+    let subtotal = 0;
+    $("#attributes-body .attr").each(function () {
+      const amountText = $(this).find('input[name="amount[]"]').val();
+      const amount = parseFloat(amountText) || 0;
+      subtotal += amount;
+    });
+    const shippingCharges =
+      parseFloat($('input[name="shipping_charges"]').val()) || 0;
+    const amountPaid = parseFloat($('input[name="amount_paid"]').val()) || 0;
+    const total = subtotal + shippingCharges;
+    const balanceDue = total - amountPaid;
+    $('input[name="subtotal"]').val(subtotal.toFixed(2));
+    $('input[name="total"]').val(total.toFixed(2));
+    $('input[name="balance_due"]').val(balanceDue.toFixed(2));
+
+    if (balanceDue < 0) {
+      $('input[name="balance_due"]').css("background-color", "#f8d7da");
+      $('input[name="balance_due"]').css("color", "red");
+    } else {
+      $('input[name="balance_due"]').css("background-color", "");
+      $('input[name="balance_due"]').css("color", "");
+      $('input[name="balance_due"]').next("span.errormsg").text("");
+    }
+  }
   $(document).delegate(".delete", "click", function () {
     var deleteId = $(this).attr("data-id");
     var deleteType = $(this).attr("data-delete-type");
@@ -1749,7 +1796,12 @@ $(document).ready(function () {
           delete_product_main_image_response(deleteId);
         },
       },
-      invoice_item: { routine: "deleteData" },
+      invoice_item: {
+        routine: "deleteData",
+        callback: function () {
+          delete_invoice_item_response(deleteId);
+        },
+      },
       users: { routine: "deleteData", callback: listuser },
       videos: { routine: "deleteData", callback: listvideo },
       banners: { routine: "deleteData", callback: listbanner },
