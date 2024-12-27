@@ -655,7 +655,8 @@ border:1px solid #d2d6da;
 }
 
 .card_body_form {
-  height: 610px;
+  /* height: 610px; */
+  height: 525px;
   overflow-y: scroll;
 }
 

@@ -2712,8 +2712,13 @@ $limit = 12;
                 $row = $result->fetch_assoc();
                 $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
                 $item_result = $this->db->query($item_query);
-                $item_data = "";
+                $item_data = $delete_style = "";
+                $row_index = 0;
+                if ($item_result->num_rows <= 1) {
+                    $delete_style = ($row_index === 0) ? 'style="display: none;"' : ''; // Hide delete button for the first row
+                }
                 while ($invoice_items = $item_result->fetch_assoc()) {
+
                     $inv_item = $invoice_items['item'];
                     $inv_quantity = $invoice_items['quantity'];
                     $inv_rate = $invoice_items['rate'];
@@ -2736,8 +2741,9 @@ $limit = 12;
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_amount . '" name="amount[]" disabled="" >';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
-                    $item_data .=  '<td  data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose   delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
+                    $item_data .=  '<td ' . $delete_style . ' data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose   delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
+                    $row_index++; 
                 }
                 $response_data = array('data' => 'success', 'outcome' => $row, 'item_data' => $item_data);
             }
