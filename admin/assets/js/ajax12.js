@@ -1141,9 +1141,9 @@ $(document).ready(function () {
     }, 300);
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");
-    var id = $('input[name="id"]').val();
     console.log(autoGenValue, " setVal");
     $('input[name="auto_genrate"]').val(autoGenValue);
+    var id = $('input[name="id"]').val();
     if (id !== "" && id !== undefined) {
       switch (formType) {
         case "product":
@@ -1155,9 +1155,10 @@ $(document).ready(function () {
         case "customer":
           window.location.href = "customer-list";
           break;
-        default:
-          window.location.href = "default-page";
+          case "invoice":
+          window.location.href = "invoice-list";
           break;
+       
       }
     }
     
