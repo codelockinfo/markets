@@ -271,7 +271,7 @@
           <div class="docs-info">
             <h6 class="text-white up mb-0">Need help?</h6>
             <p class="text-xs font-weight-bold">Please check our docs</p>
-            <a href="#" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
+            <a href="<?php echo SITE_ADMIN_URL ?>document" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
           </div>
         </div>
       </div>
