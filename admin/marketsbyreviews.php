@@ -21,7 +21,7 @@ if ($_SESSION['current_user']['role'] == 1) {
         $button_text = $para_array['button_text'];
         include 'adminheadertop.php';
     ?>
-  <script src="<?php echo main_url('admin/assets/js/common_8.js'); ?>"></script>
+  <script src="<?php echo main_url('admin/assets/js/common_9.js'); ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
 </body>
 </html>

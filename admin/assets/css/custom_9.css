@@ -1090,6 +1090,9 @@ border:1px solid #d2d6da;
   width: 100%;
   max-height: unset;
 }
+.headerlogowidth{
+  width: 150px;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {

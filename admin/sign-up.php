@@ -8,7 +8,8 @@ include 'header.php';
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid ps-1">
             <a class="navbar-brand font-weight-bolder ms-lg-0" href="<?php echo CLS_SITE_URL; ?>">
-              Market Search
+              <!-- Market Search -->
+              <img src="<?php echo SITE_ADMIN_URL ?>/assets/img/admin_logo.png" class="headerlogowidth"/>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">

@@ -3159,7 +3159,14 @@ function usercheck_toggle_btn() {
             if (empty($email)) {
                 $error_array['billing_email'] = "Email address cannot be empty.";
             } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $error_array['emabilling_emailil'] = "The email address entered is invalid.";
+                $error_array['billing_email'] = "The email address entered is invalid.";
+            }else {
+                // Additional regex check for specific domains
+                $allowedDomainsRegex = '/^[a-zA-Z0-9._%+-]+@(gmail\.com|gmail\.in|yahoo\.com|yahoo\.in|gmail\.org|yahoo\.org)$/';
+            
+                if (!preg_match($allowedDomainsRegex, $email)) {
+                    $error_array['billing_email'] = "The email address must belong to Gmail or Yahoo domains (e.g., gmail.com, yahoo.com).";
+                }
             }
             if(empty($error_array)){
             

@@ -52,7 +52,7 @@ if ($_SESSION['current_user']['role'] == 1) {
     </div>
   </div>
  
-  <script src="<?php echo main_url('admin/assets/js/common_8.js'); ?>"></script>
+  <script src="<?php echo main_url('admin/assets/js/common_9.js'); ?>"></script>
 </body>
 </html>
 <script src="//cdn.datatables.net/2.1.2/js/dataTables.min.js"></script>
