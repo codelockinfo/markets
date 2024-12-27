@@ -2612,7 +2612,7 @@ $limit = 12;
                 $query = "INSERT INTO password_resets(email,token,expires) VALUES ('$email', '$token','$expires')";
                 $result = $this->db->query($query);
                 if ($result) {
-                    $reset_link = SITE_ADMIN_URL . "reset_password?token=" . $token;
+                    $reset_link = SITE_ADMIN_URL . "reset-password?token=" . $token;
                     $subject = "Password Reset Request";
                     $message = "Click on the following link to reset your password: " . $reset_link;
                     $headers = "From: no-reply@marketsearch.com";

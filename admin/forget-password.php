@@ -1,8 +1,4 @@
 <?php
-if (!isset($_GET['token'])) {
-    header("Location: sign-in.php");
-    die();
-}
 include 'header.php';
 require_once 'googleconfig.php';
 ?>
@@ -77,7 +73,7 @@ require_once 'googleconfig.php';
                     </div>
                     <div class="col-md-6">
                         <div class="b-img position-absolute top-0 h-100 d-md-block d-none me-n8">
-                            <div class="b-img1 bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('assets/img/698472_R-1049.jpeg')"></div>
+                            <div class="b-img1 bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('assets/img/texttilehub.jpg')"></div>
                         </div>
                     </div>
                 </div>
