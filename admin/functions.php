@@ -264,7 +264,7 @@ $limit = 12;
                         }else{
                             $message = file_get_contents('thankemail_template.php');
                         }
-                        $headers ="From:no-reply@marketsearch.com"." \r\n";     
+                        $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
                         $headers = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                        
@@ -1508,8 +1508,8 @@ $limit = 12;
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '<div class="mt-2">';
-                        $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview?id='. $row['invoice_id'].'"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
+                        $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank"><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                        $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview?id='. $row['invoice_id'].'"  target="_blank"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" data-fild="i_image" aria-hidden="true"></i>';
                         $output .= '<a href="invoice?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
@@ -2615,7 +2615,7 @@ $limit = 12;
                     $reset_link = SITE_ADMIN_URL . "reset-password?token=" . $token;
                     $subject = "Password Reset Request";
                     $message = "Click on the following link to reset your password: " . $reset_link;
-                    $headers = "From: no-reply@marketsearch.com";
+                    $headers = "From: no-reply@textilemarkethub.com";
 
                     if (mail($email, $subject, $message, $headers)) {
                         $response_data = array('data' => 'success', 'msg' => 'Password reset link has been sent to your email.');

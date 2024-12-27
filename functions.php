@@ -36,7 +36,7 @@ class client_functions
             $message .= "<br> Email : "  . $email;
             $message .= "<br> Message : "  . $_POST['message'];
             $to = "codelock2021@gmail.com";
-            $subject = "Market Search";
+            $subject = "Textile Market Hub";
             $headers = $_POST['email'] . " \r\n";
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";

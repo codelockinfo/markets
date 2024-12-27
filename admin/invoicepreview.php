@@ -24,7 +24,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
           <div class="col w-100">
             <div class="row mb-3">
               <div class="col w-50 mb-3">
-                <span class="text-normal fs-3"><strong>Market Search</strong></span>
+                <span class="text-normal fs-3"><strong>Textile Market Hub</strong></span>
               </div>
             </div>
             <div class="row mt-4">

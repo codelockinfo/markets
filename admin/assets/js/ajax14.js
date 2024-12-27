@@ -2568,7 +2568,7 @@ $(document).on("click", ".getPayment", function (e) {
           key: response.razorpay_key, // Enter the Key ID generated from the Dashboard
           amount: response.outcome.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
           currency: "INR",
-          name: "Market Search", //your business name
+          name: "Textile Market Hub", //your business name
           description: response.outcome.description,
           image: "./assets/img/admin_logo.png",
           order_id: response.outcome.order_number, //This is a sample Order ID. Pass
@@ -2617,7 +2617,7 @@ $(document).on("click", ".getPayment", function (e) {
             contact: response.outcome.mobile, //Provide the customer's phone number for better conversion rates
           },
           notes: {
-            address: "Market Search",
+            address: "Textile Market Hub",
           },
           config: {
             display: {

@@ -447,7 +447,7 @@ include 'header.php';
                             <!-- <div class="accordion-item border">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h6 class="m-0">How do I register my business on marketsearch?</h6>
+                                        <h6 class="m-0">How do I register my business on textilemarkethub ?</h6>
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -460,7 +460,7 @@ include 'header.php';
                             <div class="accordion-item border">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <h6 class="m-0">Who can register on marketsearch?</h6>
+                                        <h6 class="m-0">Who can register on textilemarkethub ?</h6>
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -478,7 +478,7 @@ include 'header.php';
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        No, registering your business on marketsearch is completely free.
+                                        No, registering your business on textilemarkethub is completely free.
                                     </div>
                                 </div>
                             </div>

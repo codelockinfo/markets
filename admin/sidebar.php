@@ -4,7 +4,6 @@
       <a class="navbar-brand m-0" href="<?php echo CLS_SITE_URL; ?>" target="_blank">
         <!-- <span class="ms-1 font-weight-bold">Market Search</span> -->
         <img src="<?php echo SITE_ADMIN_URL ?>/assets/img/admin_logo.png" />
-        <!-- <img src="<?php echo SITE_ADMIN_URL ?>/assets/img/logoadmin2.png" /> -->
       </a>
     </div>
     <hr class="horizontal dark mt-0">
