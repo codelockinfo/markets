@@ -1224,7 +1224,7 @@ $(document).ready(function () {
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
-          window.location.href = "/index";
+          window.location.href = "./";
         } else {
           response["msg"]["password"] !== undefined
             ? $(".password").html(response["msg"]["password"])
