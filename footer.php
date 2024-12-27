@@ -66,7 +66,7 @@
     </div>
     <!-- Copyright End -->
       <!-- Add your shop button -->
-    <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
+    <a href="<?php echo SITE_ADMIN_URL; ?>sign-up" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
     <!-- Back to Top -->
     <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
     <!-- call start  -->

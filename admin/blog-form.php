@@ -2,7 +2,7 @@
 include 'header.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 if (!isset($_SESSION['current_user']['user_id'])) {
-  header("Location: sign-in.php");
+  header("Location: sign-in");
   die();
 }
 $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['shop'] :  '';
@@ -13,7 +13,7 @@ $shop = isset($_SESSION['current_user']['shop']) ? $_SESSION['current_user']['sh
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-      $para_array = array("title" => "Blog Form", "link" => "blog-list.php", "button_text" => "Blog List");
+      $para_array = array("title" => "Blog Form", "link" => "blog-list", "button_text" => "Blog List");
       $title = $para_array['title']; 
       $link = $para_array['link'];
       $button_text = $para_array['button_text'];

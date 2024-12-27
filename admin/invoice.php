@@ -2,7 +2,7 @@
 include 'header.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 if (!isset($_SESSION['current_user']['user_id'])) {
-  header("Location: sign-in.php");
+  header("Location: sign-in");
   die();
 }
 ?>
@@ -12,7 +12,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Invoice Form", "link" => "invoice-list.php", "button_text" => "List Invoice");
+        $para_array = array("title" => "Invoice Form", "link" => "invoice-list", "button_text" => "List Invoice");
         $title = $para_array['title'];
         $link = $para_array['link'];
         $button_text = $para_array['button_text'];
@@ -21,7 +21,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="container-fluid py-4">
       <div class="col-xl-12 mx-auto">
         <div class="card z-index-0 p-4 product-main">
-          <form action="" id="invoice_frm">
+          <form action="" id="invoice_frm" data-form-type="invoice">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="col w-100">
               <div class="row mb-3 main_invoicechange">

@@ -27,13 +27,13 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                         <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up.php">
+                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up">
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                         Sign Up
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in.php">
+                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in">
                                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
                                         Sign In
                                     </a>

@@ -10,14 +10,14 @@
  <!-- anouncebar end  -->
   <!-- mobileview shop button start -->
    <section class="reg_p d-block d-sm-none mt-0">
-     <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4  text-capitalize w-100 rounded-0 header_button2">register your shop</a>
+     <a href="<?php echo SITE_ADMIN_URL; ?>sign-up" class="btn btn-primary py-2 px-4  text-capitalize w-100 rounded-0 header_button2">register your shop</a>
    </section>
   <!-- mobileview shop button end -->
  <!--  Navbar start -->
  <div id="stickyHeader"  class="container-fluid nav-bar">
      <div class="container">
          <nav class="navbar navbar-light navbar-expand-lg">
-             <a href="<?php echo CLS_SITE_URL ?>index.php" class="navbar-brand">
+             <a href="<?php echo CLS_SITE_URL ?>" class="navbar-brand">
                  <img style="height: 50px;" class="z-index-3 py-0" src="<?php echo CLS_SITE_URL; ?>img/shop_1/market9.png" alt="market2">
              </a>
              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
@@ -189,7 +189,7 @@
                      <a href="<?php echo CLS_SITE_URL ?>video.php" class="nav-item nav-link text-capitalize">videos</a>
                  </div>
                  <button style="display: none !important;" class="btn-search btn btn-primary btn-md-square me-4 rounded-circle" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                 <a href="<?php echo SITE_ADMIN_URL; ?>sign-up.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize header_button">register your shop</a>
+                 <a href="<?php echo SITE_ADMIN_URL; ?>sign-up" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill text-capitalize header_button">register your shop</a>
              </div>
          </nav>
      </div>
@@ -198,7 +198,7 @@
  <!-- megamenu md view  -->
  <div class="offcanvas offcanvas-start bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
      <div class="offcanvas-header">
-         <a href="<?php echo CLS_SITE_URL ?>index.php"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1"></a>
+         <a href="<?php echo CLS_SITE_URL ?>"> <img style="height: 90px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/logo1.png" alt="logo1"></a>
          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
      </div>
      <div class="offcanvas-body">

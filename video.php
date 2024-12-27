@@ -12,7 +12,7 @@ include 'header.php';
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">All Video</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo CLS_SITE_URL ?>">Home</a></li>
                 <li class="breadcrumb-item text-dark" aria-current="page">All Video</li>
             </ol>
         </div>

@@ -11,7 +11,7 @@ if(!empty($thirdparty_apidata)){
     $clientID = $thirdparty_apidata['clientID'];
     $clientSecret = $thirdparty_apidata['clientSecret'];
 }
-$redirectUri = SITE_ADMIN_URL.'index.php';
+$redirectUri = SITE_ADMIN_URL.'/';
 $client = new Google_Client();
 $client->setClientId($clientID);
 $client->setClientSecret($clientSecret);

@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Ensure that the requested URL is not an existing directory or file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+# Rewrite the clean URL to the corresponding PHP file
+RewriteRule ^(admin)/([a-zA-Z0-9_-]+)$ /markets/$1/$2.php [L]
+
+
+RewriteCond %{THE_REQUEST} \s/markets/([a-zA-Z0-9_-]+)\.php [NC]
+RewriteRule ^markets/([a-zA-Z0-9_-]+)\.php$ /markets/$1 [R=301,L]
+
+# Ensure the default files are handled correctly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(admin)/([a-zA-Z0-9_-]+)$ /markets/$1/$2.php [L]
+

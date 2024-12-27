@@ -1141,23 +1141,24 @@ $(document).ready(function () {
     }, 300);
     loading_show(".cencle_loader_show");
     var formType = $(this).closest("form").data("form-type");
-    var id = $('input[name="id"]').val();
     console.log(autoGenValue, " setVal");
     $('input[name="auto_genrate"]').val(autoGenValue);
+    var id = $('input[name="id"]').val();
     if (id !== "" && id !== undefined) {
       switch (formType) {
         case "product":
-          window.location.href = "product-list.php";
+          window.location.href = "product-list";
           break;
         case "blog":
-          window.location.href = "blog-list.php";
+          window.location.href = "blog-list";
           break;
         case "customer":
-          window.location.href = "customer-list.php";
+          window.location.href = "customer-list";
           break;
-        default:
-          window.location.href = "default-page.php";
+          case "invoice":
+          window.location.href = "invoice-list";
           break;
+       
       }
     }
     
@@ -1221,7 +1222,7 @@ $(document).ready(function () {
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           $("#savesignin")[0].reset();
-          window.location.href = "index.php";
+          window.location.href = "index";
         } else {
           response["msg"]["password"] !== undefined
             ? $(".password").html(response["msg"]["password"])
@@ -1279,7 +1280,7 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "save");
         if (response["data"] == "success") {
           showMessage(response.msg, "success");
-          window.location.href = "profile.php";
+          window.location.href = "profile";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1390,7 +1391,7 @@ $(document).ready(function () {
         loading_hide(".save_loader_show", "SIGN UP");
         if (response["data"] == "success") {
           $("#savesignup")[0].reset();
-          window.location.href = "analytics.php";
+          window.location.href = "analytics";
         }
       },
     });
@@ -1477,10 +1478,10 @@ $(document).ready(function () {
             $(".multiple_tag").val(null).trigger("change");
             $(".myFile").html("");
           } else {
-            window.location.href = "product-list.php";
+            window.location.href = "product-list";
           }
           showMessage(response.msg, "success");
-          window.location.href = "product-list.php";
+          window.location.href = "product-list";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1535,10 +1536,10 @@ $(document).ready(function () {
             resetThumbnail();
             $(".myFile").html("");
           } else {
-            window.location.href = "customer-list.php";
+            window.location.href = "customer-list";
           }
           showMessage(response.msg, "success");
-          window.location.href = "customer-list.php";
+          window.location.href = "customer-list";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1637,7 +1638,7 @@ $(document).ready(function () {
           }
           showMessage(response.msg, "success");
           $("td").removeClass("error");
-          window.location.href = "invoice-list.php";
+          window.location.href = "invoice-list";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1804,7 +1805,7 @@ $(document).ready(function () {
         if (response["data"] == "success") {
           $("#videoinsert")[0].reset();
           showMessage(response.msg, "success");
-          window.location.href = "video-list.php";
+          window.location.href = "video-list";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -1859,10 +1860,10 @@ $(document).ready(function () {
             $(".myFile").html("");
             resetThumbnail();
           } else {
-            window.location.href = "blog-list.php";
+            window.location.href = "blog-list";
           }
           showMessage(response.msg, "success");
-          window.location.href = "blog-list.php";
+          window.location.href = "blog-list";
         } else {
           showMessage(response.msg_error, "fail");
         }
@@ -2288,7 +2289,7 @@ $(document).ready(function () {
         var response = JSON.parse(response);
         if (response["data"] == "success") {
           showMessage(response["msg"], "success");
-          window.location.href = "sign-in.php";
+          window.location.href = "sign-in";
         } else {
           showMessage(response["msg"], "fail");
         }
@@ -2594,7 +2595,7 @@ $(document).on("click", ".getPayment", function (e) {
                 if (response.data == "success") {
                   loading_hide(".save_loader_show", "Done");
                   showMessage(response["msg"], "success");
-                  window.location.replace("plans.php");
+                  window.location.replace("plans");
                 } else {
                   showMessage(response["msg"], "fail");
                 }

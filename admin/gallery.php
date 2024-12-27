@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 if (!isset($_SESSION['current_user']['user_id'])) {
-  header("Location: sign-in.php");
+  header("Location: sign-in");
   die();
 }
 ?>
@@ -28,7 +28,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 </body>
+
 </html>
+
+
 <script type="text/javascript">
   loadData("listgallary");
 </script>
