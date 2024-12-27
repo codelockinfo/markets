@@ -28,7 +28,7 @@ if ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com' || $_SERVER['SERVER_NA
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<?php echo main_url('admin/assets/js/nepcha-analytics.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/jquery-3.7.1.min.js'); ?>"></script>
-        <script src="<?php echo main_url('admin/assets/js/ajax13.js'); ?>"></script>
+        <script src="<?php echo main_url('admin/assets/js/ajax14.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/core/popper.min.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/core/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo main_url('admin/assets/js/plugins/perfect-scrollbar.min.js'); ?>"></script>
