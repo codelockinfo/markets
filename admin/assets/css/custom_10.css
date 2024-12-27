@@ -1092,6 +1092,7 @@ border:1px solid #d2d6da;
 }
 .headerlogowidth{
   width: 150px;
+  max-width: 150px !important;
 }
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
