@@ -259,7 +259,7 @@ $limit = 12;
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
                         $subject = "Market";
-                        if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
+                        if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com'  || $_SERVER['SERVER_NAME'] == 'textilemarkethub.com' ) {
                             $message = file_get_contents('thankemail_template_textilemarkethub.php');
                         }else{
                             $message = file_get_contents('thankemail_template.php');

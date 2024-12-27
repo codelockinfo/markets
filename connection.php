@@ -26,7 +26,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('CLS_SITE_URL', 'https://codelocksolutions.in/markets/');
     define('CLS_TRACK_PATH', $_SERVER['DOCUMENT_ROOT']);
     define('SITE_ADMIN_URL', 'https://codelocksolutions.in/markets/admin/');
-}elseif ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com') {
+}elseif ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com' || $_SERVER['SERVER_NAME'] == 'textilemarkethub.com' ) {
     define("DB_SERVER", "localhost");
     define("DB_DATABASE", "u402017191_tmh");
     define("DB_USERNAME", "u402017191_tmh");

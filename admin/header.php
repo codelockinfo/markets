@@ -1,6 +1,6 @@
 <?php
 $myRoot = $_SERVER["DOCUMENT_ROOT"];
-if ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com') {
+if ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com' || $_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
   include($myRoot .'/connection.php');
 }else{
   include($myRoot . '/markets/connection.php');
