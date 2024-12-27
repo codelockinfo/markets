@@ -1094,6 +1094,9 @@ border:1px solid #d2d6da;
   width: 150px;
   max-width: 150px !important;
 }
+i.fa-solid.fa-xmark{
+  font-size: 1.7rem;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {
