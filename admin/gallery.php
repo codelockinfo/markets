@@ -30,6 +30,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 </body>
 
 </html>
+
+
 <script type="text/javascript">
   loadData("listgallary");
 </script>
