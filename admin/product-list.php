@@ -34,7 +34,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             Sort By
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-table="products">
-              <li class="dropdown-item" data-value="featured" data-sortby="Featured">Featured</li>
+              <!-- <li class="dropdown-item" data-value="featured" data-sortby="Featured">Featured</li> -->
               <li class="dropdown-item" data-value="most_view"  data-sortby="Most view">Most view</li>
               <li class="dropdown-item" data-value="alphabetically_az" data-sortby="Alphabetically, A-Z">Alphabetically, A-Z</li>
               <li class="dropdown-item" data-value="alphabetically_za" data-sortby="Alphabetically, Z-A">Alphabetically, Z-A</li>

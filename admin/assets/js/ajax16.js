@@ -2366,6 +2366,8 @@ $(document).ready(function () {
         ? "bloglisting"
         : page_name == "productlist"
         ? "productlisting"
+         : page_name == "customerlist"
+        ? "customerlisting"
         : page_name == "videolist"
         ? "videolisting"
         : page_name == "allvideolist"

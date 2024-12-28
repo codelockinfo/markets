@@ -1470,21 +1470,47 @@ $limit = 12;
         global $NO_IMAGE;
         global $limit;
         $response_data = array('data' => 'fail', 'msg' => "Error");
+        $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         if (isset($_SESSION['current_user']['user_id'])) {
-            $output = array();
-            $output = $pagination = "";
-            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1";
-            $query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' AND ($userid_clause)";
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $userid_clause = '';
+            if ($_SESSION['current_user']['role'] == 1) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $userid_clause = "AND user_id = $user_id";
+            }
+            $sort_query = '';
+            switch ($sort) {
+               
+                case 'alphabetically_az':
+                    $sort_query = 'ORDER BY i_name ASC';
+                    break;
+                case 'alphabetically_za':
+                    $sort_query = 'ORDER BY i_name DESC';
+                    break;
+                case 'date_new_old':
+                    $sort_query = 'ORDER BY created_date DESC';
+                    break;
+                case 'date_old_new':
+                    $sort_query = 'ORDER BY created_date ASC';
+                    break;
+                case 'featured':
+                    $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                    break;
+                default:
+                    break;
+            }
+           $query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            $sql = "SELECT * FROM invoice WHERE ($userid_clause) AND i_name LIKE '%$search_value%' LIMIT $offset, $limit";
+            $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
+            $sql = "SELECT * FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
-            if ($result) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
+            $output = "";
+            $pagination = "";
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
                         $image = $row["i_image"];
                         $imagePath = "../admin/assets/img/invoice_img/" . $image;
                         $noimagePath = $NO_IMAGE;
@@ -1523,54 +1549,79 @@ $limit = 12;
                         $output .= '</div>';
                         $output .= '</div>';
                     }
-                    $response_data = array(
-                        'data' => 'success',
-                        'outcome' => $output,
-                        'pagination' => '',
-                        'pagination_needed' => ($total_records > $limit)
-                    );
-                    if ($total_records > $limit) {
-                        $total_pages = ceil($total_records / $limit);
-                        if ($total_pages > 1) {
-                            $pagination .= '<div class="pagination" id="dataPagination" data-routine="invoicelisting">';
-                            for ($i = 1; $i <= $total_pages; $i++) {
-                                $active_class = ($i == $page) ? 'active' : '';
-                                $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
-                            }
-                            $pagination .= '</div>';
-                        }
-                        $response_data['pagination'] = $pagination;
+                    $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
+                    'pagination_needed' => ($total_records > $limit) ? true : false
+                );
+            } else {
+                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+            }
+            $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+            $query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $filter_query";
+            $res_count = $this->db->query($query);
+            $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+            if ($total_records > $limit) {
+                $total_pages = ceil($total_records / $limit);
+                if ($total_pages > 1) {
+                    $pagination .= '<div class="pagination" id="dataPagination" data-routine="invoicelisting">';
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $active_class = ($i == $page) ? 'active' : '';
+                        $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                     }
-                } else {
-                    $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                    $pagination .= '</div>';
                 }
+                $response_data['pagination'] = $pagination;
             }
         }
-        return json_encode($response_data);
+        $response = json_encode($response_data);
+        return $response;
     }
 
     function customerlisting() {
-        $response_data = array('data' => 'fail', 'msg' => "Error");
-       
         global $limit;
+        $response_data = array('data' => 'fail', 'msg' => "Error");
+        $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
         if (isset($_SESSION['current_user']['user_id'])) {
-            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $userid_clause = ($_SESSION['current_user']['role'] == 1) 
-                ? "user_id = " . (int)$_SESSION['current_user']['user_id'] 
-                : "1=1";
-            $query = "SELECT COUNT(*) AS total FROM customer WHERE name LIKE '%$search_value%' AND ($userid_clause)";
+            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+            $userid_clause = '';
+            if ($_SESSION['current_user']['role'] == 1) {
+                $user_id = $_SESSION['current_user']['user_id'];
+                $userid_clause = "AND user_id = $user_id";
+            }
+            $sort_query = '';
+            switch ($sort) {
+                case 'best_selling':
+                    $sort_query = 'ORDER BY best_selling DESC';
+                    break;
+                case 'alphabetically_az':
+                    $sort_query = 'ORDER BY name ASC';
+                    break;
+                case 'alphabetically_za':
+                    $sort_query = 'ORDER BY name DESC';
+                    break;
+                case 'date_new_old':
+                    $sort_query = 'ORDER BY created_at DESC';
+                    break;
+                case 'date_old_new':
+                    $sort_query = 'ORDER BY created_at ASC';
+                    break;
+                case 'featured':
+                    $sort_query = "AND featured = '1' ORDER BY featured DESC";
+                    break;
+                default:
+                    break;
+            }
+            $query = "SELECT COUNT(*) AS total FROM customer WHERE name LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-    
-            $sql = "SELECT * FROM customer WHERE ($userid_clause) AND name LIKE '%$search_value%' LIMIT $offset, $limit";
+            $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
+            $sql = "SELECT * FROM customer WHERE name LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
-    
-            $output = $pagination = "";
-            if ($result && $result->num_rows > 0) {
-               
-                while ($row = $result->fetch_assoc()) {
+            $output = "";
+            $pagination = "";
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
                     $image = $row["c_image"];
                     $imagePath = "../admin/assets/img/customer/" . $image;
                     $noimagePath = "../admin/assets/img/customer/person-man.webp";
@@ -1605,31 +1656,32 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '</div>';
                 }
-                $response_data = array(
-                    'data' => 'success',
-                    'outcome' => $output,
-                    'pagination' => isset($pagination) ? $pagination : '',
-                    'pagination_needed' => ($total_records > $limit) ? true : false
-                );
-                if ($total_records > $limit) {
-                    $total_pages = ceil($total_records / $limit);
-                    if ($total_pages > 1) {
-                        $pagination .= '<div class="pagination" id="dataPagination" data-routine="customerlisting">';
-                        for ($i = 1; $i <= $total_pages; $i++) {
-                            $active_class = ($i == $page) ? 'active' : '';
-                            $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
-                        }
-                        $pagination .= '</div>';
-                    }
-                    $response_data['pagination'] = $pagination;
+                $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
+                'pagination_needed' => ($total_records > $limit) ? true : false
+            );
+        } else {
+            $response_data = array('data' => 'fail', 'outcome' => "No data found");
+        }
+        $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
+        $query = "SELECT COUNT(*) AS total FROM customer WHERE name LIKE '%$search_value%' $userid_clause $filter_query";
+        $res_count = $this->db->query($query);
+        $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
+        if ($total_records > $limit) {
+            $total_pages = ceil($total_records / $limit);
+            if ($total_pages > 1) {
+                $pagination .= '<div class="pagination" id="dataPagination" data-routine="customerlisting">';
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    $active_class = ($i == $page) ? 'active' : '';
+                    $pagination .= "<a href='#' class='page-link {$active_class}' data-page='{$i}'>{$i}</a>";
                 }
-            } else {
-                $response_data = array('data' => 'fail', 'outcome' => "No data found");
+                $pagination .= '</div>';
             }
-            return json_encode($response_data);
+            $response_data['pagination'] = $pagination;
         }
     }
-    
+    $response = json_encode($response_data);
+    return $response;
+}
 
     function listprofile() {
         global $NO_IMAGE;
