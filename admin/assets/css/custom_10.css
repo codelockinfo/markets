@@ -435,6 +435,7 @@ border:1px solid #d2d6da;
   .select2-selection--multiple
   .select2-search--inline
   .select2-search__field {
+ cursor: pointer;
   margin-top: 0;
   height: 42px !important;
 }

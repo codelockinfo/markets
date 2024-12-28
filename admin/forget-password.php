@@ -21,13 +21,13 @@ require_once 'googleconfig.php';
                         <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up">
+                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up"  target="_blank">
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                         Sign Up
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in">
+                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in"  target="_blank">
                                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
                                         Sign In
                                     </a>
@@ -35,7 +35,7 @@ require_once 'googleconfig.php';
                             </ul>
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a href="<?php echo CLS_SITE_URL; ?>" target="_blank">
+                                    <a href="<?php echo CLS_SITE_URL; ?>" target="_blank"  target="_blank">
                                         <button class="btn bg-gradient-info btn-sm btn-round mb-0 me-1">Preview</button>
                                     </a>
                                 </li>
@@ -100,7 +100,7 @@ require_once 'googleconfig.php';
                     <p class="mb-0 text-secondary">
                         Copyright © <script>
                             document.write(new Date().getFullYear())
-                        </script><a href="http://codelocksolutions.in/"> Codelock Solution</a>
+                        </script><a href="http://codelocksolutions.in/" target="_blank"> Codelock Solution</a>
                     </p>
                 </div>
             </div>

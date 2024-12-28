@@ -18,7 +18,7 @@
               </div>
               <ul class="navbar-nav justify-content-end">
                 <li class="nav-item d-flex align-items-center">
-                  <a href="<?php echo SITE_ADMIN_URL ?>profile" class="nav-link text-white font-weight-bold px-0">
+                  <a href="<?php echo SITE_ADMIN_URL ?>profile"  target="_blank" class="nav-link text-white font-weight-bold px-0">
                     <i class="fa fa-user me-sm-1 me-2"></i>
                     <span class="d-sm-inline d-none">Profile</span>
                   </a>
@@ -122,7 +122,7 @@
         <div class="row justify-content-center justify-content-sm-between">
           <div class="col-auto my-auto">
             <div class="h-100">
-              <h5 class="mb-1 title_font">
+              <h5 class="mb-1 ">
                 <?php echo isset($title) ? $title : "Undefind" ?>
               </h5>
             </div>
@@ -132,7 +132,7 @@
                 <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
                   <li class="nav-item">
                     <?php if(isset($link) && $link != ''){ ?> 
-                      <a class="nav-link mb-0 px-0 py-1 active " href="<?php echo SITE_ADMIN_URL.isset($link) ? $link : "Undefind" ?>" role="tab" aria-selected="true">
+                      <a class="nav-link mb-0 px-0 py-1 active " href="<?php echo SITE_ADMIN_URL.isset($link) ? $link : "Undefind" ?>"  target="_blank"role="tab" aria-selected="true">
                         <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">

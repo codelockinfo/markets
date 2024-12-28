@@ -11,7 +11,7 @@ var CLS_CIRCLE_MINUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 80 80" focusable="false" aria-hidden="true"><path d="M39.769,0C17.8,0,0,17.8,0,39.768c0,21.956,17.8,39.768,39.769,39.768   c21.965,0,39.768-17.812,39.768-39.768C79.536,17.8,61.733,0,39.769,0z M13.261,45.07V34.466h53.014V45.07H13.261z" fill-rule="evenodd" fill="#DE3618"></path></svg>';
 var CLS_CIRCLE_PLUS =
   '<svg class="Polaris-Icon__Svg" viewBox="0 0 510 510" focusable="false" aria-hidden="true"><path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102    h-102v-51h102v-102h51v102h102V280.5z" fill-rule="evenodd" fill="#3f4eae"></path></svg>';
-var NO_DATA = '<div class="no-data"><img src="assets/img/noimg.gif"></div>';
+var NO_DATA = '<div class="no-data"><img src="assets/img/no_img_gif1.gif"></div>';
 let storedFiles = []; // Array to store selected files
 let allowedTypes = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
