@@ -1,78 +1,84 @@
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-4 py-md-5 mt-5  mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
-        <div class="container">
+  <!-- footer -->
+  <footer class="main-color text-light py-60 pb-60">
+        <div class="custom-container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
-                    <img style="height: 80px;" class="z-index-3" src="<?php echo CLS_SITE_URL; ?>img/shop_1/market9.png" alt="market9">
-                        <p class="lh-lg mb-4">Empowering Textile Businesses with Seamless Connectivity and Growth Opportunities. Bridging the Gap Between Wholesalers and Retailers in the Textile Industry.</p>
-                        <div class="footer-icon d-flex">
-                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div><img src="img/TMH (6).png" alt="Logo" class="w-50" /></div>
+                    <p>
+                        Empowering Textile Businesses with Seamless Connectivity and
+                        Growth Opportunities. Bridging the Gap Between Wholesalers and
+                        Retailers in the Textile Industry.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-light"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="text-light"><i class="fa-brands fa-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Top categories</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Kurti</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Saree</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Wedding Cloth</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Tops</a>
-                            <a class="text-muted mb-3  footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Skirts</a>
-                            <a class="text-muted  footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Blogs</a>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold body-font-familly f-22 mb-4">Store Policy</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Privacy
+                                Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Terms &
+                                Condition</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Blogs</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
-                    <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Policies</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <a class="text-muted mb-3 footer-btn" href="<?php echo CLS_SITE_URL ?>privacy.php"><i class="fa fa-check text-primary me-2"></i>Privacy Policy</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Terms of Service</a>
-                            <!-- <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Shipping Policy</a>
-                            <a class="text-muted mb-3 footer-btn" href="#"><i class="fa fa-check text-primary me-2"></i>Returns & Exchanges</a> -->
-                            <a class="text-muted  footer-btn" href="<?php echo CLS_SITE_URL ?>contact.php"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold body-font-familly f-22 mb-4">Information</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Advertise With
+                                Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Safe and Easy
+                                Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Product by
+                                Keyword</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mt-3 mt-lg-0">
-                    <div class="footer-item mt-4 mt-md-0">
-                        <h4 class="mb-4">Contact Us</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <p class="text-primary"><a href="#" class="text-muted "><i class="fa fa-map-marker-alt text-primary me-2"></i> 2020, Silver business point, near VIP circle, Digital valley, Uttran, Surat 395006</a></p>
-                            <p class="text-primary"><a href="tel:7600464414" class="text-muted"><i class="fa fa-phone-alt text-primary me-2"></i>+91 7600464414</a></p>
-                            <p class="text-primary"><a href="mailto:codelockinfo@gmail.com" class="text-muted 
-                            "><i class="fas fa-envelope text-primary me-2"></i>codelockinfo@gmail.com</a></p>
-                            <p class="text-primary"><a href="#" class="text-muted"><i class="fa fa-clock text-primary me-2"></i> 12/7  Hours Service</a></p>
-                        </div>
-                    </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold body-font-familly f-22 mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="body-font-familly f-18">
+                            <i class="fa-solid fa-location-dot me-2"></i>2020, Silver
+                            business point, near VIP circle, Digital valley, Uttran, Surat
+                            395006
+                        </li>
+                        <li class="body-font-familly f-18">
+                            <i class="fa-solid fa-phone me-2"></i>+91 7600464414
+                        </li>
+                        <li class="body-font-familly f-18">
+                            <i class="fa-solid fa-envelope me-2"></i>codelockinfo@gmail.com
+                        </li>
+                        <li class="body-font-familly f-18">
+                            <i class="fa-solid fa-clock me-2"></i>24/7 Hours Service
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright bg-primary py-4">
-        <div class="container">
+            <hr class="bg-light" />
             <div class="text-center">
-                <span class="text-light"><a href="https://codelocksolutions.in/" class="text-second"><i class="fas fa-copyright text-second me-2"></i>Codelock solution</a>, All right reserved. </span>
+                <p class="mb-0">© Codelock Solution, All right reserved.</p>
             </div>
+            <hr class="bg-light mb-0" />
         </div>
-    </div>
-    <!-- Copyright End -->
-      <!-- Add your shop button -->
-    <a href="<?php echo SITE_ADMIN_URL; ?>sign-up" class="btn btn-md-square btn-primary rounded-circle Add-your-shop" title="Add your shop"><i class="fa-solid fa-store"></i></a>
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-    <!-- call start  -->
-    <a href="tel:7600464414" class="btn btn-md-square btn-primary rounded-circle telephone">
-        <img src="img/customer-support (2).png" alt="customer-support (2)" class="c-img-1">
-        <img src="img/customer-service.png" alt="customer-service" class="c-img-2"></a>
-
-    <script src="js/custom.js"></script>
-    
+    </footer>
