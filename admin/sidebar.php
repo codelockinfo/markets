@@ -33,7 +33,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path fill="#3a4270" d="M511.5 256c-1.54 85.47-16.55 154.21-59.58 195.92-41.71 43.02-110.45 58.04-195.92 59.58-85.47-1.54-154.21-16.55-195.92-59.58C17.05 410.21 2.04 341.46.5 256c1.54-85.47 16.55-154.21 59.58-195.92C101.79 17.05 170.53 2.04 256 .5c85.47 1.54 154.2 16.55 195.92 59.58 43.02 41.71 58.04 110.45 59.58 195.92z" opacity="1" data-original="#47b5ff" class=""></path><path fill="#3a4270" d="M451.92 60.09C410.21 17.05 341.46 2.04 256 .5v511c85.46-1.55 154.21-16.56 195.92-59.58 43.03-41.71 58.04-110.45 59.58-195.92-1.54-85.47-16.56-154.21-59.58-195.91z" opacity="1" data-original="#2192ff" class=""></path><path fill="#ffffff" d="M335.69 168.73c0 44.71-36.25 80.96-80.96 80.96s-80.96-36.25-80.96-80.96 36.25-80.96 80.96-80.96 80.96 36.25 80.96 80.96zm57.76 189.17c-1.73-33.84-29.19-63.17-69.33-78.96-4.77-1.88-10.1-1.53-14.69.74-16.49 8.14-35.06 12.72-54.69 12.72-19.25 0-37.46-4.39-53.7-12.24-4.62-2.23-9.96-2.54-14.71-.61-39.27 15.91-66.04 44.88-67.75 78.28l-.06 23.8c0 23.53 19.07 42.61 42.61 42.61h189.78c23.53 0 42.61-19.07 42.61-42.61z" opacity="1" data-original="#ffffff" class=""></path><path fill="#e1f6ff" d="M256 249.67V87.78c44.13.67 79.68 36.66 79.68 80.94 0 44.29-35.55 80.28-79.68 80.95zM393.45 357.9c-1.73-33.84-29.2-63.18-69.33-78.97-4.77-1.88-10.1-1.53-14.7.74-16.13 7.96-34.25 12.53-53.42 12.71v131.84h94.89c23.53 0 42.61-19.07 42.61-42.61z" opacity="1" data-original="#e1f6ff" class=""></path></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="516" height="516" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><circle cx="20.5" cy="6.5" r="1.5" fill="#3a4270" opacity="1" data-original="#000000" class=""></circle><path d="M16.5 8h-13a1.5 1.5 0 0 1 0-3h13a1.5 1.5 0 0 1 0 3zM16.5 14h-13a1.5 1.5 0 0 1 0-3h13a1.5 1.5 0 0 1 0 3zM10.5 20h-7a1.5 1.5 0 0 1 0-3h7a1.5 1.5 0 0 1 0 3z" fill="#3a4270" opacity="1" data-original="#000000" class=""></path></g></svg>
                 </div>
               </a>
             </li>
@@ -59,19 +59,7 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>profile"  target="_blank">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>office</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g id="office" transform="translate(153.000000, 2.000000)">
-                        <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                        <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512.002" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M210.352 246.633c33.882 0 63.222-12.153 87.195-36.13 23.973-23.972 36.125-53.304 36.125-87.19 0-33.876-12.152-63.211-36.129-87.192C273.566 12.152 244.23 0 210.352 0c-33.887 0-63.22 12.152-87.192 36.125s-36.129 53.309-36.129 87.188c0 33.886 12.156 63.222 36.133 87.195 23.977 23.969 53.313 36.125 87.188 36.125zM426.129 393.703c-.692-9.976-2.09-20.86-4.149-32.351-2.078-11.579-4.753-22.524-7.957-32.528-3.308-10.34-7.808-20.55-13.37-30.336-5.774-10.156-12.555-19-20.165-26.277-7.957-7.613-17.699-13.734-28.965-18.2-11.226-4.44-23.668-6.69-36.976-6.69-5.227 0-10.281 2.144-20.043 8.5a2711.03 2711.03 0 0 1-20.879 13.46c-6.707 4.274-15.793 8.278-27.016 11.903-10.949 3.543-22.066 5.34-33.039 5.34-10.972 0-22.086-1.797-33.047-5.34-11.21-3.622-20.296-7.625-26.996-11.899-7.77-4.965-14.8-9.496-20.898-13.469-9.75-6.355-14.809-8.5-20.035-8.5-13.313 0-25.75 2.254-36.973 6.7-11.258 4.457-21.004 10.578-28.969 18.199-7.605 7.281-14.39 16.12-20.156 26.273-5.558 9.785-10.058 19.992-13.371 30.34-3.2 10.004-5.875 20.945-7.953 32.524-2.059 11.476-3.457 22.363-4.149 32.363A438.821 438.821 0 0 0 0 423.949c0 26.727 8.496 48.363 25.25 64.32 16.547 15.747 38.441 23.735 65.066 23.735h246.532c26.625 0 48.511-7.984 65.062-23.734 16.758-15.946 25.254-37.586 25.254-64.325-.004-10.316-.351-20.492-1.035-30.242zm0 0" fill="#3a4270" opacity="1" data-original="#000000" class=""></path></g></svg>
             </div>
             <span class="nav-link-text ms-1">Profile</span>
           </a>
@@ -79,19 +67,7 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>product-list" target="_blank">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>credit-card</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(453.000000, 454.000000)">
-                        <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(1.2700000000000007,0,0,1.2700000000000007,-3.2400000000000038,-3.2275086736679164)"><path d="M10.48 11.15a4.285 4.285 0 0 0 .77.24v9.52a2.64 2.64 0 0 1-.47-.17l-6-2.67A3 3 0 0 1 3 15.33V8.67a2.955 2.955 0 0 1 .11-.79zm4.34-2.23L6.67 5.09l-1.89.84a2.909 2.909 0 0 0-.91.63l7.21 3.21a2.268 2.268 0 0 0 1.84 0zm5.31-2.36a2.909 2.909 0 0 0-.91-.63l-6-2.67a2.966 2.966 0 0 0-2.44 0L8.49 4.28l8.15 3.83zm.76 1.32-3.51 1.56v2.45a.75.75 0 1 1-1.5 0V10.1l-2.36 1.05a5.275 5.275 0 0 1-.77.24v9.52a2.64 2.64 0 0 0 .47-.17l6-2.67A3 3 0 0 0 21 15.33V8.67a2.955 2.955 0 0 0-.11-.79z" fill="#3a4270" opacity="1" data-original="#000000" class=""></path></g></svg>
             </div>
             <span class="nav-link-text ms-1">Products</span>
           </a>
@@ -99,19 +75,7 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>customer-list" target="_blank">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>credit-card</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(453.000000, 454.000000)">
-                        <path class="color-background opacity-6" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(1.25,0,0,1.25,-4,-4.196249961853027)"><path d="M11.429 16a5.715 5.715 0 1 0-5.715-5.714A5.72 5.72 0 0 0 11.429 16zM18.905 20.721A10.434 10.434 0 0 0 1 28a1 1 0 0 0 1 1h18.86a1 1 0 0 0 1-1 10.067 10.067 0 0 0-.485-3.124 10.36 10.36 0 0 0-2.47-4.155z" fill="#3a4270" opacity="1" data-original="#000000" class=""></path><circle cx="23.5" cy="12.25" r="4.25" fill="#3a4270" opacity="1" data-original="#000000" class=""></circle><path d="M23.5 17.67a7.482 7.482 0 0 0-3.806 1.057c.217.194.436.385.641.595a12.388 12.388 0 0 1 2.952 4.966 11.488 11.488 0 0 1 .437 1.882H30a1 1 0 0 0 1-1 7.508 7.508 0 0 0-7.5-7.5z" fill="#3a4270" opacity="1" data-original="#000000" class=""></path></g></svg>
             </div>
             <span class="nav-link-text ms-1">Customers</span>
           </a>
@@ -119,20 +83,7 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>gallery" target="_blank">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>box-3d-50</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(603.000000, 0.000000)">
-                        <path class="color-background" d="M22.7597136,19.3090182 L38.8987031,11.2395234 C39.3926816,10.9925342 39.592906,10.3918611 39.3459167,9.89788265 C39.249157,9.70436312 39.0922432,9.5474453 38.8987261,9.45068056 L20.2741875,0.1378125 L20.2741875,0.1378125 C19.905375,-0.04725 19.469625,-0.04725 19.0995,0.1378125 L3.1011696,8.13815822 C2.60720568,8.38517662 2.40701679,8.98586148 2.6540352,9.4798254 C2.75080129,9.67332903 2.90771305,9.83023153 3.10122239,9.9269862 L21.8652864,19.3090182 C22.1468139,19.4497819 22.4781861,19.4497819 22.7597136,19.3090182 Z"></path>
-                        <path class="color-background opacity-6" d="M23.625,22.429159 L23.625,39.8805372 C23.625,40.4328219 24.0727153,40.8805372 24.625,40.8805372 C24.7802551,40.8805372 24.9333778,40.8443874 25.0722402,40.7749511 L41.2741875,32.673375 L41.2741875,32.673375 C41.719125,32.4515625 42,31.9974375 42,31.5 L42,14.241659 C42,13.6893742 41.5522847,13.241659 41,13.241659 C40.8447549,13.241659 40.6916418,13.2778041 40.5527864,13.3472318 L24.1777864,21.5347318 C23.8390024,21.7041238 23.625,22.0503869 23.625,22.429159 Z"></path>
-                        <path class="color-background opacity-6" d="M20.4472136,21.5347318 L1.4472136,12.0347318 C0.953235098,11.7877425 0.352562058,11.9879669 0.105572809,12.4819454 C0.0361450918,12.6208008 6.47121774e-16,12.7739139 0,12.929159 L0,30.1875 L0,30.1875 C0,30.6849375 0.280875,31.1390625 0.7258125,31.3621875 L19.5528096,40.7750766 C20.0467945,41.0220531 20.6474623,40.8218132 20.8944388,40.3278283 C20.963859,40.1889789 21,40.0358742 21,39.8806379 L21,22.429159 C21,22.0503869 20.7859976,21.7041238 20.4472136,21.5347318 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(1.04,0,0,1.04,-0.48004330737516376,-0.5199999618530278)"><path d="M6.25 19.5a3.744 3.744 0 0 1-3.542-2.551l-.035-.115A3.648 3.648 0 0 1 2.5 15.75V8.932L.074 17.03a2.271 2.271 0 0 0 1.592 2.755l15.463 4.141c.193.05.386.074.576.074.996 0 1.906-.661 2.161-1.635l.901-2.865zM9 9c1.103 0 2-.897 2-2s-.897-2-2-2-2 .897-2 2 .897 2 2 2z" fill="#3a4270" opacity="1" data-original="#000000" class=""></path><path d="M21.5 2h-15A2.503 2.503 0 0 0 4 4.5v11C4 16.878 5.122 18 6.5 18h15c1.378 0 2.5-1.122 2.5-2.5v-11C24 3.122 22.878 2 21.5 2zm-15 2h15a.5.5 0 0 1 .5.5v7.099l-3.159-3.686a1.791 1.791 0 0 0-1.341-.615 1.749 1.749 0 0 0-1.336.631l-3.714 4.458-1.21-1.207a1.755 1.755 0 0 0-2.48 0L6 13.939V4.5a.5.5 0 0 1 .5-.5z" fill="#3a4270" opacity="1" data-original="#000000" class=""></path></g></svg>
             </div>
             <span class="nav-link-text ms-1">Gallery</span>
           </a>
@@ -140,20 +91,7 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo SITE_ADMIN_URL ?>video-list" target="_blank">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>settings</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(304.000000, 151.000000)">
-                        <polygon class="color-background opacity-6" points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"></polygon>
-                        <path class="color-background opacity-6" d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"></path>
-                        <path class="color-background" d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path fill="#3a4270" fill-rule="evenodd" d="M4 1a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h1v3.586a1.414 1.414 0 0 0 2.414 1L12 18h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zm5.5 5.5A1.5 1.5 0 0 0 8 8v3a1.5 1.5 0 0 0 1.5 1.5h4.183c.727 0 1.317-.59 1.317-1.317l1.243.746A.5.5 0 0 0 17 11.5v-4a.5.5 0 0 0-.757-.429L15 7.817c0-.727-.59-1.317-1.317-1.317z" clip-rule="evenodd" opacity="1" data-original="#000000" class=""></path></g></svg>
             </div>
             <span class="nav-link-text ms-1">Videos</span>
           </a>
