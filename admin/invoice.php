@@ -72,7 +72,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control price mt-1 date-input" name="date">
+                  <input type="date" class="form-control price mt-1 date-input cursor-pointer" name="date">
                   <span class="errormsg date"></span>
                 </div>
               </div>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Payment Terms :</span>
                 </div>
                 <div class="col-xl ">
-                <select class="form-select position-relative" aria-label="Default select example" name="terms">
+                <select class="form-select position-relative cursor-pointer" aria-label="Default select example" name="terms">
                           <option selected value="" disabled>Payment Terms</option>
                           <option value="online">online</option>
                           <option value="cash">cash</option>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1 price date-input " name="due_date">
+                  <input type="date" class="form-control mt-1 price date-input cursor-pointer" name="due_date">
                   <span class="errormsg due_date"></span>
                 </div>
               </div>
