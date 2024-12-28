@@ -1388,11 +1388,13 @@ $limit = 12;
                     $output .= '<div class="d-flex flex-wrap mb-3 justify-content-center">';
                     $output .= '<div class="position-relative">';
                     $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="main-product-img img-fluid shadow border-radius-xl modal_img">';
-                    $output .= '<div class="position-absolute top-50 start-50 translate-middle">';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class=" pro_delete_btn fa fa-trash text-secondary delete_shadow me-3 delete btn btn-light shadow-sm rounded-0" data-delete-type="product_main_image" aria-hidden="true"></i>';
+                    $output .= '<button class="pro_delete_btn btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete">';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash delete " data-delete-type="product_main_image" aria-hidden="true"></i>';
+                    $output .= '</button>';
+                    
                     $output .= '</div>';
                     $output .= '</div>';
-                    $output .= '</div>';
+                    
 
                     $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
                     $results = $this->db->query($sql);
