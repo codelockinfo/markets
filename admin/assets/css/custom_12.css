@@ -20,16 +20,19 @@
   transform: skewX(8deg);
   height: 800px;
 }
-
 .no-data {
-  text-align: center;
-  margin: 0 auto;
-  width: 50%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 100%;    
 }
 
 .no-data img {
-  width: 50%;
+  max-width: 100%;
+  height: auto;  
 }
+
+
 
 .profile-image {
   object-fit: cover;
