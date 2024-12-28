@@ -1,0 +1,99 @@
+@media (max-width: 1280px) {
+    /* / foumas market / */
+    .img-custome{
+        left: -30%;
+        top: 16%;
+        content: "";
+    }
+    /* / shop now & save / */
+    .img-custome1{
+        right:-80%
+    }
+}
+@media (max-width: 1024px) {
+    .f-36{
+        font-size: 32px;
+    }
+    .f-14{
+        font-size: 12px;
+    }
+    .py-60{
+        padding: 50px 0;
+    }
+    /* / shop now & save / */
+    .img-custome1{
+        right: -100%;
+    }
+    .img-custome2{
+        display: none;
+    }
+    /* contactus page  */
+    .contact-icon{
+        left: 35%;
+  }
+}
+@media (max-width: 991px) {
+    .f-36{
+        font-size: 30px;
+    }
+    .py-60{
+        padding: 40px 0;
+    }
+    /* / foumas market / */
+    .img-custome{
+        left: -34%;
+        top: 13%;
+    }
+    /* / shop now & save / */
+    .img-custome1{
+        display: none;
+    }
+    .img-custome2{
+        display: none;
+    }
+    /* / FAQs & Contact us / */
+    .img-custome4{
+        display: none;
+    }
+    .contect{
+        margin-left: 0;
+    }
+    .img-custome5{
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .f-36{
+        font-size: 28px;
+    }
+    .py-60{
+        padding: 30px 0;
+    }
+    /* / header / */
+    .img-custome6 {
+        display: none;
+    }
+    .marquee_container{
+        margin-bottom: 4%;
+    }
+    /* contact us page  */
+    .contact-icon{
+        left: 43%;
+  }
+}
+@media (max-width: 576px) {
+    /* / foumas market / */
+    .img-custome{
+        display: none;
+    }
+    /* / product tranding / */
+    .custom_tranding{
+        display: block !important;
+    }
+}
+@media (max-width: 450px) {
+    /* contact us page  */
+    .contact-icon{
+        left: 36%;
+  }
+}
