@@ -2,19 +2,21 @@
 <body>
     <div class="loader">
             <img src="img/img21.png" alt="Loading..." class="loader-image">
-          </div>
+            </div>
 
     <?php include 'navbar.php'; ?>
 
     <section class="page-banner main-color">
         <div class="top-0 page-banner-heading f-36 text-white mx-auto text-center py-4">
             All markets in Surat
-        </div>
+        </div>  
     </section>
-
+     <!-- Short button  -->
+    <div class="custom-container">
     <div class="d-flex justify-content-end mt-5 shor_button">
         <div class="dropdown">
-            <a href="#" class="text-decoration-none text-light dropdown-toggle f-18 body-font-familly main-color border-r px-4 py-3 fw-bold border-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><svg
+            <a href="#" class="text-decoration-none text-light dropdown-toggle f-18 body-font-familly main-color border-r px-4 py-2  fw-bold border-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg
                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20" x="0" y="0"
                     viewBox="0 0 489.4 489.4" style="enable-background:new 0 0 512 512"
@@ -28,7 +30,7 @@
                             fill="#fafafa" opacity="1" data-original="#000000" class=""></path>
                     </g>
                 </svg>Short by</a>
-                <ul class="dropdown-menu dropdown-menu-end mt-3 ms-1 w-100" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu dropdown-menu-end mt-3  w-100" aria-labelledby="dropdownMenuButton">
                     <li>
                         <a class="dropdown-item f-18 body-font-familly" href="#">A to Z</a>
                     </li>
@@ -36,19 +38,26 @@
                         <a class="dropdown-item f-18 body-font-familly" href="#">Z to A</a>
                     </li>
                     <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">New to old</a>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Oldest to Newest</a>
                     </li>
                     <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">By rating</a>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Newest to Oldest</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Low to High rating</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">High to Low rating</a>
                     </li>
                 </ul>
         </div>
     </div>
+    </div>
     <!-- ALL MARKETS  -->
     <section class="py-60 pb-60">
         <div class="custom-container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="row ">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -92,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4 mt-sm-0">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -136,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4 mt-md-0">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -180,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4 mt-lg-0">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -224,7 +233,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -268,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -312,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -356,7 +365,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -400,8 +409,9 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#"
+            </div>
+            <div class="d-flex">
+            <a href="#"
                     class="text-decoration-none custom_button z-index main-color border-r px-5 py-2 mx-auto w-auto mt-5 fw-semibold border-0 body-font-familly">View
                     More</a>
             </div>
