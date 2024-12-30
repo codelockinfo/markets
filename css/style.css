@@ -35,6 +35,12 @@ body{
 .f-18{
     font-size: 18px;
 }
+.f-40{
+    font-size: 40px;
+}
+.w-60{
+    width: 60%;
+}
 .heading-font{
     font-family: 'Faculty Glyphic';
 }
@@ -145,7 +151,7 @@ body{
     }
 }
 .logo{
-width: 11%;
+width: 140px;
 }
 .logo-button{
 margin-top: 0;
@@ -169,6 +175,7 @@ cursor: pointer;
     display: block;
     margin-top: 0; 
 }
+
 
 /* FAMOUSE MARKET SECTION  */
 .custom-image {
