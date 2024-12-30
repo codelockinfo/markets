@@ -258,16 +258,30 @@ $limit = 12;
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
-                        $subject = "Market";
-                        if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com'  || $_SERVER['SERVER_NAME'] == 'textilemarkethub.com' ) {
-                            $message = file_get_contents('thankemail_template_textilemarkethub.php');
-                        }else{
-                            $message = file_get_contents('thankemail_template.php');
-                        }
-                        $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
-                        $headers = "MIME-Version: 1.0\r\n";
-                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                       
+                        $lastInsertedId = $this->db->insert_id;
+                        $startDate = new DateTime(); 
+                        $start_date = $startDate->format('Y-m-d H:i:s'); 
+                        $endDate = (clone $startDate)->modify('+1 month');
+                        $end_date = $endDate->format('Y-m-d H:i:s'); 
+                        
+                        $query = "INSERT INTO payment (user_id, plan_type, start_date, end_date, is_paid, amount, amount_due, amount_paid, attempts, 
+                        currency, entity, order_id, notes, offer_id, receipt) 
+                        VALUES ('$lastInsertedId', '0' , '$start_date', '$end_date', '0', '', '', '', '', '', '', '', '', '', '')";
+                        $payment_result = mysqli_query($this->db, $query);
+                        
+                        if ($payment_result) {
+                            $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+                        
+                            $subject = "Market";
+                            if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com'  || $_SERVER['SERVER_NAME'] == 'textilemarkethub.com' ) {
+                                $message = file_get_contents('thankemail_template_textilemarkethub.php');
+                            }else{
+                                $message = file_get_contents('thankemail_template.php');
+                            }
+                            $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
+                            $headers = "MIME-Version: 1.0\r\n";
+                            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                        
                             if($_SERVER['SERVER_NAME'] == 'localhost'){
                                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                             }else{
@@ -277,6 +291,7 @@ $limit = 12;
                                     $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
                                 }
                             }
+                        }
                     } else {
                         $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
                     }
