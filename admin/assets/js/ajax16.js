@@ -3022,3 +3022,14 @@ function get_invoicepdf(id) {
     },
   });
 }
+$(document).on('change','#invoice_frm input[name="date"]', function () {
+  const selectedDate = $(this).val(); // Get selected "Date"
+  if (selectedDate) {
+      $('input[name="due_date"]').attr('min', selectedDate);
+      if ($('input[name="due_date"]').val() < selectedDate) {
+          $('input[name="due_date"]').val('');
+      }
+  } else {
+      $('input[name="due_date"]').removeAttr('min');
+  }
+});

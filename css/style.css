@@ -35,6 +35,12 @@ body{
 .f-18{
     font-size: 18px;
 }
+.f-40{
+    font-size: 40px;
+}
+.w-60{
+    width: 60%;
+}
 .heading-font{
     font-family: 'Faculty Glyphic';
 }
@@ -145,7 +151,7 @@ body{
     }
 }
 .logo{
-width: 11%;
+width: 140px;
 }
 .logo-button{
 margin-top: 0;
@@ -162,14 +168,13 @@ cursor: pointer;
 }
 .img-custome6 {
     content: "";
-    left: 48%;
+    left: 44%;
     transform: translate(0%, 0%);
 }
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0; 
 }
-
 /* FAMOUSE MARKET SECTION  */
 .custom-image {
     object-fit: cover;
@@ -335,7 +340,7 @@ align-items: center;
     margin-top: 15px;
 }
 .custom-pagination-bullet {
-    width: 20px; 
+    width: 30px; 
     height: 4px; 
     background-color: #ccc; 
     border-radius: 0; 

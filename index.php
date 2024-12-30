@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 <body>
-    <!-- LOADER  -->
-    <!-- <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>| -->
+    <!-- LOADER      -->
+    <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>
   
     <?php include 'navbar.php'; ?>
 
@@ -29,7 +29,7 @@
             <img src="img/img24.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h1 class="fw-bold heading-font mb-5">Categories You May Like</h1>
+            <h1 class="fw-bold heading-font mb-5 f-40">Categories You May Like</h1>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r">
@@ -121,7 +121,7 @@
         </div>
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center">
-                <h1 class="fw-bold heading-font">Famous Markets in Surat</h1>
+                <h1 class="fw-bold heading-font f-40">Famous Markets in Surat</h1>
                 <a href="#"
                     class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
                     all Markets</a>
@@ -454,7 +454,7 @@
     <!-- Tranding Products -->
     <section class="light-color py-60 video-section">
         <div class="custom-container">
-            <h1 class="fw-bold heading-font mb-3 mb-md-5">Trending Products</h1>
+            <h1 class="fw-bold heading-font mb-3 mb-md-5 f-40">Trending Products</h1>
             <div class="swiper product">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r">
@@ -816,7 +816,7 @@
         </div>
         <div class="custom-container">
             <div>
-                <h2 class="fw-bold heading-font f-36 mb-3 mb-md-5">Shop Now & Save</h2>
+                <h2 class="fw-bold heading-font f-40 mb-3 mb-md-5">Shop Now & Save</h2>
             </div>
             <div class="row g-3">
                 <div class="col-lg-6 col-md-12">
@@ -844,7 +844,7 @@
             <img src="img/img14.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h2 class="fw-bold heading-font mb-3 mb-md-5 f-36 ">New Arrivals</h2>
+            <h2 class="fw-bold heading-font mb-3 mb-md-5 f-40 ">New Arrivals</h2>
             <div class="swiper product">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r">
@@ -1198,7 +1198,7 @@
     <section class="light-color py-60">
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
-                <h2 class="fw-bold heading-font f-36 ">Trending Video</h2>
+                <h2 class="fw-bold heading-font f-40 ">Trending Video</h2>
                 <a href="#"
                     class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
                     all Video</a>
@@ -1243,11 +1243,11 @@
         </div>
         <div class="custom-container">
             <div>
-                <h1 class="fw-bold heading-font">FAQs</h1>
+                <h1 class="fw-bold heading-font f-40 mb-5">FAQs</h1>
             </div>
-            <div class="row g-3 align-items-center">
+            <div class="row  justify-content-between">
                 <div class="col-lg-7 order-2 order-lg-1">
-                    <div class="accordion" id="accordionExample" style="margin-top: -10%;">
+                    <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header main-color" id="headingOne">
                                 <a href="#"
@@ -1341,22 +1341,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 order-1 order-lg-2 text-center">
-                    <img src="img/img16.png" class="img-fluid rounded" alt="Saree Fabric Guide">
+                <div class="col-lg-5 order-1 order-lg-2 text-end">
+                    <img src="img/faqs.png" class="img-fluid w-60 rounded" alt="Saree Fabric Guide">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- contact us  -->
-    <section class="light-color position-relative overflow-hidden">
+    <section class="light-color position-relative overflow-hidden py-60">
         <div class="img-custome5 position-absolute">
             <img src="img/img14.png" class="w-50">
         </div>
         <div class="custom-container">
-            <div class="fw-bold heading-font f-36 text-center contect">Contact Us</div>
             <div class="row g-3 align-items-center">
                 <div class="col-lg-7 order-2 order-lg-2">
+                    <div class="fw-bold heading-font f-36 text-center md-4">Contact Us</div>
                     <div class="d-flex gap-3">
                         <div class="card light-color mb-3 border-color w-100">
                             <div class="p-3 f-18 body-font-familly">Name</div>
@@ -1377,7 +1377,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-1 text-center">
-                    <img src="img/img17.png" class="img-fluid rounded" alt="Saree Fabric Guide">
+                    <img src="img/img17.png" class="img-fluid rounded w-75" alt="Saree Fabric Guide">
                 </div>
             </div>
         </div>
