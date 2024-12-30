@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 <body>
     <!-- LOADER      -->
-    <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>
+    <!-- <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div> -->
   
     <?php include 'navbar.php'; ?>
 
@@ -24,7 +24,7 @@
     </section>
 
     <!-- categori slider -->
-    <section class="light-color py-60 category-section pb-60 position-relative overflow-hidden">
+    <section class="category-c light-color py-60 category-section pb-60 position-relative overflow-hidden">
         <div class="img-custome8 position-absolute">
             <img src="img/img24.png" class="w-50">
         </div>
@@ -32,79 +32,79 @@
             <h1 class="fw-bold heading-font mb-5 f-40">Categories You May Like</h1>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide border-r">
-                        <div class="card">
-                            <img src="img/img6.jpg">
+                    <div class="ms-2 swiper-slide  shadow mb-2 rounded-5 ">
+                        <div class="card  w-100 h-100  border-0 overflow-hidden">
+                            <img src="img/img6.jpg" class="">
                             <div class="d-flex justify-content-between align-items-center p-2">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Kurti</h6>
+                                <h6 class="fw-bold f-18 body-font-familly m-0">Sarees</h6>
                                 <a href="#"
-                                    class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16  body-font-familly mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
-                        <div class="card">
+                    <div class="swiper-slide  shadow mb-2 rounded-5">
+                        <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img7.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Gown</h6>
+                                <h6 class="fw-bold f-18 body-font-familly m-0">Dhoti Set</h6>
                                 <a href="#"
-                                    class=" text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
-                        <div class="card">
-                            <img src="img/img11.jpg">
+                    <div class="swiper-slide   shadow mb-2 rounded-5">
+                        <div class="card w-100 h-100 border-0 overflow-hidden">
+                            <img src="img/lahenga.webp">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Traditional</h6>
+                                <h6 class="fw-bold f-18 body-font-familly m-0">Lahenga choli</h6>
                                 <a href="#"
-                                    class=" text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
-                        <div class="card">
-                            <img src="img/img5.jpg">
+                    <div class="swiper-slide   shadow mb-2 rounded-5">
+                        <div class="card w-100 h-100 border-0 overflow-hidden">
+                            <img src="img/salvar.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Bride Choli</h6>
+                                <h6 class="fw-bold f-18 body-font-familly m-0">Salwar suits</h6>
                                 <a href="#"
-                                    class=" text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
-                        <div class="card">
+                    <div class="swiper-slide   shadow mb-2 rounded-5">
+                        <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img12.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">tunic</h6>
+                                <h6 class="fw-bold f-18 body-font-familly m-0">Dupatta stoles</h6>
                                 <a href=""
-                                    class=" text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
-                        <div class="card">
+                    <div class="swiper-slide shadow mb-2 rounded-5">
+                        <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img13.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
                                 <h6 class="fw-bold f-18 body-font-familly m-0">Shervani</h6>
                                 <a href="#"
-                                    class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
-                        <div class="card">
+                    <div class="swiper-slide   shadow mb-2 rounded-5">
+                        <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img15.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">crop Top</h6>
+                                <h6 class="fw-bold f-18 body-font-familly m-0">Koti Kurta</h6>
                                 <a href="#"
-                                    class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 fw-semibold border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex">View
                                     all</a>
                             </div>
                         </div>
@@ -457,7 +457,7 @@
             <h1 class="fw-bold heading-font mb-3 mb-md-5 f-40">Trending Products</h1>
             <div class="swiper product">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden shadow">
                         <div class="card p-3">
                             <div class="row justify-content-between align-items-center custom_tranding ">
                                 <div class="col-sm-5">
@@ -1342,7 +1342,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 text-end">
-                    <img src="img/faqs.png" class="img-fluid w-60 rounded" alt="Saree Fabric Guide">
+                    <img src="img/faqs.png" class="img-fluid w-75 rounded" alt="Saree Fabric Guide">
                 </div>
             </div>
         </div>

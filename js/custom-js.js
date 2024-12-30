@@ -37,7 +37,7 @@ $( document ).ready(function() {
         // Swiper slider CATEGORIES SLIDER
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 6, 
-            spaceBetween: 30, 
+            spaceBetween: 20, 
             freeMode: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -54,15 +54,15 @@ $( document ).ready(function() {
                 },
                 768: { 
                     slidesPerView: 3,
-                    spaceBetween: 20,
+                    spaceBetween: 15,
                 },
                 1024: { 
                     slidesPerView: 4,
-                    spaceBetween: 25,
+                    spaceBetween: 15,
                 },
                 1440: {
                     slidesPerView: 6,
-                    spaceBetween: 30,
+                    spaceBetween: 20,
                 }
             }
         });
