@@ -258,6 +258,7 @@ $limit = 12;
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
+                        $response_data = array('data' => 'fail', 'msg' => 'Error inserting data.');
                         $lastInsertedId = $this->db->insert_id;
                         $startDate = new DateTime(); 
                         $start_date = $startDate->format('Y-m-d H:i:s'); 
