@@ -21,9 +21,6 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     <div class="col-12 mt-4 p-4 overflow-x-hidden">
       <div class="card mb-4">
         <div class="d-flex justify-content-between p-3 align-items-center">
-          <div class="d-none d-sm-block">
-            <h6 class="mb-1 mt-1 text-lg">Invoices</h6>
-          </div>
           <div class="ms-md-auto d-flex align-items-center me-2">
             <div class="input-group search-btn search-icon dropdownhide">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
