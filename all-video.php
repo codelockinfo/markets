@@ -12,11 +12,20 @@
             All videos
         </div>
     </section>
-    <!-- ALL VIDEO PAGE -->
+     <!-- Short button  -->
+     <div class="custom-container">
    
-    <div class="d-flex justify-content-end mt-5 shor_button">
+    <div class="d-flex justify-content-end mt-5 shor_button align-items-center ">
+    <div class="search-bar d-flex me-3">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <a href="#" class="main-color p-2 text-light rounded-0 rounded-end" style="margin-left: -14%;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+
+                    </div>
         <div class="dropdown">
-            <a href="#" class="text-decoration-none text-light dropdown-toggle f-18 body-font-familly main-color border-r px-4 py-3 fw-bold border-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><svg
+            <a href="#" class="text-decoration-none text-light dropdown-toggle f-18 body-font-familly main-color border-r px-4 py-2 fw-bold border-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg
                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20" x="0" y="0"
                     viewBox="0 0 489.4 489.4" style="enable-background:new 0 0 512 512"
@@ -30,19 +39,19 @@
                             fill="#fafafa" opacity="1" data-original="#000000" class=""></path>
                     </g>
                 </svg>Short by</a>
-                <ul class="dropdown-menu dropdown-menu-end mt-3 ms-1 w-100" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu dropdown-menu-end mt-3  w-100" aria-labelledby="dropdownMenuButton">
                     <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">A to Z</a>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Oldest to Newest</a>
                     </li>
                     <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">Z to A</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">New to old</a>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Newest to Oldest</a>
                     </li>
                 </ul>
         </div>
     </div>
+    </div>
+    <!-- ALL VIDEO PAGE -->
+   
     <section class="py-60 pb-60">
         <div class="custom-container">
             <div class="row">
