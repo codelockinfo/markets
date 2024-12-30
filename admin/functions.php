@@ -1471,18 +1471,24 @@ $limit = 12;
         global $limit;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sort = isset($_POST['sortValue']) ? $_POST['sortValue'] : '';
+        $start_date = isset($_POST['start_date']) ? $_POST['start_date'] : '';
+        $end_date = isset($_POST['end_date']) ? $_POST['end_date'] : '';
+        $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
+        error_log("Start Date: $start_date, End Date: $end_date, Search Text: $search_value");
+        if (!empty($start_date) && !empty($end_date)) {
+            $start_date = date('Y-m-d', strtotime($start_date)); 
+            $end_date = date('Y-m-d', strtotime($end_date)); 
+        } else {
+            $start_date = $end_date = '';
+        }
+        error_log("Formatted Start Date: $start_date, Formatted End Date: $end_date");
         if (isset($_SESSION['current_user']['user_id'])) {
+            $user_id = $_SESSION['current_user']['user_id'];
+            $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "AND user_id = $user_id" : '';
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
-            $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $userid_clause = '';
-            if ($_SESSION['current_user']['role'] == 1) {
-                $user_id = $_SESSION['current_user']['user_id'];
-                $userid_clause = "AND user_id = $user_id";
-            }
             $sort_query = '';
             switch ($sort) {
-               
                 case 'alphabetically_az':
                     $sort_query = 'ORDER BY i_name ASC';
                     break;
@@ -1501,28 +1507,34 @@ $limit = 12;
                 default:
                     break;
             }
-           $query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause";
-            $res_count = $this->db->query($query);
+            $date_filter = '';
+            if (!empty($start_date) && !empty($end_date)) {
+                $date_filter = "AND date BETWEEN '$start_date' AND '$end_date'";
+            }
+            $count_query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $date_filter";
+           
+            $res_count = $this->db->query($count_query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $date_filter $sort_query $limit_qry";
+           
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                        $image = $row["i_image"];
-                        $imagePath = "../admin/assets/img/invoice_img/" . $image;
-                        $noimagePath = $NO_IMAGE;
-                        $decodedPath = htmlspecialchars_decode(
+                    $image = $row["i_image"];
+                    $imagePath = "../admin/assets/img/invoice_img/" . $image;
+                    $noimagePath = $NO_IMAGE;
+                    $decodedPath = htmlspecialchars_decode(
                         (!empty($image) && file_exists($imagePath)) ? $imagePath : $noimagePath);
-                        $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 mb-xl-0 mb-4">';
-                        $output .= '<div class="card card-blog card-plain mb-4">';
-                        $output .= '<div class="position-relative">';
-                        $output .= '<a class="d-block product_imagebox border-radius-xl mt-2 mt-xl-4">';
-                        $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
-                        $output .= '</a>';
-                        $output .= '</div>';
+                    $output .= '<div class="col-xxl-3 col-xl-4 col-md-4 col-sm-6 mb-xl-0 mb-4">';
+                    $output .= '<div class="card card-blog card-plain mb-4">';
+                    $output .= '<div class="position-relative">';
+                    $output .= '<a class="d-block product_imagebox border-radius-xl mt-2 mt-xl-4">';
+                    $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
+                    $output .= '</a>';
+                    $output .= '</div>';
                         $output .= '<div class="card-body  pb-0">';
                         $output .= '<a href="#">';
                         $output .= '</a>';
@@ -1545,10 +1557,10 @@ $limit = 12;
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '</div>';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                        $output .= '</div>';
-                    }
+                    $output .= '</div>';
+                    $output .= '</div>';
+                    $output .= '</div>';
+                }
                     $response_data = array('data' => 'success','outcome' => $output,'pagination' => isset($pagination) ? $pagination : '', 
                     'pagination_needed' => ($total_records > $limit) ? true : false
                 );
@@ -1575,6 +1587,7 @@ $limit = 12;
         $response = json_encode($response_data);
         return $response;
     }
+    
 
     function customerlisting() {
         global $limit;

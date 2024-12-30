@@ -1107,6 +1107,9 @@ border:1px solid #d2d6da;
 i.fa-solid.fa-xmark{
   font-size: 1.7rem;
 }
+.invoice_fliter  .form-control{
+  width: auto !important;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {

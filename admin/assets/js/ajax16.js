@@ -2741,6 +2741,46 @@ function getPaymentPlan() {
     },
   });
 }
+document.addEventListener('DOMContentLoaded', function () {
+  flatpickr("#date_range", {
+      mode: "range", 
+      dateFormat: "d-m-Y",
+      altFormat: "d-m-y", 
+      onChange: function(selectedDates, dateStr, instance) {
+         
+          const start_date = selectedDates[0] ? selectedDates[0].toISOString().split('T')[0] : '';
+          const end_date = selectedDates[1] ? selectedDates[1].toISOString().split('T')[0] : '';
+
+         
+          console.log("Start Date:", start_date);
+          console.log("End Date:", end_date);
+
+          $.ajax({
+              url: "../admin/ajax-call.php", 
+              type: "POST", 
+              dataType: "json", 
+              data: {
+                  routine_name: "invoicelisting", 
+                  start_date: start_date,
+                  end_date: end_date   
+              },
+              success: function(response) {
+                var response = JSON.parse(response);
+                  console.log(response, "... Response received");
+
+                  if (response.outcome != "") {
+                    if (response.outcome == "No data found") {
+                      $("#getdata").html(NO_DATA);
+                    } else {
+                      $("#getdata").html(response.outcome);
+                    }
+                  }
+              },
+              
+          });
+      }
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   var ctxhtml = document.getElementById("chart-bars");

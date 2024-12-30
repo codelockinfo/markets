@@ -24,7 +24,10 @@ if (!isset($_SESSION['current_user']['user_id'])) {
           <div class="d-none d-sm-block">
             <h6 class="mb-1 mt-1 text-lg">Invoices</h6>
           </div>
-          <div class="ms-md-auto d-flex align-items-center me-2">
+          <div class="ms-md-auto d-flex align-items-center ">
+            <div class="me-3 invoice_fliter">
+            <input type="text" class="form-control search-btn_1 w-100 " id="date_range" name="date_range" placeholder="Select Date Range" />
+            </div>
             <div class="input-group search-btn search-icon dropdownhide">
               <span class="input-group-text text-body search-btn_2"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control search-btn_1 me-2" placeholder="Type here..." id="search" data-routine="invoicelisting" >
@@ -46,6 +49,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
         
         <div class="card-body p-3">
           <div class="row" id="getdata">
+          
           </div>
           <div id="pagination"></div>
         </div>

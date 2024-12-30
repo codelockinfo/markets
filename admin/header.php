@@ -40,6 +40,11 @@ if ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com' || $_SERVER['SERVER_NA
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="<?php echo main_url('admin/assets/js/common_10.js'); ?>"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         
     </head>       
     
