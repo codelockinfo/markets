@@ -103,8 +103,9 @@
                             frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-
-                <a href="#"
+            </div>
+            <div class="d-flex">
+            <a href="#"
                     class="text-decoration-none custom_button z-index main-color border-r px-5 py-2 mx-auto w-auto mt-5 fw-semibold border-0 body-font-familly">View
                     More</a>
             </div>

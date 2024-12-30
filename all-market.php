@@ -56,8 +56,8 @@
     <!-- ALL MARKETS  -->
     <section class="py-60 pb-60">
         <div class="custom-container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="row ">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4 mt-sm-0">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4 mt-md-0">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -189,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4 mt-lg-0">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -233,7 +233,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -277,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -321,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -365,7 +365,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-4">
                     <div class="card shadow-sm">
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50" />
                         <div class="card-body border-0">
@@ -409,8 +409,9 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#"
+            </div>
+            <div class="d-flex">
+            <a href="#"
                     class="text-decoration-none custom_button z-index main-color border-r px-5 py-2 mx-auto w-auto mt-5 fw-semibold border-0 body-font-familly">View
                     More</a>
             </div>
