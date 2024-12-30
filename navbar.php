@@ -18,9 +18,9 @@
 
     <!-- header -->
     <div class="position-relative py-3">
-        <div class="img-custome6 position-absolute top-0">
+        <!-- <div class="img-custome6 position-absolute top-0">
             <img src="img/img40.png" class=" w-100">
-        </div>
+        </div> -->
         <div class="custom-container">
             <div class="d-flex align-items-center justify-content-between logo-button mb-3">
                 <div class="logo"><img src="img/TMH (7).png" alt="Logo" class="logo"></div>
