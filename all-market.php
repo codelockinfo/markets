@@ -2,19 +2,21 @@
 <body>
     <div class="loader">
             <img src="img/img21.png" alt="Loading..." class="loader-image">
-          </div>
+            </div>
 
     <?php include 'navbar.php'; ?>
 
     <section class="page-banner main-color">
         <div class="top-0 page-banner-heading f-36 text-white mx-auto text-center py-4">
             All markets in Surat
-        </div>
+        </div>  
     </section>
-
+     <!-- Short button  -->
+    <div class="custom-container">
     <div class="d-flex justify-content-end mt-5 shor_button">
         <div class="dropdown">
-            <a href="#" class="text-decoration-none text-light dropdown-toggle f-18 body-font-familly main-color border-r px-4 py-3 fw-bold border-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><svg
+            <a href="#" class="text-decoration-none text-light dropdown-toggle f-18 body-font-familly main-color border-r px-4 py-2  fw-bold border-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg
                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20" x="0" y="0"
                     viewBox="0 0 489.4 489.4" style="enable-background:new 0 0 512 512"
@@ -28,7 +30,7 @@
                             fill="#fafafa" opacity="1" data-original="#000000" class=""></path>
                     </g>
                 </svg>Short by</a>
-                <ul class="dropdown-menu dropdown-menu-end mt-3 ms-1 w-100" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu dropdown-menu-end mt-3  w-100" aria-labelledby="dropdownMenuButton">
                     <li>
                         <a class="dropdown-item f-18 body-font-familly" href="#">A to Z</a>
                     </li>
@@ -36,13 +38,20 @@
                         <a class="dropdown-item f-18 body-font-familly" href="#">Z to A</a>
                     </li>
                     <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">New to old</a>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Oldest to Newest</a>
                     </li>
                     <li>
-                        <a class="dropdown-item f-18 body-font-familly" href="#">By rating</a>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Newest to Oldest</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">Low to High rating</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item f-18 body-font-familly" href="#">High to Low rating</a>
                     </li>
                 </ul>
         </div>
+    </div>
     </div>
     <!-- ALL MARKETS  -->
     <section class="py-60 pb-60">
