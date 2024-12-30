@@ -61,7 +61,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                 <div>
                   <label class="font-weight-normal w-100 checkboxcategory">
                     <input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3 d-none " value="1"/>
-                    <i class="fa fa-plus me-1" id="decrement-btn" aria-hidden="true"></i>Add a new category
+                    <i class="fa fa-plus me-1 toggle-icon" id="decrement-btn" aria-hidden="true"></i>Add a new category
                   </label>
                   <div class="categoryinput hidecategory">
                     <input type="text" name="addcategory"class="form-control w-100" placeholder="Add more category"/>

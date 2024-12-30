@@ -33,118 +33,64 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                         <button id="toggleButton" class="btn btn-primary">Toggle Sidebar</button>
                     </div>
                     <div class="d-block d-md-flex align-items-start">
-                        <!-- <div class="nav flex-column nav-pills me-3 custom_header" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link active text-light fw-bold fs-5" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="toggleDropdown()">Home<span class="dropdown-icon">&#9660;</span></button>
-                            <div class="ms-1 ps-3" id="dropdown-home" style="display: none; ">
-                                <a href="#Profile_Flow" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Profile</a><br>
-                                <a href="#Informational" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Informational Cards</a><br>
-                                <a href="#Graphs" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Graphs and Charts</a><br>
-                                <a href="#error" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Possible Errors and Features</a><br>
-                            </div>
-                            <button class="nav-link text-light fw-bold fs-5 dropdown-btn" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="toggleDropdown()">Profile</button>
-                            <div class="ms-1 ps-3" id="dropdown-profile" style="display: none; ">
-                                <a href="#Profile_information" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Profile information</a><br>
-                                <a href="#Search" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Search</a><br>
-                                <a href="#Sort" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Sort Button</a><br>
-                                <a href="#profile_error" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Common Issues and Solutions</a><br>
-                            </div>
-                            <button class="  nav-link text-light fw-bold fs-5 dropdown-btn" id="v-pills-product-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product" type="button" role="tab" aria-controls="v-pills-product" aria-selected="false" onclick="toggleDropdown()">Product</button>
-                            <div class="ms-1 ps-3" id="dropdown-product" style="display: none;">
-                                <a href="#product" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- product information</a><br>
-                                <a href="#icon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#product_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#link" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
-                            </div>
-                            <button class="nav-link text-light fw-bold fs-5 dropdown-btn" id="v-pills-customer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-customer" type="button" role="tab" aria-controls="v-pills-customer" aria-selected="false" onclick="toggleDropdown()">Customer</button>
-                            <div class="ms-1 ps-3" id="dropdown-customer" style="display: none;">
-                                <a href="#customer" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Customer information</a><br>
-                                <a href="#customeicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#customer_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#customerlink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
-                            </div>
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gallery" type="button" role="tab" aria-controls="v-pills-gallery" aria-selected="false">
-                            Gallery</button>
-                            <button class="nav-link text-light fw-bold fs-5 dropdown-btn" id="v-pills-video-tab" data-bs-toggle="pill" data-bs-target="#v-pills-video" type="button" role="tab" aria-controls="v-pills-video" aria-selected="false" onclick="toggleDropdown()">Video</button>
-                            <div class="ms-1 ps-3" id="dropdown-video" style="display: none;">
-                                <a href="#video" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video information</a><br>
-                                <a href="#videoicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#video_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#videolink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
-                            </div>
-                            <button class="nav-link text-light fw-bold fs-5 dropdown-btn" id="v-pills-blog-tab" data-bs-toggle="pill" data-bs-target="#v-pills-blog" type="button" role="tab" aria-controls="v-pills-blog" aria-selected="false" onclick="toggleDropdown()">Blog</button>
-                            <div class="ms-1 ps-3" id="dropdown-blog" style="display: none;">
-                                <a href="#blog" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Blog information</a><br>
-                                <a href="#blogicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#blog_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#bloglink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
-                            </div>
-                            <button class="nav-link text-light fw-bold fs-5 dropdown-btn" id="v-pills-invoice-tab" data-bs-toggle="pill" data-bs-target="#v-pills-invoice" type="button" role="tab" aria-controls="v-pills-invoice" aria-selected="false" onclick="toggleDropdown()">Invoice</button>
-                            <div class="ms-1 ps-3" id="dropdown-invoice" style="display: none;">
-                                <a href="#invoice" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Invoice information</a><br>
-                                <a href="#invoiceicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#invoice_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#invoicelink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
-                            </div>
-                        </div> -->
-
                         <div class="nav flex-column nav-pills me-3 custom_header" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link active text-light fw-bold fs-5" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="toggleDropdown('dropdown-home')">Home</button>
-                            <div class="ms-1 ps-3" id="dropdown-home" style="display: none;">
-                                <a href="#Profile_Flow" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Profile</a><br>
-                                <a href="#Informational" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Informational Cards</a><br>
-                                <a href="#Graphs" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Graphs and Charts</a><br>
-                                <a href="#error" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Possible Errors and Features</a><br>
+                            <button class="nav-link active text-light fw-bold fs-6" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="toggleDropdown('dropdown-home')">Home</button>
+                            <div class="ms-4" id="dropdown-home" style="display: none;">
+                                <a href="#Profile_Flow" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Profile</a><br>
+                                <a href="#Informational" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Informational Cards</a><br>
+                                <a href="#Graphs" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Graphs and Charts</a><br>
+                                <a href="#error" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Possible Errors and Features</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="toggleDropdown('dropdown-profile')">Profile</button>
-                            <div class="ms-1 ps-3" id="dropdown-profile" style="display: none; ">
-                                <a href="#Profile_information" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Profile information</a><br>
-                                <a href="#Search" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Search</a><br>
-                                <a href="#Sort" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Sort Button</a><br>
-                                <a href="#profile_error" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- Common Issues and Solutions</a><br>
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="toggleDropdown('dropdown-profile')">Profile</button>
+                            <div class="ms-4" id="dropdown-profile" style="display: none; ">
+                                <a href="#Profile_information" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Profile information</a><br>
+                                <a href="#Search" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Search</a><br>
+                                <a href="#Sort" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Sort Button</a><br>
+                                <a href="#profile_error" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Common Issues and Solutions</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-product-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product" type="button" role="tab" aria-controls="v-pills-product" aria-selected="false" onclick="toggleDropdown('dropdown-product')">Product</button>
-                            <div class="ms-1 ps-3" id="dropdown-product" style="display: none;">
-                                <a href="#product" class="text-light fw-bold fs-6.1" onclick="closeDropdowns()">- product information</a><br>
-                                <a href="#icon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#product_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#link" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-product-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product" type="button" role="tab" aria-controls="v-pills-product" aria-selected="false" onclick="toggleDropdown('dropdown-product')">Product</button>
+                            <div class="ms-4" id="dropdown-product" style="display: none;">
+                                <a href="#product" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- product information</a><br>
+                                <a href="#icon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#product_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#link" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-customer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-customer" type="button" role="tab" aria-controls="v-pills-customer" aria-selected="false" onclick="toggleDropdown('dropdown-customer')">Customer</button>
-                            <div class="ms-1 ps-3" id="dropdown-customer" style="display: none;">
-                                <a href="#customer" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Customer information</a><br>
-                                <a href="#customeicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#customer_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#customerlink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-customer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-customer" type="button" role="tab" aria-controls="v-pills-customer" aria-selected="false" onclick="toggleDropdown('dropdown-customer')">Customer</button>
+                            <div class="ms-4" id="dropdown-customer" style="display: none;">
+                                <a href="#customer" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Customer information</a><br>
+                                <a href="#customeicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#customer_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#customerlink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gallery" type="button" role="tab" aria-controls="v-pills-gallery" aria-selected="false">
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gallery" type="button" role="tab" aria-controls="v-pills-gallery" aria-selected="false">
                             Gallery</button>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-video-tab" data-bs-toggle="pill" data-bs-target="#v-pills-video" type="button" role="tab" aria-controls="v-pills-video" aria-selected="false" onclick="toggleDropdown('dropdown-video')">Video</button>
-                            <div class="ms-1 ps-3" id="dropdown-video" style="display: none;">
-                                <a href="#video" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video information</a><br>
-                                <a href="#videoicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#video_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#videolink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-video-tab" data-bs-toggle="pill" data-bs-target="#v-pills-video" type="button" role="tab" aria-controls="v-pills-video" aria-selected="false" onclick="toggleDropdown('dropdown-video')">Video</button>
+                            <div class="ms-4" id="dropdown-video" style="display: none;">
+                                <a href="#video" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video information</a><br>
+                                <a href="#videoicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#video_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#videolink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-blog-tab" data-bs-toggle="pill" data-bs-target="#v-pills-blog" type="button" role="tab" aria-controls="v-pills-blog" aria-selected="false" onclick="toggleDropdown('dropdown-blog')">Blog</button>
-                            <div class="ms-1 ps-3" id="dropdown-blog" style="display: none;">
-                                <a href="#blog" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Blog information</a><br>
-                                <a href="#blogicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#blog_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#bloglink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-blog-tab" data-bs-toggle="pill" data-bs-target="#v-pills-blog" type="button" role="tab" aria-controls="v-pills-blog" aria-selected="false" onclick="toggleDropdown('dropdown-blog')">Blog</button>
+                            <div class="ms-4" id="dropdown-blog" style="display: none;">
+                                <a href="#blog" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Blog information</a><br>
+                                <a href="#blogicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#blog_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#bloglink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-5" id="v-pills-invoice-tab" data-bs-toggle="pill" data-bs-target="#v-pills-invoice" type="button" role="tab" aria-controls="v-pills-invoice" aria-selected="false" onclick="toggleDropdown('dropdown-invoice')">Invoice</button>
-                            <div class="ms-1 ps-3" id="dropdown-invoice" style="display: none;">
-                                <a href="#invoice" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Invoice information</a><br>
-                                <a href="#invoiceicon" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#invoice_error" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#invoicelink" class="text-light fw-bold fs-6.1"onclick="closeDropdowns()">- Video</a><br>
+                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-invoice-tab" data-bs-toggle="pill" data-bs-target="#v-pills-invoice" type="button" role="tab" aria-controls="v-pills-invoice" aria-selected="false" onclick="toggleDropdown('dropdown-invoice')">Invoice</button>
+                            <div class="ms-4" id="dropdown-invoice" style="display: none;">
+                                <a href="#invoice" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Invoice information</a><br>
+                                <a href="#invoiceicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#invoice_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#invoicelink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
                             </div>
                         </div>
                         <div class="custom_main" id="main-doc">
@@ -154,19 +100,19 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">The home page is the main page of the dashboard, where the user is given an overview of their data and activities. This  page provides the user with quick access to all important metrics and tools.</div>
                                     <img src="assets/img/document_img/img1.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="Profile_Flow">
                                         <div class="custome-text custome-dark-blue">1. Profile</div>
                                         <div class="f-18">Users can click on the profile icon to view and edit their profile.</div>
                                         <img src="assets/img/document_img/img2.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div class="f-18">click profile button</div>
                                         <img src="assets/img/document_img/img3.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div>
                                     </div>
                                     <div id="Informational">
@@ -174,19 +120,19 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">There are four cards on the home page, which display 	important data: </div>
                                         <img src="assets/img/document_img/img4.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure 4</p>
                                         </div>
                                         <div class="f-24 custome-light-blue">Total Earning</div>
                                         <div class="f-18">Shows the user's total earnings.<br>Example: Rs. 0</div>
                                         <img src="assets/img/document_img/img5.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-20 custome-dark-blue">How will your earning count?</div>
                                         <div class="f-18 ">The "Total Earnings" shown on the home page is a value that sums up the amounts paid across all invoices.</div>
                                         <img src="assets/img/document_img/img6.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-18">Every invoice has 3 important fields:</div>
                                         <div class="d-flex align-items-center">
@@ -203,13 +149,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                         <img src="assets/img/document_img/img7.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 7</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                         <div class="f-24 custome-light-blue">Total products</div>
                                         <div class="f-18">Number of all added products.</div>
                                         <img src="assets/img/document_img/img8.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 8</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  8</p>
                                         </div>
                                         <div class="f-20 custome-dark-blue">How will your product count?</div>
                                         <div class="f-18">The Total Products value  shown on the Home Page contains the total count of available Products</div>
@@ -217,33 +163,33 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Whatever products are added to the product page, the count of those products is shown in the total products of the home page.</div>
                                         <img src="assets/img/document_img/img82.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  9</p>
                                         </div>
                                         <div class="f-24 custome-light-blue">Total clients</div>
                                         <div class="f-18">Number of registered customers.</div>
-                                        <img src="assets/img/document_img/" class="img-fluid mt-5" alt="image">
+                                        <img src="assets/img/document_img/p-01.png" class="img-fluid mt-5" alt="image">
                                         <div class="f-20 custome-dark-blue">How will your client count?</div>
                                         <div class="f-18">The Total client value  shown on the Home Page contains the total count of available customer.<br>This number is automatically updated based on the data of the customer Page. </div>
                                         <div class="f-18">Whatever customers are added to the customer page, the count of those customer is shown in the total customer of the home page.</div>
                                         <img src="assets/img/document_img/img11.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 11</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  10</p>
                                         </div>
                                         <div class="f-24 custome-light-blue">Total Item Sales</div>
                                         <div class="f-18">Number of products sold.</div>
                                         <img src="assets/img/document_img/img14.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 12</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  11</p>
                                         </div>
                                         <div class="f-20 custome-dark-blue">How will your Item Sales count?</div>
                                         <div class="f-18">The Total Item Sales shown on the Home Page is the sum of the Total Quantity given in the invoices. <br> This value counts the quantity of items on the invoice.</div>
                                         <img src="assets/img/document_img/img12.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 13</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  12</p>
                                         </div>
                                         <img src="assets/img/document_img/img13.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 14</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  13</p>
                                         </div>
                                     </div>
                                     <div id="Graphs">
@@ -252,13 +198,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Users' activities are shown as a bar chart. It also tells the number of active users compared to the previous week (eg: +23%).</div>
                                         <img src="assets/img/document_img/p14.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 15</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  14</p>
                                         </div>
                                         <div class="f-24 custome-light-blue">Sales Overview</div>
                                         <div class="f-18">It shows monthly sales trends, including increase/decrease percentage (eg: +4% more in 2021).</div>
                                         <img src="assets/img/document_img/p15.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 16</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  15</p>
                                         </div>
                                     </div>
                                     <div id="error">
@@ -269,7 +215,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Check your internet connection.<br>Refresh the browser.<br>If the problem continues, please contact our support team.</div>
                                         <img src="assets/img/document_img/p17.png" class="img-fluid mt-5" alt="image">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 17</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  16</p>
                                         </div>
                                     </div>
                                 </div>
@@ -278,24 +224,24 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">The profile section lets users view and edit their personal and business details. This page is the center of the user's identity and information about their store.</div>
                                     <img src="assets/img/document_img/img15.png" class="img-fluid mt-5">
                                     <div class="d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="Profile_information">
                                         <div class="custome-text custome-dark-blue">1. Profile photo</div>
                                         <div class="f-18">Users can view and update their profile photo.<br>Option to update photo: Photo can be changed using the "Edit Profile" button.</div>
                                         <img src="assets/img/document_img/img16.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div>then click edit icon</div>
                                         <img src="assets/img/document_img/img17.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div> 
                                         <div class="f-18">then save click button</div>
                                         <img src="assets/img/document_img/img18.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  4</p>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="f-20 custome-light-blue">Edit Profile :</div>
@@ -303,12 +249,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                         <img src="assets/img/document_img/img19.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-18">click edit button</div>
                                         <img src="assets/img/document_img/img20.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="f-20 custome-light-blue">Name :</div>
@@ -332,7 +278,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                         <img src="assets/img/document_img/img21.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 7</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                     </div>
                                     <div id="Search">
@@ -340,7 +286,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Users can easily search for a particular information or product within the profile section.<br>Type the information required in "Type here...".<br>The results will be automatically filtered.</div>
                                         <img src="assets/img/document_img/img22.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 8</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  8</p>
                                         </div>
                                     </div>
                                     <div id="Sort">
@@ -348,7 +294,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Allows data to be organized according to various criteria.<br>Click the button and select the option from the dropdown menu.<br>The data will be arranged in the same order.</div>
                                         <img src="assets/img/document_img/img23.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  9</p>
                                         </div>
                                     </div>
                                     <div id="profile_error">
@@ -356,26 +302,26 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Check Internet connection.<br>Fill all the fields correctly.</div>
                                         <img src="assets/img/document_img/img24.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 10</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  10</p>
                                         </div>
                                         <div class="f-18">Do not leave any required field blank.</div>
                                         <img src="assets/img/document_img/img25.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 11</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  11</p>
                                         </div>
                                         <div class="f-18">Search-type the keywords correctly.</div>
                                         <img src="assets/img/document_img/img26.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 12</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  12</p>
                                         </div>
                                         <img src="assets/img/document_img/img27.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 13</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  13</p>
                                         </div>
                                         <div class="f-18">Make sure the searched information is available.</div>
                                         <img src="assets/img/document_img/img28.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 14</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  14</p>
                                         </div>
                                     </div>
                                 </div>
@@ -384,7 +330,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">The Products section helps users add, edit, delete, and organize products in their store. This page is a central point for product listing and management. </div>
                                     <img src="assets/img/document_img/img29.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div class="f-18">All products are shown in a card view.<br>Each card contains product information such as:</div>
                                     <div id="product">
@@ -393,12 +339,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">To add a new product.<br>On clicking, there is an option to upload the product name, price, and photo etc...</div>
                                         <img src="assets/img/document_img/img30.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div class="f-18">then click add product button </div>
                                         <img src="assets/img/document_img/img31.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="f-20 custome-light-blue">Product Title :</div>
@@ -439,34 +385,34 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img32.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  4</p>
                                         </div>
                                         <div class="f-18">then click icon</div>
                                         <img src="assets/img/document_img/img33.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-18">To change product information.</div>
                                         <div class="f-20 custome-light-blue">Delete icon:</div>
                                         <img src="assets/img/document_img/img34.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-18">then click delete icon</div>
                                         <img src="assets/img/document_img/img35.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-18">click yes delete it <br> To permanently remove the product.</div>
                                         <div class="f-20 custome-light-blue">View All Button:</div>
                                         <img src="assets/img/document_img/img36.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 7</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                         <div class="f-18">then click view all button</div>
                                         <img src="assets/img/document_img/img37.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 8</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  8</p>
                                         </div>
                                         <div class="f-18">To see information related to the product.</div>
                                     </div>
@@ -477,19 +423,19 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
                                         <img src="assets/img/document_img/img38.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  9</p>
                                         </div>
                                         <div class="f-20 custome-light-blue">Incorrect Information</div>
                                         <div class="f-18">Fill in all required fields correctly.<br>Avoid leaving blank fields.</div>
                                         <img src="assets/img/document_img/img39.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure 10</p>
                                         </div>
                                         <div class="f-20 custome-light-blue">Category Missing</div>
                                         <div class="f-18">Category not available? Use "Add a new category".</div>
                                         <img src="assets/img/document_img/img8.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 10</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  11</p>
                                         </div>
                                     </div>
                                     <div id="link">
@@ -503,7 +449,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">This page helps users manage their customer list. Customer information can be easily added, viewed and edited. Below are the main features of this page and their usage:</div>
                                     <img src="assets/img/document_img/img41.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="customer">
                                         <div class="custome-text custome-dark-blue">1. Customer information</div>
@@ -511,12 +457,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Use the "Add Customer" button at the top right of the screen to add a new customer.</div>
                                         <img src="assets/img/document_img/img42.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div class="f-18">then click add customer button </div>
                                         <img src="assets/img/document_img/img43.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="f-20 custome-light-blue">Customer Name :</div>
@@ -552,34 +498,34 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img44.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  4</p>
                                         </div>
                                         <div class="f-18">then click icon</div>
                                         <img src="assets/img/document_img/img45.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-18">To edit customer information.<br>then save information</div>
                                         <div class="f-20 custome-light-blue">Delete icon:</div>
                                         <img src="assets/img/document_img/img46.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-18">then click delete icon</div>
                                         <img src="assets/img/document_img/img47.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                         <div class="f-18">click yes delete it <br> To permanently remove the product.</div>
                                         <div class="f-20 custome-light-blue">View All Button:</div>
                                         <img src="assets/img/document_img/img36.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 7</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  8</p>
                                         </div>
                                         <div class="f-18">then click view all button</div>
                                         <img src="assets/img/document_img/img37.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 8</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  9</p>
                                         </div>
                                         <div class="f-18">To see information related to the product.</div>
                                     </div>
@@ -590,13 +536,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
                                         <img src="assets/img/document_img/img48.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  10</p>
                                         </div>
                                         <div class="f-20 custome-light-blue">Incorrect Information</div>
                                         <div class="f-18">Fill in all required fields correctly.<br>Avoid leaving blank fields.</div>
                                         <img src="assets/img/document_img/img49.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  11</p>
                                         </div>
                                     </div>
                                     <div id="customerlink">
@@ -611,14 +557,14 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">This page helps users manage their customer list. Customer information can be easily added, viewed and edited. Below are the main features of this page and their usage:</div>
                                     <img src="assets/img/document_img/img51.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div class="f-18">Click on the "Gallery" section on the dashboard.<br>You will see all the available images.</div>
                                     <div class="f-20 custome-dark-blue">Where does this image come from?</div>
                                     <div class="f-18">The first image of the product is added in the gallery section<br>Even after deleting a product, its image still appears in the gallery</div>
                                     <img src="assets/img/document_img/img52.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-video" role="tabpanel" aria-labelledby="v-pills-video-tab">
@@ -626,7 +572,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">The video section gives you an easy way to manage videos on your platform. Here you can watch, upload and delete videos.</div>
                                     <img src="assets/img/document_img/img54.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div class="f-18">Click on the video to play the video.</div>
                                     <div class="f-18"></div>
@@ -636,12 +582,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Click the "Add Video" button on the top right corner of the page.</div>
                                         <img src="assets/img/document_img/img55.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div class="f-18">then click add video button </div>
                                         <img src="assets/img/document_img/img56.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="f-20 custome-light-blue">Video Title :</div>
@@ -666,12 +612,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Videos can be deleted by clicking on the "Delete" icon (dustbin icon) below each video.</div>
                                         <img src="assets/img/document_img/img57.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  4</p>
                                         </div>
                                         <div class="f-18">then click delete icon</div>
                                         <img src="assets/img/document_img/img58.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-18">click yes delete it <br> To permanently remove the video.</div>
                                     </div>
@@ -682,13 +628,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Only used for YouTube short videos and not for YouTube videos</div>
                                         <img src="assets/img/document_img/img60.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-20 custome-light-blue">Incorrect Information</div>
                                         <div class="f-18">Avoid leaving blank fields</div>
                                         <img src="assets/img/document_img/img59.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 7</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                     </div>
                                     <div id="videolink">
@@ -702,7 +648,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">Blog section is a platform where you can write blogs to share your products, services and new ideas. This section gives you a simple way to engage with your audience.</div>
                                     <img src="assets/img/document_img/img61.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="blog">
                                         <div class="custome-text custome-dark-blue">1. Blog information</div>
@@ -710,12 +656,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Click the "Add Blog" button on the top right corner of the page. </div>
                                         <img src="assets/img/document_img/img62.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div class="f-18">then click add blog button </div>
                                         <img src="assets/img/document_img/img63.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="f-20 custome-light-blue">Blog Name :</div>
@@ -748,23 +694,23 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img64.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  4</p>
                                         </div>
                                         <div class="f-18">then click icon</div>
                                         <img src="assets/img/document_img/img65.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-18">To edit customer information.<br>then save information</div>
                                         <div class="f-20 custome-light-blue">Delete icon:</div>
                                         <img src="assets/img/document_img/img66.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-18">then click delete icon</div>
                                         <img src="assets/img/document_img/img67.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                         <div class="f-18">click yes delete it <br> To permanently remove the product.</div>
                                     </div>
@@ -775,13 +721,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
                                         <img src="assets/img/document_img/img68.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  8</p>
                                         </div>
                                         <div class="f-20 custome-light-blue">Incorrect Information</div>
                                         <div class="f-18">Fill in all required fields correctly.<br>Avoid leaving blank fields.</div>
                                         <img src="assets/img/document_img/img69.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  9</p>
                                         </div>
                                     </div>
                                     <div id="bloglink">
@@ -794,7 +740,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">The Invoice section is used by users to track their products sold, payment terms and outstanding amounts. On this page users can add, view and manage invoices. </div>
                                     <img src="assets/img/document_img/img71.png" class="img-fluid mt-5">
                                     <div class="  d-block text-center mx-auto" >
-                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 1</p>
+                                        <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="invoice">
                                         <div class="custome-text custome-dark-blue">1. Invoice information</div>
@@ -803,12 +749,12 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                         <img src="assets/img/document_img/img72.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 2</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  2</p>
                                         </div>
                                         <div class="f-18">then click add invoice button </div>
                                         <img src="assets/img/document_img/img73.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 3</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  3</p>
                                         </div>
                                         <div class="f-18">fill all information then save click button</div>
                                         <div class="d-flex align-items-center">
@@ -866,23 +812,23 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img74.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 4</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  4</p>
                                         </div>
                                         <div class="f-18">then click icon</div>
                                         <img src="assets/img/document_img/img75.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 5</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  5</p>
                                         </div>
                                         <div class="f-18">To edit invoice information.<br>then save information</div>
                                         <div class="f-20 custome-light-blue">Delete icon:</div>
                                         <img src="assets/img/document_img/img76.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  6</p>
                                         </div>
                                         <div class="f-18">then click delete icon</div>
                                         <img src="assets/img/document_img/img77.png" class="img-fluid mt-5">
                                         <div class=" d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 6</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  7</p>
                                         </div>
                                         <div class="f-18">click yes delete it <br> To permanently remove the invoice.</div>
                                     </div>
@@ -893,13 +839,13 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
                                         <img src="assets/img/document_img/img78.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  8</p>
                                         </div>
                                         <div class="f-20 custome-light-blue">Incorrect Information</div>
                                         <div class="f-18">Fill in all required fields correctly.<br>Avoid leaving blank fields.</div>
                                         <img src="assets/img/document_img/img80.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
-                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">Finger 9</p>
+                                            <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  9</p>
                                         </div>
                                     </div>
                                     <div id="invoicelink">
