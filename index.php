@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 <body>
     <!-- LOADER      -->
-    <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>|
+    <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>
   
     <?php include 'navbar.php'; ?>
 

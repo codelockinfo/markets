@@ -168,15 +168,13 @@ cursor: pointer;
 }
 .img-custome6 {
     content: "";
-    left: 48%;
+    left: 44%;
     transform: translate(0%, 0%);
 }
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0; 
 }
-
-
 /* FAMOUSE MARKET SECTION  */
 .custom-image {
     object-fit: cover;
@@ -342,7 +340,7 @@ align-items: center;
     margin-top: 15px;
 }
 .custom-pagination-bullet {
-    width: 20px; 
+    width: 30px; 
     height: 4px; 
     background-color: #ccc; 
     border-radius: 0; 
