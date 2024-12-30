@@ -3,7 +3,7 @@
         <div class="custom-container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div><img src="img/TMH (6).png" alt="Logo" class="w-50" /></div>
+                    <div><img src="img/TMH (9).png" alt="Logo" class="w-50 mb-3" /></div>
                     <p>
                         Empowering Textile Businesses with Seamless Connectivity and
                         Growth Opportunities. Bridging the Gap Between Wholesalers and

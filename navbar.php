@@ -17,17 +17,17 @@
     </div>
 
     <!-- header -->
-    <div class="position-relative ">
-        <div class="img-custome6 position-absolute">
-            <img src="img/img40.png" class=" w-75">
+    <div class="position-relative py-3">
+        <div class="img-custome6 position-absolute top-0">
+            <img src="img/img40.png" class=" w-100">
         </div>
         <div class="custom-container">
-            <div class="d-flex align-items-center justify-content-between logo-button">
-                <div class="logo"><img src="img/logo.png" alt="Logo" class="w-75"></div>
+            <div class="d-flex align-items-center justify-content-between logo-button mb-3">
+                <div class="logo"><img src="img/TMH (7).png" alt="Logo" class="logo"></div>
                 <a href="#" class="text-decoration-none px-3 py-2 border-r custome_header_btn"><span><i
                             class="fa-solid fa-shop"></i></span> Register Your Shop</a>
             </div>
-            <div class="d-flex align-items-center justify-content-between flex-wrap logo-button pb-4 d-none d-lg-flex">
+            <div class="d-flex align-items-center justify-content-between flex-wrap logo-button d-none d-lg-flex">
                 <nav class="d-flex align-items-center">
                     <a href="#" class="nav-link f-18 body-font-familly">Home</a>
                     <a href="#" class="nav-link f-18 body-font-familly">View all markets</a>
@@ -66,8 +66,8 @@
                 </div>
                 <div class="offcanvas-body">
                     <nav>
-                        <a href="#" class="nav-link mb-3">HOME</a>
-                        <a href="#" class="nav-link mb-3">VIEW ALL MARKETS</a>
+                        <a href="#" class="nav-link mb-3">Home</a>
+                        <a href="#" class="nav-link mb-3">View all Markets</a>
                         <div class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle mb-3" data-bs-toggle="dropdown">ALL
                                 CATEGORIES</a>
@@ -77,14 +77,14 @@
                                 <li><a class="dropdown-item" href="#">Category 3</a></li>
                             </ul>
                         </div>
-                        <a href="#" class="nav-link mb-3">BLOGS</a>
-                        <a href="#" class="nav-link mb-3">VIDEOS</a>
+                        <a href="#" class="nav-link mb-3">Blogs</a>
+                        <a href="#" class="nav-link mb-3">Videos</a>
                     </nav>
                 </div>
             </div>
 
             <div class="d-flex align-items-center justify-content-between w-100 d-lg-none">
-                <div class="d-flex align-items-center pb-4">
+                <div class="d-flex align-items-center order-2">
                     <div class="search-bar d-flex">
                         <a href="#" class="main-color p-2 text-light rounded"><i
                                 class="fa-solid fa-magnifying-glass"></i></a>
@@ -94,8 +94,8 @@
                         <i class="fa-regular fa-user fs-3"></i>
                     </div>
                 </div>
-                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                    aria-controls="offcanvasNavbar"><i class="fa-solid fa-bars fs-2 pb-4"></i></button>
+                <button class="btn order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar"><i class="fa-solid fa-bars fs-2 "></i></button>
             </div>
         </div>
     </div>
