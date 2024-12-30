@@ -110,7 +110,9 @@ $( document ).ready(function() {
             freeMode: true,
             autoplay: true,
             pagination: {
-                el: ".swiper-pagination",
+                el: '.custom-pagination', 
+                bulletClass: 'custom-pagination-bullet', 
+                bulletActiveClass: 'custom-pagination-bullet-active', 
                 clickable: true,
             },
         });

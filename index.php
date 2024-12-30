@@ -19,6 +19,7 @@
                     <a href="#"><img src="img/img20.webp"></a>
                 </div>
             </div>
+            <div class="custom-pagination"></div>
         </div>
     </section>
 

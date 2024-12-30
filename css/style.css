@@ -328,7 +328,22 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
-
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+.custom-pagination-bullet {
+    width: 20px; 
+    height: 4px; 
+    background-color: #ccc; 
+    border-radius: 0; 
+    transition: background-color 0.3s ease;
+}
+.custom-pagination-bullet-active {
+    background-color: #0E343D; 
+}
 /* TRENDING PRODUCT */
 .custom_width{
     width: 70px !important;
