@@ -19,6 +19,7 @@
                     <a href="#"><img src="img/img20.webp"></a>
                 </div>
             </div>
+            <div class="custom-pagination"></div>
         </div>
     </section>
 
@@ -28,7 +29,7 @@
             <img src="img/img24.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h1 class="fw-bold main-font-familly mb-5">Categories You May Like</h1>
+            <h1 class="fw-bold heading-font mb-5">Categories You May Like</h1>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r">
@@ -120,7 +121,7 @@
         </div>
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center">
-                <h1 class="fw-bold main-font-familly">Famous Markets in Surat</h1>
+                <h1 class="fw-bold heading-font">Famous Markets in Surat</h1>
                 <a href="#"
                     class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
                     all Markets</a>
@@ -453,7 +454,7 @@
     <!-- Tranding Products -->
     <section class="light-color py-60 video-section">
         <div class="custom-container">
-            <h1 class="fw-bold main-font-familly mb-3 mb-md-5">Trending Products</h1>
+            <h1 class="fw-bold heading-font mb-3 mb-md-5">Trending Products</h1>
             <div class="swiper product">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r">
@@ -815,7 +816,7 @@
         </div>
         <div class="custom-container">
             <div>
-                <h2 class="fw-bold main-font-familly f-36 mb-3 mb-md-5">Shop Now & Save</h2>
+                <h2 class="fw-bold heading-font f-36 mb-3 mb-md-5">Shop Now & Save</h2>
             </div>
             <div class="row g-3">
                 <div class="col-lg-6 col-md-12">
@@ -838,12 +839,12 @@
     </section>
 
     <!-- New Arrivals -->
-    <section class="light-color py-60 position-relative">
+    <section class="light-color py-60 position-relative overflow-hidden">
         <div class="img-custome5 position-absolute">
             <img src="img/img14.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h2 class="fw-bold main-font-familly mb-3 mb-md-5 f-36 ">New Arrivals</h2>
+            <h2 class="fw-bold heading-font mb-3 mb-md-5 f-36 ">New Arrivals</h2>
             <div class="swiper product">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r">
@@ -1197,7 +1198,7 @@
     <section class="light-color py-60">
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
-                <h2 class="fw-bold main-font-familly f-36 ">Trending Video</h2>
+                <h2 class="fw-bold heading-font f-36 ">Trending Video</h2>
                 <a href="#"
                     class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
                     all Video</a>
@@ -1242,7 +1243,7 @@
         </div>
         <div class="custom-container">
             <div>
-                <h1 class="fw-bold main-font-familly">FAQs</h1>
+                <h1 class="fw-bold heading-font">FAQs</h1>
             </div>
             <div class="row g-3 align-items-center">
                 <div class="col-lg-7 order-2 order-lg-1">
@@ -1353,7 +1354,7 @@
             <img src="img/img14.png" class="w-50">
         </div>
         <div class="custom-container">
-            <div class="fw-bold main-font-familly f-36 text-center contect">Contact Us</div>
+            <div class="fw-bold heading-font f-36 text-center contect">Contact Us</div>
             <div class="row g-3 align-items-center">
                 <div class="col-lg-7 order-2 order-lg-2">
                     <div class="d-flex gap-3">
@@ -1389,7 +1390,7 @@
         </div>
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
-                <h1 class="fw-bold main-font-familly ">Our Blogs</h1>
+                <h1 class="fw-bold heading-font ">Our Blogs</h1>
                 <a href="#"
                     class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
                     all Markets</a>
@@ -1551,7 +1552,7 @@
     <?php include 'footer.php'; ?>
 </body>
 </html>
-<script>
+<!-- <script>
     latestbanner();
     famousmarket();
     productshowclientside();
@@ -1559,4 +1560,4 @@
     paragraphs();
     videos();
     FAQshow();
-</script>
+</script> -->
