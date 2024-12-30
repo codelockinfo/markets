@@ -32,6 +32,9 @@
   height: auto;  
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
 
 
 .profile-image {

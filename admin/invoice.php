@@ -72,7 +72,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control price mt-1 date-input cursor-pointer" name="date">
+                  <input type="date" class="form-control price mt-1 date-input" name="date">
                   <span class="errormsg date"></span>
                 </div>
               </div>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1 price date-input cursor-pointer" name="due_date">
+                  <input type="date" class="form-control mt-1 price date-input " name="due_date">
                   <span class="errormsg due_date"></span>
                 </div>
               </div>
