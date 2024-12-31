@@ -1603,6 +1603,16 @@
             </div>
         </div>
     </section>
+    
+<!-- <div class="icon-contact">
+    
+</div>
+<div class="icon-contact">
+
+</div>
+<div class="icon-contact">
+
+</div> -->
 
     <?php include 'footer.php'; ?>
 </body>

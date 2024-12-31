@@ -24,7 +24,7 @@
         <div class="custom-container">
             <div class="d-flex align-items-center justify-content-between logo-button mb-3">
                 <div class="logo"><img src="img/TMH (7).png" alt="Logo" class="logo"></div>
-                <a href="#" class="text-decoration-none px-3 py-2 border-r custome_header_btn"><span><i
+                <a href="admin/sign-up.php" class="text-decoration-none px-3 py-2 border-r custome_header_btn"><span><i
                             class="fa-solid fa-shop"></i></span> Register Your Shop</a>
             </div>
             <div class="d-flex align-items-center justify-content-between flex-wrap logo-button d-none d-lg-flex">
