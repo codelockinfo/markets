@@ -39,7 +39,7 @@ $limit = 12;
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error_array['email'] = "The email address entered is invalid.";
         } else {
-            $email_query = "SELECT * FROM users WHERE email = '$email'";
+            $email_query = "SELECT * FROM ". TABLE_USER ." WHERE email = '$email'";
             $email_result = $this->db->query($email_query);
             if (mysqli_num_rows($email_result) == 0) {
                 $error_array['email'] = "Email is not registered.";
@@ -52,7 +52,7 @@ $limit = 12;
         }
         if (empty($error_array)) {
             $hashed_password = md5(string: $password);
-            $query = "SELECT * FROM users WHERE email = '$email' AND password = '$hashed_password'";
+            $query = "SELECT * FROM ". TABLE_USER ." WHERE email = '$email' AND password = '$hashed_password'";
             $result = $this->db->query($query);
     
             if (mysqli_num_rows($result) > 0) {
@@ -99,7 +99,7 @@ $limit = 12;
                 $business_type = (isset($_POST['business_type']) && $_POST['business_type'] !== '') ? $_POST['business_type'] : '';
                 $address = (isset($_POST['address']) && $_POST['address'] !== '') ? $_POST['address'] : '';
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "UPDATE users SET name = '$name', shop = '$shop', phone_number = '$phone_number', business_type = '$business_type', address = '$address'  WHERE user_id  = $user_id";
+                $query = "UPDATE ". TABLE_USER ." SET name = '$name', shop = '$shop', phone_number = '$phone_number', business_type = '$business_type', address = '$address'  WHERE user_id  = $user_id";
                 $result = $this->db->query($query);
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Profile data updated');
@@ -137,7 +137,7 @@ $limit = 12;
                     }
                     if (empty($error_array)) {
                         if (move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
-                            $query = "UPDATE users SET shop_logo='$shoplogo' WHERE user_id =$user_id";
+                            $query = "UPDATE ". TABLE_USER ." SET shop_logo='$shoplogo' WHERE user_id =$user_id";
                             $result = $this->db->query($query);
                             if ($result) {
                                 $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -147,7 +147,7 @@ $limit = 12;
                         $response_data = array('data' => 'fail', 'msg' => $error_array, 'msg_error' =>"Oops! Something went wrong ");
                     }
                 } else {
-                    $query = "UPDATE users SET shop_logo = ''WHERE user_id =$user_id";
+                    $query = "UPDATE ". TABLE_USER ." SET shop_logo = ''WHERE user_id =$user_id";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Profile image updated');
@@ -246,7 +246,7 @@ $limit = 12;
             $address = isset($_POST['address']) ? mysqli_real_escape_string($this->db, $_POST['address']) : '';
             $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
             $business_type = isset($_POST['business_type']) ? $_POST['business_type'] : '';
-            $email_check_query = "SELECT * FROM users WHERE email = '$email'";
+            $email_check_query = "SELECT * FROM ". TABLE_USER ." WHERE email = '$email'";
             $email_check_result = mysqli_query($this->db, $email_check_query);
             if ($email_check_result->num_rows > 0) {
                 $error_array['email'] = "Email already registered";
@@ -254,7 +254,7 @@ $limit = 12;
             } else {
                 if (move_uploaded_file($_FILES['shop_img']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
                     $hashed_password = md5($password);
-                    $query = "INSERT INTO users (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
+                    $query = "INSERT INTO ". TABLE_USER ." (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email) 
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
@@ -265,7 +265,7 @@ $limit = 12;
                         $endDate = (clone $startDate)->modify('+1 month');
                         $end_date = $endDate->format('Y-m-d H:i:s'); 
                         
-                        $query = "INSERT INTO payment (user_id, plan_type, start_date, end_date, is_paid, amount, amount_due, amount_paid, attempts, 
+                        $query = "INSERT INTO ". TABLE_PAYMENT ." (user_id, plan_type, start_date, end_date, is_paid, amount, amount_due, amount_paid, attempts, 
                         currency, entity, order_id, notes, offer_id, receipt) 
                         VALUES ('$lastInsertedId', '0' , '$start_date', '$end_date', '0', '', '', '', '', '', '', '', '', '', '')";
                         $payment_result = mysqli_query($this->db, $query);
@@ -453,7 +453,7 @@ $limit = 12;
             $p_description = str_replace("'", "\'", $p_description);
             $user_id = $_SESSION['current_user']['user_id'];
             if ($addcategory != '' && $addcheckboxcategory != '') {
-                $add_category_query = "INSERT INTO allcategories (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+                $add_category_query = "INSERT INTO ". TABLE_CATEGORIE ." (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
                 $category_result = $this->db->query($add_category_query);
                 if ($category_result) {
                     $select_catagory = $this->db->insert_id;
@@ -466,13 +466,13 @@ $limit = 12;
                 $uploadedFilenames = implode(',', $uploadedFiles);
                 $uploadedFilenames;
 
-                $query = "INSERT INTO products (title, category, qty, sku, minprice, maxprice, p_image,cloth,fabric_type, product_img_alt, p_tag, p_description, user_id) 
+                $query = "INSERT INTO ". TABLE_PRODUCT ." (title, category, qty, sku, minprice, maxprice, p_image,cloth,fabric_type, product_img_alt, p_tag, p_description, user_id) 
                     VALUES ('$product_name', '$select_catagory', '$qty', '$sku', '$min_price', '$max_price', '$newmainFilename','$cloth','$fabric_type', '$product_image_alt', '$p_tag', '$p_description', '$user_id')";
                 $result = $this->db->query($query);
                 $last_id = $this->db->insert_id;
 
                 foreach ($uploadedFiles as $key => $sub_img) {
-                    $query = "INSERT INTO product_images(user_id,product_id,p_image)values('$user_id','$last_id','$sub_img')";
+                    $query = "INSERT INTO ". TABLE_PRODUCT_IMAGE ."(user_id,product_id,p_image)values('$user_id','$last_id','$sub_img')";
                     $result = $this->db->query($query);
                 }
                 if ($result) {
@@ -482,7 +482,7 @@ $limit = 12;
                 }
             } else {
                 $newimageadded = ($is_mian_image_update) ? ", p_image='$newmainFilename'" : "";
-                $query = "UPDATE products SET title ='$product_name', category ='$select_catagory', qty ='$qty', sku ='$sku', 
+                $query = "UPDATE ". TABLE_PRODUCT ." SET title ='$product_name', category ='$select_catagory', qty ='$qty', sku ='$sku', 
                           minprice ='$min_price', maxprice ='$max_price',cloth='$cloth',fabric_type='$fabric_type',product_img_alt ='$product_image_alt', p_tag = '$p_tag', 
                           p_description = '$p_description' $newimageadded WHERE product_id = $product_id";
                 
@@ -490,7 +490,7 @@ $limit = 12;
 
                 if (!empty($uploadedFiles)) {
                     foreach ($uploadedFiles as $key => $sub_img) {
-                        $query = "INSERT INTO product_images(user_id,product_id,p_image)values('$user_id','$product_id','$sub_img')";
+                        $query = "INSERT INTO ". TABLE_PRODUCT_IMAGE ."(user_id,product_id,p_image)values('$user_id','$product_id','$sub_img')";
                         $result = $this->db->query($query);
                     }
                 }
@@ -573,7 +573,7 @@ $limit = 12;
         $user_id = $_SESSION['current_user']['user_id'];
         if ($id == '') {
             $c_image = move_uploaded_file($tmpfile, $fullpath) ? $newFilename :'';
-                $query = "INSERT INTO customer (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
+                $query = "INSERT INTO ". TABLE_CUSTOMER ." (`name`, `email`, `contact`, `c_image`, `city`, `state`, `address`, `user_id`) 
                           VALUES ('$name', '$email', '$contact', '$c_image', '$city', '$state', '$address', '$user_id')";
                 $result = $this->db->query($query);
                 if ($result) {
@@ -586,13 +586,13 @@ $limit = 12;
             if (!empty($filename) && move_uploaded_file($tmpfile, $fullpath)) {
                 $newImageAdded = $newFilename;
             } else {
-                $existing_image_query = "SELECT c_image FROM customer WHERE customer_id = $id";
+                $existing_image_query = "SELECT c_image FROM ". TABLE_CUSTOMER ." WHERE customer_id = $id";
                 $existing_image_result = $this->db->query($existing_image_query);
                 $existing_image_row = $existing_image_result->fetch_assoc();
                 $existing_image = $existing_image_row['c_image'];
                 $newImageAdded = $existing_image;
             }
-            $query = "UPDATE customer SET name = '$name', email = '$email', contact = '$contact', 
+            $query = "UPDATE ". TABLE_CUSTOMER ." SET name = '$name', email = '$email', contact = '$contact', 
                           c_image = '$newImageAdded', city = '$city', state = '$state', address = '$address' 
                           WHERE customer_id = $id";
             $result = $this->db->query($query);
@@ -614,10 +614,10 @@ $limit = 12;
             $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
             $offset = ($page - 1) * $limit;
             $userid_clause = ($_SESSION['current_user']['role'] == 1) ? "user_id = " . (int)$_SESSION['current_user']['user_id'] : "1=1"; // Default to "1=1" if role is not 1
-            $query = "SELECT COUNT(*) AS total FROM products WHERE $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_PRODUCT ." WHERE $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
-            $sql = "SELECT * FROM products WHERE $userid_clause LIMIT $offset, $limit";
+            $sql = "SELECT * FROM ". TABLE_PRODUCT ." WHERE $userid_clause LIMIT $offset, $limit";
             $result = $this->db->query($sql);
             $output = $pagination = "";
             if ($result) {
@@ -744,10 +744,10 @@ $limit = 12;
             if (!empty(array_filter($_POST['item']))) {
                 if ($id == '') {
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "INSERT INTO invoice (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`) 
+                        $query = "INSERT INTO ". TABLE_INVOICE ." (`i_image`, `i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`) 
                                   VALUES ('$newFilename','$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due', '$shipping_charges', '$invoice_no')";
                     } else {
-                        $query = "INSERT INTO invoice (`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`) 
+                        $query = "INSERT INTO ". TABLE_INVOICE ." (`i_name`, `bill_no`, `ship_to`, `date`, `terms`, `due_date`, `notes`, `terms_condition`, `po_number`, `user_id`, `total`, `subtotal`, `amount_paid`, `balance_due`, `shipping_charges`, `invoice_no`) 
                                   VALUES ( '$i_name', '$bill_no', '$ship_to', '$date', '$terms', '$due_date', '$notes', '$termscondition', '$po_number', '$user_id', '$total','$subtotal', '$amount_paid', '$balance_due','$shipping_charges','$invoice_no')";
                     }
                     $result = $this->db->query($query);
@@ -764,13 +764,13 @@ $limit = 12;
                             $newImageUploaded = $newFilename;
                         }
                     } else {
-                        $existing_image_query = "SELECT i_image FROM invoice WHERE invoice_id = $id";
+                        $existing_image_query = "SELECT i_image FROM ". TABLE_INVOICE ." WHERE invoice_id = $id";
                         $existing_image_result = $this->db->query($existing_image_query);
                         $existing_image_row = $existing_image_result->fetch_assoc();
                         $existing_image = $existing_image_row['i_image'];
                         $newImageUploaded = $existing_image;
                     }
-                    $query = "UPDATE invoice SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges', invoice_no='$invoice_no',
+                    $query = "UPDATE ". TABLE_INVOICE ." SET i_name = '$i_name', bill_no = '$bill_no', ship_to = '$ship_to', date = '$date', terms = '$terms', due_date = '$due_date', shipping_charges='$shipping_charges', invoice_no='$invoice_no',
                             subtotal= '$subtotal', po_number = '$po_number', total = '$total', amount_paid = '$amount_paid', balance_due = '$balance_due', notes = '$notes', terms_condition = '$termscondition', i_image = '$newImageUploaded' WHERE invoice_id = $id";
     
                     $result = $this->db->query($query);
@@ -802,7 +802,7 @@ $limit = 12;
                         
                         if (!empty($invoice_item_ids[$index])) {
                             $invoice_item_id = $this->db->real_escape_string($invoice_item_ids[$index]);
-                            $sql1 = "UPDATE invoice_item SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' WHERE invoice_item_id='$invoice_item_id' AND invoice_id='$invoice_id'";
+                            $sql1 = "UPDATE ". TABLE_INVOICE_ITEM ." SET item='$item', quantity='$quantity', rate='$rate', amount='$amount' WHERE invoice_item_id='$invoice_item_id' AND invoice_id='$invoice_id'";
                             $res1 = $this->db->query($sql1);
                         } else {
                             $values[] = "('$item', '$quantity', '$rate', '$amount', '$user_id', '$invoice_id')";
@@ -810,7 +810,7 @@ $limit = 12;
                     }
                 }
                 if (!empty($values)) {
-                    $sql1 = "INSERT INTO invoice_item (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
+                    $sql1 = "INSERT INTO ". TABLE_INVOICE_ITEM ." (item, quantity, rate, amount, user_id, invoice_id) VALUES " . implode(", ", $values);
                     $res1 = $this->db->query($sql1);
                 }
                 if ($res1) {
@@ -833,7 +833,7 @@ $limit = 12;
     function clear_invoice_image(){
         if ($_POST['routine_name'] === 'clear_invoice_image') {
             $invoice_id = $_POST['invoice_id'];
-            $query = "UPDATE invoice SET i_image = '' WHERE invoice_id =  $invoice_id";
+            $query = "UPDATE ". TABLE_INVOICE ." SET i_image = '' WHERE invoice_id =  $invoice_id";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data=['data'=> 'success' ,'msg'=> "image blank"];
@@ -848,7 +848,7 @@ $limit = 12;
     function clear_customer_image(){
         if ($_POST['routine_name'] === 'clear_customer_image') {
             $customer_id = $_POST['customer_id'];
-            $query = "UPDATE customer SET c_image = '' WHERE customer_id =  $customer_id";
+            $query = "UPDATE ". TABLE_CUSTOMER ." SET c_image = '' WHERE customer_id =  $customer_id";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data=['data'=> 'success' ,'msg'=> "image blank"];
@@ -862,7 +862,7 @@ $limit = 12;
     function clear_blog_image(){
         if ($_POST['routine_name'] === 'clear_blog_image') {
             $blog_id = $_POST['blog_id'];
-            $query = "UPDATE blogs SET image = '' WHERE blog_id =  $blog_id";
+            $query = "UPDATE ". TABLE_BLOG ." SET image = '' WHERE blog_id =  $blog_id";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data=['data'=> 'success' ,'msg'=> "image blank"];
@@ -917,7 +917,7 @@ $limit = 12;
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO videos (title,category,short_link,auto_genrate,user_id) VALUES ('$video_title', '$category','$youtube_shorts','$auto_genrate','$user_id')";
+                $query = "INSERT INTO ". TABLE_VIDEO ." (title,category,short_link,auto_genrate,user_id) VALUES ('$video_title', '$category','$youtube_shorts','$auto_genrate','$user_id')";
                 $result = $this->db->query($query);
             }
             if ($result) {
@@ -985,7 +985,7 @@ $limit = 12;
             $author_name = (isset($_POST['author_name']) && $_POST['author_name'] !== '') ? $_POST['author_name'] : '';
             $blog_image_alt = (isset($_POST['blog_image_alt']) && $_POST['blog_image_alt'] !== '') ? $_POST['blog_image_alt'] : '';
             if ($id != '') {
-                $existing_image_query = "SELECT image FROM blogs WHERE blog_id = $id";
+                $existing_image_query = "SELECT image FROM ". TABLE_BLOG ." WHERE blog_id = $id";
                 $existing_image_result = $this->db->query($existing_image_query);
                 $existing_image_row = $existing_image_result->fetch_assoc();
                 $existing_image = $existing_image_row['image'];
@@ -995,7 +995,7 @@ $limit = 12;
                 if (move_uploaded_file($tmpfile, $fullpath)) {
                     if (isset($_SESSION['current_user']['user_id'])) {
                         $user_id = $_SESSION['current_user']['user_id'];
-                        $query = "INSERT INTO blogs (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
+                        $query = "INSERT INTO ". TABLE_BLOG ." (title,category,body,author_name,image,blog_img_alt,user_id) VALUES 
                             ('$blog_title', '$category','$myeditor',
                             '$author_name','$newFilename','$blog_image_alt','$user_id')";
                         $result = $this->db->query($query);
@@ -1010,15 +1010,15 @@ $limit = 12;
                 if (!empty($filename)) {
 
                     if (move_uploaded_file($tmpfile, $fullpath)) {
-                        $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
+                        $query = "UPDATE ". TABLE_BLOG ." SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$newFilename',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                     }
                 } else {
-                    $existing_image_query = "SELECT image FROM blogs WHERE blog_id = $id";
+                    $existing_image_query = "SELECT image FROM ". TABLE_BLOG ." WHERE blog_id = $id";
                     $existing_image_result = $this->db->query($existing_image_query);
                     $existing_image_row = $existing_image_result->fetch_assoc();
                     $existing_image = $existing_image_row['image'];
-                    $query = "UPDATE blogs SET title = '$blog_title', category = '$category', body = '$myeditor', 
+                    $query = "UPDATE ". TABLE_BLOG ." SET title = '$blog_title', category = '$category', body = '$myeditor', 
                         author_name = '$author_name',image = '$existing_image',blog_img_alt = '$blog_image_alt' WHERE blog_id  = $id";
                 }
                 $result = $this->db->query($query);
@@ -1090,7 +1090,7 @@ $limit = 12;
 
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO banners (banner_img,img_alt,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt','$banner_btn_link','$user_id')";
+                    $query = "INSERT INTO ". TABLE_BANNER ." (banner_img,img_alt,banner_btn_link,user_id) VALUES ('$newFilename','$image_alt','$banner_btn_link','$user_id')";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Banner inserted successfully!');
@@ -1119,7 +1119,7 @@ $limit = 12;
             $shop_name = str_replace("'", "\'", $shop_name);
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO famous_markets (shop_name,review ,user_id) VALUES ('$shop_name','$review', '$user_id')";
+                $query = "INSERT INTO ". TABLE_FAMOUS_MARKET ." (shop_name,review ,user_id) VALUES ('$shop_name','$review', '$user_id')";
                 $result = $this->db->query($query);
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'Market inserted successfully!');
@@ -1143,10 +1143,10 @@ $limit = 12;
             if (isset($_SESSION['current_user']['user_id'])) {
                 $categories = (isset($_POST['categories']) && $_POST['categories'] != '') ?  $_POST['categories'] : '';
                 $user_id = $_SESSION['current_user']['user_id'];
-                $category_query = "SELECT * FROM b_textile_catagorys WHERE categories = $categories";
+                $category_query = "SELECT * FROM ". TABLE_TEXTILE_CATEGORIE ." WHERE categories = $categories";
                 $category_result = $this->db->query($category_query);
                 if (mysqli_num_rows($category_result) <= 0) {
-                    $query = "INSERT INTO b_textile_catagorys (categories,user_id) VALUES ('$categories','$user_id')";
+                    $query = "INSERT INTO ". TABLE_TEXTILE_CATEGORIE ." (categories,user_id) VALUES ('$categories','$user_id')";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Brouse By Textile Categories Form inserted successfully!');
@@ -1204,7 +1204,7 @@ $limit = 12;
                 $image_alt = (isset($_POST['image_alt']) && $_POST['image_alt'] !== '') ? $_POST['image_alt'] : '';
                 if (isset($_SESSION['current_user']['user_id'])) {
                     $user_id = $_SESSION['current_user']['user_id'];
-                    $query = "INSERT INTO offers (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
+                    $query = "INSERT INTO ". TABLE_OFFERS ." (img,img_alt,img_link,user_id) VALUES ('$newFilename','$image_alt','$img_link','$user_id')";
                     $result = $this->db->query($query);
                     if ($result) {
                         $response_data = array('data' => 'success', 'msg' => 'Offers Form inserted successfully!');
@@ -1232,7 +1232,7 @@ $limit = 12;
             $topbar_input2 = (isset($_POST['topbar_input2']) && $_POST['topbar_input2'] !== '') ? $_POST['topbar_input2'] : '';
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO topbar (topbar_input1,topbar_input2,user_id) VALUES ('$topbar_input1','$topbar_input2','$user_id')";
+                $query = "INSERT INTO ". TABLE_TOPBAR ." (topbar_input1,topbar_input2,user_id) VALUES ('$topbar_input1','$topbar_input2','$user_id')";
                 $result = $this->db->query($query);
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' =>'topbar Form inserted successfully!');
@@ -1257,16 +1257,16 @@ $limit = 12;
             $myeditor = str_replace("'", "\'", $myeditor);
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "SELECT * FROM paragraph";
+                $query = "SELECT * FROM ". TABLE_PARAGRAPH ."";
                 $result = $this->db->query($query);
                 if ($result) {
                     if (mysqli_num_rows($result) > 0) {
                         $row = $result->fetch_assoc();
                         $id = $row['id'];
-                        $query = "UPDATE paragraph SET paragraph = '$myeditor' WHERE id = '$id'";
+                        $query = "UPDATE ". TABLE_PARAGRAPH ." SET paragraph = '$myeditor' WHERE id = '$id'";
                         $result = $this->db->query($query);
                     } else {
-                        $query = "INSERT INTO paragraph (paragraph,user_id) VALUES ('$myeditor','$user_id')";
+                        $query = "INSERT INTO ". TABLE_PARAGRAPH ." (paragraph,user_id) VALUES ('$myeditor','$user_id')";
                         $result = $this->db->query($query);
                     }
                     $response_data = array('data' => 'success', 'msg' => 'paragraph inserted successfully!');
@@ -1295,7 +1295,7 @@ $limit = 12;
 
             if (isset($_SESSION['current_user']['user_id'])) {
                 $user_id = $_SESSION['current_user']['user_id'];
-                $query = "INSERT INTO faqs (question,answer,user_id) VALUES ('$faq_question','$myeditor','$user_id')";
+                $query = "INSERT INTO ". TABLE_FAQ ." (question,answer,user_id) VALUES ('$faq_question','$myeditor','$user_id')";
                 $result = $this->db->query($query);
                 if ($result) {
                     $response_data = array('data' => 'success', 'msg' => 'FAQ inserted successfully!');
@@ -1350,11 +1350,11 @@ $limit = 12;
                 default:
                     break;
             }
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_PRODUCT ." WHERE title LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM products WHERE title  LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_PRODUCT ." WHERE title  LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
             $output = $pagination ="";
             if ($result && mysqli_num_rows($result) > 0) {
@@ -1412,7 +1412,7 @@ $limit = 12;
                     $output .= '</div>';
                     
 
-                    $sql = "SELECT * FROM product_images WHERE product_id = $product_id AND status = 1";
+                    $sql = "SELECT * FROM ". TABLE_PRODUCT_IMAGE ." WHERE product_id = $product_id AND status = 1";
                     $results = $this->db->query($sql);
                     if ($results && mysqli_num_rows($results) > 0) {
 
@@ -1427,7 +1427,7 @@ $limit = 12;
                                 );
                                 $output .= '<div class="col-6 col-md-4 p-2 position-relative">';
                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
-                                $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="pro_delete_btn btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="product_images" aria-label="Delete">';
+                                $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="pro_delete_btn btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="'. TABLE_PRODUCT_IMAGE .'" aria-label="Delete">';
                                 $output .= '<i class="fa fa-trash"></i>';
                                 $output .= '</button>';
                                 $output .= '</div>';
@@ -1442,7 +1442,7 @@ $limit = 12;
                     $output .= '</div>';
                     $output .= '<div>';
                     $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank"><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_PRODUCT .'" aria-hidden="true"></i>';
                     $output .= '<a href="product-form?id=' . $row['product_id'] . '"class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1460,7 +1460,7 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
             $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_PRODUCT ." WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
@@ -1532,7 +1532,7 @@ $limit = 12;
             $res_count = $this->db->query($count_query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $date_filter $sort_query $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_INVOICE ." WHERE i_name LIKE '%$search_value%' $userid_clause $date_filter $sort_query $limit_qry";
            
             $result = $this->db->query($sql);
             $output = "";
@@ -1566,7 +1566,7 @@ $limit = 12;
                         $output .= '<div class="mt-2">';
                         $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank"><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview?id='. $row['invoice_id'].'"  target="_blank"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
-                        $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="invoice" data-fild="i_image" aria-hidden="true"></i>';
+                        $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_INVOICE .'" data-fild="i_image" aria-hidden="true"></i>';
                         $output .= '<a href="invoice?id=' . $row['invoice_id'] . '" class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="fa fa-pen" aria-hidden="true"></i>';
                         $output .= '</a>';
@@ -1584,7 +1584,7 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
             $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-            $query = "SELECT COUNT(*) AS total FROM invoice WHERE i_name LIKE '%$search_value%' $userid_clause $filter_query";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_INVOICE ." WHERE i_name LIKE '%$search_value%' $userid_clause $filter_query";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
@@ -1641,11 +1641,11 @@ $limit = 12;
                 default:
                     break;
             }
-            $query = "SELECT COUNT(*) AS total FROM customer WHERE name LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_CUSTOMER ." WHERE name LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM customer WHERE name LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_CUSTOMER ." WHERE name LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -1674,7 +1674,7 @@ $limit = 12;
                     $output .= '<div class="fs-6"><span class=" "><h6 class="fw-bold  d-inline fs-6">Address :</h6> ' . $row['address'] . '</div>';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="mt-3">';
-                    $output .= '<i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer"  data-fild="c_image" aria-hidden="true"></i>';
+                    $output .= '<i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_CUSTOMER .'"  data-fild="c_image" aria-hidden="true"></i>';
                     $output .= '<a href="customer?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '</a>';
@@ -1692,7 +1692,7 @@ $limit = 12;
             $response_data = array('data' => 'fail', 'outcome' => "No data found");
         }
         $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-        $query = "SELECT COUNT(*) AS total FROM customer WHERE name LIKE '%$search_value%' $userid_clause $filter_query";
+        $query = "SELECT COUNT(*) AS total FROM ". TABLE_CUSTOMER ." WHERE name LIKE '%$search_value%' $userid_clause $filter_query";
         $res_count = $this->db->query($query);
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         if ($total_records > $limit) {
@@ -1718,7 +1718,7 @@ $limit = 12;
         if (isset($_SESSION['current_user']['user_id'])) {
             $output = array();
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM users WHERE user_id ='$user_id'";
+            $query = "SELECT * FROM ". TABLE_USER ." WHERE user_id ='$user_id'";
             $result = $this->db->query($query);
             if ($result) {
                 $row = $result->fetch_assoc();
@@ -1865,11 +1865,11 @@ $limit = 12;
                 default:
                     break;
             }
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_BLOG ." WHERE title LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_BLOG ." WHERE title LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -1896,8 +1896,8 @@ $limit = 12;
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="" >';
-                    $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
-                    $output .= '<i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs"  data-fild="image"aria-hidden="true"></i>';
+                    $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
+                    $output .= '<i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_BLOG .'"  data-fild="image"aria-hidden="true"></i>';
                     $output .= '<a href="blog-form?id=' . $row['blog_id'] . ' " class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '</a>';
@@ -1915,7 +1915,7 @@ $limit = 12;
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
             $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-            $query = "SELECT COUNT(*) AS total FROM blogs WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_CATEGORIE ." WHERE title LIKE '%$search_value%' $userid_clause $filter_query";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
@@ -1967,11 +1967,11 @@ $limit = 12;
                 default:
                     break;
             }
-            $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_VIDEO ." WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_VIDEO ." WHERE auto_genrate LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -1992,7 +1992,7 @@ $limit = 12;
                     $output .= '<div class="d-flex justify-content-between mb-3">';
                     $output.='<div>'.$row['auto_genrate'].'</div>';
                     $output .= '<div class="ms-auto text-end">';
-                    $output .= '<i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="videos" aria-hidden="true"></i>';
+                    $output .= '<i data-id= "' . $row["video_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_VIDEO .'" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2005,7 +2005,7 @@ $limit = 12;
             }
         }
         $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-        $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%'  $userid_clause $filter_query";
+        $query = "SELECT COUNT(*) AS total FROM ". TABLE_VIDEO ." WHERE auto_genrate LIKE '%$search_value%'  $userid_clause $filter_query";
         $res_count = $this->db->query($query);
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         if ($total_records > $limit) {
@@ -2054,11 +2054,11 @@ $limit = 12;
                 default:
                     break;
             }
-            $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_VIDEO ." WHERE auto_genrate LIKE '%$search_value%' $userid_clause";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit" : "";
-            $sql = "SELECT * FROM videos WHERE auto_genrate LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_VIDEO ." WHERE auto_genrate LIKE '%$search_value%' $userid_clause $sort_query $limit_qry";
             $result = $this->db->query($sql);
             $output = "";
             $pagination = "";
@@ -2083,7 +2083,7 @@ $limit = 12;
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto toggle-button" type="checkbox" id="checkbox_' . $video_id . '" data-video-id="' . $video_id . '" ' . $toggleactive . '>';
-                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
+                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="'. TABLE_VIDEO .'">';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2097,7 +2097,7 @@ $limit = 12;
             }
         }
         $filter_query = preg_replace('/ORDER BY.*$/', '', $sort_query);
-        $query = "SELECT COUNT(*) AS total FROM videos WHERE auto_genrate LIKE '%$search_value%'  $userid_clause $filter_query";
+        $query = "SELECT COUNT(*) AS total FROM ". TABLE_VIDEO ." WHERE auto_genrate LIKE '%$search_value%'  $userid_clause $filter_query";
         $res_count = $this->db->query($query);
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         if ($total_records > $limit) {
@@ -2120,7 +2120,7 @@ $limit = 12;
         $output = "";
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM offers WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM ". TABLE_OFFERS ." WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
         }
         $output .= '<div class="mb-3 form-check-reverse text-right">
@@ -2128,8 +2128,8 @@ $limit = 12;
                         <div class="btn-group">
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="offers" >
-                        <input type="hidden" id="toggleStatus" name="status" value="offers">    
+                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="'. TABLE_OFFERS .'" >
+                        <input type="hidden" id="toggleStatus" name="status" value="'. TABLE_OFFERS .'">    
                         </div>
                         </div>  
                         </div>
@@ -2150,7 +2150,7 @@ $limit = 12;
                     $output .= '<div class="position-relative d-inline-block border-radius-xl offer_imgbox">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg  product_main_image" >';
                     $output .= '<div class="position-absolute top-1 end-0 mt-2 me-2">';
-                    $output .= '<i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="offers"  data-fild="img" aria-hidden="true"></i>';
+                    $output .= '<i data-id= "' . $row["offer_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete btn delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_OFFERS .'"  data-fild="img" aria-hidden="true"></i>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2171,15 +2171,15 @@ $limit = 12;
         $output = "";
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM b_textile_catagorys WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM ". TABLE_TEXTILE_CATEGORIE ." WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output .= '<div class="mb-3 form-check-reverse text-right">';
             $output .= '<div>';
             $output .= '<div class="btn-group">';
             $output .= '<div class="btn-group" role="group" aria-label="Basic example">';
             $output .= '<div class="form-check form-switch ps-0">';
-            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="b_textile_catagorys" checked>';
-            $output .= '<input type="hidden" id="toggleStatus" name="status" value="b_textile_catagorys">';
+            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="'. TABLE_TEXTILE_CATEGORIE .'" checked>';
+            $output .= '<input type="hidden" id="toggleStatus" name="status" value="'. TABLE_TEXTILE_CATEGORIE .'">';
             $output .= '</div>';
             $output .= '</div>';
             $output .= '</div>';
@@ -2189,7 +2189,7 @@ $limit = 12;
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         $categoies_id = (isset($row['categories']) && $row['categories'] != '') ? $row['categories'] : '';
-                        $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
+                        $category_query = "SELECT * FROM ". TABLE_CATEGORIE ." WHERE categoies_id = $categoies_id";
                         $category_result = $this->db->query($category_query);
 
                         if (mysqli_num_rows($category_result) > 0) {
@@ -2204,7 +2204,7 @@ $limit = 12;
                                 $output .= '</div>';
                                 $output .= '</div>';
                                 $output .= '<div class="col-1 text-end p-0">';
-                                $output .= '<i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="b_textile_catagorys" aria-hidden="true"></i>';  
+                                $output .= '<i data-id= "' . $row["b_textile_catagory_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="'. TABLE_TEXTILE_CATEGORIE .'" aria-hidden="true"></i>';  
                                 $output .= '</div>';
                                 $output .= '</div>';
 
@@ -2226,7 +2226,7 @@ $limit = 12;
         $output = "";
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM faqs WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM ". TABLE_FAQ ." WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -2240,7 +2240,7 @@ $limit = 12;
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '<div class="col-1 text-end p-0">';
-                        $output .= '<i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="faqs" aria-hidden="true"></i>';
+                        $output .= '<i data-id= "' . $row["faq_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="'. TABLE_FAQ .'" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
                     }
@@ -2258,7 +2258,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM paragraph WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM ". TABLE_PARAGRAPH ." WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
             if ($result) {
@@ -2281,7 +2281,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM banners WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM ". TABLE_BANNER ." WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
             $output .= '<div class="mb-3 form-check-reverse text-right">';
@@ -2289,8 +2289,8 @@ $limit = 12;
             $output .= '<div class="btn-group">';
             $output .= '<div class="btn-group" role="group">';
             $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="banners" checked>';
-            $output .= '<input type="hidden" id="toggleStatus" name="status" value="banners">';
+            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="'. TABLE_BANNER .'" checked>';
+            $output .= '<input type="hidden" id="toggleStatus" name="status" value="'. TABLE_BANNER .'">';
             $output .= '</div>';
             $output .= '</div>';
             $output .= '</div>';
@@ -2310,7 +2310,7 @@ $limit = 12;
                         $output .= '<div class="position-relative d-inline-block  border-radius-xl offer_imgbox">';
                         $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg mb-3 mt-3 product_main_image">';
                         $output .= '<div class="position-absolute top-2 end-0 mt-3 me-3">';
-                        $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0"  data-fild="banner_img" data-delete-type="banners" aria-hidden="true"></i>';
+                        $output .= '<i data-id= "' . $row["banner_id"] . '" class="fa fa-trash text-secondary  delete_shadow  me-1 delete_btn delete btn btn-light shadow-sm rounded-0"  data-fild="banner_img" data-delete-type="'. TABLE_BANNER .'" aria-hidden="true"></i>';
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '</div>';
@@ -2332,7 +2332,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
-            $sql = "SELECT * FROM famous_markets WHERE  status='1'";
+            $sql = "SELECT * FROM ". TABLE_FAMOUS_MARKET ." WHERE  status='1'";
             $res = $this->db->query($sql);
             if (mysqli_num_rows($res) > 0) {
                 $output = "";
@@ -2341,8 +2341,8 @@ $limit = 12;
                 $output .= '<div class="btn-group">';
                 $output .= '<div class="btn-group" role="group" aria-label="Basic example">';
                 $output .= '<div class="form-check form-switch ps-0">';
-                $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="famous_markets" checked>';
-                $output .= '<input type="hidden" id="toggleStatus" name="status" value="famous_markets">';
+                $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="'. TABLE_FAMOUS_MARKET .'" checked>';
+                $output .= '<input type="hidden" id="toggleStatus" name="status" value="'. TABLE_FAMOUS_MARKET .'">';
                 $output .= '</div>';
                 $output .= '</div>';
                 $output .= '</div>';
@@ -2350,7 +2350,7 @@ $limit = 12;
                 $output .= '</div>';
                 while ($row = mysqli_fetch_array($res)) {
                     $input = $row['shop_name'];                
-                    $query = "SELECT * FROM users WHERE user_id = '$input'";
+                    $query = "SELECT * FROM ". TABLE_USER ." WHERE user_id = '$input'";
                     $result = $this->db->query($query);
                     $id = $row["famous_market_id"];
                     if ($result) {
@@ -2365,7 +2365,7 @@ $limit = 12;
                                 $output .= '</div>';
                                 $output .= '</div>';
                                 $output .= '<div class="col-1 text-end p-0">'; 
-                                $output .= '<i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="famous_markets" aria-hidden="true"></i>';
+                                $output .= '<i data-id="' . $id . '" class="fa fa-trash cursor-pointer delete" data-delete-type="'. TABLE_FAMOUS_MARKET .'" aria-hidden="true"></i>';
                                 $output .= '</div>';
                                 $output .= '</div>';
                             }
@@ -2387,7 +2387,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $query = "SELECT * FROM topbar WHERE user_id = '$user_id'";
+            $query = "SELECT * FROM ". TABLE_TOPBAR ." WHERE user_id = '$user_id'";
             $result = $this->db->query($query);
             $output = "";
             $output .= '<div class="mb-3 form-check-reverse text-right">';
@@ -2395,8 +2395,8 @@ $limit = 12;
             $output .= '<div class="btn-group">';
             $output .= '<div class="btn-group" role="group">';
             $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
-            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="topbar" checked>';
-            $output .= '<input type="hidden" id="toggleStatus" name="status" value="topbar">';
+            $output .= '<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" value="'. TABLE_TOPBAR .'" checked>';
+            $output .= '<input type="hidden" id="toggleStatus" name="status" value="'. TABLE_TOPBAR .'">';
             $output .= '</div>';
             $output .= '</div>';
             $output .= '</div>';
@@ -2415,7 +2415,7 @@ $limit = 12;
                         $output .= '</div>';
                         $output .= '</div>';
                         $output .= '<div class="col-1 text-end p-0">';
-                        $output .= '<i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="topbar" aria-hidden="true"></i>'; // Removed margin-top for centering
+                        $output .= '<i data-id= "' . $row["topbar_id"] . '" class="fa fa-trash cursor-pointer delete" data-delete-type="'. TABLE_TOPBAR .'" aria-hidden="true"></i>'; // Removed margin-top for centering
                         $output .= '</div>';
                         $output .= '</div>';
                     }
@@ -2438,11 +2438,11 @@ $limit = 12;
         $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
         $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
         $offset = ($page - 1) * $limit;
-        $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
+        $query = "SELECT COUNT(*) AS total FROM ". TABLE_PRODUCT ." WHERE title LIKE '%$search_value%'";
         $res_count = $this->db->query($query);
         $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
         $limit_qry = ($total_records > $limit) ? "LIMIT $offset, $limit": " ";
-        $sql = "SELECT * FROM products WHERE title LIKE '%$search_value%' $limit_qry";
+        $sql = "SELECT * FROM ". TABLE_PRODUCT ." WHERE title LIKE '%$search_value%' $limit_qry";
         $result = $this->db->query($sql);
         
             if ($result && mysqli_num_rows($result) > 0) {
@@ -2477,7 +2477,7 @@ $limit = 12;
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="form-check form-switch ps-0 toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto protoggle-button" type="checkbox" id="checkbox_' . $product_id . '" data-product-id="' . $product_id . '" ' . $toggleactive . '>';
-                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="videos">';
+                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="'. TABLE_VIDEO .'">';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -2494,7 +2494,7 @@ $limit = 12;
             } else {
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%'";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_PRODUCT ." WHERE title LIKE '%$search_value%'";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
@@ -2526,11 +2526,11 @@ $limit = 12;
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userid_clause = "AND user_id = $user_id";
             }
-            $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1'";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_USER ." WHERE shop LIKE '%$search_value%' $userid_clause and role='1'";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             $limit_qry = ($total_records > $limit) ? " LIMIT $offset, $limit" : " ";
-            $sql = "SELECT * FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' $limit_qry";
+            $sql = "SELECT * FROM ". TABLE_USER ." WHERE shop LIKE '%$search_value%' $userid_clause and role='1' $limit_qry";
             $result = $this->db->query($sql);
     
             if ($result && $result->num_rows > 0) {
@@ -2566,15 +2566,15 @@ $limit = 12;
                     $output .= '<td>' . htmlspecialchars($row['email']) . '</td>';
                     $output .= '<td>' . htmlspecialchars($row['phone_number']) . '</td>';
                     $output .= '<td><img src="' . $decodedPath . '" alt="Shop Image" class="user_img"></td>';
-                    $output .= '<td><i data-id="' . $row["user_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="users" aria-hidden="true"></i></td>';
-                    $output .='<td>';
-                    $output .='<div class="d-flex justify-content-center">';
+                    $output .= '<td><i data-id="' . $row["user_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_USER .'" aria-hidden="true"></i></td>';
+                    $output .= '<td>';
+                    $output .= '<div class="d-flex justify-content-center">';
                     $output .= '<div class="form-check form-switch  toggle_offon">';
                     $output .= '<input class="form-check-input ms-auto usertoggle-button" type="checkbox" id="checkbox_' . $userId . '" data-user-id="' . $userId . '" ' . $toggleactive . '>';
-                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="users">';
+                    $output .= '<input type="hidden" id="togglebtn" name="toggle" value="'. TABLE_USER .'">';
                     $output .= '</div>';
-                    $output .='</div>';
-                    $output .='<td>';
+                    $output .= '</div>';
+                    $output .= '<td>';
                     $output .= '</tr>';
                 }
                 $output .= '</tbody>';
@@ -2585,7 +2585,7 @@ $limit = 12;
             }else{
                 $response_data = array('data' => 'fail', 'outcome' => "No data found");
             }
-            $query = "SELECT COUNT(*) AS total FROM users WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
+            $query = "SELECT COUNT(*) AS total FROM ". TABLE_USER ." WHERE shop LIKE '%$search_value%' $userid_clause and role='1' ";
             $res_count = $this->db->query($query);
             $total_records = $res_count ? $res_count->fetch_assoc()['total'] : 0;
             if ($total_records > $limit) {
@@ -2658,7 +2658,7 @@ $limit = 12;
     function product_main_image(){
         $product_id = isset($_POST['delete_id']) ? $_POST['delete_id'] : '';
         if (!empty($product_id)) {
-            $query = "UPDATE products SET p_image = ' ' WHERE product_id = '$product_id'";
+            $query = "UPDATE ". TABLE_PRODUCT ." SET p_image = ' ' WHERE product_id = '$product_id'";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'message' => "Delete successfully");
@@ -2687,7 +2687,7 @@ $limit = 12;
             $error_msg = "Please enter the valid email address.";
         }
         if (empty($error_msg)) {
-            $query = "SELECT * FROM users WHERE email = '$email'";
+            $query = "SELECT * FROM ". TABLE_USER ." WHERE email = '$email'";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $token = bin2hex(random_bytes(50));
@@ -2734,7 +2734,7 @@ $limit = 12;
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $email = $row['email'];
-                    $query = "UPDATE users SET password = '$password' WHERE email = '$email'";
+                    $query = "UPDATE ". TABLE_USER ." SET password = '$password' WHERE email = '$email'";
                     $result = $this->db->query($query);
                     if ($result) {
                         $query = "DELETE FROM password_resets WHERE email = '$email'";
@@ -2760,11 +2760,11 @@ $limit = 12;
         $pro_img="";
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
-            $query = "SELECT  * from  products WHERE product_id = $id AND  status = 1";
+            $query = "SELECT  * from  ". TABLE_PRODUCT ." WHERE product_id = $id AND  status = 1";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $product_img_query = "SELECT  * from  product_images WHERE product_id = $id AND  status = 1";
+                $product_img_query = "SELECT  * from  ". TABLE_PRODUCT_IMAGE ." WHERE product_id = $id AND  status = 1";
                 $product_img_result = $this->db->query($product_img_query);
                 $product_img_results = [];
                 if ($product_img_result->num_rows > 0) {
@@ -2789,11 +2789,11 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
-            $query = "SELECT  * from  invoice WHERE invoice_id = $id";
+            $query = "SELECT  * from  ". TABLE_INVOICE ." WHERE invoice_id = $id";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
+                $item_query = "SELECT * FROM ". TABLE_INVOICE_ITEM ." WHERE invoice_id = $id";
                 $item_result = $this->db->query($item_query);
                 $item_data = $delete_style = "";
                 $row_index = 0;
@@ -2824,7 +2824,7 @@ $limit = 12;
                     $item_data .=  ' <input type="text" class="form-control mt-1" value="' . $inv_amount . '" name="amount[]" disabled="" >';
                     $item_data .=  '<span class="errormsg item"></span>';
                     $item_data .=  ' </td>';
-                    $item_data .=  '<td ' . $delete_style . ' data-delete-type="invoice_item" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose   delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
+                    $item_data .=  '<td ' . $delete_style . ' data-delete-type="'. TABLE_INVOICE_ITEM .'" data-id="' . $invoice_items['invoice_item_id'] . '" class="invoice-rowclose   delete"><i class="fa fa-times cursor-pointer remove" aria-hidden="true" style=""></i></td>';
                     $item_data .=  '</tr>';
                     $row_index++; 
                 }
@@ -2839,7 +2839,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => 'unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
-            $query = "SELECT  * from  customer  WHERE customer_id = $id ";
+            $query = "SELECT  * from  ". TABLE_CUSTOMER ."  WHERE customer_id = $id ";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -2856,7 +2856,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
-            $query = "SELECT  * from  blogs WHERE blog_id = $id AND  status = 1";
+            $query = "SELECT  * from  ". TABLE_BLOG ." WHERE blog_id = $id AND  status = 1";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -2902,7 +2902,7 @@ $limit = 12;
         if (isset($_POST['ischecked_value']) && isset($_POST['video_id'])) {
             $video_id = intval($_POST['video_id']);
             $ischecked_value = $_POST['ischecked_value'];
-            $query = "UPDATE videos SET toggle= '$ischecked_value' WHERE video_id = $video_id";
+            $query = "UPDATE ". TABLE_VIDEO ." SET toggle= '$ischecked_value' WHERE video_id = $video_id";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'outcome' => "Update successfully");
@@ -2916,7 +2916,7 @@ $limit = 12;
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_POST['video_id'])) {
             $video_id = intval($_POST['video_id']);
-            $query = "SELECT * FROM videos WHERE video_id = $video_id AND toggle='1'";
+            $query = "SELECT * FROM ". TABLE_VIDEO ." WHERE video_id = $video_id AND toggle='1'";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -2933,7 +2933,7 @@ function protoggle_checkuncheck() {
     if (isset($_POST['ischecked_value']) && isset($_POST['product_id'])) {
         $product_id = intval($_POST['product_id']);
         $ischecked_value = $_POST['ischecked_value'];
-         $query = "UPDATE products SET toggle= '$ischecked_value' WHERE product_id = $product_id";
+         $query = "UPDATE ". TABLE_PRODUCT ." SET toggle= '$ischecked_value' WHERE product_id = $product_id";
         $result = $this->db->query($query);
         if ($result) {
             $response_data = array('data' => 'success', 'outcome' => "Update successfully");
@@ -2950,7 +2950,7 @@ function procheck_toggle_btn() {
     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
     if (isset($_POST['product_id'])) {
         $product_id = intval($_POST['product_id']);
-        $query = "SELECT * FROM products WHERE  product_id = $product_id AND toggle='1'";
+        $query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE  product_id = $product_id AND toggle='1'";
         $result = $this->db->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -2967,7 +2967,7 @@ function usertoggle_checkuncheck() {
     if (isset($_POST['ischecked_value']) && isset($_POST['user_id'])) {
         $user_id = intval($_POST['user_id']);
         $ischecked_value = $_POST['ischecked_value'];
-         $query = "UPDATE users SET toggle= '$ischecked_value' WHERE user_id = $user_id";
+         $query = "UPDATE ". TABLE_USER ." SET toggle= '$ischecked_value' WHERE user_id = $user_id";
         $result = $this->db->query($query);
         if ($result) {
             $response_data = array('data' => 'success', 'outcome' => "Update successfully");
@@ -2984,7 +2984,7 @@ function usercheck_toggle_btn() {
     $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
     if (isset($_POST['user_id'])) {
         $user_id = intval($_POST['user_id']);
-        $query = "SELECT * FROM users WHERE  user_id = $user_id AND toggle='1'";
+        $query = "SELECT * FROM ". TABLE_USER ." WHERE  user_id = $user_id AND toggle='1'";
         $result = $this->db->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -2999,7 +2999,7 @@ function usercheck_toggle_btn() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
             $user_id = $_SESSION['current_user']['user_id'];
-            $sql = "SELECT * FROM allcategories WHERE status='1'";
+            $sql = "SELECT * FROM ". TABLE_CATEGORIE ." WHERE status='1'";
             $result = $this->db->query($sql);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -3022,7 +3022,7 @@ function usercheck_toggle_btn() {
     function select_shop(){
         $response_data = array('data' => 'fail', 'outcome' => 'something went wrong');
         if (isset($_SESSION['current_user']['user_id'])) {
-            $sql = "SELECT user_id, shop FROM users WHERE status='1'";
+            $sql = "SELECT user_id, shop FROM ". TABLE_USER ." WHERE status='1'";
             $result = $this->db->query($sql);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -3046,7 +3046,7 @@ function usercheck_toggle_btn() {
             $user_id = $_SESSION['current_user']['user_id'];
             $role = $_SESSION['current_user']['role'];
             $userquery = ($role == 1) ? "AND user_id = $user_id" : "";
-            $sql = "SELECT * FROM invoice WHERE status = '1' $userquery";
+            $sql = "SELECT * FROM ". TABLE_INVOICE ." WHERE status = '1' $userquery";
             $result = $this->db->query($sql);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -3069,7 +3069,7 @@ function usercheck_toggle_btn() {
             $role = $_SESSION['current_user']['role'];
             $userquery = ($role == 1) ? "AND user_id = $user_id" : "";
     
-            $sql = "SELECT * FROM products WHERE status = '1' $userquery";
+            $sql = "SELECT * FROM ". TABLE_PRODUCT ." WHERE status = '1' $userquery";
             $result = $this->db->query($sql);
     
             if ($result && $result->num_rows > 0) {
@@ -3092,7 +3092,7 @@ function usercheck_toggle_btn() {
             $role = $_SESSION['current_user']['role'];
             $userquery = ($role == 1) ? "AND user_id = $user_id" : "";
 
-            $sql = "SELECT * FROM customer WHERE status='1' $userquery";
+            $sql = "SELECT * FROM ". TABLE_CUSTOMER ." WHERE status='1' $userquery";
             $result = $this->db->query($sql);
 
             if ($result) {
@@ -3113,14 +3113,14 @@ function usercheck_toggle_btn() {
             $user_id = $_SESSION['current_user']['user_id'];
             $role = $_SESSION['current_user']['role'];
             $userquery = ($role == 1) ? "AND user_id = $user_id" : ""; 
-            $sql = "SELECT * FROM invoice  $userquery";
+            $sql = "SELECT * FROM ". TABLE_INVOICE ."  $userquery";
             $result = $this->db->query($sql);
             if ($result) {
                 $totalitemsale = $totalamountsale = 0;
                 if (mysqli_num_rows($result) > 0) {
                     while ($invoicedata = mysqli_fetch_assoc($result)) {
                         $invoice_id = $invoicedata['invoice_id'];
-                        $invoice_item_sql = "SELECT * FROM invoice_item WHERE invoice_id = $invoice_id";
+                        $invoice_item_sql = "SELECT * FROM ". TABLE_INVOICE_ITEM ." WHERE invoice_id = $invoice_id";
                         $invoice_item_result = $this->db->query($invoice_item_sql);
                         if ($invoice_item_result) {
                             if (mysqli_num_rows($invoice_item_result) > 0) {
@@ -3148,7 +3148,7 @@ function usercheck_toggle_btn() {
                 $user_id = $_SESSION['current_user']['user_id'];
                 $userquery = "WHERE user_id = $user_id";
             } 
-            $sql = "SELECT * FROM users $userquery AND toggle='0' and role='1'";
+            $sql = "SELECT * FROM ". TABLE_USER ." $userquery AND toggle='0' and role='1'";
                 $result = $this->db->query($sql); 
                 if ($result ) {
                     if (mysqli_num_rows($result) > 0) {
@@ -3173,7 +3173,7 @@ function usercheck_toggle_btn() {
             $user_id = $_SESSION['current_user']['user_id'];
             $userquery = "and user_id = $user_id";
             $yearly_totals = [];
-            $sql = "SELECT * FROM invoice WHERE status='1' $userquery";
+            $sql = "SELECT * FROM ". TABLE_INVOICE ." WHERE status='1' $userquery";
             $result = $this->db->query($sql);
             if ($result) {
                 if (mysqli_num_rows($result) > 0) {
@@ -3196,11 +3196,11 @@ function usercheck_toggle_btn() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $id = isset($_POST['id']) ? $_POST['id'] : '';
         if (!empty($id)) {
-            $query = "SELECT  * from  invoice WHERE invoice_id = $id";
+            $query = "SELECT  * from  ". TABLE_INVOICE ." WHERE invoice_id = $id";
             $result = $this->db->query($query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $item_query = "SELECT * FROM invoice_item WHERE invoice_id = $id";
+                $item_query = "SELECT * FROM ". TABLE_INVOICE_ITEM ." WHERE invoice_id = $id";
                 $item_result = $this->db->query($item_query);
                 $item_data = "";
                 while ($invoice_items = $item_result->fetch_assoc()) {
@@ -3338,12 +3338,12 @@ function usercheck_toggle_btn() {
                     $offer_id = (isset($orderRes->offer_id) && $orderRes->offer_id !== '') ? $orderRes->offer_id : '';
                     $receipt = (isset($orderRes->receipt) && $orderRes->receipt !== '') ? $orderRes->receipt : '';
                     
-                    $sql = "SELECT * FROM payment WHERE user_id='$user_id' ";
+                    $sql = "SELECT * FROM ". TABLE_PAYMENT ." WHERE user_id='$user_id' ";
                     $result = $this->db->query($sql);
                     if ($result->num_rows > 0) {
                         $paymentdata = mysqli_fetch_assoc($result);
                         $lastInsertedId = $paymentdata['id'];
-                        $query = "UPDATE payment SET plan_type = '$plan_type', start_date = '$start_date', end_date = '$end_date', is_paid = '0', amount = '$amount',
+                        $query = "UPDATE ". TABLE_PAYMENT ." SET plan_type = '$plan_type', start_date = '$start_date', end_date = '$end_date', is_paid = '0', amount = '$amount',
                                  amount_due = '$amount_due', amount_paid = '$amount_paid', attempts = '$attempts', currency = '$currency', entity = '$entity', 
                                  order_id = '$order_id', notes = '$notes', offer_id = '$offer_id', receipt = '$receipt'
                                  WHERE user_id ='$user_id'";
@@ -3358,7 +3358,7 @@ function usercheck_toggle_btn() {
                             $response_data = array('data' => 'fail', 'msg' => "Error inserting into database");                        
                         }
                     }else{
-                        $query = "INSERT INTO payment (user_id, plan_type, start_date, end_date, is_paid, amount, amount_due, amount_paid, attempts, 
+                        $query = "INSERT INTO ". TABLE_PAYMENT ." (user_id, plan_type, start_date, end_date, is_paid, amount, amount_due, amount_paid, attempts, 
                                                         currency, entity, order_id, notes, offer_id, receipt) 
                                     VALUES ('$user_id', '$plan_type' , '$start_date', '$end_date', '0', '$amount', '$amount_due', '$amount_paid', '$attempts', 
                                     '$currency', '$entity', '$order_id', '$notes', '$offer_id', '$receipt')";
@@ -3393,7 +3393,7 @@ function usercheck_toggle_btn() {
             $razorpay_payment_id = (isset($_POST['razorpay_payment_id']) && $_POST['razorpay_payment_id'] !== '') ? $_POST['razorpay_payment_id'] : '';
             $razorpay_signature = (isset($_POST['razorpay_signature']) && $_POST['razorpay_signature'] !== '') ? $_POST['razorpay_signature'] : '';
             $id = (isset($_POST['inserted_id']) && $_POST['inserted_id'] !== '') ? $_POST['inserted_id'] : '';
-            $query = "UPDATE payment SET razorpay_payment_id = '$razorpay_payment_id', razorpay_signature = '$razorpay_signature', is_paid = '1' WHERE id  = $id";
+            $query = "UPDATE ". TABLE_PAYMENT ." SET razorpay_payment_id = '$razorpay_payment_id', razorpay_signature = '$razorpay_signature', is_paid = '1' WHERE id  = $id";
             $result = $this->db->query($query);
             if ($result) {
                 $response_data = array('data' => 'success', 'msg' => "Payment status update successfully");
@@ -3409,7 +3409,7 @@ function usercheck_toggle_btn() {
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         if (isset($_SESSION['current_user']['user_id'])) { 
             $user_id = $_SESSION['current_user']['user_id'];
-            $sql = "SELECT * FROM payment WHERE user_id='$user_id' ";
+            $sql = "SELECT * FROM ". TABLE_PAYMENT ." WHERE user_id='$user_id' ";
             $result = $this->db->query($sql);
             if ($result->num_rows > 0) {
                 $paymentdata = mysqli_fetch_assoc($result);
