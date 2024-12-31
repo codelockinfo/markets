@@ -1443,7 +1443,7 @@ $limit = 12;
                     $output .= '<div>';
                     $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank"><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                     $output .= '<i data-id="' . $row["product_id"] . '" class="fa fa-trash text-secondary cursor-pointer delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="products" aria-hidden="true"></i>';
-                    $output .= '<a href="product-form?id=' . $row['product_id'] . '"  target="_blank"class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
+                    $output .= '<a href="product-form?id=' . $row['product_id'] . '"class="edit_btn btn-light shadow-sm rounded-0"><i data-id="' . $row["product_id"] . '" class="fa fa-pen text-secondary delete_shadow icon-size" aria-hidden="true"></i></a>';
                     $output .= '</div>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -1675,7 +1675,7 @@ $limit = 12;
                     $output .= '<div class="ms-auto text-end">';
                     $output .= '<div class="mt-3">';
                     $output .= '<i data-id="' . $row["customer_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="customer"  data-fild="c_image" aria-hidden="true"></i>';
-                    $output .= '<a href="customer?id=' . $row['customer_id'] . '" target="_blank" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '<a href="customer?id=' . $row['customer_id'] . '" class=" edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["customer_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '</a>';
                     $output .= '</div>';
@@ -1812,7 +1812,7 @@ $limit = 12;
                     </div>
                 </li>
                 <div class="text-center">
-                    <a href="' . SITE_ADMIN_URL . 'profile-form" target="_blank">
+                    <a href="' . SITE_ADMIN_URL . 'profile-form">
                         <button type="button" class="btn bg-gradient-info btn-sm">Edit Profile</button>
                     </a>
                 </div>';
@@ -1898,7 +1898,7 @@ $limit = 12;
                     $output .= '<div class="" >';
                     $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class=" cursor-pointer fa fa-trash text-secondary  delete_shadow  me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="blogs"  data-fild="image"aria-hidden="true"></i>';
-                    $output .= '<a href="blog-form?id=' . $row['blog_id'] . ' "  target="_blank"class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
+                    $output .= '<a href="blog-form?id=' . $row['blog_id'] . ' " class="edit_btn delete_shadow btn-light shadow-sm rounded-0">';
                     $output .= '<i data-id="' . $row["blog_id"] . '" class="fa fa-pen " aria-hidden="true"></i>';
                     $output .= '</a>';
                     $output .= '</div>';

@@ -26,7 +26,7 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                         <div class="collapse navbar-collapse justify-content-end" id="navigation">
                             <ul class="navbar-nav ">
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up"  target="_blank">
+                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up" >
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                         Sign Up
                                     </a>
@@ -96,12 +96,12 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                    
                             </div>
                             <div class="text-center mb-2 position-relative">
-                                <a href="forget-password.php" target="_blank" class="font-weight-bold">Forget Password ?</a>
+                                <a href="forget-password.php" class="font-weight-bold">Forget Password ?</a>
                             </div>
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
                                     Don't have an account?
-                                    <a href="<?php echo SITE_ADMIN_URL ?>sign-up" target="_blank" class="text-info text-gradient   font-weight-bold ">Sign up</a>
+                                    <a href="<?php echo SITE_ADMIN_URL ?>sign-up" class="text-info text-gradient   font-weight-bold ">Sign up</a>
                                 </p>
                             </div>
                         </div>
