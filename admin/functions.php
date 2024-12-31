@@ -453,7 +453,7 @@ $limit = 12;
             $p_description = str_replace("'", "\'", $p_description);
             $user_id = $_SESSION['current_user']['user_id'];
             if ($addcategory != '' && $addcheckboxcategory != '') {
-           
+
                 $checkCategoryQuery = "SELECT COUNT(*) AS count FROM  ". TABLE_CATEGORIE ." WHERE categoies_name = '$addcategory' AND user_id = '$user_id'";
                 $categoryExistsResult = $this->db->query($checkCategoryQuery);
                 
@@ -469,6 +469,7 @@ $limit = 12;
                     return json_encode($response_data);
                 }
                 $add_category_query = "INSERT INTO  ". TABLE_CATEGORIE ." (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+
                 $category_result = $this->db->query($add_category_query);
                 if ($category_result) {
                     $select_catagory = $this->db->insert_id;
