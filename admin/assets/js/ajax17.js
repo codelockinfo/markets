@@ -1039,6 +1039,10 @@ $(document).ready(function () {
   console.log(randomNumber);
   $(".genrate").val(randomNumber);
 
+  document.getElementById('pname').oninput = function() {
+    document.getElementById('image_alt').value = this.value;
+  }
+
   $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");
   });

@@ -34,63 +34,63 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                     </div>
                     <div class="d-block d-md-flex align-items-start">
                         <div class="nav flex-column nav-pills me-3 custom_header" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link active text-light fw-bold fs-6" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="toggleDropdown('dropdown-home')">Home</button>
+                            <button class="nav-link active text-light  document_text" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="toggleDropdown('dropdown-home')">Home</button>
                             <div class="ms-4" id="dropdown-home" style="display: none;">
-                                <a href="#Profile_Flow" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Profile</a><br>
-                                <a href="#Informational" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Informational Cards</a><br>
-                                <a href="#Graphs" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Graphs and Charts</a><br>
-                                <a href="#error" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Possible Errors and Features</a><br>
+                                <a href="#Profile_Flow" class="text-light  document_text" onclick="closeDropdowns()">- Profile</a><br>
+                                <a href="#Informational" class="text-light document_text" onclick="closeDropdowns()">- Informational Cards</a><br>
+                                <a href="#Graphs" class="text-light document_text" onclick="closeDropdowns()">- Graphs and Charts</a><br>
+                                <a href="#error" class="text-light document_text" onclick="closeDropdowns()">- Possible Errors and Features</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="toggleDropdown('dropdown-profile')">Profile</button>
+                            <button class="nav-link text-light document_text" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="toggleDropdown('dropdown-profile')">Profile</button>
                             <div class="ms-4" id="dropdown-profile" style="display: none; ">
-                                <a href="#Profile_information" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Profile information</a><br>
-                                <a href="#Search" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Search</a><br>
-                                <a href="#Sort" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Sort Button</a><br>
-                                <a href="#profile_error" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- Common Issues and Solutions</a><br>
+                                <a href="#Profile_information" class="text-light document_text" onclick="closeDropdowns()">- Profile information</a><br>
+                                <a href="#Search" class="text-light document_text" onclick="closeDropdowns()">- Search</a><br>
+                                <a href="#Sort" class="text-light document_text" onclick="closeDropdowns()">- Sort Button</a><br>
+                                <a href="#profile_error" class="text-light document_text" onclick="closeDropdowns()">- Common Issues and Solutions</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-product-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product" type="button" role="tab" aria-controls="v-pills-product" aria-selected="false" onclick="toggleDropdown('dropdown-product')">Product</button>
+                            <button class="nav-link text-light document_text" id="v-pills-product-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product" type="button" role="tab" aria-controls="v-pills-product" aria-selected="false" onclick="toggleDropdown('dropdown-product')">Product</button>
                             <div class="ms-4" id="dropdown-product" style="display: none;">
-                                <a href="#product" class="text-light fw-bold fs-6" onclick="closeDropdowns()">- product information</a><br>
-                                <a href="#icon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#product_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#link" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
+                                <a href="#product" class="text-light document_text" onclick="closeDropdowns()">- product information</a><br>
+                                <a href="#icon" class="text-light document_text"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#product_error" class="text-light document_text"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#link" class="text-light document_text"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-customer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-customer" type="button" role="tab" aria-controls="v-pills-customer" aria-selected="false" onclick="toggleDropdown('dropdown-customer')">Customer</button>
+                            <button class="nav-link text-light document_text" id="v-pills-customer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-customer" type="button" role="tab" aria-controls="v-pills-customer" aria-selected="false" onclick="toggleDropdown('dropdown-customer')">Customer</button>
                             <div class="ms-4" id="dropdown-customer" style="display: none;">
-                                <a href="#customer" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Customer information</a><br>
-                                <a href="#customeicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#customer_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#customerlink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
+                                <a href="#customer" class="text-light document_text"onclick="closeDropdowns()">- Customer information</a><br>
+                                <a href="#customeicon" class="text-light document_text"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#customer_error" class="text-light document_text"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#customerlink" class="text-light document_text"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gallery" type="button" role="tab" aria-controls="v-pills-gallery" aria-selected="false">
+                            <button class="nav-link text-light document_text" id="v-pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gallery" type="button" role="tab" aria-controls="v-pills-gallery" aria-selected="false">
                             Gallery</button>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-video-tab" data-bs-toggle="pill" data-bs-target="#v-pills-video" type="button" role="tab" aria-controls="v-pills-video" aria-selected="false" onclick="toggleDropdown('dropdown-video')">Video</button>
+                            <button class="nav-link text-light document_text" id="v-pills-video-tab" data-bs-toggle="pill" data-bs-target="#v-pills-video" type="button" role="tab" aria-controls="v-pills-video" aria-selected="false" onclick="toggleDropdown('dropdown-video')">Video</button>
                             <div class="ms-4" id="dropdown-video" style="display: none;">
-                                <a href="#video" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video information</a><br>
-                                <a href="#videoicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#video_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#videolink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
+                                <a href="#video" class="text-light document_text"onclick="closeDropdowns()">- Video information</a><br>
+                                <a href="#videoicon" class="text-light document_text"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#video_error" class="text-light document_text"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#videolink" class="text-light document_text"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-blog-tab" data-bs-toggle="pill" data-bs-target="#v-pills-blog" type="button" role="tab" aria-controls="v-pills-blog" aria-selected="false" onclick="toggleDropdown('dropdown-blog')">Blog</button>
+                            <button class="nav-link text-light document_text" id="v-pills-blog-tab" data-bs-toggle="pill" data-bs-target="#v-pills-blog" type="button" role="tab" aria-controls="v-pills-blog" aria-selected="false" onclick="toggleDropdown('dropdown-blog')">Blog</button>
                             <div class="ms-4" id="dropdown-blog" style="display: none;">
-                                <a href="#blog" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Blog information</a><br>
-                                <a href="#blogicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#blog_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#bloglink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
+                                <a href="#blog" class="text-light document_text"onclick="closeDropdowns()">- Blog information</a><br>
+                                <a href="#blogicon" class="text-light document_text"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#blog_error" class="text-light document_text"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#bloglink" class="text-light document_text"onclick="closeDropdowns()">- Video</a><br>
                             </div>
 
-                            <button class="nav-link text-light fw-bold fs-6" id="v-pills-invoice-tab" data-bs-toggle="pill" data-bs-target="#v-pills-invoice" type="button" role="tab" aria-controls="v-pills-invoice" aria-selected="false" onclick="toggleDropdown('dropdown-invoice')">Invoice</button>
+                            <button class="nav-link text-light document_text" id="v-pills-invoice-tab" data-bs-toggle="pill" data-bs-target="#v-pills-invoice" type="button" role="tab" aria-controls="v-pills-invoice" aria-selected="false" onclick="toggleDropdown('dropdown-invoice')">Invoice</button>
                             <div class="ms-4" id="dropdown-invoice" style="display: none;">
-                                <a href="#invoice" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Invoice information</a><br>
-                                <a href="#invoiceicon" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Icon</a><br>
-                                <a href="#invoice_error" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
-                                <a href="#invoicelink" class="text-light fw-bold fs-6"onclick="closeDropdowns()">- Video</a><br>
+                                <a href="#invoice" class="text-light document_text"onclick="closeDropdowns()">- Invoice information</a><br>
+                                <a href="#invoiceicon" class="text-light document_text"onclick="closeDropdowns()">- Icon</a><br>
+                                <a href="#invoice_error" class="text-light document_text"onclick="closeDropdowns()">- Common Issues and Solutions </a><br>
+                                <a href="#invoicelink" class="text-light document_text"onclick="closeDropdowns()">- Video</a><br>
                             </div>
                         </div>
                         <div class="custom_main" id="main-doc">
@@ -103,7 +103,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="Profile_Flow">
-                                        <div class="custome-text custome-dark-blue">1. Profile</div>
+                                        <div class="dark f-44">1. Profile</div>
                                         <div class="f-18">Users can click on the profile icon to view and edit their profile.</div>
                                         <img src="assets/img/document_img/img2.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -116,7 +116,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="Informational">
-                                        <div class="custome-text custome-dark-blue">2. Informational Cards</div>
+                                        <div class="dark f-44">2. Informational Cards</div>
                                         <div class="f-18">There are four cards on the home page, which display 	important data: </div>
                                         <img src="assets/img/document_img/img4.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -193,7 +193,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="Graphs">
-                                        <div class="custome-text custome-dark-blue">3. Graphs and Charts</div>
+                                        <div class="dark f-44">3. Graphs and Charts</div>
                                         <div class="f-24 custome-light-blue">Active Users</div>
                                         <div class="f-18">Users' activities are shown as a bar chart. It also tells the number of active users compared to the previous week (eg: +23%).</div>
                                         <img src="assets/img/document_img/p14.png" class="img-fluid mt-5" alt="image">
@@ -208,7 +208,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="error">
-                                        <div class="custome-text custome-dark-blue">4. Possible Errors and Features</div>
+                                        <div class="dark f-44">4. Possible Errors and Features</div>
                                         <div class="f-24 custome-light-blue">Features of Home Page</div>
                                         <div class="f-18">Show the overall status of the user's data at a glance.<br>Presenting visual data through charts and cards.<br>Quick access to other modules from the sidebar.</div>
                                         <div class="f-24 custome-light-blue">Possible Errors</div>
@@ -227,7 +227,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="Profile_information">
-                                        <div class="custome-text custome-dark-blue">1. Profile photo</div>
+                                        <div class="dark f-44">1. Profile photo</div>
                                         <div class="f-18">Users can view and update their profile photo.<br>Option to update photo: Photo can be changed using the "Edit Profile" button.</div>
                                         <img src="assets/img/document_img/img16.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -282,7 +282,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="Search">
-                                        <div class="custome-text custome-dark-blue">2. Search Bar</div>
+                                        <div class="dark f-44">2. Search Bar</div>
                                         <div class="f-18">Users can easily search for a particular information or product within the profile section.<br>Type the information required in "Type here...".<br>The results will be automatically filtered.</div>
                                         <img src="assets/img/document_img/img22.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -290,7 +290,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="Sort">
-                                        <div class="custome-text custome-dark-blue">3. Sort By Button</div>
+                                        <div class="dark f-44">3. Sort By Button</div>
                                         <div class="f-18">Allows data to be organized according to various criteria.<br>Click the button and select the option from the dropdown menu.<br>The data will be arranged in the same order.</div>
                                         <img src="assets/img/document_img/img23.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -298,7 +298,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="profile_error">
-                                        <div class="custome-text custome-dark-blue">4. Common Issues and Solutions</div>
+                                        <div class="dark f-44">4. Common Issues and Solutions</div>
                                         <div class="f-18">Check Internet connection.<br>Fill all the fields correctly.</div>
                                         <img src="assets/img/document_img/img24.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -334,7 +334,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     </div>
                                     <div class="f-18">All products are shown in a card view.<br>Each card contains product information such as:</div>
                                     <div id="product">
-                                        <div class="custome-text custome-dark-blue">1. Product information</div>
+                                        <div class="dark f-44">1. Product information</div>
                                         <div class="f-20 custome-light-blue">Add Product Button :</div>
                                         <div class="f-18">To add a new product.<br>On clicking, there is an option to upload the product name, price, and photo etc...</div>
                                         <img src="assets/img/document_img/img30.png" class="img-fluid mt-5">
@@ -381,7 +381,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="icon">
-                                        <div class="custome-text custome-dark-blue">1. Button and Icon</div>
+                                        <div class="dark f-44">1. Button and Icon</div>
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img32.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -417,7 +417,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">To see information related to the product.</div>
                                     </div>
                                     <div id="product_error">
-                                        <div class="custome-text custome-dark-blue">3. Common Issues and Solutions</div>
+                                        <div class="dark f-44">3. Common Issues and Solutions</div>
                                         <div class="f-18">Make sure the internet connection is stable.</div>
                                         <div class="f-20 custome-light-blue">Photo Upload Issues:</div>
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
@@ -439,7 +439,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="link">
-                                        <div class="custome-text custome-dark-blue">3. Product_video</div>
+                                        <div class="dark f-44">3. Product_video</div>
                                         <iframe src="https://somup.com/cZl1iEJRgP" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
                                     </div>
@@ -452,7 +452,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="customer">
-                                        <div class="custome-text custome-dark-blue">1. Customer information</div>
+                                        <div class="dark f-44">1. Customer information</div>
                                         <div class="f-20 custome-light-blue">Add Customer :</div>
                                         <div class="f-18">Use the "Add Customer" button at the top right of the screen to add a new customer.</div>
                                         <img src="assets/img/document_img/img42.png" class="img-fluid mt-5">
@@ -494,7 +494,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="customeicon">
-                                        <div class="custome-text custome-dark-blue">1. Button and Icon</div>
+                                        <div class="dark f-44">1. Button and Icon</div>
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img44.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -530,7 +530,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">To see information related to the product.</div>
                                     </div>
                                     <div id="customer_error">
-                                        <div class="custome-text custome-dark-blue">3. Common Issues and Solutions</div>
+                                        <div class="dark f-44">3. Common Issues and Solutions</div>
                                         <div class="f-18">Make sure the internet connection is stable.</div>
                                         <div class="f-20 custome-light-blue">Photo Upload Issues:</div>
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
@@ -546,7 +546,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="customerlink">
-                                        <div class="custome-text custome-dark-blue">3. Customer_video</div>
+                                        <div class="dark f-44">3. Customer_video</div>
                                         <iframe src="https://somup.com/cZl1QRJRs9" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
                                     </div>
@@ -577,7 +577,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                     <div class="f-18">Click on the video to play the video.</div>
                                     <div class="f-18"></div>
                                     <div id="video">
-                                        <div class="custome-text custome-dark-blue">1. Video information</div>
+                                        <div class="dark f-44">1. Video information</div>
                                         <div class="f-20 custome-light-blue">Add Video :</div>
                                         <div class="f-18">Click the "Add Video" button on the top right corner of the page.</div>
                                         <img src="assets/img/document_img/img55.png" class="img-fluid mt-5">
@@ -607,7 +607,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="videoicon">
-                                        <div class="custome-text custome-dark-blue">1. Button and Icon</div>
+                                        <div class="dark f-44">1. Button and Icon</div>
                                         <div class="f-20 custome-light-blue">Delete icon:</div>
                                         <div class="f-18">Videos can be deleted by clicking on the "Delete" icon (dustbin icon) below each video.</div>
                                         <img src="assets/img/document_img/img57.png" class="img-fluid mt-5">
@@ -622,7 +622,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">click yes delete it <br> To permanently remove the video.</div>
                                     </div>
                                     <div id="video_error">
-                                        <div class="custome-text custome-dark-blue">3. Common Issues and Solutions</div>
+                                        <div class="dark f-44">3. Common Issues and Solutions</div>
                                         <div class="f-18">Make sure the internet connection is stable.</div>
                                         <div class="f-20 custome-light-blue">video Upload Issues:</div>
                                         <div class="f-18">Only used for YouTube short videos and not for YouTube videos</div>
@@ -638,7 +638,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="videolink">
-                                        <div class="custome-text custome-dark-blue">3. video</div>
+                                        <div class="dark f-44">3. video</div>
                                         <iframe src="https://somup.com/cZl16RJRRT" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
                                     </div>
@@ -651,7 +651,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="blog">
-                                        <div class="custome-text custome-dark-blue">1. Blog information</div>
+                                        <div class="dark f-44">1. Blog information</div>
                                         <div class="f-20 custome-light-blue">Add Blog :</div>
                                         <div class="f-18">Click the "Add Blog" button on the top right corner of the page. </div>
                                         <img src="assets/img/document_img/img62.png" class="img-fluid mt-5">
@@ -690,7 +690,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">then save click button </div>
                                     </div>
                                     <div id="blogicon">
-                                        <div class="custome-text custome-dark-blue">1. Button and Icon</div>
+                                        <div class="dark f-44">1. Button and Icon</div>
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img64.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -715,7 +715,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">click yes delete it <br> To permanently remove the product.</div>
                                     </div>
                                     <div id="blog_error">
-                                        <div class="custome-text custome-dark-blue">3. Common Issues and Solutions</div>
+                                        <div class="dark f-44">3. Common Issues and Solutions</div>
                                         <div class="f-18">Make sure the internet connection is stable.</div>
                                         <div class="f-20 custome-light-blue">Photo Upload Issues:</div>
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
@@ -731,7 +731,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="bloglink">
-                                        <div class="custome-text custome-dark-blue">3. Blog_video</div>
+                                        <div class="dark f-44">3. Blog_video</div>
                                         <iframe src="https://somup.com/cZliePJWlH" width="640" height="360" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                 </div>
@@ -743,7 +743,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <p class="d-inline border border-danger text-danger text-center mx-auto p-2">figure  1</p>
                                     </div>
                                     <div id="invoice">
-                                        <div class="custome-text custome-dark-blue">1. Invoice information</div>
+                                        <div class="dark f-44">1. Invoice information</div>
                                         <div class="f-20 custome-light-blue">Add Invoice:</div>
                                         <div class="f-18">New invoices can be added using the "Add Invoice" button at the top right of the screen.
                                         </div>
@@ -808,7 +808,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">then save click button </div>
                                     </div>
                                     <div id="invoiceicon">
-                                        <div class="custome-text custome-dark-blue">1. Button and Icon</div>
+                                        <div class="dark f-44">1. Button and Icon</div>
                                         <div class="f-20 custome-light-blue">Edit icon:</div>
                                         <img src="assets/img/document_img/img74.png" class="img-fluid mt-5">
                                         <div class="  d-block text-center mx-auto" >
@@ -833,7 +833,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         <div class="f-18">click yes delete it <br> To permanently remove the invoice.</div>
                                     </div>
                                     <div id="invoice_error">
-                                        <div class="custome-text custome-dark-blue">3. Common Issues and Solutions</div>
+                                        <div class="dark f-44">3. Common Issues and Solutions</div>
                                         <div class="f-18">Make sure the internet connection is stable.</div>
                                         <div class="f-20 custome-light-blue">Photo Upload Issues:</div>
                                         <div class="f-18">Make sure the photo is in the correct format ( PNG,JPG,JPEG,GIF).The size of the photo should not be too big.</div>
@@ -849,7 +849,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                                         </div>
                                     </div>
                                     <div id="invoicelink">
-                                        <div class="custome-text custome-dark-blue">3. Invoice_video</div>
+                                        <div class="dark f-44">3. Invoice_video</div>
                                         <iframe src="https://somup.com/cZlQfxdcEg" width="640" height="360" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                 </div>
