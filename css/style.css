@@ -282,6 +282,10 @@ align-items: center;
     padding: 8px;
 
 }
+.faq-section .accordion-item{
+    border: 1px solid var(--main-color);
+    
+}
 .circle-icon i {
     font-size: 10px; 
     color: var(--white);
