@@ -1555,6 +1555,15 @@ $limit = 12;
             $pagination = "";
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $balance_due = $row['balance_due'];
+                    $total = $row['total'];
+                    if($total == $balance_due){
+                        $paymentstatus = "Unpaid";
+                    }else if ($balance_due > 0){
+                        $paymentstatus = "Partially Paid";   
+                    }else if($balance_due == 0){
+                        $paymentstatus = "Paid";   
+                    }
                     $image = $row["i_image"];
                     $imagePath = "../admin/assets/img/invoice_img/" . $image;
                     $noimagePath = $NO_IMAGE;
@@ -1580,6 +1589,7 @@ $limit = 12;
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '<div class="mt-2">';
+                        $output .= '<span class=" text-secondary delete_shadow delete_btn btn-light shadow-sm rounded-0">'.$paymentstatus.'</span>';
                         $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank"><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview?id='. $row['invoice_id'].'"  target="_blank"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_INVOICE .'" data-fild="i_image" aria-hidden="true"></i>';

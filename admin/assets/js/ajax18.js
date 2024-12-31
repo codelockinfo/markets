@@ -2747,6 +2747,8 @@ function getPaymentPlan() {
         $(".btn[data-plan_type='" + response.outcome.plan_type + "']").text(
           "Current plan"
         );
+        $(".btn[data-plan_type='" + response.outcome.plan_type + "']").closest(".card").addClass('active');
+        $(".btn[data-plan_type='" + response.outcome.plan_type + "']").closest(".card").find(".card-title").append('<span class="plan-tag py-1 px-2">Active</span>');
       }
     },
   });

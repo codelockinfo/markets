@@ -1114,7 +1114,10 @@ i.fa-solid.fa-xmark{
 .select2-selection__choice {
   text-transform: capitalize !important;
 }
-
+.plan-tag {
+  background-color: red;
+  color:#fff;
+}
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {
@@ -1157,7 +1160,7 @@ i.fa-solid.fa-xmark{
     content: "\f106";
   }
 
-  .pricing .card:hover {
+  .pricing .card:hover,.pricing .card.active {
     background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
     opacity: 0.6;
     color: white;
