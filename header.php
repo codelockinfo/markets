@@ -27,6 +27,6 @@ if ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com'  || $_SERVER['SERVER_N
     <script src="<?php echo main_url('js/jquery.min.js'); ?>"></script>
     <script src="<?php echo main_url('js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="<?php echo main_url('js/ajax.js'); ?>"></script>
+    <script src="<?php echo main_url('js/front-ajax.js'); ?>"></script>
     <script src="<?php echo main_url('js/custom-js.js'); ?>"></script>
 </head>
