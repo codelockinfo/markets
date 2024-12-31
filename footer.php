@@ -49,10 +49,6 @@
                             <a href="#" class="text-light text-decoration-none body-font-familly f-18">Safe and Easy
                                 Us</a>
                         </li>
-                        <li>
-                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Product by
-                                Keyword</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
