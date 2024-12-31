@@ -1410,7 +1410,7 @@ $limit = 12;
                     $output .= '<h1 class="modal-title fs-5" id="staticBackdropLabel-' . $product_id . '">Product Images</h1>';
                     $output .= '<button type="button" class="btn-close text-danger fs-3 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>';
                     $output .= '</div>';
-                    $output .= '<div class="modal-body">';
+                    $output .= '<div class="modal-body product_pop">';
                     $image = $row["p_image"];
                     $imagePath = "../admin/assets/img/product_img/" . $image;
                     $noimagePath = $NO_IMAGE;

@@ -36,9 +36,9 @@
                         <div class="card  w-100 h-100  border-0 overflow-hidden">
                             <img src="img/img6.jpg" class="">
                             <div class="d-flex justify-content-between align-items-center p-2">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Sarees</h6>
+                                <h6 class="fw-bold f-18    m-0">Sarees</h6>
                                 <a href="#"
-                                    class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16  body-font-familly mt-2 mb-2 d-flex border-r">View
+                                    class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16     mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
@@ -47,9 +47,9 @@
                         <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img7.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Dhoti Set</h6>
+                                <h6 class="fw-bold f-18    m-0">Dhoti Set</h6>
                                 <a href="#"
-                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
@@ -58,9 +58,9 @@
                         <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/lahenga.webp">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Lahenga choli</h6>
+                                <h6 class="fw-bold f-18    m-0">Lahenga choli</h6>
                                 <a href="#"
-                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
@@ -69,9 +69,9 @@
                         <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/salvar.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Salwar suits</h6>
+                                <h6 class="fw-bold f-18    m-0">Salwar suits</h6>
                                 <a href="#"
-                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
@@ -80,9 +80,9 @@
                         <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img12.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Dupatta stoles</h6>
+                                <h6 class="fw-bold f-18    m-0">Dupatta stoles</h6>
                                 <a href=""
-                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
@@ -91,9 +91,9 @@
                         <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img13.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Shervani</h6>
+                                <h6 class="fw-bold f-18    m-0">Shervani</h6>
                                 <a href="#"
-                                    class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex border-r">View
+                                    class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
@@ -102,9 +102,9 @@
                         <div class="card w-100 h-100 border-0 overflow-hidden">
                             <img src="img/img15.jpg">
                             <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18 body-font-familly m-0">Koti Kurta</h6>
+                                <h6 class="fw-bold f-18    m-0">Koti Kurta</h6>
                                 <a href="#"
-                                    class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 f-16 border-0 body-font-familly mt-2 mb-2 d-flex">View
+                                    class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex">View
                                     all</a>
                             </div>
                         </div>
@@ -144,8 +144,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -191,8 +191,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -238,8 +238,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -285,8 +285,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -332,8 +332,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -379,8 +379,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -426,8 +426,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -473,8 +473,8 @@
                             <!-- <div class="w-25 mt-2">
                                 <i class="fa-solid fa-comment-dots fs-3"></i>
                             </div> -->
-                            <h5 class="card-title mt-2 f-36 body-font-familly fw-bold ">Dream Shop</h5>
-                            <p class="card-text f-16 body-font-familly"><span class="text-danger fw-bold">3</span>
+                            <h5 class="card-title mt-2 f-36    fw-bold ">Dream Shop</h5>
+                            <p class="card-text f-16   "><span class="text-danger fw-bold">3</span>
                                 Products</p>
                             <div class="d-flex justify-content-between">
                             <div class="svg-container d-flex col-10">
@@ -519,7 +519,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -529,7 +529,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -587,7 +587,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -597,7 +597,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -655,7 +655,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -665,7 +665,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -723,7 +723,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -733,7 +733,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -791,7 +791,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -801,7 +801,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -909,7 +909,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -919,7 +919,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -977,7 +977,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -987,7 +987,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -1045,7 +1045,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -1055,7 +1055,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -1113,7 +1113,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -1123,7 +1123,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -1181,7 +1181,7 @@
                                 <div class="col-sm-5">
                                     <div class="text-center">
                                         <img src="img/logo3.png" alt="Logo" class="w-50 custome_p_logo">
-                                        <h5 class="body-font-familly mt-3 f-22">Krishna Textile</h5>
+                                        <h5 class="   mt-3 f-22">Krishna Textile</h5>
                                         <p class="text-warning mb-4">
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
                                             <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -1191,7 +1191,7 @@
                                         </p>
                                         <div class="svg-container justify-content-center d-flex">
                                             <a href="#"
-                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0 body-font-familly"><svg
+                                                class="f-14 text-decoration-none custom_button z-index main-color border-r px-3 py-2 fw-semibold border-0   "><svg
                                                     class="me-2" xmlns=" http://www.w3.org/2000/svg " version="1.1"
                                                     xmlns:xlink=" http://www.w3.org/1999/xlink " width="20" height="20"
                                                     x="0" y="0" viewBox="0 0 489.4 489.4"
@@ -1307,14 +1307,14 @@
                         <div class="accordion-item mb-2 border-r">
                             <h2 class="accordion-header border-r main-color" id="headingOne">
                                 <a href="#"
-                                    class="text-decoration-none p-3 border-r f-22 text-light body-font-familly d-flex justify-content-between align-items-center"
+                                    class="text-decoration-none p-3 border-r f-22 text-light    d-flex justify-content-between align-items-center"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                     aria-expanded="true" aria-controls="collapseOne">How do I choose the right fabric
                                     for a sarees?<span class="circle-icon"><i class="fa-solid fa-minus"></i></span></a>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body body-font-familly f-18">
+                                <div class="accordion-body    f-18">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
                                     element. These classes control the overall appearance, as well as the showing and
@@ -1325,13 +1325,13 @@
                         <div class="accordion-item mb-2  border-r">
                             <h2 class="accordion-header  border-r" id="headingTwo">
                                 <a href="#"
-                                    class="collapsed text-decoration-none  border-r p-3 f-22 text-light body-font-familly d-flex justify-content-between align-items-center"
+                                    class="collapsed text-decoration-none  border-r p-3 f-22 text-light    d-flex justify-content-between align-items-center"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                     aria-expanded="false" aria-controls="collapseTwo">How do I drape a saree?<span class="circle-icon"><i class="fa-solid fa-minus"></i></span></a>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body body-font-familly f-18">
+                                <div class="accordion-body    f-18">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
                                     element. These classes control the overall appearance, as well as the showing and
@@ -1342,14 +1342,14 @@
                         <div class="accordion-item mb-2  border-r">
                             <h2 class="accordion-header  border-r" id="headingThree">
                                 <a href="#"
-                                    class="collapsed text-decoration-none  border-r p-3 f-22 text-light body-font-familly d-flex justify-content-between align-items-center"
+                                    class="collapsed text-decoration-none  border-r p-3 f-22 text-light    d-flex justify-content-between align-items-center"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                     aria-expanded="false" aria-controls="collapseThree">What are the best fabrics for
                                     summer sarees?<span class="circle-icon"><i class="fa-solid fa-minus"></i></span></a>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="collapseThree"
                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body body-font-familly f-18">
+                                <div class="accordion-body    f-18">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
                                     element. These classes control the overall appearance, as well as the showing and
@@ -1360,7 +1360,7 @@
                         <div class="accordion-item mb-2  border-r">
                             <h2 class="accordion-header  border-r" id="headingfour">
                                 <a href="#"
-                                    class="collapsed text-decoration-none  border-r p-3 f-22 text-light body-font-familly d-flex justify-content-between align-items-center"
+                                    class="collapsed text-decoration-none  border-r p-3 f-22 text-light    d-flex justify-content-between align-items-center"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour"
                                     aria-expanded="false" aria-controls="collapsefour">What is the difference between
                                     cotton and linen sarees?<span class="circle-icon"><i
@@ -1368,7 +1368,7 @@
                             </h2>
                             <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="collapsefour"
                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body body-font-familly f-18">
+                                <div class="accordion-body    f-18">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
                                     element. These classes control the overall appearance, as well as the showing and
@@ -1379,14 +1379,14 @@
                         <div class="accordion-item mb-2  border-r">
                             <h2 class="accordion-header  border-r" id="headingfive">
                                 <a href="#"
-                                    class="collapsed  border-r text-decoration-none p-3 f-22 text-light body-font-familly d-flex justify-content-between align-items-center"
+                                    class="collapsed  border-r text-decoration-none p-3 f-22 text-light    d-flex justify-content-between align-items-center"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive"
                                     aria-expanded="false" aria-controls="collapsefive"> How do I care for my silk
                                     saree?<span class="circle-icon"><i class="fa-solid fa-minus"></i></span></a>
                             </h2>
                             <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="collapsefive"
                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body body-font-familly f-18">
+                                <div class="accordion-body    f-18">
                                     <strong>This is the first item's accordion body.</strong> It is shown by default,
                                     until the collapse plugin adds the appropriate classes that we use to style each
                                     element. These classes control the overall appearance, as well as the showing and
@@ -1414,21 +1414,21 @@
                     <div class="fw-bold heading-font f-36 text-center mb-4">Contact Us</div>
                     <div class="d-flex gap-3">
                         <div class="card light-color mb-3 border-color w-100">
-                            <div class="p-3 f-18 body-font-familly">Name</div>
+                            <div class="p-3 f-18   ">Name</div>
                         </div>
                         <div class="card light-color mb-3 border-color w-100">
-                            <div class="p-3 f-18 body-font-familly">Email</div>
+                            <div class="p-3 f-18   ">Email</div>
                         </div>
                     </div>
                     <div class="card light-color mb-3 border-color">
-                        <div class="p-3 f-18 body-font-familly">Subject</div>
+                        <div class="p-3 f-18   ">Subject</div>
                     </div>
                     <div class="card light-color mb-3 border-color">
-                        <div class="p-3 f-18 body-font-familly">Type Your Message</div>
+                        <div class="p-3 f-18   ">Type Your Message</div>
                     </div>
                     <div class="d-flex justify-content-center mt-5">
                         <a href="#"
-                            class="text-decoration-none custom_button z-index main-color border-r px-5 py-2 fw-semibold border-0 body-font-familly">Submit</a>
+                            class="text-decoration-none custom_button z-index main-color border-r px-5 py-2 fw-semibold border-0   ">Submit</a>
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-1 text-center">
@@ -1456,15 +1456,15 @@
                         <div class="card custom_card shadow-sm border-0 p-4 ">
                             <img src="img/img32.webp" alt="Card 1" class="card-img-top rounded">
                             <div class="text-start mt-4">
-                                <h5 class="card-title fw-bold body-font-familly f-22">
+                                <h5 class="card-title fw-bold    f-22">
                                     Sustainable Style: 4 Tips To Find Khadi Suit...
                                 </h5>
-                                <p class="card-text text-muted body-font-familly f-18">
+                                <p class="card-text text-muted    f-18">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore
                                     provident.
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted body-font-familly">13 March 2024</small>
+                                    <small class="text-muted   ">13 March 2024</small>
                                     <a href="#" class="text-decoration-none fw-semibold text-color">
                                         Read More <i class="fa-solid fa-arrow-right" style="color: #0e343d;"></i>
                                     </a>
@@ -1476,15 +1476,15 @@
                         <div class="card custom_card shadow-sm border-0 p-4 ">
                             <img src="img/img32.webp" alt="Card 1" class="card-img-top rounded">
                             <div class="text-start mt-4">
-                                <h5 class="card-title fw-bold body-font-familly f-22">
+                                <h5 class="card-title fw-bold    f-22">
                                     Sustainable Style: 4 Tips To Find Khadi Suit...
                                 </h5>
-                                <p class="card-text text-muted body-font-familly f-18">
+                                <p class="card-text text-muted    f-18">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore
                                     provident.
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted body-font-familly">13 March 2024</small>
+                                    <small class="text-muted   ">13 March 2024</small>
                                     <a href="#" class="text-decoration-none fw-semibold text-color">
                                         Read More <i class="fa-solid fa-arrow-right" style="color: #0e343d;"></i>
                                     </a>
@@ -1496,15 +1496,15 @@
                         <div class="card custom_card shadow-sm border-0 p-4 ">
                             <img src="img/img32.webp" alt="Card 1" class="card-img-top rounded">
                             <div class="text-start mt-4">
-                                <h5 class="card-title fw-bold body-font-familly f-22">
+                                <h5 class="card-title fw-bold    f-22">
                                     Sustainable Style: 4 Tips To Find Khadi Suit...
                                 </h5>
-                                <p class="card-text text-muted body-font-familly f-18">
+                                <p class="card-text text-muted    f-18">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore
                                     provident.
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted body-font-familly">13 March 2024</small>
+                                    <small class="text-muted   ">13 March 2024</small>
                                     <a href="#" class="text-decoration-none fw-semibold text-color">
                                         Read More <i class="fa-solid fa-arrow-right" style="color: #0e343d;"></i>
                                     </a>
@@ -1516,15 +1516,15 @@
                         <div class="card custom_card shadow-sm border-0 p-4 ">
                             <img src="img/img32.webp" alt="Card 1" class="card-img-top rounded">
                             <div class="text-start mt-4">
-                                <h5 class="card-title fw-bold body-font-familly f-22">
+                                <h5 class="card-title fw-bold    f-22">
                                     Sustainable Style: 4 Tips To Find Khadi Suit...
                                 </h5>
-                                <p class="card-text text-muted body-font-familly f-18">
+                                <p class="card-text text-muted    f-18">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore
                                     provident.
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted body-font-familly">13 March 2024</small>
+                                    <small class="text-muted   ">13 March 2024</small>
                                     <a href="#" class="text-decoration-none fw-semibold text-color">
                                         Read More <i class="fa-solid fa-arrow-right" style="color: #0e343d;"></i>
                                     </a>
@@ -1536,15 +1536,15 @@
                         <div class="card custom_card shadow-sm border-0 p-4 ">
                             <img src="img/img32.webp" alt="Card 1" class="card-img-top rounded">
                             <div class="text-start mt-4">
-                                <h5 class="card-title fw-bold body-font-familly f-22">
+                                <h5 class="card-title fw-bold    f-22">
                                     Sustainable Style: 4 Tips To Find Khadi Suit...
                                 </h5>
-                                <p class="card-text text-muted body-font-familly f-18">
+                                <p class="card-text text-muted    f-18">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, inventore
                                     provident.
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted body-font-familly">13 March 2024</small>
+                                    <small class="text-muted   ">13 March 2024</small>
                                     <a href="#" class="text-decoration-none fw-semibold text-color">
                                         Read More <i class="fa-solid fa-arrow-right" style="color: #0e343d;"></i>
                                     </a>
@@ -1560,49 +1560,59 @@
     <!-- paregraph -->
     <section class="light-color py-60 pb-60">
         <div class="custom-container">
-            <div class="body-font-familly ">
+            <div class="   ">
                 <span class="fw-bold f-18">Overview:</span> </span class="f-18"> The saree market is a vibrant and
                 diverse segment of the textile industry, deeply rooted in cultural heritage tradition, especially in
                 South Asia.</span>
             </div>
 
-            <div class="body-font-familly mb-3">
+            <div class="   mb-3">
                 <span class="fw-bold f-18">Market Trends:</span> </span class="f-18"> The market is influenced by
                 various factors, including regional preferences, fabric innovations, design trends, and fashion
                 influences from both traditional and modern aesthetics.</span>
             </div>
 
-            <div class="body-font-familly mb-3">
+            <div class="   mb-3">
                 <span class="fw-bold f-18">Key Players:</span> </span class="f-18"> The market is influenced by various
                 factors, including regional preferences, fabric innovations, design trends, and fashion influences from
                 both traditional and modern aesthetics.</span>
             </div>
 
-            <div class="body-font-familly mb-3">
+            <div class="   mb-3">
                 <span class="fw-bold f-18">Consumer Demographics:</span> </span class="f-18">The market serves a wide
                 range of consumers, from daily wear enthusiasts to those seeking exclusive pieces for special occasions
                 like weddings and festivals.</span>
             </div>
 
-            <div class="body-font-familly mb-3">
+            <div class="   mb-3">
                 <span class="fw-bold f-18">Distribution Channels:</span> </span class="f-18">Sarees are sold through
                 various channels, including brick-and-mortar stores, boutiques, online platforms, and marketplaces,
                 making them accessible to a global audience.</span>
             </div>
 
-            <div class="body-font-familly mb-3">
+            <div class="   mb-3">
                 <span class="fw-bold f-18">Challenges and Opportunities:</span> </span class="f-18">The market faces
                 challenges such as competition from other fashion trends and sustainability concerns, but it also offers
                 opportunities for innovation in design, eco-friendly materials, and expanding global reach.</span>
             </div>
 
-            <div class="body-font-familly mb-3">
+            <div class="   mb-3">
                 <span class="fw-bold f-18">Regional Differences:</span> </span class="f-18">The market comprises a mix
                 of local artisans, established textile brands, and emerging designers who cater to different segments
                 and preferences.</span>
             </div>
         </div>
     </section>
+    
+<!-- <div class="icon-contact">
+    
+</div>
+<div class="icon-contact">
+
+</div>
+<div class="icon-contact">
+
+</div> -->
 
     <?php include 'footer.php'; ?>
 </body>
