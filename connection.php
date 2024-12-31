@@ -96,6 +96,36 @@ class DB_Class {
 $database_class = new DB_Class();
 $connection = $GLOBALS['conn'];
 
+
+define('TABLE_CATEGORIE', 'allcategories');
+define('TABLE_BANNER', 'banners');
+define('TABLE_BLOG','blogs');
+define('TABLE_TEXTILE_CATEGORIE','b_textile_catagorys');
+define('TABLE_CONTACTUS','contactus');
+define('TABLE_CUSTOMER','customer');
+define('TABLE_FAMOUS_MARKET','famous_markets');
+define('TABLE_FAQ','faqs');
+define('TABLE_INVOICE','invoice');
+define('TABLE_INCOICE_ITEM','invoice_item');
+define('TABLE_OFFERS','offers');
+define('TABLE_PARAGRAPH','paragraph');
+define('TABLE_PAYMENT','payment');
+define('TABLE_PRODUCT','products');
+define('TABLE_PRODUCT_IMAGE','product_images');
+define('TABLE_THIRDPARTY_APIKEY','thirdparty_apikey');
+define('TABLE_TOPBAR','topbar');
+define('TABLE_USER','users');
+define('TABLE_VIDEO','videos');
+define('TABLE_PAGE_IMPRESSION','page_impression');
+define('DATE', date('Y-m-d'));
+define('FULLDATE', date('Y-m-d H:i:s'));
+// define('TABLE_USER_SHOP', 'user_shops');
+// define('TABLE_BACKDROPS', 'store_settings');
+// define('TABLE_CUSTOMIZE', 'customize');
+// define('TABLE_COLLECTION_MASTER', 'collection_master');
+// define('TABLE_CUSTOMER_MASTER', 'customer_master');
+
+
 // define('CLS_SITE_NAME','MARKETS');
 // define('CLS_SITE_EMAIL', '#');
 // define('CLS_NO_IMAGE','no-image.png');
@@ -170,20 +200,20 @@ $connection = $GLOBALS['conn'];
 
 
 
-// function  generate_log($inventory = 'General', $log_information = 'test') {
-//     if (MODE == 'live') {
-//        $log_filled_track = CLS_TRACK_PATH.'/cls-rewriter/logs/'. $inventory . '/'. date('Y-m-d') . ".txt";
-//         $directoryname = dirname($log_filled_track);
-//         if (!is_dir($directoryname)) {
-//             mkdir($directoryname,0777, true);
-//         }
-//         $cls_myfile = fopen($log_filled_track, "a+") or die("file is not generated");
+function  generate_log($inventory = 'General', $log_information = 'test') {
+    if (MODE == 'live') {
+       $log_filled_track = CLS_TRACK_PATH.'/cls-rewriter/logs/'. $inventory . '/'. date('Y-m-d') . ".txt";
+        $directoryname = dirname($log_filled_track);
+        if (!is_dir($directoryname)) {
+            mkdir($directoryname,0777, true);
+        }
+        $cls_myfile = fopen($log_filled_track, "a+") or die("file is not generated");
         
-//         $str = "\n\n" . '---------------------' . date('H:i:s') . "\n" . $log_information . "\n" . '-*-*-*-*-*-*-*-*-*';
-//         fwrite($cls_myfile, $str);
-//         fclose($cls_myfile);
-//     } else {
-//         // echo $str = str_replace('\n', '<br>', "\n\n" . '---------------------' . date('H:i:s') . "\n" . $log_information . "\n" . '-*-*-*-*-*-*-*-*-*');
-//     }
-// }
+        $str = "\n\n" . '---------------------' . date('H:i:s') . "\n" . $log_information . "\n" . '-*-*-*-*-*-*-*-*-*';
+        fwrite($cls_myfile, $str);
+        fclose($cls_myfile);
+    } else {
+        // echo $str = str_replace('\n', '<br>', "\n\n" . '---------------------' . date('H:i:s') . "\n" . $log_information . "\n" . '-*-*-*-*-*-*-*-*-*');
+    }
+}
 

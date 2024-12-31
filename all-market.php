@@ -423,3 +423,6 @@
 </body>
 
 </html>
+<script>
+ ImpressionCount("page_all_market");
+</script>

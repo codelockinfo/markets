@@ -80,7 +80,19 @@ $(document).ready(function () {
     });
   });
 });
-
+function ImpressionCount(pageName){
+  console.log("ImpressionCount");
+  $.ajax({
+    url: "./ajax-call.php",
+    type: "POST",
+    dataType: "json",
+    data: { routine_name: "impression_count", pagename: pageName },
+    success: function (response) {
+      var response = JSON.parse(response);
+      console.log(response);
+    },
+  });
+}
 function loadData(routineName, elementId) {
   console.log(routineName + " on load");
   $.ajax({
