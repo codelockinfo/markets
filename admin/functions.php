@@ -453,7 +453,23 @@ $limit = 12;
             $p_description = str_replace("'", "\'", $p_description);
             $user_id = $_SESSION['current_user']['user_id'];
             if ($addcategory != '' && $addcheckboxcategory != '') {
-                $add_category_query = "INSERT INTO ". TABLE_CATEGORIE ." (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+
+                $checkCategoryQuery = "SELECT COUNT(*) AS count FROM  ". TABLE_CATEGORIE ." WHERE categoies_name = '$addcategory' AND user_id = '$user_id'";
+                $categoryExistsResult = $this->db->query($checkCategoryQuery);
+                
+                if ($categoryExistsResult && $categoryExistsResult->num_rows > 0) {
+                    $row = $categoryExistsResult->fetch_assoc();
+                    if ($row['count'] > 0) {
+                        $error_array['addcategory'] = "Category $addcategory already exists.";
+                        $response_data = array('data' => 'fail', 'msg' => $error_array);
+                        return json_encode($response_data);
+                    }
+                } else {
+                    $response_data = array('data' => 'fail', 'msg' => $error_array);
+                    return json_encode($response_data);
+                }
+                $add_category_query = "INSERT INTO  ". TABLE_CATEGORIE ." (categoies_name, user_id) VALUES ('$addcategory', '$user_id')";
+
                 $category_result = $this->db->query($add_category_query);
                 if ($category_result) {
                     $select_catagory = $this->db->insert_id;
