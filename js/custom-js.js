@@ -135,11 +135,19 @@ $( document ).ready(function() {
                     slidesPerView: 1,
                     spaceBetween: 10,
                 },
+                576: { 
+                    slidesPerView: 1.5,
+                    spaceBetween: 10,
+                },
                 768: { 
-                    slidesPerView: 2,
+                    slidesPerView: 2.2,
                     spaceBetween: 20,
                 },
                 1024: { 
+                    slidesPerView: 2.5,
+                    spaceBetween: 25,
+                },
+                1025: { 
                     slidesPerView: 3,
                     spaceBetween: 25,
                 },
