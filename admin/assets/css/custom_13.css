@@ -1114,6 +1114,10 @@ i.fa-solid.fa-xmark{
 .select2-selection__choice {
   text-transform: capitalize !important;
 }
+.product_pop{
+  height: 470px;
+  overflow: scroll;
+}
 
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
