@@ -117,3 +117,6 @@
 </body>
 
 </html>
+<script>
+ ImpressionCount("page_all_video");
+</script>

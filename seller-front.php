@@ -276,3 +276,6 @@
 </body>
 
 </html>
+<script>
+ ImpressionCount("page_seller_front");
+</script>

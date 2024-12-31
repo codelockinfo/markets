@@ -13,8 +13,42 @@ class client_functions
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
     }
-    function conatct_form()
-    {
+    
+    function impression_count(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if (isset($_POST['pagename']) && $_POST['pagename'] != '') {
+            $pagename = $_POST['pagename'];
+            $query = "SELECT * FROM ". TABLE_PAGE_IMPRESSION ." WHERE date = '". DATE . "'";
+            $result = $this->db->query($query);
+            if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $id = $row['id'];
+                    $page_name = $row[$pagename];
+                    
+                    $query = "UPDATE " . TABLE_PAGE_IMPRESSION . " SET `$pagename` = COALESCE($page_name) + 1  WHERE id = $id";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Impression updated');
+                    }else{
+                        generate_log('page-impression', json_encode($result)); 
+                    }
+            } else {
+                $query = "INSERT INTO " . TABLE_PAGE_IMPRESSION . " (" . $pagename . ",`date`) VALUES (1,'". DATE ."')";
+                $result = mysqli_query($this->db, $query);
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Impression inserted');
+                }else{
+                    generate_log('page-impression', json_encode($result)); 
+                }
+            }
+        }else{
+            $response_data = array('data' => 'fail', 'msg' => 'Page name is required');
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
+    function conatct_form(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -50,8 +84,7 @@ class client_functions
         return $response;
     }
 
-    function bannershow()
-    {
+    function bannershow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $output = $bannercontent = "";
         $query = "SELECT * FROM banners WHERE status='1' ORDER BY banner_id DESC LIMIT 1";
@@ -112,8 +145,7 @@ class client_functions
         return $response;
     }
 
-    function famousmarketshow()
-    {
+    function famousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM famous_markets WHERE toggle='1' limit 4";
         $res = $this->db->query($sql);
@@ -175,8 +207,8 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function allfamousmarketshow()
-    {
+    
+    function allfamousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $sql = "SELECT * FROM famous_markets WHERE status='1'";
         $res = $this->db->query($sql);
@@ -239,8 +271,6 @@ class client_functions
         return $response;
     }
 
-
-
     function offershow()
     {
         $response_data = array('data' => 'fail', 'msg' => "Error");
@@ -287,9 +317,7 @@ class client_functions
         return $response;
     }
     
-
-    function videoshow()
-    {
+    function videoshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT * FROM videos WHERE status='1' and toggle='1'";
         $result = $this->db->query($query);
@@ -311,8 +339,7 @@ class client_functions
         return $response;
     }
 
-    function FAQshow()
-    {
+    function FAQshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT * FROM faqs WHERE status='1' LIMIT 5";
         $result = $this->db->query($query);
@@ -340,8 +367,8 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function allFAQshow()
-    {
+    
+    function allFAQshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT * FROM faqs WHERE status='1'";
         $result = $this->db->query($query);
@@ -370,8 +397,7 @@ class client_functions
         return $response;
     }
 
-    function reviewshow()
-    {
+    function reviewshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT logo_img,shopname,review,description FROM marketreviews WHERE status='1'";
         $result = $this->db->query($query);
@@ -420,8 +446,7 @@ class client_functions
         return $response;
     }
 
-    function marketlistshowclientside()
-    {
+    function marketlistshowclientside(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT name FROM markets LIMIT 30";
         $result = $this->db->query($query);
@@ -762,8 +787,7 @@ class client_functions
     //     return $response;
     // }
 
-    function allmarket()
-    {
+    function allmarket(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT user_id, shop, shop_logo FROM users WHERE status='1'";
         $result = $this->db->query($query);
@@ -904,7 +928,6 @@ class client_functions
         return $response;
     }
     
-
     function customer(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
@@ -984,7 +1007,6 @@ class client_functions
         return $response;
     }
 
-    
     function catlog() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
