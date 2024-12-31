@@ -1038,6 +1038,16 @@ $(document).ready(function () {
   let randomNumber = Math.floor(10000000 + Math.random() * 90000000);
   console.log(randomNumber);
   $(".genrate").val(randomNumber);
+  
+  var pnameElement = document.getElementById('pname');
+  var imageAltElement = document.getElementById('image_alt');
+
+  if (pnameElement && imageAltElement) {
+    pnameElement.oninput = function() {
+      console.log("oninput");
+      imageAltElement.value = this.value;
+    };
+  }
 
   $(".date-input").on("change keypress", function () {
     $(this).next(".errormsg").text("");

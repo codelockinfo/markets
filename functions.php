@@ -13,8 +13,42 @@ class client_functions
         $db_connection = new DB_Class();
         $this->db = $GLOBALS['conn'];
     }
-    function conatct_form()
-    {
+    
+    function impression_count(){
+        $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
+        if (isset($_POST['pagename']) && $_POST['pagename'] != '') {
+            $pagename = $_POST['pagename'];
+            $query = "SELECT * FROM ". TABLE_PAGE_IMPRESSION ." WHERE date = '". DATE . "'";
+            $result = $this->db->query($query);
+            if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $id = $row['id'];
+                    $page_name = $row[$pagename];
+                    
+                    $query = "UPDATE " . TABLE_PAGE_IMPRESSION . " SET `$pagename` = COALESCE($page_name) + 1  WHERE id = $id";
+                    $result = $this->db->query($query);
+                    if ($result) {
+                        $response_data = array('data' => 'success', 'msg' => 'Impression updated');
+                    }else{
+                        generate_log('page-impression', json_encode($result)); 
+                    }
+            } else {
+                $query = "INSERT INTO " . TABLE_PAGE_IMPRESSION . " (" . $pagename . ",`date`) VALUES (1,'". DATE ."')";
+                $result = mysqli_query($this->db, $query);
+                if ($result) {
+                    $response_data = array('data' => 'success', 'msg' => 'Impression inserted');
+                }else{
+                    generate_log('page-impression', json_encode($result)); 
+                }
+            }
+        }else{
+            $response_data = array('data' => 'fail', 'msg' => 'Page name is required');
+        }
+        $response = json_encode($response_data);
+        return $response;
+    }
+    
+    function conatct_form(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         if (empty($email)) {
@@ -50,13 +84,12 @@ class client_functions
         return $response;
     }
 
-    function bannershow()
-    {
+    function bannershow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $output = $bannercontent = "";
-        $query = "SELECT * FROM banners WHERE status='1' ORDER BY banner_id DESC LIMIT 1";
+        $query = "SELECT * FROM ". TABLE_BANNER ." WHERE status='1' ORDER BY banner_id DESC LIMIT 1";
         $result = $this->db->query($query);
-        $famousmarket_query = "SELECT * FROM famous_markets WHERE status='1'";
+        $famousmarket_query = "SELECT * FROM ". TABLE_FAMOUS_MARKET ." WHERE status='1'";
         $famousmarket_result = $this->db->query($famousmarket_query);
         if ($famousmarket_result->num_rows > 0) {
             $bannercontent .= '<div class="col-sm-4 mt-2 mt-sm-0">
@@ -69,7 +102,7 @@ class client_functions
                             </div>';
         }
 
-        $products_query = "SELECT * FROM products WHERE status='1'";
+        $products_query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE status='1'";
         $products_result = $this->db->query($products_query);
         if ($products_result->num_rows > 0) {
             $bannercontent .= '<div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
@@ -82,7 +115,7 @@ class client_functions
                         </div>';
         }
 
-        $productscategories_query = "SELECT * FROM allcategories WHERE status='1'";
+        $productscategories_query = "SELECT * FROM ". TABLE_CATEGORIE ." WHERE status='1'";
         $productscategories_result = $this->db->query($productscategories_query);
         if ($productscategories_result->num_rows > 0) {
             $bannercontent .= '<div class=" col-sm-4 mt-2 mt-sm-0 wow bounceInUp">
@@ -112,10 +145,9 @@ class client_functions
         return $response;
     }
 
-    function famousmarketshow()
-    {
+    function famousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $sql = "SELECT * FROM famous_markets WHERE toggle='1' limit 4";
+        $sql = "SELECT * FROM ". TABLE_FAMOUS_MARKET ." WHERE toggle='1' limit 4";
         $res = $this->db->query($sql);
 
         if (mysqli_num_rows($res) > 0) {
@@ -123,7 +155,7 @@ class client_functions
 
             while ($row = mysqli_fetch_array($res)) {
                 $shop_name = $row['shop_name'];
-                $query = "SELECT * FROM users WHERE user_id = '$shop_name'";
+                $query = "SELECT * FROM ". TABLE_USER ." WHERE user_id = '$shop_name'";
                 $result = $this->db->query($query);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($user_row = mysqli_fetch_array($result)) {
@@ -175,10 +207,10 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function allfamousmarketshow()
-    {
+    
+    function allfamousmarketshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $sql = "SELECT * FROM famous_markets WHERE status='1'";
+        $sql = "SELECT * FROM ". TABLE_FAMOUS_MARKET ." WHERE status='1'";
         $res = $this->db->query($sql);
 
         if (mysqli_num_rows($res) > 0) {
@@ -186,7 +218,7 @@ class client_functions
 
             while ($row = mysqli_fetch_array($res)) {
                 $shop_name = $row['shop_name'];
-                $query = "SELECT * FROM users WHERE user_id = '$shop_name'";
+                $query = "SELECT * FROM ". TABLE_USER ." WHERE user_id = '$shop_name'";
                 $result = $this->db->query($query);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($user_row = mysqli_fetch_array($result)) {
@@ -238,13 +270,11 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-
-
 
     function offershow()
     {
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT img FROM offers WHERE status='1'";
+        $query = "SELECT img FROM ". TABLE_OFFERS ." WHERE status='1'";
         $result = $this->db->query($query);
         $output = $class = $offerstitle = "";
         $counter = 0;
@@ -273,7 +303,7 @@ class client_functions
 
     function paragraphshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM paragraph WHERE status='1'";
+        $query = "SELECT * FROM ". TABLE_PARAGRAPH ." WHERE status='1'";
         $result = $this->db->query($query);
         
         $output = "";
@@ -287,11 +317,9 @@ class client_functions
         return $response;
     }
     
-
-    function videoshow()
-    {
+    function videoshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM videos WHERE status='1' and toggle='1'";
+        $query = "SELECT * FROM ". TABLE_VIDEO ." WHERE status='1' and toggle='1'";
         $result = $this->db->query($query);
         $output = $videotitle = $videobutton = "";
         if ($result) {
@@ -311,10 +339,9 @@ class client_functions
         return $response;
     }
 
-    function FAQshow()
-    {
+    function FAQshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs WHERE status='1' LIMIT 5";
+        $query = "SELECT * FROM ". TABLE_FAQ ." WHERE status='1' LIMIT 5";
         $result = $this->db->query($query);
         $output = $faqtitle = $faqcontent = $faqimage = "";
         if ($result) {
@@ -340,10 +367,10 @@ class client_functions
         $response = json_encode($response_data);
         return $response;
     }
-    function allFAQshow()
-    {
+    
+    function allFAQshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT * FROM faqs WHERE status='1'";
+        $query = "SELECT * FROM ". TABLE_FAQ ." WHERE status='1'";
         $result = $this->db->query($query);
         $output = $faqtitle = $faqcontent = $faqimage = "";
         if ($result) {
@@ -370,10 +397,9 @@ class client_functions
         return $response;
     }
 
-    function reviewshow()
-    {
+    function reviewshow(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT logo_img,shopname,review,description FROM marketreviews WHERE status='1'";
+        $query = "SELECT logo_img,shopname,review,description FROM ".TABLE_MARKETREVIEW." WHERE status='1'";
         $result = $this->db->query($query);
         $output = $marketreviewtitle = "";
         if ($result) {
@@ -420,8 +446,7 @@ class client_functions
         return $response;
     }
 
-    function marketlistshowclientside()
-    {
+    function marketlistshowclientside(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         $query = "SELECT name FROM markets LIMIT 30";
         $result = $this->db->query($query);
@@ -511,14 +536,14 @@ class client_functions
         $browsecategorytitle .= '<div class="text-center wow bounceInUp" data-wow-delay="0.1s"><h1 class="display-5 mb-5">Browse by category</h1></div>';
         $browsecategorybutton .= '<a href="' . CLS_SITE_URL . 'collection2.php" class="d-flex justify-content-center wow bounceInUp"><button class="btn btn-primary text-capitalize px-5 mt-4 text-center">view all</button></a>';
 
-        $categoryQuery = "SELECT * FROM b_textile_catagorys WHERE status='1' LIMIT 5";
+        $categoryQuery = "SELECT * FROM ". TABLE_TEXTILE_CATEGORIE ." WHERE status='1' LIMIT 5";
         $categoryresult = $this->db->query($categoryQuery);
         if ($categoryresult) {
             $index = 0;
             while ($categoryrow = mysqli_fetch_array($categoryresult)) {
                 $index++;
                 $categoies_id = (isset($categoryrow['categories']) && $categoryrow['categories'] != '') ? $categoryrow['categories'] : '';
-                $category_query = "SELECT * FROM allcategories WHERE categoies_id = $categoies_id";
+                $category_query = "SELECT * FROM ". TABLE_CATEGORIE ." WHERE categoies_id = $categoies_id";
                 $category_result = $this->db->query($category_query);
 
                 if (mysqli_num_rows($category_result) > 0) {
@@ -561,7 +586,7 @@ class client_functions
                         $browsecategorytab .= $category_row['categoies_name'] . ',';
                         $browsecategorytabmobile .= $category_row['categoies_name'] . ',';
 
-                        $productquery = "SELECT * FROM products WHERE category='" . $categoryrow['categories'] . "' AND status='1'";
+                        $productquery = "SELECT * FROM ". TABLE_PRODUCT ." WHERE category='" . $categoryrow['categories'] . "' AND status='1'";
                         $productresult = $this->db->query($productquery);
                         if ($productresult) {
                             if (mysqli_num_rows($productresult) > 0) {
@@ -569,7 +594,7 @@ class client_functions
                                 $countCategoriesProduct = 0;
                                 while ($productrow = mysqli_fetch_array($productresult)) {
                                     if ($countCategoriesProduct < 9) {
-                                        $userquery = "SELECT * FROM users WHERE status='1' AND user_id='" . $productrow['user_id'] . "'";
+                                        $userquery = "SELECT * FROM ". TABLE_USER ." WHERE status='1' AND user_id='" . $productrow['user_id'] . "'";
                                         $userresult = $this->db->query($userquery);
                                         while ($userrow = mysqli_fetch_array($userresult)) {
                                             $shopname = $userrow['shop'] ? $userrow['shop'] : '';
@@ -663,15 +688,15 @@ class client_functions
     //     // }
     //     $category_filter = !empty($category_value) ? "AND category = '$category_value'" : '';
     //     // print_r($category_filter);
-    //     // $query = "SELECT * FROM products WHERE category = $category_value";
+    //     // $query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE category = $category_value";
 
-    //     // $query = "SELECT * FROM products WHERE category = '$category_value' OR (minprice BETWEEN $min_price AND $max_price)";
+    //     // $query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE category = '$category_value' OR (minprice BETWEEN $min_price AND $max_price)";
     //     if (!empty($category_value)) {
     //         // If category data is found, show both category and price range
-    //         $query = "SELECT * FROM products WHERE category = '$category_value' AND (minprice BETWEEN $min_price AND $max_price)";
+    //         $query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE category = '$category_value' AND (minprice BETWEEN $min_price AND $max_price)";
     //     } else {
     //         // If no category is provided, show only the data within the price range
-    //         $query = "SELECT * FROM products WHERE minprice BETWEEN $min_price AND $max_price";
+    //         $query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE minprice BETWEEN $min_price AND $max_price";
     //     }
     //     // print_r($query);
     //     $result = $this->db->query($query);
@@ -746,7 +771,7 @@ class client_functions
     //             $response_data = array('data' => 'fail', 'outcome' => "No data found");
     //         }
     //     }
-    //     // $query = "SELECT COUNT(*) AS total FROM products WHERE title LIKE '%$search_value%' $userid";
+    //     // $query = "SELECT COUNT(*) AS total FROM ". TABLE_PRODUCT ." WHERE title LIKE '%$search_value%' $userid";
     //     // $res_count = $this->db->query($query);
     //     // $total_recodes = $res_count ? $res_count->fetch_assoc()['total'] : 0;
     //     // $total_pages = Ceil($total_recodes / $limit);
@@ -762,10 +787,9 @@ class client_functions
     //     return $response;
     // }
 
-    function allmarket()
-    {
+    function allmarket(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $query = "SELECT user_id, shop, shop_logo FROM users WHERE status='1'";
+        $query = "SELECT user_id, shop, shop_logo FROM ". TABLE_USER ." WHERE status='1'";
         $result = $this->db->query($query);
         $output = $famousmarkettitle = $famousmarketbutton = "";
 
@@ -819,7 +843,7 @@ class client_functions
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $userId = intval($_POST['id']);
-            $query = "SELECT * FROM products WHERE status = '1' AND user_id = $userId";
+            $query = "SELECT * FROM ". TABLE_PRODUCT ." WHERE status = '1' AND user_id = $userId";
             $result = $this->db->query($query);
             $output = "";
             if ($result) {
@@ -831,7 +855,7 @@ class client_functions
                     $productDescription = htmlspecialchars($row["p_description"]);
                     $imagePathBase = "./admin/assets/img/product_img/";
                     $noimagePath = "./admin/assets/img/noimage.png";
-                    $imagesQuery = "SELECT p_image FROM product_images WHERE product_id = $product_id";
+                    $imagesQuery = "SELECT p_image FROM ". TABLE_PRODUCT_IMAGE ." WHERE product_id = $product_id";
                     $imagesResult = $this->db->query($imagesQuery);
                     $images = [];
                     if ($imagesResult) {
@@ -904,12 +928,11 @@ class client_functions
         return $response;
     }
     
-
     function customer(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $userId = intval($_POST['id']);
-            $query = "SELECT * FROM users WHERE status='1' and user_id = $userId";
+            $query = "SELECT * FROM ". TABLE_USER ." WHERE status='1' and user_id = $userId";
             $result = $this->db->query($query);
             $output = "";
             if ($result) {
@@ -984,12 +1007,11 @@ class client_functions
         return $response;
     }
 
-    
     function catlog() {
         $response_data = array('data' => 'fail', 'msg' => "Error");
         if (isset($_POST['id'])) {
             $product_id = intval($_POST['id']);
-            $sql = "SELECT * FROM products WHERE status='1' AND product_id= $product_id";
+            $sql = "SELECT * FROM ". TABLE_PRODUCT ." WHERE status='1' AND product_id= $product_id";
             $result = $this->db->query($sql);
             $output = "";
 
@@ -1037,7 +1059,7 @@ class client_functions
 
     function get_categories(){
         $response_data = array('data' => 'fail', 'msg' => "Error");
-        $sql = "SELECT * FROM allcategories WHERE status='1'";
+        $sql = "SELECT * FROM ". TABLE_CATEGORIE ." WHERE status='1'";
         $result = $this->db->query($sql);
 
         if ($result) {

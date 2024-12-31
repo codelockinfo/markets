@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-$sql = "SELECT * FROM thirdparty_apikey WHERE status ='1'";
+$sql = "SELECT * FROM ". TABLE_THIRDPARTY_APIKEY ." WHERE status ='1'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   $thirdparty_apidata = mysqli_fetch_assoc($result);

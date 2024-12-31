@@ -550,7 +550,9 @@ function updateThumbnail(dropZoneElement, file, inputElement, imageAppend) {
 $(document).on("change", ".addcategory", function () {
   if ($(this).is(":checked")) {
     $(".categoryinput").removeClass("hidecategory");
+    $(".toggle-icon").removeClass("fa-plus").addClass("fa-minus");
   } else {
     $(".categoryinput").addClass("hidecategory");
+    $(".toggle-icon").removeClass("fa-minus").addClass("fa-plus");
   }
 });

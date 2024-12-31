@@ -1110,6 +1110,11 @@ i.fa-solid.fa-xmark{
 .invoice_fliter  .form-control{
   width: auto !important;
 }
+
+.select2-selection__choice {
+  text-transform: capitalize !important;
+}
+
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {

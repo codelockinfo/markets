@@ -7,8 +7,8 @@ if (!isset($_SESSION['current_user']['user_id'])) {
 }
 ?>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
   <?php
@@ -16,20 +16,20 @@ if (!isset($_SESSION['current_user']['user_id'])) {
   ?>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <?php
-        $para_array = array("title" => "Product Form", "link" => "product-list", "button_text" => "Product List");
-        $title = $para_array['title']; 
-        $link = $para_array['link'];
-        $button_text = $para_array['button_text'];
-        include 'adminheadertop.php';
+    $para_array = array("title" => "Product Form", "link" => "product-list", "button_text" => "Product List");
+    $title = $para_array['title'];
+    $link = $para_array['link'];
+    $button_text = $para_array['button_text'];
+    include 'adminheadertop.php';
     ?>
     <div class="container-fluid py-4">
       <div class="col-xl-6 col-lg-9 col-md-6 mx-auto">
         <div class="card z-index-0 p-3">
-        <form role="form" id="productinsert" enctype="multipart/form-data" method="POST" data-form-type="product">
+          <form role="form" id="productinsert" enctype="multipart/form-data" method="POST" data-form-type="product">
           <input type="hidden" name="id" value="<?php echo $id;?>"/>
             <label for="title" class="font-weight-normal required">Product Title</label>
             <div class="mb-3">
-              <input type="text" class="form-control valikey product w-100" placeholder="Product Title" name="pname">
+              <input type="text" class="form-control valikey product w-100" placeholder="Product Title" name="pname" id="pname">
               <span class="errormsg pname"></span>
             </div>
             <label for="p-tags" class="font-weight-normal required w-100">Product Category</label>
@@ -39,7 +39,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <option selected value="">Select Category</option>
                 </select>
                 <div class="errormsg select_catagory"></div>
-              </div>             
+              </div>
               <div class="col quantity1">
                 <div class="d-flex flex-row justify-content-between">
                   <div class="d-flex flex-row align-self-center product_data w-100" id="qty_select">
@@ -58,16 +58,16 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               </div>
             </div>
             <div class="mb-3">
-                <div>
-                  <label class="font-weight-normal w-100 checkboxcategory">
+              <div>
+                <label class="font-weight-normal w-100 checkboxcategory">
                     <input type="checkbox" name="addcheckboxcategory" class="addcategory mx-3 d-none " value="1"/>
-                    <i class="fa fa-plus me-1" id="decrement-btn" aria-hidden="true"></i>Add a new category
-                  </label>
-                  <div class="categoryinput hidecategory">
+                  <i class="fa fa-plus me-1 toggle-icon" id="decrement-btn" aria-hidden="true"></i>Add a new category
+                </label>
+                <div class="categoryinput hidecategory">
                     <input type="text" name="addcategory"class="form-control w-100" placeholder="Add more category"/>
-                    <div class="errormsg addcategory"></div>
-                  </div>
+                  <div class="errormsg addcategory"></div>
                 </div>
+              </div>
             </div>
             <div class="mb-3 quantity2">
               <div class="d-flex flex-row justify-content-between">
@@ -118,17 +118,17 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <label class="font-weight-normal"><strong>Size Limit:</strong> Each file should not exceed 5MB</label>
                 </div>
               </div>
-              <div class="errormsg myFile productmain_image" ></div>
+              <div class="errormsg myFile productmain_image"></div>
             </div>
             <label for="p-image" class="font-weight-normal required">Product Image</label>
             <div class="mb-3">
               <div class="imageAppend form-control d-flex flex-wrap  justify-content-center align-items-center  get_pro">
                 <div class="pro-zone">
-                  <span class="pro-zone__prompt ">Drop file here or click to upload</span>  
-                  
+                  <span class="pro-zone__prompt ">Drop file here or click to upload</span>
+
                   <input type="file" name="p_image[]" id="imageUpload" multiple accept="image/*" class="pro-zone__input validtext">
-                  <label for="files" class="file-label"> 
-                    <span class="choose-text">Choose Files</span> 
+                  <label for="files" class="file-label">
+                    <span class="choose-text">Choose Files</span>
                   </label>
                 </div>
               </div>
@@ -146,26 +146,26 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <div class="col">
 
                 <label for="text" class="font-weight-normal">Select Cloth</label>
-              <select class="form-select position-relative cursor-pointer" aria-label="Default select example" name="cloth">
-                          <option selected value="" disabled>Cloths Type</option>
-                          <option value="0">Stitch</option>
-                          <option value="1">Semi stitch</option>
-                          <option value="2">Un stitch</option>
+                <select class="form-select position-relative cursor-pointer" aria-label="Default select example" name="cloth">
+                  <option selected value="" disabled>Cloths Type</option>
+                  <option value="0">Stitch</option>
+                  <option value="1">Semi stitch</option>
+                  <option value="2">Un stitch</option>
 
-                        </select>
+                </select>
                 <div class="errormsg cloth"></div>
-              </div>  
+              </div>
               <div class="col quantity1">
-                <label for="text" class="font-weight-normal">Fabric Type</label>           
+                <label for="text" class="font-weight-normal">Fabric Type</label>
                 <div class="d-flex flex-row justify-content-between">
-                <input type="text" class="form-control  w-100" placeholder="fabric type" name="fabric_type">
-                  </div>
+                  <input type="text" class="form-control  w-100" placeholder="fabric type" name="fabric_type">
                 </div>
               </div>
+            </div>
 
             <label for="text" class="font-weight-normal required">Image Alt</label>
             <div class="mb-3">
-              <input type="text" class="form-control valikey" placeholder="Image Alt" name="image_alt">
+              <input type="text" class="form-control  valikey" placeholder="Image Alt" name="image_alt" id="image_alt">
               <span class="errormsg image_alt"></span>
             </div>
             <label for="text" class="font-weight-normal required">Product Tag</label>
@@ -193,21 +193,22 @@ if (!isset($_SESSION['current_user']['user_id'])) {
     </div>
   </div>
 
-  <script src="<?php echo main_url('admin/assets/js/common_10.js'); ?>"></script>
+  <script src="<?php echo main_url('admin/assets/js/common_11.js'); ?>"></script>
 </body>
+
 </html>
 <script>
-    get_Categories();
-    var id = "<?php echo $id; ?>";
-    if (id !== "") {
+  get_Categories();
+  var id = "<?php echo $id; ?>";
+  if (id !== "") {
     get_product(id);
-    }
-    $(".js-select2").select2({
-      closeOnSelect : false,
-      placeholder : "select product",
-      allowHtml: true,
-      allowClear: true,
-      tags: true,
-      width: "100%", 
-    });
+  }
+  $(".js-select2").select2({
+    closeOnSelect: false,
+    placeholder: "select product",
+    allowHtml: true,
+    allowClear: true,
+    tags: true,
+    width: "100%",
+  });
 </script>

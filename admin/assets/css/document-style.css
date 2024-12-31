@@ -1,7 +1,11 @@
 .f-44 {
-    font-size: 44px;
-    font-weight: bold;
-  }
+  font-size: 28px;
+  font-weight: bold;
+}
+.document_text{
+  font-size: 14px;
+  font-weight: 500;
+}
   
   .custome-text {
     font-size: 30px;

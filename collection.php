@@ -166,3 +166,6 @@
     <?php include 'footer.php'; ?>
 </body>
 </html>
+<script>
+ ImpressionCount("page_collection");
+</script>

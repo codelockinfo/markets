@@ -21,7 +21,7 @@ include 'header.php';
             <div class="collapse navbar-collapse justify-content-end" id="navigation">
               <ul class="navbar-nav ">
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in"  target="_blank">
+                  <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in" >
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
                     Sign In
                   </a>
@@ -139,7 +139,7 @@ include 'header.php';
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-1 text-sm mx-auto mt-4">
                     Already have an account?
-                    <a href="<?php echo SITE_ADMIN_URL ?>sign-in"  target="_blank" class="text-info text-gradient font-weight-bold">Sign in</a>
+                    <a href="<?php echo SITE_ADMIN_URL ?>sign-in"  class="text-info text-gradient font-weight-bold">Sign in</a>
 
 
                   </p>

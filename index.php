@@ -1607,8 +1607,11 @@
     <?php include 'footer.php'; ?>
 </body>
 </html>
+<script>
+    ImpressionCount("page_index");
+</script>
 <!-- <script>
-    latestbanner();
+    loadData("bannershow", "getdata");
     famousmarket();
     productshowclientside();
     offersshow();

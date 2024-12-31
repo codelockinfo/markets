@@ -231,3 +231,6 @@
 </body>
 
 </html>
+<script>
+ ImpressionCount("page_blogs");
+</script>
