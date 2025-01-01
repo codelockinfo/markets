@@ -3023,8 +3023,10 @@ function get_invoicepdf(id) {
       $("span[id='subtotal']").html(response.outcome.subtotal);
       $("span[id='amount_paid']").html(response.outcome.amount_paid);
       $("span[id='balance_due']").html(response.outcome.balance_due);
-      $("span[id='notes']").html(response.outcome.notes);
-      $("span[id='terms_condition']").html(response.outcome.terms_condition);
+      // $("span[id='notes']").html(response.outcome.notes);
+      (response.outcome.notes  !== "undefined" && response.outcome.notes  !== "") ? $("span[id='notes']").html(response.outcome.notes) : $("span[id='notes']").closest('.row').html("");
+      // $("span[id='terms_condition']").html(response.outcome.terms_condition);
+      (response.outcome.terms_condition  !== "undefined" && response.outcome.terms_condition  !== "") ? $("span[id='terms_condition']").html(response.outcome.terms_condition) : $("span[id='terms_condition']").closest('.row').html("");
       $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
       $("p[id='invoice_no']").html(response.outcome.invoice_no);
 
