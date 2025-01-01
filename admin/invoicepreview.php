@@ -157,7 +157,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
         const imgData = canvas.toDataURL('image/png'); 
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, 'PNG', 0, 0, Math.round(pdfWidth), Math.round(pdfHeight));
         pdf.save('html-to-pdf.pdf');
       });
     });
