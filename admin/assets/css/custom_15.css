@@ -1123,6 +1123,10 @@ i.fa-solid.fa-xmark{
   overflow: scroll;
 }
 
+.navbar-vertical .navbar-nav .nav-link .icon {
+  padding: 8px !important;
+}
+
 /* ----------------------media query------------------ */
 @media (max-width: 1500px) {
   .b-img {
