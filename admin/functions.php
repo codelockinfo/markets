@@ -1388,7 +1388,7 @@ $limit = 12;
                     $output .= '<div class="col-xxl-3 col-xl-4  col-md-4 col-sm-6 mb-xl-0 mb-4">';
                     $output .= '<div class="card card-blog card-plain image-container mb-4">';
                     $output .= '<div class="position-relative">';
-                    $output .= '<a class="d-block border-radius-xl mt-2 mt-xl-4 product_imagebox" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
+                    $output .= '<a class="d-block border-radius-xl mt-2 mt-xl-4 product_imagebox cursor-pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">';
                     $output .= '<img src="' . $decodedPath . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl product_main_image">';
                     $output .= '</a>';
                     $output .= '<button type="button" class="btn btn-primary mt-4 productallbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-' . $product_id . '">view all</button>';
