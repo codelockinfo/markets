@@ -461,3 +461,38 @@ animation: slowZoom 3s linear infinite;
 .a-box{
     padding: 50px;
 }
+
+/* ICON OF PAGE  */
+.icon-topbottom ,.icon-shop ,.icon-contact{
+    width: 50px;
+    height: 50px;
+    background-color: var(--semi-light-color);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    box-shadow: 0 3px 5px black;
+    right: 20px;
+    z-index: 9;
+}
+.icon-topbottom {
+    bottom: 135px;
+    transition: all 0.7s;
+}
+.icon-topbottom:hover {
+    transform: rotatey(180deg);
+}
+.icon-shop {
+    bottom: 75px;
+    transition: all 0.7s;
+}
+.icon-shop:hover {
+    transform: rotatey(180deg);
+}
+.icon-contact{
+    bottom: 20px;
+    transition: all 0.7s;
+}
+.icon-contact:hover{
+    transform: rotatey(180deg);
+}
