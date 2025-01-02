@@ -18,29 +18,29 @@ require_once 'googleconfig.php';
                                 <span class="navbar-toggler-bar bar3"></span>
                             </span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up">
-                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                        Sign Up
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in">
-                                        <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                        Sign In
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a href="<?php echo CLS_SITE_URL; ?>" target="_blank"  target="_blank">
-                                        <button class="btn bg-gradient-info btn-sm btn-round mb-0 me-1">Preview</button>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              <ul class="navbar-nav ">
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-up" >
+                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                    Sign Up
+                  </a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ">
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="<?php echo SITE_ADMIN_URL ?>sign-in" >
+                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                    Sign in
+                  </a>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a href="<?php echo CLS_SITE_URL; ?>" target="_blank" class="btn bg-gradient-info btn-sm btn-round mb-0 me-1">Preview</a>
+                </li>
+              </ul>
+            </div>
                     </div>
                 </nav>
             </div>
