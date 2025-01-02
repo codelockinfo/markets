@@ -1508,8 +1508,8 @@ $limit = 12;
         $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
         error_log("Start Date: $start_date, End Date: $end_date, Search Text: $search_value");
         if (!empty($start_date) && !empty($end_date)) {
-            $start_date = date('Y-m-d', strtotime($start_date)); 
-            $end_date = date('Y-m-d', strtotime($end_date)); 
+            $start_date = date('d-m-Y', strtotime($start_date)); 
+            $end_date = date('d-m-y', strtotime($end_date)); 
         } else {
             $start_date = $end_date = '';
         }

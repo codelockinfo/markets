@@ -2758,14 +2758,13 @@ function getPaymentPlan() {
 document.addEventListener('DOMContentLoaded', function () {
   flatpickr("#date_range", {
       mode: "range", 
-      dateFormat: "d-m-Y",
-      altFormat: "d-m-y", 
+      dateFormat: "d-m-Y", 
+      altFormat: "F j, Y",  
       onChange: function(selectedDates, dateStr, instance) {
-         
-          const start_date = selectedDates[0] ? selectedDates[0].toISOString().split('T')[0] : '';
-          const end_date = selectedDates[1] ? selectedDates[1].toISOString().split('T')[0] : '';
+        
+          const start_date = selectedDates[0] ? formatDate(selectedDates[0]) : '';
+          const end_date = selectedDates[1] ? formatDate(selectedDates[1]) : '';
 
-         
           console.log("Start Date:", start_date);
           console.log("End Date:", end_date);
 
@@ -2780,20 +2779,26 @@ document.addEventListener('DOMContentLoaded', function () {
               },
               success: function(response) {
                 var response = JSON.parse(response);
-                  console.log(response, "... Response received");
+                console.log(response, "... Response received");
 
-                  if (response.outcome != "") {
-                    if (response.outcome == "No data found") {
-                      $("#getdata").html(NO_DATA);
-                    } else {
-                      $("#getdata").html(response.outcome);
-                    }
+                if (response.outcome != "") {
+                  if (response.outcome == "No data found") {
+                    $("#getdata").html(NO_DATA);
+                  } else {
+                    $("#getdata").html(response.outcome);
                   }
+                }
               },
               
           });
       }
   });
+  function formatDate(date) {
+      const day = ('0' + date.getDate()).slice(-2);
+      const month = ('0' + (date.getMonth() + 1)).slice(-2);
+      const year = date.getFullYear();
+      return `${day}-${month}-${year}`;
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
