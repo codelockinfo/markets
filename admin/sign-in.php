@@ -96,7 +96,7 @@ $errorMessage = (isset($_SESSION['errorMessage']) && $_SESSION['errorMessage'] !
                                    
                             </div>
                             <div class="text-center mb-2 position-relative">
-                                <a href="forget-password.php" class="font-weight-bold">Forget Password ?</a>
+                                <a href="forget-password" class="font-weight-bold">Forget Password ?</a>
                             </div>
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
