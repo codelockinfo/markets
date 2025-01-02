@@ -29,8 +29,8 @@
             </div>
             <div class="d-flex align-items-center justify-content-between flex-wrap logo-button d-none d-lg-flex">
                 <nav class="d-flex align-items-center">
-                    <a href="#" class="nav-link f-18 body-font-familly">Home</a>
-                    <a href="#" class="nav-link f-18 body-font-familly">View all markets</a>
+                    <a href="index.php" class="nav-link f-18 body-font-familly">Home</a>
+                    <a href="all-market.php" class="nav-link f-18 body-font-familly">View all markets</a>
                     <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle f-18 body-font-familly" id="dropdownMenuButton"
                             data-bs-toggle="dropdown" aria-expanded="false">All categories</a>
@@ -40,8 +40,8 @@
                             <li><a class="dropdown-item f-18 body-font-familly" href="#">Category 3</a></li>
                         </ul>
                     </div>
-                    <a href="#" class="nav-link f-18 body-font-familly">Blogs</a>
-                    <a href="#" class="nav-link f-18 body-font-familly">Videos</a>
+                    <a href="blogs.php" class="nav-link f-18 body-font-familly">Blogs</a>
+                    <a href="all-video.php" class="nav-link f-18 body-font-familly">Videos</a>
                 </nav>
                 <div class="d-flex align-items-center">
                     <div class="search-bar d-flex">
@@ -52,8 +52,8 @@
 
                     </div>
                     <div class="icon-buttons d-flex ">
-                        <i class="fa-regular fa-heart fs-3" style="color: #0e343d;"></i>
-                        <i class="fa-regular fa-user fs-3" style="color: #0e343d;"></i>
+                    <a href="#">  <i class="fa-regular fa-heart fs-3" style="color: #0e343d;"></i></a>
+                    <a href="contact-us.php"> <i class="fa-regular fa-user fs-3" style="color: #0e343d;"></i></a>
                     </div>
                 </div>
             </div>
@@ -66,8 +66,8 @@
                 </div>
                 <div class="offcanvas-body">
                     <nav>
-                        <a href="#" class="nav-link mb-3">Home</a>
-                        <a href="#" class="nav-link mb-3">View all Markets</a>
+                        <a href="index.php" class="nav-link mb-3">Home</a>
+                        <a href="all-market.php" class="nav-link mb-3">View all Markets</a>
                         <div class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle mb-3" data-bs-toggle="dropdown">ALL
                                 CATEGORIES</a>
@@ -77,8 +77,8 @@
                                 <li><a class="dropdown-item" href="#">Category 3</a></li>
                             </ul>
                         </div>
-                        <a href="#" class="nav-link mb-3">Blogs</a>
-                        <a href="#" class="nav-link mb-3">Videos</a>
+                        <a href="blogs.php" class="nav-link mb-3">Blogs</a>
+                        <a href="all-video.php" class="nav-link mb-3">Videos</a>
                     </nav>
                 </div>
             </div>
@@ -90,8 +90,8 @@
                                 class="fa-solid fa-magnifying-glass"></i></a>
                     </div>
                     <div class="icon-buttons d-flex">
-                        <i class="fa-regular fa-heart fs-3"></i>
-                        <i class="fa-regular fa-user fs-3"></i>
+                       <a href="#">  <i class="fa-regular fa-heart " style="color: #0e343d;"></i></a>
+                       <a href="contact-us.php"> <i class="fa-regular fa-user fs-3" style="color: #0e343d;"></i></a>
                     </div>
                 </div>
                 <button class="btn order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

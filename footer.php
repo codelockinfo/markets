@@ -20,10 +20,10 @@
                     <h5 class="fw-bold body-font-familly f-22 mb-4">Store Policy</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Contact Us</a>
+                            <a href="contact-us.php" class="text-light text-decoration-none body-font-familly f-18">Contact Us</a>
                         </li>
                         <li>
-                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Privacy
+                            <a href="privacy.php" class="text-light text-decoration-none body-font-familly f-18">Privacy
                                 Policy</a>
                         </li>
                         <li>
@@ -34,7 +34,7 @@
                             <a href="#" class="text-light text-decoration-none body-font-familly f-18">About Us</a>
                         </li>
                         <li>
-                            <a href="#" class="text-light text-decoration-none body-font-familly f-18">Blogs</a>
+                            <a href="blogs.php" class="text-light text-decoration-none body-font-familly f-18">Blogs</a>
                         </li>
                     </ul>
                 </div>
