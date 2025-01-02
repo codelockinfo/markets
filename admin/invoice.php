@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text"  class="form-control ms-auto text-end mb-3 invoice_no genrate" value="" name="invoice_no" readonly >
                 </div>
                 <div class="col mb-3 orderchange">
-                  <div class="imageAppend form-control max-width-300">
+                  <div class="imageAppend form-control max-width-500 ">
                     <div class="drop-zone  invoice_imgorder">
                       <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
                       <input type="file" name="i_image" id="removeImage" class="drop-zone__input">
@@ -72,7 +72,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control price mt-1 date-input" name="date">
+                  <input type="text" class="form-control price mt-1 date-input datepicker" name="date">
                   <span class="errormsg date"></span>
                 </div>
               </div>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <span class="text-normal">Due Date :</span>
                 </div>
                 <div class="col-xl">
-                  <input type="date" class="form-control mt-1 price date-input " name="due_date">
+                  <input type="text" class="form-control mt-1 price date-input datepicker " name="due_date">
                   <span class="errormsg due_date"></span>
                 </div>
               </div>
@@ -215,7 +215,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
     </div>
 
-    <script src="<?php echo main_url('admin/assets/js/common_11.js'); ?>"></script>
+    <script src="<?php echo main_url('admin/assets/js/common_12.js'); ?>"></script>
 </body>
 
 </html>

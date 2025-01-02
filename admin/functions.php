@@ -1441,7 +1441,7 @@ $limit = 12;
                                 $decodedPath = htmlspecialchars_decode(
                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                 );
-                                $output .= '<div class="col-6 col-md-4 p-2 position-relative">';
+                                $output .= '<div class="col-6 col-md-3 p-2 position-relative">';
                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
                                 $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="pro_delete_btn btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="'. TABLE_PRODUCT_IMAGE .'" aria-label="Delete">';
                                 $output .= '<i class="fa fa-trash"></i>';
@@ -1508,8 +1508,8 @@ $limit = 12;
         $search_value = isset($_POST['search_text']) ? $_POST['search_text'] : '';
         error_log("Start Date: $start_date, End Date: $end_date, Search Text: $search_value");
         if (!empty($start_date) && !empty($end_date)) {
-            $start_date = date('Y-m-d', strtotime($start_date)); 
-            $end_date = date('Y-m-d', strtotime($end_date)); 
+            $start_date = date('d-m-Y', strtotime($start_date)); 
+            $end_date = date('d-m-y', strtotime($end_date)); 
         } else {
             $start_date = $end_date = '';
         }
@@ -1589,7 +1589,7 @@ $limit = 12;
                         $output .= '<div class="fs-6"><span><h6 class="fw-normal d-inline fs-6">Date :</h6>' . $row['date'] . '</div>';
                         $output .= '<div class="ms-auto text-end">';
                         $output .= '<div class="mt-2">';
-                        $output .= '<span class=" text-secondary delete_shadow delete_btn btn-light shadow-sm rounded-0">'.$paymentstatus.'</span>';
+                        $output .= '<span class="me-1 text-secondary delete_shadow delete_btn btn-light shadow-sm rounded-0">'.$paymentstatus.'</span>';
                         $output .= '<a href="' .CLS_SITE_URL . '"  target="_blank"><i data-id="" class="cursor-pointer fa-regular fa-eye text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0"  aria-hidden="true"></i></a> ';
                         $output .= '<a href="'.SITE_ADMIN_URL. 'invoicepreview?id='. $row['invoice_id'].'"  target="_blank"><i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa-solid fa-file-arrow-down text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" aria-hidden="true"></i></a> ';
                         $output .= '<i data-id="' . $row["invoice_id"] . '" class="cursor-pointer fa fa-trash text-secondary delete_shadow me-1 delete delete_btn btn-light shadow-sm rounded-0" data-delete-type="'. TABLE_INVOICE .'" data-fild="i_image" aria-hidden="true"></i>';

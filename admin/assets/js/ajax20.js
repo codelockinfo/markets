@@ -144,7 +144,6 @@ function userData(routineName) {
     },
   });
 }
-
 function loadData(routineName) {
   $.ajax({
     url: "../admin/ajax-call.php",
@@ -160,6 +159,7 @@ function loadData(routineName) {
         $("#pagination").hide();
         $(".addproduct").show();
         $(".viewproduct").hide();
+        $(".range_picker").hide();
       } else {
         $("#getdata").html(response.outcome);
         $(".user_msg").html(response.outcome);
@@ -169,6 +169,8 @@ function loadData(routineName) {
           $(".addproduct").hide();
           $(".viewproduct").show();
           $("#pagination").show();
+          $(".range_picker").show();
+
         } else {
           $(".addproduct").hide();
           $(".viewproduct").show();
@@ -2756,14 +2758,13 @@ function getPaymentPlan() {
 document.addEventListener('DOMContentLoaded', function () {
   flatpickr("#date_range", {
       mode: "range", 
-      dateFormat: "d-m-Y",
-      altFormat: "d-m-y", 
+      dateFormat: "d-m-Y", 
+      altFormat: "F j, Y",  
       onChange: function(selectedDates, dateStr, instance) {
-         
-          const start_date = selectedDates[0] ? selectedDates[0].toISOString().split('T')[0] : '';
-          const end_date = selectedDates[1] ? selectedDates[1].toISOString().split('T')[0] : '';
+        
+          const start_date = selectedDates[0] ? formatDate(selectedDates[0]) : '';
+          const end_date = selectedDates[1] ? formatDate(selectedDates[1]) : '';
 
-         
           console.log("Start Date:", start_date);
           console.log("End Date:", end_date);
 
@@ -2778,20 +2779,26 @@ document.addEventListener('DOMContentLoaded', function () {
               },
               success: function(response) {
                 var response = JSON.parse(response);
-                  console.log(response, "... Response received");
+                console.log(response, "... Response received");
 
-                  if (response.outcome != "") {
-                    if (response.outcome == "No data found") {
-                      $("#getdata").html(NO_DATA);
-                    } else {
-                      $("#getdata").html(response.outcome);
-                    }
+                if (response.outcome != "") {
+                  if (response.outcome == "No data found") {
+                    $("#getdata").html(NO_DATA);
+                  } else {
+                    $("#getdata").html(response.outcome);
                   }
+                }
               },
               
           });
       }
   });
+  function formatDate(date) {
+      const day = ('0' + date.getDate()).slice(-2);
+      const month = ('0' + (date.getMonth() + 1)).slice(-2);
+      const year = date.getFullYear();
+      return `${day}-${month}-${year}`;
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -3023,8 +3030,10 @@ function get_invoicepdf(id) {
       $("span[id='subtotal']").html(response.outcome.subtotal);
       $("span[id='amount_paid']").html(response.outcome.amount_paid);
       $("span[id='balance_due']").html(response.outcome.balance_due);
-      $("span[id='notes']").html(response.outcome.notes);
-      $("span[id='terms_condition']").html(response.outcome.terms_condition);
+      // $("span[id='notes']").html(response.outcome.notes);
+      (response.outcome.notes  !== "undefined" && response.outcome.notes  !== "") ? $("span[id='notes']").html(response.outcome.notes) : $("span[id='notes']").closest('.row').html("");
+      // $("span[id='terms_condition']").html(response.outcome.terms_condition);
+      (response.outcome.terms_condition  !== "undefined" && response.outcome.terms_condition  !== "") ? $("span[id='terms_condition']").html(response.outcome.terms_condition) : $("span[id='terms_condition']").closest('.row').html("");
       $("span[id='shipping_charges']").html(response.outcome.shipping_charges);
       $("p[id='invoice_no']").html(response.outcome.invoice_no);
 
