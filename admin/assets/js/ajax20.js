@@ -2756,7 +2756,7 @@ function getPaymentPlan() {
   });
 }
 document.addEventListener('DOMContentLoaded', function () {
-  flatpickr("#date_range", {
+  const flatpickrInstance = flatpickr("#date_range", {
       mode: "range", 
       dateFormat: "d-m-Y", 
       altFormat: "F j, Y",  
@@ -2799,6 +2799,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const year = date.getFullYear();
       return `${day}-${month}-${year}`;
   }
+
+  $("#clear-range").click(function() {
+    flatpickrInstance.clear();  // Use the stored flatpickr instance to clear the selection
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {

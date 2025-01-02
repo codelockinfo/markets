@@ -29,9 +29,11 @@ if (!isset($_SESSION['current_user']['user_id'])) {
               <input type="text" class="form-control search-btn_1 me-2" placeholder="Type here..." id="search" data-routine="invoicelisting" >
             </div>
           
-            <div class="me-3 invoice_fliter w-50">
-            <input type="text" class="form-control search-btn_1 w-100 range_picker" id="date_range" name="date_range" placeholder="Select Date Range" />
+            <div class="me-3 invoice_fliter d-flex w-70">
+                 <input type="text" class="form-control search-btn_1 w-100 range_picker " id="date_range" name="date_range" placeholder="Select Date Range" />
+                <div><i class="fa-solid fa-xmark  clear" id="clear-range"></i></div>
             </div>
+
             
             <div class="dropdown mt-3 filterDropdown w-40 text-end"  data-filter="invoicelist">
             <button class="btn bg-gradient-info dropdown-toggle dropdownhide w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
