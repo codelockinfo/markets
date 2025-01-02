@@ -144,7 +144,6 @@ function userData(routineName) {
     },
   });
 }
-
 function loadData(routineName) {
   $.ajax({
     url: "../admin/ajax-call.php",
@@ -160,6 +159,7 @@ function loadData(routineName) {
         $("#pagination").hide();
         $(".addproduct").show();
         $(".viewproduct").hide();
+        $(".range_picker").hide();
       } else {
         $("#getdata").html(response.outcome);
         $(".user_msg").html(response.outcome);
@@ -169,6 +169,8 @@ function loadData(routineName) {
           $(".addproduct").hide();
           $(".viewproduct").show();
           $("#pagination").show();
+          $(".range_picker").show();
+
         } else {
           $(".addproduct").hide();
           $(".viewproduct").show();

@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
             </div>
           
             <div class="me-3 invoice_fliter w-50">
-            <input type="text" class="form-control search-btn_1 w-100 " id="date_range" name="date_range" placeholder="Select Date Range" />
+            <input type="text" class="form-control search-btn_1 w-100 range_picker" id="date_range" name="date_range" placeholder="Select Date Range" />
             </div>
             
             <div class="dropdown mt-3 filterDropdown w-40 text-end"  data-filter="invoicelist">

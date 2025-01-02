@@ -28,7 +28,7 @@ if ($_SESSION['current_user']['role'] == 1) {
             <form role="form" id="b_textileCtgryinsert" enctype="multipart/form-data" method="POST">
             <div class="mb-3">
               <label for="text" class="font-weight-normal">Categories</label>             
-                <select class="form-select required" aria-label="Default select example" id="mySelect" name="categories">
+                <select class="form-select required multiple_tag" aria-label="Default select example" id="mySelect" name="categories">
                   <option selected value="">Select Category</option>
                 </select>                                    
               <span class="errormsg categories"></span>
