@@ -1108,7 +1108,7 @@ i.fa-solid.fa-xmark{
   font-size: 1.7rem;
 }
 .invoice_fliter  .form-control{
-  width: auto !important;
+  width: 100% !important;
 }
 
 .select2-selection__choice {
@@ -1314,7 +1314,12 @@ i.fa-solid.fa-xmark{
     border-radius: 10px;
   }
 }
-
+@media (max-width: 540px) {
+  .filterheader{
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
 @media (max-width: 331px) {
   .invoice-title1 {
     display: none;
