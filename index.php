@@ -1593,46 +1593,46 @@
     <!-- paregraph -->
     <section class="light-color py-60 pb-60">
         <div class="custom-container">
-            <div class="   ">
-                <span class="fw-bold f-18">Overview:</span> </span class="f-18"> The saree market is a vibrant and
+            <div class="">
+            <p class="f-22"><span class="fw-bold f-22">Overview:</span> The saree market is a vibrant and
                 diverse segment of the textile industry, deeply rooted in cultural heritage tradition, especially in
                 South Asia.</span>
-            </div>
+                        </p>
 
-            <div class="   mb-3">
-                <span class="fw-bold f-18">Market Trends:</span> </span class="f-18"> The market is influenced by
+            <div class="  mb-3">
+            <p class="f-22"><span class="fw-bold f-22">Market Trends:</span> The market is influenced by
                 various factors, including regional preferences, fabric innovations, design trends, and fashion
-                influences from both traditional and modern aesthetics.</span>
+                influences from both traditional and modern aesthetics.</p>
             </div>
 
-            <div class="   mb-3">
-                <span class="fw-bold f-18">Key Players:</span> </span class="f-18"> The market is influenced by various
+            <div class="  mb-3">
+            <p class="f-22">  <span class="fw-bold f-22">Key Players:</span> The market is influenced by various
                 factors, including regional preferences, fabric innovations, design trends, and fashion influences from
-                both traditional and modern aesthetics.</span>
+                both traditional and modern aesthetics.</p>
             </div>
 
             <div class="   mb-3">
-                <span class="fw-bold f-18">Consumer Demographics:</span> </span class="f-18">The market serves a wide
+            <p class="f-22"><span class="fw-bold f-22">Consumer Demographics:</span> The market serves a wide
                 range of consumers, from daily wear enthusiasts to those seeking exclusive pieces for special occasions
-                like weddings and festivals.</span>
+                like weddings and festivals.</p>
             </div>
 
             <div class="   mb-3">
-                <span class="fw-bold f-18">Distribution Channels:</span> </span class="f-18">Sarees are sold through
+            <p class="f-22"> <span class="fw-bold f-22">Distribution Channels:</span> Sarees are sold through
                 various channels, including brick-and-mortar stores, boutiques, online platforms, and marketplaces,
-                making them accessible to a global audience.</span>
+                making them accessible to a global audience.</p>
             </div>
 
             <div class="   mb-3">
-                <span class="fw-bold f-18">Challenges and Opportunities:</span> </span class="f-18">The market faces
+            <p class="f-22"> <span class="fw-bold f-22">Challenges and Opportunities:</span>The market faces
                 challenges such as competition from other fashion trends and sustainability concerns, but it also offers
-                opportunities for innovation in design, eco-friendly materials, and expanding global reach.</span>
+                opportunities for innovation in design, eco-friendly materials, and expanding global reach.</p>
             </div>
 
             <div class="   mb-3">
-                <span class="fw-bold f-18">Regional Differences:</span> </span class="f-18">The market comprises a mix
+            <p class="f-22"><span class="fw-bold f-22">Regional Differences:</span>The market comprises a mix
                 of local artisans, established textile brands, and emerging designers who cater to different segments
-                and preferences.</span>
+                and preferences.</p>
             </div>
         </div>
     </section>
