@@ -42,6 +42,9 @@ body{
 .f-40{
     font-size: 40px;
 }
+.f-50{
+    font-size: 50px;
+}
 .w-60{
     width: 60%;
 }
@@ -194,6 +197,12 @@ cursor: pointer;
 .img-custome{
     left: -16%;
     top: 22%;
+    content: "";
+    opacity: 0.1;
+}
+.img-customec{
+    left: -8%;
+    top: 10%;
     content: "";
     opacity: 0.1;
 }
@@ -495,4 +504,30 @@ animation: slowZoom 3s linear infinite;
 }
 .icon-contact:hover{
     transform: rotatey(180deg);
+}
+
+/* SELLER CONTACT US PAGE  */
+
+.c-banner-img {
+    height: 55vh; 
+    /* overflow: hidden; */
+}
+
+.c-banner-img .contact-shop-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.seller-logo-img {
+    /* position: absolute; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Adjust size */
+    height: 200px;
+    border: 5px solid var(--main-color); /* Add border for contrast */
+    border-radius: 50%;
+}
+.contact-seller-form{
+    margin-top: 100px;
 }

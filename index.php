@@ -2,7 +2,7 @@
 
 <body>
     <!-- LOADER      -->
-    <!-- <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div> -->
+    <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>
 
     <?php include 'navbar.php'; ?>
 
@@ -116,7 +116,7 @@
     </section>
 
     <!-- famous markets -->
-    <section class="semi-light-color position-relative py-60 pb-60">
+    <section class="semi-light-color position-relative py-60 pb-60" >
         <div class="img-custome position-absolute">
             <img src="img/img3.png" class=" w-50">
         </div>
