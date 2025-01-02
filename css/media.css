@@ -31,6 +31,11 @@
     .contact-icon{
         left: 35%;
   }
+  /* seller contact page   */
+  .seller-logo-img {
+    width: 170px; 
+    height: 170px;
+}
 }
 @media (max-width: 991px) {
     .f-36{
@@ -80,6 +85,11 @@
     .contact-icon{
         left: 43%;
   }
+  /* seller contact page   */
+  .seller-logo-img {
+    width: 150px; 
+    height: 150px;
+}
 }
 @media (max-width: 576px) {
     /* / foumas market / */
