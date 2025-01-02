@@ -53,7 +53,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
       </div>
     </div>
   </div>
-  <script src="<?php echo main_url('admin/assets/js/common_11.js'); ?>"></script>
+  <script src="<?php echo main_url('admin/assets/js/common_12.js'); ?>"></script>
 </body>
 </html>
 <script type="text/javascript">
