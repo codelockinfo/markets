@@ -30,7 +30,7 @@ if (!isset($_SESSION['current_user']['user_id'])) {
                   <input type="text"  class="form-control ms-auto text-end mb-3 invoice_no genrate" value="" name="invoice_no" readonly >
                 </div>
                 <div class="col mb-3 orderchange">
-                  <div class="imageAppend form-control max-width-300">
+                  <div class="imageAppend form-control max-width-500 ">
                     <div class="drop-zone  invoice_imgorder">
                       <span class="pro-zone__prompt">Drop File Here Or Click To Upload</span>
                       <input type="file" name="i_image" id="removeImage" class="drop-zone__input">

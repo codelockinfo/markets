@@ -556,9 +556,10 @@ $(document).on("change", ".addcategory", function () {
     $(".toggle-icon").removeClass("fa-minus").addClass("fa-plus");
   }
 });
-
-flatpickr(".datepicker", {
-  dateFormat: "d-m-Y", 
-  altInput: false, 
-  altFormat: "F j, Y", 
+document.querySelectorAll('.datepicker').forEach(function(element) {
+  flatpickr(element, {
+    dateFormat: "d-m-Y", 
+    altInput: false, 
+    altFormat: "F j, Y", 
+  });
 });

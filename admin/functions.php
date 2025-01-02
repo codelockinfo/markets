@@ -1441,7 +1441,7 @@ $limit = 12;
                                 $decodedPath = htmlspecialchars_decode(
                                     (!empty($image) && file_exists($imagePath)) ? $imagePath : $NO_IMAGE
                                 );
-                                $output .= '<div class="col-6 col-md-4 p-2 position-relative">';
+                                $output .= '<div class="col-6 col-md-3 p-2 position-relative">';
                                 $output .= '<img src="' . $decodedPath . '" alt="Product Image" class="img-fluid shadow border-radius-xl modal_img">';
                                 $output .= '<button data-id="' . $row_image["product_image_id"] . '" class="pro_delete_btn btn btn-light position-absolute top-50 start-50 translate-middle cursor-pointer delete" data-delete-type="'. TABLE_PRODUCT_IMAGE .'" aria-label="Delete">';
                                 $output .= '<i class="fa fa-trash"></i>';

@@ -693,8 +693,8 @@ border:1px solid #d2d6da;
 }
 
 .modal_img {
-  width: 130px;
-  height: 150px;
+  /* width: 130px; */
+  /* height: 150px; */
   margin: 5px;
   object-fit: cover;
 }
@@ -1124,10 +1124,17 @@ i.fa-solid.fa-xmark{
 }
 
 .navbar-vertical .navbar-nav .nav-link .icon {
-  padding: 8px !important;
+  padding: 9px !important;
+}
+.modal-dialog{
+ max-width: 700px !important;
+}
+.modal-header{
+ padding:0px 5px !important; 
 }
 
 /* ----------------------media query------------------ */
+
 @media (max-width: 1500px) {
   .b-img {
     width: 70%;
