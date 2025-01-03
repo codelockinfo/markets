@@ -14,7 +14,7 @@
                 style="width: 85%;margin: 0 auto;display: flex;">
         </div>
        
-<div>token:hf8yf8fcsnjcbdh</div>
+<div>token: {{verify_email_token}}</div>
 
     </div>
 </body>

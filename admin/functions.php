@@ -276,15 +276,13 @@ $limit = 12;
                         if ($payment_result) {
                             $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                         
-                        // Prepare email message
+                      
                         $subject = "Email Verification - Textile Market";
                         if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
                                 $message = file_get_contents('thankemail_template_textilemarkethub.php');
                             }else{
                                 $message = file_get_contents('thankemail_template.php');
                             }
-    
-                        // Replace placeholders with actual data
                          $message = str_replace('{{email}}', $email, $message);
                          $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
 
