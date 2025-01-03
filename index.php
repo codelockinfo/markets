@@ -917,7 +917,7 @@
         </div>
         <div class="custom-container">
             <div>
-                <h2 class="fw-bold heading-font f-40 mb-3 mb-md-5">Shop Now & Save</h2>
+                <h2 class="fw-bold heading-font f-30 mb-3 mb-md-5">Shop Now & Save</h2>
             </div>
             <div class="row g-3">
                 <div class="col-lg-6 col-md-12">
@@ -1291,32 +1291,32 @@
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
                 <h2 class="fw-bold heading-font f-40 ">Trending Video</h2>
                 <a href="#"
-                    class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
+                    class="text-decoration-none custom_button3 z-index main-color border-r px-4 py-2 fw-bold border-0 ">View
                     all</a>
             </div>
             <div class="swiper videoSwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/cs0pcPDCYWk" frameborder="0"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/xPspAJ35Ry8" frameborder="0"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/1tmeJQNa4Gg" frameborder="0"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/D56hFU0qYHA" frameborder="0"
                             allowfullscreen></iframe>
-                    </div>
-                    <div class="swiper-slide border-r">
+                    </div> 
+                    <div class="swiper-slide border-r overflow-hidden">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/wVmv8kvcGa0" frameborder="0"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/CyqGfytMGVs" frameborder="0"
                             allowfullscreen></iframe>
                     </div>
@@ -1596,43 +1596,43 @@
     <section class="light-color py-60 pb-60">
         <div class="custom-container">
             <div class="">
-                <p class="f-22"><span class="fw-bold f-22">Overview:</span> The saree market is a vibrant and
+                <p class="f-18"><span class="fw-bold f-18">Overview:</span> The saree market is a vibrant and
                     diverse segment of the textile industry, deeply rooted in cultural heritage tradition, especially in
                     South Asia.</span>
                 </p>
 
                 <div class="  mb-3">
-                    <p class="f-22"><span class="fw-bold f-22">Market Trends:</span> The market is influenced by
+                    <p class="f-18"><span class="fw-bold f-18">Market Trends:</span> The market is influenced by
                         various factors, including regional preferences, fabric innovations, design trends, and fashion
                         influences from both traditional and modern aesthetics.</p>
                 </div>
 
                 <div class="  mb-3">
-                    <p class="f-22"> <span class="fw-bold f-22">Key Players:</span> The market is influenced by various
+                    <p class="f-18"> <span class="fw-bold f-18">Key Players:</span> The market is influenced by various
                         factors, including regional preferences, fabric innovations, design trends, and fashion influences from
                         both traditional and modern aesthetics.</p>
                 </div>
 
                 <div class="   mb-3">
-                    <p class="f-22"><span class="fw-bold f-22">Consumer Demographics:</span> The market serves a wide
+                    <p class="f-18"><span class="fw-bold f-18">Consumer Demographics:</span> The market serves a wide
                         range of consumers, from daily wear enthusiasts to those seeking exclusive pieces for special occasions
                         like weddings and festivals.</p>
                 </div>
 
                 <div class="   mb-3">
-                    <p class="f-22"> <span class="fw-bold f-22">Distribution Channels:</span> Sarees are sold through
+                    <p class="f-18"> <span class="fw-bold f-18">Distribution Channels:</span> Sarees are sold through
                         various channels, including brick-and-mortar stores, boutiques, online platforms, and marketplaces,
                         making them accessible to a global audience.</p>
                 </div>
 
                 <div class="   mb-3">
-                    <p class="f-22"> <span class="fw-bold f-22">Challenges and Opportunities:</span>The market faces
+                    <p class="f-18"> <span class="fw-bold f-18">Challenges and Opportunities:</span>The market faces
                         challenges such as competition from other fashion trends and sustainability concerns, but it also offers
                         opportunities for innovation in design, eco-friendly materials, and expanding global reach.</p>
                 </div>
 
-                <div class="   mb-3">
-                    <p class="f-22"><span class="fw-bold f-22">Regional Differences:</span>The market comprises a mix
+                <div class="  mb-3">
+                    <p class="f-18"><span class="fw-bold f-18">Regional Differences:</span>The market comprises a mix
                         of local artisans, established textile brands, and emerging designers who cater to different segments
                         and preferences.</p>
                 </div>

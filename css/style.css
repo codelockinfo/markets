@@ -138,6 +138,42 @@ body{
 .custom_button2:hover::after {
     transform: translateY(40%);
 }
+.custom_button3{
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+    z-index: 1;
+}
+.custom_button3:hover a {
+    color: var(--main-color);
+}
+.custom_button3:hover  {
+    color: var(--main-color);
+}
+.custom_button3::before,
+.custom_button3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--semi-light-color);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+.custom_button3::before {
+    transform: translateY(-100%);
+}
+.custom_button3::after {
+    transform: translateY(100%);
+}
+.custom_button3:hover::before {
+    transform: translateY(-40%);
+}
+.custom_button3:hover::after {
+    transform: translateY(40%);
+}
 
 .svg-container:hover path {
     fill: var(--main-color); 
