@@ -3240,6 +3240,7 @@ function usercheck_toggle_btn() {
   
         if(isset($_SESSION["current_user"]["verify_email_token"])){
             $verification_code = $_SESSION["current_user"]["verify_email_token"];
+            $email = isset($_SESSION["current_user"]["email"]) ? $_SESSION["current_user"]["email"] : '';
             $subject = "Email Verification - Textile Market";
             $message =  $verification_code;
 
