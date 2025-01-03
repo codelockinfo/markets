@@ -242,7 +242,7 @@ $limit = 12;
         }
         if (empty($error_array)) {
             $name = mysqli_real_escape_string($this->db, $_POST['name']);
-            $verify_email_token = mysqli_real_escape_string($this->db, $_POST[' $verify_email_token']); 
+            $verify_email_token = mysqli_real_escape_string($this->db, $_POST['verify_email_token']); 
             $shop = mysqli_real_escape_string($this->db, $_POST['shop']);
             $address = mysqli_real_escape_string($this->db, $_POST['address']);
             $phone_number = $_POST['phone_number'];
