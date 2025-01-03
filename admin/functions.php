@@ -242,7 +242,7 @@ $limit = 12;
         }
         if (empty($error_array)) {
             $name = mysqli_real_escape_string($this->db, $_POST['name']);
-            $verify_email_token = mysqli_real_escape_string($this->db, $_POST[' $verify_email_token']); // Generate a unique token
+            $verify_email_token = mysqli_real_escape_string($this->db, $_POST[' $verify_email_token']); 
             $shop = mysqli_real_escape_string($this->db, $_POST['shop']);
             $address = mysqli_real_escape_string($this->db, $_POST['address']);
             $phone_number = $_POST['phone_number'];
@@ -257,7 +257,7 @@ $limit = 12;
             } else {
                 if (move_uploaded_file($_FILES['shop_img']['tmp_name'], $fullpath) && move_uploaded_file($_FILES['shop_logo']['tmp_name'], $shopLogoPath)) {
                     $hashed_password = md5($password);
-                    $query = "INSERT INTO ". TABLE_USER ." (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email,verify_email_token) 
+                    echo $query = "INSERT INTO ". TABLE_USER ." (name, shop, address, phone_number, business_type, shop_logo, shop_img, password, email,verify_email_token) 
                               VALUES ('$name', '$shop', '$address', '$phone_number', '$business_type', '$shoplogo', '$newFilename', '$hashed_password', '$email','$verify_email_token')";
                     $result = mysqli_query($this->db, $query);
                     if ($result) {
@@ -283,6 +283,8 @@ $limit = 12;
                             }else{
                                 $message = file_get_contents('thankemail_template.php');
                             }
+    
+                        // Replace placeholders with actual data
                          $message = str_replace('{{email}}', $email, $message);
                          $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
 
