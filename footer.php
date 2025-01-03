@@ -2,21 +2,21 @@
   <footer class="main-color text-light py-60 pb-60">
         <div class="custom-container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4 text-center text-sm-start">
                     <div><img src="img/TMH (9).png" alt="Logo" class="w-50 mb-3" /></div>
-                    <p>
+                    <p class="f-16 ">
                         Empowering Textile Businesses with Seamless Connectivity and
                         Growth Opportunities. Bridging the Gap Between Wholesalers and
                         Retailers in the Textile Industry.
                     </p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex gap-3 justify-content-center justify-content-sm-start">
                         <a href="#" class="text-light"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#" class="text-light"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#" class="text-light"><i class="fa-brands fa-youtube"></i></a>
                         <a href="#" class="text-light"><i class="fa-brands fa-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div class="col-lg-2 col-md-6 mb-4 text-center text-sm-start">
                     <h5 class="fw-bold body-font-familly f-22 mb-4">Store Policy</h5>
                     <ul class="list-unstyled">
                         <li>
@@ -38,7 +38,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div class="col-lg-2 col-md-6 mb-4 text-center text-sm-start">
                     <h5 class="fw-bold body-font-familly f-22 mb-4">Information</h5>
                     <ul class="list-unstyled">
                         <li>
@@ -51,7 +51,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 text-center text-sm-start">
                     <h5 class="fw-bold body-font-familly f-22 mb-4">Contact Us</h5>
                     <ul class="list-unstyled">
                         <li class="body-font-familly f-18">
