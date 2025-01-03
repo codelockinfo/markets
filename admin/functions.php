@@ -247,8 +247,7 @@ $limit = 12;
             $address = mysqli_real_escape_string($this->db, $_POST['address']);
             $phone_number = $_POST['phone_number'];
             $business_type = $_POST['business_type'];
-    
-            // Check if email already exists
+
             $email_check_query = "SELECT * FROM ". TABLE_USER ." WHERE email = '$email'";
             $email_check_result = mysqli_query($this->db, $email_check_query);
             if ($email_check_result->num_rows > 0) {
@@ -283,8 +282,6 @@ $limit = 12;
                             }else{
                                 $message = file_get_contents('thankemail_template.php');
                             }
-    
-                        // Replace placeholders with actual data
                          $message = str_replace('{{email}}', $email, $message);
                          $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
 

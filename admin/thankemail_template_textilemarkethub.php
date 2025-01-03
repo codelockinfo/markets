@@ -14,7 +14,11 @@
                 style="width: 85%;margin: 0 auto;display: flex;">
         </div>
        
-<div>token: {{verify_email_token}}</div>
+        <div>
+  <p>To confirm your email, please click on the following link:</p>
+  <a href="https://textilemarkethub.com/?token={{verify_email_token}}">Verify your email</a>
+</div>
+
 
     </div>
 </body>
