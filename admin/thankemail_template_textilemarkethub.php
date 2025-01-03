@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<style>
-    .token{
-        border: none;
-        font-size:23px;
-        color: #21aeff;
-        
-    }
-    
-</style>
+
 <body>
     <div class="main-sec" style="max-width: 1140px;margin: auto;background-color: #ffff;border-radius: 30px;">
         <div class="mail-img"
@@ -25,7 +17,7 @@
        
         <div>
   <p>Copy this code and this code is for verify email:</p>
-  <input type="text"  value="Token:{{verify_email_token}}" class="token">
+  <input type="text"  value="Token:{{verify_email_token}}" style=" border: none;font-size:23px; color: #21aeff;">
 
 
 
