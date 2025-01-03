@@ -1040,6 +1040,10 @@ $(document).ready(function () {
   let randomNumber = Math.floor(10000000 + Math.random() * 90000000);
   console.log(randomNumber);
   $(".genrate").val(randomNumber);
+
+  let randomvalue = Math.floor(100000 + Math.random() * 900000);
+  console.log("verify",randomvalue);
+  $(".verify").val(randomvalue);
   
   var pnameElement = document.getElementById('pname');
   var imageAltElement = document.getElementById('image_alt');

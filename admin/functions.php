@@ -193,7 +193,7 @@ $limit = 12;
             if ($_FILES['shop_logo']['size'] > $maxSize) {
                 $error_array['shop_logo'] = "The shop logo size exceeds the maximum allowed limit. Please upload a smaller image.";
             }
-
+    
             if (empty($filename)) {
                 $error_array['shop_logo'] = "The shop logo is required.";
             }
@@ -211,7 +211,7 @@ $limit = 12;
             $error_array['business_type'] = "Please select the business type.";
         }
         $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-        $mobilepattern = "/^[6789]\d{9}$/";  
+        $mobilepattern = "/^[6789]\d{9}$/";
         if (empty($phone_number)) {
 
             $error_array['phone_number'] = "The phone number cannot be empty.";
@@ -220,7 +220,7 @@ $limit = 12;
         } else if (!preg_match($mobilepattern, $phone_number)) {
             $error_array['phone_number'] = "The mobile number is invalid.";
         }
-
+    
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['Confirm_Password']) ? $_POST['Confirm_Password'] : '';
         $strongPasswordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/';
@@ -230,7 +230,7 @@ $limit = 12;
             $error_array['password'] = "Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.";
         }
         if (empty($confirmPassword)) {
-            $error_array['Confirm_Password'] = " Confirm password cannot be empty. ";
+            $error_array['Confirm_Password'] = "Confirm password cannot be empty. ";
         } elseif ($password !== $confirmPassword) {
             $error_array['Confirm_Password'] = "Passwords do not match.";
         }
@@ -241,11 +241,14 @@ $limit = 12;
             $error_array['email'] = "The email address entered is invalid.";
         }
         if (empty($error_array)) {
-            $name = isset($_POST['name']) ? mysqli_real_escape_string($this->db, $_POST['name']) : '';
-            $shop = isset($_POST['shop']) ? mysqli_real_escape_string($this->db, $_POST['shop']) : '';
-            $address = isset($_POST['address']) ? mysqli_real_escape_string($this->db, $_POST['address']) : '';
-            $phone_number = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
-            $business_type = isset($_POST['business_type']) ? $_POST['business_type'] : '';
+            $name = mysqli_real_escape_string($this->db, $_POST['name']);
+            $verify_email_token = md5(uniqid());  // Generate a unique token
+            $shop = mysqli_real_escape_string($this->db, $_POST['shop']);
+            $address = mysqli_real_escape_string($this->db, $_POST['address']);
+            $phone_number = $_POST['phone_number'];
+            $business_type = $_POST['business_type'];
+    
+            // Check if email already exists
             $email_check_query = "SELECT * FROM ". TABLE_USER ." WHERE email = '$email'";
             $email_check_result = mysqli_query($this->db, $email_check_query);
             if ($email_check_result->num_rows > 0) {
@@ -271,25 +274,32 @@ $limit = 12;
                         $payment_result = mysqli_query($this->db, $query);
                         
                         if ($payment_result) {
-                            $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-                        
-                            $subject = "Market";
-                            if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com'  || $_SERVER['SERVER_NAME'] == 'textilemarkethub.com' ) {
-                                $message = file_get_contents('thankemail_template_textilemarkethub.php');
-                            }else{
-                                $message = file_get_contents('thankemail_template.php');
-                            }
-                            $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
-                            $headers = "MIME-Version: 1.0\r\n";
-                            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                        
+                        $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
+    
+                        // Prepare email message
+                        $subject = "Email Verification - Textile Market";
+                        if ($_SERVER['SERVER_NAME'] == 'textilemarkethub.com') {
+                            $message = file_get_contents('thankemail_template_textilemarkethub.php');
+                        } else {
+                            $message = file_get_contents('thankemail_template.php');
+                        }
+    
+                        // Replace placeholders with actual data
+                        $message = str_replace('{{email}}', $email, $message);
+                        $message = str_replace('{{verify_email_token}}', $verify_email_token, $message);
+    
+                        // Email headers
+                        $headers = "From:no-reply@textilemarkethub.com\r\n";
+                        $headers .= "MIME-Version: 1.0\r\n";
+                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    
                             if($_SERVER['SERVER_NAME'] == 'localhost'){
                                 $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
                             }else{
-                                if (mail($email, $subject, $message, $headers)) {
-                                    $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully!');
-                                } else {
-                                    $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
+                        if (mail($email, $subject, $message, $headers)) {
+                            $response_data = array('data' => 'success', 'msg' => 'Data inserted successfully and verification email sent!');
+                        } else {
+                            $response_data = array('data' => 'fail', 'msg' => 'Mailer Error: could not be sent.');
                                 }
                             }
                         }
@@ -303,9 +313,12 @@ $limit = 12;
         } else {
             $response_data = array('data' => 'fail', 'msg' => $error_array);
         }
+    
         $response = json_encode($response_data);
         return $response;
     }
+    
+
     function insert_products(){
         $response_data = array('data' => 'fail', 'msg' => 'Unknown error occurred');
         $error_array = array();
@@ -3180,7 +3193,9 @@ function usercheck_toggle_btn() {
                     if (mysqli_num_rows($result) > 0) {
                         $msg= '<div class="alert alert-info">Your profile is currently being reviewed by our team. 
                                     This is a necessary step to verify your details and complete your registration.
+                                    <button class="verify"><a href="">verify now</a></button>
                                     <span class="popup-close-button">&times;</span>
+
                                     </div>';
                         $response_data = array('data' => 'success', 'outcome' => $msg);
                     }else{
