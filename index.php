@@ -1431,8 +1431,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 order-1 order-lg-2 text-end">
-                    <img src="img/faqs.png" class="img-fluid w-75 rounded" alt="Saree Fabric Guide">
+                <div class="col-lg-5 order-1 order-lg-2 text-end ">
+                    <img src="img/faqs.png" class="img-fluid w-75 rounded d-none d-sm-block" alt="Saree Fabric Guide">
                 </div>
             </div>
         </div>
@@ -1467,7 +1467,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-1 text-center">
-                    <img src="img/img17.png" class="img-fluid rounded w-75" alt="Saree Fabric Guide">
+                    <img src="img/img17.png" class="img-fluid rounded w-75 d-none d-sm-block" alt="Saree Fabric Guide">
                 </div>
             </div>
         </div>
