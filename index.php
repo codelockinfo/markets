@@ -1463,7 +1463,7 @@
                     </div>
                     <div class="d-flex justify-content-center mt-5">
                         <a href="#"
-                            class="text-decoration-none custom_button z-index main-color border-r px-5 py-2 fw-semibold border-0   ">Submit</a>
+                            class="text-decoration-none custom_button3 z-index main-color border-r px-5 py-2 fw-semibold border-0   ">Submit</a>
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-1 text-center">
@@ -1482,8 +1482,8 @@
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
                 <h1 class="fw-bold heading-font f-30">Our Blogs</h1>
                 <a href="#"
-                    class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
-                    all Markets</a>
+                    class="text-decoration-none z-index custom_button3 main-color border-r px-4 py-1 fw-bold border-0 ">View
+                    all </a>
             </div>
             <div class="swiper blog">
                 <div class="swiper-wrapper">

@@ -74,6 +74,7 @@ body{
     position: relative;
     overflow: hidden;
     color: var(--white);
+    transition: all 0.5s;
 }
 .custom_button:hover {
     color: var(--main-color);
@@ -87,7 +88,7 @@ body{
     bottom: 0;
     left: 0;
     background-color: var(--white);
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
     z-index: -1;
 }
 .custom_button::before {
@@ -107,6 +108,7 @@ body{
     overflow: hidden;
     color: var(--white);
     z-index: 1;
+    transition: all 0.5s;
 }
 .custom_button2:hover a {
     color: var(--main-color);
@@ -123,7 +125,7 @@ body{
     bottom: 0;
     left: 0;
     background-color: var(--semi-light-color);
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
     z-index: -1;
 }
 .custom_button2::before {
@@ -143,6 +145,7 @@ body{
     overflow: hidden;
     color: var(--white);
     z-index: 1;
+    transition: all 0.5s;
 }
 .custom_button3:hover a {
     color: var(--main-color);
@@ -159,7 +162,7 @@ body{
     bottom: 0;
     left: 0;
     background-color: var(--semi-light-color);
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
     z-index: -1;
 }
 .custom_button3::before {
@@ -466,9 +469,12 @@ align-items: center;
     margin: 0 auto;
 }
 /* Blog */
+.custom_card{
+    transition: all 0.7s;
+}
 .custom_card:hover {
     background-color: var(--semi-light-color); 
-    transition: border-color 0.3s ease;
+    /* transition: border-color 0.3s ease; */
 }
 .img-custome7{
     left: -2%;
