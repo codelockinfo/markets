@@ -16,6 +16,7 @@
        
         <div>
   <p>To confirm your email, please click on the following link:</p>
+  <input type="text" value="Token:{{verify_email_token}}">
   <a href="https://textilemarkethub.com/?token={{verify_email_token}}">Verify your email</a>
 </div>
 
