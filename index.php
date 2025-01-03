@@ -147,7 +147,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -198,7 +198,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -249,7 +249,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -300,7 +300,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -351,7 +351,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -402,7 +402,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -453,7 +453,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -504,7 +504,7 @@
                         <img src="img/img1.jpg" alt="Image 1" class="card-img-top w-100 h-50">
                         <div class="card-body border-0">
                             <div class="position-relative">
-                               <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
+                                <a href="#"> <img src="img/logo2.png" alt="Logo" class="rounded-circle border custom-image"></a>
                             </div>
                             <div class="text-warning">
                                 <i class="fa-sharp-duotone fa-solid fa-star fa-xs"></i>
@@ -550,7 +550,7 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </section>
