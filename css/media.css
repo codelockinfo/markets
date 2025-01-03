@@ -123,6 +123,10 @@
         width: 15px;
         height: 15px;
     }
+    /* NEW ARI product  */
+    .pro-after::after{
+        display: none;
+    }
 
 }
 @media (max-width: 450px) {
