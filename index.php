@@ -945,7 +945,7 @@
             <img src="img/img14.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h2 class="fw-bold heading-font mb-3 mb-md-5 f-40 ">New Arrivals</h2>
+            <h2 class="fw-bold heading-font mb-3 mb-md-5 f-30 ">New Arrivals</h2>
             <div class="swiper product">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r overflow-hidden shadow">
@@ -1289,7 +1289,7 @@
     <section class="light-color py-60">
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
-                <h2 class="fw-bold heading-font f-40 ">Trending Video</h2>
+                <h2 class="fw-bold heading-font f-30 ">Trending Video</h2>
                 <a href="#"
                     class="text-decoration-none custom_button3 z-index main-color border-r px-4 py-2 fw-bold border-0 ">View
                     all</a>
@@ -1334,7 +1334,7 @@
         </div>
         <div class="custom-container">
             <div>
-                <h1 class="fw-bold heading-font f-40 mb-5">FAQs</h1>
+                <h1 class="fw-bold heading-font f-30 mb-5">FAQs</h1>
             </div>
             <div class="row  justify-content-between align-items-center ">
                 <div class="col-lg-7 order-2 order-lg-1">
@@ -1446,7 +1446,7 @@
         <div class="custom-container">
             <div class="row g-3 align-items-center">
                 <div class="col-lg-7 order-2 order-lg-2">
-                    <div class="fw-bold heading-font f-36 text-center mb-4">Contact Us</div>
+                    <div class="fw-bold heading-font f-30 text-center mb-4">Contact Us</div>
                     <div class="d-flex gap-3">
                         <div class="card light-color mb-3 border-color w-100">
                             <div class="p-3 f-18   ">Name</div>
@@ -1480,7 +1480,7 @@
         </div>
         <div class="custom-container">
             <div class="d-flex justify-content-between align-items-center mb-3 mb-md-5">
-                <h1 class="fw-bold heading-font ">Our Blogs</h1>
+                <h1 class="fw-bold heading-font f-30">Our Blogs</h1>
                 <a href="#"
                     class="text-decoration-none z-index main-color border-r px-4 py-1 fw-bold border-0 text-light">View
                     all Markets</a>
