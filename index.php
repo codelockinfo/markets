@@ -2,7 +2,7 @@
 
 <body>
     <!-- LOADER      -->
-    <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div>
+    <!-- <div class="loader"><img src="img/img21.png" alt="Loading..." class="loader-image"></div> -->
 
     <?php include 'navbar.php'; ?>
 
@@ -30,14 +30,16 @@
             <img src="img/img24.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h1 class="fw-bold heading-font mb-5 f-40">Categories You May Like</h1>
+            <h1 class="fw-bold heading-font mb-5 f-30">Categories You May Like</h1>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="ms-2 swiper-slide  shadow mb-2 rounded-5 ">
                         <div class="card  w-100 h-100  border-0 overflow-hidden">
-                            <img src="img/img6.jpg" class="">
-                            <div class="d-flex justify-content-between align-items-center p-2">
-                                <h6 class="fw-bold f-18    m-0">Sarees</h6>
+                          <div class="overflow-hidden">
+                          <a href="#" class=""> <img src="img/img6.jpg" class=""></a>
+                          </div>
+                            <div class="d-flex justify-content-between align-items-center p-2 category-card">
+                                <a href="#" class="fw-bold f-18  m-0 text-decoration-none text-dark">Sarees</a>
                                 <a href="#"
                                     class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16     mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -46,9 +48,11 @@
                     </div>
                     <div class="swiper-slide  shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img7.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Dhoti Set</h6>
+                           <div class="overflow-hidden">
+                           <a href="#"> <img src="img/img7.jpg"></a>
+                           </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18  m-0 text-decoration-none text-dark">Dhoti Set</a>
                                 <a href="#"
                                     class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -57,9 +61,11 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/lahenga.webp">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Lahenga choli</h6>
+                          <div class="overflow-hidden">
+                          <a href="#"> <img src="img/lahenga.webp"></a>
+                          </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18  text-decoration-none text-dark  m-0">Lahenga choli</a>
                                 <a href="#"
                                     class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -68,9 +74,11 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/salvar.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Salwar suits</h6>
+                          <div class="overflow-hidden">
+                          <a href="#"> <img src="img/salvar.jpg"></a>
+                          </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18 text-decoration-none text-dark   m-0">Salwar suits</a>
                                 <a href="#"
                                     class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -79,20 +87,24 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img12.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Dupatta stoles</h6>
+                           <div class="overflow-hidden">
+                           <a href="#"> <img src="img/img12.jpg"></a>
+                           </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18 m-0 text-decoration-none text-dark">Dupatta stoles</a>
                                 <a href=""
-                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img13.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Shervani</h6>
+                            <div class="overflow-hidden">
+                            <a href="#"><img src="img/img13.jpg"></a>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18 text-decoration-none text-dark   m-0">Shervani</a>
                                 <a href="#"
                                     class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -101,9 +113,11 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
+                            <div class="overflow-hidden">
                             <img src="img/img15.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Koti Kurta</h6>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <h6 class="fw-bold f-18 text-decoration-none text-dark   m-0">Koti Kurta</h6>
                                 <a href="#"
                                     class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex">View
                                     all</a>
@@ -1639,6 +1653,7 @@
 
 
     <?php include 'footer.php'; ?>
+
     <div class="icon-contact">
       <a href="#">  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
             <g>

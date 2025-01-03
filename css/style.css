@@ -235,6 +235,7 @@ cursor: pointer;
 display: block;
 height: 300px;
 object-position: top;
+transition: all 0.7s;
 }
 .category-c .swiper-slide {
 /* font-size: 18px; */
@@ -242,6 +243,15 @@ background: var(--white);
 display: flex;
 justify-content: center;
 align-items: center;
+}
+.category-c .swiper-slide:hover img {
+  transform: scale(1.1);
+}
+.category-c .swiper-slide:hover .category-card {
+ background-color: var(--semi-light-color);
+}
+.category-card{
+    transition: all 0.7s;
 }
 .img-custome8 {
     content: "";
