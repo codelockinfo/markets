@@ -86,7 +86,7 @@ body{
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: var(--semi-light-color);
+    background-color: var(--white);
     transition: transform 0.3s ease;
     z-index: -1;
 }
@@ -102,6 +102,39 @@ body{
 .custom_button:hover::after {
     transform: translateY(40%);
 }
+.custom_button2{
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+}
+.custom_button2:hover {
+    color: var(--main-color);
+}
+.custom_button2::before,
+.custom_button2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--semi-light-color);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+.custom_button2::before {
+    transform: translateY(-100%);
+}
+.custom_button2::after {
+    transform: translateY(100%);
+}
+.custom_button2:hover::before {
+    transform: translateY(-40%);
+}
+.custom_button2:hover::after {
+    transform: translateY(40%);
+}
+
 .svg-container:hover path {
     fill: var(--main-color); 
 }
@@ -235,6 +268,7 @@ cursor: pointer;
 display: block;
 height: 300px;
 object-position: top;
+transition: all 0.7s;
 }
 .category-c .swiper-slide {
 /* font-size: 18px; */
@@ -242,6 +276,15 @@ background: var(--white);
 display: flex;
 justify-content: center;
 align-items: center;
+}
+.category-c .swiper-slide:hover img {
+  transform: scale(1.1);
+}
+.category-c .swiper-slide:hover .category-card {
+ background-color: var(--semi-light-color);
+}
+.category-card{
+    transition: all 0.7s;
 }
 .img-custome8 {
     content: "";

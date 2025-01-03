@@ -1,10 +1,11 @@
 <?php include 'header.php'; ?>
+
 <body>
     <!-- LOADER  -->
     <div class="loader">
         <img src="img/img21.png" alt="Loading..." class="loader-image">
     </div>
-      
+
     <?php include 'navbar.php'; ?>
 
     <!-- BANNER SECTION  -->
@@ -18,14 +19,16 @@
             <img src="img/img24.png" class="w-50">
         </div>
         <div class="custom-container">
-            <h1 class="fw-bold heading-font mb-5 f-40">Categories You May Like</h1>
+            <h1 class="fw-bold heading-font mb-5 f-30">Categories You May Like</h1>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="ms-2 swiper-slide  shadow mb-2 rounded-5 ">
                         <div class="card  w-100 h-100  border-0 overflow-hidden">
-                            <img src="img/img6.jpg" class="">
-                            <div class="d-flex justify-content-between align-items-center p-2">
-                                <h6 class="fw-bold f-18    m-0">Sarees</h6>
+                            <div class="overflow-hidden">
+                                <a href="#" class=""> <img src="img/img6.jpg" class=""></a>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center p-2 category-card">
+                                <a href="#" class="fw-bold f-18  m-0 text-decoration-none text-dark">Sarees</a>
                                 <a href="#"
                                     class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16     mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -34,9 +37,11 @@
                     </div>
                     <div class="swiper-slide  shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img7.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Dhoti Set</h6>
+                            <div class="overflow-hidden">
+                                <a href="#"> <img src="img/img7.jpg"></a>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18  m-0 text-decoration-none text-dark">Dhoti Set</a>
                                 <a href="#"
                                     class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -45,9 +50,11 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/lahenga.webp">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Lahenga choli</h6>
+                            <div class="overflow-hidden">
+                                <a href="#"> <img src="img/lahenga.webp"></a>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18  text-decoration-none text-dark  m-0">Lahenga choli</a>
                                 <a href="#"
                                     class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -56,9 +63,11 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/salvar.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Salwar suits</h6>
+                            <div class="overflow-hidden">
+                                <a href="#"> <img src="img/salvar.jpg"></a>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18 text-decoration-none text-dark   m-0">Salwar suits</a>
                                 <a href="#"
                                     class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -67,20 +76,24 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img12.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Dupatta stoles</h6>
+                            <div class="overflow-hidden">
+                                <a href="#"> <img src="img/img12.jpg"></a>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18 m-0 text-decoration-none text-dark">Dupatta stoles</a>
                                 <a href=""
-                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
+                                    class=" text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0 mt-2 mb-2 d-flex border-r">View
                                     all</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img13.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Shervani</h6>
+                            <div class="overflow-hidden">
+                                <a href="#"><img src="img/img13.jpg"></a>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <a class="fw-bold f-18 text-decoration-none text-dark   m-0">Shervani</a>
                                 <a href="#"
                                     class="text-decoration-none custom_button z-index main-color px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex border-r">View
                                     all</a>
@@ -89,9 +102,11 @@
                     </div>
                     <div class="swiper-slide   shadow mb-2 rounded-5">
                         <div class="card w-100 h-100 border-0 overflow-hidden">
-                            <img src="img/img15.jpg">
-                            <div class="p-2 d-flex justify-content-between align-items-center">
-                                <h6 class="fw-bold f-18    m-0">Koti Kurta</h6>
+                            <div class="overflow-hidden">
+                                <img src="img/img15.jpg">
+                            </div>
+                            <div class="p-2 d-flex justify-content-between align-items-center category-card">
+                                <h6 class="fw-bold f-18 text-decoration-none text-dark   m-0">Koti Kurta</h6>
                                 <a href="#"
                                     class="text-decoration-none custom_button z-index main-color border-r px-4 py-1 f-16 border-0    mt-2 mb-2 d-flex">View
                                     all</a>
@@ -102,7 +117,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Tranding Video -->
     <section class="light-color py-60">
         <div class="custom-container">
@@ -144,7 +159,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Blog -->
     <section class="light-color py-60 position-relative">
         <div class="img-custome7 position-absolute">
@@ -269,11 +284,11 @@
             </div>
         </div>
     </section>
-    
- <!-- Tranding Products -->
- <section class="light-color py-60 pb-60 video-section">
+
+    <!-- Tranding Products -->
+    <section class="light-color py-60 pb-60 video-section">
         <div class="custom-container">
-            <h1 class="fw-bold heading-font mb-3 mb-md-5 f-40">Trending Products</h1>
+            <h1 class="fw-bold heading-font mb-3 mb-md-5 f-30">Trending Products</h1>
             <div class="swiper product">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide border-r overflow-hidden shadow">
@@ -313,38 +328,38 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column col-sm-7 pro-after">
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden shadow">
                         <div class="card p-3">
                             <div class="row justify-content-between align-items-center custom_tranding ">
                                 <div class="col-sm-5">
@@ -381,38 +396,38 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column col-sm-7 pro-after">
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden shadow">
                         <div class="card p-3">
                             <div class="row justify-content-between align-items-center custom_tranding ">
                                 <div class="col-sm-5">
@@ -449,38 +464,38 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column col-sm-7 pro-after">
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden shadow">
                         <div class="card p-3">
                             <div class="row justify-content-between align-items-center custom_tranding ">
                                 <div class="col-sm-5">
@@ -517,38 +532,38 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column col-sm-7 pro-after">
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide border-r">
+                    <div class="swiper-slide border-r overflow-hidden shadow">
                         <div class="card p-3">
                             <div class="row justify-content-between align-items-center custom_tranding ">
                                 <div class="col-sm-5">
@@ -585,33 +600,33 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column col-sm-7 pro-after">
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3">
+                                    </a>
+                                    <a href="#"
+                                        class="border-r d-flex justify-content-start align-items-center mb-2 light-color p-3 text-decoration-none">
                                         <div class=""><img src="img/img31.webp" alt="Product 1" class="custom_width">
                                         </div>
                                         <div class="">
-                                            <p class="ms-2 mb-0 ">Black line formal kurti....</p>
+                                            <p class="ms-2 mb-0 text-dark">Black line formal kurti....</p>
                                             <p class="text-left ms-2 m-0 fw-semibold text-main">Rs.123/-</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -629,5 +644,5 @@
 
 </html>
 <script>
- ImpressionCount("page_seller_front");
+    ImpressionCount("page_seller_front");
 </script>
