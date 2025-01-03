@@ -1458,6 +1458,20 @@ $(document).ready(function () {
     })
 
   })
+
+  $(document).on("click",".resend",function(e){
+    $.ajax({
+      url: "../admin/ajax-call.php",
+      type: "post",
+      dataType: "json",
+      data: { routine_name: "send_varification_code" },
+     
+      success: function (response) {
+        
+      },
+    });
+  })
+
   $(document).on("click", ".productSave", function (event) {
     event.preventDefault();
 

@@ -189,6 +189,5 @@
   <script>
     $(document).ready(function () {
       userData("user_massge");
-      userData("verifycode");
     });
   </script>
