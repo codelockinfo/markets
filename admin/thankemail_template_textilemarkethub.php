@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<style>
+    .token{
+        border: none;
+        font-size:23px;
+        color: #21aeff;
+        
+    }
+    
+</style>
 <body>
     <div class="main-sec" style="max-width: 1140px;margin: auto;background-color: #ffff;border-radius: 30px;">
         <div class="mail-img"
@@ -15,9 +24,11 @@
         </div>
        
         <div>
-  <p>To confirm your email, please click on the following link:</p>
-  <input type="text" value="Token:{{verify_email_token}}">
-  <a href="https://textilemarkethub.com/?token={{verify_email_token}}">Verify your email</a>
+  <p>Copy this code and this code is for verify email:</p>
+  <input type="text"  value="Token:{{verify_email_token}}" class="token">
+
+
+
 </div>
 
 
