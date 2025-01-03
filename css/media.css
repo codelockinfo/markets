@@ -110,6 +110,9 @@
     .f-40{
         font-size: 30px;
     }
+    .f-30{
+        font-size: 26px;
+    }
 }
 @media (max-width: 450px) {
     /* contact us page  */
