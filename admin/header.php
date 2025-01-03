@@ -39,7 +39,7 @@ if ($_SERVER['SERVER_NAME'] == 'www.textilemarkethub.com' || $_SERVER['SERVER_NA
         <script src="<?php echo main_url('admin/assets/js/ckeditor/ckeditor.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script src="<?php echo main_url('admin/assets/js/common_12.js'); ?>"></script>
+        <script src="<?php echo main_url('admin/assets/js/common_13.js'); ?>"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
