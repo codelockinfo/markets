@@ -106,8 +106,12 @@ body{
     position: relative;
     overflow: hidden;
     color: var(--white);
+    z-index: 1;
 }
-.custom_button2:hover {
+.custom_button2:hover a {
+    color: var(--main-color);
+}
+.custom_button2:hover  {
     color: var(--main-color);
 }
 .custom_button2::before,
