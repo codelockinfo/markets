@@ -73,7 +73,7 @@
             </div>
             <hr class="bg-light" />
             <div class="text-center">
-                <p class="mb-0">© Codelock Solution, All right reserved.</p>
+                <p class="mb-0 m-0"><i class="fa-regular fa-copyright f-22 m-0 p-0"></i> Codelock Solution, All right reserved.</p>
             </div>
             <hr class="bg-light mb-0" />
         </div>
