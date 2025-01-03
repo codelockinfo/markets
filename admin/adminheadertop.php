@@ -158,8 +158,37 @@
       </div>
       <div class="user_msgactive"></div>
     </div>
+
+    <div class="modal fade" id="verifymodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close text-danger fs-3 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button> 
+            </div>
+            <div class="modal-body verify_body">
+                <form id="verifyform">
+                <label for="title" class="font-weight-normal required">verify code</label>
+                <div class="mb-3">
+                  <input type="text" class="form-control price number product w-100" placeholder="Enter verify code" name="varify_token">
+                  <span class="errormsg name"></span>
+                </div>
+                <div class="massge font-weight-bold">If you didn't receive the verification code in your email, please click 
+                  <button type="button" class="verify resend">Resend</button> to try again.
+                  Check your Mail box for the verification code.
+                </div>
+                <form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-info">Cencle</button>
+                <button type="button" class="btn bg-gradient-info verify_now">verify now</button>
+            </div>
+          </div>
+      </div>
+    </div>
   <script>
     $(document).ready(function () {
       userData("user_massge");
+      userData("verifycode");
     });
   </script>

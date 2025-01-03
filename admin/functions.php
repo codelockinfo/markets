@@ -281,11 +281,8 @@ $limit = 12;
                                 $message = file_get_contents('thankemail_template_textilemarkethub.php');
                             }else{
                                 $message = file_get_contents('thankemail_template.php');
-                            }
-                         $message = str_replace('{{email}}', $email, $message);
-                        //  $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
+                            } 
                          $message = str_replace('{{verify_email_token}}', $verify_email_token, $message);
-
                             $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
                             $headers = "MIME-Version: 1.0\r\n";
                             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -3188,9 +3185,9 @@ function usercheck_toggle_btn() {
                     if (mysqli_num_rows($result) > 0) {
                         $msg= '<div class="alert alert-info">Your profile is currently being reviewed by our team. 
                                     This is a necessary step to verify your details and complete your registration.
-                                    <button class="verify"><a href="">verify</a></button>
+                                    <button class="verify" data-bs-toggle="modal" data-bs-target="#verifymodal">Verify Now</button>
+                                    
                                     <span class="popup-close-button">&times;</span>
-
                                     </div>';
                         $response_data = array('data' => 'success', 'outcome' => $msg);
                     }else{
@@ -3202,6 +3199,28 @@ function usercheck_toggle_btn() {
         }
         return json_encode($response_data);
     }
+    
+    function verifycode(){
+      $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong'); 
+      if (isset($_SESSION['current_user']['user_id'])) {
+        $user_id = $_SESSION['current_user']['user_id'];
+        $userquery = "and user_id = $user_id";
+        if(isset($_SESSION["current_user"]["verify_email_token"]) && isset($_POST["varify_token"])){
+            if($_SESSION["current_user"]["verify_email_token"] == $_POST["varify_token"]){
+               $sql = "UPDATE " . TABLE_USER . " SET toggle = 1 WHERE user_id = $user_id";
+                $result = $this->db->query($sql);
+            
+            if($result){
+                $response_data = array('data' => 'success', 'msg' => 'Varification Success');
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => 'Varification code is invalid');
+            }
+        }
+          }
+      }
+        $response = json_encode($response_data);
+        return $response;
+    }   
     
     function chartdrawer() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');

@@ -16,17 +16,10 @@
         </div>
        
         <div>
-  <p>Copy this code and this code is for verify email:</p>
-  <input 
-  type="text"  value="Token: {{verify_email_token}}" style="border: none; font-size: 23px; color: #21aeff; outline: none;" 
-   onblur="this.style.boxShadow='none'">
-
-
-
-
-</div>
-
-
+            <p>Copy this code and this code is for verify email:</p>
+             <input type="text"  value="Token: {{verify_email_token}}" style="border: none; font-size: 23px; color: #21aeff; outline: none;" 
+            onblur="this.style.boxShadow='none'">
+        </div>
     </div>
 </body>
 </html>
