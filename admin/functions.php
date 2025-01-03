@@ -281,11 +281,8 @@ $limit = 12;
                                 $message = file_get_contents('thankemail_template_textilemarkethub.php');
                             }else{
                                 $message = file_get_contents('thankemail_template.php');
-                            }
-                         $message = str_replace('{{email}}', $email, $message);
-                        //  $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
+                            } 
                          $message = str_replace('{{verify_email_token}}', $verify_email_token, $message);
-
                             $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
                             $headers = "MIME-Version: 1.0\r\n";
                             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -3188,9 +3185,34 @@ function usercheck_toggle_btn() {
                     if (mysqli_num_rows($result) > 0) {
                         $msg= '<div class="alert alert-info">Your profile is currently being reviewed by our team. 
                                     This is a necessary step to verify your details and complete your registration.
-                                    <button class="verify"><a href="">verify</a></button>
+                                    <button class="verify" data-bs-toggle="modal" data-bs-target="#verifymodal">Verify Now</button>
+                                        <div class="modal fade" id="verifymodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                         <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                   <button type="button" class="btn-close text-danger fs-3 mb-3 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button> 
+                                                </div>
+                                                <div class="modal-body verify_body">
+                                                <form id="verifyform">
+                                               <label for="title" class="font-weight-normal required">verify code</label>
+                                                <div class="mb-3">
+                                                <input type="text" class="form-control price number product w-100" placeholder="Enter verify code" name="varify_token">
+                                                <span class="errormsg name"></span>
+                                                </div>
+                                                  <div class="massge font-weight-bold">If you didnt receive the verification code in your email, please click Resend to try again.
+                                                  Check your Mail box for the verification code.</div>
+                                               
+                                                <form>
+                                             </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn bg-gradient-info">Cencle</button>
+                                                    <button type="button" class="btn bg-gradient-info verify_now">verify now</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <span class="popup-close-button">&times;</span>
-
                                     </div>';
                         $response_data = array('data' => 'success', 'outcome' => $msg);
                     }else{
@@ -3202,6 +3224,28 @@ function usercheck_toggle_btn() {
         }
         return json_encode($response_data);
     }
+    
+    function verifycode(){
+      $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong'); 
+      if (isset($_SESSION['current_user']['user_id'])) {
+        $user_id = $_SESSION['current_user']['user_id'];
+        $userquery = "and user_id = $user_id";
+        if(isset($_SESSION["current_user"]["verify_email_token"]) && isset($_POST["varify_token"])){
+            if($_SESSION["current_user"]["verify_email_token"] == $_POST["varify_token"]){
+               $sql = "UPDATE " . TABLE_USER . " SET toggle = 1 WHERE user_id = $user_id";
+                $result = $this->db->query($sql);
+            
+            if($result){
+                $response_data = array('data' => 'success', 'msg' => 'Varification Success');
+            }else{
+                $response_data = array('data' => 'fail', 'msg' => 'Varification code is invalid');
+            }
+        }
+          }
+      }
+        $response = json_encode($response_data);
+        return $response;
+    }   
     
     function chartdrawer() {
         $response_data = array('data' => 'fail', 'outcome' => 'Something went wrong');

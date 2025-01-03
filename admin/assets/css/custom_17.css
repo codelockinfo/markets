@@ -1145,7 +1145,14 @@ i.fa-solid.fa-xmark{
   border: none;
   border-radius: 4px;padding: 3px 6px;
 }
-
+.massge{
+  color: #344767;
+  font-size: 15px;
+  padding-bottom: 2px;
+}
+.verify_body{
+  padding: 30px 10px;
+}
 /* ----------------------media query------------------ */
 
 @media (max-width: 1500px) {

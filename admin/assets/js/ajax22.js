@@ -1428,6 +1428,36 @@ $(document).ready(function () {
     }
   });
 
+  $(document).on("click",".verify_now",function(e){
+    e.preventDefault();
+    var form_data = $("#verifyform")[0];
+    var form_data = new FormData(form_data);
+    form_data.append("routine_name", "verifycode");
+    console.log(form_data);
+    $.ajax({
+      url: "../admin/ajax-call.php",
+      type: "post",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: form_data,
+      beforeSend: function () {
+        loading_show(".save_loader_show");
+      },
+      success: function (response) {
+        var response = JSON.parse(response);
+
+        if (response["data"] == "success") {
+          showMessage(response.msg, "success");
+          window.location.href = "./";
+          $("#verifyform")[0].reset();
+        } else {
+          showMessage(response.msg_error, "fail");
+        }
+      }
+    })
+
+  })
   $(document).on("click", ".productSave", function (event) {
     event.preventDefault();
 
