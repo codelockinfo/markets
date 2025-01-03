@@ -283,7 +283,8 @@ $limit = 12;
                                 $message = file_get_contents('thankemail_template.php');
                             }
                          $message = str_replace('{{email}}', $email, $message);
-                         $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
+                        //  $message = str_replace('{{ $verify_email_token}}',  $verify_email_token, $message);
+                         $message = str_replace('{{verify_email_token}}', $verify_email_token, $message);
 
                             $headers ="From:no-reply@textilemarkethub.com"." \r\n";     
                             $headers = "MIME-Version: 1.0\r\n";
