@@ -13,10 +13,8 @@
             <img src="https://textilemarkethub.com/admin/assets/img/welcome.jpg" alt="Welcome"
                 style="width: 85%;margin: 0 auto;display: flex;">
         </div>
-        <p>Dear User,</p>
-<p>Thank you for registering with us!</p>
-<p>Please verify your email by clicking the link below:</p>
-<p><a href="https://textilemarkethub.com/verify?email={{email}}&token={{email_verify_token}}">Verify Email</a></p>
+       
+<div>token:hf8yf8fcsnjcbdh</div>
 
     </div>
 </body>
