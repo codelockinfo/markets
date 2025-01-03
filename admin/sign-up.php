@@ -50,6 +50,8 @@ include 'header.php';
                 </div>
                 <div class="card-body card_body_form">
                   <form role="form" id="savesignup" enctype="multipart/form-data" method="POST">
+                  <input type="hidden" class="verify"  name="verify_email_token" />
+
                     <div class="mb-3 ">
                       <input type="text" class="form-control change_remove form-control valikey"  placeholder="Enter Your Name" name="name" />
                       <span class="errormsg name"></span>

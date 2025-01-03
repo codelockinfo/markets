@@ -1141,7 +1141,10 @@ i.fa-solid.fa-xmark{
   padding: 6px; 
 
 }
-
+.verify{
+  border: none;
+  border-radius: 4px;padding: 3px 6px;
+}
 
 /* ----------------------media query------------------ */
 
